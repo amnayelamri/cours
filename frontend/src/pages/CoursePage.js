@@ -28,7 +28,10 @@ const CoursePage = () => {
   const [showList, setShowList] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const mobileContainerRef = useRef(null);
+
+  // Touch state pour le swipe mobile
+  const touchStart = useRef({ x: 0, y: 0 });
+  const touchLocked = useRef(null); // 'h' = horizontal, 'v' = vertical, null = indéfini
 
   useEffect(() => {
     getCourse(id)
@@ -51,25 +54,34 @@ const CoursePage = () => {
     return () => window.removeEventListener('keydown', handler);
   }, [prev, next]);
 
-  // IntersectionObserver : met à jour le slide actif quand on scroll sur mobile
-  useEffect(() => {
-    const container = mobileContainerRef.current;
-    if (!container || !course) return;
+  // ── Swipe mobile ──────────────────────────────────────────────
+  const handleTouchStart = useCallback((e) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    touchLocked.current = null; // réinitialise la direction à chaque toucher
+  }, []);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-            setCurrent(parseInt(entry.target.dataset.index, 10));
-          }
-        });
-      },
-      { threshold: 0.5, root: container }
-    );
+  const handleTouchMove = useCallback((e) => {
+    const dx = Math.abs(e.touches[0].clientX - touchStart.current.x);
+    const dy = Math.abs(e.touches[0].clientY - touchStart.current.y);
 
-    container.querySelectorAll('.mobile-slide').forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, [course]);
+    // On verrouille la direction dès qu'on dépasse 8 px
+    if (touchLocked.current === null && (dx > 8 || dy > 8)) {
+      touchLocked.current = dx > dy ? 'h' : 'v';
+    }
+
+    // Si la direction est horizontale, on bloque le scroll natif
+    if (touchLocked.current === 'h') {
+      e.preventDefault();
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback((e) => {
+    if (touchLocked.current !== 'h') return; // c'était un scroll vertical, on ne fait rien
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    if (dx < -40) next();       // swipe vers la gauche  → slide suivante
+    else if (dx > 40) prev();   // swipe vers la droite → slide précédente
+  }, [next, prev]);
+  // ─────────────────────────────────────────────────────────────
 
   if (loading) return <div className="loading">Chargement du cours...</div>;
   if (error)   return <div className="error">{error}</div>;
@@ -130,27 +142,28 @@ const CoursePage = () => {
         )}
       </div>
 
-      {/* ── MOBILE : scroll TikTok-style ── */}
-      <div className="mobile-slides" ref={mobileContainerRef}>
-        {course.slides.map((s, i) => (
-          <div key={s.id || i} className="mobile-slide" data-index={i}>
-            {/* Indicateur en haut */}
-            <div className="mobile-slide-header">
-              {s.title && <span className="mobile-slide-title">{s.title}</span>}
-              <span className="mobile-slide-counter">{i + 1} / {total}</span>
-            </div>
-            {/* Contenu */}
-            <div className="mobile-slide-content">
-              <SlideContent slide={s} courseId={id} />
-            </div>
-            {/* Barre de progression */}
-            <div className="mobile-progress">
-              {course.slides.map((_, pi) => (
-                <div key={pi} className={`mobile-dot ${pi === i ? 'active' : ''}`} />
-              ))}
-            </div>
-          </div>
-        ))}
+      {/* ── MOBILE : slide unique, swipe horizontal, scroll vertical ── */}
+      <div
+        className="mobile-slides"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div className="mobile-slide-header">
+          {slide.title && <span className="mobile-slide-title">{slide.title}</span>}
+          <span className="mobile-slide-counter">{current + 1} / {total}</span>
+        </div>
+
+        {/* key={current} force un re-mount → déclenche l'animation de transition */}
+        <div key={current} className="mobile-slide-content">
+          <SlideContent slide={slide} courseId={id} />
+        </div>
+
+        <div className="mobile-progress">
+          {course.slides.map((_, pi) => (
+            <div key={pi} className={`mobile-dot ${pi === current ? 'active' : ''}`} />
+          ))}
+        </div>
       </div>
     </div>
   );

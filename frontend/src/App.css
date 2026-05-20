@@ -538,6 +538,11 @@ a:hover {
 /* Caché par défaut sur desktop */
 .mobile-slides { display: none; }
 
+@keyframes mobileFadeIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 @media (max-width: 768px) {
   /* Cache le layout desktop */
   .desktop-only { display: none !important; }
@@ -546,35 +551,20 @@ a:hover {
   .course-page {
     height: 100dvh;
     overflow: hidden;
-  }
-
-  /* ─── Container horizontal : swipe gauche/droite = changer de slide ─── */
-  .mobile-slides {
-    display: flex;
-    flex-direction: row;            /* slides côte à côte */
-    flex: 1;
-    min-height: 0;
-    overflow-x: scroll;             /* swipe horizontal */
-    overflow-y: hidden;             /* pas de scroll vertical ici */
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;          /* masque la scrollbar */
-  }
-  .mobile-slides::-webkit-scrollbar { display: none; }
-
-  /* ─── Chaque slide = largeur plein écran, hauteur totale du container ─── */
-  .mobile-slide {
-    scroll-snap-align: start;
-    flex: 0 0 100vw;                /* largeur = viewport */
-    width: 100vw;
-    height: 100%;                   /* remplit toute la hauteur */
     display: flex;
     flex-direction: column;
-    padding: 16px 16px 12px;
-    box-sizing: border-box;
-    overflow-y: auto;               /* scroll vertical DANS la slide */
+  }
+
+  /* Container = une seule slide visible, scroll vertical libre */
+  .mobile-slides {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;               /* scroll vertical du contenu */
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    padding: 16px 16px 12px;
   }
 
   .mobile-slide-header {
@@ -602,10 +592,10 @@ a:hover {
     flex-shrink: 0;
   }
 
-  /* Le contenu s'étire mais ne force pas le scroll (le slide lui-même scroll) */
+  /* Animation à chaque changement de slide (key={current} force le re-mount) */
   .mobile-slide-content {
     flex: 1;
-    min-height: 0;
+    animation: mobileFadeIn 0.22s ease;
   }
 
   /* Points de progression en bas */
@@ -614,7 +604,7 @@ a:hover {
     justify-content: center;
     flex-wrap: wrap;
     gap: 5px;
-    padding-top: 10px;
+    padding-top: 14px;
     flex-shrink: 0;
   }
 
