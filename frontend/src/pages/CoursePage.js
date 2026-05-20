@@ -5,6 +5,7 @@ import MarkdownViewer from '../components/viewers/MarkdownViewer';
 import PDFViewer from '../components/viewers/PDFViewer';
 import ImageViewer from '../components/viewers/ImageViewer';
 import VideoViewer from '../components/viewers/VideoViewer';
+import QuizViewer from '../components/viewers/QuizViewer';
 import { FiChevronLeft, FiChevronRight, FiList, FiArrowLeft } from 'react-icons/fi';
 
 const SlideContent = ({ slide, courseId }) => {
@@ -14,6 +15,7 @@ const SlideContent = ({ slide, courseId }) => {
     case 'image':    return <ImageViewer url={getAssetUrl(courseId, slide.file)} caption={slide.caption} />;
     case 'video':    return <VideoViewer url={slide.url} caption={slide.caption} />;
     case 'html':     return <div className="html-viewer" dangerouslySetInnerHTML={{ __html: slide.content }} />;
+    case 'quiz':     return <QuizViewer question={slide.question} choices={slide.choices} explanation={slide.explanation} />;
     default:         return <div className="error">Type inconnu : {slide.type}</div>;
   }
 };

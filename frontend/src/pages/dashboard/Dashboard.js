@@ -9,11 +9,38 @@ const JSON_SCHEMA = {
   description: "Description courte",
   tags: ["tag1", "tag2"],
   slides: [
-    { id: "s1", title: "Titre slide (optionnel)", type: "markdown", content: "# Contenu Markdown" },
-    { id: "s2", title: "Vidéo", type: "video", url: "https://youtube.com/watch?v=...", caption: "Légende optionnelle" },
-    { id: "s3", title: "Image", type: "image", file: "assets/image.png", caption: "Légende optionnelle" },
-    { id: "s4", title: "PDF", type: "pdf", file: "assets/document.pdf" },
-    { id: "s5", title: "HTML", type: "html", content: "<h1>Contenu HTML brut</h1>" },
+    {
+      id: "s1", title: "Titre slide (optionnel)",
+      type: "markdown", content: "# Contenu Markdown\n\nTexte, **gras**, *italique*, `code`, listes..."
+    },
+    {
+      id: "s2", title: "Vidéo",
+      type: "video", url: "https://youtube.com/watch?v=...", caption: "Légende optionnelle"
+    },
+    {
+      id: "s3", title: "Image",
+      type: "image", file: "assets/image.png", caption: "Légende optionnelle"
+    },
+    {
+      id: "s4", title: "PDF",
+      type: "pdf", file: "assets/document.pdf"
+    },
+    {
+      id: "s5", title: "HTML brut",
+      type: "html", content: "<h1>Contenu HTML</h1>"
+    },
+    {
+      id: "s6", title: "Question QCM",
+      type: "quiz",
+      question: "Texte de la question ?",
+      choices: [
+        { id: "a", text: "Bonne réponse", correct: true },
+        { id: "b", text: "Mauvaise réponse", correct: false },
+        { id: "c", text: "Mauvaise réponse", correct: false },
+        { id: "d", text: "Mauvaise réponse", correct: false }
+      ],
+      explanation: "Explication affichée après réponse (optionnelle)"
+    }
   ]
 };
 

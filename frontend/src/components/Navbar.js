@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
           <FiBook size={24} />
-          <span>EduSlides</span>
+          <span>Cours d'Amnay</span>
         </Link>
         <div className="navbar-menu">
           <Link to="/" className={active('/')}>

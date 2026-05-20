@@ -7,7 +7,7 @@ import {
   FiSave, FiEye, FiEyeOff, FiUpload, FiArrowLeft
 } from 'react-icons/fi';
 
-const TYPES = ['markdown', 'pdf', 'image', 'video', 'html'];
+const TYPES = ['markdown', 'pdf', 'image', 'video', 'html', 'quiz'];
 
 const newSlide = () => ({
   id: `slide-${Date.now()}`,
@@ -17,6 +17,12 @@ const newSlide = () => ({
   file: '',
   url: '',
   caption: '',
+  question: '',
+  choices: [
+    { id: 'a', text: '', correct: true },
+    { id: 'b', text: '', correct: false },
+  ],
+  explanation: '',
 });
 
 const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove }) => {
@@ -127,6 +133,73 @@ const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove
               placeholder="Légende (optionnelle)"
               value={slide.caption}
               onChange={e => onChange({ ...slide, caption: e.target.value })}
+            />
+          </div>
+        )}
+
+        {slide.type === 'quiz' && (
+          <div className="quiz-editor">
+            <input
+              className="quiz-question-input"
+              placeholder="Question..."
+              value={slide.question || ''}
+              onChange={e => onChange({ ...slide, question: e.target.value })}
+            />
+            <div className="quiz-choices-editor">
+              {(slide.choices || []).map((choice, ci) => (
+                <div key={choice.id} className="choice-row">
+                  <span className="choice-id-badge">{choice.id.toUpperCase()}</span>
+                  <input
+                    placeholder={`Réponse ${choice.id.toUpperCase()}`}
+                    value={choice.text}
+                    onChange={e => {
+                      const choices = slide.choices.map((c, idx) =>
+                        idx === ci ? { ...c, text: e.target.value } : c
+                      );
+                      onChange({ ...slide, choices });
+                    }}
+                  />
+                  <button
+                    className={`correct-toggle ${choice.correct ? 'is-correct' : ''}`}
+                    onClick={() => {
+                      const choices = slide.choices.map((c, idx) =>
+                        ({ ...c, correct: idx === ci })
+                      );
+                      onChange({ ...slide, choices });
+                    }}
+                    title="Marquer comme bonne réponse"
+                    type="button"
+                  >
+                    {choice.correct ? '✓ Correct' : 'Incorrect'}
+                  </button>
+                  {slide.choices.length > 2 && (
+                    <button
+                      className="remove-choice"
+                      onClick={() => onChange({ ...slide, choices: slide.choices.filter((_, idx) => idx !== ci) })}
+                      type="button"
+                      title="Supprimer"
+                    >✕</button>
+                  )}
+                </div>
+              ))}
+              {(slide.choices || []).length < 6 && (
+                <button
+                  className="add-choice-btn"
+                  type="button"
+                  onClick={() => {
+                    const ids = ['a','b','c','d','e','f'];
+                    const next = ids[slide.choices.length] || `opt${slide.choices.length}`;
+                    onChange({ ...slide, choices: [...slide.choices, { id: next, text: '', correct: false }] });
+                  }}
+                >
+                  + Ajouter un choix
+                </button>
+              )}
+            </div>
+            <input
+              placeholder="Explication après réponse (optionnelle)"
+              value={slide.explanation || ''}
+              onChange={e => onChange({ ...slide, explanation: e.target.value })}
             />
           </div>
         )}
