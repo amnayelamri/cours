@@ -26,5 +26,20 @@
     ],
     "createdAt": "2026-05-20",
     "slideCount": 7
+  },
+  {
+    "id": "bac-spec-2025-tutoring",
+    "title": "Cours de Tutoring - Baccalauréat Spécialité 2025",
+    "description": "Cours complet de préparation au Baccalauréat avec probabilités, fonctions, suites et logarithmes",
+    "tags": [
+      "baccalauréat",
+      "probabilités",
+      "fonctions",
+      "suites",
+      "logarithmes",
+      "mathématiques"
+    ],
+    "createdAt": "2026-05-20",
+    "slideCount": 20
   }
 ]
