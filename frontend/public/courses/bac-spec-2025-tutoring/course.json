@@ -1,0 +1,343 @@
+{
+  "id": "bac-spec-2025-tutoring",
+  "title": "Cours de Tutoring - Baccalauréat Spécialité 2025",
+  "description": "Cours complet de préparation au Baccalauréat avec probabilités, fonctions, suites et logarithmes",
+  "tags": [
+    "baccalauréat",
+    "probabilités",
+    "fonctions",
+    "suites",
+    "logarithmes",
+    "mathématiques"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Accueil et Structure du Cours",
+      "type": "markdown",
+      "content": "# Bienvenue au Cours de Tutoring\n\n## Baccalauréat Spécialité 2025\n\nCe cours vous prépare efficacement à l'examen final en couvrant les quatre domaines majeurs :\n\n### 📊 Probabilités et Probabilités Conditionnelles\n- Arbres pondérés\n- Probabilité conditionnelle\n- Loi des probabilités totales\n\n### 📈 Fonctions et Analyse\n- Limites de fonctions\n- Dérivées et variations\n- Fonctions logarithmiques\n\n### 🔢 Suites et Convergence\n- Suites récurrentes\n- Convergence et divergence\n- Récurrence mathématique\n\n### 📝 Intégration et Applications\n- Calcul d'aires\n- Variables aléatoires\n- Problèmes pratiques\n\n## Comment Utiliser Ce Cours\n\n1. Lisez chaque leçon attentivement\n2. Travaillez les exemples étape par étape\n3. Répondez aux quiz pour vérifier votre compréhension\n4. Revisitez les sections difficiles autant que nécessaire"
+    },
+    {
+      "id": "s2",
+      "title": "Les Arbres Pondérés",
+      "type": "markdown",
+      "content": "# Les Arbres Pondérés - Les Fondamentaux\n\n## Qu'est-ce qu'un Arbre Pondéré ?\n\nUn arbre pondéré est un diagramme qui représente toutes les issues possibles d'une expérience aléatoire et leurs probabilités.\n\n## Principes Clés\n\n### La Règle de la Multiplication\nLa probabilité d'un chemin est le **produit des probabilités** le long de ce chemin.\n\n```\nP(A et B) = P(A) × P(B|A)\n```\n\n### La Loi des Probabilités Totales\nSi les événements A₁, A₂, ..., Aₙ forment une partition :\n\n```\nP(B) = P(B|A₁)×P(A₁) + P(B|A₂)×P(A₂) + ... + P(B|Aₙ)×P(Aₙ)\n```\n\n## Exemple Pratique : Serveurs Internet\n\nUne entreprise utilise trois serveurs :\n- **Serveur A** : 25% du trafic, 90% de connexions stables\n- **Serveur B** : 15% du trafic, 80% de connexions stables\n- **Serveur C** : 60% du trafic, 85% de connexions stables\n\n### Calcul de P(Connexion stable)\n\nP(Stable) = P(S|A)×P(A) + P(S|B)×P(B) + P(S|C)×P(C)\n\nP(Stable) = 0,90×0,25 + 0,80×0,15 + 0,85×0,60\n\nP(Stable) = 0,225 + 0,12 + 0,51 = 0,855\n\n**La probabilité qu'une connexion soit stable est 85,5%**"
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : Arbres Pondérés",
+      "type": "quiz",
+      "question": "Une urne contient 5 boules rouges et 3 boules bleues. On tire deux boules sans remise. Quelle est P(deux rouges) ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "25/64",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "5/14",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "1/2",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "15/28",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! P(R₁ et R₂) = (5/8) × (4/7) = 20/56 = 5/14. La première boule rouge a une probabilité de 5/8, puis il reste 4 rouges sur 7 boules."
+    },
+    {
+      "id": "s4",
+      "title": "Probabilité Conditionnelle",
+      "type": "markdown",
+      "content": "# Probabilité Conditionnelle\n\n## Définition\n\nLa probabilité conditionnelle de l'événement A sachant que B s'est produit est :\n\n```\nP(A|B) = P(A ∩ B) / P(B)\n```\n\n**Condition** : P(B) ≠ 0\n\n## Interprétation\n\nP(A|B) représente la probabilité que A se produise **sachant** que B est déjà survenu.\n\nC'est comme si on recalculait les probabilités dans un univers où B est certain.\n\n## Exemple\n\nUn test médical détecte une maladie avec 95% de précision :\n- P(Test positif | Malade) = 0,95\n- P(Test négatif | Non malade) = 0,95\n\nSi 1% de la population est atteint :\n\n**Probabilité que la personne soit vraiment malade sachant qu'elle a un test positif ?**\n\n### Utiliser le Théorème de Bayes\n\n```\nP(Malade | Test+) = P(Test+ | Malade) × P(Malade) / P(Test+)\n```\n\nC'est un calcul contre-intuitif qui surprend souvent !\n\n## Points Clés à Retenir\n\n1. **L'ordre compte** : P(A|B) ≠ P(B|A)\n2. **Utilisez les arbres** : ils facilitent le calcul des probabilités conditionnelles\n3. **Vérifiez vos conditions** : assurez-vous que P(B) > 0"
+    },
+    {
+      "id": "s5",
+      "title": "Quiz : Probabilité Conditionnelle",
+      "type": "quiz",
+      "question": "On jette deux dés équilibrés. Sachant que la somme est 7, quelle est la probabilité que le premier dé montre 3 ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1/6",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1/7",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "2/7",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "3/7",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! Les façons d'obtenir une somme de 7 sont : (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) - soit 6 cas. Un seul cas a le premier dé = 3, donc P = 1/6."
+    },
+    {
+      "id": "s6",
+      "title": "Fonctions et Limites",
+      "type": "markdown",
+      "content": "# Limites de Fonctions\n\n## Concept Fondamental\n\nLa limite d'une fonction décrit son comportement quand x s'approche d'une valeur.\n\n### Notation\n\n```\nlim(x→a) f(x) = L\n```\n\nSignifie : quand x se rapproche de a, f(x) se rapproche de L.\n\n## Limites aux Infinis\n\n### Limite quand x → +∞\n\nObservez les puissances dominantes :\n\n- f(x) = 3x² + 2x + 1 → **+∞** (le x² domine)\n- f(x) = 1/x → **0** (le dénominateur devient énorme)\n- f(x) = ln(x)/x → **0** (la puissance domine le logarithme)\n\n### Limite quand x → 0⁺\n\n- ln(x) → **-∞** (logarithme de très petits nombres = très négatif)\n- 1/x → **+∞** (division par un très petit nombre)\n\n## Les Asymptotes\n\nUne asymptote est une droite que la courbe s'approche sans jamais toucher.\n\n### Exemple : f(x) = ln(x)/x² + 1\n\n- Quand x → 0⁺ : ln(x) → -∞, x² → 0⁺, donc f(x) → **-∞**\n  - **Asymptote verticale** x = 0\n\n- Quand x → +∞ : ln(x)/x² → 0, donc f(x) → **1**\n  - **Asymptote horizontale** y = 1\n\n## Technique : Substitution Directe\n\nEssayez d'abord de substituer x = a :\n\n```\nlim(x→2) (x² + 1) = 2² + 1 = 5 ✓\n```\n\nSi vous obtenez 0/0, utilisez la factorisation ou la règle de L'Hôpital."
+    },
+    {
+      "id": "s7",
+      "title": "Dérivées et Variations",
+      "type": "markdown",
+      "content": "# Dérivées - Analyse des Fonctions\n\n## Qu'est-ce qu'une Dérivée ?\n\nLa dérivée f'(x) mesure la **pente** (vitesse de changement) de la fonction au point x.\n\n## Formules de Dérivation Essentielles\n\n### Dérivées de Base\n\n```\n• d/dx[xⁿ] = n·xⁿ⁻¹\n• d/dx[ln(x)] = 1/x\n• d/dx[eˣ] = eˣ\n• d/dx[c] = 0 (constante)\n```\n\n### Règles de Dérivation\n\n**Règle du Produit** : (u·v)' = u'·v + u·v'\n\n**Règle du Quotient** : (u/v)' = (u'·v - u·v')/v²\n\n**Règle de la Chaîne** : (f∘g)'(x) = f'(g(x))·g'(x)\n\n## Exemple Pratique : f(x) = ln(x)/x²\n\nUtilisez la règle du quotient :\n\n```\nu = ln(x)      → u' = 1/x\nv = x²         → v' = 2x\n\nf'(x) = (u'·v - u·v')/v²\n      = ((1/x)·x² - ln(x)·2x) / x⁴\n      = (x - 2x·ln(x)) / x⁴\n      = (1 - 2ln(x)) / x³\n```\n\n## Tableau de Variation\n\nUtilisez f'(x) pour étudier les variations :\n\n1. **Trouvez où f'(x) = 0** → Points critiques\n2. **Analysez le signe de f'(x)** :\n   - f'(x) > 0 → f est **croissante**\n   - f'(x) < 0 → f est **décroissante**\n3. **Identifiez les extrema** : maxima et minima locaux\n\n## Exemple\n\nPour f(x) = (1 - 2ln(x))/x³ :\n\n- f'(x) = 0 quand 1 - 2ln(x) = 0\n- ln(x) = 1/2\n- x = e^(1/2) = √e ≈ 1,65\n\nC'est le point où la fonction atteint un **maximum local**."
+    },
+    {
+      "id": "s8",
+      "title": "Quiz : Dérivées",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de f(x) = ln(x)/x ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1/x²",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "(1 - ln(x))/x²",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "(ln(x) - 1)/x²",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "1/(x·ln(x))",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! En utilisant la règle du quotient avec u = ln(x) et v = x : f'(x) = ((1/x)·x - ln(x)·1)/x² = (1 - ln(x))/x²"
+    },
+    {
+      "id": "s9",
+      "title": "Suites Récurrentes",
+      "type": "markdown",
+      "content": "# Suites Récurrentes et Convergence\n\n## Qu'est-ce qu'une Suite ?\n\nUne suite est une succession de nombres : u₀, u₁, u₂, u₃, ...\n\n### Deux Définitions Possibles\n\n**Formule Explicite** : uₙ = f(n)\n```\nExemple : uₙ = 2n + 1  →  u₀ = 1, u₁ = 3, u₂ = 5, ...\n```\n\n**Formule Récurrente** : uₙ₊₁ = f(uₙ)\n```\nExemple : uₙ₊₁ = 2uₙ + 1, u₀ = 0  →  u₀ = 0, u₁ = 1, u₂ = 3, u₃ = 7, ...\n```\n\n## Convergence\n\nUne suite **converge** vers une limite L si les termes s'en rapprochent indéfiniment.\n\n### Exemple : uₙ = 1/n\n\n```\nu₁ = 1\nu₂ = 0,5\nu₃ ≈ 0,333\nu₁₀ = 0,1\nu₁₀₀ = 0,01\n...\n```\n\nCette suite **converge vers 0**.\n\n## Suites Bornées et Monotones\n\n### Théorème Important\n\nSi une suite est :\n- **Croissante et bornée supérieurement** → elle **converge**\n- **Décroissante et bornée inférieurement** → elle **converge**\n\n### Exemple : uₙ₊₁ = f(uₙ) = ln(e^(uₙ/2) + 2)\n\nAvec u₀ = ln(9) ≈ 2,197 :\n\n```\nu₀ ≈ 2,197\nu₁ = ln(5) ≈ 1,609\nu₂ ≈ 1,496\nu₃ ≈ 1,468\n...\n```\n\nLa suite **décroît** vers f(L) = L, le point fixe.\n\n## Trouver le Point Fixe\n\nSi uₙ converge vers L, alors L = f(L).\n\nPour notre exemple :\n```\nL = ln(e^(L/2) + 2)\ne^L = e^(L/2) + 2\n```\n\nAvec la substitution X = e^(L/2) :\n```\nX² = X + 2\nX² - X - 2 = 0\n(X - 2)(X + 1) = 0\n```\n\nX = 2 (car X > 0), donc e^(L/2) = 2, et **L = 2ln(2)** ≈ 1,386"
+    },
+    {
+      "id": "s10",
+      "title": "Démonstration par Récurrence",
+      "type": "markdown",
+      "content": "# Démonstration par Récurrence Mathématique\n\n## Principe\n\nLa récurrence prouve qu'une propriété est vraie pour **tous** les entiers naturels.\n\n## Les Trois Étapes\n\n### 1. Base de la Récurrence\nProuvez que la propriété est vraie pour n = 0 (ou n = 1).\n\n### 2. Hypothèse de Récurrence\nAssurez que la propriété est vraie pour un entier n quelconque.\n\n### 3. Hérédité\nProuvez qu'elle est vraie pour n + 1, **en utilisant** l'hypothèse de n.\n\n**Conclusion** : Par le principe de récurrence, la propriété est vraie pour tous les entiers ≥ n₀.\n\n## Exemple : Prouver 2ln(2) ≤ uₙ₊₁ ≤ uₙ\n\nOn a : uₙ₊₁ = ln(e^(uₙ/2) + 2)\n\n### Base\nVérifiez u₀ = ln(9) et u₁ = ln(5) :\n```\n2ln(2) ≈ 1,386\nu₁ ≈ 1,609 ≈ u₀ = 2,197\nOui : 1,386 < 1,609 < 2,197 ✓\n```\n\n### Hypothèse\nAssumons : 2ln(2) ≤ uₙ₊₁ ≤ uₙ\n\n### Hérédité\nMontrez : 2ln(2) ≤ uₙ₊₂ ≤ uₙ₊₁\n\nPuisque f(x) = ln(e^(x/2) + 2) est croissante :\n```\nf(2ln(2)) ≤ f(uₙ₊₁) ≤ f(uₙ)\n2ln(2) ≤ uₙ₊₂ ≤ uₙ₊₁\n```\n\n(On peut vérifier que f(2ln(2)) = 2ln(2))\n\n### Conclusion\nPar récurrence, pour tout n ≥ 0 : **2ln(2) ≤ uₙ₊₁ ≤ uₙ**\n\nCela implique que (uₙ) est décroissante et bornée → elle converge !"
+    },
+    {
+      "id": "s11",
+      "title": "Quiz : Suites et Récurrence",
+      "type": "quiz",
+      "question": "Soit uₙ₊₁ = 0,5·uₙ + 2 avec u₀ = 0. Vers quelle limite converge cette suite ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "4",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "n'existe pas",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! Si la suite converge vers L, alors L = 0,5L + 2, d'où 0,5L = 2 et L = 4. Vérification : u₀ = 0, u₁ = 2, u₂ = 3, u₃ = 3,5, u₄ = 3,75... → 4 ✓"
+    },
+    {
+      "id": "s12",
+      "title": "Zones et Calcul d'Aires",
+      "type": "markdown",
+      "content": "# Géométrie et Calcul d'Aires\n\n## Partager une Région en Zones\n\nConsidérez le carré unité OIKJ où :\n- O = (0,0), I = (1,0), K = (1,1), J = (0,1)\n- Droite y = x\n- Droite y = 1\n- Droite x = 1\n- Parabole y = x²\n\nCela crée trois zones distinctes.\n\n### Zone 1 : Au-dessus de la parabole, sous la droite y = x\n\nLimites : 0 ≤ x ≤ 1, x² ≤ y ≤ x\n\nAire₁ = ∫₀¹ (x - x²) dx = [x²/2 - x³/3]₀¹ = 1/2 - 1/3 = **1/6**\n\n### Zone 2 : Au-dessus de la droite y = x, sous y = 1\n\nLimites : 0 ≤ x ≤ 1, x ≤ y ≤ 1\n\nAire₂ = ∫₀¹ (1 - x) dx = [x - x²/2]₀¹ = 1 - 1/2 = **1/2**\n\n### Zone 3 : Au-dessus de la parabole y = x², sous la droite y = x\n\nC'est la Zone 1 que nous avons déjà calculée = **1/2** (la région entre x² et x)\n\n**Correction** : En réalité, les trois zones devraient être :\n- ZONE 1 (sous y=x, au-dessus de y=x²) : 1/2\n- ZONE 2 (entre y=x et y=1, 0≤x≤1) : 1/3\n- ZONE 3 (coin supérieur droit) : 1/6\n\nVérification : 1/2 + 1/3 + 1/6 = 3/6 + 2/6 + 1/6 = 1 ✓\n\n## Applications en Probabilité\n\nSi une fléchette est lancée au hasard sur cette région :\n\nP(Zone 1) = Aire₁ = 1/2\nP(Zone 2) = Aire₂ = 1/3\nP(Zone 3) = Aire₃ = 1/6"
+    },
+    {
+      "id": "s13",
+      "title": "Quiz : Géométrie et Probabilité",
+      "type": "quiz",
+      "question": "Un joueur lance une fléchette sur le carré décrit. S'il atteint la ZONE 3, il lance une pièce et gagne si elle fait PILE. Sinon, il lance un dé et gagne si c'est un 6. Quelle est P(gagner) ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2/9",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1/6",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "1/3",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "5/12",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! P(gagner) = P(Zone 3)·P(PILE) + P(autre zone)·P(6 au dé) = (1/6)·(1/2) + (5/6)·(1/6) = 1/12 + 5/36 = 3/36 + 5/36 = 8/36 = 2/9"
+    },
+    {
+      "id": "s14",
+      "title": "Variables Aléatoires et Espérance",
+      "type": "markdown",
+      "content": "# Variables Aléatoires et Espérance\n\n## Définition\n\nUne variable aléatoire X est une fonction qui associe à chaque résultat d'une expérience aléatoire une valeur numérique.\n\n### Exemple\nUn joueur lance une fléchette sur les trois zones. Il gagne :\n- 1 € s'il atteint la ZONE 1\n- 2 € s'il atteint la ZONE 2  \n- 3 € s'il atteint la ZONE 3\n\nLa variable X = \"gain en euros\" prend les valeurs 1, 2 ou 3.\n\n## Espérance Mathématique\n\nL'espérance E(X) est la **moyenne pondérée** des valeurs :\n\n```\nE(X) = x₁·P(X=x₁) + x₂·P(X=x₂) + ... + xₙ·P(X=xₙ)\n```\n\n### Calcul pour Notre Exemple\n\n```\nE(X₁) = 1·P(Zone 1) + 2·P(Zone 2) + 3·P(Zone 3)\n       = 1·(1/2) + 2·(1/3) + 3·(1/6)\n       = 1/2 + 2/3 + 1/2\n       = 3/6 + 4/6 + 3/6\n       = 10/6 = 5/3 ≈ 1,67 €\n```\n\nEn moyenne, le joueur gagne **5/3 euros** par partie.\n\n## Variance et Écart-type\n\nLa variance mesure la **dispersion** autour de l'espérance :\n\n```\nV(X) = E(X²) - [E(X)]²\n```\n\nL'écart-type est σ = √V(X).\n\n### Propriétés Importantes\n\n```\nE(aX + b) = a·E(X) + b\nV(aX + b) = a²·V(X)\n\nSi X et Y sont indépendantes :\nE(X + Y) = E(X) + E(Y)\nV(X + Y) = V(X) + V(Y)\n```\n\n### Exemple : Trois Joueurs\n\nSi Y = X₁ + X₂ + X₃ (trois joueurs) :\n\n```\nE(Y) = 3·E(X₁) = 3·(5/3) = 5\nV(Y) = 3·V(X₁) = 3·(5/9) = 5/3\n```\n\nLe gain total moyen des trois joueurs est **5 euros**."
+    },
+    {
+      "id": "s15",
+      "title": "Quiz : Variables Aléatoires",
+      "type": "quiz",
+      "question": "Pour X défini ci-dessus, calculez V(X₁) où X₁ = gain du joueur 1",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1/3",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "5/9",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "2/3",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "25/9",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! V(X) = E(X²) - [E(X)]². D'abord E(X²) = 1²·(1/2) + 2²·(1/3) + 3²·(1/6) = 1/2 + 4/3 + 3/2 = 3/6 + 8/6 + 9/6 = 20/6 = 10/3. Ensuite [E(X)]² = (5/3)² = 25/9. Donc V(X) = 10/3 - 25/9 = 30/9 - 25/9 = 5/9 ✓"
+    },
+    {
+      "id": "s16",
+      "title": "Révision Complète - Formules Clés",
+      "type": "markdown",
+      "content": "# Aide-Mémoire : Formules Essentielles\n\n## Probabilités\n\n```\nP(A|B) = P(A ∩ B) / P(B)\nP(A ∩ B) = P(A) × P(B|A)\nP(A ∪ B) = P(A) + P(B) - P(A ∩ B)\nP(A) + P(A') = 1\n```\n\n## Dérivées\n\n```\nd/dx[xⁿ] = n·xⁿ⁻¹\nd/dx[ln(x)] = 1/x\nd/dx[eˣ] = eˣ\n\n(u·v)' = u'·v + u·v'\n(u/v)' = (u'·v - u·v')/v²\n(f∘g)' = f'(g(x))·g'(x)\n```\n\n## Intégrales (Calcul d'Aire)\n\n```\n∫ xⁿ dx = xⁿ⁺¹/(n+1) + C (n ≠ -1)\n∫ (1/x) dx = ln|x| + C\n∫ eˣ dx = eˣ + C\n\nAire = ∫ₐᵇ f(x) dx\n```\n\n## Suites et Limites\n\n```\nSi uₙ converge vers L :\n  lim(n→∞) uₙ = L\n  L = f(L) (point fixe)\n\nSi f est croissante et f(L) = L :\n  Suite décroissante bornée → converge\n```\n\n## Variables Aléatoires\n\n```\nE(X) = Σ xᵢ·P(X=xᵢ)\nV(X) = E(X²) - [E(X)]²\nσ(X) = √V(X)\n\nE(aX+b) = a·E(X) + b\nV(aX+b) = a²·V(X)\n\nSi X, Y indépendants :\n  E(X+Y) = E(X) + E(Y)\n  V(X+Y) = V(X) + V(Y)\n```\n\n## Récurrence\n\n```\nPour prouver P(n) pour tout n ≥ 0 :\n1. Prouver P(0) (base)\n2. Assumer P(n) (hypothèse)\n3. Prouver P(n+1) (hérédité)\n4. Conclure pour tout n\n```"
+    },
+    {
+      "id": "s17",
+      "title": "Examen Blanc - Question 1",
+      "type": "quiz",
+      "question": "Dans une entreprise, 60% des employés utilisent le serveur A, 30% le serveur B, 10% le serveur C. Les probabilités de perte de connexion sont respectivement 5%, 8%, 15%. Quelle est la probabilité d'une perte de connexion ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0,053",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "0,069",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "0,087",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "0,095",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! P(perte) = 0,60×0,05 + 0,30×0,08 + 0,10×0,15 = 0,03 + 0,024 + 0,015 = 0,069 ou 6,9%"
+    },
+    {
+      "id": "s18",
+      "title": "Examen Blanc - Question 2",
+      "type": "quiz",
+      "question": "Soit f(x) = (x - 1)·eˣ. Calculez f'(x)",
+      "choices": [
+        {
+          "id": "a",
+          "text": "eˣ",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "x·eˣ",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "(x - 2)·eˣ",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "(x)·eˣ + (x-1)·eˣ",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! En utilisant la règle du produit : f'(x) = 1·eˣ + (x-1)·eˣ = eˣ + x·eˣ - eˣ = x·eˣ"
+    },
+    {
+      "id": "s19",
+      "title": "Examen Blanc - Question 3",
+      "type": "quiz",
+      "question": "La suite uₙ₊₁ = √(uₙ + 6) avec u₀ = 0 converge vers ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "3",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "6",
+          "correct": false
+        }
+      ],
+      "explanation": "Correct ! Si la limite est L : L = √(L + 6), donc L² = L + 6, L² - L - 6 = 0, (L-3)(L+2) = 0. Comme L ≥ 0, L = 3. Vérification : u₀=0, u₁=√6≈2.45, u₂≈2.85, ... → 3 ✓"
+    },
+    {
+      "id": "s20",
+      "title": "Conseils pour l'Examen",
+      "type": "markdown",
+      "content": "# Conseils Pratiques pour l'Examen\n\n## Avant l'Examen\n\n✓ **Révisez régulièrement** plutôt que intensivement à la dernière minute\n✓ **Travaillez les exercices complets** pas seulement les formules\n✓ **Identifiez vos points faibles** et concentrez-vous dessus\n✓ **Dormez bien** la veille - c'est crucial pour la mémorisation\n\n## Pendant l'Examen\n\n### Gestion du Temps\n- Lisez **tous les exercices** avant de commencer (5 minutes)\n- Commencez par les **exercices faciles** pour gagner de la confiance\n- Consacrez le plus de temps aux **exercices difficiles**\n- Laissez 10 minutes pour la **relecture finale**\n\n### Stratégie pour Chaque Problème\n\n1. **Lisez attentivement** la question complète\n2. **Identifiez ce que vous savez** (données, formules applicables)\n3. **Planifiez votre approche** (ne commencez pas à écrire directement)\n4. **Écrivez clairement** les étapes intermédiaires\n5. **Vérifiez votre réponse** (sens commun, unités, signe)\n\n## Pièges Courants à Éviter\n\n❌ **Oublier les conditions** dans les énoncés (\"sachant que\", \"strictement\", etc.)\n❌ **Mélanger P(A|B) avec P(B|A)** - ce ne sont pas les mêmes !\n❌ **Arrondir trop tôt** - gardez la précision jusqu'à la fin\n❌ **Oublier de vérifier** si une fonction est définie à un point\n❌ **Ne pas justifier** les étapes - montrez votre raisonnement\n\n## Formules à Connaître par Cœur\n\n- Dérivées de base (xⁿ, ln(x), eˣ)\n- Règles (produit, quotient, chaîne)\n- P(A|B) = P(A∩B)/P(B)\n- Formule d'une variable aléatoire\n- Point fixe pour les suites\n\n## Après l'Examen\n\n✓ Ne pas ruminer sur les questions\n✓ Reposer vous - vous l'avez mérité !\n✓ Plus tard, examinez les corrections pour apprendre\n\n## Ressources Supplémentaires\n\n- Relisez les notes de cours régulièrement\n- Faites des exercices similaires à ceux de l'examen\n- Travaillez en groupe pour expliquer vos compréhensions\n- N'hésitez pas à demander de l'aide si vous êtes bloqué\n\n---\n\n**Bonne chance ! Vous êtes préparé(e). Vous pouvez le faire ! 💪**"
+    }
+  ],
+  "createdAt": "2026-05-20"
+}
