@@ -5,7 +5,7 @@ import { FiLayers, FiTag } from 'react-icons/fi';
 const CourseCard = ({ course }) => (
   <Link to={`/course/${course.id}`} className="course-card">
     <div className="course-card-header">
-      <span className="card-clover">🍀</span>
+      <img src={`${process.env.PUBLIC_URL}/tree.svg`} alt="arbre" className="card-tree" />
     </div>
     <div className="course-card-body">
       <h3>{course.title}</h3>
