@@ -1,0 +1,337 @@
+{
+  "title": "Calcul de dérivées — Terminale",
+  "description": "Cours complet et progressif sur le calcul de dérivées en Terminale : nombre dérivé, dérivées usuelles, opérations (somme, produit, quotient), fonctions composées, exemples détaillés et QCM d'entraînement.",
+  "tags": [
+    "mathématiques",
+    "terminale",
+    "analyse",
+    "dérivation",
+    "calcul de dérivées"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction et objectifs",
+      "type": "markdown",
+      "content": "# Calcul de dérivées\n\n## Objectifs du cours\n\nÀ la fin de ce cours, tu sauras :\n\n- Définir le **nombre dérivé** d'une fonction en un point\n- Connaître par cœur les **dérivées des fonctions usuelles**\n- Dériver une **somme**, un **produit** et un **quotient**\n- Dériver des **fonctions composées** : $u^n$, $\\sqrt{u}$, $e^u$, $\\ln(u)$\n- Reconnaître la bonne formule à appliquer **rapidement**\n- Éviter les **pièges classiques** de calcul\n\n## Plan du cours\n\n1. Nombre dérivé et tangente\n2. Dérivées des fonctions usuelles\n3. Opérations : somme, produit, quotient\n4. Dérivée d'une fonction composée\n5. Exemples détaillés et pièges à éviter\n6. Formulaire de synthèse\n\n> *Le calcul de dérivées, c'est avant tout de la mécanique : plus tu pratiques, plus c'est rapide !*"
+    },
+    {
+      "id": "s2",
+      "title": "Nombre dérivé",
+      "type": "markdown",
+      "content": "## Définition du nombre dérivé\n\nSoit $f$ une fonction définie sur un intervalle $I$ et $a \\in I$.\n\nOn dit que $f$ est **dérivable en $a$** si la limite suivante existe et est finie :\n\n$$f'(a) = \\lim_{h \\to 0} \\dfrac{f(a+h) - f(a)}{h}$$\n\nCette limite, lorsqu'elle existe, est appelée **nombre dérivé** de $f$ en $a$.\n\n### Forme équivalente\n\nEn posant $x = a + h$ :\n\n$$f'(a) = \\lim_{x \\to a} \\dfrac{f(x) - f(a)}{x - a}$$\n\nCette expression s'appelle le **taux d'accroissement** de $f$ entre $a$ et $x$.\n\n### Fonction dérivée\n\nSi $f$ est dérivable en tout point de $I$, on définit la **fonction dérivée** $f'$ qui à $x \\in I$ associe $f'(x)$."
+    },
+    {
+      "id": "s3",
+      "title": "Interprétation géométrique",
+      "type": "markdown",
+      "content": "## Tangente à la courbe\n\nLe nombre dérivé $f'(a)$ représente le **coefficient directeur** (pente) de la **tangente** à la courbe de $f$ au point d'abscisse $a$.\n\n### Équation de la tangente\n\n$$y = f'(a)\\,(x - a) + f(a)$$\n\n### Cas particuliers\n\n- $f'(a) = 0$ $\\Rightarrow$ tangente **horizontale** (souvent un extremum)\n- $f'(a) > 0$ $\\Rightarrow$ $f$ est **croissante** au voisinage de $a$\n- $f'(a) < 0$ $\\Rightarrow$ $f$ est **décroissante** au voisinage de $a$\n\n### Exemple\n\nSoit $f(x) = x^2$. On a $f'(x) = 2x$.\n\n- $f'(0) = 0$ : la tangente en $x = 0$ est horizontale (axe des abscisses)\n- $f'(1) = 2$ : la tangente en $x = 1$ a pour équation $y = 2(x - 1) + 1 = 2x - 1$"
+    },
+    {
+      "id": "s4",
+      "title": "Quiz — Nombre dérivé",
+      "type": "quiz",
+      "question": "Soit $f(x) = x^2 + 3x$. En utilisant la définition (taux d'accroissement), que vaut $f'(2)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$7$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$4$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$10$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$5$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\dfrac{f(2+h) - f(2)}{h} = \\dfrac{(2+h)^2 + 3(2+h) - (4 + 6)}{h} = \\dfrac{4 + 4h + h^2 + 6 + 3h - 10}{h} = \\dfrac{h^2 + 7h}{h} = h + 7$. Quand $h \\to 0$, on obtient $f'(2) = 7$. On retrouve aussi directement avec $f'(x) = 2x + 3$, soit $f'(2) = 7$."
+    },
+    {
+      "id": "s5",
+      "title": "Dérivées des fonctions usuelles",
+      "type": "markdown",
+      "content": "## À connaître par cœur\n\n| Fonction $f(x)$ | Dérivée $f'(x)$ | Ensemble de dérivabilité |\n|---|---|---|\n| $k$ (constante) | $0$ | $\\mathbb{R}$ |\n| $x$ | $1$ | $\\mathbb{R}$ |\n| $x^n$ (avec $n \\in \\mathbb{N}^*$) | $n\\,x^{n-1}$ | $\\mathbb{R}$ |\n| $\\dfrac{1}{x}$ | $-\\dfrac{1}{x^2}$ | $\\mathbb{R}^*$ |\n| $\\dfrac{1}{x^n}$ | $-\\dfrac{n}{x^{n+1}}$ | $\\mathbb{R}^*$ |\n| $\\sqrt{x}$ | $\\dfrac{1}{2\\sqrt{x}}$ | $]0\\,;\\,+\\infty[$ |\n| $e^x$ | $e^x$ | $\\mathbb{R}$ |\n| $\\ln(x)$ | $\\dfrac{1}{x}$ | $]0\\,;\\,+\\infty[$ |\n| $\\sin(x)$ | $\\cos(x)$ | $\\mathbb{R}$ |\n| $\\cos(x)$ | $-\\sin(x)$ | $\\mathbb{R}$ |\n\n> ⚠️ **Attention** : la racine carrée $\\sqrt{x}$ est **définie** en $0$ mais **non dérivable** en $0$ (la tangente y est verticale)."
+    },
+    {
+      "id": "s6",
+      "title": "Quiz — Dérivées usuelles",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = x^5$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$5x^4$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$5x^5$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{x^6}{6}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$4x^5$",
+          "correct": false
+        }
+      ],
+      "explanation": "On applique la formule $(x^n)' = n\\,x^{n-1}$ avec $n = 5$, ce qui donne $f'(x) = 5\\,x^{4}$. Attention à ne pas confondre avec la primitive qui serait $\\dfrac{x^6}{6}$."
+    },
+    {
+      "id": "s7",
+      "title": "Somme et multiplication par un réel",
+      "type": "markdown",
+      "content": "## Linéarité de la dérivation\n\nSoient $u$ et $v$ deux fonctions dérivables, et $k \\in \\mathbb{R}$.\n\n### Somme et différence\n\n$$(u + v)' = u' + v' \\qquad \\qquad (u - v)' = u' - v'$$\n\n### Multiplication par un réel\n\n$$(k\\,u)' = k\\,u'$$\n\n> **À retenir** : la dérivation est **linéaire**. On dérive chaque terme et la constante multiplicative « sort » de la dérivée.\n\n### Exemple\n\nDériver $f(x) = 3x^4 - 5x^2 + 7x - 2$.\n\nOn dérive chaque monôme indépendamment :\n\n- $(3x^4)' = 3 \\cdot 4x^3 = 12x^3$\n- $(-5x^2)' = -5 \\cdot 2x = -10x$\n- $(7x)' = 7$\n- $(-2)' = 0$\n\nDonc $f'(x) = 12x^3 - 10x + 7$."
+    },
+    {
+      "id": "s8",
+      "title": "Dérivée d'un produit",
+      "type": "markdown",
+      "content": "## Formule du produit\n\nSi $u$ et $v$ sont dérivables :\n\n$$(u\\,v)' = u'\\,v + u\\,v'$$\n\n> ⚠️ **Piège classique** : $(u\\,v)' \\neq u'\\,v'$. La dérivée d'un produit n'est **PAS** le produit des dérivées !\n\n### Méthode en 4 étapes\n\n1. Identifier $u$ et $v$\n2. Calculer $u'$ et $v'$\n3. Appliquer la formule $u'\\,v + u\\,v'$\n4. Simplifier (souvent par factorisation)\n\n### Exemple 1\n\nDériver $f(x) = (2x + 1)(x^2 - 3)$.\n\nOn pose $u(x) = 2x + 1$ et $v(x) = x^2 - 3$, donc $u'(x) = 2$ et $v'(x) = 2x$.\n\n$$f'(x) = 2(x^2 - 3) + (2x + 1)(2x) = 2x^2 - 6 + 4x^2 + 2x = 6x^2 + 2x - 6$$\n\n### Exemple 2\n\nDériver $g(x) = x\\,\\ln(x)$ sur $]0\\,;\\,+\\infty[$.\n\n$u(x) = x$, $u'(x) = 1$ ; $v(x) = \\ln(x)$, $v'(x) = \\dfrac{1}{x}$.\n\n$$g'(x) = 1 \\cdot \\ln(x) + x \\cdot \\dfrac{1}{x} = \\ln(x) + 1$$"
+    },
+    {
+      "id": "s9",
+      "title": "Quiz — Dérivée d'un produit",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = (3x + 2)(x^2 + 1)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$9x^2 + 4x + 3$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$3 \\cdot 2x = 6x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$9x^2 + 4x + 5$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$3x^2 + 4x + 3$",
+          "correct": false
+        }
+      ],
+      "explanation": "Avec $u = 3x + 2$ ($u' = 3$) et $v = x^2 + 1$ ($v' = 2x$) : $f'(x) = u'v + uv' = 3(x^2 + 1) + (3x + 2)(2x) = 3x^2 + 3 + 6x^2 + 4x = 9x^2 + 4x + 3$."
+    },
+    {
+      "id": "s10",
+      "title": "Dérivée d'un quotient",
+      "type": "markdown",
+      "content": "## Formule du quotient\n\nSi $u$ et $v$ sont dérivables et $v \\neq 0$ :\n\n$$\\left(\\dfrac{u}{v}\\right)' = \\dfrac{u'\\,v - u\\,v'}{v^2}$$\n\n### Cas particulier (inverse)\n\n$$\\left(\\dfrac{1}{v}\\right)' = -\\dfrac{v'}{v^2}$$\n\n> ⚠️ **Attention à l'ordre** : c'est bien $u'v - uv'$ au numérateur (pas l'inverse). Pense-bien à **conserver l'ordre**.\n\n### Méthode en 5 étapes\n\n1. Identifier $u$ (numérateur) et $v$ (dénominateur)\n2. Calculer $u'$ et $v'$\n3. Appliquer $\\dfrac{u'v - uv'}{v^2}$\n4. Développer le numérateur\n5. Simplifier / factoriser si possible\n\n### Exemple\n\nDériver $f(x) = \\dfrac{2x + 1}{x - 3}$ sur $\\mathbb{R} \\setminus \\{3\\}$.\n\n$u = 2x + 1$, $u' = 2$ ; $v = x - 3$, $v' = 1$.\n\n$$f'(x) = \\dfrac{2(x - 3) - (2x + 1) \\cdot 1}{(x - 3)^2} = \\dfrac{2x - 6 - 2x - 1}{(x - 3)^2} = \\dfrac{-7}{(x - 3)^2}$$"
+    },
+    {
+      "id": "s11",
+      "title": "Quiz — Dérivée d'un quotient",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\dfrac{x^2}{x + 1}$ sur $\\mathbb{R} \\setminus \\{-1\\}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{x^2 + 2x}{(x+1)^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{2x}{1}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{x^2 - 2x}{(x+1)^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{2x(x+1) - x^2}{x+1}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Avec $u = x^2$ ($u' = 2x$) et $v = x + 1$ ($v' = 1$) : $f'(x) = \\dfrac{2x(x+1) - x^2 \\cdot 1}{(x+1)^2} = \\dfrac{2x^2 + 2x - x^2}{(x+1)^2} = \\dfrac{x^2 + 2x}{(x+1)^2}$. On peut factoriser : $f'(x) = \\dfrac{x(x+2)}{(x+1)^2}$."
+    },
+    {
+      "id": "s12",
+      "title": "Fonction composée — $u(ax+b)$",
+      "type": "markdown",
+      "content": "## Premier cas de composée\n\nSi $u$ est dérivable, alors la fonction $x \\mapsto u(ax + b)$ est dérivable et :\n\n$$\\bigl(u(ax + b)\\bigr)' = a \\cdot u'(ax + b)$$\n\n> Le facteur $a$ vient de la dérivée de la partie linéaire $ax + b$.\n\n### Exemples\n\n**Exemple 1** : dériver $f(x) = (3x + 2)^4$.\n\nOn reconnaît $u(t) = t^4$ avec $t = 3x + 2$, donc $u'(t) = 4t^3$.\n\n$$f'(x) = 3 \\cdot 4(3x + 2)^3 = 12(3x + 2)^3$$\n\n**Exemple 2** : dériver $g(x) = \\sin(2x + \\pi)$.\n\n$u(t) = \\sin(t)$, $u'(t) = \\cos(t)$.\n\n$$g'(x) = 2\\cos(2x + \\pi)$$\n\n**Exemple 3** : dériver $h(x) = e^{-3x + 1}$.\n\n$u(t) = e^t$, $u'(t) = e^t$.\n\n$$h'(x) = -3\\,e^{-3x + 1}$$"
+    },
+    {
+      "id": "s13",
+      "title": "Formules de composition (uⁿ, √u)",
+      "type": "markdown",
+      "content": "## Dérivée de $u^n$\n\nSi $u$ est dérivable et $n \\in \\mathbb{Z}$ (avec $u \\neq 0$ si $n < 0$) :\n\n$$\\bigl(u^n\\bigr)' = n\\,u'\\,u^{n-1}$$\n\n**Exemple** : dériver $f(x) = (x^2 + 3x)^5$.\n\n$u(x) = x^2 + 3x$, $u'(x) = 2x + 3$.\n\n$$f'(x) = 5(2x + 3)(x^2 + 3x)^4$$\n\n## Dérivée de $\\sqrt{u}$\n\nSi $u$ est dérivable et $u > 0$ :\n\n$$\\bigl(\\sqrt{u}\\bigr)' = \\dfrac{u'}{2\\sqrt{u}}$$\n\n**Exemple** : dériver $g(x) = \\sqrt{x^2 + 1}$.\n\n$u(x) = x^2 + 1$, $u'(x) = 2x$.\n\n$$g'(x) = \\dfrac{2x}{2\\sqrt{x^2 + 1}} = \\dfrac{x}{\\sqrt{x^2 + 1}}$$\n\n## Dérivée de $\\dfrac{1}{u}$\n\n$$\\left(\\dfrac{1}{u}\\right)' = -\\dfrac{u'}{u^2}$$"
+    },
+    {
+      "id": "s14",
+      "title": "Formules de composition (eᵘ, ln u)",
+      "type": "markdown",
+      "content": "## Dérivée de $e^u$\n\nSi $u$ est dérivable :\n\n$$\\bigl(e^u\\bigr)' = u'\\,e^u$$\n\n**Exemple 1** : dériver $f(x) = e^{x^2}$.\n\n$u(x) = x^2$, $u'(x) = 2x$, donc $f'(x) = 2x\\,e^{x^2}$.\n\n**Exemple 2** : dériver $g(x) = e^{-x^2 + 4x}$.\n\n$u'(x) = -2x + 4$, donc $g'(x) = (-2x + 4)\\,e^{-x^2 + 4x}$.\n\n## Dérivée de $\\ln(u)$\n\nSi $u$ est dérivable et $u > 0$ :\n\n$$\\bigl(\\ln(u)\\bigr)' = \\dfrac{u'}{u}$$\n\n**Exemple 1** : dériver $f(x) = \\ln(3x + 2)$ pour $x > -\\dfrac{2}{3}$.\n\n$u'(x) = 3$, donc $f'(x) = \\dfrac{3}{3x + 2}$.\n\n**Exemple 2** : dériver $g(x) = \\ln(x^2 + 1)$ sur $\\mathbb{R}$.\n\n$u'(x) = 2x$, donc $g'(x) = \\dfrac{2x}{x^2 + 1}$.\n\n> 💡 **Mnémotechnique** : pour $\\ln(u)$ on met $u'$ au-dessus et $u$ en bas ; pour $e^u$ on garde $e^u$ et on multiplie par $u'$."
+    },
+    {
+      "id": "s15",
+      "title": "Tableau récapitulatif des composées",
+      "type": "markdown",
+      "content": "## Toutes les formules de composition\n\n| Fonction | Dérivée | Condition |\n|---|---|---|\n| $u^n$ ($n \\in \\mathbb{N}^*$) | $n\\,u'\\,u^{n-1}$ | $u$ dérivable |\n| $\\dfrac{1}{u}$ | $-\\dfrac{u'}{u^2}$ | $u \\neq 0$ |\n| $\\sqrt{u}$ | $\\dfrac{u'}{2\\sqrt{u}}$ | $u > 0$ |\n| $e^u$ | $u'\\,e^u$ | $u$ dérivable |\n| $\\ln(u)$ | $\\dfrac{u'}{u}$ | $u > 0$ |\n| $\\sin(u)$ | $u'\\,\\cos(u)$ | $u$ dérivable |\n| $\\cos(u)$ | $-u'\\,\\sin(u)$ | $u$ dérivable |\n\n> **Méthode universelle** : identifie la « fonction extérieure » et la « fonction intérieure » $u$. La dérivée s'écrit toujours `(dérivée extérieure appliquée à u) × u'`.\n\n### Astuce de relecture\n\nQuand tu dérives une composée, **vérifie toujours** qu'il y a bien un $u'$ qui apparaît dans le résultat. Si ce n'est pas le cas, il y a une erreur !"
+    },
+    {
+      "id": "s16",
+      "title": "Quiz — Composées",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = e^{2x^2 - 3x}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$(4x - 3)\\,e^{2x^2 - 3x}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e^{2x^2 - 3x}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(4x - 3)\\,e^{4x - 3}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$e^{4x - 3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $(e^u)' = u'\\,e^u$ avec $u(x) = 2x^2 - 3x$ donc $u'(x) = 4x - 3$. Ainsi $f'(x) = (4x - 3)\\,e^{2x^2 - 3x}$. L'exposant ne change pas, seul le facteur $u'$ apparaît devant."
+    },
+    {
+      "id": "s17",
+      "title": "Exemple détaillé — combinaison",
+      "type": "markdown",
+      "content": "## Dériver une expression complexe\n\nSoit $f(x) = \\dfrac{x\\,e^x}{x^2 + 1}$ sur $\\mathbb{R}$.\n\n### Étape 1 — Identifier la structure\n\nC'est un **quotient** : $f = \\dfrac{u}{v}$ avec $u(x) = x\\,e^x$ et $v(x) = x^2 + 1$.\n\nMais $u$ est lui-même un **produit** ! On le dérive séparément.\n\n### Étape 2 — Dériver $u$ (produit)\n\n$u(x) = x \\cdot e^x$ avec $a(x) = x$ ($a' = 1$) et $b(x) = e^x$ ($b' = e^x$).\n\n$$u'(x) = 1 \\cdot e^x + x \\cdot e^x = (1 + x)\\,e^x$$\n\n### Étape 3 — Dériver $v$\n\n$v(x) = x^2 + 1$ donc $v'(x) = 2x$.\n\n### Étape 4 — Appliquer la formule du quotient\n\n$$f'(x) = \\dfrac{u'v - uv'}{v^2} = \\dfrac{(1+x)\\,e^x \\cdot (x^2 + 1) - x\\,e^x \\cdot 2x}{(x^2 + 1)^2}$$\n\n### Étape 5 — Factoriser par $e^x$\n\n$$f'(x) = \\dfrac{e^x \\left[(1+x)(x^2 + 1) - 2x^2\\right]}{(x^2 + 1)^2}$$\n\nDéveloppons le crochet : $(1 + x)(x^2 + 1) - 2x^2 = x^2 + 1 + x^3 + x - 2x^2 = x^3 - x^2 + x + 1$.\n\n$$\\boxed{f'(x) = \\dfrac{e^x\\,(x^3 - x^2 + x + 1)}{(x^2 + 1)^2}}$$"
+    },
+    {
+      "id": "s18",
+      "title": "Pièges classiques à éviter",
+      "type": "markdown",
+      "content": "## Les erreurs les plus fréquentes\n\n### ❌ Piège 1 : Produit $\\neq$ produit des dérivées\n\n$(uv)' \\neq u' \\cdot v'$. **Formule correcte** : $(uv)' = u'v + uv'$.\n\n### ❌ Piège 2 : Quotient inversé\n\nCe n'est **pas** $\\dfrac{uv' - u'v}{v^2}$, mais bien $\\dfrac{u'v - uv'}{v^2}$. L'ordre compte (signe).\n\n### ❌ Piège 3 : Oublier le $u'$ dans une composée\n\n$(e^{2x})' \\neq e^{2x}$. **Correct** : $(e^{2x})' = 2\\,e^{2x}$. Toujours multiplier par la dérivée intérieure.\n\n### ❌ Piège 4 : Confondre $(x^n)'$ et primitive\n\n$(x^5)' = 5x^4$, alors que $\\displaystyle\\int x^5\\,dx = \\dfrac{x^6}{6}$. Ne pas mélanger !\n\n### ❌ Piège 5 : Dérivée d'une constante\n\n$(\\pi)' = 0$, $(\\ln(2))' = 0$, $\\bigl(e^3\\bigr)' = 0$. Tout ce qui ne contient pas $x$ a pour dérivée $0$.\n\n### ❌ Piège 6 : $\\sqrt{x}$ en $0$\n\n$\\sqrt{x}$ est **définie** en $0$ ($\\sqrt{0} = 0$) mais **non dérivable** en $0$ : la tangente y est verticale.\n\n### ✅ Bon réflexe\n\nToujours **vérifier la cohérence** : si $f$ est polynomiale de degré $n$, alors $f'$ est polynomiale de degré $n - 1$."
+    },
+    {
+      "id": "s19",
+      "title": "Quiz — Mélange de formules",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = (x^2 + 1)\\,\\ln(x)$ sur $]0\\,;\\,+\\infty[$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$2x\\,\\ln(x) + \\dfrac{x^2 + 1}{x}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$2x \\cdot \\dfrac{1}{x} = 2$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(2x + 1)\\,\\ln(x)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{2x}{x^2 + 1}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On a un produit avec $u(x) = x^2 + 1$ ($u'(x) = 2x$) et $v(x) = \\ln(x)$ ($v'(x) = \\dfrac{1}{x}$). Donc $f'(x) = u'v + uv' = 2x \\cdot \\ln(x) + (x^2 + 1) \\cdot \\dfrac{1}{x} = 2x\\,\\ln(x) + \\dfrac{x^2 + 1}{x}$. On peut aussi écrire $f'(x) = 2x\\,\\ln(x) + x + \\dfrac{1}{x}$."
+    },
+    {
+      "id": "s20",
+      "title": "Quiz récapitulatif (1/2)",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\sqrt{3x^2 + 5}$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{3x}{\\sqrt{3x^2 + 5}}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{2\\sqrt{3x^2 + 5}}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{6x}{\\sqrt{3x^2 + 5}}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\sqrt{6x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $(\\sqrt{u})' = \\dfrac{u'}{2\\sqrt{u}}$ avec $u(x) = 3x^2 + 5$ donc $u'(x) = 6x$. Ainsi $f'(x) = \\dfrac{6x}{2\\sqrt{3x^2 + 5}} = \\dfrac{3x}{\\sqrt{3x^2 + 5}}$. La fonction est bien définie sur $\\mathbb{R}$ car $3x^2 + 5 > 0$."
+    },
+    {
+      "id": "s21",
+      "title": "Quiz récapitulatif (2/2)",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\dfrac{e^x}{x}$ sur $\\mathbb{R}^*$. Que vaut $f'(x)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{e^x\\,(x - 1)}{x^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{e^x}{1} = e^x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{e^x\\,(1 - x)}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{e^x \\cdot x - e^x}{x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Avec $u = e^x$ ($u' = e^x$) et $v = x$ ($v' = 1$) : $f'(x) = \\dfrac{u'v - uv'}{v^2} = \\dfrac{e^x \\cdot x - e^x \\cdot 1}{x^2} = \\dfrac{e^x\\,(x - 1)}{x^2}$. Attention à l'ordre $u'v - uv'$ pour le signe !"
+    },
+    {
+      "id": "s22",
+      "title": "Formulaire complet",
+      "type": "markdown",
+      "content": "## Formulaire à apprendre par cœur\n\n### Fonctions usuelles\n\n$$k' = 0 \\qquad (x^n)' = n\\,x^{n-1} \\qquad \\left(\\dfrac{1}{x}\\right)' = -\\dfrac{1}{x^2}$$\n\n$$(\\sqrt{x})' = \\dfrac{1}{2\\sqrt{x}} \\qquad (e^x)' = e^x \\qquad (\\ln x)' = \\dfrac{1}{x}$$\n\n$$(\\sin x)' = \\cos x \\qquad (\\cos x)' = -\\sin x$$\n\n### Opérations\n\n$$(u + v)' = u' + v' \\qquad (k\\,u)' = k\\,u'$$\n\n$$(u\\,v)' = u'v + uv' \\qquad \\left(\\dfrac{u}{v}\\right)' = \\dfrac{u'v - uv'}{v^2}$$\n\n### Composées\n\n$$\\bigl(u(ax+b)\\bigr)' = a\\,u'(ax+b)$$\n\n$$(u^n)' = n\\,u'\\,u^{n-1} \\qquad (\\sqrt{u})' = \\dfrac{u'}{2\\sqrt{u}}$$\n\n$$(e^u)' = u'\\,e^u \\qquad (\\ln u)' = \\dfrac{u'}{u}$$"
+    },
+    {
+      "id": "s23",
+      "title": "Synthèse et méthodologie",
+      "type": "markdown",
+      "content": "## Méthode à suivre face à toute dérivée\n\n### Étape 1 — Repérer la structure globale\n\n- Somme / différence ? → linéarité, dérive chaque terme\n- Produit ? → $(uv)' = u'v + uv'$\n- Quotient ? → $\\dfrac{u'v - uv'}{v^2}$\n- Composée ? → formule de composition adaptée\n\n### Étape 2 — Identifier $u$ et $v$ (ou $u$ pour composée)\n\nÉcris explicitement $u(x) = \\dots$ et $u'(x) = \\dots$ sur ton brouillon. C'est la base d'un calcul propre.\n\n### Étape 3 — Appliquer la formule\n\nRecopie la formule entière avant de remplacer. Cela évite les oublis.\n\n### Étape 4 — Simplifier et factoriser\n\nCherche à **factoriser** la dérivée (souvent par $e^x$, par une puissance commune, ou par mise au même dénominateur) car cela facilitera ensuite l'étude du signe.\n\n### Étape 5 — Vérifier la cohérence\n\n- Degré du polynôme : $\\deg(f') = \\deg(f) - 1$\n- Présence de $u'$ dans toute composée\n- Ordre $u'v - uv'$ correct\n\n### Conseils pour progresser\n\n- **Fais beaucoup d'exercices** : la dérivation est avant tout de la mécanique\n- **Apprends les formules par cœur** : tu ne peux pas chercher la formule à chaque fois\n- **Refais tes erreurs** : c'est en analysant les pièges que tu progresses\n\n> 🎯 **Bravo !** Tu maîtrises maintenant tous les outils pour dériver n'importe quelle fonction du programme de Terminale."
+    }
+  ],
+  "id": "calcul-de-d-riv-es-terminale",
+  "createdAt": "2026-05-20"
+}

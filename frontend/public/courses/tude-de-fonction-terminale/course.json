@@ -1,0 +1,344 @@
+{
+  "title": "Étude de fonction — Terminale",
+  "description": "Cours complet sur l'étude d'une fonction numérique en Terminale : ensemble de définition, limites, asymptotes, continuité, dérivation, variations, convexité et méthode complète, avec QCM de validation.",
+  "tags": [
+    "mathématiques",
+    "terminale",
+    "analyse",
+    "étude de fonction",
+    "dérivation",
+    "limites"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction et objectifs",
+      "type": "markdown",
+      "content": "# Étude de fonction\n\n## Objectifs du cours\n\nÀ la fin de ce cours, tu seras capable de :\n\n- Déterminer l'**ensemble de définition** d'une fonction\n- Calculer des **limites** aux bornes et identifier les **asymptotes**\n- Étudier la **continuité** et la **dérivabilité** d'une fonction\n- Dresser un **tableau de variations** complet\n- Étudier la **convexité** et trouver les **points d'inflexion**\n- Mener une **étude de fonction complète** de bout en bout\n\n## Plan du cours\n\n1. Ensemble de définition\n2. Limites et formes indéterminées\n3. Asymptotes\n4. Continuité et dérivabilité\n5. Variations et extremums\n6. Tangentes\n7. Convexité\n8. Méthode complète et exemple\n\n> *Garde un crayon et un brouillon à portée de main : les maths se comprennent en pratiquant !*"
+    },
+    {
+      "id": "s2",
+      "title": "Ensemble de définition",
+      "type": "markdown",
+      "content": "## Ensemble de définition\n\nL'**ensemble de définition** $D_f$ d'une fonction $f$ est l'ensemble des réels $x$ pour lesquels $f(x)$ existe.\n\n### Règles à connaître\n\n- **Quotient** $\\dfrac{u(x)}{v(x)}$ : il faut $v(x) \\neq 0$\n- **Racine carrée** $\\sqrt{u(x)}$ : il faut $u(x) \\geq 0$\n- **Logarithme** $\\ln(u(x))$ : il faut $u(x) > 0$\n- **Exponentielle** $e^{u(x)}$ : définie sur tout $\\mathbb{R}$\n- **Fonctions polynomiales** : définies sur $\\mathbb{R}$\n\n### Exemples\n\n| Fonction | Ensemble de définition |\n|---|---|\n| $f(x) = \\dfrac{2x+1}{x-3}$ | $\\mathbb{R} \\setminus \\{3\\}$ |\n| $g(x) = \\sqrt{x-2}$ | $[2\\,;\\,+\\infty[$ |\n| $h(x) = \\ln(x^2-1)$ | $]-\\infty\\,;\\,-1[\\;\\cup\\;]1\\,;\\,+\\infty[$ |\n| $k(x) = e^x + x^2$ | $\\mathbb{R}$ |\n\n> **Astuce** : commence toujours par chercher $D_f$, car tout le reste dépend de cet ensemble."
+    },
+    {
+      "id": "s3",
+      "title": "Quiz — Ensemble de définition",
+      "type": "quiz",
+      "question": "Quel est l'ensemble de définition de la fonction $f(x) = \\dfrac{\\ln(x-2)}{x-5}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$]2\\,;\\,5[\\;\\cup\\;]5\\,;\\,+\\infty[$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$]2\\,;\\,+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\mathbb{R} \\setminus \\{5\\}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$[2\\,;\\,+\\infty[\\;\\setminus\\;\\{5\\}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Il faut simultanément : $x-2 > 0$ (pour le $\\ln$) soit $x > 2$, ET $x-5 \\neq 0$ soit $x \\neq 5$. L'intersection donne $]2\\,;\\,5[\\;\\cup\\;]5\\,;\\,+\\infty[$. Attention, $2$ est exclu car $\\ln(0)$ n'existe pas."
+    },
+    {
+      "id": "s4",
+      "title": "Limites — rappels",
+      "type": "markdown",
+      "content": "## Limites aux bornes\n\nOn cherche le comportement de $f(x)$ lorsque $x$ tend vers une borne de $D_f$ (souvent $-\\infty$, $+\\infty$ ou une valeur interdite).\n\n### Limites de référence à connaître par cœur\n\n**Puissances** (avec $n$ entier $\\geq 1$) :\n\n- $\\displaystyle\\lim_{x \\to +\\infty} x^n = +\\infty$\n- $\\displaystyle\\lim_{x \\to -\\infty} x^n = +\\infty$ si $n$ pair, $-\\infty$ si $n$ impair\n- $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{1}{x^n} = 0$\n\n**Exponentielle** :\n\n- $\\displaystyle\\lim_{x \\to +\\infty} e^x = +\\infty$\n- $\\displaystyle\\lim_{x \\to -\\infty} e^x = 0$\n- $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{e^x}{x} = +\\infty$ (croissance comparée)\n- $\\displaystyle\\lim_{x \\to -\\infty} x\\,e^x = 0$\n\n**Logarithme** :\n\n- $\\displaystyle\\lim_{x \\to +\\infty} \\ln(x) = +\\infty$\n- $\\displaystyle\\lim_{x \\to 0^+} \\ln(x) = -\\infty$\n- $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{\\ln(x)}{x} = 0$\n- $\\displaystyle\\lim_{x \\to 0^+} x\\,\\ln(x) = 0$\n\n> Les **croissances comparées** disent que l'exponentielle l'emporte sur les puissances, qui l'emportent sur le logarithme."
+    },
+    {
+      "id": "s5",
+      "title": "Opérations sur les limites",
+      "type": "markdown",
+      "content": "## Opérations sur les limites\n\n### Somme\n\n| $\\lim f$ | $\\lim g$ | $\\lim (f+g)$ |\n|---|---|---|\n| $\\ell$ | $\\ell'$ | $\\ell + \\ell'$ |\n| $\\ell$ | $+\\infty$ | $+\\infty$ |\n| $+\\infty$ | $+\\infty$ | $+\\infty$ |\n| $+\\infty$ | $-\\infty$ | **FI** |\n\n### Produit\n\n| $\\lim f$ | $\\lim g$ | $\\lim (f \\times g)$ |\n|---|---|---|\n| $\\ell \\neq 0$ | $\\pm\\infty$ | $\\pm\\infty$ (signe à étudier) |\n| $\\pm\\infty$ | $\\pm\\infty$ | $\\pm\\infty$ (signe à étudier) |\n| $0$ | $\\pm\\infty$ | **FI** |\n\n### Quotient\n\n| $\\lim f$ | $\\lim g$ | $\\lim (f/g)$ |\n|---|---|---|\n| $\\ell$ | $\\ell' \\neq 0$ | $\\ell / \\ell'$ |\n| $\\ell \\neq 0$ | $0^+$ ou $0^-$ | $\\pm\\infty$ (signe à étudier) |\n| $\\pm\\infty$ | $\\ell \\neq 0$ | $\\pm\\infty$ (signe à étudier) |\n| $\\pm\\infty$ | $\\pm\\infty$ | **FI** |\n| $0$ | $0$ | **FI** |\n\n**FI = Forme Indéterminée**, à lever par factorisation, conjugué ou croissances comparées."
+    },
+    {
+      "id": "s6",
+      "title": "Lever une forme indéterminée",
+      "type": "markdown",
+      "content": "## Méthodes pour lever une FI\n\n### 1) Factoriser par le terme dominant (polynômes / fractions rationnelles)\n\n**Exemple** : $\\displaystyle\\lim_{x \\to +\\infty} (3x^2 - 5x + 1)$\n\nOn factorise par $x^2$ :\n\n$$3x^2 - 5x + 1 = x^2\\left(3 - \\dfrac{5}{x} + \\dfrac{1}{x^2}\\right)$$\n\nQuand $x \\to +\\infty$ : $x^2 \\to +\\infty$ et $\\left(3 - \\dfrac{5}{x} + \\dfrac{1}{x^2}\\right) \\to 3 > 0$.\n\nDonc la limite vaut $+\\infty$.\n\n### 2) Multiplier par la quantité conjuguée (racines)\n\n**Exemple** : $\\displaystyle\\lim_{x \\to +\\infty} \\left(\\sqrt{x+1} - \\sqrt{x}\\right)$\n\nOn multiplie par $\\dfrac{\\sqrt{x+1} + \\sqrt{x}}{\\sqrt{x+1} + \\sqrt{x}}$ :\n\n$$\\sqrt{x+1} - \\sqrt{x} = \\dfrac{(x+1) - x}{\\sqrt{x+1} + \\sqrt{x}} = \\dfrac{1}{\\sqrt{x+1} + \\sqrt{x}} \\to 0$$\n\n### 3) Utiliser les croissances comparées (exp / ln)\n\n**Exemple** : $\\displaystyle\\lim_{x \\to +\\infty} (e^x - x^3)$\n\n$$e^x - x^3 = x^3\\left(\\dfrac{e^x}{x^3} - 1\\right)$$\n\nOr $\\dfrac{e^x}{x^3} \\to +\\infty$ par croissance comparée, donc la limite vaut $+\\infty$.\n\n### 4) Reconnaître un taux d'accroissement\n\nSi on tombe sur une forme $\\frac{0}{0}$ du type $\\dfrac{f(x) - f(a)}{x - a}$, c'est $f'(a)$ !"
+    },
+    {
+      "id": "s7",
+      "title": "Quiz — Calcul de limite",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{x^2 - 2x + 3}{3x^2 + x - 1}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{3}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$3$",
+          "correct": false
+        }
+      ],
+      "explanation": "On factorise numérateur et dénominateur par $x^2$ (terme dominant) : $\\dfrac{x^2\\left(1 - \\frac{2}{x} + \\frac{3}{x^2}\\right)}{x^2\\left(3 + \\frac{1}{x} - \\frac{1}{x^2}\\right)} = \\dfrac{1 - \\frac{2}{x} + \\frac{3}{x^2}}{3 + \\frac{1}{x} - \\frac{1}{x^2}}$. Quand $x \\to +\\infty$, cela tend vers $\\dfrac{1}{3}$. Pour une fraction rationnelle en $+\\infty$, on garde le rapport des termes de plus haut degré."
+    },
+    {
+      "id": "s8",
+      "title": "Asymptotes",
+      "type": "markdown",
+      "content": "## Les trois types d'asymptotes\n\n### Asymptote horizontale\n\nSi $\\displaystyle\\lim_{x \\to \\pm\\infty} f(x) = \\ell$ (réel), alors la droite $y = \\ell$ est asymptote horizontale à la courbe en $\\pm\\infty$.\n\n*Exemple* : $f(x) = \\dfrac{2x+1}{x-3} \\to 2$, donc $y = 2$ est asymptote horizontale.\n\n### Asymptote verticale\n\nSi $\\displaystyle\\lim_{x \\to a} f(x) = \\pm\\infty$ (avec $a$ réel), alors la droite $x = a$ est asymptote verticale.\n\n*Exemple* : $f(x) = \\dfrac{1}{x-3} \\to \\pm\\infty$ en $3$, donc $x = 3$ est asymptote verticale.\n\n### Asymptote oblique\n\nSi $f(x) = ax + b + \\varepsilon(x)$ avec $\\displaystyle\\lim_{x \\to \\pm\\infty} \\varepsilon(x) = 0$, alors la droite $y = ax + b$ est asymptote oblique.\n\n**Méthode** : effectuer la division euclidienne ou calculer $\\displaystyle\\lim \\dfrac{f(x)}{x} = a$, puis $\\displaystyle\\lim (f(x) - ax) = b$.\n\n*Exemple* : $f(x) = \\dfrac{x^2 + 1}{x} = x + \\dfrac{1}{x} \\Rightarrow$ asymptote oblique $y = x$ en $\\pm\\infty$.\n\n### Position relative\n\nÉtudier le signe de $f(x) - (\\text{asymptote})$ pour savoir si la courbe est au-dessus ou en-dessous."
+    },
+    {
+      "id": "s9",
+      "title": "Quiz — Asymptotes",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\dfrac{3x^2 + 2}{x - 1}$. Quelle est l'asymptote oblique en $+\\infty$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y = 3x + 3$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$y = 3x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y = x + 3$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pas d'asymptote oblique",
+          "correct": false
+        }
+      ],
+      "explanation": "On effectue la division : $3x^2 + 2 = (x-1)(3x + 3) + 5$. Donc $f(x) = 3x + 3 + \\dfrac{5}{x-1}$. Comme $\\dfrac{5}{x-1} \\to 0$ en $+\\infty$, l'asymptote oblique est $y = 3x + 3$."
+    },
+    {
+      "id": "s10",
+      "title": "Continuité",
+      "type": "markdown",
+      "content": "## Continuité d'une fonction\n\n### Définition\n\n$f$ est **continue en $a$** si $\\displaystyle\\lim_{x \\to a} f(x) = f(a)$.\n\nIntuitivement : on peut tracer la courbe sans lever le crayon.\n\n### Théorèmes utiles\n\n- Toute fonction **polynomiale** est continue sur $\\mathbb{R}$\n- Les fonctions $\\exp$, $\\ln$, $\\sin$, $\\cos$, $\\sqrt{\\;\\;}$ sont continues sur leur ensemble de définition\n- Les **sommes, produits, quotients, composées** de fonctions continues sont continues (sur leur ensemble de définition)\n- Toute fonction **dérivable** est continue (la réciproque est fausse !)\n\n### Théorème des Valeurs Intermédiaires (TVI)\n\nSi $f$ est **continue** sur $[a\\,;\\,b]$ et $k$ est compris entre $f(a)$ et $f(b)$, alors il existe au moins un $c \\in [a\\,;\\,b]$ tel que $f(c) = k$.\n\n### Corollaire (TVI version stricte)\n\nSi $f$ est **continue ET strictement monotone** sur $[a\\,;\\,b]$, alors pour tout $k$ entre $f(a)$ et $f(b)$, il existe un **unique** $c \\in [a\\,;\\,b]$ tel que $f(c) = k$.\n\n> Très utile pour montrer qu'une équation $f(x) = k$ admet une unique solution !"
+    },
+    {
+      "id": "s11",
+      "title": "Dérivation — rappels",
+      "type": "markdown",
+      "content": "## Dérivée et nombre dérivé\n\n### Nombre dérivé\n\n$f$ est **dérivable en $a$** si la limite suivante existe et est finie :\n\n$$f'(a) = \\lim_{h \\to 0} \\dfrac{f(a+h) - f(a)}{h}$$\n\nGéométriquement, $f'(a)$ est le **coefficient directeur de la tangente** à la courbe au point d'abscisse $a$.\n\n### Tableau des dérivées usuelles\n\n| $f(x)$ | $f'(x)$ |\n|---|---|\n| $k$ (constante) | $0$ |\n| $x^n$ | $n\\,x^{n-1}$ |\n| $\\dfrac{1}{x}$ | $-\\dfrac{1}{x^2}$ |\n| $\\sqrt{x}$ | $\\dfrac{1}{2\\sqrt{x}}$ |\n| $e^x$ | $e^x$ |\n| $\\ln(x)$ | $\\dfrac{1}{x}$ |\n| $\\sin(x)$ | $\\cos(x)$ |\n| $\\cos(x)$ | $-\\sin(x)$ |"
+    },
+    {
+      "id": "s12",
+      "title": "Formules de dérivation",
+      "type": "markdown",
+      "content": "## Opérations sur les dérivées\n\n### Combinaisons\n\n- $(u + v)' = u' + v'$\n- $(k\\,u)' = k\\,u'$\n- $(u\\,v)' = u'\\,v + u\\,v'$\n- $\\left(\\dfrac{u}{v}\\right)' = \\dfrac{u'\\,v - u\\,v'}{v^2}$\n- $\\left(\\dfrac{1}{v}\\right)' = -\\dfrac{v'}{v^2}$\n\n### Composées (très important en Terminale)\n\n- $\\bigl(u(ax+b)\\bigr)' = a \\cdot u'(ax+b)$\n- $(u^n)' = n\\,u'\\,u^{n-1}$\n- $\\bigl(\\sqrt{u}\\bigr)' = \\dfrac{u'}{2\\sqrt{u}}$\n- $\\bigl(e^u\\bigr)' = u'\\,e^u$\n- $\\bigl(\\ln(u)\\bigr)' = \\dfrac{u'}{u}$\n\n### Exemple\n\nDériver $f(x) = e^{x^2 + 3x}$.\n\nOn pose $u(x) = x^2 + 3x$, donc $u'(x) = 2x + 3$.\n\n$$f'(x) = u'(x)\\,e^{u(x)} = (2x + 3)\\,e^{x^2 + 3x}$$"
+    },
+    {
+      "id": "s13",
+      "title": "Quiz — Dérivation",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\ln(x^2 + 1)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{2x}{x^2 + 1}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{x^2 + 1}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2x\\,\\ln(x^2 + 1)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{2x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $\\bigl(\\ln(u)\\bigr)' = \\dfrac{u'}{u}$ avec $u(x) = x^2 + 1$ donc $u'(x) = 2x$. Ainsi $f'(x) = \\dfrac{2x}{x^2 + 1}$. Remarque : $f$ est définie sur $\\mathbb{R}$ entier puisque $x^2 + 1 > 0$."
+    },
+    {
+      "id": "s14",
+      "title": "Variations et tableau",
+      "type": "markdown",
+      "content": "## Sens de variation\n\n### Lien dérivée ↔ variations\n\nSoit $f$ dérivable sur un intervalle $I$.\n\n- Si $f'(x) \\geq 0$ sur $I$ (et $f'$ non identiquement nulle), alors $f$ est **croissante** sur $I$\n- Si $f'(x) \\leq 0$ sur $I$ (et $f'$ non identiquement nulle), alors $f$ est **décroissante** sur $I$\n- Si $f'(x) = 0$ sur $I$, alors $f$ est **constante** sur $I$\n\n### Méthode pour dresser un tableau de variations\n\n1. Calculer $f'(x)$\n2. Étudier le **signe** de $f'(x)$ (souvent via une factorisation ou un trinôme)\n3. Repérer les **valeurs qui annulent** $f'$\n4. Construire le tableau : ligne $x$, ligne $f'(x)$ avec son signe, ligne $f(x)$ avec les flèches ↗ ou ↘\n5. Reporter les **valeurs aux bornes** (limites) et les **extremums locaux**\n\n### Exemple\n\n$f(x) = x^3 - 3x$ sur $\\mathbb{R}$.\n\n$f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$.\n\n$f'$ s'annule en $-1$ et $1$, est positive en dehors de $[-1\\,;\\,1]$ et négative sur $]-1\\,;\\,1[$.\n\nDonc $f$ est croissante sur $]-\\infty\\,;\\,-1]$, décroissante sur $[-1\\,;\\,1]$, croissante sur $[1\\,;\\,+\\infty[$."
+    },
+    {
+      "id": "s15",
+      "title": "Extremums locaux",
+      "type": "markdown",
+      "content": "## Extremums d'une fonction\n\n### Définitions\n\n- $f$ admet un **maximum local** en $a$ si $f(a) \\geq f(x)$ pour tout $x$ dans un voisinage de $a$\n- $f$ admet un **minimum local** en $a$ si $f(a) \\leq f(x)$ pour tout $x$ dans un voisinage de $a$\n\n### Condition nécessaire\n\nSi $f$ est dérivable sur un intervalle ouvert $I$ contenant $a$, et si $f$ admet un extremum local en $a$, alors $f'(a) = 0$.\n\n> ⚠️ La réciproque est fausse : $f(x) = x^3$ vérifie $f'(0) = 0$ mais n'a pas d'extremum en $0$.\n\n### Condition suffisante\n\nSi $f'(x)$ **change de signe** en $a$ en s'annulant, alors $f$ admet un extremum local en $a$ :\n\n- $f'$ passe de $+$ à $-$ $\\Rightarrow$ **maximum** local\n- $f'$ passe de $-$ à $+$ $\\Rightarrow$ **minimum** local\n\n### Extremums globaux\n\nOn les lit directement sur le tableau de variations en regardant les valeurs aux bornes et aux extremums locaux."
+    },
+    {
+      "id": "s16",
+      "title": "Équation de la tangente",
+      "type": "markdown",
+      "content": "## Tangente à la courbe\n\n### Équation\n\nLa tangente à la courbe de $f$ au point d'abscisse $a$ a pour équation :\n\n$$y = f'(a)\\,(x - a) + f(a)$$\n\nC'est l'équation à retenir absolument !\n\n### Méthode\n\n1. Calculer $f(a)$\n2. Calculer $f'(a)$\n3. Remplacer dans la formule\n\n### Exemple\n\n$f(x) = x^2 + 2x$, calculer la tangente au point d'abscisse $1$.\n\n- $f(1) = 1 + 2 = 3$\n- $f'(x) = 2x + 2$, donc $f'(1) = 4$\n- Tangente : $y = 4(x - 1) + 3 = 4x - 1$\n\n### Tangente horizontale\n\nLa tangente en $a$ est horizontale $\\Leftrightarrow f'(a) = 0$ (souvent un extremum local).\n\n### Position courbe / tangente\n\nOn étudie le signe de $f(x) - \\bigl[f'(a)(x-a) + f(a)\\bigr]$. C'est lié à la **convexité** (voir slide suivant)."
+    },
+    {
+      "id": "s17",
+      "title": "Quiz — Tangente",
+      "type": "quiz",
+      "question": "Soit $f(x) = x^3 - 2x + 1$. L'équation de la tangente à $\\mathcal{C}_f$ au point d'abscisse $1$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y = x - 1$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$y = x + 1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y = 3x - 3$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$y = -x + 1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f(1) = 1 - 2 + 1 = 0$. $f'(x) = 3x^2 - 2$ donc $f'(1) = 1$. La tangente est $y = f'(1)(x - 1) + f(1) = 1 \\cdot (x - 1) + 0 = x - 1$."
+    },
+    {
+      "id": "s18",
+      "title": "Convexité et concavité",
+      "type": "markdown",
+      "content": "## Convexité d'une fonction\n\n### Définitions intuitives\n\n- $f$ est **convexe** sur $I$ si sa courbe est **au-dessus de ses tangentes** (forme de « cuvette » $\\cup$)\n- $f$ est **concave** sur $I$ si sa courbe est **en-dessous de ses tangentes** (forme de « bosse » $\\cap$)\n\n### Caractérisation avec la dérivée seconde\n\nSi $f$ est deux fois dérivable sur $I$ :\n\n- $f$ convexe sur $I$ $\\Leftrightarrow f''(x) \\geq 0$ sur $I$\n- $f$ concave sur $I$ $\\Leftrightarrow f''(x) \\leq 0$ sur $I$\n\n### Point d'inflexion\n\nUn **point d'inflexion** est un point où la convexité change ($f''$ change de signe en s'annulant). En ce point, la tangente **traverse** la courbe.\n\n### Méthode\n\n1. Calculer $f''(x)$\n2. Étudier son signe\n3. Repérer les zéros qui correspondent à un changement de signe\n\n### Exemple\n\n$f(x) = x^3$, $f'(x) = 3x^2$, $f''(x) = 6x$.\n\n$f'' < 0$ sur $]-\\infty\\,;\\,0[$ (concave), $f'' > 0$ sur $]0\\,;\\,+\\infty[$ (convexe). **$0$ est un point d'inflexion**."
+    },
+    {
+      "id": "s19",
+      "title": "Quiz — Convexité",
+      "type": "quiz",
+      "question": "Soit $f(x) = x^4 - 6x^2$. Sur quel intervalle $f$ est-elle concave ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$]-1\\,;\\,1[$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$]-\\infty\\,;\\,0[$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\mathbb{R}$ entier",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$]0\\,;\\,+\\infty[$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f'(x) = 4x^3 - 12x$, puis $f''(x) = 12x^2 - 12 = 12(x^2 - 1) = 12(x-1)(x+1)$. $f''(x) < 0 \\Leftrightarrow x^2 < 1 \\Leftrightarrow x \\in\\,]-1\\,;\\,1[$. Donc $f$ est concave sur $]-1\\,;\\,1[$, et les points $x = -1$ et $x = 1$ sont des points d'inflexion."
+    },
+    {
+      "id": "s20",
+      "title": "Méthode complète",
+      "type": "markdown",
+      "content": "## Étude complète d'une fonction — 8 étapes\n\n### 1. Ensemble de définition\n\nIdentifier les valeurs interdites (dénominateurs, racines, $\\ln$).\n\n### 2. Parité, périodicité (si pertinent)\n\n- $f$ paire : $f(-x) = f(x)$ $\\Rightarrow$ symétrie par rapport à l'axe $(Oy)$\n- $f$ impaire : $f(-x) = -f(x)$ $\\Rightarrow$ symétrie par rapport à l'origine\n\n### 3. Limites aux bornes de $D_f$\n\nDéterminer le comportement en $\\pm\\infty$ et près des valeurs interdites.\n\n### 4. Asymptotes\n\nHorizontales, verticales, obliques. Étudier la position relative si demandé.\n\n### 5. Dérivée et signe de $f'$\n\nCalculer $f'(x)$, factoriser, étudier son signe.\n\n### 6. Tableau de variations\n\nReporter $f'$, les variations, les valeurs aux bornes et extremums.\n\n### 7. Convexité (si demandée)\n\nCalculer $f''(x)$, étudier son signe, identifier les points d'inflexion.\n\n### 8. Tracé de la courbe\n\nUtiliser tangente horizontale aux extremums, asymptotes, points d'inflexion, points particuliers (intersections avec les axes).\n\n> Suivre cette méthode garantit une étude rigoureuse et complète !"
+    },
+    {
+      "id": "s21",
+      "title": "Exemple guidé",
+      "type": "markdown",
+      "content": "## Exemple complet — $f(x) = \\dfrac{x^2 - 3}{x - 2}$\n\n### 1. Définition\n\n$x - 2 \\neq 0$ donc $D_f = \\mathbb{R} \\setminus \\{2\\} =\\,]-\\infty\\,;\\,2[\\;\\cup\\;]2\\,;\\,+\\infty[$\n\n### 2. Limites\n\n- En $\\pm\\infty$ : $f(x) \\sim \\dfrac{x^2}{x} = x$ donc $\\displaystyle\\lim_{x \\to +\\infty} f(x) = +\\infty$, $\\displaystyle\\lim_{x \\to -\\infty} f(x) = -\\infty$\n- En $2$ : numérateur tend vers $1$, dénominateur vers $0$\n  - À gauche ($x \\to 2^-$) : dénominateur $< 0$ donc $\\displaystyle\\lim = -\\infty$\n  - À droite ($x \\to 2^+$) : dénominateur $> 0$ donc $\\displaystyle\\lim = +\\infty$\n\n### 3. Asymptotes\n\n- $x = 2$ asymptote verticale\n- Division euclidienne : $f(x) = x + 2 + \\dfrac{1}{x-2}$, donc $y = x + 2$ asymptote oblique en $\\pm\\infty$\n\n### 4. Dérivée\n\n$$f'(x) = \\dfrac{2x(x-2) - (x^2-3)}{(x-2)^2} = \\dfrac{x^2 - 4x + 3}{(x-2)^2} = \\dfrac{(x-1)(x-3)}{(x-2)^2}$$\n\n### 5. Signe de $f'$\n\nLe dénominateur $(x-2)^2 > 0$. Le signe vient de $(x-1)(x-3)$ :\n\n- $f' > 0$ sur $]-\\infty\\,;\\,1[\\;\\cup\\;]3\\,;\\,+\\infty[$ $\\Rightarrow f$ croissante\n- $f' < 0$ sur $]1\\,;\\,2[\\;\\cup\\;]2\\,;\\,3[$ $\\Rightarrow f$ décroissante\n\n### 6. Extremums\n\n- En $x = 1$ : maximum local $f(1) = \\dfrac{1 - 3}{1 - 2} = 2$\n- En $x = 3$ : minimum local $f(3) = \\dfrac{9 - 3}{3 - 2} = 6$"
+    },
+    {
+      "id": "s22",
+      "title": "Quiz récapitulatif (1/2)",
+      "type": "quiz",
+      "question": "Soit $f(x) = x\\,e^{-x}$ sur $\\mathbb{R}$. Combien d'extremums locaux $f$ admet-elle ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Un maximum local en $x = 1$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Un minimum local en $x = 0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Un maximum en $x = 0$ et un minimum en $x = 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aucun extremum",
+          "correct": false
+        }
+      ],
+      "explanation": "$f'(x) = e^{-x} + x \\cdot (-e^{-x}) = e^{-x}(1 - x)$. Comme $e^{-x} > 0$, $f'(x)$ a le signe de $(1 - x)$. Donc $f' > 0$ sur $]-\\infty\\,;\\,1[$, $f'(1) = 0$, $f' < 0$ sur $]1\\,;\\,+\\infty[$. $f$ passe de croissante à décroissante en $x = 1$ : c'est un maximum local, avec $f(1) = \\dfrac{1}{e}$."
+    },
+    {
+      "id": "s23",
+      "title": "Quiz récapitulatif (2/2)",
+      "type": "quiz",
+      "question": "Soit $f$ définie sur $\\mathbb{R}$ par $f(x) = x^3 - 3x^2 + 2$. Combien de solutions l'équation $f(x) = 0$ admet-elle sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Exactement $3$ solutions",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Exactement $2$ solutions",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Exactement $1$ solution",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aucune solution réelle",
+          "correct": false
+        }
+      ],
+      "explanation": "$f'(x) = 3x^2 - 6x = 3x(x - 2)$. $f' > 0$ sur $]-\\infty\\,;\\,0[\\;\\cup\\;]2\\,;\\,+\\infty[$, $f' < 0$ sur $]0\\,;\\,2[$. Maximum local en $0$ avec $f(0) = 2 > 0$ et minimum local en $2$ avec $f(2) = -2 < 0$. Comme $f$ passe de $-\\infty$ à $2$, puis de $2$ à $-2$, puis de $-2$ à $+\\infty$, par le TVI strict (continuité et stricte monotonie sur chaque intervalle), l'équation $f(x) = 0$ admet exactement $3$ solutions réelles."
+    },
+    {
+      "id": "s24",
+      "title": "Synthèse et conseils",
+      "type": "markdown",
+      "content": "## À retenir\n\n### Les réflexes à automatiser\n\n1. **Toujours** commencer par déterminer $D_f$\n2. Identifier le **type de fonction** pour anticiper la méthode (rationnelle, exp, ln, composée…)\n3. **Factoriser** la dérivée pour étudier son signe efficacement\n4. **Rédiger** : phrases claires, justifications des théorèmes utilisés (TVI, croissances comparées…)\n\n### Formules à connaître par cœur\n\n- Dérivées usuelles ($\\exp$, $\\ln$, puissances, trigo)\n- Formules de composition : $(e^u)'$, $(\\ln u)'$, $(u^n)'$, $(\\sqrt{u})'$\n- Équation de la tangente : $y = f'(a)(x - a) + f(a)$\n- Limites de référence et croissances comparées\n\n### Pièges classiques à éviter\n\n- Oublier les valeurs interdites dans $D_f$ (dénominateur, $\\ln$, racine)\n- Confondre dérivée d'un produit et produit des dérivées\n- Conclure « extremum » dès que $f'(a) = 0$ sans vérifier le changement de signe\n- Oublier d'étudier la limite à gauche **et** à droite près d'une valeur interdite\n\n### Pour aller plus loin\n\n- Entraîne-toi sur des **fonctions composées** complexes (exemple : $x\\,\\ln(x)$, $e^{x^2}$, $\\dfrac{1}{1+e^x}$)\n- Travaille la **rédaction type bac** : énoncé du théorème, vérification des hypothèses, conclusion\n- Refais régulièrement une étude **complète** pour bien maîtriser la méthode\n\n> 🎯 **Bravo !** Tu as maintenant tous les outils pour mener une étude de fonction complète au niveau Terminale."
+    }
+  ],
+  "id": "tude-de-fonction-terminale",
+  "createdAt": "2026-05-20"
+}
