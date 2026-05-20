@@ -42,8 +42,8 @@ const CoursePage = () => {
 
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-      if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft')  prev();
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
