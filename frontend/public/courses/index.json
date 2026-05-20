@@ -12,5 +12,19 @@
     ],
     "createdAt": "2026-05-20",
     "slideCount": 10
+  },
+  {
+    "id": "cours-arithmetique-z-1bacsm",
+    "title": "L'Arithmétique dans Z",
+    "description": "Cours complet et exercices d'application sur la divisibilité, les congruences et les algorithmes fondamentaux dans Z.",
+    "tags": [
+      "Mathématiques",
+      "Arithmétique",
+      "Algèbre",
+      "CPGE",
+      "1BAC SM"
+    ],
+    "createdAt": "2026-05-20",
+    "slideCount": 7
   }
 ]
