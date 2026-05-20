@@ -533,7 +533,7 @@ a:hover {
   display: flex; justify-content: flex-end; gap: 10px;
 }
 
-/* ===== MOBILE TIKTOK SCROLL ===== */
+/* ===== MOBILE : SWIPE HORIZONTAL + SCROLL VERTICAL ===== */
 
 /* Caché par défaut sur desktop */
 .mobile-slides { display: none; }
@@ -542,32 +542,39 @@ a:hover {
   /* Cache le layout desktop */
   .desktop-only { display: none !important; }
 
-  /* course-page devient un flex-column plein écran */
+  /* course-page = colonne plein écran */
   .course-page {
     height: 100dvh;
     overflow: hidden;
   }
 
-  /* Le scroll container prend tout l'espace restant sous le header */
+  /* ─── Container horizontal : swipe gauche/droite = changer de slide ─── */
   .mobile-slides {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;            /* slides côte à côte */
     flex: 1;
     min-height: 0;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    overflow-x: scroll;             /* swipe horizontal */
+    overflow-y: hidden;             /* pas de scroll vertical ici */
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;          /* masque la scrollbar */
   }
+  .mobile-slides::-webkit-scrollbar { display: none; }
 
-  /* Chaque slide = exactement la hauteur du container */
+  /* ─── Chaque slide = largeur plein écran, hauteur totale du container ─── */
   .mobile-slide {
     scroll-snap-align: start;
-    flex: 0 0 100%;          /* prend 100% de la hauteur du container */
+    flex: 0 0 100vw;                /* largeur = viewport */
+    width: 100vw;
+    height: 100%;                   /* remplit toute la hauteur */
     display: flex;
     flex-direction: column;
     padding: 16px 16px 12px;
-    border-bottom: 1px solid var(--border-color);
     box-sizing: border-box;
+    overflow-y: auto;               /* scroll vertical DANS la slide */
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   .mobile-slide-header {
@@ -595,10 +602,9 @@ a:hover {
     flex-shrink: 0;
   }
 
-  /* Le contenu scrolle à l'intérieur du slide si besoin */
+  /* Le contenu s'étire mais ne force pas le scroll (le slide lui-même scroll) */
   .mobile-slide-content {
     flex: 1;
-    overflow-y: auto;
     min-height: 0;
   }
 
