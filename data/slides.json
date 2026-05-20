@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "17611680133001en3igq1k",
+    "documentId": "1761168013284ktpgp31yz",
+    "contentBlocks": [
+      {
+        "type": "youtube",
+        "content": "https://www.youtube.com/watch?v=RzZWsZIexGE",
+        "order": 0
+      }
+    ],
+    "order": 0,
+    "createdAt": "2025-10-22T21:20:13.300Z"
+  },
+  {
+    "_id": "1761168013312y6bco700n",
+    "documentId": "1761168013284ktpgp31yz",
+    "contentBlocks": [
+      {
+        "type": "video",
+        "content": "https://www.youtube.com/watch?v=RzZWsZIexGE",
+        "order": 0
+      }
+    ],
+    "order": 1,
+    "createdAt": "2025-10-22T21:20:13.312Z"
+  },
+  {
+    "_id": "1761172823864xoz1pdf7n",
+    "documentId": "1761172823851cn0xop4dt",
+    "contentBlocks": [
+      {
+        "type": "image",
+        "content": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s",
+        "order": 0
+      }
+    ],
+    "order": 0,
+    "createdAt": "2025-10-22T22:40:23.864Z"
+  },
+  {
+    "_id": "1761173012154azf1a39td",
+    "documentId": "1761173012137t3uld6bil",
+    "contentBlocks": [
+      {
+        "type": "image",
+        "content": "imagehttps://cdn.futura-sciences.com/sources/images/dossier/773/01-intro-773.jpg",
+        "order": 0
+      }
+    ],
+    "order": 0,
+    "createdAt": "2025-10-22T22:43:32.154Z"
+  }
+]

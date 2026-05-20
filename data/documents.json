@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "1761168013284ktpgp31yz",
+    "title": "Test ",
+    "description": "Test ",
+    "author": {
+      "_id": "local-user",
+      "name": "Local User"
+    },
+    "likes": [],
+    "createdAt": "2025-10-22T21:20:13.284Z",
+    "updatedAt": "2025-10-22T21:20:13.284Z"
+  },
+  {
+    "_id": "1761172823851cn0xop4dt",
+    "title": "Image test ",
+    "description": "je teste une image ",
+    "author": {
+      "_id": "local-user",
+      "name": "Local User"
+    },
+    "likes": [],
+    "createdAt": "2025-10-22T22:40:23.851Z",
+    "updatedAt": "2025-10-22T22:40:23.851Z"
+  },
+  {
+    "_id": "1761173012137t3uld6bil",
+    "title": "image",
+    "description": "image ",
+    "author": {
+      "_id": "local-user",
+      "name": "Local User"
+    },
+    "likes": [],
+    "createdAt": "2025-10-22T22:43:32.137Z",
+    "updatedAt": "2025-10-22T22:43:32.137Z"
+  }
+]
