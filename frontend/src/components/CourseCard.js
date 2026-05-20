@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiBook, FiLayers, FiTag } from 'react-icons/fi';
+import { FiLayers, FiTag } from 'react-icons/fi';
 
 const CourseCard = ({ course }) => (
   <Link to={`/course/${course.id}`} className="course-card">
     <div className="course-card-header">
-      <FiBook size={28} />
+      <span className="card-clover">🍀</span>
     </div>
     <div className="course-card-body">
       <h3>{course.title}</h3>
