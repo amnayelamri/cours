@@ -534,39 +534,47 @@ a:hover {
 }
 
 /* ===== MOBILE TIKTOK SCROLL ===== */
-.mobile-slides {
-  display: none; /* caché sur desktop */
-}
+
+/* Caché par défaut sur desktop */
+.mobile-slides { display: none; }
 
 @media (max-width: 768px) {
   /* Cache le layout desktop */
   .desktop-only { display: none !important; }
 
-  /* Container de scroll avec snap */
+  /* course-page devient un flex-column plein écran */
+  .course-page {
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  /* Le scroll container prend tout l'espace restant sous le header */
   .mobile-slides {
-    display: block;
-    height: calc(100dvh - 64px);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Chaque slide = une "page" */
+  /* Chaque slide = exactement la hauteur du container */
   .mobile-slide {
     scroll-snap-align: start;
-    min-height: calc(100dvh - 64px);
+    flex: 0 0 100%;          /* prend 100% de la hauteur du container */
     display: flex;
     flex-direction: column;
-    padding: 16px 16px 20px;
-    border-bottom: 2px solid var(--border-color);
-    position: relative;
+    padding: 16px 16px 12px;
+    border-bottom: 1px solid var(--border-color);
+    box-sizing: border-box;
   }
 
   .mobile-slide-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     flex-shrink: 0;
   }
 
@@ -587,17 +595,20 @@ a:hover {
     flex-shrink: 0;
   }
 
+  /* Le contenu scrolle à l'intérieur du slide si besoin */
   .mobile-slide-content {
     flex: 1;
     overflow-y: auto;
+    min-height: 0;
   }
 
   /* Points de progression en bas */
   .mobile-progress {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 5px;
-    padding-top: 14px;
+    padding-top: 10px;
     flex-shrink: 0;
   }
 
