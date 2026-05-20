@@ -1,10 +1,13 @@
 const BASE = process.env.PUBLIC_URL || '';
 const isLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 
+// ?t= force le navigateur à ne pas utiliser le cache
+const bust = () => `?t=${Date.now()}`;
+
 export const getCourses = async () => {
   const res = isLocal
     ? await fetch('/api/courses')
-    : await fetch(`${BASE}/courses/index.json`);
+    : await fetch(`${BASE}/courses/index.json${bust()}`);
   if (!res.ok) throw new Error('Failed to fetch courses');
   return res.json();
 };
@@ -12,7 +15,7 @@ export const getCourses = async () => {
 export const getCourse = async (id) => {
   const res = isLocal
     ? await fetch(`/api/courses/${id}`)
-    : await fetch(`${BASE}/courses/${id}/course.json`);
+    : await fetch(`${BASE}/courses/${id}/course.json${bust()}`);
   if (!res.ok) throw new Error('Course not found');
   return res.json();
 };
