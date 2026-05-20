@@ -1,0 +1,329 @@
+.create-document-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.create-header {
+  margin-bottom: 32px;
+}
+
+.create-header h1 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.create-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.create-form {
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.create-form .form-group {
+  margin-bottom: 24px;
+}
+
+.create-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.create-form input,
+.create-form textarea {
+  width: 100%;
+  font-size: 14px;
+}
+
+.slides-section {
+  margin-bottom: 24px;
+}
+
+.slides-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.slides-header h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.btn-add-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.btn-add-slide:hover {
+  background-color: var(--primary-hover);
+}
+
+.slide-editor {
+  margin-bottom: 24px;
+  padding: 24px;
+  background-color: var(--background);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.slide-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.slide-number {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.slide-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-remove-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  color: var(--error-color);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.btn-remove-slide:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Content Block Editor */
+.content-block-editor {
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.content-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.block-type-select {
+  flex: 1;
+  padding: 8px 12px;
+  background-color: var(--background);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.block-type-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.btn-remove-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  color: var(--error-color);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-remove-block:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.content-textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+  padding: 12px;
+  background-color: var(--background);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.content-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.file-upload-area {
+  min-height: 120px;
+  border: 2px dashed var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.file-upload-area:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(96, 96, 96, 0.05);
+}
+
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 30px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  text-align: center;
+  width: 100%;
+}
+
+.file-upload-label:hover {
+  color: var(--primary-color);
+}
+
+.file-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--success-color);
+}
+
+.file-preview svg {
+  font-size: 32px;
+}
+
+.btn-change-file {
+  padding: 6px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-change-file:hover {
+  background-color: var(--primary-hover);
+}
+
+.youtube-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  background-color: var(--background);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.youtube-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.btn-add-content-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--surface);
+  color: var(--primary-color);
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 12px;
+  transition: all 0.2s ease;
+}
+
+.btn-add-content-block:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--primary-color);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-secondary {
+  min-width: 120px;
+}
+
+@media (max-width: 768px) {
+  .create-form {
+    padding: 20px;
+  }
+
+  .slide-editor {
+    padding: 16px;
+  }
+
+  .content-block-editor {
+    padding: 12px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .btn-primary,
+  .form-actions .btn-secondary {
+    width: 100%;
+  }
+}
