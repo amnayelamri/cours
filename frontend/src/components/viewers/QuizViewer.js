@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -16,6 +16,9 @@ const mdProps = {
 const QuizViewer = ({ question, choices = [], explanation }) => {
   const [selected, setSelected] = useState(null); // id du choix cliqué
   const answered = selected !== null;
+
+  // Remet le quiz à zéro quand on change de question (navigation entre slides)
+  useEffect(() => { setSelected(null); }, [question]);
 
   const handleChoice = (choice) => {
     if (answered) return; // on ne peut répondre qu'une fois
