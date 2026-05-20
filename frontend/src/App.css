@@ -183,8 +183,8 @@ a:hover {
   font-size: 17px; font-weight: 600; letter-spacing: -0.2px;
 }
 .navbar-brand:hover { color: var(--text-primary); }
-.brand-tree { height: 36px; width: auto; }
-.card-tree  { height: 52px; width: auto; }
+.brand-tree { height: 28px; width: auto; }
+.card-tree  { height: 42px; width: auto; }
 .navbar-menu { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 .nav-link {
   display: flex; align-items: center; gap: 6px;
