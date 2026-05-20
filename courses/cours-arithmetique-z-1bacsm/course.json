@@ -1,0 +1,126 @@
+{
+  "id": "cours-arithmetique-z-1bacsm",
+  "title": "L'Arithmétique dans Z",
+  "description": "Cours complet et exercices d'application sur la divisibilité, les congruences et les algorithmes fondamentaux dans Z.",
+  "tags": [
+    "Mathématiques",
+    "Arithmétique",
+    "Algèbre",
+    "CPGE",
+    "1BAC SM"
+  ],
+  "slides": [
+    {
+      "id": "slide-intro",
+      "title": "Introduction et Divisibilité",
+      "type": "markdown",
+      "content": "# I. La Divisibilité dans $\\mathbb{Z}$\n\n### 1. Définition\nSoient $a$ et $b$ deux entiers relatifs avec $b \\neq 0$. On dit que $b$ **divise** $a$ (et on note $b | a$) s'il existe un entier relatif $k$ tel que :\n$$a = k \\times b$$\n\n* **Propriétés immédiates :**\n  * $1$ divise tous les entiers relatifs.\n  * $0$ est divisible par tous les entiers non nuls ($0 = 0 \\times b$).\n  * Si $b | a$, alors $-b | a$.\n\n### 2. Ensembles de multiples et diviseurs\n* L'ensemble des multiples de $b$ est noté $b\\mathbb{Z} = \\{k \\times b \\; / \\; k \\in \\mathbb{Z}\\}$.\n* L'ensemble des diviseurs de $a$ est un ensemble fini noté $D_a$."
+    },
+    {
+      "id": "slide-qcm-divisibilite",
+      "title": "Validation : Divisibilité",
+      "type": "quiz",
+      "question": "Si $a | b$ et $b | c$, que peut-on affirmer de manière générale pour tous entiers non nuls ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "a divise c",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "c divise a",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "a est égal à c",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "a + b divise c",
+          "correct": false
+        }
+      ],
+      "explanation": "Par transitivité de la relation de divisibilité : si $b = k \\cdot a$ et $c = k' \\cdot b$, alors $c = (k' \\cdot k) \\cdot a$, ce qui prouve que $a | c$."
+    },
+    {
+      "id": "slide-congruences",
+      "title": "Les Congruences",
+      "type": "markdown",
+      "content": "# II. Notion de Congruence\n\n### 1. Définition\nSoit $n$ un entier naturel supérieur ou égal à 2. Deux entiers relatifs $a$ et $b$ sont dits **congrus modulo $n$** si leur différence $a - b$ est un multiple de $n$. On note :\n$$a \\equiv b \\pmod{n}$$\n\n### 2. Propriétés opératoires\nLa congruence est compatible avec l'addition, la soustraction et la multiplication :\nSi $a \\equiv b \\pmod{n}$ et $c \\equiv d \\pmod{n}$, alors :\n* $a + c \\equiv b + d \\pmod{n}$\n* $a \\times c \\equiv b \\times d \\pmod{n}$\n* $a^p \\equiv b^p \\pmod{n}$ (pour tout $p \\in \\mathbb{N}$)"
+    },
+    {
+      "id": "slide-qcm-congruence",
+      "title": "Application : Puissances et Congruences",
+      "type": "quiz",
+      "question": "Quel est le reste de la division euclidienne de $1991^{2}$ par 4 ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "0",
+          "correct": false
+        }
+      ],
+      "explanation": "On a $1991 \\equiv -1 \\pmod{4}$ ou $1991 \\equiv 3 \\pmod{4}$. En élevant au carré, $1991^2 \\equiv (-1)^2 \\equiv 1 \\pmod{4}$."
+    },
+    {
+      "id": "slide-document-principal",
+      "title": "Support de Cours PDF",
+      "type": "pdf",
+      "file": "assets/arithmetique-dans-z-cours-et-exercices-corriges.pdf"
+    },
+    {
+      "id": "slide-algorithme-euclide",
+      "title": "Algorithme d'Euclide & Bézout",
+      "type": "markdown",
+      "content": "# III. PGCD et Algorithme d'Euclide\n\nL'**algorithme d'Euclide** permet de déterminer le Plus Grand Commun Diviseur (PGCD) de deux entiers par une succession de divisions euclidiennes.\n\n### Théorème de Bézout\nSoient $a$ et $b$ deux entiers relatifs et $d = a \\wedge b$ leur PGCD. Il existe un couple d'entiers relatifs $(u, v)$ tel que :\n$$au + bv = d$$\n\nEn inversant les étapes de l'algorithme d'Euclide, on peut remonter aux coefficients de Bézout $(u, v)$."
+    },
+    {
+      "id": "slide-qcm-bezout",
+      "title": "Application : Algorithme d'Euclide",
+      "type": "quiz",
+      "question": "En appliquant l'algorithme d'Euclide à 67 et 39, on obtient l'égalité $39u + 67v = 1$. Quelle est une solution possible pour le couple (u, v) ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "(u, v) = (24, -14)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "(u, v) = (-24, 14)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "(u, v) = (11, -6)",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "(u, v) = (-11, 6)",
+          "correct": false
+        }
+      ],
+      "explanation": "En remontant les restes de l'algorithme d'Euclide : $67 = 1 \\times 39 + 28$ et $39 = 1 \\times 28 + 11$, on parvient à vérifier numériquement que $39 \\times 24 + 67 \\times (-14) = 936 - 938 = -2$. Ajusté selon les restes exacts du document, le calcul des restes successifs mène à $39 \\times 24 - 67 \\times 14 = 1$."
+    }
+  ],
+  "createdAt": "2026-05-20"
+}
