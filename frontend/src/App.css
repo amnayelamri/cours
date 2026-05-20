@@ -533,21 +533,14 @@ a:hover {
   display: flex; justify-content: flex-end; gap: 10px;
 }
 
-/* ===== MOBILE : SWIPE HORIZONTAL + SCROLL VERTICAL ===== */
+/* ===== MOBILE : CARROUSEL SWIPE ===== */
 
 /* Caché par défaut sur desktop */
 .mobile-slides { display: none; }
 
-@keyframes mobileFadeIn {
-  from { opacity: 0; transform: translateX(24px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
 @media (max-width: 768px) {
-  /* Cache le layout desktop */
   .desktop-only { display: none !important; }
 
-  /* course-page = colonne plein écran */
   .course-page {
     height: 100dvh;
     overflow: hidden;
@@ -555,17 +548,39 @@ a:hover {
     flex-direction: column;
   }
 
-  /* Container = une seule slide visible, scroll vertical libre */
+  /* Fenêtre visible : clips les panneaux hors-écran */
   .mobile-slides {
     display: flex;
-    flex-direction: column;
     flex: 1;
     min-height: 0;
-    overflow-y: auto;               /* scroll vertical du contenu */
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Bande intérieure : 3 panneaux côte à côte (300vw).
+     Le transform est géré en inline style par React. */
+  .mobile-slides-inner {
+    display: flex;
+    width: 300vw;
+    height: 100%;
+    will-change: transform;
+  }
+
+  /* Chaque panneau : largeur = 1 écran, scroll vertical libre */
+  .mobile-slide-panel {
+    width: 100vw;
+    flex-shrink: 0;
+    height: 100%;
+    overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     padding: 16px 16px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
   }
+  .mobile-slide-panel::-webkit-scrollbar { display: none; }
 
   .mobile-slide-header {
     display: flex;
@@ -592,13 +607,9 @@ a:hover {
     flex-shrink: 0;
   }
 
-  /* Animation à chaque changement de slide (key={current} force le re-mount) */
-  .mobile-slide-content {
-    flex: 1;
-    animation: mobileFadeIn 0.22s ease;
-  }
+  .mobile-slide-content { flex: 1; }
 
-  /* Points de progression en bas */
+  /* Points de progression */
   .mobile-progress {
     display: flex;
     justify-content: center;

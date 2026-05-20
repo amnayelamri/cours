@@ -23,15 +23,20 @@ const SlideContent = ({ slide, courseId }) => {
 const CoursePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [course, setCourse] = useState(null);
-  const [current, setCurrent] = useState(0);
+  const [course, setCourse]     = useState(null);
+  const [current, setCurrent]   = useState(0);
   const [showList, setShowList] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [loading, setLoading]   = useState(true);
+  const [error, setError]       = useState('');
 
-  // Touch state pour le swipe mobile
-  const touchStart = useRef({ x: 0, y: 0 });
-  const touchLocked = useRef(null); // 'h' = horizontal, 'v' = vertical, null = indéfini
+  // ── Carousel mobile ────────────────────────────────────────────
+  const [dragOffset, setDragOffset]   = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const touchRef      = useRef({ x: 0, y: 0, dir: null });
+  const animatingRef  = useRef(false); // ref pour les callbacks (évite les closures périmées)
+  const containerRef  = useRef(null);
+  const centerPanelRef = useRef(null);
+  // ──────────────────────────────────────────────────────────────
 
   useEffect(() => {
     getCourse(id)
@@ -41,10 +46,15 @@ const CoursePage = () => {
   }, [id]);
 
   const total = course?.slides?.length || 0;
-  const prev = useCallback(() => setCurrent(s => Math.max(0, s - 1)), []);
-  const next = useCallback(() => setCurrent(s => Math.min(total - 1, s + 1)), [total]);
+  const prev  = useCallback(() => setCurrent(s => Math.max(0, s - 1)), []);
+  const next  = useCallback(() => setCurrent(s => Math.min(total - 1, s + 1)), [total]);
 
-  // Clavier pour desktop
+  // Remet le scroll en haut à chaque changement de slide
+  useEffect(() => {
+    if (centerPanelRef.current) centerPanelRef.current.scrollTop = 0;
+  }, [current]);
+
+  // Clavier (desktop)
   useEffect(() => {
     const handler = (e) => {
       if (e.key === 'ArrowRight') next();
@@ -54,40 +64,89 @@ const CoursePage = () => {
     return () => window.removeEventListener('keydown', handler);
   }, [prev, next]);
 
-  // ── Swipe mobile ──────────────────────────────────────────────
+  // ── Touch start ────────────────────────────────────────────────
   const handleTouchStart = useCallback((e) => {
-    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    touchLocked.current = null; // réinitialise la direction à chaque toucher
+    if (animatingRef.current) return;
+    touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY, dir: null };
   }, []);
 
+  // ── Touch move (non-passive, pour pouvoir appeler preventDefault) ──
   const handleTouchMove = useCallback((e) => {
-    const dx = Math.abs(e.touches[0].clientX - touchStart.current.x);
-    const dy = Math.abs(e.touches[0].clientY - touchStart.current.y);
+    if (animatingRef.current) return;
+    const dx = e.touches[0].clientX - touchRef.current.x;
+    const dy = e.touches[0].clientY - touchRef.current.y;
 
-    // On verrouille la direction dès qu'on dépasse 8 px
-    if (touchLocked.current === null && (dx > 8 || dy > 8)) {
-      touchLocked.current = dx > dy ? 'h' : 'v';
+    // Verrouille la direction dès 8 px de mouvement
+    if (touchRef.current.dir === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+      touchRef.current.dir = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
     }
 
-    // Si la direction est horizontale, on bloque le scroll natif
-    if (touchLocked.current === 'h') {
-      e.preventDefault();
+    if (touchRef.current.dir === 'h') {
+      e.preventDefault(); // empêche le scroll natif sur l'axe horizontal
+      // Résistance en bout de course (1ère / dernière slide)
+      let offset = dx;
+      if ((dx > 0 && current === 0) || (dx < 0 && current === total - 1)) {
+        offset = dx * 0.2;
+      }
+      setDragOffset(offset);
     }
-  }, []);
+  }, [current, total]);
 
+  // ── Touch end ──────────────────────────────────────────────────
   const handleTouchEnd = useCallback((e) => {
-    if (touchLocked.current !== 'h') return; // c'était un scroll vertical, on ne fait rien
-    const dx = e.changedTouches[0].clientX - touchStart.current.x;
-    if (dx < -40) next();       // swipe vers la gauche  → slide suivante
-    else if (dx > 40) prev();   // swipe vers la droite → slide précédente
-  }, [next, prev]);
-  // ─────────────────────────────────────────────────────────────
+    if (touchRef.current.dir !== 'h') return;
+
+    const dx        = e.changedTouches[0].clientX - touchRef.current.x;
+    const W         = window.innerWidth;
+    const threshold = W * 0.28; // 28 % de la largeur écran suffit
+
+    animatingRef.current = true;
+    setIsAnimating(true);
+
+    if (dx < -threshold && current < total - 1) {
+      // ── Glisse vers la gauche → slide suivante
+      setDragOffset(-W);
+      setTimeout(() => {
+        animatingRef.current = false;
+        setIsAnimating(false);
+        setCurrent(s => s + 1);
+        setDragOffset(0);
+      }, 300);
+    } else if (dx > threshold && current > 0) {
+      // ── Glisse vers la droite → slide précédente
+      setDragOffset(W);
+      setTimeout(() => {
+        animatingRef.current = false;
+        setIsAnimating(false);
+        setCurrent(s => s - 1);
+        setDragOffset(0);
+      }, 300);
+    } else {
+      // ── Pas assez → revient en place
+      setDragOffset(0);
+      setTimeout(() => {
+        animatingRef.current = false;
+        setIsAnimating(false);
+      }, 300);
+    }
+  }, [current, total]);
+
+  // Attache le listener touchmove en { passive: false } pour pouvoir preventDefault
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    el.addEventListener('touchmove', handleTouchMove, { passive: false });
+    return () => el.removeEventListener('touchmove', handleTouchMove);
+  }, [handleTouchMove]);
+  // ──────────────────────────────────────────────────────────────
 
   if (loading) return <div className="loading">Chargement du cours...</div>;
   if (error)   return <div className="error">{error}</div>;
   if (!total)  return <div className="error">Ce cours n'a pas encore de slides.</div>;
 
-  const slide = course.slides[current];
+  const slide     = course.slides[current];
+  const prevSlide = current > 0         ? course.slides[current - 1] : null;
+  const nextSlide = current < total - 1 ? course.slides[current + 1] : null;
 
   return (
     <div className="course-page">
@@ -104,7 +163,7 @@ const CoursePage = () => {
         </button>
       </div>
 
-      {/* ── DESKTOP : un slide à la fois ── */}
+      {/* ── DESKTOP ── */}
       <div className="course-layout desktop-only">
         <div className="slide-area">
           {slide.title && <div className="slide-title">{slide.title}</div>}
@@ -123,7 +182,6 @@ const CoursePage = () => {
             </button>
           </div>
         </div>
-
         {showList && (
           <div className="slide-list">
             <div className="slide-list-header">Slides</div>
@@ -142,27 +200,68 @@ const CoursePage = () => {
         )}
       </div>
 
-      {/* ── MOBILE : slide unique, swipe horizontal, scroll vertical ── */}
+      {/* ── MOBILE : carrousel 3 panneaux ── */}
       <div
         className="mobile-slides"
+        ref={containerRef}
         onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="mobile-slide-header">
-          {slide.title && <span className="mobile-slide-title">{slide.title}</span>}
-          <span className="mobile-slide-counter">{current + 1} / {total}</span>
-        </div>
+        {/* Bande intérieure qui se déplace */}
+        <div
+          className="mobile-slides-inner"
+          style={{
+            transform: `translateX(calc(-100vw + ${dragOffset}px))`,
+            transition: isAnimating
+              ? 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+              : 'none',
+          }}
+        >
+          {/* Panneau GAUCHE — slide précédente */}
+          <div className="mobile-slide-panel">
+            {prevSlide && (
+              <>
+                <div className="mobile-slide-header">
+                  {prevSlide.title && <span className="mobile-slide-title">{prevSlide.title}</span>}
+                  <span className="mobile-slide-counter">{current} / {total}</span>
+                </div>
+                <div className="mobile-slide-content">
+                  <SlideContent slide={prevSlide} courseId={id} />
+                </div>
+              </>
+            )}
+          </div>
 
-        {/* key={current} force un re-mount → déclenche l'animation de transition */}
-        <div key={current} className="mobile-slide-content">
-          <SlideContent slide={slide} courseId={id} />
-        </div>
+          {/* Panneau CENTRE — slide actuelle */}
+          <div className="mobile-slide-panel" ref={centerPanelRef}>
+            <div className="mobile-slide-header">
+              {slide.title && <span className="mobile-slide-title">{slide.title}</span>}
+              <span className="mobile-slide-counter">{current + 1} / {total}</span>
+            </div>
+            <div className="mobile-slide-content">
+              <SlideContent slide={slide} courseId={id} />
+            </div>
+            <div className="mobile-progress">
+              {course.slides.map((_, pi) => (
+                <div key={pi} className={`mobile-dot ${pi === current ? 'active' : ''}`} />
+              ))}
+            </div>
+          </div>
 
-        <div className="mobile-progress">
-          {course.slides.map((_, pi) => (
-            <div key={pi} className={`mobile-dot ${pi === current ? 'active' : ''}`} />
-          ))}
+          {/* Panneau DROIT — slide suivante */}
+          <div className="mobile-slide-panel">
+            {nextSlide && (
+              <>
+                <div className="mobile-slide-header">
+                  {nextSlide.title && <span className="mobile-slide-title">{nextSlide.title}</span>}
+                  <span className="mobile-slide-counter">{current + 2} / {total}</span>
+                </div>
+                <div className="mobile-slide-content">
+                  <SlideContent slide={nextSlide} courseId={id} />
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
