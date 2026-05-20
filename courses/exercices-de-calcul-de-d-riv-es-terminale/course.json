@@ -1,0 +1,608 @@
+{
+  "title": "Exercices de calcul de dérivées — Terminale",
+  "description": "Banque d'exercices QCM pour s'entraîner au calcul de dérivées en Terminale : du simple échauffement (dérivées usuelles) jusqu'aux exercices de type bac (compositions et expressions complexes), avec correction détaillée pour chaque question.",
+  "tags": [
+    "mathématiques",
+    "terminale",
+    "dérivation",
+    "exercices",
+    "QCM",
+    "entraînement"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Présentation",
+      "type": "markdown",
+      "content": "# Exercices — Calcul de dérivées\n\n## Comment utiliser cette banque ?\n\nCette série regroupe **20 exercices QCM** sur le calcul de dérivées, classés du plus simple au plus difficile.\n\n### Progression\n\n- **Exercices 1 à 4** — Échauffement : dérivées des fonctions usuelles\n- **Exercices 5 à 8** — Opérations : somme, produit, quotient\n- **Exercices 9 à 14** — Fonctions composées : $u^n$, $\\sqrt{u}$, $e^u$, $\\ln(u)$\n- **Exercices 15 à 18** — Combinaisons : produits/quotients de composées\n- **Exercices 19 à 20** — Type bac : expressions complexes\n\n### Conseils\n\n- Prends une feuille de brouillon pour poser tes calculs\n- Identifie d'abord la **structure** : somme, produit, quotient ou composée\n- Écris explicitement $u$, $u'$, $v$, $v'$\n- Ne consulte la correction qu'après avoir vraiment cherché !\n\n> *Bonne révision — un peu de pratique chaque jour vaut mieux qu'une longue séance la veille du DS.*"
+    },
+    {
+      "id": "s2",
+      "title": "Exercice 1 — Polynôme simple",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = 4x^3 - 7x^2 + 5x - 2$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$12x^2 - 14x + 5$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$12x^2 - 14x + 5 - 2$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$4x^2 - 7x + 5$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$12x^3 - 14x^2 + 5$",
+          "correct": false
+        }
+      ],
+      "explanation": "On applique la linéarité et la formule $(x^n)' = n\\,x^{n-1}$ terme à terme : $(4x^3)' = 12x^2$, $(-7x^2)' = -14x$, $(5x)' = 5$, $(-2)' = 0$. D'où $f'(x) = 12x^2 - 14x + 5$. La constante $-2$ disparaît à la dérivation."
+    },
+    {
+      "id": "s3",
+      "title": "Exercice 2 — Inverse et racine",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\dfrac{3}{x} + 2\\sqrt{x}$ sur $]0\\,;\\,+\\infty[$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$-\\dfrac{3}{x^2} + \\dfrac{1}{\\sqrt{x}}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$-\\dfrac{3}{x^2} + \\dfrac{2}{\\sqrt{x}}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{3}{x^2} + \\dfrac{1}{\\sqrt{x}}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-\\dfrac{3}{x} + 2\\sqrt{x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $\\left(\\dfrac{1}{x}\\right)' = -\\dfrac{1}{x^2}$ et $(\\sqrt{x})' = \\dfrac{1}{2\\sqrt{x}}$. Donc $f'(x) = 3 \\cdot \\left(-\\dfrac{1}{x^2}\\right) + 2 \\cdot \\dfrac{1}{2\\sqrt{x}} = -\\dfrac{3}{x^2} + \\dfrac{1}{\\sqrt{x}}$. Les constantes multiplicatives $3$ et $2$ sortent simplement de la dérivée."
+    },
+    {
+      "id": "s4",
+      "title": "Exercice 3 — Fonction polynomiale",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\dfrac{1}{3}x^3 - \\dfrac{5}{2}x^2 + 6x + \\pi$. Que vaut $f'(2)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\pi$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$4$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-6$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f'(x) = x^2 - 5x + 6$ (attention : $\\pi$ est une constante donc sa dérivée est $0$). On évalue en $2$ : $f'(2) = 4 - 10 + 6 = 0$. C'est un cas classique d'extremum local."
+    },
+    {
+      "id": "s5",
+      "title": "Exercice 4 — Constantes",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = e^{2} \\cdot x^3 + \\ln(3) \\cdot x + 7$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$3\\,e^{2}\\,x^2 + \\ln(3)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e^{2}\\,x^2 + \\dfrac{1}{3}x + 7$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$3\\,e^{2}\\,x^2 + \\dfrac{1}{3} + 7$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$3x^2 + 1$",
+          "correct": false
+        }
+      ],
+      "explanation": "Attention : $e^2$ et $\\ln(3)$ sont des **constantes** (des nombres). Donc $f$ est de la forme $a x^3 + b x + c$ avec $a = e^2$, $b = \\ln(3)$ et $c = 7$. D'où $f'(x) = 3 e^2 x^2 + \\ln(3)$. La constante $7$ disparaît."
+    },
+    {
+      "id": "s6",
+      "title": "Exercice 5 — Produit",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = (x^2 + 2)(3x - 1)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$9x^2 - 2x + 6$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$6x \\cdot 3 = 18x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$3x^2 - 2x + 6$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2x(3x-1) + 3$",
+          "correct": false
+        }
+      ],
+      "explanation": "Avec $u = x^2 + 2$ ($u' = 2x$) et $v = 3x - 1$ ($v' = 3$) : $f'(x) = u'v + uv' = 2x(3x - 1) + 3(x^2 + 2) = 6x^2 - 2x + 3x^2 + 6 = 9x^2 - 2x + 6$."
+    },
+    {
+      "id": "s7",
+      "title": "Exercice 6 — Produit avec exp",
+      "type": "quiz",
+      "question": "Soit $f(x) = (2x - 5)\\,e^x$. Quelle est sa dérivée ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$(2x - 3)\\,e^x$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$2\\,e^x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(2x - 5)\\,e^x$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$(2x - 7)\\,e^x$",
+          "correct": false
+        }
+      ],
+      "explanation": "$u = 2x - 5$ ($u' = 2$) et $v = e^x$ ($v' = e^x$). $f'(x) = 2\\,e^x + (2x - 5)\\,e^x = e^x\\,(2 + 2x - 5) = (2x - 3)\\,e^x$. On factorise toujours par $e^x$ à la fin."
+    },
+    {
+      "id": "s8",
+      "title": "Exercice 7 — Quotient simple",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\dfrac{x + 3}{2x - 1}$ sur $\\mathbb{R} \\setminus \\left\\{\\dfrac{1}{2}\\right\\}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{-7}{(2x - 1)^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{7}{(2x - 1)^2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{-5}{(2x - 1)^2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$u = x + 3$ ($u' = 1$) et $v = 2x - 1$ ($v' = 2$). $f'(x) = \\dfrac{u'v - uv'}{v^2} = \\dfrac{1 \\cdot (2x - 1) - (x + 3) \\cdot 2}{(2x - 1)^2} = \\dfrac{2x - 1 - 2x - 6}{(2x - 1)^2} = \\dfrac{-7}{(2x - 1)^2}$."
+    },
+    {
+      "id": "s9",
+      "title": "Exercice 8 — Quotient polynomial",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\dfrac{x^2 - 1}{x^2 + 1}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{4x}{(x^2 + 1)^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{2x}{2x} = 1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{-4x}{(x^2 + 1)^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{2x(x^2 + 1) - 2x(x^2 - 1)}{x^2 + 1}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$u = x^2 - 1$ ($u' = 2x$) et $v = x^2 + 1$ ($v' = 2x$). $f'(x) = \\dfrac{2x(x^2 + 1) - (x^2 - 1)(2x)}{(x^2 + 1)^2} = \\dfrac{2x\\bigl[(x^2 + 1) - (x^2 - 1)\\bigr]}{(x^2 + 1)^2} = \\dfrac{2x \\cdot 2}{(x^2 + 1)^2} = \\dfrac{4x}{(x^2 + 1)^2}$."
+    },
+    {
+      "id": "s10",
+      "title": "Exercice 9 — Composée $(ax+b)^n$",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = (5x + 2)^4$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$20(5x + 2)^3$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$4(5x + 2)^3$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(5x + 2)^3$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$20(5x + 2)^4$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $(u^n)' = n\\,u'\\,u^{n-1}$ avec $u = 5x + 2$ ($u' = 5$) et $n = 4$. Donc $f'(x) = 4 \\cdot 5 \\cdot (5x + 2)^3 = 20(5x + 2)^3$. Ne pas oublier le facteur $u' = 5$ !"
+    },
+    {
+      "id": "s11",
+      "title": "Exercice 10 — Composée exp affine",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = e^{-2x + 5}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$-2\\,e^{-2x + 5}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e^{-2x + 5}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-2\\,e^{-2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$e^{-2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $(e^u)' = u'\\,e^u$ avec $u = -2x + 5$ donc $u' = -2$. Ainsi $f'(x) = -2\\,e^{-2x + 5}$. L'exposant reste identique, seul le coefficient $u' = -2$ apparaît devant."
+    },
+    {
+      "id": "s12",
+      "title": "Exercice 11 — Composée ln affine",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\ln(4x + 7)$ pour $x > -\\dfrac{7}{4}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{4}{4x + 7}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{4x + 7}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{4}{x}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{4}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $(\\ln(u))' = \\dfrac{u'}{u}$ avec $u = 4x + 7$ et $u' = 4$. Donc $f'(x) = \\dfrac{4}{4x + 7}$."
+    },
+    {
+      "id": "s13",
+      "title": "Exercice 12 — Composée $u^n$",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = (x^2 - 3x + 1)^5$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$5(2x - 3)(x^2 - 3x + 1)^4$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$5(x^2 - 3x + 1)^4$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(2x - 3)^5$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$5(2x - 3)^4$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $(u^n)' = n\\,u'\\,u^{n-1}$ avec $u = x^2 - 3x + 1$ ($u' = 2x - 3$) et $n = 5$. Donc $f'(x) = 5(2x - 3)(x^2 - 3x + 1)^4$."
+    },
+    {
+      "id": "s14",
+      "title": "Exercice 13 — Racine d'une composée",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\sqrt{x^2 + 4}$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{x}{\\sqrt{x^2 + 4}}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{2\\sqrt{x^2 + 4}}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{2x}{\\sqrt{x^2 + 4}}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\sqrt{2x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On utilise $(\\sqrt{u})' = \\dfrac{u'}{2\\sqrt{u}}$ avec $u = x^2 + 4$ et $u' = 2x$. Donc $f'(x) = \\dfrac{2x}{2\\sqrt{x^2 + 4}} = \\dfrac{x}{\\sqrt{x^2 + 4}}$. Bien définie sur $\\mathbb{R}$ car $x^2 + 4 > 0$."
+    },
+    {
+      "id": "s15",
+      "title": "Exercice 14 — Exp d'une composée",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = e^{x^3 + x}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$(3x^2 + 1)\\,e^{x^3 + x}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e^{3x^2 + 1}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$e^{x^3 + x}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$3x^2 \\cdot e^{x^3 + x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$(e^u)' = u'\\,e^u$ avec $u = x^3 + x$ donc $u' = 3x^2 + 1$. Donc $f'(x) = (3x^2 + 1)\\,e^{x^3 + x}$. L'erreur classique est d'oublier le « $+1$ » dans $u'$."
+    },
+    {
+      "id": "s16",
+      "title": "Exercice 15 — Ln d'une composée",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\ln(x^2 + 2x + 5)$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{2x + 2}{x^2 + 2x + 5}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{x^2 + 2x + 5}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{2x + 2}{1}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{2x + 2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$(\\ln(u))' = \\dfrac{u'}{u}$ avec $u = x^2 + 2x + 5$ et $u' = 2x + 2$. Donc $f'(x) = \\dfrac{2x + 2}{x^2 + 2x + 5}$. La fonction est bien définie sur $\\mathbb{R}$ car $x^2 + 2x + 5 = (x+1)^2 + 4 > 0$."
+    },
+    {
+      "id": "s17",
+      "title": "Exercice 16 — Produit avec composée",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = x^2\\,e^{3x}$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$x\\,(3x + 2)\\,e^{3x}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$2x\\,e^{3x}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$6x\\,e^{3x}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$x^2\\,e^{3x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Produit : $u = x^2$ ($u' = 2x$), $v = e^{3x}$ ($v' = 3\\,e^{3x}$). $f'(x) = 2x\\,e^{3x} + x^2 \\cdot 3\\,e^{3x} = e^{3x}\\,(2x + 3x^2) = x\\,e^{3x}\\,(2 + 3x) = x\\,(3x + 2)\\,e^{3x}$. Toujours factoriser à la fin."
+    },
+    {
+      "id": "s18",
+      "title": "Exercice 17 — Produit ln × polynôme",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = (x - 1)\\,\\ln(x)$ sur $]0\\,;\\,+\\infty[$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\ln(x) + 1 - \\dfrac{1}{x}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{x - 1}{x}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\ln(x) + \\dfrac{x - 1}{x}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Produit : $u = x - 1$ ($u' = 1$), $v = \\ln(x)$ ($v' = \\dfrac{1}{x}$). $f'(x) = 1 \\cdot \\ln(x) + (x - 1) \\cdot \\dfrac{1}{x} = \\ln(x) + \\dfrac{x - 1}{x} = \\ln(x) + 1 - \\dfrac{1}{x}$. Pense bien à simplifier la fraction."
+    },
+    {
+      "id": "s19",
+      "title": "Exercice 18 — Quotient avec exp",
+      "type": "quiz",
+      "question": "Quelle est la dérivée de $f(x) = \\dfrac{e^x}{x + 1}$ sur $\\mathbb{R} \\setminus \\{-1\\}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{x\\,e^x}{(x + 1)^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{e^x}{1}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{e^x\\,(x + 1) + e^x}{(x + 1)^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{(x + 1)\\,e^x}{x^2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Quotient : $u = e^x$ ($u' = e^x$), $v = x + 1$ ($v' = 1$). $f'(x) = \\dfrac{e^x(x + 1) - e^x \\cdot 1}{(x + 1)^2} = \\dfrac{e^x(x + 1 - 1)}{(x + 1)^2} = \\dfrac{x\\,e^x}{(x + 1)^2}$."
+    },
+    {
+      "id": "s20",
+      "title": "Exercice 19 — Type bac (1)",
+      "type": "quiz",
+      "question": "Soit $f$ définie sur $\\mathbb{R}$ par $f(x) = (x^2 - 2x)\\,e^{-x}$. Quelle est sa dérivée ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$-(x^2 - 4x + 2)\\,e^{-x}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$(2x - 2)\\,e^{-x}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(2x - 2 - x^2 + 2x)\\,e^{-x}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-(x^2 - 2x)\\,e^{-x}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Produit : $u = x^2 - 2x$ ($u' = 2x - 2$), $v = e^{-x}$ ($v' = -e^{-x}$). $f'(x) = (2x - 2)\\,e^{-x} + (x^2 - 2x) \\cdot (-e^{-x}) = e^{-x}\\bigl[(2x - 2) - (x^2 - 2x)\\bigr] = e^{-x}\\,(-x^2 + 4x - 2) = -(x^2 - 4x + 2)\\,e^{-x}$."
+    },
+    {
+      "id": "s21",
+      "title": "Exercice 20 — Type bac (2)",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\dfrac{\\ln(x)}{x}$ sur $]0\\,;\\,+\\infty[$. Que vaut $f'(x)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1 - \\ln(x)}{x^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{\\ln(x) - 1}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1 + \\ln(x)}{x^2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Quotient : $u = \\ln(x)$ ($u' = \\dfrac{1}{x}$), $v = x$ ($v' = 1$). $f'(x) = \\dfrac{\\dfrac{1}{x} \\cdot x - \\ln(x) \\cdot 1}{x^2} = \\dfrac{1 - \\ln(x)}{x^2}$. Remarque : $f'(x) = 0 \\Leftrightarrow \\ln(x) = 1 \\Leftrightarrow x = e$, et c'est en $e$ que $f$ atteint son maximum sur $]0\\,;\\,+\\infty[$."
+    },
+    {
+      "id": "s22",
+      "title": "Pour aller plus loin",
+      "type": "markdown",
+      "content": "## Bravo !\n\nTu as terminé les 20 exercices de calcul de dérivées.\n\n### Auto-évaluation\n\n| Score | Niveau |\n|---|---|\n| 18 à 20 / 20 | Excellent — tu maîtrises totalement |\n| 14 à 17 / 20 | Bon niveau — quelques pièges à revoir |\n| 10 à 13 / 20 | Correct — refais les exercices ratés |\n| Moins de 10 | À revoir — reprends le cours de dérivation |\n\n### Pour s'entraîner davantage\n\n- Refais les exercices que tu as ratés **sans regarder la correction**\n- Invente toi-même des dérivées à calculer en t'inspirant des exercices\n- Travaille la **rapidité** : un calcul de dérivée doit devenir un réflexe\n- Entraîne-toi sur des **sujets de bac** pour mettre en contexte\n\n### Les formules à toujours avoir en tête\n\n$$(uv)' = u'v + uv' \\qquad \\left(\\dfrac{u}{v}\\right)' = \\dfrac{u'v - uv'}{v^2}$$\n\n$$(u^n)' = n\\,u'\\,u^{n-1} \\qquad (e^u)' = u'\\,e^u \\qquad (\\ln u)' = \\dfrac{u'}{u}$$\n\n> 🎯 **À retenir** : devant une dérivée, identifie d'abord la **structure** (somme, produit, quotient, composée), puis applique méthodiquement la bonne formule."
+    }
+  ],
+  "id": "exercices-de-calcul-de-d-riv-es-terminale",
+  "createdAt": "2026-05-20"
+}

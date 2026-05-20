@@ -41,5 +41,49 @@
     ],
     "createdAt": "2026-05-20",
     "slideCount": 20
+  },
+  {
+    "id": "tude-de-fonction-terminale",
+    "title": "Étude de fonction — Terminale",
+    "description": "Cours complet sur l'étude d'une fonction numérique en Terminale : ensemble de définition, limites, asymptotes, continuité, dérivation, variations, convexité et méthode complète, avec QCM de validation.",
+    "tags": [
+      "mathématiques",
+      "terminale",
+      "analyse",
+      "étude de fonction",
+      "dérivation",
+      "limites"
+    ],
+    "createdAt": "2026-05-20",
+    "slideCount": 24
+  },
+  {
+    "id": "calcul-de-d-riv-es-terminale",
+    "title": "Calcul de dérivées — Terminale",
+    "description": "Cours complet et progressif sur le calcul de dérivées en Terminale : nombre dérivé, dérivées usuelles, opérations (somme, produit, quotient), fonctions composées, exemples détaillés et QCM d'entraînement.",
+    "tags": [
+      "mathématiques",
+      "terminale",
+      "analyse",
+      "dérivation",
+      "calcul de dérivées"
+    ],
+    "createdAt": "2026-05-20",
+    "slideCount": 23
+  },
+  {
+    "id": "exercices-de-calcul-de-d-riv-es-terminale",
+    "title": "Exercices de calcul de dérivées — Terminale",
+    "description": "Banque d'exercices QCM pour s'entraîner au calcul de dérivées en Terminale : du simple échauffement (dérivées usuelles) jusqu'aux exercices de type bac (compositions et expressions complexes), avec correction détaillée pour chaque question.",
+    "tags": [
+      "mathématiques",
+      "terminale",
+      "dérivation",
+      "exercices",
+      "QCM",
+      "entraînement"
+    ],
+    "createdAt": "2026-05-20",
+    "slideCount": 22
   }
 ]
