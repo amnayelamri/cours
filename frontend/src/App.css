@@ -533,6 +533,88 @@ a:hover {
   display: flex; justify-content: flex-end; gap: 10px;
 }
 
+/* ===== MOBILE TIKTOK SCROLL ===== */
+.mobile-slides {
+  display: none; /* caché sur desktop */
+}
+
+@media (max-width: 768px) {
+  /* Cache le layout desktop */
+  .desktop-only { display: none !important; }
+
+  /* Container de scroll avec snap */
+  .mobile-slides {
+    display: block;
+    height: calc(100dvh - 64px);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Chaque slide = une "page" */
+  .mobile-slide {
+    scroll-snap-align: start;
+    min-height: calc(100dvh - 64px);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px 20px;
+    border-bottom: 2px solid var(--border-color);
+    position: relative;
+  }
+
+  .mobile-slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+
+  .mobile-slide-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .mobile-slide-counter {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: var(--surface-hover);
+    padding: 3px 8px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .mobile-slide-content {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  /* Points de progression en bas */
+  .mobile-progress {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding-top: 14px;
+    flex-shrink: 0;
+  }
+
+  .mobile-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .mobile-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.4);
+  }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 

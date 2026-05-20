@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getCourse, getAssetUrl } from '../services/courseService';
 import MarkdownViewer from '../components/viewers/MarkdownViewer';
@@ -28,6 +28,7 @@ const CoursePage = () => {
   const [showList, setShowList] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const mobileContainerRef = useRef(null);
 
   useEffect(() => {
     getCourse(id)
@@ -40,6 +41,7 @@ const CoursePage = () => {
   const prev = useCallback(() => setCurrent(s => Math.max(0, s - 1)), []);
   const next = useCallback(() => setCurrent(s => Math.min(total - 1, s + 1)), [total]);
 
+  // Clavier pour desktop
   useEffect(() => {
     const handler = (e) => {
       if (e.key === 'ArrowRight') next();
@@ -48,6 +50,26 @@ const CoursePage = () => {
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [prev, next]);
+
+  // IntersectionObserver : met à jour le slide actif quand on scroll sur mobile
+  useEffect(() => {
+    const container = mobileContainerRef.current;
+    if (!container || !course) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            setCurrent(parseInt(entry.target.dataset.index, 10));
+          }
+        });
+      },
+      { threshold: 0.5, root: container }
+    );
+
+    container.querySelectorAll('.mobile-slide').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, [course]);
 
   if (loading) return <div className="loading">Chargement du cours...</div>;
   if (error)   return <div className="error">{error}</div>;
@@ -70,7 +92,8 @@ const CoursePage = () => {
         </button>
       </div>
 
-      <div className="course-layout">
+      {/* ── DESKTOP : un slide à la fois ── */}
+      <div className="course-layout desktop-only">
         <div className="slide-area">
           {slide.title && <div className="slide-title">{slide.title}</div>}
           <div className="slide-content">
@@ -105,6 +128,29 @@ const CoursePage = () => {
             ))}
           </div>
         )}
+      </div>
+
+      {/* ── MOBILE : scroll TikTok-style ── */}
+      <div className="mobile-slides" ref={mobileContainerRef}>
+        {course.slides.map((s, i) => (
+          <div key={s.id || i} className="mobile-slide" data-index={i}>
+            {/* Indicateur en haut */}
+            <div className="mobile-slide-header">
+              {s.title && <span className="mobile-slide-title">{s.title}</span>}
+              <span className="mobile-slide-counter">{i + 1} / {total}</span>
+            </div>
+            {/* Contenu */}
+            <div className="mobile-slide-content">
+              <SlideContent slide={s} courseId={id} />
+            </div>
+            {/* Barre de progression */}
+            <div className="mobile-progress">
+              {course.slides.map((_, pi) => (
+                <div key={pi} className={`mobile-dot ${pi === i ? 'active' : ''}`} />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
