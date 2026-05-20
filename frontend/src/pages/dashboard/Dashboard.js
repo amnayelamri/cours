@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { getCourses, deleteCourse, createCourse } from '../../services/courseService';
-import { FiPlus, FiUpload, FiEdit2, FiTrash2, FiBook, FiEye } from 'react-icons/fi';
+import { FiPlus, FiUpload, FiEdit2, FiTrash2, FiBook, FiEye, FiClipboard, FiX, FiCheck } from 'react-icons/fi';
 
 const JSON_SCHEMA = {
   id: "id-optionnel (auto-généré si absent)",
@@ -48,6 +48,10 @@ const Dashboard = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [pasteOpen, setPasteOpen] = useState(false);
+  const [pasteText, setPasteText] = useState('');
+  const [pasteError, setPasteError] = useState('');
+  const textareaRef = useRef(null);
 
   const load = () => {
     setLoading(true);
@@ -87,6 +91,27 @@ const Dashboard = () => {
     e.target.value = '';
   };
 
+  const openPaste = () => {
+    setPasteText('');
+    setPasteError('');
+    setPasteOpen(true);
+    setTimeout(() => textareaRef.current?.focus(), 50);
+  };
+
+  const handlePasteImport = async () => {
+    setPasteError('');
+    try {
+      const data = JSON.parse(pasteText);
+      if (!data.title) throw new Error('Le champ "title" est requis.');
+      await createCourse(data);
+      setPasteOpen(false);
+      setPasteText('');
+      load();
+    } catch (err) {
+      setPasteError('JSON invalide : ' + err.message);
+    }
+  };
+
   if (loading) return <div className="loading">Chargement...</div>;
 
   return (
@@ -94,8 +119,11 @@ const Dashboard = () => {
       <div className="dashboard-header">
         <h1>Mes cours</h1>
         <div className="dashboard-actions">
+          <button className="btn-secondary import-btn" onClick={openPaste}>
+            <FiClipboard size={15} /> Coller JSON
+          </button>
           <label className="btn-secondary import-btn">
-            <FiUpload size={15} /> Importer JSON
+            <FiUpload size={15} /> Fichier JSON
             <input type="file" accept=".json" onChange={handleImport} hidden />
           </label>
           <Link to="/dashboard/new" className="btn-primary">
@@ -105,6 +133,36 @@ const Dashboard = () => {
       </div>
 
       {error && <div className="error-message">{error}</div>}
+
+      {pasteOpen && (
+        <div className="paste-modal-overlay" onClick={() => setPasteOpen(false)}>
+          <div className="paste-modal" onClick={e => e.stopPropagation()}>
+            <div className="paste-modal-header">
+              <h2><FiClipboard size={18} /> Coller le JSON généré par l'IA</h2>
+              <button onClick={() => setPasteOpen(false)} className="close-btn"><FiX size={18} /></button>
+            </div>
+            <p className="paste-hint">
+              Copie le JSON depuis l'IA et colle-le ici directement.
+            </p>
+            <textarea
+              ref={textareaRef}
+              className="paste-textarea"
+              value={pasteText}
+              onChange={e => { setPasteText(e.target.value); setPasteError(''); }}
+              placeholder={'{\n  "title": "Mon cours",\n  "slides": [...]\n}'}
+              rows={16}
+              spellCheck={false}
+            />
+            {pasteError && <div className="error-message">{pasteError}</div>}
+            <div className="paste-modal-footer">
+              <button onClick={() => setPasteOpen(false)} className="btn-secondary">Annuler</button>
+              <button onClick={handlePasteImport} className="btn-primary" disabled={!pasteText.trim()}>
+                <FiCheck size={15} /> Importer le cours
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {courses.length === 0 ? (
         <div className="empty-state">
