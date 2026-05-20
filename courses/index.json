@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "mod-lisation-de-l-agglom-ration-des-globules-rouges",
+    "title": "Modélisation de l'Agglomération des Globules Rouges",
+    "description": "Cours de modélisation et calcul scientifique portant sur l'étude dynamique, énergétique et numérique du phénomène d'agglomération des hématies.",
+    "tags": [
+      "Modélisation",
+      "Systèmes Différentiels",
+      "Calcul Scientifique",
+      "Points Fixes",
+      "Agrégation"
+    ],
+    "createdAt": "2026-05-20",
+    "slideCount": 10
+  }
+]
