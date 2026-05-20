@@ -1,0 +1,75 @@
+{
+  "title": "Modélisation de l'Agglomération des Globules Rouges",
+  "description": "Cours de modélisation et calcul scientifique portant sur l'étude dynamique, énergétique et numérique du phénomène d'agglomération des hématies.",
+  "tags": [
+    "Modélisation",
+    "Systèmes Différentiels",
+    "Calcul Scientifique",
+    "Points Fixes",
+    "Agrégation"
+  ],
+  "slides": [
+    {
+      "id": "introduction-contexte",
+      "title": "Introduction et Phénomène Physique",
+      "type": "markdown",
+      "content": "# Phénomène d'Agglomération des Hématies\n\nExpérimentalement, on observe que les **globules rouges (hématies)** dans le sang ont tendance à former des agglomérats[cite: 15]. Cela met en évidence l'existence de **forces d'interaction attractives** [cite: 15].\n\n### Objectif du texte\nProposer et étudier un modèle mathématique et numérique très simplifié (monodimensionnel) permettant de simuler et de comprendre ce phénomène d'agglomération[cite: 5, 16]."
+    },
+    {
+      "id": "hypotheses-modele",
+      "title": "Hypothèses du Modèle Dynamique",
+      "type": "markdown",
+      "content": "# Cadre de Modélisation\n\n* **Géométrie** : Une population de $N+2$ hématies positionnées sur le segment $[0, 1]$ [cite: 16].\n* **Conditions aux limites** : La première ($x_0$) et la dernière ($x_{N+1}$) hématie sont fixées aux extrémités [cite: 16]:\n  $$0 = x_0 < x_1(t) < \\dots < x_N(t) < x_{N+1} = 1$$ [cite: 18]\n* **Interactions** : Chaque particule interne subit l'influence exclusive de ses deux voisines directes [cite: 16].\n* **Nature des forces** :\n  * *Attractives* lorsque la distance est grande, décroissant vers $0$ à l'infini [cite: 19].\n  * *Répulsives* (élasticité) lorsque la distance entre les centres devient inférieure à leur longueur caractéristique $a$[cite: 21]."
+    },
+    {
+      "id": "loi-de-force",
+      "title": "La Fonction de Force d'Interaction",
+      "type": "markdown",
+      "content": "# Formulation de la Force $\\varphi$\n\nOn introduit la fonction $\\varphi : d > 0 \\mapsto \\varphi(d)$ pour modéliser l'intensité de la force en fonction de la distance $d$ entre deux centres [cite: 23, 25] :\n\n$$\\varphi(d) = \\frac{\\gamma}{d} \\ln\\left(\\frac{d}{a}\\right)$$ [cite: 24]\n\n### Propriétés fondamentales [cite: 23] :\n* **$\\forall d \\ge a$** : $\\varphi(d) \\ge 0$ (force attractive) [cite: 23, 25].\n* **$\\forall d \\le a$** : $\\varphi(d) \\le 0$ (force répulsive) [cite: 23, 25].\n* **Limite en $0$** : $\\lim_{d \\to 0} \\varphi(d) = -\\infty$ (barrière impénétrable) [cite: 23].\n* **Limite en $+\\infty$** : $\\lim_{d \\to +\\infty} \\varphi(d) = 0$ (influence évanescente)[cite: 23]."
+    },
+    {
+      "id": "systeme-differentiel",
+      "title": "Le Système Dynamique",
+      "type": "markdown",
+      "content": "# Équations du Mouvement\n\nEn supposant les particules de masse $1$ et soumises à une force de frottement fluide proportionnelle à la vitesse ($-\\lambda \\dot{x}_i$) [cite: 26, 27], le principe fondamental de la dynamique donne le système différentiel du second ordre suivant [cite: 6] :\n\n$$\\ddot{x}_i = \\varphi(x_{i+1} - x_i) - \\varphi(x_i - x_{i-1}) - \\lambda \\dot{x}_i \\quad \\forall i \\in \\{1, \\dots, N\\}$$ [cite: 29]\n\n> **Note** : $\\varphi(x_{i+1} - x_i)$ représente la force exercée par la particule $i+1$ sur la particule $i$, tandis que $-\\varphi(x_i - x_{i-1})$ est la réaction de la particule $i-1$ sur $i$[cite: 25]."
+    },
+    {
+      "id": "bilan-energetique",
+      "title": "Considérations Énergétiques",
+      "type": "markdown",
+      "content": "# Décroissance de l'Énergie\n\nEn introduisant $\\Psi$ une primitive de $\\varphi$ [cite: 31] et en multipliant par la vitesse $\\dot{x}_i$ [cite: 32], on établit la relation de dissipation [cite: 34, 35] :\n\n$$\\frac{d}{dt} (E_c + V) = D \\le 0$$ [cite: 35]\n\n* **Énergie cinétique totale** : $E_c = \\sum_{i=1}^{N} \\frac{1}{2}(\\dot{x}_i)^2$ [cite: 34, 36]\n* **Énergie potentielle d'interaction** : $V = \\sum_{i=0}^{N} \\Psi(x_{i+1} - x_i)$ [cite: 34, 36]\n* **Puissance dissipée** : $D = -\\lambda \\sum_{i=1}^{N} (\\dot{x}_i)^2$ [cite: 34, 36]\n\nCe bilan garantit le caractère dissipatif du système à cause des frottements (si $\\lambda > 0$), orientant naturellement les trajectoires vers des états d'équilibre[cite: 26, 35, 75]."
+    },
+    {
+      "id": "schema-numerique",
+      "title": "Discrétisation et Schéma Numérique",
+      "type": "markdown",
+      "content": "# Schéma de Discrétisation Temporelle\n\nOn pose un pas de temps $h = \\frac{T}{K}$ tel que $t_k = kh$[cite: 39]. Soit $x^k \\in \\mathbb{R}^N$ le vecteur approché des positions au temps $t_k$ [cite: 39].\n\nOn définit l'opérateur des forces $\\Phi(x) \\in \\mathbb{R}^N$ par sa $i$-ème composante [cite: 40] :\n$$\\Phi(x)_i = \\varphi(x_{i+1} - x_i) - \\varphi(x_i - x_{i-1})$$ [cite: 40]\n\nLe schéma numérique vectoriel retenu s'écrit [cite: 41] :\n$$x^{k+1} = 2x^k - x^{k-1} + h^2 \\Phi(x^k) - \\lambda h (x^k - x^{k-1}) \\quad \\forall k \\ge 1$$ [cite: 41]\n\nLes conditions initiales $x^0$ and $x^1$ doivent être fournies pour amorcer le schéma[cite: 42]."
+    },
+    {
+      "id": "simulation-trajectoires",
+      "title": "Analyse des Positions au Cours du Temps",
+      "type": "markdown",
+      "content": "# Résultats de Simulation ($N=49$)\n\nLa simulation à partir d'une distribution initiale perturbée de manière aléatoire [cite: 45] montre une nette tendance des particules à se regrouper en **paquets** (agglomérats) visibles par les faisceaux de trajectoires serrées [cite: 43, 68].\n\n### Paramètres de l'application [cite: 72] :\n* $K = 1500$, $h = 0.002$ ($T = 3.0$) [cite: 72]\n* $\\gamma = 0.5$, $\\lambda = 10$, $a = 0.004$ [cite: 72]\n\n> **Propriété géométrique** : Bien que les trajectoires semblent se toucher sur les graphiques de simulation, **les courbes ne se croisent pas**, préservant l'ordre initial des hématies[cite: 18, 73]."
+    },
+    {
+      "id": "points-fixes-theorie",
+      "title": "Étude des Points Fixes (Équilibres)",
+      "type": "markdown",
+      "content": "# Conditions d'Équilibre Statique\n\nÀ l'équilibre ($\\dot{x}_i = 0, \\ddot{x}_i = 0$), en posant la distance inter-particulaire $d_i = x_{i+1} - x_i$ [cite: 75], le système se réduit à[cite: 81, 82]:\n\n1. $\\varphi(d_i) = \\text{constante} \\quad \\forall i \\in \\{0, \\dots, N\\}$ [cite: 81, 82]\n2. $\\sum_{i=0}^{N} d_i = 1$ [cite: 82]\n\nOn distingue alors deux régimes physiques selon la densité globale de la population [cite: 85, 87, 88] :\n\n* **Cas 1 : Population dense ($N+1 \\ge 1/a$)** [cite: 87]\n  Toutes les distances sont piégées dans la zone répulsive ($d_i \\le a$)[cite: 87]. L'unique solution est l'équirépartition : $d_i = \\frac{1}{N+1}$ [cite: 87].\n* **Cas 2 : Population dispersée ($N+1 < 1/a$)** [cite: 88]\n  La solution uniforme $d_i = \\frac{1}{N+1}$ existe toujours mais n'est plus unique [cite: 89], car $\\varphi$ n'est pas injective sur $]a, +\\infty[$[cite: 90, 92]."
+    },
+    {
+      "id": "distances-conjuguees",
+      "title": "Distances Conjuguées et Multiplicité",
+      "type": "markdown",
+      "content": "# Concepts de Distances Conjuguées\n\nDeux distances $d_1$ et $d_2$ sont dites **conjuguées** si $\\varphi(d_1) = \\varphi(d_2)$ [cite: 92].\n\nDans le cas dispersé, la recherche des équilibres revient à identifier des couples d'entiers $(N_1, N_2)$ et de réels conjugués $(d_1, d_2)$ vérifiant [cite: 93] :\n\n$$N_1 + N_2 = N + 1 \\quad \\text{et} \\quad N_1 d_1 + N_2 d_2 = 1$$ [cite: 93, 94]\n\n### Exemple à une seule particule libre ($N=1$) [cite: 96] :\nOn dénombre alors trois configurations statiques distinctes[cite: 96]:\n1. Hématie proche de l'extrémité $0$ ($x$ et $1-x$ conjugués)[cite: 96].\n2. Hématie proche de l'extrémité $1$ (position en $1-x$)[cite: 96].\n3. Hématie parfaitement centrée (position en $1/2$)[cite: 96]."
+    },
+    {
+      "id": "axes-developpement",
+      "title": "Pistes de Développement (Session 2026)",
+      "type": "markdown",
+      "content": "# Perspectives d'Ouverture pour l'Épreuve\n\nPlusieurs axes d'approfondissement numériques et théoriques sont préconisés [cite: 10, 101, 102, 103, 104, 105] :\n\n* **Analyse de stabilité** : Étudier la stabilité linéaire ou de Lyapunov des points fixes trouvés (notamment pour $N=1$) [cite: 103].\n* **Variations sur le schéma** : Implémenter d'autres schémas d'intégration temporelle (Runge-Kutta, schémas symplectiques) pour résoudre le système [cite: 101].\n* **Modèle à support compact** :祝 Évaluer l'impact d'une force $\\varphi$ de portée finie (nulle au-delà d'un seuil) [cite: 104].\n* **Phénomènes d'ondes** : Simuler un milieu dense et analyser la propagation d'ondes de compression/raréfaction au sein du cluster d'hématies[cite: 105, 106]."
+    }
+  ],
+  "id": "mod-lisation-de-l-agglom-ration-des-globules-rouges",
+  "createdAt": "2026-05-20"
+}
