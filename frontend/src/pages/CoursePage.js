@@ -10,6 +10,7 @@ import { FiChevronLeft, FiChevronRight, FiList, FiArrowLeft } from 'react-icons/
 
 const SlideContent = ({ slide, courseId }) => {
   switch (slide.type) {
+    case 'content':
     case 'markdown': return <MarkdownViewer content={slide.content} />;
     case 'pdf':      return <PDFViewer url={getAssetUrl(courseId, slide.file)} />;
     case 'image':    return <ImageViewer url={getAssetUrl(courseId, slide.file)} caption={slide.caption} />;
