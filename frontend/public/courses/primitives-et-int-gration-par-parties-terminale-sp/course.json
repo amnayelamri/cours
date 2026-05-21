@@ -1,0 +1,293 @@
+{
+  "title": "Primitives et intégration par parties — Terminale spé",
+  "description": "Cours complet sur le calcul de primitives et l'intégration par parties en Terminale Maths Spé : définition d'une primitive, tableau des primitives usuelles, formules de composition, intégrale définie, méthode d'intégration par parties, exemples détaillés et QCM d'application.",
+  "tags": [
+    "mathématiques",
+    "terminale",
+    "spécialité",
+    "primitives",
+    "intégrale",
+    "intégration par parties",
+    "IPP"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction et objectifs",
+      "type": "markdown",
+      "content": "# Primitives et intégration par parties\n\n## Objectifs du cours\n\nÀ la fin de ce cours, tu sauras :\n\n- Définir une **primitive** d'une fonction et comprendre l'unicité « à une constante près »\n- Reconnaître les **primitives des fonctions usuelles**\n- Identifier les formes $u'\\,u^n$, $\\dfrac{u'}{u}$, $u'\\,e^u$, $\\dfrac{u'}{\\sqrt{u}}$\n- Calculer une **intégrale définie** à l'aide d'une primitive\n- Appliquer la formule d'**intégration par parties (IPP)**\n- Choisir judicieusement $u$ et $v'$ dans une IPP\n\n## Plan du cours\n\n1. Définition d'une primitive\n2. Primitives des fonctions usuelles\n3. Formes composées à reconnaître\n4. Intégrale définie et lien avec les primitives\n5. Formule d'intégration par parties\n6. Méthode et exemples\n7. Synthèse et formulaire\n\n> *Le calcul de primitives, c'est de la dérivation à l'envers : entraîne-toi à « voir » la fonction à dériver pour retomber sur l'expression de départ.*"
+    },
+    {
+      "id": "s2",
+      "title": "Définition d'une primitive",
+      "type": "markdown",
+      "content": "## Définition\n\nSoit $f$ une fonction définie sur un intervalle $I$.\n\nOn dit que $F$ est une **primitive** de $f$ sur $I$ si $F$ est dérivable sur $I$ et :\n\n$$F'(x) = f(x) \\quad \\text{pour tout } x \\in I$$\n\n### Théorème fondamental\n\nToute fonction **continue** sur un intervalle $I$ admet des **primitives** sur $I$.\n\n### Unicité à une constante près\n\nSi $F$ est une primitive de $f$ sur $I$, alors **toutes les primitives** de $f$ sur $I$ sont les fonctions de la forme :\n\n$$G(x) = F(x) + k \\qquad \\text{avec } k \\in \\mathbb{R}$$\n\n**Conséquence** : deux primitives d'une même fonction sur un intervalle diffèrent d'une **constante**.\n\n### Primitive avec condition initiale\n\nPour fixer une primitive unique, on impose une **condition** du type $F(x_0) = y_0$. Cela détermine la constante $k$."
+    },
+    {
+      "id": "s3",
+      "title": "Primitives des fonctions usuelles",
+      "type": "markdown",
+      "content": "## À connaître par cœur\n\nPour chaque ligne, $F$ est **une** primitive de $f$ ; toutes les autres s'obtiennent en ajoutant une constante.\n\n### Constantes et puissances\n\n- $f(x) = 0$ $\\;\\Rightarrow\\;$ $F(x) = k$ (constante), sur $\\mathbb{R}$\n- $f(x) = a$ (constante) $\\;\\Rightarrow\\;$ $F(x) = a\\,x$, sur $\\mathbb{R}$\n- $f(x) = x^n$ avec $n \\in \\mathbb{N}$ $\\;\\Rightarrow\\;$ $F(x) = \\dfrac{x^{n+1}}{n+1}$, sur $\\mathbb{R}$\n\n### Inverse et racine\n\n- $f(x) = \\dfrac{1}{x^n}$ avec $n \\geq 2$ $\\;\\Rightarrow\\;$ $F(x) = -\\dfrac{1}{(n-1)\\,x^{n-1}}$, sur $\\mathbb{R}^*$\n- $f(x) = \\dfrac{1}{x}$ $\\;\\Rightarrow\\;$ $F(x) = \\ln\\lvert x \\rvert$, sur $\\mathbb{R}^*$\n- $f(x) = \\dfrac{1}{\\sqrt{x}}$ $\\;\\Rightarrow\\;$ $F(x) = 2\\sqrt{x}$, sur $]0\\,;\\,+\\infty[$\n\n### Exponentielle et trigonométrie\n\n- $f(x) = e^x$ $\\;\\Rightarrow\\;$ $F(x) = e^x$, sur $\\mathbb{R}$\n- $f(x) = \\sin(x)$ $\\;\\Rightarrow\\;$ $F(x) = -\\cos(x)$, sur $\\mathbb{R}$\n- $f(x) = \\cos(x)$ $\\;\\Rightarrow\\;$ $F(x) = \\sin(x)$, sur $\\mathbb{R}$\n\n> 💡 **Astuce** : pour vérifier une primitive, dérive ta réponse. Tu dois retomber sur $f(x)$ !"
+    },
+    {
+      "id": "s4",
+      "title": "Quiz — Primitives usuelles",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = x^4$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = \\dfrac{x^5}{5}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = 4x^3$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{x^5}{4}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = x^5$",
+          "correct": false
+        }
+      ],
+      "explanation": "On applique $\\displaystyle\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1} + k$. Avec $n = 4$ : $F(x) = \\dfrac{x^5}{5}$. Vérification : $F'(x) = \\dfrac{5x^4}{5} = x^4$. La réponse $4x^3$ est la **dérivée** (piège à éviter !)."
+    },
+    {
+      "id": "s5",
+      "title": "Opérations sur les primitives",
+      "type": "markdown",
+      "content": "## Linéarité\n\nSi $F$ est une primitive de $f$ et $G$ une primitive de $g$ sur $I$, et $\\lambda \\in \\mathbb{R}$ :\n\n$$F + G \\quad \\text{est une primitive de} \\quad f + g$$\n\n$$\\lambda\\,F \\quad \\text{est une primitive de} \\quad \\lambda\\,f$$\n\n> ⚠️ **Attention** : il n'existe **pas** de formule simple pour la primitive d'un produit ou d'un quotient.\n\n### Exemple\n\nTrouver une primitive de $f(x) = 3x^2 - 5x + \\dfrac{2}{x^3}$ sur $]0\\,;\\,+\\infty[$.\n\nOn primitive terme à terme :\n\n- $\\displaystyle\\int 3x^2\\,dx = x^3$\n- $\\displaystyle\\int -5x\\,dx = -\\dfrac{5x^2}{2}$\n- $\\displaystyle\\int \\dfrac{2}{x^3}\\,dx = 2 \\cdot \\left(-\\dfrac{1}{2x^2}\\right) = -\\dfrac{1}{x^2}$\n\nDonc $F(x) = x^3 - \\dfrac{5x^2}{2} - \\dfrac{1}{x^2} + k$."
+    },
+    {
+      "id": "s6",
+      "title": "Formes composées",
+      "type": "markdown",
+      "content": "## Reconnaître les formes types\n\nIl faut savoir reconnaître ces formes pour retrouver une primitive « par lecture inverse ».\n\n### Formes à reconnaître\n\n- Forme $u'\\,u^n$ (avec $n \\neq -1$) $\\;\\Rightarrow\\;$ primitive $\\dfrac{u^{n+1}}{n+1}$\n- Forme $\\dfrac{u'}{u}$ $\\;\\Rightarrow\\;$ primitive $\\ln\\lvert u \\rvert$ (condition : $u \\neq 0$)\n- Forme $\\dfrac{u'}{\\sqrt{u}}$ $\\;\\Rightarrow\\;$ primitive $2\\sqrt{u}$ (condition : $u > 0$)\n- Forme $\\dfrac{u'}{u^2}$ $\\;\\Rightarrow\\;$ primitive $-\\dfrac{1}{u}$ (condition : $u \\neq 0$)\n- Forme $u'\\,e^u$ $\\;\\Rightarrow\\;$ primitive $e^u$\n- Forme $u'\\,\\cos(u)$ $\\;\\Rightarrow\\;$ primitive $\\sin(u)$\n- Forme $u'\\,\\sin(u)$ $\\;\\Rightarrow\\;$ primitive $-\\cos(u)$\n\n### Méthode\n\n1. **Identifier la forme** dominante dans l'expression\n2. **Choisir $u$** et vérifier que $u'$ apparaît bien (au moins à une constante près)\n3. **Adapter la constante** multiplicative si nécessaire\n\n### Exemple\n\nTrouver une primitive de $f(x) = 2x\\,e^{x^2}$.\n\nOn reconnaît la forme $u'\\,e^u$ avec $u(x) = x^2$ et $u'(x) = 2x$. Donc $F(x) = e^{x^2}$."
+    },
+    {
+      "id": "s7",
+      "title": "Astuce de la constante multiplicative",
+      "type": "markdown",
+      "content": "## Quand $u'$ n'apparaît pas exactement\n\nSouvent, on a une expression « presque » de la forme $u'\\,f(u)$, mais à un coefficient multiplicatif près.\n\n**Astuce** : multiplier et diviser par la constante qui manque.\n\n### Exemple 1\n\nPrimitive de $f(x) = x\\,e^{x^2}$.\n\nOn voudrait la forme $u'\\,e^u$ avec $u = x^2$ et $u' = 2x$. Or on a seulement $x$ devant.\n\n$$f(x) = \\dfrac{1}{2} \\cdot 2x\\,e^{x^2}$$\n\nDonc $F(x) = \\dfrac{1}{2}\\,e^{x^2}$.\n\n### Exemple 2\n\nPrimitive de $f(x) = \\dfrac{x}{x^2 + 1}$.\n\nForme $\\dfrac{u'}{u}$ avec $u = x^2 + 1$ et $u' = 2x$. On a $x$, il manque le facteur $2$ :\n\n$$f(x) = \\dfrac{1}{2} \\cdot \\dfrac{2x}{x^2 + 1}$$\n\nDonc $F(x) = \\dfrac{1}{2}\\,\\ln(x^2 + 1)$ (pas de valeur absolue car $x^2 + 1 > 0$).\n\n### Exemple 3\n\nPrimitive de $f(x) = (3x + 1)^4$.\n\nForme $u'\\,u^n$ avec $u = 3x + 1$, $u' = 3$, $n = 4$. Multiplions et divisons par $3$ :\n\n$$f(x) = \\dfrac{1}{3} \\cdot 3(3x + 1)^4 \\Rightarrow F(x) = \\dfrac{1}{3} \\cdot \\dfrac{(3x + 1)^5}{5} = \\dfrac{(3x + 1)^5}{15}$$"
+    },
+    {
+      "id": "s8",
+      "title": "Quiz — Formes composées",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = \\dfrac{2x + 3}{x^2 + 3x + 7}$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = \\ln(x^2 + 3x + 7)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = \\dfrac{1}{x^2 + 3x + 7}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{(2x + 3)^2}{2(x^2 + 3x + 7)}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = \\ln\\lvert 2x + 3 \\rvert$",
+          "correct": false
+        }
+      ],
+      "explanation": "On a la forme $\\dfrac{u'}{u}$ avec $u(x) = x^2 + 3x + 7$ et $u'(x) = 2x + 3$. Donc $F(x) = \\ln\\lvert u \\rvert = \\ln(x^2 + 3x + 7)$. Pas de valeur absolue car le discriminant $9 - 28 < 0$, donc $u > 0$ sur $\\mathbb{R}$."
+    },
+    {
+      "id": "s9",
+      "title": "Intégrale d'une fonction continue",
+      "type": "markdown",
+      "content": "## Définition de l'intégrale\n\nSoit $f$ une fonction **continue** sur $[a\\,;\\,b]$ et $F$ une primitive de $f$ sur cet intervalle.\n\nL'**intégrale** de $a$ à $b$ de $f$ est :\n\n$$\\int_a^b f(x)\\,dx = F(b) - F(a) = \\bigl[F(x)\\bigr]_a^b$$\n\nCette définition est **indépendante** de la primitive choisie (la constante s'annule par soustraction).\n\n### Interprétation géométrique\n\nSi $f \\geq 0$ sur $[a\\,;\\,b]$, alors $\\displaystyle\\int_a^b f(x)\\,dx$ représente **l'aire** sous la courbe entre les droites $x = a$ et $x = b$.\n\n### Propriétés\n\n**Linéarité** :\n\n$$\\int_a^b \\bigl(\\lambda\\,f + \\mu\\,g\\bigr)(x)\\,dx = \\lambda \\int_a^b f(x)\\,dx + \\mu \\int_a^b g(x)\\,dx$$\n\n**Relation de Chasles** :\n\n$$\\int_a^b f(x)\\,dx = \\int_a^c f(x)\\,dx + \\int_c^b f(x)\\,dx$$\n\n**Inversion des bornes** :\n\n$$\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx$$"
+    },
+    {
+      "id": "s10",
+      "title": "Exemple de calcul d'intégrale",
+      "type": "markdown",
+      "content": "## Méthode\n\n1. Trouver une primitive $F$ de $f$\n2. Calculer $F(b) - F(a)$\n3. Simplifier\n\n### Exemple 1\n\nCalculer $\\displaystyle\\int_0^1 (3x^2 + 2)\\,dx$.\n\nUne primitive est $F(x) = x^3 + 2x$. Donc :\n\n$$\\int_0^1 (3x^2 + 2)\\,dx = \\bigl[x^3 + 2x\\bigr]_0^1 = (1 + 2) - (0 + 0) = 3$$\n\n### Exemple 2\n\nCalculer $\\displaystyle I = \\int_1^e \\dfrac{1}{x}\\,dx$.\n\nUne primitive de $\\dfrac{1}{x}$ sur $]0\\,;\\,+\\infty[$ est $\\ln(x)$. Donc :\n\n$$I = \\bigl[\\ln(x)\\bigr]_1^e = \\ln(e) - \\ln(1) = 1 - 0 = 1$$\n\n### Exemple 3\n\nCalculer $\\displaystyle J = \\int_0^1 2x\\,e^{x^2}\\,dx$.\n\nForme $u'\\,e^u$ avec $u = x^2$, donc primitive $e^{x^2}$. Ainsi :\n\n$$J = \\bigl[e^{x^2}\\bigr]_0^1 = e^1 - e^0 = e - 1$$"
+    },
+    {
+      "id": "s11",
+      "title": "Quiz — Intégrale définie",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_0^2 (x^2 - 1)\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{2}{3}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{8}{3}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-\\dfrac{2}{3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Une primitive est $F(x) = \\dfrac{x^3}{3} - x$. Donc $\\displaystyle\\int_0^2 (x^2 - 1)\\,dx = F(2) - F(0) = \\left(\\dfrac{8}{3} - 2\\right) - 0 = \\dfrac{8}{3} - \\dfrac{6}{3} = \\dfrac{2}{3}$."
+    },
+    {
+      "id": "s12",
+      "title": "Intégration par parties — formule",
+      "type": "markdown",
+      "content": "## La formule d'intégration par parties (IPP)\n\nSoient $u$ et $v$ deux fonctions de classe $\\mathcal{C}^1$ sur $[a\\,;\\,b]$. Alors :\n\n$$\\int_a^b u(x)\\,v'(x)\\,dx = \\bigl[u(x)\\,v(x)\\bigr]_a^b - \\int_a^b u'(x)\\,v(x)\\,dx$$\n\nOu de manière condensée :\n\n$$\\int u\\,v' = u\\,v - \\int u'\\,v$$\n\n### Démonstration (idée)\n\nOn part de la formule de dérivation du produit :\n\n$$(u\\,v)' = u'\\,v + u\\,v'$$\n\ndonc $u\\,v' = (uv)' - u'v$, et en intégrant :\n\n$$\\int_a^b u\\,v' = \\int_a^b (uv)' - \\int_a^b u'v = \\bigl[uv\\bigr]_a^b - \\int_a^b u'v$$\n\n### Quand utiliser l'IPP ?\n\nQuand l'intégrande est un **produit** de deux fonctions et qu'une **simple primitive** ne se voit pas directement, en particulier :\n\n- $x^n \\cdot e^x$, $x^n \\cdot \\sin(x)$, $x^n \\cdot \\cos(x)$\n- $\\ln(x)$ seul, ou $x^n \\cdot \\ln(x)$\n- $x \\cdot \\sin(x)$, $x \\cdot e^{ax}$, etc."
+    },
+    {
+      "id": "s13",
+      "title": "Comment choisir u et v' ?",
+      "type": "markdown",
+      "content": "## Stratégie de choix\n\nLe bon choix est celui où :\n\n- $u'$ est **plus simple** que $u$ (souvent : dérive un polynôme ou un $\\ln$)\n- $v$ se calcule **facilement** à partir de $v'$\n\n### Règle mnémotechnique « LIATE »\n\nOn choisit $u$ dans l'ordre de priorité suivant (ce qui apparaît en premier dans la liste devient $u$) :\n\n- **L** — Logarithme : exemples $\\ln(x)$, $\\ln(2x)$\n- **I** — Inverse trigo : exemple $\\arctan(x)$ (hors programme Tle)\n- **A** — Algébrique : exemples $x$, $x^2$, polynômes\n- **T** — Trigonométrique : exemples $\\sin(x)$, $\\cos(x)$\n- **E** — Exponentielle : exemples $e^x$, $e^{2x}$\n\nEt $v'$ est le reste de l'intégrande.\n\n### Exemples d'application\n\nPour $\\displaystyle\\int x\\,e^x\\,dx$ : entre $x$ (algébrique) et $e^x$ (exponentielle), on prend $u = x$ (A passe avant E).\n\nPour $\\displaystyle\\int x\\,\\ln(x)\\,dx$ : entre $\\ln(x)$ et $x$, on prend $u = \\ln(x)$ (L passe avant A).\n\n> 💡 **Réflexe** : si tu as $\\ln(x)$ dans l'intégrande, **prends-le comme $u$** (sa dérivée $\\dfrac{1}{x}$ est très simple)."
+    },
+    {
+      "id": "s14",
+      "title": "Exemple IPP — x·eˣ",
+      "type": "markdown",
+      "content": "## Exemple détaillé\n\nCalculer $\\displaystyle I = \\int_0^1 x\\,e^x\\,dx$.\n\n### Étape 1 — Choix de $u$ et $v'$\n\nPar LIATE, on prend :\n\n- $u(x) = x$ donc $u'(x) = 1$\n- $v'(x) = e^x$ donc $v(x) = e^x$\n\n### Étape 2 — Application de la formule\n\n$$I = \\bigl[u\\,v\\bigr]_0^1 - \\int_0^1 u'\\,v\\,dx = \\bigl[x\\,e^x\\bigr]_0^1 - \\int_0^1 1 \\cdot e^x\\,dx$$\n\n### Étape 3 — Calcul des termes\n\n$$\\bigl[x\\,e^x\\bigr]_0^1 = 1 \\cdot e^1 - 0 \\cdot e^0 = e$$\n\n$$\\int_0^1 e^x\\,dx = \\bigl[e^x\\bigr]_0^1 = e - 1$$\n\n### Étape 4 — Résultat\n\n$$I = e - (e - 1) = \\boxed{1}$$\n\n### Vérification mentale\n\nOn peut vérifier que $(x - 1)\\,e^x$ est une primitive de $x\\,e^x$ (en la dérivant), ce qui donne $[(x-1)e^x]_0^1 = 0 - (-1) = 1$. ✅"
+    },
+    {
+      "id": "s15",
+      "title": "Exemple IPP — ln(x)",
+      "type": "markdown",
+      "content": "## Astuce — primitive de $\\ln(x)$\n\nComment calculer $\\displaystyle\\int \\ln(x)\\,dx$ ? On utilise l'**astuce du « 1 caché »** : on écrit $\\ln(x) = 1 \\cdot \\ln(x)$.\n\n### Choix\n\n- $u(x) = \\ln(x)$ donc $u'(x) = \\dfrac{1}{x}$\n- $v'(x) = 1$ donc $v(x) = x$\n\n### Application\n\n$$\\int \\ln(x)\\,dx = x\\,\\ln(x) - \\int x \\cdot \\dfrac{1}{x}\\,dx = x\\,\\ln(x) - \\int 1\\,dx = x\\,\\ln(x) - x + k$$\n\n**Résultat à retenir** :\n\n$$\\int \\ln(x)\\,dx = x\\,\\ln(x) - x + k \\quad \\text{sur } ]0\\,;\\,+\\infty[$$\n\n### Exemple avec bornes\n\nCalculer $\\displaystyle J = \\int_1^e \\ln(x)\\,dx$.\n\n$$J = \\bigl[x\\,\\ln(x) - x\\bigr]_1^e = (e\\,\\ln(e) - e) - (1 \\cdot 0 - 1) = (e - e) - (-1) = 1$$"
+    },
+    {
+      "id": "s16",
+      "title": "Exemple IPP — x·ln(x)",
+      "type": "markdown",
+      "content": "## Calcul de $\\displaystyle\\int x\\,\\ln(x)\\,dx$\n\n### Choix (LIATE)\n\nEntre $\\ln(x)$ et $x$, on prend $u = \\ln(x)$ (L avant A).\n\n- $u(x) = \\ln(x)$ donc $u'(x) = \\dfrac{1}{x}$\n- $v'(x) = x$ donc $v(x) = \\dfrac{x^2}{2}$\n\n### Application\n\n$$\\int x\\,\\ln(x)\\,dx = \\dfrac{x^2}{2}\\,\\ln(x) - \\int \\dfrac{x^2}{2} \\cdot \\dfrac{1}{x}\\,dx$$\n\n$$= \\dfrac{x^2}{2}\\,\\ln(x) - \\int \\dfrac{x}{2}\\,dx = \\dfrac{x^2}{2}\\,\\ln(x) - \\dfrac{x^2}{4} + k$$\n\n**Résultat** :\n\n$$\\int x\\,\\ln(x)\\,dx = \\dfrac{x^2}{2}\\,\\ln(x) - \\dfrac{x^2}{4} + k$$\n\n### Vérification\n\nDérivons $F(x) = \\dfrac{x^2}{2}\\,\\ln(x) - \\dfrac{x^2}{4}$ :\n\n$$F'(x) = x\\,\\ln(x) + \\dfrac{x^2}{2} \\cdot \\dfrac{1}{x} - \\dfrac{2x}{4} = x\\,\\ln(x) + \\dfrac{x}{2} - \\dfrac{x}{2} = x\\,\\ln(x)\\ \\checkmark$$"
+    },
+    {
+      "id": "s17",
+      "title": "Quiz — IPP simple",
+      "type": "quiz",
+      "question": "Pour calculer $\\displaystyle\\int x\\,\\sin(x)\\,dx$ par IPP, quel est le bon choix de $u$ et $v'$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$u = x$, $v' = \\sin(x)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$u = \\sin(x)$, $v' = x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$u = x\\,\\sin(x)$, $v' = 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$u = 1$, $v' = x\\,\\sin(x)$",
+          "correct": false
+        }
+      ],
+      "explanation": "Par LIATE : entre $x$ (algébrique, A) et $\\sin(x)$ (trigonométrique, T), on prend $u = x$ (A avant T). Avec ce choix : $u' = 1$ (plus simple) et $v = -\\cos(x)$. L'autre choix serait piégeux car $\\int x\\,dx = \\dfrac{x^2}{2}$ rend l'intégrale plus compliquée."
+    },
+    {
+      "id": "s18",
+      "title": "Exemple IPP — x·sin(x)",
+      "type": "markdown",
+      "content": "## Calcul de $\\displaystyle I = \\int_0^\\pi x\\,\\sin(x)\\,dx$\n\n### Choix\n\n- $u(x) = x$ donc $u'(x) = 1$\n- $v'(x) = \\sin(x)$ donc $v(x) = -\\cos(x)$\n\n### Application\n\n$$I = \\bigl[-x\\,\\cos(x)\\bigr]_0^\\pi - \\int_0^\\pi 1 \\cdot (-\\cos(x))\\,dx$$\n\n$$I = \\bigl[-x\\,\\cos(x)\\bigr]_0^\\pi + \\int_0^\\pi \\cos(x)\\,dx$$\n\n### Calcul des termes\n\n$$\\bigl[-x\\,\\cos(x)\\bigr]_0^\\pi = -\\pi\\,\\cos(\\pi) - (-0 \\cdot \\cos(0)) = -\\pi \\cdot (-1) = \\pi$$\n\n$$\\int_0^\\pi \\cos(x)\\,dx = \\bigl[\\sin(x)\\bigr]_0^\\pi = \\sin(\\pi) - \\sin(0) = 0$$\n\n### Résultat\n\n$$I = \\pi + 0 = \\boxed{\\pi}$$\n\n> ⚠️ **Attention aux signes** : la primitive de $\\sin(x)$ est $-\\cos(x)$ (avec un signe moins). C'est l'erreur la plus fréquente !"
+    },
+    {
+      "id": "s19",
+      "title": "IPP itérée (double IPP)",
+      "type": "markdown",
+      "content": "## Quand une IPP ne suffit pas\n\nPour des produits du type $x^2\\,e^x$, $x^2\\,\\sin(x)$, etc., il faut appliquer **l'IPP plusieurs fois**.\n\n### Exemple : $\\displaystyle I = \\int_0^1 x^2\\,e^x\\,dx$\n\n**Première IPP** : $u = x^2$ ($u' = 2x$), $v' = e^x$ ($v = e^x$).\n\n$$I = \\bigl[x^2\\,e^x\\bigr]_0^1 - \\int_0^1 2x\\,e^x\\,dx = e - 2 \\int_0^1 x\\,e^x\\,dx$$\n\n**Seconde IPP** sur $\\displaystyle J = \\int_0^1 x\\,e^x\\,dx$ : $u = x$, $v' = e^x$.\n\n$$J = \\bigl[x\\,e^x\\bigr]_0^1 - \\int_0^1 e^x\\,dx = e - (e - 1) = 1$$\n\n**Conclusion** :\n\n$$I = e - 2 \\cdot 1 = e - 2$$\n\n### Bon réflexe\n\nÀ chaque IPP, le polynôme **descend d'un degré** dans $u$. Pour $x^n$, il faudra donc $n$ IPP successives."
+    },
+    {
+      "id": "s20",
+      "title": "Pièges et conseils",
+      "type": "markdown",
+      "content": "## Erreurs classiques à éviter\n\n### ❌ Oublier la constante $+k$\n\nQuand on cherche **une** primitive (pas une intégrale définie), il faut écrire $+ k$. Une infinité de primitives existent !\n\n### ❌ Confondre primitive et dérivée\n\nPrimitive de $x^n$ : $\\dfrac{x^{n+1}}{n+1}$ (on **augmente** l'exposant).\n\nDérivée de $x^n$ : $n\\,x^{n-1}$ (on **diminue** l'exposant).\n\n### ❌ Oublier la valeur absolue dans $\\ln\\lvert u \\rvert$\n\nLa primitive de $\\dfrac{1}{x}$ est $\\ln\\lvert x \\rvert$, pas $\\ln(x)$, sauf si $x > 0$.\n\n### ❌ Mauvais choix de $u$ et $v'$ en IPP\n\nSi après l'IPP l'intégrale est **plus compliquée**, c'est qu'il fallait inverser $u$ et $v'$.\n\n### ❌ Oublier le signe dans la primitive de $\\sin$\n\n$\\displaystyle\\int \\sin(x)\\,dx = -\\cos(x) + k$ (avec un signe moins).\n\n### ✅ Bon réflexe\n\n**Toujours dériver son résultat** pour vérifier qu'on retombe sur la fonction de départ.\n\n### ✅ Astuce de relecture\n\nSi une primitive contient $\\ln(u)$, il doit y avoir $\\dfrac{u'}{u}$ dans la fonction de départ.\n\nSi une primitive contient $e^u$, il doit y avoir $u'\\,e^u$ dans la fonction de départ."
+    },
+    {
+      "id": "s21",
+      "title": "Quiz récapitulatif (1/2)",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_0^1 (x + 1)\\,e^x\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$e$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e - 1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2e - 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2(e - 1)$",
+          "correct": false
+        }
+      ],
+      "explanation": "IPP avec $u = x + 1$ ($u' = 1$) et $v' = e^x$ ($v = e^x$) : $I = \\bigl[(x+1)e^x\\bigr]_0^1 - \\int_0^1 e^x\\,dx = (2e - 1) - (e - 1) = e$. On peut aussi remarquer que la primitive de $(x+1)e^x$ est $x\\,e^x$ (dérivée : $e^x + x\\,e^x = (x+1)e^x$), donc $I = \\bigl[x\\,e^x\\bigr]_0^1 = e - 0 = e$."
+    },
+    {
+      "id": "s22",
+      "title": "Quiz récapitulatif (2/2)",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_1^e \\dfrac{\\ln(x)}{x}\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$e - 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\ln(e) - \\ln(1) = 1$",
+          "correct": false
+        }
+      ],
+      "explanation": "On reconnaît la forme $u'\\,u$ avec $u(x) = \\ln(x)$ et $u'(x) = \\dfrac{1}{x}$. Une primitive est $\\dfrac{(\\ln x)^2}{2}$. Donc $\\displaystyle\\int_1^e \\dfrac{\\ln(x)}{x}\\,dx = \\left[\\dfrac{(\\ln x)^2}{2}\\right]_1^e = \\dfrac{1}{2} - 0 = \\dfrac{1}{2}$. Inutile d'utiliser l'IPP ici, la reconnaissance de la forme suffit !"
+    },
+    {
+      "id": "s23",
+      "title": "Formulaire — Synthèse",
+      "type": "markdown",
+      "content": "## Formulaire à retenir\n\n### Primitives usuelles ($k \\in \\mathbb{R}$)\n\n$$\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1} + k \\quad (n \\neq -1)$$\n\n$$\\int \\dfrac{1}{x}\\,dx = \\ln\\lvert x \\rvert + k \\qquad \\int \\dfrac{1}{\\sqrt{x}}\\,dx = 2\\sqrt{x} + k$$\n\n$$\\int e^x\\,dx = e^x + k \\qquad \\int \\ln(x)\\,dx = x\\,\\ln(x) - x + k$$\n\n$$\\int \\sin(x)\\,dx = -\\cos(x) + k \\qquad \\int \\cos(x)\\,dx = \\sin(x) + k$$\n\n### Formes composées\n\n$$\\int u'\\,u^n\\,dx = \\dfrac{u^{n+1}}{n+1} + k \\qquad \\int \\dfrac{u'}{u}\\,dx = \\ln\\lvert u \\rvert + k$$\n\n$$\\int u'\\,e^u\\,dx = e^u + k \\qquad \\int \\dfrac{u'}{\\sqrt{u}}\\,dx = 2\\sqrt{u} + k$$\n\n### Intégration par parties\n\n$$\\int_a^b u\\,v'\\,dx = \\bigl[u\\,v\\bigr]_a^b - \\int_a^b u'\\,v\\,dx$$\n\n### Choix LIATE pour $u$\n\n**L**ogarithme > **I**nverse trigo > **A**lgébrique > **T**rigo > **E**xponentielle\n\n### Méthode universelle\n\n1. **Reconnaître** une forme classique (composée, somme, produit)\n2. Si rien ne marche directement : **IPP**\n3. **Toujours vérifier** en dérivant le résultat\n\n> 🎯 **Bravo !** Tu as maintenant tous les outils pour calculer des primitives et utiliser l'intégration par parties au niveau Terminale Spé."
+    }
+  ],
+  "id": "primitives-et-int-gration-par-parties-terminale-sp",
+  "createdAt": "2026-05-21"
+}

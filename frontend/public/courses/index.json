@@ -85,5 +85,38 @@
     ],
     "createdAt": "2026-05-20",
     "slideCount": 22
+  },
+  {
+    "id": "primitives-et-int-gration-par-parties-terminale-sp",
+    "title": "Primitives et intégration par parties — Terminale spé",
+    "description": "Cours complet sur le calcul de primitives et l'intégration par parties en Terminale Maths Spé : définition d'une primitive, tableau des primitives usuelles, formules de composition, intégrale définie, méthode d'intégration par parties, exemples détaillés et QCM d'application.",
+    "tags": [
+      "mathématiques",
+      "terminale",
+      "spécialité",
+      "primitives",
+      "intégrale",
+      "intégration par parties",
+      "IPP"
+    ],
+    "createdAt": "2026-05-21",
+    "slideCount": 23
+  },
+  {
+    "id": "exercices-primitives-et-int-gration-par-parties",
+    "title": "Exercices — Primitives et intégration par parties",
+    "description": "Banque d'exercices QCM pour s'entraîner au calcul de primitives et à l'intégration par parties en Terminale Spé : du simple échauffement (primitives usuelles) jusqu'aux IPP de type bac, avec correction détaillée pour chaque question.",
+    "tags": [
+      "mathématiques",
+      "terminale",
+      "spécialité",
+      "primitives",
+      "intégrale",
+      "IPP",
+      "exercices",
+      "QCM"
+    ],
+    "createdAt": "2026-05-21",
+    "slideCount": 22
   }
 ]

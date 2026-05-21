@@ -1,0 +1,610 @@
+{
+  "title": "Exercices — Primitives et intégration par parties",
+  "description": "Banque d'exercices QCM pour s'entraîner au calcul de primitives et à l'intégration par parties en Terminale Spé : du simple échauffement (primitives usuelles) jusqu'aux IPP de type bac, avec correction détaillée pour chaque question.",
+  "tags": [
+    "mathématiques",
+    "terminale",
+    "spécialité",
+    "primitives",
+    "intégrale",
+    "IPP",
+    "exercices",
+    "QCM"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Présentation",
+      "type": "markdown",
+      "content": "# Exercices — Primitives et IPP\n\n## Comment utiliser cette banque ?\n\nCette série regroupe **20 exercices QCM** classés du plus simple au plus difficile.\n\n### Progression\n\n- **Exercices 1 à 4** — Échauffement : primitives des fonctions usuelles\n- **Exercices 5 à 8** — Exp, $\\ln$, racine et trigonométrie\n- **Exercices 9 à 12** — Formes composées ($u'\\,u^n$, $\\dfrac{u'}{u}$, $u'\\,e^u$, $\\dfrac{u'}{\\sqrt{u}}$)\n- **Exercices 13 à 15** — Calculs d'intégrales définies\n- **Exercices 16 à 19** — Intégration par parties\n- **Exercice 20** — Type bac : IPP itérée\n\n### Conseils\n\n- Prends une feuille de brouillon pour poser tes calculs\n- Pour les **primitives**, demande-toi toujours : *quelle fonction me donne ça en dérivant ?*\n- **Vérifie** systématiquement en dérivant ta réponse\n- Pour les **IPP**, écris explicitement $u$, $u'$, $v$, $v'$ avant d'appliquer la formule\n\n> *Bonne révision — un peu de pratique chaque jour vaut mieux qu'une longue séance la veille du DS.*"
+    },
+    {
+      "id": "s2",
+      "title": "Exercice 1 — Primitive de x^n",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = x^7$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = \\dfrac{x^8}{8}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = 7x^6$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{x^8}{7}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = x^8$",
+          "correct": false
+        }
+      ],
+      "explanation": "On applique $\\displaystyle\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1} + k$. Avec $n = 7$ : $F(x) = \\dfrac{x^8}{8}$. Vérification : $F'(x) = \\dfrac{8x^7}{8} = x^7\\ \\checkmark$. L'option $7x^6$ est la **dérivée** (piège classique)."
+    },
+    {
+      "id": "s3",
+      "title": "Exercice 2 — Polynôme",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = 6x^2 - 4x + 5$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = 2x^3 - 2x^2 + 5x$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = 12x - 4$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = 6x^3 - 4x^2 + 5x$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = 2x^3 - 4x^2 + 5x$",
+          "correct": false
+        }
+      ],
+      "explanation": "On primitive terme à terme : $\\displaystyle\\int 6x^2\\,dx = 2x^3$, $\\displaystyle\\int -4x\\,dx = -2x^2$, $\\displaystyle\\int 5\\,dx = 5x$. D'où $F(x) = 2x^3 - 2x^2 + 5x$ (+ une constante quelconque)."
+    },
+    {
+      "id": "s4",
+      "title": "Exercice 3 — Inverse",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = \\dfrac{1}{x}$ sur $]0\\,;\\,+\\infty[$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = \\ln(x)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = -\\dfrac{1}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{x^0}{0}$ (impossible)",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = \\dfrac{1}{2x^2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Sur $]0\\,;\\,+\\infty[$, une primitive de $\\dfrac{1}{x}$ est $\\ln(x)$ (pas de valeur absolue car $x > 0$). Vérification : $\\bigl(\\ln(x)\\bigr)' = \\dfrac{1}{x}\\ \\checkmark$. Sur $\\mathbb{R}^*$ tout entier, on écrirait $\\ln\\lvert x \\rvert$."
+    },
+    {
+      "id": "s5",
+      "title": "Exercice 4 — Puissance négative",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = \\dfrac{1}{x^3}$ sur $]0\\,;\\,+\\infty[$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = -\\dfrac{1}{2x^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = -\\dfrac{3}{x^4}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{1}{2x^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = \\ln(x^3)$",
+          "correct": false
+        }
+      ],
+      "explanation": "On écrit $f(x) = x^{-3}$ et on applique $\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}$ avec $n = -3$ : $F(x) = \\dfrac{x^{-2}}{-2} = -\\dfrac{1}{2x^2}$. Vérification : $F'(x) = -\\dfrac{-2}{2x^3} = \\dfrac{1}{x^3}\\ \\checkmark$."
+    },
+    {
+      "id": "s6",
+      "title": "Exercice 5 — Exponentielle",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = 3\\,e^x - 2x$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = 3\\,e^x - x^2$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = 3\\,e^x - 2$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = e^x - x^2$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = 3\\,e^x + x^2$",
+          "correct": false
+        }
+      ],
+      "explanation": "Par linéarité : $\\int 3\\,e^x\\,dx = 3\\,e^x$ et $\\int -2x\\,dx = -x^2$. Donc $F(x) = 3\\,e^x - x^2$. Vérification : $F'(x) = 3\\,e^x - 2x\\ \\checkmark$."
+    },
+    {
+      "id": "s7",
+      "title": "Exercice 6 — Racine carrée",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = \\dfrac{1}{\\sqrt{x}}$ sur $]0\\,;\\,+\\infty[$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = 2\\sqrt{x}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = \\sqrt{x}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{1}{2\\sqrt{x}}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = -\\dfrac{1}{x\\sqrt{x}}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Une primitive de $\\dfrac{1}{\\sqrt{x}}$ est $2\\sqrt{x}$ sur $]0\\,;\\,+\\infty[$. Vérification : $\\bigl(2\\sqrt{x}\\bigr)' = 2 \\cdot \\dfrac{1}{2\\sqrt{x}} = \\dfrac{1}{\\sqrt{x}}\\ \\checkmark$."
+    },
+    {
+      "id": "s8",
+      "title": "Exercice 7 — Trigonométrie",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = 2\\sin(x) + \\cos(x)$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = -2\\cos(x) + \\sin(x)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = 2\\cos(x) + \\sin(x)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = -2\\cos(x) - \\sin(x)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = 2\\cos(x) - \\sin(x)$",
+          "correct": false
+        }
+      ],
+      "explanation": "Primitive de $\\sin(x)$ : $-\\cos(x)$ (attention au signe moins !). Primitive de $\\cos(x)$ : $\\sin(x)$. Donc $F(x) = 2(-\\cos(x)) + \\sin(x) = -2\\cos(x) + \\sin(x)$. Vérification : $F'(x) = 2\\sin(x) + \\cos(x)\\ \\checkmark$."
+    },
+    {
+      "id": "s9",
+      "title": "Exercice 8 — Mélange usuel",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = e^x + \\dfrac{2}{x}$ sur $]0\\,;\\,+\\infty[$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = e^x + 2\\ln(x)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = e^x + 2\\ln\\lvert x \\rvert$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = e^x - \\dfrac{2}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = e^x + \\ln(2x)$",
+          "correct": false
+        }
+      ],
+      "explanation": "Primitive de $e^x$ : $e^x$. Primitive de $\\dfrac{2}{x}$ : $2\\ln(x)$ (sur $]0\\,;\\,+\\infty[$, pas besoin de valeur absolue). Donc $F(x) = e^x + 2\\ln(x)$. La réponse avec $\\ln\\lvert x \\rvert$ serait correcte sur $\\mathbb{R}^*$, mais on est ici sur $]0\\,;\\,+\\infty[$ donc $\\ln(x)$ suffit (les deux sont équivalentes ici)."
+    },
+    {
+      "id": "s10",
+      "title": "Exercice 9 — Forme u'·u^n",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = 2x\\,(x^2 + 1)^3$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = \\dfrac{(x^2 + 1)^4}{4}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = (x^2 + 1)^4$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{x^2 (x^2 + 1)^4}{4}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = \\dfrac{(2x)^4}{4}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Forme $u'\\,u^n$ avec $u(x) = x^2 + 1$ ($u'(x) = 2x$) et $n = 3$. Donc $F(x) = \\dfrac{u^{n+1}}{n+1} = \\dfrac{(x^2 + 1)^4}{4}$. Vérification : $F'(x) = \\dfrac{4 \\cdot 2x\\,(x^2+1)^3}{4} = 2x\\,(x^2 + 1)^3\\ \\checkmark$."
+    },
+    {
+      "id": "s11",
+      "title": "Exercice 10 — Forme u'/u",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = \\dfrac{2x}{x^2 + 5}$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = \\ln(x^2 + 5)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = \\ln(2x)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{1}{x^2 + 5}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = 2x\\,\\ln(x^2 + 5)$",
+          "correct": false
+        }
+      ],
+      "explanation": "Forme $\\dfrac{u'}{u}$ avec $u(x) = x^2 + 5$ et $u'(x) = 2x$. Donc $F(x) = \\ln\\lvert u \\rvert = \\ln(x^2 + 5)$. Pas de valeur absolue car $x^2 + 5 > 0$ sur $\\mathbb{R}$."
+    },
+    {
+      "id": "s12",
+      "title": "Exercice 11 — Forme u'·e^u",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = 3x^2\\,e^{x^3}$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = e^{x^3}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = 3x^2\\,e^{x^3}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = \\dfrac{e^{x^3}}{3}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = x^3\\,e^{x^3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Forme $u'\\,e^u$ avec $u(x) = x^3$ et $u'(x) = 3x^2$. Donc $F(x) = e^u = e^{x^3}$. Vérification : $F'(x) = 3x^2 \\cdot e^{x^3}\\ \\checkmark$."
+    },
+    {
+      "id": "s13",
+      "title": "Exercice 12 — Constante multiplicative",
+      "type": "quiz",
+      "question": "Quelle est une primitive de $f(x) = x\\,e^{x^2}$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x) = \\dfrac{1}{2}\\,e^{x^2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x) = e^{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x) = 2\\,e^{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x) = x\\,e^{x^2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On voudrait la forme $u'\\,e^u$ avec $u = x^2$ et $u' = 2x$. Or on a seulement $x$. On écrit $f(x) = \\dfrac{1}{2} \\cdot 2x\\,e^{x^2}$, donc $F(x) = \\dfrac{1}{2}\\,e^{x^2}$. Vérification : $F'(x) = \\dfrac{1}{2} \\cdot 2x\\,e^{x^2} = x\\,e^{x^2}\\ \\checkmark$."
+    },
+    {
+      "id": "s14",
+      "title": "Exercice 13 — Intégrale polynomiale",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_0^2 (3x^2 - 2x + 1)\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$6$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$8$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$4$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$12$",
+          "correct": false
+        }
+      ],
+      "explanation": "Une primitive est $F(x) = x^3 - x^2 + x$. $\\displaystyle\\int_0^2 (3x^2 - 2x + 1)\\,dx = F(2) - F(0) = (8 - 4 + 2) - 0 = 6$."
+    },
+    {
+      "id": "s15",
+      "title": "Exercice 14 — Intégrale exp",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_0^1 e^{2x}\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{e^2 - 1}{2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e^2 - 1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2(e^2 - 1)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$e^2$",
+          "correct": false
+        }
+      ],
+      "explanation": "Une primitive de $e^{2x}$ est $\\dfrac{e^{2x}}{2}$ (forme $u'\\,e^u$ avec $u = 2x$, à diviser par $u' = 2$). Donc $\\displaystyle\\int_0^1 e^{2x}\\,dx = \\left[\\dfrac{e^{2x}}{2}\\right]_0^1 = \\dfrac{e^2}{2} - \\dfrac{1}{2} = \\dfrac{e^2 - 1}{2}$."
+    },
+    {
+      "id": "s16",
+      "title": "Exercice 15 — Intégrale et ln",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_1^4 \\dfrac{1}{2x}\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{\\ln(4)}{2} = \\ln(2)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\ln(4)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{2}\\ln\\left(\\dfrac{1}{4}\\right)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\ln(8) - \\ln(2)$",
+          "correct": false
+        }
+      ],
+      "explanation": "Une primitive de $\\dfrac{1}{2x} = \\dfrac{1}{2} \\cdot \\dfrac{1}{x}$ est $\\dfrac{1}{2}\\ln(x)$. Donc $\\displaystyle\\int_1^4 \\dfrac{1}{2x}\\,dx = \\left[\\dfrac{\\ln(x)}{2}\\right]_1^4 = \\dfrac{\\ln(4)}{2} - 0 = \\dfrac{\\ln(4)}{2} = \\ln(2)$ (car $\\ln(4) = 2\\ln(2)$)."
+    },
+    {
+      "id": "s17",
+      "title": "Exercice 16 — IPP simple",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_0^1 x\\,e^x\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e - 1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$e$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{e}{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "IPP avec $u = x$ ($u' = 1$) et $v' = e^x$ ($v = e^x$). $\\displaystyle\\int_0^1 x\\,e^x\\,dx = \\bigl[x\\,e^x\\bigr]_0^1 - \\int_0^1 e^x\\,dx = e - (e - 1) = 1$."
+    },
+    {
+      "id": "s18",
+      "title": "Exercice 17 — IPP avec sin",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_0^{\\pi/2} x\\,\\cos(x)\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{\\pi}{2} - 1$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{\\pi}{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{\\pi}{2} + 1$",
+          "correct": false
+        }
+      ],
+      "explanation": "IPP avec $u = x$ ($u' = 1$) et $v' = \\cos(x)$ ($v = \\sin(x)$). $\\displaystyle\\int_0^{\\pi/2} x\\,\\cos(x)\\,dx = \\bigl[x\\,\\sin(x)\\bigr]_0^{\\pi/2} - \\int_0^{\\pi/2} \\sin(x)\\,dx = \\dfrac{\\pi}{2} \\cdot 1 - \\bigl[-\\cos(x)\\bigr]_0^{\\pi/2} = \\dfrac{\\pi}{2} - (0 - (-1)) = \\dfrac{\\pi}{2} - 1$."
+    },
+    {
+      "id": "s19",
+      "title": "Exercice 18 — Primitive de ln",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_1^e \\ln(x)\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e - 1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$e$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$0$",
+          "correct": false
+        }
+      ],
+      "explanation": "Astuce du « 1 caché » : on pose $u = \\ln(x)$ ($u' = \\dfrac{1}{x}$) et $v' = 1$ ($v = x$). $\\displaystyle\\int \\ln(x)\\,dx = x\\,\\ln(x) - \\int 1\\,dx = x\\,\\ln(x) - x + k$. Donc $\\displaystyle\\int_1^e \\ln(x)\\,dx = \\bigl[x\\,\\ln(x) - x\\bigr]_1^e = (e - e) - (0 - 1) = 1$."
+    },
+    {
+      "id": "s20",
+      "title": "Exercice 19 — IPP avec x·ln",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_1^e x\\,\\ln(x)\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{e^2 + 1}{4}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{e^2 - 1}{4}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{e^2}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$e^2 - 1$",
+          "correct": false
+        }
+      ],
+      "explanation": "Par LIATE, $u = \\ln(x)$ ($u' = \\dfrac{1}{x}$) et $v' = x$ ($v = \\dfrac{x^2}{2}$). $\\displaystyle\\int_1^e x\\,\\ln(x)\\,dx = \\left[\\dfrac{x^2}{2}\\,\\ln(x)\\right]_1^e - \\int_1^e \\dfrac{x^2}{2} \\cdot \\dfrac{1}{x}\\,dx = \\dfrac{e^2}{2} - \\int_1^e \\dfrac{x}{2}\\,dx = \\dfrac{e^2}{2} - \\left[\\dfrac{x^2}{4}\\right]_1^e = \\dfrac{e^2}{2} - \\dfrac{e^2 - 1}{4} = \\dfrac{2e^2 - e^2 + 1}{4} = \\dfrac{e^2 + 1}{4}$."
+    },
+    {
+      "id": "s21",
+      "title": "Exercice 20 — Type bac (IPP itérée)",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\int_0^1 x^2\\,e^x\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$e - 2$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$e$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2e - 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{e}{3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "**Première IPP** avec $u = x^2$ ($u' = 2x$) et $v' = e^x$ ($v = e^x$) : $I = \\bigl[x^2\\,e^x\\bigr]_0^1 - \\int_0^1 2x\\,e^x\\,dx = e - 2\\int_0^1 x\\,e^x\\,dx$. **Seconde IPP** sur $J = \\int_0^1 x\\,e^x\\,dx$ : $u = x$, $v' = e^x$, qui donne $J = \\bigl[x\\,e^x\\bigr]_0^1 - \\int_0^1 e^x\\,dx = e - (e - 1) = 1$. Donc $I = e - 2 \\cdot 1 = e - 2$."
+    },
+    {
+      "id": "s22",
+      "title": "Pour aller plus loin",
+      "type": "markdown",
+      "content": "## Bravo !\n\nTu as terminé les 20 exercices de primitives et d'IPP.\n\n### Auto-évaluation\n\n- **18 à 20 / 20** — Excellent : tu maîtrises totalement\n- **14 à 17 / 20** — Bon niveau, quelques pièges à revoir\n- **10 à 13 / 20** — Correct, refais les exercices ratés\n- **Moins de 10** — À revoir, reprends le cours sur les primitives et l'IPP\n\n### Pour t'entraîner davantage\n\n- Refais les exercices que tu as ratés **sans regarder la correction**\n- **Vérifie toujours** ta primitive en la dérivant : tu dois retomber sur l'expression de départ\n- Pour l'IPP, **écris explicitement** $u$, $u'$, $v$, $v'$ avant d'appliquer la formule\n- Refais l'exercice 20 (type bac) en posant tous les calculs au propre\n\n### Formules à toujours avoir en tête\n\n- $\\displaystyle\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1} + k$ (pour $n \\neq -1$)\n- $\\displaystyle\\int \\dfrac{1}{x}\\,dx = \\ln\\lvert x \\rvert + k$\n- $\\displaystyle\\int u'\\,e^u\\,dx = e^u + k$\n- $\\displaystyle\\int \\dfrac{u'}{u}\\,dx = \\ln\\lvert u \\rvert + k$\n- $\\displaystyle\\int \\ln(x)\\,dx = x\\,\\ln(x) - x + k$\n- IPP : $\\displaystyle\\int_a^b u\\,v'\\,dx = \\bigl[u\\,v\\bigr]_a^b - \\int_a^b u'\\,v\\,dx$\n\n> 🎯 **À retenir** : devant une intégrale, identifie d'abord si c'est une **forme classique** ; si rien ne marche, passe à l'**IPP** en choisissant $u$ par LIATE."
+    }
+  ],
+  "id": "exercices-primitives-et-int-gration-par-parties",
+  "createdAt": "2026-05-21"
+}
