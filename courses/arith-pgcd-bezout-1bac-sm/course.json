@@ -1,0 +1,156 @@
+{
+  "id": "arith-pgcd-bezout-1bac-sm",
+  "title": "PGCD, Bézout et Entiers Premiers — 1BAC SM",
+  "slides": [
+    {
+      "id": 1,
+      "type": "content",
+      "title": "PGCD, Bézout et Décomposition — Série corrigée · 1BAC SM",
+      "content": "## Exercices 04, 05 & 06 — PGCD, Bézout, Entiers Premiers\n\n**Niveau :** 1re Baccalauréat Sciences Maths\n\nCe cours couvre trois exercices :\n\n**Exercice 04 — Algorithme d'Euclide :**\n- $\\text{pgcd}(9945,\\; 3003) = 39$ et $\\text{pgcd}(600,\\; 124) = 4$\n- Coefficients de Bézout : $600u + 124v = 4$\n\n**Exercice 05 — Entiers premiers entre eux :**\n- $2n+3$ et $5n+7$ premiers entre eux\n- $n \\wedge (2n+1) = 1$ et $n^2 \\wedge (2n+1) = 1$\n\n**Exercice 06 — Diviseurs et décomposition :**\n- Diviseurs de 132\n- Décomposition de 17640 et 411600, PGCD et PPCM"
+    },
+    {
+      "id": 2,
+      "type": "content",
+      "title": "Rappel — Algorithme d'Euclide",
+      "content": "### Théorème fondamental\n$$\\text{pgcd}(a,b) = \\text{pgcd}(b,r) \\quad\\text{où}\\quad a = bq + r$$\n\n### Algorithme d'Euclide\nOn effectue des divisions euclidiennes successives jusqu'à obtenir un reste nul :\n$$a = b \\cdot q_1 + r_1$$\n$$b = r_1 \\cdot q_2 + r_2$$\n$$r_1 = r_2 \\cdot q_3 + r_3$$\n$$\\vdots$$\n$$r_{k-1} = r_k \\cdot q_{k+1} + 0$$\n\nAlors $\\text{pgcd}(a,b) = r_k$ (dernier reste non nul).\n\n### Identité de Bézout\n> Si $\\text{pgcd}(a,b) = d$, alors **il existe** $u, v \\in \\mathbb{Z}$ tels que :\n> $$au + bv = d$$\n> Ces coefficients se calculent en **remontant** l'algorithme d'Euclide."
+    },
+    {
+      "id": 3,
+      "type": "quiz",
+      "question": "**Ex04 — Q1a** : $\\text{pgcd}(9945,\\; 3003)$ vaut :",
+      "choices": [
+        { "id": "a", "text": "39", "correct": true },
+        { "id": "b", "text": "33", "correct": false },
+        { "id": "c", "text": "13", "correct": false },
+        { "id": "d", "text": "3", "correct": false }
+      ],
+      "explanation": "Algorithme d'Euclide : $9945 = 3003\\times3 + 936$, $3003 = 936\\times3 + 195$, $936 = 195\\times4 + 156$, $195 = 156\\times1 + 39$, $156 = 39\\times4 + 0$. Donc $\\text{pgcd}(9945, 3003) = 39$."
+    },
+    {
+      "id": 4,
+      "type": "content",
+      "title": "Exercice 04 — Q1a : pgcd(9945, 3003)",
+      "content": "### Algorithme d'Euclide — $\\text{pgcd}(9945,\\; 3003)$\n\n$$9945 = 3003 \\times 3 + 936$$\n$$3003 = 936 \\times 3 + 195$$\n$$936 = 195 \\times 4 + 156$$\n$$195 = 156 \\times 1 + 39$$\n$$156 = 39 \\times 4 + \\mathbf{0}$$\n\nLe dernier reste non nul est **39**.\n\n$$\\boxed{\\text{pgcd}(9945,\\; 3003) = 39}$$\n\n> **Vérification :** $9945 = 39 \\times 255$ et $3003 = 39 \\times 77$ ✓"
+    },
+    {
+      "id": 5,
+      "type": "quiz",
+      "question": "**Ex04 — Q1b** : $\\text{pgcd}(600,\\; 124)$ vaut :",
+      "choices": [
+        { "id": "a", "text": "4", "correct": true },
+        { "id": "b", "text": "8", "correct": false },
+        { "id": "c", "text": "12", "correct": false },
+        { "id": "d", "text": "2", "correct": false }
+      ],
+      "explanation": "Algorithme d'Euclide : $600 = 124\\times4 + 104$, $124 = 104\\times1 + 20$, $104 = 20\\times5 + 4$, $20 = 4\\times5 + 0$. Donc $\\text{pgcd}(600, 124) = 4$."
+    },
+    {
+      "id": 6,
+      "type": "content",
+      "title": "Exercice 04 — Q1b : pgcd(600, 124)",
+      "content": "### Algorithme d'Euclide — $\\text{pgcd}(600,\\; 124)$\n\n$$600 = 124 \\times 4 + 104$$\n$$124 = 104 \\times 1 + 20$$\n$$104 = 20 \\times 5 + 4$$\n$$20 = 4 \\times 5 + \\mathbf{0}$$\n\nLe dernier reste non nul est **4**.\n\n$$\\boxed{\\text{pgcd}(600,\\; 124) = 4}$$"
+    },
+    {
+      "id": 7,
+      "type": "quiz",
+      "question": "**Ex04 — Q2b** : Les coefficients de Bézout $u, v$ tels que $600u + 124v = 4$ sont :",
+      "choices": [
+        { "id": "a", "text": "$u = 6$ et $v = -29$", "correct": true },
+        { "id": "b", "text": "$u = -6$ et $v = 29$", "correct": false },
+        { "id": "c", "text": "$u = 4$ et $v = -19$", "correct": false },
+        { "id": "d", "text": "$u = 1$ et $v = -5$", "correct": false }
+      ],
+      "explanation": "On remonte l'algorithme d'Euclide. $4 = 104 - 20\\times5$, puis $20 = 124 - 104$, donc $4 = 104 - (124-104)\\times5 = 6\\times104 - 5\\times124$. Puis $104 = 600 - 124\\times4$, donc $4 = 6(600-124\\times4) - 5\\times124 = 6\\times600 + (-24-5)\\times124 = 6\\times600 - 29\\times124$. Vérif : $600\\times6 - 124\\times29 = 3600 - 3596 = 4$ ✓."
+    },
+    {
+      "id": 8,
+      "type": "content",
+      "title": "Exercice 04 — Q2b : Coefficients de Bézout",
+      "content": "### Identité de Bézout — $600u + 124v = 4$\n\nOn remonte l'algorithme d'Euclide :\n\n**Étape 1 :** $4 = 104 - 20 \\times 5$\n\n**Étape 2 :** $20 = 124 - 104 \\times 1 \\Rightarrow 4 = 104 - (124 - 104) \\times 5 = 6 \\times 104 + (-5) \\times 124$\n\n**Étape 3 :** $104 = 600 - 124 \\times 4$\n$$4 = 6(600 - 124 \\times 4) + (-5) \\times 124 = 6 \\times 600 + (-24 - 5) \\times 124$$\n$$4 = 6 \\times 600 + (-29) \\times 124$$\n\n$$\\boxed{u = 6 \\quad \\text{et} \\quad v = -29}$$\n\n**Vérification :** $600 \\times 6 + 124 \\times (-29) = 3600 - 3596 = 4$ ✓"
+    },
+    {
+      "id": 9,
+      "type": "content",
+      "title": "Rappel — Entiers premiers entre eux (Bézout)",
+      "content": "### Théorème de Bézout\n> $a$ et $b$ sont **premiers entre eux** ($a \\wedge b = 1$) si et seulement si :\n> $$\\exists\\, u, v \\in \\mathbb{Z},\\quad au + bv = 1$$\n\n### Conséquence utile\nSi $a \\wedge b = 1$ et $a \\mid bc$, alors $a \\mid c$ (théorème de Gauss).\n\n### Stratégie pour prouver $a_n \\wedge b_n = 1$\n1. **Trouver une combinaison linéaire** : chercher $\\lambda, \\mu \\in \\mathbb{Z}$ tels que $\\lambda a_n + \\mu b_n = 1$\n2. Ou utiliser **l'algorithme d'Euclide** sur $a_n$ et $b_n$\n\n> **Exemple type :** $\\lambda(2n+3) + \\mu(5n+7) = 1$\n> Choisir $\\lambda = 5$ et $\\mu = -2$ : $10n+15 - 10n - 14 = 1$ ✓"
+    },
+    {
+      "id": 10,
+      "type": "quiz",
+      "question": "**Ex05 — Q1** : Pour montrer que $2n+3$ et $5n+7$ sont premiers entre eux, on calcule :",
+      "choices": [
+        { "id": "a", "text": "$5(2n+3) - 2(5n+7) = 15-14 = 1$, ce qui prouve $\\gcd = 1$ par Bézout", "correct": true },
+        { "id": "b", "text": "$(2n+3) - (5n+7) = -3n-4$, et $\\gcd(-3n-4, 2n+3) = 1$", "correct": false },
+        { "id": "c", "text": "$(5n+7) \\div (2n+3) = 2$ reste $n+1$, donc le pgcd est 1", "correct": false },
+        { "id": "d", "text": "$2n+3 \\equiv 0[2n+3]$ et $5n+7 \\equiv 2[2n+3]$, donc premiers entre eux", "correct": false }
+      ],
+      "explanation": "On cherche des entiers $\\lambda, \\mu$ tels que $\\lambda(2n+3) + \\mu(5n+7) = 1$. En prenant $\\lambda = 5$ et $\\mu = -2$ : $5(2n+3) - 2(5n+7) = 10n+15-10n-14 = 1$. D'après Bézout, $\\gcd(2n+3, 5n+7) = 1$."
+    },
+    {
+      "id": 11,
+      "type": "content",
+      "title": "Exercice 05 — Q1 + Q2a : Correction",
+      "content": "### Q1 : $2n+3$ et $5n+7$ premiers entre eux\n\n$$5(2n+3) - 2(5n+7) = 10n+15 - 10n - 14 = 1$$\n\nD'après le théorème de Bézout (réciproque), $\\gcd(2n+3,\\, 5n+7) = 1$. $\\blacksquare$\n\n---\n\n### Q2a : $n \\wedge (2n+1) = 1$\n\nOn a $1 \\times (2n+1) - 2 \\times n = 2n+1-2n = 1$.\n\nDonc $\\gcd(n, 2n+1) = 1$ par Bézout. $\\blacksquare$\n\n### Q2a (suite) : $n^2 \\wedge (2n+1) = 1$\n\nPosons $d = n^2 \\wedge (2n+1)$. Alors $d \\mid n^2$ et $d \\mid 2n+1$.\n$$d \\mid 2n^2 \\quad \\text{et} \\quad d \\mid n(2n+1) = 2n^2+n$$\n$$\\Rightarrow d \\mid 2n^2+n - 2n^2 = n \\quad \\text{et} \\quad d \\mid 2n+1$$\n$$\\Rightarrow d \\mid n \\wedge (2n+1) = 1 \\Rightarrow d = 1$$"
+    },
+    {
+      "id": 12,
+      "type": "quiz",
+      "question": "**Ex05 — Q2b** : Si $d \\mid 2n+1$, alors $n^2 \\wedge d = ?$",
+      "choices": [
+        { "id": "a", "text": "1, car $d \\mid 2n+1$ et $n^2 \\wedge (2n+1) = 1$ impliquent $n^2 \\wedge d = 1$", "correct": true },
+        { "id": "b", "text": "$d$, car $d$ divise un multiple de $n$", "correct": false },
+        { "id": "c", "text": "On ne peut pas conclure sans connaître la valeur de $d$", "correct": false },
+        { "id": "d", "text": "$n^2$, par définition du PGCD", "correct": false }
+      ],
+      "explanation": "Posons $d' = n^2 \\wedge d$. Alors $d' \\mid n^2$ et $d' \\mid d$. Comme $d \\mid 2n+1$, on a aussi $d' \\mid 2n+1$. Donc $d' \\mid n^2$ et $d' \\mid 2n+1$, soit $d' \\mid n^2 \\wedge (2n+1) = 1$. Donc $d' = 1$, i.e. $n^2 \\wedge d = 1$."
+    },
+    {
+      "id": 13,
+      "type": "content",
+      "title": "Exercice 05 — Q2b : Correction complète",
+      "content": "### $d \\mid 2n+1 \\Rightarrow n^2 \\wedge d = 1$\n\nPosons $d' = n^2 \\wedge d$ avec $d' \\in \\mathbb{N}^*$.\n\n$$d' = n^2 \\wedge d \\Rightarrow \\begin{cases} d' \\mid n^2 \\\\ d' \\mid d \\end{cases}$$\n\nComme $d \\mid 2n+1$ et $d' \\mid d$, on a aussi $d' \\mid 2n+1$.\n\nDonc :\n$$\\begin{cases} d' \\mid n^2 \\\\ d' \\mid 2n+1 \\end{cases} \\Rightarrow d' \\mid n^2 \\wedge (2n+1) = 1$$\n\nDonc $d' \\mid 1$, ce qui donne $d' = 1$ (car $d' \\in \\mathbb{N}^*$).\n\n$$\\boxed{n^2 \\wedge d = 1} \\quad \\blacksquare$$"
+    },
+    {
+      "id": 14,
+      "type": "content",
+      "title": "Rappel — Décomposition en facteurs premiers",
+      "content": "### Théorème fondamental de l'arithmétique\nTout entier $n \\ge 2$ se décompose de manière **unique** (à l'ordre près) en produit de facteurs premiers :\n$$n = p_1^{\\alpha_1} \\times p_2^{\\alpha_2} \\times \\cdots \\times p_k^{\\alpha_k}$$\n\n### Nombre de diviseurs\nSi $n = p_1^{\\alpha_1} \\times p_2^{\\alpha_2} \\times \\cdots \\times p_k^{\\alpha_k}$, alors :\n$$\\tau(n) = (\\alpha_1+1)(\\alpha_2+1)\\cdots(\\alpha_k+1)$$\n\n### PGCD et PPCM par décomposition\n$$\\text{pgcd}(a,b) = \\prod p_i^{\\min(\\alpha_i, \\beta_i)}$$\n$$\\text{ppcm}(a,b) = \\prod p_i^{\\max(\\alpha_i, \\beta_i)}$$\n\n> **Relation fondamentale :** $\\text{pgcd}(a,b) \\times \\text{ppcm}(a,b) = a \\times b$"
+    },
+    {
+      "id": 15,
+      "type": "quiz",
+      "question": "**Ex06 — Q1** : Combien de diviseurs possède $132$ ?",
+      "choices": [
+        { "id": "a", "text": "12", "correct": true },
+        { "id": "b", "text": "6", "correct": false },
+        { "id": "c", "text": "8", "correct": false },
+        { "id": "d", "text": "16", "correct": false }
+      ],
+      "explanation": "$132 = 2^2 \\times 3^1 \\times 11^1$. Nombre de diviseurs : $(2+1)(1+1)(1+1) = 3 \\times 2 \\times 2 = 12$."
+    },
+    {
+      "id": 16,
+      "type": "content",
+      "title": "Exercice 06 — Q1 : Les 12 diviseurs de 132",
+      "content": "### Décomposition et diviseurs de 132\n\n$$132 = 2 \\times 66 = 2 \\times 2 \\times 33 = 2^2 \\times 3 \\times 11$$\n\n**Nombre de diviseurs :** $(2+1)(1+1)(1+1) = 12$\n\n**Liste de tous les diviseurs :**\n\n| $2^0 = 1$ | $2^1 = 2$ | $2^2 = 4$ |\n|:---------:|:---------:|:---------:|\n| $1 \\times 1 = 1$ | $2 \\times 1 = 2$ | $4 \\times 1 = 4$ |\n| $1 \\times 3 = 3$ | $2 \\times 3 = 6$ | $4 \\times 3 = 12$ |\n| $1 \\times 11 = 11$ | $2 \\times 11 = 22$ | $4 \\times 11 = 44$ |\n| $1 \\times 33 = 33$ | $2 \\times 33 = 66$ | $4 \\times 33 = 132$ |\n\n**Les 12 diviseurs de 132 :** $1, 2, 3, 4, 6, 11, 12, 22, 33, 44, 66, 132$."
+    },
+    {
+      "id": 17,
+      "type": "quiz",
+      "question": "**Ex06 — Q2** : Sachant que $17640 = 2^3 \\times 3^2 \\times 5 \\times 7^2$ et $411600 = 2^4 \\times 3 \\times 5^2 \\times 7^3$, le $\\text{pgcd}$ de ces deux nombres est :",
+      "choices": [
+        { "id": "a", "text": "$5880 = 2^3 \\times 3 \\times 5 \\times 7^2$", "correct": true },
+        { "id": "b", "text": "$1764 = 2^2 \\times 3^2 \\times 7^2$", "correct": false },
+        { "id": "c", "text": "$420 = 2^2 \\times 3 \\times 5 \\times 7$", "correct": false },
+        { "id": "d", "text": "$840 = 2^3 \\times 3 \\times 5 \\times 7$", "correct": false }
+      ],
+      "explanation": "Le pgcd prend le **minimum** des exposants : $\\min(3,4)=3$, $\\min(2,1)=1$, $\\min(1,2)=1$, $\\min(2,3)=2$. Donc $\\text{pgcd} = 2^3 \\times 3^1 \\times 5^1 \\times 7^2 = 8 \\times 3 \\times 5 \\times 49 = 5880$."
+    },
+    {
+      "id": 18,
+      "type": "content",
+      "title": "Exercice 06 — Q2 : Correction + Synthèse",
+      "content": "### Décomposition et PGCD/PPCM\n\n$$17640 = 2^3 \\times 3^2 \\times 5 \\times 7^2$$\n$$411600 = 2^4 \\times 3 \\times 5^2 \\times 7^3$$\n\n**PGCD** (minimum des exposants) :\n$$\\text{pgcd} = 2^{\\min(3,4)} \\times 3^{\\min(2,1)} \\times 5^{\\min(1,2)} \\times 7^{\\min(2,3)} = 2^3 \\times 3 \\times 5 \\times 7^2$$\n$$\\boxed{\\text{pgcd}(17640,\\; 411600) = 5880}$$\n\n**PPCM** (maximum des exposants) :\n$$\\text{ppcm} = 2^4 \\times 3^2 \\times 5^2 \\times 7^3 = 16 \\times 9 \\times 25 \\times 343$$\n$$\\boxed{\\text{ppcm}(17640,\\; 411600) = 1\\,234\\,800}$$\n\n---\n\n## Bilan — PGCD et Bézout\n| Outil | Quand l'utiliser |\n|-------|------------------|\n| Algorithme d'Euclide | Calculer pgcd de deux entiers |\n| Identité de Bézout | Trouver $u,v$ tels que $au+bv = d$ |\n| Réciproque de Bézout | Prouver $a \\wedge b = 1$ |\n| Décomposition en premiers | pgcd, ppcm, nombre de diviseurs |"
+    }
+  ]
+}
