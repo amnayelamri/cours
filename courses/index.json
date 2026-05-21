@@ -120,25 +120,26 @@
     "slideCount": 22
   },
   {
-    "id": "cours-binomiale-terminale-001",
-    "title": "Probabilités – Loi Binomiale (Terminale Bac Français)",
-    "description": "Introduction complète à la loi binomiale : expérience de Bernoulli, schéma de Bernoulli, calculs de probabilités et espérance.",
-    "tags": [
-      "probabilités",
-      "loi binomiale",
-      "terminale",
-      "bac français",
-      "mathématiques"
-    ],
-    "createdAt": "2026-05-21",
-    "slideCount": 14
-  },
-  {
     "id": "cours-probabilites-terminale-spe",
     "title": "Probabilités — Terminale Spé Maths",
     "description": "Cours complet de probabilités niveau Terminale Spécialité Maths : probabilités conditionnelles, indépendance, formule des probabilités totales, variables aléatoires, espérance, variance, somme de variables aléatoires. Style Bac.",
-    "tags": ["terminale", "spé maths", "probabilités", "bac", "variables aléatoires", "indépendance"],
+    "tags": [
+      "terminale",
+      "spé maths",
+      "probabilités",
+      "bac",
+      "variables aléatoires",
+      "indépendance"
+    ],
     "createdAt": "2026-05-21",
     "slideCount": 22
+  },
+  {
+    "id": "exos-probabilites-terminale-spe",
+    "title": "Exercices — Probabilités Terminale Spé (20 QCM Bac)",
+    "description": "Banque de 20 QCM type Bac sur les probabilités niveau Terminale : probabilités conditionnelles, indépendance, formule des probabilités totales, Bayes, variables aléatoires, espérance, variance, somme de v.a. Corrections détaillées.",
+    "tags": ["terminale", "spé maths", "probabilités", "bac", "QCM", "exercices"],
+    "createdAt": "2026-05-21",
+    "slideCount": 21
   }
 ]
