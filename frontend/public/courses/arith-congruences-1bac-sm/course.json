@@ -1,0 +1,162 @@
+{
+  "id": "arith-congruences-1bac-sm",
+  "title": "Congruences et Calculs de Restes — 1BAC SM",
+  "slides": [
+    {
+      "id": 1,
+      "type": "content",
+      "title": "Congruences — Série corrigée · 1BAC SM",
+      "content": "## Exercices 03 & 09 — Congruences et Calculs de Restes\n\n**Niveau :** 1re Baccalauréat Sciences Maths\n\nCe cours couvre deux exercices sur les congruences :\n\n**Exercice 03 :**\n- Résoudre $6+x \\equiv 5\\,[3]$\n- Résoudre $3x \\equiv 5\\,[4]$\n- Reste de $2^{456}$ divisé par 5\n- Reste de $2^{437}$ divisé par 7\n\n**Exercice 09 :**\n- Reste de $2022^{2023}$ divisé par 7\n- Chiffre des unités de $4444^{6666} + 6666^{4444}$\n- Reste de $34561^{2024} + 56981^{2023}$ divisé par 9\n- Équation sans solution entière\n- $a_n \\wedge b_n = 1$"
+    },
+    {
+      "id": 2,
+      "type": "content",
+      "title": "Rappel — Congruences modulo $m$",
+      "content": "### Définition\n$$a \\equiv b \\pmod{m} \\Leftrightarrow m \\mid a - b$$\n\n### Propriétés opératoires\n| Opération | Règle |\n|-----------|-------|\n| Addition | $a \\equiv b[m]$ et $c \\equiv d[m] \\Rightarrow a+c \\equiv b+d\\,[m]$ |\n| Multiplication | $a \\equiv b[m]$ et $c \\equiv d[m] \\Rightarrow ac \\equiv bd\\,[m]$ |\n| Puissance | $a \\equiv b[m] \\Rightarrow a^k \\equiv b^k\\,[m]$ |\n\n### Stratégie pour calculer $a^n \\pmod{m}$\n1. Trouver $k$ tel que $a^k \\equiv 1 \\pmod{m}$\n2. Écrire $n = kq + r$ avec $0 \\le r < k$\n3. Alors $a^n = a^{kq+r} = (a^k)^q \\cdot a^r \\equiv 1^q \\cdot a^r \\equiv a^r \\pmod{m}$\n\n> **Astuce :** Pour trouver $k$, calculer les puissances successives de $a$ modulo $m$ jusqu'à obtenir 1."
+    },
+    {
+      "id": 3,
+      "type": "quiz",
+      "question": "**Ex03 — Q1a** : L'ensemble des entiers $x$ tels que $6+x \\equiv 5\\,[3]$ est :",
+      "choices": [
+        { "id": "a", "text": "Les entiers de la forme $2 + 3k$, $k \\in \\mathbb{Z}$ (i.e. $x \\equiv 2\\,[3]$)", "correct": true },
+        { "id": "b", "text": "Les entiers de la forme $1 + 3k$, $k \\in \\mathbb{Z}$ (i.e. $x \\equiv 1\\,[3]$)", "correct": false },
+        { "id": "c", "text": "Les entiers de la forme $3k$, $k \\in \\mathbb{Z}$ (i.e. $x \\equiv 0\\,[3]$)", "correct": false },
+        { "id": "d", "text": "Les entiers de la forme $-1 + 3k$, $k \\in \\mathbb{Z}$ (i.e. $x \\equiv -1\\,[3]$)", "correct": false }
+      ],
+      "explanation": "$6+x \\equiv 5[3]$ donc $x \\equiv 5-6[3] \\equiv -1[3] \\equiv 2[3]$ (car $-1 \\equiv 2 \\pmod{3}$). Les solutions sont tous les entiers de la forme $2+3k$ avec $k \\in \\mathbb{Z}$."
+    },
+    {
+      "id": 4,
+      "type": "content",
+      "title": "Exercice 03 — Q1a : Correction",
+      "content": "### Résoudre $6+x \\equiv 5\\,[3]$\n\n$$6+x \\equiv 5\\,[3]$$\n$$\\Rightarrow 6+x - 6 \\equiv 5 - 6\\,[3]$$\n$$\\Rightarrow x \\equiv -1\\,[3]$$\n$$\\Rightarrow x \\equiv 2\\,[3] \\quad (\\text{car } -1 \\equiv 2 \\pmod{3})$$\n\n**Les solutions** sont tous les entiers de la forme $2 + 3k$ avec $k \\in \\mathbb{Z}$ :\n$$\\ldots,\\; -4,\\; -1,\\; 2,\\; 5,\\; 8,\\; \\ldots$$"
+    },
+    {
+      "id": 5,
+      "type": "quiz",
+      "question": "**Ex03 — Q1b** : Les entiers $x$ tels que $3x \\equiv 5\\,[4]$ vérifient :",
+      "choices": [
+        { "id": "a", "text": "$x \\equiv 3\\,[4]$, donc $x$ est de la forme $3+4k$", "correct": true },
+        { "id": "b", "text": "$x \\equiv 1\\,[4]$, donc $x$ est de la forme $1+4k$", "correct": false },
+        { "id": "c", "text": "$x \\equiv 2\\,[4]$, donc $x$ est de la forme $2+4k$", "correct": false },
+        { "id": "d", "text": "Pas de solution car $\\gcd(3,4) \\nmid 5$", "correct": false }
+      ],
+      "explanation": "$3x \\equiv 5 \\equiv 1\\,[4]$ (car $5=4+1$). On cherche $x \\in \\{0,1,2,3\\}$ tel que $3x \\equiv 1[4]$ : $3\\times0=0$, $3\\times1=3$, $3\\times2=6\\equiv2$, $3\\times3=9\\equiv1$ ✓. Donc $x\\equiv3[4]$, i.e. $x$ est de la forme $3+4k$."
+    },
+    {
+      "id": 6,
+      "type": "content",
+      "title": "Exercice 03 — Q1b : Correction",
+      "content": "### Résoudre $3x \\equiv 5\\,[4]$\n\n**Étape 1 :** Simplifier : $3x \\equiv 5 \\equiv 1\\,[4]$\n\n**Étape 2 :** Tableau des résidus de $3x$ modulo 4 :\n\n| $x \\pmod{4}$ | 0 | 1 | 2 | **3** |\n|:---:|:---:|:---:|:---:|:---:|\n| $3x \\pmod{4}$ | 0 | 3 | 2 | **1** |\n\nDonc $3 \\times 3 \\equiv 1\\,[4]$, ce qui donne $x \\equiv 3\\,[4]$.\n\n**Les solutions** sont tous les entiers de la forme $3+4k$ avec $k \\in \\mathbb{Z}$ :\n$$\\ldots,\\; -5,\\; -1,\\; 3,\\; 7,\\; 11,\\; \\ldots$$\n\n> **Remarque :** L'inverse de 3 modulo 4 est 3 lui-même (car $3 \\times 3 = 9 \\equiv 1\\,[4]$)."
+    },
+    {
+      "id": 7,
+      "type": "quiz",
+      "question": "**Ex03 — Q2a** : Quel est le reste de la division de $2^{456}$ par 5 ?",
+      "choices": [
+        { "id": "a", "text": "1", "correct": true },
+        { "id": "b", "text": "2", "correct": false },
+        { "id": "c", "text": "3", "correct": false },
+        { "id": "d", "text": "4", "correct": false }
+      ],
+      "explanation": "On cherche $k$ tel que $2^k \\equiv 1[5]$. On a $2^4 = 16 \\equiv 1[5]$. Puis $456 = 4 \\times 114$, donc $2^{456} = (2^4)^{114} \\equiv 1^{114} \\equiv 1[5]$. Le reste est **1**."
+    },
+    {
+      "id": 8,
+      "type": "content",
+      "title": "Exercice 03 — Q2a : Correction",
+      "content": "### Reste de $2^{456}$ divisé par 5\n\n**Étape 1 :** Trouver l'ordre de 2 modulo 5.\n$$2^1 \\equiv 2,\\quad 2^2 \\equiv 4,\\quad 2^3 \\equiv 3,\\quad 2^4 \\equiv 16 \\equiv 1\\,[5]$$\n\n**Étape 2 :** Écrire $456 = 4 \\times 114$.\n$$2^{456} = (2^4)^{114} \\equiv 1^{114} \\equiv 1\\,[5]$$\n\n$$\\boxed{2^{456} \\equiv 1\\,[5]}$$\n\nLe reste de la division de $2^{456}$ par 5 est **1**."
+    },
+    {
+      "id": 9,
+      "type": "quiz",
+      "question": "**Ex03 — Q2b** : Quel est le reste de la division de $2^{437}$ par 7 ?",
+      "choices": [
+        { "id": "a", "text": "4", "correct": true },
+        { "id": "b", "text": "1", "correct": false },
+        { "id": "c", "text": "2", "correct": false },
+        { "id": "d", "text": "6", "correct": false }
+      ],
+      "explanation": "On a $2^3 = 8 \\equiv 1[7]$. Puis $437 = 3 \\times 145 + 2$, donc $2^{437} = (2^3)^{145} \\times 2^2 \\equiv 1^{145} \\times 4 \\equiv 4[7]$. Le reste est **4**."
+    },
+    {
+      "id": 10,
+      "type": "content",
+      "title": "Exercice 03 — Q2b : Correction",
+      "content": "### Reste de $2^{437}$ divisé par 7\n\n**Étape 1 :** Trouver l'ordre de 2 modulo 7.\n$$2^1 \\equiv 2,\\quad 2^2 \\equiv 4,\\quad 2^3 = 8 \\equiv 1\\,[7]$$\n\n**Étape 2 :** Division euclidienne : $437 = 3 \\times 145 + 2$.\n$$2^{437} = (2^3)^{145} \\times 2^2 \\equiv 1^{145} \\times 4 \\equiv 4\\,[7]$$\n\n$$\\boxed{2^{437} \\equiv 4\\,[7]}$$\n\nLe reste de la division de $2^{437}$ par 7 est **4**."
+    },
+    {
+      "id": 11,
+      "type": "quiz",
+      "question": "**Ex09 — Q1** : Quel est le reste de la division de $2022^{2023}$ par 7 ?",
+      "choices": [
+        { "id": "a", "text": "6", "correct": true },
+        { "id": "b", "text": "1", "correct": false },
+        { "id": "c", "text": "4", "correct": false },
+        { "id": "d", "text": "2", "correct": false }
+      ],
+      "explanation": "$2022 = 288 \\times 7 + 6$, donc $2022 \\equiv 6\\,[7]$. Ainsi $2022^{2023} \\equiv 6^{2023}[7]$. On a $6^2 = 36 \\equiv 1[7]$, et $2023 = 2 \\times 1011 + 1$, donc $6^{2023} = (6^2)^{1011} \\times 6 \\equiv 1 \\times 6 \\equiv 6[7]$. Le reste est **6**."
+    },
+    {
+      "id": 12,
+      "type": "content",
+      "title": "Exercice 09 — Q1 : Correction",
+      "content": "### Reste de $2022^{2023}$ divisé par 7\n\n**Étape 1 :** Réduire la base modulo 7.\n$$2022 = 288 \\times 7 + 6 \\Rightarrow 2022 \\equiv 6\\,[7]$$\n\n**Étape 2 :** Trouver l'ordre de 6 modulo 7.\n$$6^2 = 36 = 5 \\times 7 + 1 \\Rightarrow 6^2 \\equiv 1\\,[7]$$\n\n**Étape 3 :** Décomposer l'exposant : $2023 = 2 \\times 1011 + 1$.\n$$6^{2023} = (6^2)^{1011} \\times 6^1 \\equiv 1^{1011} \\times 6 \\equiv 6\\,[7]$$\n\n$$\\boxed{2022^{2023} \\equiv 6\\,[7]}$$\n\nLe reste est **6**."
+    },
+    {
+      "id": 13,
+      "type": "quiz",
+      "question": "**Ex09 — Q2** : Le chiffre des unités de $4444^{6666} + 6666^{4444}$ est :",
+      "choices": [
+        { "id": "a", "text": "2", "correct": true },
+        { "id": "b", "text": "0", "correct": false },
+        { "id": "c", "text": "4", "correct": false },
+        { "id": "d", "text": "8", "correct": false }
+      ],
+      "explanation": "$4444 \\equiv 4[10]$ et $6666 \\equiv 6[10]$. Or $4 \\equiv -6[10]$, donc $4^{6666} \\equiv (-6)^{6666} \\equiv 6^{6666}[10]$. Donc la somme $\\equiv 6^{6666} + 6^{4444}[10]$. Comme $6^n \\equiv 6[10]$ pour tout $n \\geq 1$, la somme $\\equiv 6 + 6 = 12 \\equiv 2[10]$. Chiffre des unités : **2**."
+    },
+    {
+      "id": 14,
+      "type": "content",
+      "title": "Exercice 09 — Q2 : Correction",
+      "content": "### Chiffre des unités de $4444^{6666} + 6666^{4444}$\n\n**Étape 1 :** Réduire modulo 10.\n$$4444 \\equiv 4\\,[10] \\quad \\text{et} \\quad 6666 \\equiv 6\\,[10]$$\n\n**Étape 2 :** Utiliser $4 \\equiv -6\\,[10]$.\n$$4^{6666} \\equiv (-6)^{6666} \\equiv 6^{6666}\\,[10] \\quad (\\text{exposant pair})$$\n\n**Étape 3 :** Propriété de 6 : $6^n \\equiv 6\\,[10]$ pour tout $n \\ge 1$.\n$$4444^{6666} + 6666^{4444} \\equiv 6^{6666} + 6^{4444} \\equiv 6 + 6 = 12 \\equiv 2\\,[10]$$\n\n$$\\boxed{\\text{Chiffre des unités} = 2}$$"
+    },
+    {
+      "id": 15,
+      "type": "quiz",
+      "question": "**Ex09 — Q3** : Le reste de $34561^{2024} + 56981^{2023}$ divisé par 9 est :",
+      "choices": [
+        { "id": "a", "text": "3", "correct": true },
+        { "id": "b", "text": "1", "correct": false },
+        { "id": "c", "text": "2", "correct": false },
+        { "id": "d", "text": "0", "correct": false }
+      ],
+      "explanation": "Somme des chiffres : $34561 \\to 3+4+5+6+1=19 \\to 1+9=10 \\to 1$, donc $34561 \\equiv 1[9]$, $34561^{2024} \\equiv 1[9]$. Pour $56981$ : $5+6+9+8+1=29 \\to 2+9=11 \\to 2$, donc $56981 \\equiv 2[9]$. Puis $2^3=8 \\equiv -1[9]$, et $2023=3\\times674+1$, donc $56981^{2023} \\equiv 2^{2023} \\equiv (-1)^{674}\\times 2 \\equiv 2[9]$. Total : $1+2=3$."
+    },
+    {
+      "id": 16,
+      "type": "content",
+      "title": "Exercice 09 — Q3 : Correction",
+      "content": "### Reste de $34561^{2024} + 56981^{2023}$ divisé par 9\n\n> **Rappel :** Un entier est congru à la somme de ses chiffres modulo 9.\n\n**Calcul pour $34561$ :**\n$$3+4+5+6+1 = 19 \\equiv 1\\,[9]$$\n$$\\Rightarrow 34561^{2024} \\equiv 1^{2024} \\equiv 1\\,[9]$$\n\n**Calcul pour $56981$ :**\n$$5+6+9+8+1 = 29 \\equiv 2\\,[9]$$\n$$\\Rightarrow 56981 \\equiv 2\\,[9]$$\n\nOn cherche l'ordre de 2 modulo 9 : $2^3 = 8 \\equiv -1\\,[9]$.\n\nDécomposer l'exposant : $2023 = 3 \\times 674 + 1$.\n$$56981^{2023} \\equiv 2^{2023} = (2^3)^{674} \\times 2 \\equiv (-1)^{674} \\times 2 \\equiv 1 \\times 2 \\equiv 2\\,[9]$$\n\n$$\\boxed{34561^{2024} + 56981^{2023} \\equiv 1 + 2 = 3\\,[9]}$$"
+    },
+    {
+      "id": 17,
+      "type": "quiz",
+      "question": "**Ex09 — Q4** : L'équation $9x^5 - 12x^4 + 6x - 5 = 0$ n'admet pas de solution entière car :",
+      "choices": [
+        { "id": "a", "text": "Si $x$ est entier, $3(3x^5 - 4x^4 + 2x) = 5$, or un multiple de 3 ne peut égaler 5", "correct": true },
+        { "id": "b", "text": "Le discriminant est négatif, donc pas de solution réelle", "correct": false },
+        { "id": "c", "text": "La somme des coefficients est non nulle, donc $x=1$ n'est pas solution", "correct": false },
+        { "id": "d", "text": "Le degré 5 implique toujours des racines irrationnelles", "correct": false }
+      ],
+      "explanation": "Si $a \\in \\mathbb{Z}$ est solution : $9a^5 - 12a^4 + 6a = 5$, d'où $3(3a^5 - 4a^4 + 2a) = 5$. Le membre gauche est divisible par 3, mais $5$ ne l'est pas. Contradiction. Donc aucune solution entière."
+    },
+    {
+      "id": 18,
+      "type": "content",
+      "title": "Exercice 09 — Q5 : $a_n \\wedge b_n = 1$ + Synthèse",
+      "content": "### Q5 : Montrer que $a_n \\wedge b_n = 1$ pour $a_n = 2n^2+5n+4$, $b_n = 2n+1$\n\n**Division euclidienne de $a_n$ par $b_n$ :**\n$$2n^2+5n+4 = (2n+1)(n+2) + 2$$\n\n**(Vérif :** $(2n+1)(n+2) = 2n^2+4n+n+2 = 2n^2+5n+2$, reste $= 4-2 = 2$ ✓)\n\nDonc :\n$$a_n \\wedge b_n = b_n \\wedge 2 = (2n+1) \\wedge 2 = 1$$\n\nCar $2n+1$ est **impair** (et donc $\\gcd(2n+1, 2) = 1$). $\\blacksquare$\n\n---\n\n## Bilan — Congruences\n\n### Formules à retenir\n| Résultat | Méthode |\n|----------|--------|\n| $a^n \\pmod{m}$ | Trouver l'ordre $k$ ($a^k \\equiv 1[m]$), écrire $n = kq+r$ |\n| Chiffre des unités | Travailler modulo 10 |\n| Reste mod 9 | Somme des chiffres |\n| Pas de solution entière | Contradiction par congruence |\n| $\\gcd$ par algorithme d'Euclide | $a \\wedge b = b \\wedge r$ où $a = bq+r$ |"
+    }
+  ]
+}

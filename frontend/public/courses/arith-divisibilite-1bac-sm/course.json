@@ -1,0 +1,138 @@
+{
+  "id": "arith-divisibilite-1bac-sm",
+  "title": "Divisibilité et Division Euclidienne — 1BAC SM",
+  "slides": [
+    {
+      "id": 1,
+      "type": "content",
+      "title": "Divisibilité — Série corrigée · 1BAC SM",
+      "content": "## Exercices 01 & 02 — Divisibilité et Division Euclidienne\n\n**Niveau :** 1re Baccalauréat Sciences Maths\n\nCe cours couvre deux exercices fondamentaux :\n\n**Exercice 01 — Divisibilité dans ℤ :**\n- Trouver les entiers $n$ tels que $2n+5 \\mid n-1$\n- Trouver les entiers $n$ tels que $2n+1 \\mid n^2+6$\n- Démontrer que $4n+3$ n'est pas divisible par 3\n\n**Exercice 02 — Division Euclidienne :**\n- Quotient et reste de $5n+11$ par $2n+3$\n- Prouver que $n(n+5)(n-5)$ est divisible par 3"
+    },
+    {
+      "id": 2,
+      "type": "content",
+      "title": "Rappel — Propriétés de divisibilité",
+      "content": "### Définition\nSoit $a, b \\in \\mathbb{Z}$. On dit que $a$ **divise** $b$ (noté $a \\mid b$) si :\n$$\\exists\\, k \\in \\mathbb{Z},\\quad b = a \\cdot k$$\n\n### Propriété clé : Combinaisons linéaires\n> Si $a \\mid b$ et $a \\mid c$, alors pour tous $\\lambda, \\mu \\in \\mathbb{Z}$ :\n> $$a \\mid \\lambda b + \\mu c$$\n\n### Stratégie pour trouver les $n$ tels que $f(n) \\mid g(n)$\n1. Utiliser $f(n) \\mid f(n)$ et $f(n) \\mid g(n)$\n2. Former des **combinaisons linéaires** pour éliminer $n$\n3. Obtenir $f(n) \\mid C$ où $C$ est une **constante**\n4. Lister les diviseurs de $C$, en déduire les valeurs de $n$\n5. **Vérifier** la réciproque pour chaque valeur trouvée"
+    },
+    {
+      "id": 3,
+      "type": "content",
+      "title": "Exercice 01 — Q1 : Méthode pas à pas",
+      "content": "### Trouver $n \\in \\mathbb{Z}$ tel que $2n+5 \\mid n-1$\n\n**Étape 1 :** Si $2n+5 \\mid n-1$, alors $2n+5 \\mid 2(n-1) = 2n-2$.\n\nPar ailleurs, $2n+5 \\mid 2n+5$.\n\n**Étape 2 :** Combinaison linéaire :\n$$2n+5 \\mid (2n+5) - (2n-2) = 7$$\n\n**Étape 3 :** Les diviseurs de 7 sont $\\{-7,\\;-1,\\;1,\\;7\\}$.\n\nDonc $2n+5 \\in \\{-7,\\;-1,\\;1,\\;7\\}$, ce qui donne :\n| $2n+5$ | $n$ |\n|--------|-----|\n| $-7$ | $-6$ |\n| $-1$ | $-3$ |\n| $1$ | $-2$ |\n| $7$ | $1$ |\n\n**Étape 4 :** Vérification :\n- $n=-6$ : $-7 \\mid -7$ ✓ — $n=-3$ : $-1 \\mid -4$ ✓\n- $n=-2$ : $1 \\mid -3$ ✓ — $n=1$ : $7 \\mid 0$ ✓"
+    },
+    {
+      "id": 4,
+      "type": "quiz",
+      "question": "**Ex01 — Q1** : L'ensemble des entiers $n$ tels que $2n+5$ divise $n-1$ est :",
+      "choices": [
+        { "id": "a", "text": "$S = \\{-6,\\;-3,\\;-2,\\;1\\}$", "correct": true },
+        { "id": "b", "text": "$S = \\{-7,\\;-1,\\;1,\\;7\\}$", "correct": false },
+        { "id": "c", "text": "$S = \\{-3,\\;-2,\\;-1,\\;2\\}$", "correct": false },
+        { "id": "d", "text": "$S = \\{-6,\\;-3,\\;0,\\;1\\}$", "correct": false }
+      ],
+      "explanation": "On montre $2n+5 \\mid 7$ en formant la combinaison $(2n+5) - 2(n-1) = 7$. Les diviseurs de 7 sont $\\pm1, \\pm7$. En résolvant $2n+5 \\in \\{-7,-1,1,7\\}$ on obtient $n \\in \\{-6,-3,-2,1\\}$. Vérification : $7 \\mid 0$ ✓, $-1 \\mid -4$ ✓, $1 \\mid -3$ ✓, $-7 \\mid -7$ ✓."
+    },
+    {
+      "id": 5,
+      "type": "content",
+      "title": "Exercice 01 — Q2 : Méthode (double réduction)",
+      "content": "### Trouver $n \\in \\mathbb{Z}$ tel que $2n+1 \\mid n^2+6$\n\n**Étape 1 :** Multiplier par 2 pour faire apparaître $2n+1$ :\n$$2n+1 \\mid n^2+6 \\Rightarrow 2n+1 \\mid 2(n^2+6) = 2n^2+12$$\n\n**Étape 2 :** Utiliser que $2n+1 \\mid n(2n+1) = 2n^2+n$ :\n$$2n+1 \\mid (2n^2+12)-(2n^2+n) = 12-n$$\n\n**Étape 3 :** Deuxième réduction :\n$$2n+1 \\mid 12-n \\Rightarrow 2n+1 \\mid 2(12-n)+(2n+1) = 25$$\n\n**Étape 4 :** Diviseurs de 25 ($2n+1$ est **toujours impair**) :\n$$2n+1 \\in \\{-25,\\;-5,\\;-1,\\;1,\\;5,\\;25\\}$$\n\n$$n \\in \\{-13,\\;-3,\\;-1,\\;0,\\;2,\\;12\\}$$\n\n**Vérification :** $n=12$: $2(12)+1=25$, $12^2+6=150$, $25\\mid 150$ ✓ ; $n=-13$: $2(-13)+1=-25$, $175=(-25)\\times(-7)$ ✓"
+    },
+    {
+      "id": 6,
+      "type": "quiz",
+      "question": "**Ex01 — Q2** : L'ensemble des entiers $n$ tels que $2n+1$ divise $n^2+6$ est :",
+      "choices": [
+        { "id": "a", "text": "$S = \\{-13,\\;-3,\\;-1,\\;0,\\;2,\\;12\\}$", "correct": true },
+        { "id": "b", "text": "$S = \\{-25,\\;-5,\\;-1,\\;1,\\;5,\\;25\\}$", "correct": false },
+        { "id": "c", "text": "$S = \\{-13,\\;-3,\\;-2,\\;-1,\\;0,\\;2,\\;12\\}$", "correct": false },
+        { "id": "d", "text": "$S = \\{-12,\\;-2,\\;0,\\;1,\\;3,\\;13\\}$", "correct": false }
+      ],
+      "explanation": "On montre $2n+1 \\mid 25$. Comme $2n+1$ est impair, ses valeurs possibles sont les diviseurs impairs de $25$ : $\\{-25,-5,-1,1,5,25\\}$. Cela donne $n \\in \\{-13,-3,-1,0,2,12\\}$. (L'option C contient $n=-2$ : vérif. $2(-2)+1=-3$ et $n^2+6=10$, or $-3 \\nmid 10$ — ce n'est pas une solution.)"
+    },
+    {
+      "id": 7,
+      "type": "content",
+      "title": "Exercice 01 — Q3 : Non-divisibilité par l'absurde",
+      "content": "### Démontrer que $\\forall n \\in \\mathbb{Z}$, $4n+3$ n'est pas divisible par 3\n\n**Méthode : Raisonnement par l'absurde**\n\n**Hypothèse :** Supposons qu'il existe $n \\in \\mathbb{Z}$ tel que $3 \\mid 4n+3$.\n\nAlors il existe $k \\in \\mathbb{Z}$ tel que :\n$$4n + 3 = 3k$$\n\n**Réécrivons :** $4n + 3 - 3n = 3k - 3n$, soit :\n$$n + 3 = 3(k-n)$$\nDonc $3 \\mid n+3$. Comme $3 \\mid 3$, on en déduit $3 \\mid n$.\n\nMais alors $4n + 3 = 4(3q) + 3 = 3(4q+1)$, donc $3 \\mid 4n+3$... ce qui n'est pas une contradiction en soi.\n\n**Méthode directe par congruences (plus efficace) :**\n$$4n+3 \\equiv n + 0 \\equiv n \\pmod{3} \\quad (\\text{car } 4\\equiv 1[3],\\; 3 \\equiv 0[3])$$\n\nDonc $3 \\mid 4n+3 \\Leftrightarrow 3 \\mid n$. En prenant $n = 3q+1$ ou $n=3q+2$, on voit que $3 \\nmid 4n+3$.\n\n> **À retenir :** $4n+3 \\equiv n \\pmod{3}$, donc divisible par 3 seulement si $3 \\mid n$."
+    },
+    {
+      "id": 8,
+      "type": "quiz",
+      "question": "**Ex01 — Q3** : Pour tout $n \\in \\mathbb{Z}$, $4n+3$ modulo 3 est équivalent à :",
+      "choices": [
+        { "id": "a", "text": "$n \\pmod{3}$, donc $3 \\mid 4n+3 \\Leftrightarrow 3 \\mid n$", "correct": true },
+        { "id": "b", "text": "$1 \\pmod{3}$, donc $4n+3$ est toujours congru à 1 modulo 3", "correct": false },
+        { "id": "c", "text": "$n+1 \\pmod{3}$, donc la divisibilité dépend de $n \\equiv 2[3]$", "correct": false },
+        { "id": "d", "text": "$0 \\pmod{3}$, donc $4n+3$ est toujours divisible par 3", "correct": false }
+      ],
+      "explanation": "Comme $4 \\equiv 1 \\pmod{3}$ et $3 \\equiv 0 \\pmod{3}$, on a $4n+3 \\equiv 1\\cdot n + 0 \\equiv n \\pmod{3}$. Donc $3 \\mid 4n+3 \\Leftrightarrow 3 \\mid n$. Ce n'est donc pas vrai pour **tout** $n$ (ex. $n=1$ : $4+3=7$, $3\\nmid 7$), mais l'énoncé précise que $4n+3$ n'est **jamais** divisible par 3 — ce qui est faux en général. Attention à l'énoncé original : il parle de $3n+4$ dans certaines versions."
+    },
+    {
+      "id": 9,
+      "type": "content",
+      "title": "Exercice 02 — Division euclidienne : Énoncé",
+      "content": "### Exercice 02 — Question 1\n\nDéterminer le quotient $Q$ et le reste $R$ de la division de $5n+11$ par $2n+3$, avec $n$ entier **naturel**.\n\n---\n\n**Rappel — Division euclidienne :**\n> Il existe un unique couple $(Q, R)$ tel que :\n> $$5n+11 = Q \\cdot (2n+3) + R \\quad\\text{avec}\\quad 0 \\le R < 2n+3$$\n\n**Stratégie :** On cherche le plus grand entier $Q$ tel que $Q(2n+3) \\le 5n+11$.\n\nOn essaie $Q = 2$ :\n$$2(2n+3) = 4n+6 \\Rightarrow 5n+11 - (4n+6) = n+5$$\n\nDonc : $5n+11 = 2(2n+3) + (n+5)$\n\n**Condition :** $0 \\le n+5 < 2n+3 \\Leftrightarrow n+5 \\ge 0$ et $n+5 < 2n+3$\n$$\\Leftrightarrow n \\ge -5 \\quad \\text{et} \\quad n > 2 \\quad \\Rightarrow \\quad n \\ge 3$$"
+    },
+    {
+      "id": 10,
+      "type": "quiz",
+      "question": "**Ex02 — Q1** : Pour $n \\geq 3$, dans la division de $5n+11$ par $2n+3$, le quotient et le reste sont :",
+      "choices": [
+        { "id": "a", "text": "$Q = 2$ et $R = n+5$", "correct": true },
+        { "id": "b", "text": "$Q = 3$ et $R = 2$", "correct": false },
+        { "id": "c", "text": "$Q = 2$ et $R = n+4$", "correct": false },
+        { "id": "d", "text": "$Q = 2$ et $R = 2n-1$", "correct": false }
+      ],
+      "explanation": "Pour $n \\geq 3$ : $5n+11 = 2(2n+3) + (n+5)$. On vérifie $0 \\leq n+5 < 2n+3$, ce qui donne $n > 2$, donc $n \\geq 3$ ✓. Exemple : $n=3$, dividende $=26$, diviseur $=9$, $26 = 2\\times9 + 8 = 18+8$ et $R = 3+5 = 8$ ✓."
+    },
+    {
+      "id": 11,
+      "type": "content",
+      "title": "Exercice 02 — Q1 : Cas particuliers $n \\in \\{0,1,2\\}$",
+      "content": "### Correction complète — Division de $5n+11$ par $2n+3$\n\nPour $n \\ge 3$ : $Q = 2$, $R = n+5$.\n\n**Cas particuliers :**\n\n| $n$ | $5n+11$ | $2n+3$ | Quotient $Q$ | Reste $R$ |\n|:---:|:-------:|:------:|:-----------:|:---------:|\n| 0 | 11 | 3 | **3** | **2** |\n| 1 | 16 | 5 | **3** | **1** |\n| 2 | 21 | 7 | **3** | **0** |\n\nPour ces cas, $Q = 3$ car $5n+11 = 3(2n+3) + (-n+2)$ avec $-n+2 \\ge 0$ seulement si $n \\le 2$.\n\n> **Attention :** Pour $n = 0, 1, 2$ le quotient est **3** et non 2. La formule $Q=2, R=n+5$ n'est valide que pour $n \\ge 3$."
+    },
+    {
+      "id": 12,
+      "type": "content",
+      "title": "Exercice 02 — Q2 : Divisibilité par 3",
+      "content": "### Exercice 02 — Question 2\n\nDémontrer que pour tout entier naturel $n$, le produit $n(n+5)(n-5)$ est divisible par 3.\n\n---\n\n**Méthode : Décomposition selon le reste modulo 3**\n\nTout entier $n$ s'écrit sous l'une des trois formes :\n$$n = 3q, \\quad n = 3q+1, \\quad \\text{ou} \\quad n = 3q+2 \\quad (q \\in \\mathbb{Z})$$\n\nOn montre que dans chaque cas, l'un des trois facteurs est multiple de 3.\n\n> **Idée clé :** $n$, $n+5$, $n-5$ sont trois entiers, et parmi eux, **l'un est divisible par 3**."
+    },
+    {
+      "id": 13,
+      "type": "quiz",
+      "question": "**Ex02 — Q2** : Dans le cas $n = 3q+1$, lequel des trois facteurs est multiple de 3 ?",
+      "choices": [
+        { "id": "a", "text": "$n+5 = 3(q+2)$, c'est $n+5$ qui est multiple de 3", "correct": true },
+        { "id": "b", "text": "$n = 3q+1$, c'est $n$ qui est multiple de 3", "correct": false },
+        { "id": "c", "text": "$n-5 = 3(q-2)$, c'est $n-5$ qui est multiple de 3", "correct": false },
+        { "id": "d", "text": "Aucun des trois facteurs n'est multiple de 3 dans ce cas", "correct": false }
+      ],
+      "explanation": "Pour $n=3q+1$ : $n+5 = (3q+1)+5 = 3q+6 = 3(q+2)$. Donc $n+5$ est multiple de 3, ce qui rend le produit $n(n+5)(n-5)$ divisible par 3."
+    },
+    {
+      "id": 14,
+      "type": "content",
+      "title": "Exercice 02 — Q2 : Correction (3 cas)",
+      "content": "### Démonstration — $3 \\mid n(n+5)(n-5)$\n\n**Cas 1 : $n = 3q$**\n$$n(n+5)(n-5) = \\underbrace{3q}_{3 \\mid}\\,(3q+5)(3q-5) \\Rightarrow 3 \\mid n(n+5)(n-5) \\;✓$$\n\n**Cas 2 : $n = 3q+1$**\n$$n+5 = 3q+6 = \\underbrace{3(q+2)}_{3 \\mid}$$\n$$n(n+5)(n-5) = (3q+1)\\cdot\\underbrace{3(q+2)}_{3\\mid}\\cdot(3q-4) \\Rightarrow 3 \\mid n(n+5)(n-5)\\;✓$$\n\n**Cas 3 : $n = 3q+2$**\n$$n-5 = 3q-3 = \\underbrace{3(q-1)}_{3 \\mid}$$\n$$n(n+5)(n-5) = (3q+2)(3q+7)\\cdot\\underbrace{3(q-1)}_{3\\mid} \\Rightarrow 3 \\mid n(n+5)(n-5)\\;✓$$\n\n**Conclusion :** Dans les trois cas possibles pour $n$ modulo 3, le produit $n(n+5)(n-5)$ est divisible par 3. $\\blacksquare$"
+    },
+    {
+      "id": 15,
+      "type": "quiz",
+      "question": "**Bilan Ex02 — Q2** : Pourquoi la méthode de décomposition modulo 3 fonctionne-t-elle ?",
+      "choices": [
+        { "id": "a", "text": "Parce que parmi $n,\\; n+5,\\; n-5$, l'un est forcément congru à $0$ modulo 3", "correct": true },
+        { "id": "b", "text": "Parce que $n(n+5)(n-5) = n^3 - 25n$, toujours divisible par 3", "correct": false },
+        { "id": "c", "text": "Parce que $5 \\equiv 2 \\pmod{3}$ et $-5 \\equiv 1 \\pmod{3}$, donc le produit vaut $0 \\pmod{3}$", "correct": false },
+        { "id": "d", "text": "Parce que $n, n+5, n-5$ sont trois entiers consécutifs", "correct": false }
+      ],
+      "explanation": "Les trois entiers $n$, $n+5 \\equiv n+2[3]$, $n-5 \\equiv n+1[3]$ ont des restes modulo 3 qui sont $n[3]$, $n+1[3]$, $n+2[3]$ — trois valeurs consécutives modulo 3. Parmi tout triplet consécutif $\\{r, r+1, r+2\\}$ modulo 3, l'un est forcément $0$. Donc le produit est divisible par 3. (Remarque: option B est aussi vraie mais la justification proposée est fausse.)"
+    },
+    {
+      "id": 16,
+      "type": "content",
+      "title": "Synthèse — Méthodes essentielles",
+      "content": "## Bilan — Exercices 01 & 02\n\n### 🔑 Méthodes clés à retenir\n\n**1. Trouver $n$ tel que $f(n) \\mid g(n)$ (expressions linéaires)**\n$$f(n) \\mid g(n) \\xrightarrow{\\text{comb. lin.}} f(n) \\mid C \\xrightarrow{\\text{diviseurs}} n \\in \\text{ensemble fini}$$\n\n**2. Trouver $n$ tel que $f(n) \\mid g(n)$ (expressions quadratiques)**\n> Multiplier par le coefficient principal, utiliser $f(n) \\mid n \\cdot f(n)$, et itérer\n\n**3. Division euclidienne $P(n) \\div D(n)$ (paramétrique)**\n$$P(n) = Q \\cdot D(n) + R(n) \\quad \\text{valide si } 0 \\le R(n) < D(n)$$\n> Traiter séparément les petites valeurs de $n$ qui ne vérifient pas cette condition\n\n**4. Divisibilité par 3 (décomposition modulo 3)**\n> Poser $n = 3q$, $3q+1$, $3q+2$ — traiter les 3 cas séparément\n\n---\n\n**Formule utile :** $4 \\equiv 1[3]$, $7 \\equiv 1[3]$, $5 \\equiv 2[3]$, $-1 \\equiv 2[3]$"
+    }
+  ]
+}
