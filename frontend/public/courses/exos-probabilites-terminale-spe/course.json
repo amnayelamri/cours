@@ -1,0 +1,260 @@
+{
+  "id": "exos-probabilites-terminale-spe",
+  "title": "Exercices — Probabilités Terminale Spé (20 QCM Bac)",
+  "description": "Banque de 20 QCM type Bac sur les probabilités niveau Terminale : probabilités conditionnelles, indépendance, formule des probabilités totales, Bayes, variables aléatoires, espérance, variance, somme de v.a. Corrections détaillées.",
+  "tags": [
+    "terminale",
+    "spé maths",
+    "probabilités",
+    "bac",
+    "QCM",
+    "exercices"
+  ],
+  "slides": [
+    {
+      "type": "markdown",
+      "title": "Mode d'emploi",
+      "content": "## 20 QCM type Bac — Probabilités\n\nCe document contient **20 QCM type Bac** couvrant tout le programme de probabilités de Terminale.\n\n**Thèmes abordés :**\n\n- Probabilités conditionnelles et arbre pondéré (Q1 à Q6)\n- Indépendance et probabilités totales (Q7 à Q10)\n- Formule de Bayes (Q11 à Q13)\n- Variables aléatoires : loi, espérance, variance (Q14 à Q17)\n- Somme de v.a. et moyenne empirique (Q18 à Q20)\n\n**Conseil :** prends $5$ minutes par question maximum, comme au Bac. Les corrections détaillent la méthode complète.\n\n**Notations utilisées :**\n\n- $P_B(A)$ : probabilité de $A$ sachant $B$\n- $\\overline{A}$ : événement contraire de $A$\n- $E(X), V(X), \\sigma(X)$ : espérance, variance, écart-type"
+    },
+    {
+      "type": "quiz",
+      "title": "Q1 — Probabilité conditionnelle",
+      "question": "On a $P(A) = 0{,}3$, $P(B) = 0{,}6$ et $P(A \\cap B) = 0{,}18$. Que vaut $P_A(B)$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}3$", "correct": false },
+        { "id": "b", "text": "$0{,}5$", "correct": false },
+        { "id": "c", "text": "$0{,}6$", "correct": true },
+        { "id": "d", "text": "$0{,}9$", "correct": false }
+      ],
+      "explanation": "$P_A(B) = \\dfrac{P(A \\cap B)}{P(A)} = \\dfrac{0{,}18}{0{,}3} = 0{,}6$. On remarque que $P_A(B) = P(B)$ : $A$ et $B$ sont indépendants. Vérification : $P(A) \\times P(B) = 0{,}3 \\times 0{,}6 = 0{,}18 = P(A \\cap B)$. OK."
+    },
+    {
+      "type": "quiz",
+      "title": "Q2 — Formule du produit",
+      "question": "Soit $P(A) = 0{,}4$ et $P_A(B) = 0{,}25$. Que vaut $P(A \\cap B)$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}1$", "correct": true },
+        { "id": "b", "text": "$0{,}15$", "correct": false },
+        { "id": "c", "text": "$0{,}65$", "correct": false },
+        { "id": "d", "text": "On ne peut pas savoir", "correct": false }
+      ],
+      "explanation": "Formule du produit : $P(A \\cap B) = P(A) \\times P_A(B) = 0{,}4 \\times 0{,}25 = 0{,}1$. C'est l'une des formules les plus utiles : connaître $P_A(B)$ et $P(A)$ suffit pour calculer l'intersection."
+    },
+    {
+      "type": "quiz",
+      "title": "Q3 — Arbre pondéré (tirages sans remise)",
+      "question": "Une urne contient $4$ boules rouges et $6$ noires. On tire $2$ boules **sans remise**. Quelle est la probabilité de tirer deux boules rouges ?",
+      "choices": [
+        { "id": "a", "text": "$\\dfrac{4}{25}$", "correct": false },
+        { "id": "b", "text": "$\\dfrac{2}{15}$", "correct": true },
+        { "id": "c", "text": "$\\dfrac{4}{15}$", "correct": false },
+        { "id": "d", "text": "$\\dfrac{1}{6}$", "correct": false }
+      ],
+      "explanation": "$P(R_1 \\cap R_2) = P(R_1) \\times P_{R_1}(R_2) = \\dfrac{4}{10} \\times \\dfrac{3}{9} = \\dfrac{12}{90} = \\dfrac{2}{15}$. Sans remise, le second tirage dépend du premier : il reste $3$ rouges sur $9$ boules."
+    },
+    {
+      "type": "quiz",
+      "title": "Q4 — Tirages avec remise",
+      "question": "Avec la même urne ($4$ rouges, $6$ noires), on tire $2$ boules **avec remise**. Probabilité d'obtenir deux rouges ?",
+      "choices": [
+        { "id": "a", "text": "$\\dfrac{2}{15}$", "correct": false },
+        { "id": "b", "text": "$\\dfrac{4}{25}$", "correct": true },
+        { "id": "c", "text": "$\\dfrac{8}{25}$", "correct": false },
+        { "id": "d", "text": "$\\dfrac{1}{2}$", "correct": false }
+      ],
+      "explanation": "Avec remise, les tirages sont indépendants : $P(R_1 \\cap R_2) = P(R_1) \\times P(R_2) = \\dfrac{4}{10} \\times \\dfrac{4}{10} = \\dfrac{16}{100} = \\dfrac{4}{25}$. Bien distinguer **avec/sans remise** : c'est un piège classique du Bac."
+    },
+    {
+      "type": "quiz",
+      "title": "Q5 — Calcul sur arbre",
+      "question": "Un arbre donne $P(A) = 0{,}7$, $P_A(B) = 0{,}9$ et $P_{\\overline{A}}(B) = 0{,}4$. Que vaut $P(B)$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}55$", "correct": false },
+        { "id": "b", "text": "$0{,}63$", "correct": false },
+        { "id": "c", "text": "$0{,}75$", "correct": true },
+        { "id": "d", "text": "$0{,}90$", "correct": false }
+      ],
+      "explanation": "Formule des probabilités totales : $P(B) = P(A) \\times P_A(B) + P(\\overline{A}) \\times P_{\\overline{A}}(B) = 0{,}7 \\times 0{,}9 + 0{,}3 \\times 0{,}4 = 0{,}63 + 0{,}12 = 0{,}75$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q6 — Probabilité conjointe sur arbre",
+      "question": "Avec les données de Q5 : que vaut $P(A \\cap \\overline{B})$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}07$", "correct": true },
+        { "id": "b", "text": "$0{,}21$", "correct": false },
+        { "id": "c", "text": "$0{,}25$", "correct": false },
+        { "id": "d", "text": "$0{,}30$", "correct": false }
+      ],
+      "explanation": "Si $P_A(B) = 0{,}9$ alors $P_A(\\overline{B}) = 1 - 0{,}9 = 0{,}1$ (somme des branches issues de $A$ égale à $1$). Donc $P(A \\cap \\overline{B}) = P(A) \\times P_A(\\overline{B}) = 0{,}7 \\times 0{,}1 = 0{,}07$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q7 — Indépendance",
+      "question": "On a $P(A) = 0{,}5$, $P(B) = 0{,}4$ et $P(A \\cup B) = 0{,}7$. Les événements $A$ et $B$ sont-ils indépendants ?",
+      "choices": [
+        { "id": "a", "text": "Oui car $P(A \\cup B) = P(A) + P(B) - P(A) \\times P(B)$ se vérifie", "correct": true },
+        { "id": "b", "text": "Non, ils sont incompatibles", "correct": false },
+        { "id": "c", "text": "Non, $P(A \\cap B) \\neq P(A) \\times P(B)$", "correct": false },
+        { "id": "d", "text": "On ne peut pas conclure", "correct": false }
+      ],
+      "explanation": "On calcule d'abord $P(A \\cap B) = P(A) + P(B) - P(A \\cup B) = 0{,}5 + 0{,}4 - 0{,}7 = 0{,}2$. Puis $P(A) \\times P(B) = 0{,}5 \\times 0{,}4 = 0{,}2$. On a bien $P(A \\cap B) = P(A) \\times P(B)$ : $A$ et $B$ sont indépendants."
+    },
+    {
+      "type": "quiz",
+      "title": "Q8 — Indépendance vs incompatibilité",
+      "question": "Soit $A$ et $B$ deux événements de probabilités **non nulles**. Lequel des énoncés est correct ?",
+      "choices": [
+        { "id": "a", "text": "S'ils sont incompatibles, alors ils sont indépendants", "correct": false },
+        { "id": "b", "text": "S'ils sont indépendants, alors ils sont incompatibles", "correct": false },
+        { "id": "c", "text": "Indépendance et incompatibilité s'excluent (pour $P(A), P(B) > 0$)", "correct": true },
+        { "id": "d", "text": "Indépendance et incompatibilité sont équivalentes", "correct": false }
+      ],
+      "explanation": "Incompatibles : $P(A \\cap B) = 0$. Indépendants : $P(A \\cap B) = P(A) \\times P(B)$. Si les deux probabilités sont non nulles, $P(A) \\times P(B) > 0 \\neq 0$, donc impossible d'être à la fois indépendants ET incompatibles. C'est un piège fréquent au Bac."
+    },
+    {
+      "type": "quiz",
+      "title": "Q9 — Probabilité d'une union",
+      "question": "Si $A$ et $B$ sont indépendants avec $P(A) = 0{,}3$ et $P(B) = 0{,}5$, que vaut $P(A \\cup B)$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}15$", "correct": false },
+        { "id": "b", "text": "$0{,}50$", "correct": false },
+        { "id": "c", "text": "$0{,}65$", "correct": true },
+        { "id": "d", "text": "$0{,}80$", "correct": false }
+      ],
+      "explanation": "Indépendance $\\Rightarrow P(A \\cap B) = P(A) \\times P(B) = 0{,}3 \\times 0{,}5 = 0{,}15$. Puis $P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0{,}3 + 0{,}5 - 0{,}15 = 0{,}65$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q10 — Indépendance et complémentaire",
+      "question": "Si $A$ et $B$ sont indépendants avec $P(A) = 0{,}6$ et $P(B) = 0{,}4$, que vaut $P(\\overline{A} \\cap \\overline{B})$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}24$", "correct": true },
+        { "id": "b", "text": "$0{,}40$", "correct": false },
+        { "id": "c", "text": "$0{,}50$", "correct": false },
+        { "id": "d", "text": "$0{,}76$", "correct": false }
+      ],
+      "explanation": "Si $A, B$ indépendants alors $\\overline{A}, \\overline{B}$ aussi. Donc $P(\\overline{A} \\cap \\overline{B}) = P(\\overline{A}) \\times P(\\overline{B}) = 0{,}4 \\times 0{,}6 = 0{,}24$. Astuce alternative : $P(\\overline{A} \\cap \\overline{B}) = P(\\overline{A \\cup B}) = 1 - P(A \\cup B) = 1 - 0{,}76 = 0{,}24$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q11 — Bayes (test médical)",
+      "question": "Une maladie touche $2\\%$ de la population. Un test est positif chez $90\\%$ des malades et chez $5\\%$ des non-malades. Quelle est la probabilité qu'une personne testée positive soit malade (arrondi à $0{,}01$) ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}27$", "correct": true },
+        { "id": "b", "text": "$0{,}50$", "correct": false },
+        { "id": "c", "text": "$0{,}90$", "correct": false },
+        { "id": "d", "text": "$0{,}98$", "correct": false }
+      ],
+      "explanation": "Soit $M$ : malade, $T$ : test positif. $P(T) = P(M)P_M(T) + P(\\overline{M})P_{\\overline{M}}(T) = 0{,}02 \\times 0{,}9 + 0{,}98 \\times 0{,}05 = 0{,}018 + 0{,}049 = 0{,}067$. Puis $P_T(M) = \\dfrac{0{,}018}{0{,}067} \\approx 0{,}269$, soit $0{,}27$. Effet contre-intuitif : malgré un test très sensible, la probabilité d'être réellement malade reste faible si la maladie est rare."
+    },
+    {
+      "type": "quiz",
+      "title": "Q12 — Bayes (production)",
+      "question": "Deux usines produisent des téléphones : A fait $70\\%$ de la production, B fait $30\\%$. Le taux de défauts est $1\\%$ pour A et $4\\%$ pour B. Un téléphone est défectueux : quelle est la probabilité qu'il vienne de B ?",
+      "choices": [
+        { "id": "a", "text": "$\\approx 0{,}30$", "correct": false },
+        { "id": "b", "text": "$\\approx 0{,}40$", "correct": false },
+        { "id": "c", "text": "$\\approx 0{,}63$", "correct": true },
+        { "id": "d", "text": "$\\approx 0{,}80$", "correct": false }
+      ],
+      "explanation": "$P(D) = 0{,}7 \\times 0{,}01 + 0{,}3 \\times 0{,}04 = 0{,}007 + 0{,}012 = 0{,}019$. $P_D(B) = \\dfrac{P(B) \\cdot P_B(D)}{P(D)} = \\dfrac{0{,}012}{0{,}019} \\approx 0{,}632$. Bien que B ne représente que $30\\%$ de la production, elle est responsable de plus de $63\\%$ des défauts (taux de défaut plus élevé)."
+    },
+    {
+      "type": "quiz",
+      "title": "Q13 — Conditionnement (sondage)",
+      "question": "Un sondage révèle que $60\\%$ des votants sont des femmes. Parmi les femmes, $55\\%$ votent pour le candidat X ; parmi les hommes, $40\\%$ votent X. Quelle est la probabilité qu'un votant ayant voté X soit une femme (arrondi à $0{,}01$) ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}48$", "correct": false },
+        { "id": "b", "text": "$0{,}55$", "correct": false },
+        { "id": "c", "text": "$0{,}67$", "correct": true },
+        { "id": "d", "text": "$0{,}75$", "correct": false }
+      ],
+      "explanation": "Soit $F$ : femme, $X$ : vote X. $P(X) = P(F) \\cdot P_F(X) + P(H) \\cdot P_H(X) = 0{,}6 \\times 0{,}55 + 0{,}4 \\times 0{,}4 = 0{,}33 + 0{,}16 = 0{,}49$. $P_X(F) = \\dfrac{0{,}6 \\times 0{,}55}{0{,}49} = \\dfrac{0{,}33}{0{,}49} \\approx 0{,}673$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q14 — Loi de probabilité (vérification)",
+      "question": "Pour que la loi suivante soit une loi de probabilité, quelle doit être la valeur de $a$ ? $P(X=0) = 0{,}1$, $P(X=1) = a$, $P(X=2) = 0{,}3$, $P(X=3) = 0{,}2$.",
+      "choices": [
+        { "id": "a", "text": "$0{,}2$", "correct": false },
+        { "id": "b", "text": "$0{,}3$", "correct": false },
+        { "id": "c", "text": "$0{,}4$", "correct": true },
+        { "id": "d", "text": "$0{,}5$", "correct": false }
+      ],
+      "explanation": "La somme des probabilités doit valoir $1$ : $0{,}1 + a + 0{,}3 + 0{,}2 = 1 \\Leftrightarrow a = 1 - 0{,}6 = 0{,}4$. Vérification systématique au Bac avant tout calcul d'espérance."
+    },
+    {
+      "type": "quiz",
+      "title": "Q15 — Espérance",
+      "question": "Avec la loi : $P(X = -2) = 0{,}1$, $P(X = 0) = 0{,}4$, $P(X = 3) = 0{,}3$, $P(X = 5) = 0{,}2$. Que vaut $E(X)$ ?",
+      "choices": [
+        { "id": "a", "text": "$1{,}5$", "correct": false },
+        { "id": "b", "text": "$1{,}7$", "correct": true },
+        { "id": "c", "text": "$2{,}0$", "correct": false },
+        { "id": "d", "text": "$2{,}5$", "correct": false }
+      ],
+      "explanation": "Vérif : $0{,}1 + 0{,}4 + 0{,}3 + 0{,}2 = 1$. OK. $E(X) = (-2) \\times 0{,}1 + 0 \\times 0{,}4 + 3 \\times 0{,}3 + 5 \\times 0{,}2 = -0{,}2 + 0 + 0{,}9 + 1 = 1{,}7$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q16 — Variance (König-Huygens)",
+      "question": "Soit $X$ telle que $P(X=0) = 0{,}5$ et $P(X=2) = 0{,}5$. Que vaut $V(X)$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}5$", "correct": false },
+        { "id": "b", "text": "$1$", "correct": true },
+        { "id": "c", "text": "$1{,}5$", "correct": false },
+        { "id": "d", "text": "$2$", "correct": false }
+      ],
+      "explanation": "$E(X) = 0 \\times 0{,}5 + 2 \\times 0{,}5 = 1$. $E(X^2) = 0^2 \\times 0{,}5 + 2^2 \\times 0{,}5 = 0 + 2 = 2$. Donc $V(X) = E(X^2) - [E(X)]^2 = 2 - 1 = 1$. Et $\\sigma(X) = 1$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q17 — Linéarité de la variance",
+      "question": "Si $V(X) = 4$, que vaut $V(3X - 2)$ ?",
+      "choices": [
+        { "id": "a", "text": "$10$", "correct": false },
+        { "id": "b", "text": "$12$", "correct": false },
+        { "id": "c", "text": "$34$", "correct": false },
+        { "id": "d", "text": "$36$", "correct": true }
+      ],
+      "explanation": "$V(aX + b) = a^2 V(X)$. La constante additive disparaît, le coefficient multiplicatif est élevé au carré. Donc $V(3X - 2) = 3^2 \\times V(X) = 9 \\times 4 = 36$. **Attention :** c'est une erreur classique de répondre $12$ ou $34$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q18 — Somme de v.a. (espérance)",
+      "question": "$X_1, X_2, \\ldots, X_{20}$ sont indépendantes de même loi avec $E(X_i) = 5$. Que vaut $E(X_1 + X_2 + \\ldots + X_{20})$ ?",
+      "choices": [
+        { "id": "a", "text": "$5$", "correct": false },
+        { "id": "b", "text": "$25$", "correct": false },
+        { "id": "c", "text": "$100$", "correct": true },
+        { "id": "d", "text": "On ne peut pas savoir sans la variance", "correct": false }
+      ],
+      "explanation": "Par linéarité (qui ne nécessite **pas** d'indépendance) : $E\\left(\\sum_{i=1}^{20} X_i\\right) = \\sum_{i=1}^{20} E(X_i) = 20 \\times 5 = 100$."
+    },
+    {
+      "type": "quiz",
+      "title": "Q19 — Variance d'une somme",
+      "question": "$X_1, X_2, \\ldots, X_{16}$ sont indépendantes de même loi avec $V(X_i) = 9$. Que vaut $\\sigma(X_1 + \\ldots + X_{16})$ ?",
+      "choices": [
+        { "id": "a", "text": "$3$", "correct": false },
+        { "id": "b", "text": "$9$", "correct": false },
+        { "id": "c", "text": "$12$", "correct": true },
+        { "id": "d", "text": "$144$", "correct": false }
+      ],
+      "explanation": "Par indépendance : $V(X_1 + \\ldots + X_{16}) = 16 \\times V(X_i) = 16 \\times 9 = 144$. Donc $\\sigma\\left(\\sum X_i\\right) = \\sqrt{144} = 12$. **Attention :** ne pas oublier la racine carrée pour passer de la variance à l'écart-type."
+    },
+    {
+      "type": "quiz",
+      "title": "Q20 — Loi des grands nombres (Bienaymé-Tchebychev)",
+      "question": "$X_1, \\ldots, X_{100}$ sont indépendantes de même loi avec $E(X_i) = 10$ et $V(X_i) = 25$. Soit $M_{100} = \\dfrac{X_1 + \\ldots + X_{100}}{100}$. Quelle majoration donne Bienaymé-Tchebychev pour $P(|M_{100} - 10| \\geq 1)$ ?",
+      "choices": [
+        { "id": "a", "text": "$\\leq 0{,}05$", "correct": false },
+        { "id": "b", "text": "$\\leq 0{,}25$", "correct": true },
+        { "id": "c", "text": "$\\leq 0{,}50$", "correct": false },
+        { "id": "d", "text": "$\\leq 1$ (inégalité triviale)", "correct": false }
+      ],
+      "explanation": "$M_{100}$ a pour espérance $\\mu = 10$ et variance $V(M_{100}) = \\dfrac{V(X_i)}{n} = \\dfrac{25}{100} = 0{,}25$. Bienaymé-Tchebychev appliqué à $M_{100}$ avec $\\delta = 1$ : $P(|M_{100} - 10| \\geq 1) \\leq \\dfrac{V(M_{100})}{\\delta^2} = \\dfrac{0{,}25}{1} = 0{,}25$. Plus $n$ grandit, plus la majoration devient fine — c'est la loi des grands nombres."
+    }
+  ]
+}
