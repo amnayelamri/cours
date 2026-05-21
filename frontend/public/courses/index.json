@@ -118,5 +118,27 @@
     ],
     "createdAt": "2026-05-21",
     "slideCount": 22
+  },
+  {
+    "id": "cours-binomiale-terminale-001",
+    "title": "Probabilités – Loi Binomiale (Terminale Bac Français)",
+    "description": "Introduction complète à la loi binomiale : expérience de Bernoulli, schéma de Bernoulli, calculs de probabilités et espérance.",
+    "tags": [
+      "probabilités",
+      "loi binomiale",
+      "terminale",
+      "bac français",
+      "mathématiques"
+    ],
+    "createdAt": "2026-05-21",
+    "slideCount": 14
+  },
+  {
+    "id": "cours-probabilites-terminale-spe",
+    "title": "Probabilités — Terminale Spé Maths",
+    "description": "Cours complet de probabilités niveau Terminale Spécialité Maths : probabilités conditionnelles, indépendance, formule des probabilités totales, variables aléatoires, espérance, variance, somme de variables aléatoires. Style Bac.",
+    "tags": ["terminale", "spé maths", "probabilités", "bac", "variables aléatoires", "indépendance"],
+    "createdAt": "2026-05-21",
+    "slideCount": 22
   }
 ]

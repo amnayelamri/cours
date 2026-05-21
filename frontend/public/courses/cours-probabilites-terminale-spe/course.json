@@ -1,0 +1,160 @@
+{
+  "id": "cours-probabilites-terminale-spe",
+  "title": "Probabilités — Terminale Spé Maths",
+  "description": "Cours complet de probabilités niveau Terminale Spécialité Maths : probabilités conditionnelles, indépendance, formule des probabilités totales, variables aléatoires, espérance, variance, somme de variables aléatoires. Style Bac.",
+  "tags": [
+    "terminale",
+    "spé maths",
+    "probabilités",
+    "bac",
+    "variables aléatoires",
+    "indépendance"
+  ],
+  "slides": [
+    {
+      "type": "markdown",
+      "title": "Introduction — Pourquoi les probabilités au Bac ?",
+      "content": "## Objectifs du chapitre\n\nLes probabilités sont **incontournables au Bac** : elles apparaissent dans presque tous les sujets (exercice obligatoire, partie d'un problème, ou QCM).\n\n**Ce qu'il faut maîtriser :**\n\n- Probabilités conditionnelles $P_B(A)$ et indépendance\n- Formule des probabilités totales\n- Arbres pondérés (lecture et construction)\n- Variables aléatoires : loi, espérance, variance, écart-type\n- Somme de $n$ variables aléatoires (lien avec la loi des grands nombres)\n\n**Compétences attendues :**\n\n1. Modéliser une situation aléatoire\n2. Calculer une probabilité par dénombrement ou par arbre\n3. Utiliser la formule de Bayes\n4. Calculer $E(X)$, $V(X)$, $\\sigma(X)$\n5. Reconnaître une situation d'indépendance"
+    },
+    {
+      "type": "markdown",
+      "title": "Rappels — Vocabulaire des probabilités",
+      "content": "## Univers, événements\n\n**Univers $\\Omega$** : ensemble de toutes les issues possibles d'une expérience aléatoire.\n\n**Événement $A$** : sous-ensemble de $\\Omega$.\n\n**Événements particuliers :**\n\n- Événement certain : $\\Omega$, probabilité $1$\n- Événement impossible : $\\emptyset$, probabilité $0$\n- Événement contraire de $A$ : $\\overline{A}$, avec $P(\\overline{A}) = 1 - P(A)$\n\n## Opérations\n\n- **Intersection** $A \\cap B$ : $A$ ET $B$ se réalisent\n- **Union** $A \\cup B$ : $A$ OU $B$ se réalise\n- **Incompatibles** : $A \\cap B = \\emptyset$\n\n**Formule fondamentale :**\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nSi $A$ et $B$ sont incompatibles :\n$$P(A \\cup B) = P(A) + P(B)$$"
+    },
+    {
+      "type": "markdown",
+      "title": "Probabilité conditionnelle — Définition",
+      "content": "## Définition\n\nSoit $A$ et $B$ deux événements avec $P(B) \\neq 0$.\n\nLa **probabilité de $A$ sachant $B$** est :\n$$P_B(A) = \\frac{P(A \\cap B)}{P(B)}$$\n\nOn la note aussi $P(A \\mid B)$.\n\n## Conséquence directe — Formule du produit\n\nEn multipliant par $P(B)$ :\n$$P(A \\cap B) = P(B) \\times P_B(A)$$\n\nDe même, si $P(A) \\neq 0$ :\n$$P(A \\cap B) = P(A) \\times P_A(B)$$\n\n## À retenir\n\n- $P_B(A)$ se lit *« probabilité de $A$ sachant que $B$ est réalisé »*\n- $P_B$ est une probabilité : $P_B(\\overline{A}) = 1 - P_B(A)$\n- En général : $P_B(A) \\neq P_A(B)$ (attention au sens de conditionnement !)"
+    },
+    {
+      "type": "markdown",
+      "title": "Exemple — Probabilité conditionnelle",
+      "content": "## Énoncé\n\nDans une classe de $30$ élèves : $18$ filles, dont $12$ ont la moyenne en maths. Sur les $12$ garçons, $9$ ont la moyenne.\n\nOn choisit un élève au hasard. Soit $F$ : « élève fille » et $M$ : « avoir la moyenne ».\n\n## Calculs\n\n**1) Probabilité d'être une fille avec la moyenne :**\n$$P(F \\cap M) = \\frac{12}{30} = \\frac{2}{5}$$\n\n**2) Probabilité d'avoir la moyenne sachant qu'on est une fille :**\n$$P_F(M) = \\frac{P(F \\cap M)}{P(F)} = \\frac{12/30}{18/30} = \\frac{12}{18} = \\frac{2}{3}$$\n\n**3) Probabilité d'être une fille sachant qu'on a la moyenne :**\n$$P_M(F) = \\frac{P(F \\cap M)}{P(M)} = \\frac{12/30}{21/30} = \\frac{12}{21} = \\frac{4}{7}$$\n\n**Conclusion :** $P_F(M) \\neq P_M(F)$, le conditionnement n'est pas symétrique."
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Probabilité conditionnelle",
+      "question": "On a $P(A) = 0{,}4$, $P(B) = 0{,}5$ et $P(A \\cap B) = 0{,}2$. Que vaut $P_A(B)$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}1$", "correct": false },
+        { "id": "b", "text": "$0{,}4$", "correct": false },
+        { "id": "c", "text": "$0{,}5$", "correct": true },
+        { "id": "d", "text": "$0{,}8$", "correct": false }
+      ],
+      "explanation": "Par définition $P_A(B) = \\dfrac{P(A \\cap B)}{P(A)} = \\dfrac{0{,}2}{0{,}4} = 0{,}5$. Ici on remarque que $P_A(B) = P(B)$ : $A$ et $B$ sont indépendants."
+    },
+    {
+      "type": "markdown",
+      "title": "Indépendance d'événements",
+      "content": "## Définition\n\nDeux événements $A$ et $B$ sont **indépendants** si :\n$$P(A \\cap B) = P(A) \\times P(B)$$\n\n## Caractérisation équivalente\n\nSi $P(B) \\neq 0$ :\n$$A \\text{ et } B \\text{ indépendants} \\iff P_B(A) = P(A)$$\n\n**Interprétation :** savoir que $B$ se produit ne change rien à la probabilité de $A$.\n\n## Propriétés utiles\n\nSi $A$ et $B$ sont indépendants, alors :\n\n- $\\overline{A}$ et $B$ sont indépendants\n- $A$ et $\\overline{B}$ sont indépendants\n- $\\overline{A}$ et $\\overline{B}$ sont indépendants\n\n## Piège classique\n\n**Indépendance $\\neq$ incompatibilité !**\n\n- Incompatibles : $A \\cap B = \\emptyset$, donc $P(A \\cap B) = 0$\n- Indépendants : $P(A \\cap B) = P(A) \\times P(B)$\n\nDeux événements de probabilité non nulle ne peuvent être à la fois indépendants et incompatibles."
+    },
+    {
+      "type": "markdown",
+      "title": "Formule des probabilités totales",
+      "content": "## Partition de l'univers\n\nLes événements $B_1, B_2, \\ldots, B_n$ forment une **partition** de $\\Omega$ si :\n\n- Ils sont deux à deux incompatibles : $B_i \\cap B_j = \\emptyset$ pour $i \\neq j$\n- Leur réunion couvre $\\Omega$ : $B_1 \\cup B_2 \\cup \\ldots \\cup B_n = \\Omega$\n- Chaque $P(B_i) \\neq 0$\n\n## Formule\n\nPour tout événement $A$ :\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\times P_{B_i}(A)$$\n\n## Cas le plus fréquent au Bac (n = 2)\n\nAvec $B$ et $\\overline{B}$ :\n$$P(A) = P(B) \\times P_B(A) + P(\\overline{B}) \\times P_{\\overline{B}}(A)$$\n\n## Méthode pratique\n\n1. Identifier la partition (souvent $B, \\overline{B}$ ou les branches d'un arbre)\n2. Pour chaque branche, calculer $P(B_i) \\times P_{B_i}(A)$\n3. Sommer les contributions"
+    },
+    {
+      "type": "markdown",
+      "title": "Arbre pondéré — Règles fondamentales",
+      "content": "## Construction\n\nUn arbre pondéré représente une succession d'épreuves. Sur chaque branche, on inscrit la **probabilité conditionnelle**.\n\n## Règles essentielles\n\n**Règle 1 — Somme des branches :**\n\nLa somme des probabilités issues d'un même nœud vaut $1$.\n\n**Règle 2 — Produit le long d'un chemin :**\n\nLa probabilité d'un chemin (intersection) est le **produit** des probabilités des branches.\n\n$$P(B \\cap A) = P(B) \\times P_B(A)$$\n\n**Règle 3 — Somme des chemins (probabilités totales) :**\n\nLa probabilité d'un événement est la somme des probabilités des chemins qui y mènent.\n\n## Exemple — Tirages dans une urne\n\nUrne avec $3$ rouges et $2$ noires. On tire $2$ boules sans remise.\n\n- Branche 1 : $P(R_1) = \\dfrac{3}{5}$\n- Sous-branche : $P_{R_1}(R_2) = \\dfrac{2}{4} = \\dfrac{1}{2}$\n- Chemin $R_1 R_2$ : $P(R_1 \\cap R_2) = \\dfrac{3}{5} \\times \\dfrac{1}{2} = \\dfrac{3}{10}$"
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Arbre pondéré",
+      "question": "Une usine a deux machines A et B. La machine A produit $60\\%$ des pièces, la machine B $40\\%$. La machine A produit $2\\%$ de pièces défectueuses, la machine B $5\\%$. Quelle est la probabilité qu'une pièce prise au hasard soit défectueuse ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}012$", "correct": false },
+        { "id": "b", "text": "$0{,}032$", "correct": true },
+        { "id": "c", "text": "$0{,}050$", "correct": false },
+        { "id": "d", "text": "$0{,}070$", "correct": false }
+      ],
+      "explanation": "Formule des probabilités totales : $P(D) = P(A) \\times P_A(D) + P(B) \\times P_B(D) = 0{,}6 \\times 0{,}02 + 0{,}4 \\times 0{,}05 = 0{,}012 + 0{,}020 = 0{,}032$. Donc $3{,}2\\%$ de pièces défectueuses."
+    },
+    {
+      "type": "markdown",
+      "title": "Formule de Bayes — Inverser un conditionnement",
+      "content": "## Problème typique\n\nOn connaît $P_B(A)$ et on veut $P_A(B)$ : il faut **inverser** le conditionnement.\n\n## Formule de Bayes\n\nPour $P(A) \\neq 0$ et $P(B) \\neq 0$ :\n$$P_A(B) = \\frac{P(B) \\times P_B(A)}{P(A)}$$\n\nLe dénominateur $P(A)$ se calcule souvent par les probabilités totales :\n$$P(A) = P(B) \\times P_B(A) + P(\\overline{B}) \\times P_{\\overline{B}}(A)$$\n\n## Application — Test médical\n\nUne maladie touche $1\\%$ de la population. Un test détecte la maladie dans $99\\%$ des cas chez les malades, mais donne $5\\%$ de faux positifs.\n\n**Question :** sachant qu'un test est positif, quelle est la probabilité d'être malade ?\n\nSoit $M$ : malade, $T$ : test positif.\n\n$$P(T) = P(M)P_M(T) + P(\\overline{M})P_{\\overline{M}}(T) = 0{,}01 \\times 0{,}99 + 0{,}99 \\times 0{,}05$$\n$$P(T) = 0{,}0099 + 0{,}0495 = 0{,}0594$$\n\n$$P_T(M) = \\frac{P(M) \\times P_M(T)}{P(T)} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$$\n\n**Conclusion :** seulement $16{,}7\\%$ de chances d'être réellement malade ! Résultat contre-intuitif typique du Bac."
+    },
+    {
+      "type": "markdown",
+      "title": "Variable aléatoire — Définition",
+      "content": "## Définition\n\nUne **variable aléatoire (v.a.) discrète** $X$ est une fonction qui à chaque issue de $\\Omega$ associe un nombre réel.\n\nElle prend un nombre fini (ou dénombrable) de valeurs : $x_1, x_2, \\ldots, x_n$.\n\n## Loi de probabilité\n\nLa **loi de $X$** est donnée par la liste des valeurs $x_i$ et des probabilités $p_i = P(X = x_i)$.\n\n**Propriété :** $\\displaystyle \\sum_{i=1}^{n} p_i = 1$\n\n## Présentation\n\n- $P(X = x_1) = p_1$\n- $P(X = x_2) = p_2$\n- $\\ldots$\n- $P(X = x_n) = p_n$\n\n## Exemple\n\nOn lance un dé équilibré. $X$ = numéro obtenu.\n\nPour tout $k \\in \\{1, 2, 3, 4, 5, 6\\}$ :\n$$P(X = k) = \\frac{1}{6}$$"
+    },
+    {
+      "type": "markdown",
+      "title": "Espérance d'une variable aléatoire",
+      "content": "## Définition\n\nL'**espérance** de $X$ est la moyenne pondérée des valeurs :\n$$E(X) = \\sum_{i=1}^{n} x_i \\, P(X = x_i) = \\sum_{i=1}^{n} x_i \\, p_i$$\n\n**Interprétation :** valeur moyenne de $X$ sur un grand nombre de répétitions (lien avec la loi des grands nombres).\n\n## Propriétés de linéarité\n\nPour tous réels $a, b$ et v.a. $X, Y$ :\n\n- $E(aX + b) = a \\, E(X) + b$\n- $E(X + Y) = E(X) + E(Y)$ (toujours, même si non indépendantes)\n\n## Exemple — Dé équilibré\n\n$X$ = numéro du dé.\n\n$$E(X) = 1 \\times \\frac{1}{6} + 2 \\times \\frac{1}{6} + \\ldots + 6 \\times \\frac{1}{6} = \\frac{1+2+3+4+5+6}{6} = \\frac{21}{6} = 3{,}5$$\n\n## Jeu équitable\n\nUn jeu est dit **équitable** si l'espérance du gain vaut $0$ : $E(G) = 0$.\n\n- Si $E(G) > 0$ : jeu favorable au joueur\n- Si $E(G) < 0$ : jeu défavorable (cas des casinos)"
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Calcul d'espérance",
+      "question": "Soit $X$ la v.a. telle que $P(X=0) = 0{,}3$, $P(X=2) = 0{,}5$ et $P(X=10) = 0{,}2$. Que vaut $E(X)$ ?",
+      "choices": [
+        { "id": "a", "text": "$2$", "correct": false },
+        { "id": "b", "text": "$3$", "correct": true },
+        { "id": "c", "text": "$4$", "correct": false },
+        { "id": "d", "text": "$5$", "correct": false }
+      ],
+      "explanation": "Vérifions d'abord que la somme des probabilités vaut $1$ : $0{,}3 + 0{,}5 + 0{,}2 = 1$. Bon. Puis $E(X) = 0 \\times 0{,}3 + 2 \\times 0{,}5 + 10 \\times 0{,}2 = 0 + 1 + 2 = 3$."
+    },
+    {
+      "type": "markdown",
+      "title": "Variance et écart-type",
+      "content": "## Variance\n\nLa **variance** mesure la dispersion de $X$ autour de son espérance :\n$$V(X) = E\\left[(X - E(X))^2\\right] = \\sum_{i=1}^{n} (x_i - E(X))^2 \\, p_i$$\n\n## Formule de König-Huygens (très utile)\n\n$$V(X) = E(X^2) - [E(X)]^2$$\n\noù $E(X^2) = \\displaystyle\\sum_{i=1}^{n} x_i^2 \\, p_i$.\n\n**Cette formule est plus simple en pratique** : on calcule $E(X)$ et $E(X^2)$ séparément.\n\n## Écart-type\n\n$$\\sigma(X) = \\sqrt{V(X)}$$\n\nL'écart-type s'exprime dans la même unité que $X$, contrairement à la variance.\n\n## Propriétés\n\nPour tous réels $a, b$ :\n\n- $V(aX + b) = a^2 \\, V(X)$\n- $\\sigma(aX + b) = |a| \\, \\sigma(X)$\n- $V(X) \\geq 0$ (toujours)\n- $V(X) = 0 \\iff X$ est constante presque sûrement"
+    },
+    {
+      "type": "markdown",
+      "title": "Exemple complet — Espérance et variance",
+      "content": "## Énoncé\n\nUne v.a. $X$ prend les valeurs $-1, 0, 3$ avec les probabilités :\n\n- $P(X = -1) = 0{,}4$\n- $P(X = 0) = 0{,}3$\n- $P(X = 3) = 0{,}3$\n\nCalculer $E(X)$, $V(X)$ et $\\sigma(X)$.\n\n## Calcul de $E(X)$\n\n$$E(X) = (-1) \\times 0{,}4 + 0 \\times 0{,}3 + 3 \\times 0{,}3 = -0{,}4 + 0 + 0{,}9 = 0{,}5$$\n\n## Calcul de $E(X^2)$\n\n$$E(X^2) = (-1)^2 \\times 0{,}4 + 0^2 \\times 0{,}3 + 3^2 \\times 0{,}3 = 0{,}4 + 0 + 2{,}7 = 3{,}1$$\n\n## Variance (König-Huygens)\n\n$$V(X) = E(X^2) - [E(X)]^2 = 3{,}1 - (0{,}5)^2 = 3{,}1 - 0{,}25 = 2{,}85$$\n\n## Écart-type\n\n$$\\sigma(X) = \\sqrt{2{,}85} \\approx 1{,}688$$"
+    },
+    {
+      "type": "markdown",
+      "title": "Somme de variables aléatoires",
+      "content": "## Somme — Espérance\n\nPour toutes v.a. $X_1, X_2, \\ldots, X_n$ (indépendantes ou non) :\n$$E(X_1 + X_2 + \\ldots + X_n) = E(X_1) + E(X_2) + \\ldots + E(X_n)$$\n\nL'espérance d'une somme est **toujours** la somme des espérances.\n\n## Somme — Variance (indépendance)\n\nSi $X_1, X_2, \\ldots, X_n$ sont **indépendantes** :\n$$V(X_1 + X_2 + \\ldots + X_n) = V(X_1) + V(X_2) + \\ldots + V(X_n)$$\n\n**Attention :** la variance d'une somme n'est égale à la somme des variances que sous l'hypothèse d'indépendance.\n\n## Cas particulier — Variables identiques\n\nSi $X_1, \\ldots, X_n$ sont indépendantes et **de même loi** que $X$ :\n\n- $E(X_1 + \\ldots + X_n) = n \\, E(X)$\n- $V(X_1 + \\ldots + X_n) = n \\, V(X)$\n- $\\sigma(X_1 + \\ldots + X_n) = \\sqrt{n} \\, \\sigma(X)$\n\n## Moyenne empirique\n\nLa moyenne $M_n = \\dfrac{X_1 + \\ldots + X_n}{n}$ vérifie :\n\n- $E(M_n) = E(X)$\n- $V(M_n) = \\dfrac{V(X)}{n}$\n\nLa variance de la moyenne diminue avec $n$ : c'est la base de la **loi des grands nombres**."
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Somme de v.a.",
+      "question": "Soit $X_1, \\ldots, X_{100}$ des v.a. indépendantes de même loi avec $E(X_i) = 2$ et $V(X_i) = 9$. Que vaut $\\sigma\\left(\\dfrac{X_1 + \\ldots + X_{100}}{100}\\right)$ ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}03$", "correct": false },
+        { "id": "b", "text": "$0{,}09$", "correct": false },
+        { "id": "c", "text": "$0{,}3$", "correct": true },
+        { "id": "d", "text": "$3$", "correct": false }
+      ],
+      "explanation": "Soit $M_{100} = \\dfrac{X_1 + \\ldots + X_{100}}{100}$. On a $V(M_{100}) = \\dfrac{V(X_i)}{100} = \\dfrac{9}{100} = 0{,}09$. Donc $\\sigma(M_{100}) = \\sqrt{0{,}09} = 0{,}3$."
+    },
+    {
+      "type": "markdown",
+      "title": "Loi des grands nombres (rappel)",
+      "content": "## Énoncé intuitif\n\nQuand on répète une expérience un grand nombre de fois, la **moyenne empirique** se rapproche de l'**espérance théorique**.\n\n## Formalisation\n\nSoit $X_1, X_2, \\ldots, X_n$ des v.a. indépendantes de même loi, d'espérance $\\mu$ et de variance $\\sigma^2$.\n\nLa moyenne empirique $M_n = \\dfrac{X_1 + \\ldots + X_n}{n}$ vérifie :\n\nPour tout $\\delta > 0$ :\n$$P\\left(|M_n - \\mu| \\geq \\delta\\right) \\leq \\frac{\\sigma^2}{n \\delta^2}$$\n\nCette inégalité est une application directe de **Bienaymé-Tchebychev** à la moyenne empirique.\n\n## Conséquence\n\nQuand $n \\to +\\infty$, le membre de droite tend vers $0$ :\n$$\\lim_{n \\to +\\infty} P\\left(|M_n - \\mu| \\geq \\delta\\right) = 0$$\n\n**Interprétation :** la moyenne empirique converge en probabilité vers $\\mu$. C'est ce qui justifie l'estimation statistique d'une espérance par la moyenne sur un échantillon."
+    },
+    {
+      "type": "markdown",
+      "title": "Type Bac — Exercice modèle complet",
+      "content": "## Énoncé\n\nUne entreprise produit des composants. $80\\%$ sont fabriqués par l'atelier A, $20\\%$ par l'atelier B. L'atelier A produit $3\\%$ de pièces défectueuses, l'atelier B en produit $8\\%$.\n\nOn note $A$ : « la pièce vient de A », $B$ : « la pièce vient de B », $D$ : « la pièce est défectueuse ».\n\n**1)** Calculer $P(D)$.\n\n**2)** Sachant qu'une pièce est défectueuse, quelle est la probabilité qu'elle vienne de A ?\n\n**3)** On prélève $50$ pièces au hasard. Soit $X$ le nombre de pièces défectueuses. Calculer $E(X)$ et interpréter.\n\n## Corrigé\n\n**1)** Formule des probabilités totales :\n$$P(D) = P(A) \\times P_A(D) + P(B) \\times P_B(D) = 0{,}8 \\times 0{,}03 + 0{,}2 \\times 0{,}08$$\n$$P(D) = 0{,}024 + 0{,}016 = 0{,}040$$\n\n**2)** Formule de Bayes :\n$$P_D(A) = \\frac{P(A \\cap D)}{P(D)} = \\frac{0{,}024}{0{,}040} = 0{,}6$$\n\n**3)** $X$ suit une loi binomiale $\\mathcal{B}(50 \\, ; \\, 0{,}04)$ (sous hypothèse d'indépendance).\n$$E(X) = np = 50 \\times 0{,}04 = 2$$\n\n**Interprétation :** en moyenne, sur $50$ pièces, $2$ seront défectueuses."
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Application de Bayes",
+      "question": "Dans la population, $1\\%$ des personnes sont porteuses d'un virus. Un test détecte $95\\%$ des porteurs (sensibilité) et donne $4\\%$ de faux positifs. Quelle est la probabilité d'être porteur sachant que le test est positif (arrondi à $0{,}01$) ?",
+      "choices": [
+        { "id": "a", "text": "$0{,}19$", "correct": true },
+        { "id": "b", "text": "$0{,}50$", "correct": false },
+        { "id": "c", "text": "$0{,}80$", "correct": false },
+        { "id": "d", "text": "$0{,}95$", "correct": false }
+      ],
+      "explanation": "Soit $V$ : porteur, $T$ : test positif. $P(T) = P(V) \\cdot P_V(T) + P(\\overline{V}) \\cdot P_{\\overline{V}}(T) = 0{,}01 \\times 0{,}95 + 0{,}99 \\times 0{,}04 = 0{,}0095 + 0{,}0396 = 0{,}0491$. Puis $P_T(V) = \\dfrac{0{,}0095}{0{,}0491} \\approx 0{,}19$. Malgré la haute sensibilité, seulement $19\\%$ de chances d'être réellement porteur — effet typique des tests sur populations peu touchées."
+    },
+    {
+      "type": "markdown",
+      "title": "Méthodologie — Reconnaître le type d'exercice",
+      "content": "## Comment aborder un exercice de probabilités au Bac\n\n**Étape 1 — Identifier la situation**\n\n- Tirages successifs / arbre $\\Rightarrow$ probabilités conditionnelles + arbre pondéré\n- Répétitions indépendantes avec deux issues $\\Rightarrow$ loi binomiale\n- Variable prenant plusieurs valeurs $\\Rightarrow$ loi de probabilité, $E(X)$, $V(X)$\n- Question avec « sachant que » $\\Rightarrow$ probabilité conditionnelle\n- Inverser un conditionnement $\\Rightarrow$ formule de Bayes\n\n**Étape 2 — Définir les événements**\n\nToujours **nommer clairement** les événements (« Soit $A$ : ... »).\n\n**Étape 3 — Modéliser**\n\n- Faire un arbre si tirages successifs\n- Identifier une loi connue (binomiale)\n- Lister les valeurs possibles d'une v.a.\n\n**Étape 4 — Calculer**\n\n- Vérifier que $\\sum p_i = 1$\n- Utiliser König-Huygens pour la variance\n- Justifier l'indépendance avant d'utiliser les formules de variance d'une somme\n\n**Étape 5 — Interpréter**\n\nNe jamais oublier la phrase finale : *« Cela signifie que ... »*"
+    },
+    {
+      "type": "markdown",
+      "title": "Formulaire de synthèse",
+      "content": "## À connaître par cœur pour le Bac\n\n**Probabilité conditionnelle :**\n$$P_B(A) = \\frac{P(A \\cap B)}{P(B)} \\quad \\text{et} \\quad P(A \\cap B) = P(B) \\cdot P_B(A)$$\n\n**Indépendance :**\n$$A, B \\text{ indép.} \\iff P(A \\cap B) = P(A) \\cdot P(B)$$\n\n**Probabilités totales :**\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\cdot P_{B_i}(A)$$\n\n**Bayes :**\n$$P_A(B) = \\frac{P(B) \\cdot P_B(A)}{P(A)}$$\n\n**Espérance :**\n$$E(X) = \\sum_{i=1}^{n} x_i \\, p_i$$\n\n**Variance (König-Huygens) :**\n$$V(X) = E(X^2) - [E(X)]^2$$\n\n**Écart-type :**\n$$\\sigma(X) = \\sqrt{V(X)}$$\n\n**Linéarité :**\n$$E(aX + b) = a E(X) + b \\quad \\text{et} \\quad V(aX + b) = a^2 V(X)$$\n\n**Somme (v.a. indépendantes de même loi) :**\n$$E\\left(\\sum X_i\\right) = n E(X), \\quad V\\left(\\sum X_i\\right) = n V(X)$$\n\n**Moyenne empirique :**\n$$E(M_n) = E(X), \\quad V(M_n) = \\frac{V(X)}{n}$$"
+    }
+  ]
+}
