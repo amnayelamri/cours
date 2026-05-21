@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiHome, FiSettings } from 'react-icons/fi';
+import { FiHome, FiUser, FiMail, FiSettings } from 'react-icons/fi';
 
 const isLocal = window.location.hostname === 'localhost';
 
@@ -13,12 +13,20 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
           <img src={`${process.env.PUBLIC_URL}/tree.svg`} alt="arbre" className="brand-tree" />
-          <span>Site du Professeur El Amri Amnay</span>
+          <span>Prof. El Amri Amnay</span>
         </Link>
         <div className="navbar-menu">
           <Link to="/" className={active('/')}>
             <FiHome size={18} />
-            <span>Explorer</span>
+            <span>Cours</span>
+          </Link>
+          <Link to="/about" className={active('/about')}>
+            <FiUser size={18} />
+            <span>À propos</span>
+          </Link>
+          <Link to="/contact" className={active('/contact')}>
+            <FiMail size={18} />
+            <span>Contact</span>
           </Link>
           {isLocal && (
             <Link to="/dashboard" className={active('/dashboard')}>

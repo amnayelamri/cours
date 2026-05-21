@@ -3,6 +3,8 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CoursePage from './pages/CoursePage';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import Dashboard from './pages/dashboard/Dashboard';
 import CourseEditor from './pages/dashboard/CourseEditor';
 import './App.css';
@@ -16,6 +18,8 @@ function App() {
           <Routes>
             <Route path="/"                     element={<Home />} />
             <Route path="/course/:id"           element={<CoursePage />} />
+            <Route path="/about"                element={<About />} />
+            <Route path="/contact"              element={<Contact />} />
             <Route path="/dashboard"            element={<Dashboard />} />
             <Route path="/dashboard/new"        element={<CourseEditor />} />
             <Route path="/dashboard/edit/:id"   element={<CourseEditor />} />

@@ -1,0 +1,355 @@
+/* ══════════════════════════════════════════
+   ABOUT PAGE
+══════════════════════════════════════════ */
+
+.about-page {
+  min-height: calc(100vh - 70px);
+}
+
+/* ── Hero ── */
+.about-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
+  padding: 60px 24px 50px;
+}
+
+.about-hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 3px solid rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.about-hero-text h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.about-subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.about-location {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 20px;
+}
+
+.about-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary-about {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: #fff;
+  color: #1a1a2e;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.btn-primary-about:hover { opacity: 0.88; }
+
+.btn-whatsapp-about {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: #25D366;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.btn-whatsapp-about:hover { opacity: 0.88; }
+
+/* ── Body ── */
+.about-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+/* ── Section title ── */
+.about-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+/* ── Card ── */
+.about-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.about-profile-text p {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.about-profile-text p:last-child { margin-bottom: 0; }
+
+/* ── Levels grid ── */
+.about-levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.level-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: box-shadow 0.2s;
+}
+.level-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+.level-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #1a1a2e;
+}
+
+.level-detail {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ── Timeline ── */
+.about-timeline {
+  position: relative;
+  padding-left: 24px;
+  border-left: 2px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -31px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #1a1a2e;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #1a1a2e;
+}
+
+.timeline-content h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 3px;
+}
+
+.timeline-place {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+.timeline-detail {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.timeline-content ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.timeline-content ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+.timeline-content ul li svg { flex-shrink: 0; margin-top: 2px; color: #1a1a2e; }
+
+/* ── Education ── */
+.about-education {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+}
+
+.edu-highlight {
+  border-left: 3px solid #1a1a2e;
+  background: #f8f9ff;
+}
+
+.edu-year {
+  flex-shrink: 0;
+  width: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  padding-top: 2px;
+}
+
+.edu-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.edu-text strong {
+  font-size: 14px;
+  color: #111;
+}
+
+.edu-text span {
+  font-size: 12px;
+  color: #777;
+}
+
+.edu-scores {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #1a1a2e;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 13px;
+}
+.score-badge strong { font-size: 15px; }
+
+/* ── Publications ── */
+.about-publications {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pub-item {
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  border-left: 3px solid #0f3460;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pub-title {
+  font-size: 14px;
+  font-style: italic;
+  color: #222;
+  font-weight: 500;
+}
+
+.pub-journal {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ── CTA ── */
+.about-cta {
+  text-align: center;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, #f8f9ff, #eef0ff);
+  border-radius: 16px;
+  border: 1px solid #dde0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.about-cta p {
+  font-size: 17px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* ══════════════════
+   RESPONSIVE
+══════════════════ */
+@media (max-width: 600px) {
+  .about-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .about-avatar { width: 80px; height: 80px; font-size: 26px; }
+  .about-hero-text h1 { font-size: 24px; }
+  .edu-item { flex-direction: column; gap: 4px; }
+  .edu-year { width: auto; }
+}
