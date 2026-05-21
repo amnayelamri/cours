@@ -141,5 +141,13 @@
     "tags": ["terminale", "spé maths", "probabilités", "bac", "QCM", "exercices"],
     "createdAt": "2026-05-21",
     "slideCount": 21
+  },
+  {
+    "id": "bienayme-tchebychev-terminale",
+    "title": "Inégalité de Bienaymé-Tchebychev — Exercices corrigés Terminale",
+    "description": "5 exercices corrigés sur l'inégalité de Bienaymé-Tchebychev, issus de sujets du Bac (Métropole 2024, Nouvelle-Calédonie 2025, Amérique du Sud 2025, Polynésie 2025). Méthode générale, QCM intermédiaires et corrections détaillées.",
+    "tags": ["terminale", "spé maths", "probabilités", "Bienaymé-Tchebychev", "bac", "exercices corrigés"],
+    "createdAt": "2026-05-21",
+    "slideCount": 16
   }
 ]

@@ -1,0 +1,128 @@
+{
+  "id": "bienayme-tchebychev-terminale",
+  "title": "Inégalité de Bienaymé-Tchebychev — Exercices corrigés Terminale",
+  "description": "5 exercices corrigés sur l'inégalité de Bienaymé-Tchebychev, issus de sujets du Bac (Métropole 2024, Nouvelle-Calédonie 2025, Amérique du Sud 2025, Polynésie 2025). Méthode générale, QCM intermédiaires et corrections détaillées.",
+  "tags": ["terminale", "spé maths", "probabilités", "Bienaymé-Tchebychev", "bac", "exercices corrigés"],
+  "slides": [
+    {
+      "type": "markdown",
+      "title": "L'inégalité de Bienaymé-Tchebychev — Rappel",
+      "content": "## Énoncé\n\nSoit $X$ une variable aléatoire d'espérance $\\mu = E(X)$ et de variance $V(X)$.\n\nPour tout réel $a > 0$ :\n$$\\boxed{P\\bigl(|X - \\mu| \\geq a\\bigr) \\leq \\frac{V(X)}{a^2}}$$\n\nForme équivalente (souvent plus utile) :\n$$P\\bigl(|X - \\mu| < a\\bigr) \\geq 1 - \\frac{V(X)}{a^2}$$\n\n## Méthode générale en 4 étapes\n\n**Étape 1** — Calculer $E(X)$ et $V(X)$ (souvent via linéarité / indépendance).\n\n**Étape 2** — Réécrire l'événement sous la forme $|X - \\mu| < a$ ou $|X - \\mu| \\geq a$ :\n$$\\mu - a < X < \\mu + a \\iff |X - \\mu| < a$$\n\n**Étape 3** — Identifier $a$ : c'est le demi-écart entre les bornes.\n$$a = \\frac{b - c}{2} \\quad \\text{où } [c, b] \\text{ est l'intervalle}$$\n\n**Étape 4** — Appliquer l'inégalité et vérifier que la borne obtenue satisfait ce qu'on veut démontrer.\n\n## À retenir\n\n- $V(X_1 + \\ldots + X_n) = n\\,V(X)$ si les $X_i$ sont **indépendantes** de même loi\n- $V\\!\\left(\\dfrac{S_n}{n}\\right) = \\dfrac{V(X)}{n}$ : la variance de la moyenne décroît en $1/n$"
+    },
+    {
+      "type": "markdown",
+      "title": "Exercice 1 — Nouvelle-Calédonie 2025",
+      "content": "## Énoncé\n\n$X_1, X_2, \\ldots, X_{100}$ sont des variables aléatoires **indépendantes** suivant la même loi, avec :\n$$E(X_i) = 23{,}5 \\qquad V(X_i) = 357{,}75$$\n\nOn pose $Z = X_1 + X_2 + \\ldots + X_{100}$.\n\n**Démontrer que :** $P(1950 < Z < 2750) \\geq 0{,}75$\n\n---\n\n*Réfléchis avant de voir la correction. Quel est le centre de l'intervalle $]1950\\,;\\,2750[$ ? Quelle est la valeur de $a$ ?*"
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Exercice 1 (étape clé)",
+      "question": "Pour l'exercice 1, on veut montrer $P(1950 < Z < 2750) \\geq 0{,}75$. Après avoir calculé $E(Z)$ et identifié $a$, quelle minoration obtient-on avec Bienaymé-Tchebychev ?",
+      "choices": [
+        { "id": "a", "text": "$P(1950 < Z < 2750) \\geq 0{,}75$ exactement (égalité)", "correct": false },
+        { "id": "b", "text": "$P(1950 < Z < 2750) \\geq 0{,}776$", "correct": true },
+        { "id": "c", "text": "$P(1950 < Z < 2750) \\geq 0{,}50$", "correct": false },
+        { "id": "d", "text": "$P(1950 < Z < 2750) \\geq 0{,}99$", "correct": false }
+      ],
+      "explanation": "$E(Z) = 100 \\times 23{,}5 = 2350$, $V(Z) = 100 \\times 357{,}75 = 35\\,775$. Centre de $]1950;2750[$ : $\\frac{1950+2750}{2} = 2350 = E(Z)$. $a = \\frac{2750-1950}{2} = 400$. B-T : $P(|Z-2350| \\geq 400) \\leq \\frac{35775}{400^2} = \\frac{35775}{160000} \\approx 0{,}224$. Donc $P(1950 < Z < 2750) \\geq 1 - 0{,}224 \\approx 0{,}776 \\geq 0{,}75$."
+    },
+    {
+      "type": "markdown",
+      "title": "Correction — Exercice 1",
+      "content": "## Calcul de $E(Z)$ et $V(Z)$\n\nPar linéarité de l'espérance et indépendance :\n$$E(Z) = 100 \\times E(X_i) = 100 \\times 23{,}5 = 2350$$\n$$V(Z) = 100 \\times V(X_i) = 100 \\times 357{,}75 = 35\\,775$$\n\n## Identification de $a$\n\nOn remarque que $E(Z) = 2350$ est le centre de l'intervalle $]1950\\,;\\,2750[$ :\n$$1950 = 2350 - 400 \\qquad 2750 = 2350 + 400$$\n\nDonc : $1950 < Z < 2750 \\iff |Z - 2350| < 400$, soit $a = 400$.\n\n## Application de Bienaymé-Tchebychev\n\n$$P\\bigl(|Z - 2350| \\geq 400\\bigr) \\leq \\frac{V(Z)}{400^2} = \\frac{35\\,775}{160\\,000} \\approx 0{,}2236$$\n\nDonc :\n$$P(1950 < Z < 2750) = P\\bigl(|Z - 2350| < 400\\bigr) \\geq 1 - 0{,}2236 \\approx 0{,}776$$\n\n## Conclusion\n\n$0{,}776 \\geq 0{,}75$, donc $P(1950 < Z < 2750) \\geq 0{,}75$. $\\blacksquare$"
+    },
+    {
+      "type": "markdown",
+      "title": "Exercice 2 — Amérique du Sud 2025",
+      "content": "## Énoncé\n\nOn teste $n$ balles de tennis indépendamment. Chaque test $X_i$ suit une loi de Bernoulli de paramètre $p = 0{,}85$.\n\nOn pose la moyenne empirique : $M_n = \\dfrac{X_1 + X_2 + \\ldots + X_n}{n}$\n\n**1)** Calculer $E(M_n)$ et $V(M_n)$.\n\n**2)** Montrer que $P(0{,}75 < M_n < 0{,}95) \\geq 1 - \\dfrac{12{,}75}{n}$\n\n**3)** Déterminer la valeur minimale de $n$ pour que $P(0{,}75 < M_n < 0{,}95) \\geq 0{,}9$.\n\n---\n\n*Rappel :* pour $X \\sim \\mathcal{B}(1\\,;\\,p)$ : $E(X) = p$ et $V(X) = p(1-p)$."
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Exercice 2 (valeur minimale de n)",
+      "question": "Pour que $P(0{,}75 < M_n < 0{,}95) \\geq 0{,}9$, quelle est la valeur minimale de $n$ ?",
+      "choices": [
+        { "id": "a", "text": "$n \\geq 100$", "correct": false },
+        { "id": "b", "text": "$n \\geq 128$", "correct": true },
+        { "id": "c", "text": "$n \\geq 150$", "correct": false },
+        { "id": "d", "text": "$n \\geq 200$", "correct": false }
+      ],
+      "explanation": "$V(X_i) = 0{,}85 \\times 0{,}15 = 0{,}1275$. $V(M_n) = 0{,}1275/n$. $a = (0{,}95 - 0{,}75)/2 = 0{,}1$. B-T : $P(0{,}75 < M_n < 0{,}95) \\geq 1 - \\frac{0{,}1275/n}{0{,}01} = 1 - \\frac{12{,}75}{n}$. Pour que ce minorant soit $\\geq 0{,}9$ : $1 - 12{,}75/n \\geq 0{,}9 \\Rightarrow 12{,}75/n \\leq 0{,}1 \\Rightarrow n \\geq 127{,}5$. Donc $n_{\\min} = 128$."
+    },
+    {
+      "type": "markdown",
+      "title": "Correction — Exercice 2",
+      "content": "## 1) Espérance et variance de $M_n$\n\nPuisque $X_i \\sim \\mathcal{B}(1\\,;\\,0{,}85)$ : $E(X_i) = 0{,}85$ et $V(X_i) = 0{,}85 \\times 0{,}15 = 0{,}1275$.\n\nPar linéarité :\n$$E(M_n) = \\frac{n \\times 0{,}85}{n} = 0{,}85$$\n\nPar indépendance :\n$$V(M_n) = \\frac{V(X_i)}{n} = \\frac{0{,}1275}{n}$$\n\n## 2) Application de Bienaymé-Tchebychev\n\nCentre de $]0{,}75\\,;\\,0{,}95[$ : $\\dfrac{0{,}75 + 0{,}95}{2} = 0{,}85 = E(M_n)$. ✓\n\n$a = \\dfrac{0{,}95 - 0{,}75}{2} = 0{,}1$\n\n$$P\\bigl(|M_n - 0{,}85| \\geq 0{,}1\\bigr) \\leq \\frac{V(M_n)}{0{,}1^2} = \\frac{0{,}1275/n}{0{,}01} = \\frac{12{,}75}{n}$$\n\nDonc : $P(0{,}75 < M_n < 0{,}95) \\geq 1 - \\dfrac{12{,}75}{n}$ $\\blacksquare$\n\n## 3) Valeur minimale de $n$\n\nOn veut : $1 - \\dfrac{12{,}75}{n} \\geq 0{,}9$\n\n$$\\frac{12{,}75}{n} \\leq 0{,}1 \\iff n \\geq \\frac{12{,}75}{0{,}1} = 127{,}5$$\n\nDonc $n_{\\min} = \\mathbf{128}$ (premier entier supérieur à $127{,}5$)."
+    },
+    {
+      "type": "markdown",
+      "title": "Exercice 3 — Variable discrète (sens unique)",
+      "content": "## Énoncé\n\nSoit $X$ une variable aléatoire discrète vérifiant :\n$$E(X) = \\frac{3}{2} \\qquad V(X) = \\frac{11}{12}$$\n\n**Démontrer que :** $P(X \\geq 3) \\leq \\dfrac{11}{27}$\n\n---\n\n**Indice :** Si $X \\geq 3$, que peut-on dire de $|X - E(X)|$ ?\n\n*Rappel :* l'inégalité de Bienaymé-Tchebychev donne une majoration de $P(|X - \\mu| \\geq a)$, événement qui **contient** $\\{X \\geq 3\\}$."
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Exercice 3 (stratégie)",
+      "question": "Pour majorer $P(X \\geq 3)$, on utilise l'inclusion $\\{X \\geq 3\\} \\subseteq \\{|X - 3/2| \\geq a\\}$. Quelle valeur de $a$ permet cette inclusion ?",
+      "choices": [
+        { "id": "a", "text": "$a = 1$", "correct": false },
+        { "id": "b", "text": "$a = \\dfrac{3}{2}$", "correct": true },
+        { "id": "c", "text": "$a = 2$", "correct": false },
+        { "id": "d", "text": "$a = 3$", "correct": false }
+      ],
+      "explanation": "Si $X \\geq 3$, alors $X - \\frac{3}{2} \\geq 3 - \\frac{3}{2} = \\frac{3}{2}$, donc $|X - \\frac{3}{2}| \\geq \\frac{3}{2}$. L'inclusion $\\{X \\geq 3\\} \\subseteq \\left\\{|X - \\frac{3}{2}| \\geq \\frac{3}{2}\\right\\}$ est vérifiée avec $a = \\frac{3}{2}$. B-T donne alors $P\\!\\left(|X - \\frac{3}{2}| \\geq \\frac{3}{2}\\right) \\leq \\frac{11/12}{(3/2)^2} = \\frac{11/12}{9/4} = \\frac{11}{27}$."
+    },
+    {
+      "type": "markdown",
+      "title": "Correction — Exercice 3",
+      "content": "## Stratégie : inclusion d'événements\n\nSi $X \\geq 3$, alors :\n$$X - \\frac{3}{2} \\geq 3 - \\frac{3}{2} = \\frac{3}{2} > 0 \\implies \\left|X - \\frac{3}{2}\\right| \\geq \\frac{3}{2}$$\n\nDonc l'événement $\\left\\{X \\geq 3\\right\\}$ est inclus dans $\\left\\{\\left|X - \\dfrac{3}{2}\\right| \\geq \\dfrac{3}{2}\\right\\}$.\n\nPar croissance de la probabilité :\n$$P(X \\geq 3) \\leq P\\!\\left(\\left|X - \\frac{3}{2}\\right| \\geq \\frac{3}{2}\\right)$$\n\n## Application de Bienaymé-Tchebychev avec $a = \\frac{3}{2}$\n\n$$P\\!\\left(\\left|X - \\frac{3}{2}\\right| \\geq \\frac{3}{2}\\right) \\leq \\frac{V(X)}{\\left(\\frac{3}{2}\\right)^2} = \\frac{\\dfrac{11}{12}}{\\dfrac{9}{4}} = \\frac{11}{12} \\times \\frac{4}{9} = \\frac{44}{108} = \\frac{11}{27}$$\n\n## Conclusion\n\n$$P(X \\geq 3) \\leq \\frac{11}{27} \\qquad \\blacksquare$$\n\n**Remarque :** cette technique (inclusion dans un événement symétrique) est une astuce classique pour passer de $P(X \\geq b)$ à une forme compatible avec B-T."
+    },
+    {
+      "type": "markdown",
+      "title": "Exercice 4 — Polynésie 2025",
+      "content": "## Énoncé\n\nUne auto-école étudie deux groupes de candidats au permis :\n\n- **Groupe A** : $10$ candidats en formation accompagnée. $X$ = nombre de réussites. $X \\sim \\mathcal{B}(10\\,;\\,0{,}747)$.\n- **Groupe B** : $40$ candidats sans formation particulière. $Y$ = nombre de réussites. $E(Y) = 22{,}53$ et $V(Y) = 9{,}81$.\n\nOn suppose $X$ et $Y$ **indépendants**. On pose $Z = X + Y$.\n\n**Démontrer que :** $P(Z < 20 \\text{ ou } Z > 40) < 0{,}12$\n\n---\n\n*Rappel :* Pour $X \\sim \\mathcal{B}(n\\,;\\,p)$ : $E(X) = np$ et $V(X) = np(1-p)$."
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Exercice 4 (calcul de E(Z) et V(Z))",
+      "question": "Pour l'exercice 4, quelles sont les valeurs de $E(Z)$ et $V(Z)$ ?",
+      "choices": [
+        { "id": "a", "text": "$E(Z) = 30$ et $V(Z) \\approx 11{,}70$", "correct": true },
+        { "id": "b", "text": "$E(Z) = 30$ et $V(Z) = 9{,}81$", "correct": false },
+        { "id": "c", "text": "$E(Z) = 32{,}53$ et $V(Z) = 11{,}70$", "correct": false },
+        { "id": "d", "text": "$E(Z) = 30$ et $V(Z) = 1{,}89$", "correct": false }
+      ],
+      "explanation": "$E(X) = 10 \\times 0{,}747 = 7{,}47$ ; $V(X) = 10 \\times 0{,}747 \\times 0{,}253 \\approx 1{,}89$. $E(Z) = E(X) + E(Y) = 7{,}47 + 22{,}53 = 30$. Par indépendance : $V(Z) = V(X) + V(Y) \\approx 1{,}89 + 9{,}81 = 11{,}70$."
+    },
+    {
+      "type": "markdown",
+      "title": "Correction — Exercice 4",
+      "content": "## Calcul de $E(Z)$ et $V(Z)$\n\n**Pour $X \\sim \\mathcal{B}(10\\,;\\,0{,}747)$ :**\n$$E(X) = 10 \\times 0{,}747 = 7{,}47$$\n$$V(X) = 10 \\times 0{,}747 \\times (1 - 0{,}747) = 10 \\times 0{,}747 \\times 0{,}253 \\approx 1{,}89$$\n\n**Pour $Z = X + Y$ ($X$ et $Y$ indépendants) :**\n$$E(Z) = E(X) + E(Y) = 7{,}47 + 22{,}53 = 30$$\n$$V(Z) = V(X) + V(Y) \\approx 1{,}89 + 9{,}81 = 11{,}70$$\n\n## Réécriture de l'événement\n\n$\\{Z < 20 \\text{ ou } Z > 40\\} = \\{|Z - 30| > 10\\}$\n\n(car $30 - 10 = 20$ et $30 + 10 = 40$, avec $E(Z) = 30$)\n\n## Application de Bienaymé-Tchebychev\n\n$$P(Z < 20 \\text{ ou } Z > 40) = P(|Z - 30| > 10) \\leq P(|Z - 30| \\geq 10) \\leq \\frac{V(Z)}{10^2}$$\n\n$$\\leq \\frac{11{,}70}{100} = 0{,}117 < 0{,}12$$\n\n## Conclusion\n\n$P(Z < 20 \\text{ ou } Z > 40) < 0{,}12$ $\\blacksquare$"
+    },
+    {
+      "type": "markdown",
+      "title": "Exercice 5 — Métropole 2024",
+      "content": "## Énoncé\n\nTrois clients arrivent successivement dans une boutique. Les durées de service $T_1, T_2, T_3$ sont des variables aléatoires **indépendantes** vérifiant :\n$$E(T_i) = 6 \\qquad V(T_i) = 1 \\quad \\text{(pour } i = 1, 2, 3\\text{)}$$\n\nLe temps total de service est $S = T_1 + T_2 + T_3$.\n\n**Démontrer que :** $P(14 < S < 22) \\geq 0{,}81$\n\n---\n\n*Vérifie d'abord que $E(S)$ est bien le centre de l'intervalle $]14\\,;\\,22[$.*"
+    },
+    {
+      "type": "quiz",
+      "title": "Quiz — Exercice 5 (valeur de V(S))",
+      "question": "Pour l'exercice 5, quelles sont les valeurs de $E(S)$ et $V(S)$ ?",
+      "choices": [
+        { "id": "a", "text": "$E(S) = 6$ et $V(S) = 1$", "correct": false },
+        { "id": "b", "text": "$E(S) = 18$ et $V(S) = 1$", "correct": false },
+        { "id": "c", "text": "$E(S) = 18$ et $V(S) = 3$", "correct": true },
+        { "id": "d", "text": "$E(S) = 18$ et $V(S) = 9$", "correct": false }
+      ],
+      "explanation": "$E(S) = E(T_1) + E(T_2) + E(T_3) = 3 \\times 6 = 18$. Par indépendance : $V(S) = V(T_1) + V(T_2) + V(T_3) = 3 \\times 1 = 3$. Ensuite $a = (22-14)/2 = 4$, B-T donne $P(|S-18| \\geq 4) \\leq 3/16$, donc $P(14 < S < 22) \\geq 1 - 3/16 = 13/16 = 0{,}8125 \\geq 0{,}81$."
+    },
+    {
+      "type": "markdown",
+      "title": "Correction — Exercice 5",
+      "content": "## Calcul de $E(S)$ et $V(S)$\n\nPar linéarité et indépendance :\n$$E(S) = 3 \\times E(T_i) = 3 \\times 6 = 18$$\n$$V(S) = 3 \\times V(T_i) = 3 \\times 1 = 3$$\n\n## Identification de $a$\n\nOn vérifie que $E(S) = 18$ est le centre de $]14\\,;\\,22[$ :\n$$\\frac{14 + 22}{2} = 18 = E(S) \\checkmark$$\n\nDonc : $14 < S < 22 \\iff |S - 18| < 4$, avec $a = 4$.\n\n## Application de Bienaymé-Tchebychev\n\n$$P\\bigl(|S - 18| \\geq 4\\bigr) \\leq \\frac{V(S)}{4^2} = \\frac{3}{16}$$\n\nDonc :\n$$P(14 < S < 22) = P\\bigl(|S - 18| < 4\\bigr) \\geq 1 - \\frac{3}{16} = \\frac{13}{16} = 0{,}8125$$\n\n## Conclusion\n\n$0{,}8125 \\geq 0{,}81$, donc $P(14 < S < 22) \\geq 0{,}81$ $\\blacksquare$\n\n**Remarque :** la valeur exacte $13/16 = 0{,}8125$ est légèrement supérieure à $0{,}81$ — c'est l'inégalité B-T qui donne le minorant."
+    },
+    {
+      "type": "markdown",
+      "title": "Synthèse — Ce qu'il faut retenir",
+      "content": "## Les 3 types de questions au Bac\n\n**Type 1 — Démontrer $P(c < X < d) \\geq \\alpha$**\n\n1. Calculer $E(X)$ → vérifier que c'est le centre de $]c\\,;\\,d[$\n2. $a = (d - c)/2$\n3. B-T : $P(|X - E(X)| < a) \\geq 1 - V(X)/a^2$\n4. Vérifier que $1 - V(X)/a^2 \\geq \\alpha$\n\n**Type 2 — Trouver $n$ minimal pour $P(\\ldots) \\geq \\alpha$** *(Ex. 2)*\n\nLa minoration donne une inégalité en $n$ : résoudre $f(n) \\geq \\alpha$.\n\n**Type 3 — Majorer $P(X \\geq b)$** *(Ex. 3)*\n\nTrouver $a$ tel que $\\{X \\geq b\\} \\subseteq \\{|X - \\mu| \\geq a\\}$, c'est-à-dire $a = b - \\mu$ (si $b > \\mu$).\n\n## Pièges fréquents\n\n- Oublier de vérifier que $E(X)$ est bien le **centre** de l'intervalle\n- Confondre $a$ (demi-largeur) avec la largeur totale $d - c$\n- Oublier l'hypothèse d'**indépendance** pour additionner les variances\n- Ne pas conclure par une phrase : *« $x \\geq \\alpha$, donc ... »*\n\n## Formulaire express\n\n$$P(\\mu - a < X < \\mu + a) \\geq 1 - \\frac{V(X)}{a^2}$$\n$$V\\!\\left(\\sum_{i=1}^n X_i\\right) = n\\,V(X) \\quad (\\text{indép., même loi})$$\n$$V(M_n) = \\frac{V(X)}{n}$$"
+    }
+  ]
+}
