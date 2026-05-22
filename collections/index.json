@@ -1,0 +1,40 @@
+[
+  {
+    "id": "terminale-spe-maths",
+    "title": "Terminale Spé Maths",
+    "description": "Cours et exercices de Terminale Spécialité Mathématiques : dérivées, primitives, intégration, probabilités et étude de fonctions.",
+    "emoji": "📐",
+    "courseIds": [
+      "tude-de-fonction-terminale",
+      "calcul-de-d-riv-es-terminale",
+      "exercices-de-calcul-de-d-riv-es-terminale",
+      "primitives-et-int-gration-par-parties-terminale-sp",
+      "exercices-primitives-et-int-gration-par-parties",
+      "cours-probabilites-terminale-spe",
+      "exos-probabilites-terminale-spe",
+      "bienayme-tchebychev-terminale",
+      "bac-spec-2025-tutoring"
+    ]
+  },
+  {
+    "id": "arithmetique-1bac-sm",
+    "title": "Arithmétique — 1BAC SM",
+    "description": "Cours complet et séries corrigées d'arithmétique pour 1re Baccalauréat Sciences Maths : divisibilité, congruences, PGCD et algorithme d'Euclide.",
+    "emoji": "🔢",
+    "courseIds": [
+      "cours-arithmetique-z-1bacsm",
+      "arith-divisibilite-1bac-sm",
+      "arith-congruences-1bac-sm",
+      "arith-pgcd-bezout-1bac-sm"
+    ]
+  },
+  {
+    "id": "cpge-modelisation",
+    "title": "CPGE — Modélisation",
+    "description": "Cours de modélisation et calcul scientifique pour classes préparatoires : systèmes différentiels, points fixes, agrégation.",
+    "emoji": "🔬",
+    "courseIds": [
+      "mod-lisation-de-l-agglom-ration-des-globules-rouges"
+    ]
+  }
+]
