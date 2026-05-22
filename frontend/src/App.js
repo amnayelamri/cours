@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import CoursePage from './pages/CoursePage';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import CollectionPage from './pages/CollectionPage';
 import Dashboard from './pages/dashboard/Dashboard';
 import CourseEditor from './pages/dashboard/CourseEditor';
 import './App.css';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/course/:id"           element={<CoursePage />} />
             <Route path="/about"                element={<About />} />
             <Route path="/contact"              element={<Contact />} />
+            <Route path="/collection/:id"       element={<CollectionPage />} />
             <Route path="/dashboard"            element={<Dashboard />} />
             <Route path="/dashboard/new"        element={<CourseEditor />} />
             <Route path="/dashboard/edit/:id"   element={<CourseEditor />} />

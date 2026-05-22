@@ -13,7 +13,9 @@ const About = () => {
       {/* ── Hero ── */}
       <section className="about-hero">
         <div className="about-hero-inner">
-          <div className="about-avatar">EA</div>
+          <div className="about-avatar">
+            <img src={`${process.env.PUBLIC_URL}/tree.svg`} alt="logo" />
+          </div>
           <div className="about-hero-text">
             <h1>El Amri Amnay</h1>
             <p className="about-subtitle">
