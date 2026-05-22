@@ -138,7 +138,14 @@
     "id": "exos-probabilites-terminale-spe",
     "title": "Exercices — Probabilités Terminale Spé (20 QCM Bac)",
     "description": "Banque de 20 QCM type Bac sur les probabilités niveau Terminale : probabilités conditionnelles, indépendance, formule des probabilités totales, Bayes, variables aléatoires, espérance, variance, somme de v.a. Corrections détaillées.",
-    "tags": ["terminale", "spé maths", "probabilités", "bac", "QCM", "exercices"],
+    "tags": [
+      "terminale",
+      "spé maths",
+      "probabilités",
+      "bac",
+      "QCM",
+      "exercices"
+    ],
     "createdAt": "2026-05-21",
     "slideCount": 21
   },
@@ -146,7 +153,14 @@
     "id": "bienayme-tchebychev-terminale",
     "title": "Inégalité de Bienaymé-Tchebychev — Exercices corrigés Terminale",
     "description": "5 exercices corrigés sur l'inégalité de Bienaymé-Tchebychev, issus de sujets du Bac (Métropole 2024, Nouvelle-Calédonie 2025, Amérique du Sud 2025, Polynésie 2025). Méthode générale, QCM intermédiaires et corrections détaillées.",
-    "tags": ["terminale", "spé maths", "probabilités", "Bienaymé-Tchebychev", "bac", "exercices corrigés"],
+    "tags": [
+      "terminale",
+      "spé maths",
+      "probabilités",
+      "Bienaymé-Tchebychev",
+      "bac",
+      "exercices corrigés"
+    ],
     "createdAt": "2026-05-21",
     "slideCount": 16
   },
@@ -154,7 +168,13 @@
     "id": "arith-divisibilite-1bac-sm",
     "title": "Divisibilité et Division Euclidienne — 1BAC SM",
     "description": "Série corrigée d'arithmétique niveau 1BAC SM : trouver les entiers n vérifiant une condition de divisibilité (méthode des combinaisons linéaires), division euclidienne d'expressions paramétrées, et preuve de divisibilité par 3 par décomposition modulo 3.",
-    "tags": ["1BAC SM", "Arithmétique", "Divisibilité", "Division Euclidienne", "Série corrigée"],
+    "tags": [
+      "1BAC SM",
+      "Arithmétique",
+      "Divisibilité",
+      "Division Euclidienne",
+      "Série corrigée"
+    ],
     "createdAt": "2026-05-21",
     "slideCount": 16
   },
@@ -162,7 +182,13 @@
     "id": "arith-congruences-1bac-sm",
     "title": "Congruences et Calculs de Restes — 1BAC SM",
     "description": "Série corrigée d'arithmétique niveau 1BAC SM : résolution d'équations de congruences, calcul de restes de grandes puissances (2^456 mod 5, 2022^2023 mod 7), chiffre des unités, équation sans solution entière par l'absurde, et pgcd de suites.",
-    "tags": ["1BAC SM", "Arithmétique", "Congruences", "Calcul de restes", "Série corrigée"],
+    "tags": [
+      "1BAC SM",
+      "Arithmétique",
+      "Congruences",
+      "Calcul de restes",
+      "Série corrigée"
+    ],
     "createdAt": "2026-05-21",
     "slideCount": 18
   },
@@ -170,8 +196,28 @@
     "id": "arith-pgcd-bezout-1bac-sm",
     "title": "PGCD, Bézout et Entiers Premiers — 1BAC SM",
     "description": "Série corrigée d'arithmétique niveau 1BAC SM : algorithme d'Euclide, coefficients de Bézout, démonstrations d'entiers premiers entre eux, décomposition en facteurs premiers, calcul du nombre de diviseurs, PGCD et PPCM.",
-    "tags": ["1BAC SM", "Arithmétique", "PGCD", "Bézout", "Facteurs premiers", "Série corrigée"],
+    "tags": [
+      "1BAC SM",
+      "Arithmétique",
+      "PGCD",
+      "Bézout",
+      "Facteurs premiers",
+      "Série corrigée"
+    ],
     "createdAt": "2026-05-21",
     "slideCount": 18
+  },
+  {
+    "id": "graphe-civilisation-moderne-talal-lahlou",
+    "title": "Diagnostic de la Civilisation Moderne — Graphe Lahlou",
+    "description": "Analyse systémique des dynamiques de la civilisation moderne à travers le graphe conceptuel du Pr. Talal Lahlou : surproduction, capitalisme, médias, idéologie et crises.",
+    "tags": [
+      "Philosophie",
+      "Sociologie",
+      "Civilisation",
+      "Économie politique"
+    ],
+    "createdAt": "2026-05-22",
+    "slideCount": 15
   }
 ]
