@@ -6,7 +6,8 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 3001;
-const COURSES_DIR = path.join(__dirname, 'frontend', 'public', 'courses');
+const COURSES_DIR      = path.join(__dirname, 'frontend', 'public', 'courses');
+const COLLECTIONS_FILE = path.join(__dirname, 'frontend', 'public', 'collections', 'index.json');
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json({ limit: '50mb' }));
@@ -97,6 +98,52 @@ const upload = multer({
 app.post('/api/courses/:id/assets', upload.single('file'), (req, res) => {
   res.json({ filename: req.file.originalname, path: `assets/${req.file.originalname}` });
 });
+
+// ── Collections ──────────────────────────────────────────────────────────────
+
+const readCollections = () => {
+  if (!fs.existsSync(COLLECTIONS_FILE)) {
+    fs.mkdirSync(path.dirname(COLLECTIONS_FILE), { recursive: true });
+    fs.writeFileSync(COLLECTIONS_FILE, '[]');
+  }
+  return JSON.parse(fs.readFileSync(COLLECTIONS_FILE, 'utf-8'));
+};
+const writeCollections = (data) =>
+  fs.writeFileSync(COLLECTIONS_FILE, JSON.stringify(data, null, 2));
+
+app.get('/api/collections', (req, res) => res.json(readCollections()));
+
+app.post('/api/collections', (req, res) => {
+  const col = { ...req.body };
+  if (!col.id) {
+    col.id = (col.title || 'dossier')
+      .toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+  col.courseIds = col.courseIds || [];
+  const list = readCollections();
+  const idx = list.findIndex(c => c.id === col.id);
+  if (idx >= 0) list[idx] = col; else list.push(col);
+  writeCollections(list);
+  res.status(201).json(col);
+});
+
+app.put('/api/collections/:id', (req, res) => {
+  const list = readCollections();
+  const idx = list.findIndex(c => c.id === req.params.id);
+  if (idx < 0) return res.status(404).json({ message: 'Collection not found' });
+  list[idx] = { ...req.body, id: req.params.id };
+  writeCollections(list);
+  res.json(list[idx]);
+});
+
+app.delete('/api/collections/:id', (req, res) => {
+  writeCollections(readCollections().filter(c => c.id !== req.params.id));
+  res.json({ message: 'Deleted' });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 app.listen(PORT, () => {
   console.log('\n  Dashboard server : http://localhost:' + PORT);
