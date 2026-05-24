@@ -4,7 +4,7 @@ import { getCourses, deleteCourse, createCourse } from '../../services/courseSer
 import {
   getCollections, createCollection, updateCollection, deleteCollection
 } from '../../services/collectionService';
-import { getArticles, deleteArticle } from '../../services/articleService';
+import { getArticles, createArticle, deleteArticle } from '../../services/articleService';
 import {
   FiPlus, FiUpload, FiEdit2, FiTrash2, FiBook, FiEye,
   FiClipboard, FiX, FiCheck, FiFolder, FiFolderPlus, FiSave, FiFileText
@@ -165,11 +165,15 @@ const Dashboard = () => {
   const [articles,    setArticles]    = useState([]);
   const [loading, setLoading]       = useState(true);
   const [error, setError]           = useState('');
-  const [pasteOpen, setPasteOpen]   = useState(false);
-  const [pasteText, setPasteText]   = useState('');
-  const [pasteError, setPasteError] = useState('');
-  const [editingCol, setEditingCol] = useState(null); // null | false (new) | collection obj
-  const textareaRef = useRef(null);
+  const [pasteOpen, setPasteOpen]       = useState(false);
+  const [pasteText, setPasteText]       = useState('');
+  const [pasteError, setPasteError]     = useState('');
+  const [artPasteOpen, setArtPasteOpen] = useState(false);
+  const [artPasteText, setArtPasteText] = useState('');
+  const [artPasteError, setArtPasteError] = useState('');
+  const [editingCol, setEditingCol]     = useState(null);
+  const textareaRef    = useRef(null);
+  const artTextareaRef = useRef(null);
 
   const loadAll = () => {
     setLoading(true);
@@ -227,6 +231,38 @@ const Dashboard = () => {
   };
 
   const handleColSaved = () => { setEditingCol(null); loadAll(); };
+
+  // ── Articles ──
+  const openArtPaste = () => {
+    setArtPasteText(''); setArtPasteError(''); setArtPasteOpen(true);
+    setTimeout(() => artTextareaRef.current?.focus(), 50);
+  };
+
+  const handleImportArticle = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      try {
+        const data = JSON.parse(ev.target.result);
+        if (!data.title) throw new Error('Le champ "title" est requis.');
+        await createArticle(data);
+        loadAll();
+      } catch (err) { setError('JSON invalide : ' + err.message); }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
+
+  const handlePasteArticleImport = async () => {
+    setArtPasteError('');
+    try {
+      const data = JSON.parse(artPasteText);
+      if (!data.title) throw new Error('Le champ "title" est requis.');
+      await createArticle(data);
+      setArtPasteOpen(false); setArtPasteText(''); loadAll();
+    } catch (err) { setArtPasteError('JSON invalide : ' + err.message); }
+  };
 
   const handleDeleteArticle = async (art) => {
     if (!window.confirm(`Supprimer "${art.title}" ?`)) return;
@@ -414,15 +450,53 @@ const Dashboard = () => {
         <>
           <div className="dashboard-header">
             <h1>Mes articles</h1>
-            <Link to="/dashboard/articles/new" className="btn-primary">
-              <FiPlus size={15} /> Nouvel article
-            </Link>
+            <div className="dashboard-actions">
+              <button className="btn-secondary import-btn" onClick={openArtPaste}>
+                <FiClipboard size={15} /> Coller JSON
+              </button>
+              <label className="btn-secondary import-btn">
+                <FiUpload size={15} /> Fichier JSON
+                <input type="file" accept=".json" onChange={handleImportArticle} hidden />
+              </label>
+              <Link to="/dashboard/articles/new" className="btn-primary">
+                <FiPlus size={15} /> Nouvel article
+              </Link>
+            </div>
           </div>
+
+          {/* ── Modal coller JSON article ── */}
+          {artPasteOpen && (
+            <div className="paste-modal-overlay" onClick={() => setArtPasteOpen(false)}>
+              <div className="paste-modal" onClick={e => e.stopPropagation()}>
+                <div className="paste-modal-header">
+                  <h2><FiClipboard size={18} /> Coller le JSON généré par l'IA</h2>
+                  <button onClick={() => setArtPasteOpen(false)} className="close-btn"><FiX size={18} /></button>
+                </div>
+                <p className="paste-hint">Copie le JSON depuis l'IA et colle-le ici.</p>
+                <textarea
+                  ref={artTextareaRef}
+                  className="paste-textarea"
+                  value={artPasteText}
+                  onChange={e => { setArtPasteText(e.target.value); setArtPasteError(''); }}
+                  placeholder={'{\n  "title": "Mon article",\n  "content": "# Introduction\\n\\n..."\n}'}
+                  rows={16}
+                  spellCheck={false}
+                />
+                {artPasteError && <div className="error-message">{artPasteError}</div>}
+                <div className="paste-modal-footer">
+                  <button onClick={() => setArtPasteOpen(false)} className="btn-secondary">Annuler</button>
+                  <button onClick={handlePasteArticleImport} className="btn-primary" disabled={!artPasteText.trim()}>
+                    <FiCheck size={15} /> Importer l'article
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {articles.length === 0 ? (
             <div className="empty-state">
               <FiFileText size={56} />
-              <p>Aucun article. Créez-en un depuis l'éditeur.</p>
+              <p>Aucun article. Créez-en un ou importez un JSON généré par l'IA.</p>
             </div>
           ) : (
             <div className="dashboard-courses">
@@ -452,6 +526,20 @@ const Dashboard = () => {
               ))}
             </div>
           )}
+
+          {/* ── Schéma JSON pour l'IA ── */}
+          <div className="schema-box">
+            <h3>Schéma JSON pour générer un article avec une IA</h3>
+            <p className="schema-hint">Copiez ce schéma, donnez-le à une IA avec votre sujet, puis importez le JSON généré.</p>
+            <pre>{JSON.stringify({
+              title: "Titre de l'article (requis)",
+              excerpt: "Phrase d'accroche courte (1-2 lignes)",
+              coverEmoji: "✍️",
+              readTime: 5,
+              tags: ["tag1", "tag2"],
+              content: "# Introduction\n\nCorps de l'article en **Markdown**.\n\n## Section\n\nParagraphe...\n\n> Citation ou remarque importante"
+            }, null, 2)}</pre>
+          </div>
         </>
       )}
 
