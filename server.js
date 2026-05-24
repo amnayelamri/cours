@@ -8,6 +8,8 @@ const app = express();
 const PORT = 3001;
 const COURSES_DIR      = path.join(__dirname, 'frontend', 'public', 'courses');
 const COLLECTIONS_FILE = path.join(__dirname, 'frontend', 'public', 'collections', 'index.json');
+const ARTICLES_DIR     = path.join(__dirname, 'frontend', 'public', 'articles');
+const ARTICLES_INDEX   = path.join(ARTICLES_DIR, 'index.json');
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json({ limit: '50mb' }));
@@ -140,6 +142,80 @@ app.put('/api/collections/:id', (req, res) => {
 
 app.delete('/api/collections/:id', (req, res) => {
   writeCollections(readCollections().filter(c => c.id !== req.params.id));
+  res.json({ message: 'Deleted' });
+});
+
+// ── Articles ──────────────────────────────────────────────────────────────────
+
+const readArticleIndex = () => {
+  if (!fs.existsSync(ARTICLES_INDEX)) {
+    fs.mkdirSync(ARTICLES_DIR, { recursive: true });
+    fs.writeFileSync(ARTICLES_INDEX, '[]');
+  }
+  return JSON.parse(fs.readFileSync(ARTICLES_INDEX, 'utf-8'));
+};
+const writeArticleIndex = (data) =>
+  fs.writeFileSync(ARTICLES_INDEX, JSON.stringify(data, null, 2));
+
+const toArticleSummary = (a) => ({
+  id:         a.id,
+  title:      a.title,
+  excerpt:    a.excerpt    || '',
+  tags:       a.tags       || [],
+  date:       a.date,
+  coverEmoji: a.coverEmoji || '📝',
+  readTime:   a.readTime   || null,
+});
+
+app.get('/api/articles', (req, res) => res.json(readArticleIndex()));
+
+app.get('/api/articles/:id', (req, res) => {
+  const p = path.join(ARTICLES_DIR, req.params.id, 'article.json');
+  if (!fs.existsSync(p)) return res.status(404).json({ message: 'Article not found' });
+  res.json(JSON.parse(fs.readFileSync(p, 'utf-8')));
+});
+
+app.post('/api/articles', (req, res) => {
+  const article = { ...req.body };
+  if (!article.id) {
+    article.id = (article.title || 'article')
+      .toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+  article.date = article.date || new Date().toISOString().split('T')[0];
+
+  const dir = path.join(ARTICLES_DIR, article.id);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'article.json'), JSON.stringify(article, null, 2));
+
+  const index = readArticleIndex();
+  const idx = index.findIndex(a => a.id === article.id);
+  if (idx >= 0) index[idx] = toArticleSummary(article);
+  else index.unshift(toArticleSummary(article)); // plus récent en premier
+  writeArticleIndex(index);
+
+  res.status(201).json(article);
+});
+
+app.put('/api/articles/:id', (req, res) => {
+  const dir = path.join(ARTICLES_DIR, req.params.id);
+  if (!fs.existsSync(dir)) return res.status(404).json({ message: 'Article not found' });
+
+  const article = { ...req.body, id: req.params.id };
+  fs.writeFileSync(path.join(dir, 'article.json'), JSON.stringify(article, null, 2));
+
+  const index = readArticleIndex();
+  const idx = index.findIndex(a => a.id === req.params.id);
+  if (idx >= 0) { index[idx] = toArticleSummary(article); writeArticleIndex(index); }
+
+  res.json(article);
+});
+
+app.delete('/api/articles/:id', (req, res) => {
+  const dir = path.join(ARTICLES_DIR, req.params.id);
+  if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
+  writeArticleIndex(readArticleIndex().filter(a => a.id !== req.params.id));
   res.json({ message: 'Deleted' });
 });
 

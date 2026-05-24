@@ -4,10 +4,14 @@ import { getCourses, deleteCourse, createCourse } from '../../services/courseSer
 import {
   getCollections, createCollection, updateCollection, deleteCollection
 } from '../../services/collectionService';
+import { getArticles, deleteArticle } from '../../services/articleService';
 import {
   FiPlus, FiUpload, FiEdit2, FiTrash2, FiBook, FiEye,
-  FiClipboard, FiX, FiCheck, FiFolder, FiFolderPlus, FiSave
+  FiClipboard, FiX, FiCheck, FiFolder, FiFolderPlus, FiSave, FiFileText
 } from 'react-icons/fi';
+
+const formatDate = (dateStr) =>
+  new Date(dateStr).toLocaleDateString('fr-FR', { year: 'numeric', month: 'short', day: 'numeric' });
 
 const JSON_SCHEMA = {
   id: "id-optionnel (auto-généré si absent)",
@@ -158,6 +162,7 @@ const Dashboard = () => {
   const [tab, setTab]               = useState('cours');
   const [courses, setCourses]       = useState([]);
   const [collections, setCollections] = useState([]);
+  const [articles,    setArticles]    = useState([]);
   const [loading, setLoading]       = useState(true);
   const [error, setError]           = useState('');
   const [pasteOpen, setPasteOpen]   = useState(false);
@@ -168,8 +173,8 @@ const Dashboard = () => {
 
   const loadAll = () => {
     setLoading(true);
-    Promise.all([getCourses(), getCollections()])
-      .then(([c, col]) => { setCourses(c); setCollections(col); })
+    Promise.all([getCourses(), getCollections(), getArticles()])
+      .then(([c, col, art]) => { setCourses(c); setCollections(col); setArticles(art); })
       .catch(() => setError('Impossible de charger les données.'))
       .finally(() => setLoading(false));
   };
@@ -223,6 +228,12 @@ const Dashboard = () => {
 
   const handleColSaved = () => { setEditingCol(null); loadAll(); };
 
+  const handleDeleteArticle = async (art) => {
+    if (!window.confirm(`Supprimer "${art.title}" ?`)) return;
+    try { await deleteArticle(art.id); setArticles(p => p.filter(a => a.id !== art.id)); }
+    catch { setError('Erreur lors de la suppression.'); }
+  };
+
   if (loading) return <div className="loading">Chargement...</div>;
 
   return (
@@ -240,6 +251,12 @@ const Dashboard = () => {
           onClick={() => setTab('dossiers')}
         >
           <FiFolder size={15} /> Dossiers ({collections.length})
+        </button>
+        <button
+          className={`dash-tab${tab === 'articles' ? ' active' : ''}`}
+          onClick={() => setTab('articles')}
+        >
+          <FiFileText size={15} /> Articles ({articles.length})
         </button>
       </div>
 
@@ -357,8 +374,8 @@ const Dashboard = () => {
               {collections.map(col => (
                 <div key={col.id} className="dashboard-row">
                   <div className="course-info" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                    <span style={{ fontSize: 28, lineHeight: 1 }}>{col.emoji || '📁'}</span>
-                    <div>
+                    <span style={{ fontSize: 28, lineHeight: 1, flexShrink: 0 }}>{col.emoji || '📁'}</span>
+                    <div style={{ minWidth: 0 }}>
                       <h3>{col.title}</h3>
                       {col.description && <p>{col.description}</p>}
                       <div className="course-meta">
@@ -382,6 +399,52 @@ const Dashboard = () => {
                       onClick={() => handleDeleteCol(col)}
                       title="Supprimer"
                     >
+                      <FiTrash2 size={15} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+
+      {/* ══════════════ TAB ARTICLES ══════════════ */}
+      {tab === 'articles' && (
+        <>
+          <div className="dashboard-header">
+            <h1>Mes articles</h1>
+            <Link to="/dashboard/articles/new" className="btn-primary">
+              <FiPlus size={15} /> Nouvel article
+            </Link>
+          </div>
+
+          {articles.length === 0 ? (
+            <div className="empty-state">
+              <FiFileText size={56} />
+              <p>Aucun article. Créez-en un depuis l'éditeur.</p>
+            </div>
+          ) : (
+            <div className="dashboard-courses">
+              {articles.map(art => (
+                <div key={art.id} className="dashboard-row">
+                  <div className="course-info">
+                    <h3>{art.coverEmoji || '📝'} {art.title}</h3>
+                    {art.excerpt && <p>{art.excerpt}</p>}
+                    <div className="course-meta">
+                      <span>{formatDate(art.date)}</span>
+                      {art.readTime && <span>{art.readTime} min</span>}
+                      {(art.tags || []).map(t => <span key={t} className="tag">{t}</span>)}
+                    </div>
+                  </div>
+                  <div className="row-actions">
+                    <Link to={`/articles/${art.id}`} className="btn-secondary icon-btn" title="Voir">
+                      <FiEye size={15} />
+                    </Link>
+                    <Link to={`/dashboard/articles/edit/${art.id}`} className="btn-secondary icon-btn" title="Modifier">
+                      <FiEdit2 size={15} />
+                    </Link>
+                    <button className="btn-danger icon-btn" onClick={() => handleDeleteArticle(art)} title="Supprimer">
                       <FiTrash2 size={15} />
                     </button>
                   </div>

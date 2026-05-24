@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiHome, FiUser, FiMail, FiSettings } from 'react-icons/fi';
+import { FiHome, FiUser, FiMail, FiSettings, FiFileText } from 'react-icons/fi';
 
 const isLocal = window.location.hostname === 'localhost';
 
@@ -23,6 +23,10 @@ const Navbar = () => {
           <Link to="/about" className={active('/about')}>
             <FiUser size={18} />
             <span>À propos</span>
+          </Link>
+          <Link to="/articles" className={active('/articles')}>
+            <FiFileText size={18} />
+            <span>Articles</span>
           </Link>
           <Link to="/contact" className={active('/contact')}>
             <FiMail size={18} />
