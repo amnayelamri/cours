@@ -7,22 +7,45 @@ import {
   FiSave, FiEye, FiEyeOff, FiUpload, FiArrowLeft
 } from 'react-icons/fi';
 
-const TYPES = ['markdown', 'pdf', 'image', 'video', 'html', 'quiz'];
+const TYPES = [
+  { value: 'markdown',  label: 'Texte Markdown' },
+  { value: 'quiz',      label: 'QCM' },
+  { value: 'flashcard', label: '🃏 Flashcard' },
+  { value: 'number',    label: '✍️ Réponse numérique' },
+  { value: 'steps',     label: '👣 Pas à pas' },
+  { value: 'truefalse', label: '⚖️ Vrai / Faux' },
+  { value: 'matching',  label: '🔗 Association' },
+  { value: 'video',     label: 'Vidéo' },
+  { value: 'pdf',       label: 'PDF' },
+  { value: 'image',     label: 'Image' },
+  { value: 'html',      label: 'HTML' },
+];
 
 const newSlide = () => ({
   id: `slide-${Date.now()}`,
   title: '',
   type: 'markdown',
+  // markdown / html
   content: '',
-  file: '',
-  url: '',
-  caption: '',
-  question: '',
+  // pdf / image
+  file: '', url: '', caption: '',
+  // quiz / flashcard / number / truefalse
+  question: '', answer: '', hint: '', explanation: '', tolerance: 0,
   choices: [
     { id: 'a', text: '', correct: true },
     { id: 'b', text: '', correct: false },
   ],
-  explanation: '',
+  // truefalse
+  statement: '',
+  // steps
+  stepsTitle: '', intro: '',
+  steps: [{ label: 'Étape 1', content: '' }],
+  // matching
+  instruction: '',
+  pairs: [
+    { left: '', right: '' },
+    { left: '', right: '' },
+  ],
 });
 
 const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove }) => {
@@ -52,7 +75,7 @@ const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove
           value={slide.type}
           onChange={e => onChange({ ...slide, type: e.target.value })}
         >
-          {TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+          {TYPES.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
         </select>
         <input
           placeholder="Titre du slide (optionnel)"
@@ -134,6 +157,114 @@ const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove
               value={slide.caption}
               onChange={e => onChange({ ...slide, caption: e.target.value })}
             />
+          </div>
+        )}
+
+        {slide.type === 'flashcard' && (
+          <div className="quiz-editor">
+            <textarea rows={3} placeholder="Question (recto de la carte)…" value={slide.question || ''}
+              onChange={e => onChange({ ...slide, question: e.target.value })} />
+            <textarea rows={3} placeholder="Réponse (verso de la carte)…" value={slide.answer || ''}
+              onChange={e => onChange({ ...slide, answer: e.target.value })} />
+            <input placeholder="Indice optionnel (ex: pensez au théorème…)" value={slide.hint || ''}
+              onChange={e => onChange({ ...slide, hint: e.target.value })} />
+          </div>
+        )}
+
+        {slide.type === 'number' && (
+          <div className="quiz-editor">
+            <textarea rows={3} placeholder="Question en Markdown (ex: Calculez $\pgcd(48, 18)$ =)" value={slide.question || ''}
+              onChange={e => onChange({ ...slide, question: e.target.value })} />
+            <div style={{ display: 'flex', gap: 8 }}>
+              <input type="number" placeholder="Réponse correcte (nombre)" style={{ flex: 1 }} value={slide.answer ?? ''}
+                onChange={e => onChange({ ...slide, answer: parseFloat(e.target.value) || 0 })} />
+              <input type="number" placeholder="Tolérance (0 = exact)" style={{ flex: '0 0 160px' }} value={slide.tolerance ?? 0}
+                onChange={e => onChange({ ...slide, tolerance: parseFloat(e.target.value) || 0 })} />
+            </div>
+            <input placeholder="Indice optionnel" value={slide.hint || ''}
+              onChange={e => onChange({ ...slide, hint: e.target.value })} />
+            <textarea rows={3} placeholder="Explication affichée après bonne réponse (Markdown)" value={slide.explanation || ''}
+              onChange={e => onChange({ ...slide, explanation: e.target.value })} />
+          </div>
+        )}
+
+        {slide.type === 'steps' && (
+          <div className="quiz-editor">
+            <input placeholder="Titre (optionnel)" value={slide.stepsTitle || ''}
+              onChange={e => onChange({ ...slide, stepsTitle: e.target.value })} />
+            <textarea rows={2} placeholder="Introduction / énoncé (Markdown, optionnel)" value={slide.intro || ''}
+              onChange={e => onChange({ ...slide, intro: e.target.value })} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {(slide.steps || []).map((step, si) => (
+                <div key={si} style={{ background: 'var(--background)', border: '1px solid var(--border-color)', borderRadius: 4, padding: 10 }}>
+                  <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)', padding: '6px 0' }}>#{si + 1}</span>
+                    <input placeholder={`Label (ex: Étape ${si+1})`} value={step.label || ''}
+                      style={{ flex: 1 }}
+                      onChange={e => { const s=[...slide.steps]; s[si]={...s[si],label:e.target.value}; onChange({...slide,steps:s}); }} />
+                    {slide.steps.length > 1 && (
+                      <button style={{ background:'none',border:'1px solid var(--border-color)',borderRadius:2,padding:'4px 8px',color:'var(--error-color)',cursor:'pointer' }}
+                        onClick={() => onChange({...slide, steps: slide.steps.filter((_,idx)=>idx!==si)})}>✕</button>
+                    )}
+                  </div>
+                  <textarea rows={2} placeholder="Contenu de l'étape (Markdown)" value={step.content || ''}
+                    style={{ width:'100%', fontFamily:'monospace', fontSize:12 }}
+                    onChange={e => { const s=[...slide.steps]; s[si]={...s[si],content:e.target.value}; onChange({...slide,steps:s}); }} />
+                </div>
+              ))}
+              <button className="add-choice-btn"
+                onClick={() => onChange({...slide, steps:[...(slide.steps||[]), {label:`Étape ${(slide.steps||[]).length+1}`,content:''}]})}>
+                + Ajouter une étape
+              </button>
+            </div>
+          </div>
+        )}
+
+        {slide.type === 'truefalse' && (
+          <div className="quiz-editor">
+            <textarea rows={3} placeholder="Affirmation à évaluer (Markdown)" value={slide.statement || ''}
+              onChange={e => onChange({ ...slide, statement: e.target.value })} />
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button
+                className={`correct-toggle${slide.answer === true ? ' is-correct' : ''}`}
+                onClick={() => onChange({ ...slide, answer: true })} type="button">
+                ✓ VRAI
+              </button>
+              <button
+                className={`correct-toggle${slide.answer === false ? ' is-correct' : ''}`}
+                onClick={() => onChange({ ...slide, answer: false })} type="button">
+                ✗ FAUX
+              </button>
+            </div>
+            <textarea rows={3} placeholder="Explication (Markdown, optionnelle)" value={slide.explanation || ''}
+              onChange={e => onChange({ ...slide, explanation: e.target.value })} />
+          </div>
+        )}
+
+        {slide.type === 'matching' && (
+          <div className="quiz-editor">
+            <input placeholder="Consigne (optionnelle, ex: Associez chaque théorème à son énoncé)" value={slide.instruction || ''}
+              onChange={e => onChange({ ...slide, instruction: e.target.value })} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {(slide.pairs || []).map((pair, pi) => (
+                <div key={pi} style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                  <span style={{ fontSize: 11, color: 'var(--text-secondary)', minWidth: 16 }}>{pi+1}</span>
+                  <input placeholder="Gauche" value={pair.left || ''} style={{ flex: 1 }}
+                    onChange={e => { const p=[...slide.pairs]; p[pi]={...p[pi],left:e.target.value}; onChange({...slide,pairs:p}); }} />
+                  <span style={{ color: 'var(--text-secondary)', fontSize: 14 }}>↔</span>
+                  <input placeholder="Droite" value={pair.right || ''} style={{ flex: 1 }}
+                    onChange={e => { const p=[...slide.pairs]; p[pi]={...p[pi],right:e.target.value}; onChange({...slide,pairs:p}); }} />
+                  {slide.pairs.length > 2 && (
+                    <button style={{ background:'none',border:'1px solid var(--border-color)',borderRadius:2,padding:'4px 8px',color:'var(--error-color)',cursor:'pointer' }}
+                      onClick={() => onChange({...slide,pairs:slide.pairs.filter((_,idx)=>idx!==pi)})}>✕</button>
+                  )}
+                </div>
+              ))}
+              <button className="add-choice-btn"
+                onClick={() => onChange({...slide,pairs:[...(slide.pairs||[]),{left:'',right:''}]})}>
+                + Ajouter une paire
+              </button>
+            </div>
           </div>
         )}
 
