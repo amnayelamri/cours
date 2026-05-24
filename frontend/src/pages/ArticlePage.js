@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getArticle } from '../services/articleService';
-import MarkdownViewer from '../components/MarkdownViewer';
+import MarkdownViewer from '../components/viewers/MarkdownViewer';
 import { FiArrowLeft, FiClock } from 'react-icons/fi';
 
 const formatDate = (dateStr) =>
