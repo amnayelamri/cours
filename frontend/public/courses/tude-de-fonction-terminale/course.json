@@ -17,6 +17,35 @@
       "content": "# Étude de fonction\n\n## Objectifs du cours\n\nÀ la fin de ce cours, tu seras capable de :\n\n- Déterminer l'**ensemble de définition** d'une fonction\n- Calculer des **limites** aux bornes et identifier les **asymptotes**\n- Étudier la **continuité** et la **dérivabilité** d'une fonction\n- Dresser un **tableau de variations** complet\n- Étudier la **convexité** et trouver les **points d'inflexion**\n- Mener une **étude de fonction complète** de bout en bout\n\n## Plan du cours\n\n1. Ensemble de définition\n2. Limites et formes indéterminées\n3. Asymptotes\n4. Continuité et dérivabilité\n5. Variations et extremums\n6. Tangentes\n7. Convexité\n8. Méthode complète et exemple\n\n> *Garde un crayon et un brouillon à portée de main : les maths se comprennent en pratiquant !*"
     },
     {
+      "id": "s7",
+      "title": "Quiz — Calcul de limite",
+      "type": "quiz",
+      "question": "Que vaut $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{x^2 - 2x + 3}{3x^2 + x - 1}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{3}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$3$",
+          "correct": false
+        }
+      ],
+      "explanation": "On factorise numérateur et dénominateur par $x^2$ (terme dominant) : $\\dfrac{x^2\\left(1 - \\frac{2}{x} + \\frac{3}{x^2}\\right)}{x^2\\left(3 + \\frac{1}{x} - \\frac{1}{x^2}\\right)} = \\dfrac{1 - \\frac{2}{x} + \\frac{3}{x^2}}{3 + \\frac{1}{x} - \\frac{1}{x^2}}$. Quand $x \\to +\\infty$, cela tend vers $\\dfrac{1}{3}$. Pour une fraction rationnelle en $+\\infty$, on garde le rapport des termes de plus haut degré."
+    },
+    {
       "id": "s2",
       "title": "Ensemble de définition",
       "type": "markdown",
@@ -68,35 +97,6 @@
       "title": "Lever une forme indéterminée",
       "type": "markdown",
       "content": "## Méthodes pour lever une FI\n\n### 1) Factoriser par le terme dominant (polynômes / fractions rationnelles)\n\n**Exemple** : $\\displaystyle\\lim_{x \\to +\\infty} (3x^2 - 5x + 1)$\n\nOn factorise par $x^2$ :\n\n$$3x^2 - 5x + 1 = x^2\\left(3 - \\dfrac{5}{x} + \\dfrac{1}{x^2}\\right)$$\n\nQuand $x \\to +\\infty$ : $x^2 \\to +\\infty$ et $\\left(3 - \\dfrac{5}{x} + \\dfrac{1}{x^2}\\right) \\to 3 > 0$.\n\nDonc la limite vaut $+\\infty$.\n\n### 2) Multiplier par la quantité conjuguée (racines)\n\n**Exemple** : $\\displaystyle\\lim_{x \\to +\\infty} \\left(\\sqrt{x+1} - \\sqrt{x}\\right)$\n\nOn multiplie par $\\dfrac{\\sqrt{x+1} + \\sqrt{x}}{\\sqrt{x+1} + \\sqrt{x}}$ :\n\n$$\\sqrt{x+1} - \\sqrt{x} = \\dfrac{(x+1) - x}{\\sqrt{x+1} + \\sqrt{x}} = \\dfrac{1}{\\sqrt{x+1} + \\sqrt{x}} \\to 0$$\n\n### 3) Utiliser les croissances comparées (exp / ln)\n\n**Exemple** : $\\displaystyle\\lim_{x \\to +\\infty} (e^x - x^3)$\n\n$$e^x - x^3 = x^3\\left(\\dfrac{e^x}{x^3} - 1\\right)$$\n\nOr $\\dfrac{e^x}{x^3} \\to +\\infty$ par croissance comparée, donc la limite vaut $+\\infty$.\n\n### 4) Reconnaître un taux d'accroissement\n\nSi on tombe sur une forme $\\frac{0}{0}$ du type $\\dfrac{f(x) - f(a)}{x - a}$, c'est $f'(a)$ !"
-    },
-    {
-      "id": "s7",
-      "title": "Quiz — Calcul de limite",
-      "type": "quiz",
-      "question": "Que vaut $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{x^2 - 2x + 3}{3x^2 + x - 1}$ ?",
-      "choices": [
-        {
-          "id": "a",
-          "text": "$\\dfrac{1}{3}$",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "text": "$+\\infty$",
-          "correct": false
-        },
-        {
-          "id": "c",
-          "text": "$0$",
-          "correct": false
-        },
-        {
-          "id": "d",
-          "text": "$3$",
-          "correct": false
-        }
-      ],
-      "explanation": "On factorise numérateur et dénominateur par $x^2$ (terme dominant) : $\\dfrac{x^2\\left(1 - \\frac{2}{x} + \\frac{3}{x^2}\\right)}{x^2\\left(3 + \\frac{1}{x} - \\frac{1}{x^2}\\right)} = \\dfrac{1 - \\frac{2}{x} + \\frac{3}{x^2}}{3 + \\frac{1}{x} - \\frac{1}{x^2}}$. Quand $x \\to +\\infty$, cela tend vers $\\dfrac{1}{3}$. Pour une fraction rationnelle en $+\\infty$, on garde le rapport des termes de plus haut degré."
     },
     {
       "id": "s8",
@@ -337,6 +337,52 @@
       "title": "Synthèse et conseils",
       "type": "markdown",
       "content": "## À retenir\n\n### Les réflexes à automatiser\n\n1. **Toujours** commencer par déterminer $D_f$\n2. Identifier le **type de fonction** pour anticiper la méthode (rationnelle, exp, ln, composée…)\n3. **Factoriser** la dérivée pour étudier son signe efficacement\n4. **Rédiger** : phrases claires, justifications des théorèmes utilisés (TVI, croissances comparées…)\n\n### Formules à connaître par cœur\n\n- Dérivées usuelles ($\\exp$, $\\ln$, puissances, trigo)\n- Formules de composition : $(e^u)'$, $(\\ln u)'$, $(u^n)'$, $(\\sqrt{u})'$\n- Équation de la tangente : $y = f'(a)(x - a) + f(a)$\n- Limites de référence et croissances comparées\n\n### Pièges classiques à éviter\n\n- Oublier les valeurs interdites dans $D_f$ (dénominateur, $\\ln$, racine)\n- Confondre dérivée d'un produit et produit des dérivées\n- Conclure « extremum » dès que $f'(a) = 0$ sans vérifier le changement de signe\n- Oublier d'étudier la limite à gauche **et** à droite près d'une valeur interdite\n\n### Pour aller plus loin\n\n- Entraîne-toi sur des **fonctions composées** complexes (exemple : $x\\,\\ln(x)$, $e^{x^2}$, $\\dfrac{1}{1+e^x}$)\n- Travaille la **rédaction type bac** : énoncé du théorème, vérification des hypothèses, conclusion\n- Refais régulièrement une étude **complète** pour bien maîtriser la méthode\n\n> 🎯 **Bravo !** Tu as maintenant tous les outils pour mener une étude de fonction complète au niveau Terminale."
+    },
+    {
+      "id": "slide-1779714341466",
+      "title": "",
+      "type": "flashcard",
+      "content": "",
+      "file": "",
+      "url": "",
+      "caption": "",
+      "question": "le domaine de définition de $\\ln$ est ...",
+      "answer": "l'ensemble des entiers strictement positifs. ",
+      "hint": "",
+      "explanation": "",
+      "tolerance": 0,
+      "choices": [
+        {
+          "id": "a",
+          "text": "",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "",
+          "correct": false
+        }
+      ],
+      "statement": "",
+      "stepsTitle": "",
+      "intro": "",
+      "steps": [
+        {
+          "label": "Étape 1",
+          "content": ""
+        }
+      ],
+      "instruction": "",
+      "pairs": [
+        {
+          "left": "",
+          "right": ""
+        },
+        {
+          "left": "",
+          "right": ""
+        }
+      ]
     }
   ],
   "id": "tude-de-fonction-terminale",
