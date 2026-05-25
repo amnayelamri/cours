@@ -9,7 +9,7 @@ import { getBalances, createBalance, updateBalance, deleteBalance } from '../../
 import {
   FiPlus, FiUpload, FiEdit2, FiTrash2, FiBook, FiEye,
   FiClipboard, FiX, FiCheck, FiFolder, FiFolderPlus, FiSave, FiFileText,
-  FiSliders
+  FiSliders, FiGlobe
 } from 'react-icons/fi';
 
 const formatDate = (dateStr) =>
@@ -290,7 +290,9 @@ const Dashboard = () => {
   const [collections, setCollections] = useState([]);
   const [articles,    setArticles]    = useState([]);
   const [balances,    setBalances]    = useState([]);
-  const [balanceModal, setBalanceModal] = useState(null); // null | {} (new) | {balance} (edit/fill)
+  const [balanceModal, setBalanceModal] = useState(null);
+  const [deploying,   setDeploying]   = useState(false);
+  const [deployMsg,   setDeployMsg]   = useState('');
   const [loading, setLoading]       = useState(true);
   const [error, setError]           = useState('');
   const [pasteOpen, setPasteOpen]       = useState(false);
@@ -400,6 +402,21 @@ const Dashboard = () => {
     catch { setError('Erreur lors de la suppression.'); }
   };
 
+  // ── Déploiement ──
+  const handleDeploy = async () => {
+    setDeploying(true); setDeployMsg('');
+    try {
+      const res = await fetch('http://localhost:3001/api/deploy', { method: 'POST' });
+      const data = await res.json();
+      setDeployMsg(data.message);
+    } catch {
+      setDeployMsg('Erreur : serveur inaccessible.');
+    } finally {
+      setDeploying(false);
+      setTimeout(() => setDeployMsg(''), 6000);
+    }
+  };
+
   // ── Balances ──
   const handleBalanceSaved = () => { setBalanceModal(null); loadAll(); };
 
@@ -440,6 +457,19 @@ const Dashboard = () => {
         >
           <FiSliders size={15} /> Balances ({balances.length})
         </button>
+      </div>
+
+      {/* ── Bouton Publier ── */}
+      <div className="deploy-bar">
+        <button
+          className={`btn-deploy${deploying ? ' deploying' : ''}`}
+          onClick={handleDeploy}
+          disabled={deploying}
+        >
+          <FiGlobe size={15} />
+          {deploying ? 'Publication en cours...' : 'Publier sur GitHub Pages'}
+        </button>
+        {deployMsg && <span className="deploy-msg">{deployMsg}</span>}
       </div>
 
       {error && <div className="error-message">{error}</div>}

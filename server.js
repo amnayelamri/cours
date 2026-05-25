@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
 const cors = require('cors');
+const { execSync } = require('child_process');
 
 const app = express();
 const PORT = 3001;
@@ -261,6 +262,30 @@ app.put('/api/balances/:id', (req, res) => {
 app.delete('/api/balances/:id', (req, res) => {
   writeBalances(readBalances().filter(b => b.id !== req.params.id));
   res.json({ message: 'Deleted' });
+});
+
+// ── Déploiement GitHub Pages ──────────────────────────────────────────────────
+
+app.post('/api/deploy', (req, res) => {
+  const ROOT = __dirname;
+  const steps = [];
+  try {
+    steps.push(execSync('git add frontend/public/', { cwd: ROOT }).toString());
+    // Vérifie s'il y a quelque chose à committer
+    const status = execSync('git status --porcelain frontend/public/', { cwd: ROOT }).toString().trim();
+    if (!status) {
+      return res.json({ success: true, message: 'Aucun changement à publier.' });
+    }
+    const date = new Date().toLocaleString('fr-FR');
+    steps.push(execSync(
+      `git commit -m "dashboard: mise à jour du contenu (${date})"`,
+      { cwd: ROOT }
+    ).toString());
+    steps.push(execSync('git push origin main', { cwd: ROOT }).toString());
+    res.json({ success: true, message: 'Publié sur GitHub Pages ✅ (mise à jour dans ~2 min)' });
+  } catch (e) {
+    res.status(500).json({ success: false, message: e.message });
+  }
 });
 
 // ─────────────────────────────────────────────────────────────────────────────

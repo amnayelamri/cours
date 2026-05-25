@@ -1423,6 +1423,40 @@ a:hover {
 }
 
 /* ═══════════════════════════════════════════════════════
+   DEPLOY BAR
+   ═══════════════════════════════════════════════════════ */
+
+.deploy-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0 4px;
+}
+
+.btn-deploy {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #1a6b3a;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s, opacity .2s;
+}
+.btn-deploy:hover:not(:disabled) { background: #145230; }
+.btn-deploy.deploying { opacity: .7; cursor: not-allowed; }
+
+.deploy-msg {
+  font-size: 13px;
+  color: #1a6b3a;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════
    BALANCES
    ═══════════════════════════════════════════════════════ */
 
