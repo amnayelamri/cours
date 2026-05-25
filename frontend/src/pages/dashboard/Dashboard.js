@@ -5,9 +5,11 @@ import {
   getCollections, createCollection, updateCollection, deleteCollection
 } from '../../services/collectionService';
 import { getArticles, createArticle, deleteArticle } from '../../services/articleService';
+import { getBalances, createBalance, updateBalance, deleteBalance } from '../../services/balanceService';
 import {
   FiPlus, FiUpload, FiEdit2, FiTrash2, FiBook, FiEye,
-  FiClipboard, FiX, FiCheck, FiFolder, FiFolderPlus, FiSave, FiFileText
+  FiClipboard, FiX, FiCheck, FiFolder, FiFolderPlus, FiSave, FiFileText,
+  FiSliders
 } from 'react-icons/fi';
 
 const formatDate = (dateStr) =>
@@ -157,12 +159,138 @@ const CollectionModal = ({ collection, courses, onSave, onClose }) => {
   );
 };
 
+// ─── Composant modal Balance ───────────────────────────────────────────────
+const makeItemId = () => `item-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+
+const BalanceModal = ({ balance, onSave, onClose }) => {
+  const isNew  = !balance?.id;
+  const [title, setTitle] = useState(balance?.title || '');
+  const [items, setItems] = useState(
+    balance?.items?.length > 0
+      ? balance.items.map(i => ({ ...i }))
+      : [{ id: makeItemId(), label: '', value: '' }]
+  );
+  const [mode,   setMode]   = useState(isNew ? 'edit' : 'fill');
+  const [saving, setSaving] = useState(false);
+  const [err,    setErr]    = useState('');
+
+  const addItem = () =>
+    setItems(prev => [...prev, { id: makeItemId(), label: '', value: '' }]);
+
+  const removeItem = (id) =>
+    setItems(prev => prev.length > 1 ? prev.filter(i => i.id !== id) : prev);
+
+  const updateItem = (id, key, val) =>
+    setItems(prev => prev.map(i => i.id === id ? { ...i, [key]: val } : i));
+
+  const handleSave = async () => {
+    setSaving(true); setErr('');
+    try {
+      const data = { title: title.trim(), items };
+      if (isNew) await createBalance(data);
+      else       await updateBalance(balance.id, { ...balance, ...data });
+      onSave();
+    } catch (e) {
+      setErr('Erreur serveur : ' + e.message);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="paste-modal-overlay" onClick={onClose}>
+      <div className="paste-modal balance-modal" onClick={e => e.stopPropagation()}>
+
+        {/* Header */}
+        <div className="paste-modal-header">
+          <h2><FiSliders size={17} /> {isNew ? 'Nouvelle balance' : (balance.title || 'Balance')}</h2>
+          <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+            {!isNew && (
+              <>
+                <button
+                  className={`balance-mode-btn${mode === 'fill' ? ' active' : ''}`}
+                  onClick={() => setMode('fill')}
+                >Structurer</button>
+                <button
+                  className={`balance-mode-btn${mode === 'edit' ? ' active' : ''}`}
+                  onClick={() => setMode('edit')}
+                >Remplir</button>
+              </>
+            )}
+            <button onClick={onClose} className="close-btn"><FiX size={18} /></button>
+          </div>
+        </div>
+
+        {/* Titre */}
+        <input
+          className="balance-title-input"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          placeholder="Titre de la balance (optionnel)"
+        />
+
+        {/* Items */}
+        <div className="balance-items">
+          {items.map((item, idx) => (
+            <div key={item.id} className={`balance-item${mode === 'edit' ? ' balance-item--edit' : ''}`}>
+              <input
+                className="balance-value-input"
+                value={item.value}
+                onChange={e => updateItem(item.id, 'value', e.target.value)}
+                placeholder="···"
+                maxLength={20}
+              />
+              {mode === 'edit' ? (
+                <input
+                  className="balance-label-input"
+                  value={item.label}
+                  onChange={e => updateItem(item.id, 'label', e.target.value)}
+                  placeholder={`Texte ${idx + 1}`}
+                />
+              ) : (
+                <span className="balance-label">{item.label || <em style={{ color: '#aaa' }}>—</em>}</span>
+              )}
+              {mode === 'edit' && (
+                <button
+                  className="balance-remove-btn"
+                  onClick={() => removeItem(item.id)}
+                  title="Supprimer"
+                  disabled={items.length === 1}
+                >
+                  <FiX size={13} />
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {mode === 'edit' && (
+          <button className="balance-add-btn" onClick={addItem}>
+            <FiPlus size={14} /> Ajouter un élément
+          </button>
+        )}
+
+        {err && <div className="error-message">{err}</div>}
+
+        <div className="paste-modal-footer">
+          <button onClick={onClose} className="btn-secondary">Annuler</button>
+          <button onClick={handleSave} className="btn-primary" disabled={saving}>
+            <FiSave size={15} /> {saving ? 'Enregistrement...' : 'Enregistrer'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ─── Dashboard principal ───────────────────────────────────────────────────
 const Dashboard = () => {
   const [tab, setTab]               = useState('cours');
   const [courses, setCourses]       = useState([]);
   const [collections, setCollections] = useState([]);
   const [articles,    setArticles]    = useState([]);
+  const [balances,    setBalances]    = useState([]);
+  const [balanceModal, setBalanceModal] = useState(null); // null | {} (new) | {balance} (edit/fill)
   const [loading, setLoading]       = useState(true);
   const [error, setError]           = useState('');
   const [pasteOpen, setPasteOpen]       = useState(false);
@@ -177,8 +305,10 @@ const Dashboard = () => {
 
   const loadAll = () => {
     setLoading(true);
-    Promise.all([getCourses(), getCollections(), getArticles()])
-      .then(([c, col, art]) => { setCourses(c); setCollections(col); setArticles(art); })
+    Promise.all([getCourses(), getCollections(), getArticles(), getBalances()])
+      .then(([c, col, art, bal]) => {
+        setCourses(c); setCollections(col); setArticles(art); setBalances(bal);
+      })
       .catch(() => setError('Impossible de charger les données.'))
       .finally(() => setLoading(false));
   };
@@ -270,6 +400,16 @@ const Dashboard = () => {
     catch { setError('Erreur lors de la suppression.'); }
   };
 
+  // ── Balances ──
+  const handleBalanceSaved = () => { setBalanceModal(null); loadAll(); };
+
+  const handleDeleteBalance = async (bal) => {
+    const name = bal.title || 'cette balance';
+    if (!window.confirm(`Supprimer "${name}" ?`)) return;
+    try { await deleteBalance(bal.id); setBalances(p => p.filter(b => b.id !== bal.id)); }
+    catch { setError('Erreur lors de la suppression de la balance.'); }
+  };
+
   if (loading) return <div className="loading">Chargement...</div>;
 
   return (
@@ -293,6 +433,12 @@ const Dashboard = () => {
           onClick={() => setTab('articles')}
         >
           <FiFileText size={15} /> Articles ({articles.length})
+        </button>
+        <button
+          className={`dash-tab${tab === 'balances' ? ' active' : ''}`}
+          onClick={() => setTab('balances')}
+        >
+          <FiSliders size={15} /> Balances ({balances.length})
         </button>
       </div>
 
@@ -543,6 +689,70 @@ const Dashboard = () => {
         </>
       )}
 
+      {/* ══════════════ TAB BALANCES ══════════════ */}
+      {tab === 'balances' && (
+        <>
+          <div className="dashboard-header">
+            <h1>Mes balances</h1>
+            <button className="btn-primary" onClick={() => setBalanceModal({})}>
+              <FiPlus size={15} /> Nouvelle balance
+            </button>
+          </div>
+
+          {balances.length === 0 ? (
+            <div className="empty-state">
+              <FiSliders size={56} />
+              <p>Aucune balance. Créez-en une pour commencer.</p>
+              <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 8 }}>
+                Une balance = un titre + une suite d'éléments avec un champ remplissable chacun.
+              </p>
+            </div>
+          ) : (
+            <div className="dashboard-courses">
+              {balances.map(bal => (
+                <div key={bal.id} className="dashboard-row balance-row">
+                  <div className="course-info">
+                    <h3>
+                      <FiSliders size={14} style={{ marginRight: 6, opacity: 0.5 }} />
+                      {bal.title || <em style={{ color: 'var(--text-secondary)' }}>Sans titre</em>}
+                    </h3>
+                    {/* Aperçu des items */}
+                    <div className="balance-preview">
+                      {(bal.items || []).map((item, i) => (
+                        <span key={i} className="balance-preview-chip">
+                          {item.value && <strong>{item.value} </strong>}
+                          {item.label || '—'}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="course-meta">
+                      <span>{(bal.items || []).length} élément{(bal.items || []).length !== 1 ? 's' : ''}</span>
+                      {bal.createdAt && <span>{formatDate(bal.createdAt)}</span>}
+                    </div>
+                  </div>
+                  <div className="row-actions">
+                    <button
+                      className="btn-secondary icon-btn"
+                      onClick={() => setBalanceModal(bal)}
+                      title="Remplir / Modifier"
+                    >
+                      <FiEdit2 size={15} />
+                    </button>
+                    <button
+                      className="btn-danger icon-btn"
+                      onClick={() => handleDeleteBalance(bal)}
+                      title="Supprimer"
+                    >
+                      <FiTrash2 size={15} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
+
       {/* ── Modal dossier ── */}
       {editingCol !== null && (
         <CollectionModal
@@ -550,6 +760,15 @@ const Dashboard = () => {
           courses={courses}
           onSave={handleColSaved}
           onClose={() => setEditingCol(null)}
+        />
+      )}
+
+      {/* ── Modal balance ── */}
+      {balanceModal !== null && (
+        <BalanceModal
+          balance={balanceModal && balanceModal.id ? balanceModal : null}
+          onSave={handleBalanceSaved}
+          onClose={() => setBalanceModal(null)}
         />
       )}
     </div>

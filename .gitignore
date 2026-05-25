@@ -19,3 +19,9 @@ backend/uploads/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Données locales uniquement (balances, notes privées)
+data/
+
+# Scripts locaux
+demarrer.bat

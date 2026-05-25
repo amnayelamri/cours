@@ -10,6 +10,7 @@ const COURSES_DIR      = path.join(__dirname, 'frontend', 'public', 'courses');
 const COLLECTIONS_FILE = path.join(__dirname, 'frontend', 'public', 'collections', 'index.json');
 const ARTICLES_DIR     = path.join(__dirname, 'frontend', 'public', 'articles');
 const ARTICLES_INDEX   = path.join(ARTICLES_DIR, 'index.json');
+const BALANCES_FILE    = path.join(__dirname, 'data', 'balances.json');
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json({ limit: '50mb' }));
@@ -216,6 +217,49 @@ app.delete('/api/articles/:id', (req, res) => {
   const dir = path.join(ARTICLES_DIR, req.params.id);
   if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true, force: true });
   writeArticleIndex(readArticleIndex().filter(a => a.id !== req.params.id));
+  res.json({ message: 'Deleted' });
+});
+
+// ── Balances (local uniquement — stockées dans data/, hors de public/) ────────
+
+const readBalances = () => {
+  if (!fs.existsSync(BALANCES_FILE)) {
+    fs.mkdirSync(path.dirname(BALANCES_FILE), { recursive: true });
+    fs.writeFileSync(BALANCES_FILE, '[]');
+  }
+  return JSON.parse(fs.readFileSync(BALANCES_FILE, 'utf-8'));
+};
+const writeBalances = (data) =>
+  fs.writeFileSync(BALANCES_FILE, JSON.stringify(data, null, 2));
+
+app.get('/api/balances', (req, res) => res.json(readBalances()));
+
+app.post('/api/balances', (req, res) => {
+  const balance = { ...req.body };
+  if (!balance.id) balance.id = 'balance-' + Date.now();
+  balance.createdAt = balance.createdAt || new Date().toISOString().split('T')[0];
+  balance.items = (balance.items || []).map((item, i) => ({
+    id:    item.id    || `item-${Date.now()}-${i}`,
+    label: item.label || '',
+    value: item.value || '',
+  }));
+  const list = readBalances();
+  list.unshift(balance);
+  writeBalances(list);
+  res.status(201).json(balance);
+});
+
+app.put('/api/balances/:id', (req, res) => {
+  const list = readBalances();
+  const idx  = list.findIndex(b => b.id === req.params.id);
+  if (idx < 0) return res.status(404).json({ message: 'Balance not found' });
+  list[idx] = { ...req.body, id: req.params.id };
+  writeBalances(list);
+  res.json(list[idx]);
+});
+
+app.delete('/api/balances/:id', (req, res) => {
+  writeBalances(readBalances().filter(b => b.id !== req.params.id));
   res.json({ message: 'Deleted' });
 });
 
