@@ -1,19 +1,5 @@
 [
   {
-    "id": "cours-arithmetique-z-1bacsm",
-    "title": "L'Arithmétique dans Z",
-    "description": "Cours complet et exercices d'application sur la divisibilité, les congruences et les algorithmes fondamentaux dans Z.",
-    "tags": [
-      "Mathématiques",
-      "Arithmétique",
-      "Algèbre",
-      "CPGE",
-      "1BAC SM"
-    ],
-    "createdAt": "2026-05-20",
-    "slideCount": 7
-  },
-  {
     "id": "tude-de-fonction-terminale",
     "title": "Étude de fonction — Terminale",
     "description": "Cours complet sur l'étude d'une fonction numérique en Terminale : ensemble de définition, limites, asymptotes, continuité, dérivation, variations, convexité et méthode complète, avec QCM de validation.",
