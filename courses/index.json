@@ -1,5 +1,13 @@
 [
   {
+    "id": "chatbot-faq-tfidf-ingenieur",
+    "title": "Chatbot FAQ avec TF-IDF — École d'ingénieurs",
+    "description": "Construire un chatbot FAQ intelligent en Python : TF-IDF, similarité cosinus, API Flask et interface web. Cours orienté pratique pour étudiants ingénieurs.",
+    "tags": ["Python", "NLP", "TF-IDF", "Flask", "scikit-learn", "IA", "école d'ingénieurs"],
+    "createdAt": "2026-05-29",
+    "slideCount": 17
+  },
+  {
     "id": "tude-de-fonction-terminale",
     "title": "Étude de fonction — Terminale",
     "description": "Cours complet sur l'étude d'une fonction numérique en Terminale : ensemble de définition, limites, asymptotes, continuité, dérivation, variations, convexité et méthode complète, avec QCM de validation.",
