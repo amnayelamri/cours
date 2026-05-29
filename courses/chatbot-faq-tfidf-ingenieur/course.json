@@ -15,28 +15,40 @@
       "id": "s2",
       "title": "Le problème à résoudre",
       "type": "markdown",
-      "content": "# Le problème à résoudre\n\n## Scénario concret\n\nUn utilisateur tape : *\"comment installer python ?\"*\n\nNotre FAQ contient : *\"Quelle est la procédure d'installation de Python ?\"*\n\nCes deux phrases ont le **même sens** mais des mots différents.\n\n## Approche naïve — Matching exact\n\n```python\nif user_question == faq_question:   # ❌ Échoue\n    return answer\n```\n\nCette approche est fragile : une majuscule, un synonyme, une faute de frappe — et la correspondance échoue.\n\n## Solution : représentation vectorielle\n\nOn transforme chaque phrase en **vecteur numérique** qui capture l'importance des mots, puis on mesure la **proximité géométrique** entre vecteurs.\n\n```\n\"installer python\"  →  [0.0, 0.82, 0.0, 0.57, ...]\n\"installation Python\"  →  [0.0, 0.79, 0.0, 0.61, ...]\n                            ↑ très proches !\n```\n\n→ C'est le principe de **TF-IDF**."
+      "content": "# Le problème à résoudre\n\n## Scénario concret\n\nUn utilisateur tape : *\"comment installer python ?\"*\n\nNotre FAQ contient : *\"Quelle est la procédure d'installation de Python ?\"*\n\nCes deux phrases ont le **même sens** mais des mots différents.\n\n## Approche naïve — Matching exact\n\n```python\nif user_question == faq_question:   # Échoue\n    return answer\n```\n\nCette approche est fragile : une majuscule, un synonyme, une faute de frappe — et la correspondance échoue.\n\n## Solution : représentation vectorielle\n\nOn transforme chaque phrase en **vecteur numérique** qui capture l'importance des mots, puis on mesure la **proximité géométrique** entre vecteurs.\n\n```\n\"installer python\"    ->  [0.0, 0.82, 0.0, 0.57, ...]\n\"installation Python\" ->  [0.0, 0.79, 0.0, 0.61, ...]\n                               ^-- tres proches !\n```\n\n→ C'est le principe de **TF-IDF**."
     },
     {
       "id": "s3",
-      "title": "TF-IDF : Term Frequency",
+      "title": "Schéma — Structure du projet",
       "type": "markdown",
-      "content": "# TF-IDF — Partie 1 : Term Frequency\n\nTF-IDF attribue un **poids** à chaque mot dans chaque document. Plus le poids est élevé, plus le mot est représentatif de ce document.\n\n## TF — Term Frequency\n\n$$TF(t, d) = \\frac{\\text{occurrences de } t \\text{ dans } d}{\\text{nombre total de mots dans } d}$$\n\n**Exemple :**\n\nDocument : *\"Python est un langage Python très utilisé\"* (7 mots)\n\n| Mot | Occurrences | TF |\n|-----|-------------|----|\n| Python | 2 | 2/7 ≈ 0.29 |\n| langage | 1 | 1/7 ≈ 0.14 |\n| est | 1 | 1/7 ≈ 0.14 |\n\n**Limite du TF seul :** le mot *\"est\"* apparaît dans tous les documents → il n'est pas discriminant. C'est là qu'intervient l'IDF."
+      "content": "# Structure du projet\n\n```\nchatbot-faq/\n│\n├── faq_data.json          <- DONNEES : paires question/reponse\n│\n├── chatbot.py             <- MOTEUR IA : TF-IDF + cosine_similarity\n│     class FAQChatbot\n│       __init__()  : charge la FAQ, entraine TfidfVectorizer\n│       get_response() : vectorise + compare + retourne la reponse\n│\n├── app.py                 <- SERVEUR WEB : Flask\n│     GET  /        -> sert index.html\n│     POST /chat    -> appelle chatbot.get_response()\n│\n├── requirements.txt       <- DEPENDANCES : flask, scikit-learn, numpy\n│\n└── templates/\n      └── index.html       <- INTERFACE : HTML + fetch() vers /chat\n```\n\n**Principe de séparation des responsabilités :**\n- `faq_data.json` ne contient que les données → modifiable sans toucher au code\n- `chatbot.py` ne sait rien de Flask → réutilisable dans d'autres contextes\n- `app.py` ne fait que connecter le chatbot au web → remplaçable par FastAPI, Django..."
     },
     {
       "id": "s4",
-      "title": "TF-IDF : Inverse Document Frequency",
+      "title": "TF-IDF : Term Frequency",
       "type": "markdown",
-      "content": "# TF-IDF — Partie 2 : Inverse Document Frequency\n\n## IDF — Inverse Document Frequency\n\n$$IDF(t) = \\log\\left(\\frac{N}{1 + df(t)}\\right)$$\n\noù :\n- $N$ = nombre total de documents\n- $df(t)$ = nombre de documents contenant le terme $t$\n\n**Intuition :** un mot présent dans *tous* les documents (\"le\", \"est\", \"un\") obtient un IDF proche de 0 → il sera ignoré. Un mot rare et spécifique obtient un IDF élevé → il sera valorisé.\n\n## Score final TF-IDF\n\n$$\\text{TF-IDF}(t, d) = TF(t, d) \\times IDF(t)$$\n\n## Exemple avec 100 documents FAQ\n\n| Terme | df(t) | IDF | Rôle |\n|-------|-------|-----|------|\n| \"Python\" | 12 | log(100/13) ≈ 2.0 | Discriminant ✅ |\n| \"installer\" | 8 | log(100/9) ≈ 2.4 | Très discriminant ✅ |\n| \"est\" | 95 | log(100/96) ≈ 0.04 | Quasi ignoré ❌ |\n\n> **En pratique**, scikit-learn calcule tout ça automatiquement avec `TfidfVectorizer`."
+      "content": "# TF-IDF — Partie 1 : Term Frequency\n\nTF-IDF attribue un **poids** à chaque mot dans chaque document. Plus le poids est élevé, plus le mot est représentatif de ce document.\n\n## TF — Term Frequency\n\n$$TF(t, d) = \\frac{\\text{occurrences de } t \\text{ dans } d}{\\text{nombre total de mots dans } d}$$\n\n**Exemple :**\n\nDocument : *\"Python est un langage Python très utilisé\"* (7 mots)\n\n- **Python** → 2 occurrences → TF = 2/7 ≈ 0.29\n- **langage** → 1 occurrence → TF = 1/7 ≈ 0.14\n- **est** → 1 occurrence → TF = 1/7 ≈ 0.14\n\n**Limite du TF seul :** le mot *\"est\"* apparaît dans tous les documents → il n'est pas discriminant. C'est là qu'intervient l'IDF."
     },
     {
       "id": "s5",
-      "title": "Similarité cosinus",
+      "title": "TF-IDF : Inverse Document Frequency",
       "type": "markdown",
-      "content": "# Similarité cosinus\n\nUne fois chaque phrase transformée en vecteur dans $\\mathbb{R}^n$, on mesure leur **angle** pour quantifier leur proximité sémantique.\n\n$$\\text{sim}(\\vec{u}, \\vec{v}) = \\cos(\\theta) = \\frac{\\vec{u} \\cdot \\vec{v}}{||\\vec{u}|| \\cdot ||\\vec{v}||}$$\n\n## Interprétation\n\n| Score | Interprétation |\n|-------|----------------|\n| **1.0** | Phrases identiques |\n| **> 0.7** | Très proches (même sujet) |\n| **0.2 – 0.5** | Partiellement liées |\n| **< 0.2** | Probablement hors sujet |\n| **0.0** | Aucun mot commun |\n\n## Avantage sur la distance euclidienne\n\nLa similarité cosinus est **invariante à la longueur** du vecteur :\n- Une phrase courte et une longue sur le même sujet auront un score élevé\n- Une simple répétition de mots n'augmente pas artificiellement le score\n\n```python\nfrom sklearn.metrics.pairwise import cosine_similarity\n\nscore = cosine_similarity(vec_question, matrice_faq)\nbest_match = numpy.argmax(score)\n```"
+      "content": "# TF-IDF — Partie 2 : Inverse Document Frequency\n\n## IDF — Inverse Document Frequency\n\n$$IDF(t) = \\log\\left(\\frac{N}{1 + df(t)}\\right)$$\n\noù :\n- $N$ = nombre total de documents\n- $df(t)$ = nombre de documents contenant le terme $t$\n\n**Intuition :** un mot présent dans *tous* les documents (\"le\", \"est\", \"un\") obtient un IDF proche de 0 → il sera ignoré. Un mot rare et spécifique obtient un IDF élevé → il sera valorisé.\n\n## Score final TF-IDF\n\n$$\\text{TF-IDF}(t, d) = TF(t, d) \\times IDF(t)$$\n\n## Exemple avec 100 documents FAQ\n\n- **\"Python\"** — présent dans 12 docs → IDF = log(100/13) ≈ 2.0 → discriminant\n- **\"installer\"** — présent dans 8 docs → IDF = log(100/9) ≈ 2.4 → très discriminant\n- **\"est\"** — présent dans 95 docs → IDF = log(100/96) ≈ 0.04 → quasi ignoré\n\n> **En pratique**, scikit-learn calcule tout ça automatiquement avec `TfidfVectorizer`."
     },
     {
       "id": "s6",
+      "title": "Schéma — Pipeline TF-IDF",
+      "type": "markdown",
+      "content": "# Pipeline TF-IDF : de la FAQ aux vecteurs\n\n```\n PHASE 1 : ENTRAINEMENT (une seule fois au demarrage)\n\n  faq_data.json\n  ┌─────────────────────────────────┐\n  │ Q1: \"Comment installer Python?\" │\n  │ Q2: \"Qu'est-ce que l'IA ?\"      │   fit_transform()\n  │ Q3: \"C'est quoi Flask ?\"        │ ──────────────────>\n  └─────────────────────────────────┘\n                                          Matrice TF-IDF\n                                     ┌──────────────────────┐\n                                     │ Q1: [0.0, 0.82, 0.0] │\n                                     │ Q2: [0.71, 0.0, 0.0] │\n                                     │ Q3: [0.0, 0.0, 0.65] │\n                                     └──────────────────────┘\n\n PHASE 2 : RECHERCHE (a chaque requete utilisateur)\n\n  Question utilisateur\n  \"installer python\"    transform()     Vecteur question\n  ────────────────────────────────>  [0.0, 0.79, 0.0]\n                                              │\n                                   cosine_similarity()\n                                              │\n                               scores: [0.97, 0.12, 0.05]\n                                              │\n                                          argmax()\n                                              │\n                                    REPONSE : Q1 (score 0.97)\n```"
+    },
+    {
+      "id": "s7",
+      "title": "Similarité cosinus",
+      "type": "markdown",
+      "content": "# Similarité cosinus\n\nUne fois chaque phrase transformée en vecteur dans $\\mathbb{R}^n$, on mesure leur **angle** pour quantifier leur proximité sémantique.\n\n$$\\text{sim}(\\vec{u}, \\vec{v}) = \\cos(\\theta) = \\frac{\\vec{u} \\cdot \\vec{v}}{||\\vec{u}|| \\cdot ||\\vec{v}||}$$\n\n## Interprétation des scores\n\n- **1.0** → Phrases identiques\n- **> 0.7** → Très proches (même sujet)\n- **0.2 – 0.5** → Partiellement liées\n- **< 0.2** → Probablement hors sujet\n- **0.0** → Aucun mot commun\n\n## Avantage sur la distance euclidienne\n\nLa similarité cosinus est **invariante à la longueur** du vecteur :\n- Une phrase courte et une longue sur le même sujet auront un score élevé\n- Une simple répétition de mots n'augmente pas artificiellement le score\n\n```python\nfrom sklearn.metrics.pairwise import cosine_similarity\n\nscore = cosine_similarity(vec_question, matrice_faq)\nbest_match = numpy.argmax(score)\n```"
+    },
+    {
+      "id": "s8",
       "title": "Architecture du projet",
       "type": "steps",
       "stepsTitle": "Les 5 composants du projet",
@@ -44,52 +56,58 @@
       "steps": [
         {
           "label": "faq_data.json — La base de connaissances",
-          "content": "Un tableau JSON de paires `{question, answer}`. C'est la seule chose à modifier pour enrichir le chatbot. Aucune connaissance en code requise."
+          "content": "Un tableau JSON de paires question/answer. C'est la seule chose à modifier pour enrichir le chatbot. Aucune connaissance en code requise."
         },
         {
           "label": "chatbot.py — Le moteur TF-IDF",
-          "content": "Classe `FAQChatbot` : charge la FAQ, entraîne le `TfidfVectorizer`, expose une méthode `get_response(question)` qui retourne la meilleure réponse avec son score de confiance."
+          "content": "Classe FAQChatbot : charge la FAQ, entraîne le TfidfVectorizer, expose une méthode get_response(question) qui retourne la meilleure réponse avec son score de confiance."
         },
         {
           "label": "app.py — Le serveur Flask",
-          "content": "Expose deux routes HTTP : `GET /` pour l'interface web, `POST /chat` pour l'API JSON. Instancie le chatbot au démarrage pour ne pas re-entraîner à chaque requête."
+          "content": "Expose deux routes HTTP : GET / pour l'interface web, POST /chat pour l'API JSON. Instancie le chatbot au démarrage pour ne pas re-entraîner à chaque requête."
         },
         {
           "label": "templates/index.html — L'interface web",
-          "content": "Page HTML avec zone de chat, chips de suggestions, et appels `fetch()` vers l'API `/chat`. Affiche les réponses avec le score de confiance."
+          "content": "Page HTML avec zone de chat, chips de suggestions, et appels fetch() vers l'API /chat. Affiche les réponses avec le score de confiance."
         },
         {
           "label": "requirements.txt — Les dépendances",
-          "content": "Liste des bibliothèques nécessaires : `flask`, `scikit-learn`, `numpy`. Installation en une commande : `pip install -r requirements.txt`."
+          "content": "Liste des bibliothèques nécessaires : flask, scikit-learn, numpy. Installation en une commande : pip install -r requirements.txt."
         }
       ]
     },
     {
-      "id": "s7",
+      "id": "s9",
       "title": "faq_data.json",
       "type": "markdown",
-      "content": "# faq_data.json — La base de connaissances\n\n```json\n[\n  {\n    \"question\": \"Qu'est-ce que l'intelligence artificielle ?\",\n    \"answer\": \"L'IA est la simulation de processus d'intelligence humaine par des systèmes informatiques, incluant l'apprentissage, le raisonnement et l'autocorrection.\"\n  },\n  {\n    \"question\": \"Comment installer Python ?\",\n    \"answer\": \"Téléchargez Python sur python.org, lancez l'installateur et cochez 'Add Python to PATH'. Vérifiez avec python --version dans le terminal.\"\n  },\n  {\n    \"question\": \"Qu'est-ce que le machine learning ?\",\n    \"answer\": \"Le machine learning est une sous-discipline de l'IA où les systèmes apprennent automatiquement à partir de données sans être explicitement programmés.\"\n  }\n]\n```\n\n## Règles pour une bonne FAQ\n\n- ✅ **Formulations variées** : ajoutez plusieurs questions pour le même sujet\n- ✅ **Réponses complètes** : des réponses détaillées améliorent l'expérience\n- ✅ **Vocabulaire naturel** : écrivez comme parlerait un utilisateur réel\n- ❌ **Évitez les doublons exacts** : ils n'apportent rien au modèle\n\n> Plus la FAQ est grande et diverse, plus le chatbot est précis et robuste."
-    },
-    {
-      "id": "s8",
-      "title": "chatbot.py — Initialisation",
-      "type": "markdown",
-      "content": "# chatbot.py — Initialisation du moteur\n\n```python\nfrom sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.metrics.pairwise import cosine_similarity\nimport json, numpy as np\n\nclass FAQChatbot:\n    def __init__(self, faq_file='faq_data.json'):\n        # 1. Charger la FAQ\n        with open(faq_file, 'r', encoding='utf-8') as f:\n            self.faq = json.load(f)\n        \n        self.questions = [item['question'] for item in self.faq]\n        self.answers   = [item['answer']   for item in self.faq]\n        \n        # 2. Créer le vectoriseur TF-IDF\n        self.vectorizer = TfidfVectorizer(\n            analyzer='char_wb',  # n-grammes de caractères\n            ngram_range=(2, 4),  # bigrammes à 4-grammes\n            max_features=5000\n        )\n        \n        # 3. Entraîner sur toutes les questions\n        self.tfidf_matrix = self.vectorizer.fit_transform(self.questions)\n```\n\n## Pourquoi `analyzer='char_wb'` ?\n\nLes **n-grammes de caractères** (pas de mots entiers) rendent le système robuste :\n\n| Entrée utilisateur | Correspondance trouvée |\n|---|---|\n| `\"instalation python\"` | `\"installation Python\"` ✅ |\n| `\"machine learninng\"` | `\"machine learning\"` ✅ |\n| `\"qu est ce que\"` | `\"qu'est-ce que\"` ✅ |"
-    },
-    {
-      "id": "s9",
-      "title": "chatbot.py — Recherche",
-      "type": "markdown",
-      "content": "# chatbot.py — Fonction de recherche\n\n```python\ndef get_response(self, user_input, threshold=0.2):\n    # 1. Vectoriser la question de l'utilisateur\n    user_vec = self.vectorizer.transform([user_input])\n    \n    # 2. Calculer la similarité cosinus avec toutes les FAQ\n    similarities = cosine_similarity(user_vec, self.tfidf_matrix)[0]\n    \n    # 3. Trouver la meilleure correspondance\n    best_idx   = np.argmax(similarities)\n    best_score = similarities[best_idx]\n    \n    # 4. Appliquer le seuil de confiance\n    if best_score < threshold:\n        return {\n            'answer': \"Je ne suis pas sûr de comprendre. Pouvez-vous reformuler ?\",\n            'score': float(best_score),\n            'matched_question': None\n        }\n    \n    return {\n        'answer':           self.answers[best_idx],\n        'score':            float(best_score),\n        'matched_question': self.questions[best_idx]\n    }\n```\n\n## Rôle du seuil (`threshold = 0.2`)\n\nSi **aucune** question FAQ ne dépasse le seuil de similarité, le bot admet son ignorance plutôt que de donner une réponse erronée.\n\n> **Bonne pratique en IA :** mieux vaut dire *\"je ne sais pas\"* que donner une mauvaise réponse avec confiance."
+      "content": "# faq_data.json — La base de connaissances\n\n```json\n[\n  {\n    \"question\": \"Qu'est-ce que l'intelligence artificielle ?\",\n    \"answer\": \"L'IA est la simulation de processus d'intelligence humaine...\"\n  },\n  {\n    \"question\": \"Comment installer Python ?\",\n    \"answer\": \"Telechargez Python sur python.org, lancez l'installateur...\"\n  }\n]\n```\n\n## Règles pour une bonne FAQ\n\n- **Formulations variées** : ajoutez plusieurs questions pour le même sujet\n- **Réponses complètes** : des réponses détaillées améliorent l'expérience\n- **Vocabulaire naturel** : écrivez comme parlerait un utilisateur réel\n- **Évitez les doublons exacts** : ils n'apportent rien au modèle\n\n> Plus la FAQ est grande et diverse, plus le chatbot est précis et robuste."
     },
     {
       "id": "s10",
-      "title": "app.py — Serveur Flask",
+      "title": "chatbot.py — Initialisation",
       "type": "markdown",
-      "content": "# app.py — API REST avec Flask\n\n```python\nfrom flask import Flask, request, jsonify, render_template\nfrom chatbot import FAQChatbot\n\napp = Flask(__name__)\nbot = FAQChatbot('faq_data.json')  # ← instancié UNE FOIS au démarrage\n\n@app.route('/')\ndef index():\n    return render_template('index.html')\n\n@app.route('/chat', methods=['POST'])\ndef chat():\n    data       = request.get_json()\n    user_input = data.get('message', '').strip()\n    \n    if not user_input:\n        return jsonify({'error': 'Message vide'}), 400\n    \n    response = bot.get_response(user_input)\n    return jsonify(response)\n\nif __name__ == '__main__':\n    app.run(debug=True, port=5000)\n```\n\n## Les deux routes\n\n| Route | Méthode | Entrée | Sortie |\n|-------|---------|--------|--------|\n| `/` | GET | — | Page HTML |\n| `/chat` | POST | `{\"message\": \"...\"}` | `{\"answer\": \"...\", \"score\": 0.87}` |\n\n## Pourquoi instancier `bot` en dehors des routes ?\n\nLe `TfidfVectorizer` est **entraîné une fois** au démarrage. Si on l'instanciait dans la route `/chat`, il serait ré-entraîné à chaque requête → ×100 plus lent."
+      "content": "# chatbot.py — Initialisation du moteur\n\n```python\nfrom sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.metrics.pairwise import cosine_similarity\nimport json, numpy as np\n\nclass FAQChatbot:\n    def __init__(self, faq_file='faq_data.json'):\n        with open(faq_file, 'r', encoding='utf-8') as f:\n            self.faq = json.load(f)\n        \n        self.questions = [item['question'] for item in self.faq]\n        self.answers   = [item['answer']   for item in self.faq]\n        \n        self.vectorizer = TfidfVectorizer(\n            analyzer='char_wb',  # n-grammes de caracteres\n            ngram_range=(2, 4),  # bigrammes a 4-grammes\n            max_features=5000\n        )\n        self.tfidf_matrix = self.vectorizer.fit_transform(self.questions)\n```\n\n## Pourquoi `analyzer='char_wb'` ?\n\nLes **n-grammes de caractères** rendent le système robuste aux fautes de frappe :\n\n- `\"instalation python\"` → retrouve `\"installation Python\"` correctement\n- `\"machine learninng\"` → retrouve `\"machine learning\"` correctement\n- `\"qu est ce que\"` → retrouve `\"qu'est-ce que\"` correctement\n\nChaque mot est découpé en fragments de 2 à 4 caractères, ce qui crée des ponts entre variantes d'un même terme."
     },
     {
       "id": "s11",
+      "title": "chatbot.py — Recherche",
+      "type": "markdown",
+      "content": "# chatbot.py — Fonction de recherche\n\n```python\ndef get_response(self, user_input, threshold=0.2):\n    user_vec = self.vectorizer.transform([user_input])\n    similarities = cosine_similarity(user_vec, self.tfidf_matrix)[0]\n    \n    best_idx   = np.argmax(similarities)\n    best_score = similarities[best_idx]\n    \n    if best_score < threshold:\n        return {\n            'answer': \"Je ne suis pas sur de comprendre. Reformulez svp.\",\n            'score': float(best_score),\n            'matched_question': None\n        }\n    \n    return {\n        'answer':           self.answers[best_idx],\n        'score':            float(best_score),\n        'matched_question': self.questions[best_idx]\n    }\n```\n\n## Rôle du seuil (`threshold = 0.2`)\n\nSi **aucune** question FAQ ne dépasse le seuil, le bot admet son ignorance plutôt que de donner une réponse erronée.\n\n> **Bonne pratique en IA :** mieux vaut dire *\"je ne sais pas\"* que donner une mauvaise réponse avec confiance."
+    },
+    {
+      "id": "s12",
+      "title": "app.py — Serveur Flask",
+      "type": "markdown",
+      "content": "# app.py — API REST avec Flask\n\n```python\nfrom flask import Flask, request, jsonify, render_template\nfrom chatbot import FAQChatbot\n\napp = Flask(__name__)\nbot = FAQChatbot('faq_data.json')  # instancie UNE FOIS au demarrage\n\n@app.route('/')\ndef index():\n    return render_template('index.html')\n\n@app.route('/chat', methods=['POST'])\ndef chat():\n    data       = request.get_json()\n    user_input = data.get('message', '').strip()\n    if not user_input:\n        return jsonify({'error': 'Message vide'}), 400\n    response = bot.get_response(user_input)\n    return jsonify(response)\n\nif __name__ == '__main__':\n    app.run(debug=True, port=5000)\n```\n\n## Les deux routes\n\n- **GET /** — retourne la page HTML (interface utilisateur)\n- **POST /chat** — reçoit un message JSON, retourne la réponse du bot\n\n## Pourquoi instancier `bot` en dehors des routes ?\n\nLe `TfidfVectorizer` est **entraîné une fois** au démarrage. Si on l'instanciait dans la route `/chat`, il serait ré-entraîné à chaque requête → beaucoup plus lent."
+    },
+    {
+      "id": "s13",
+      "title": "Schéma — Flux requête/réponse",
+      "type": "markdown",
+      "content": "# Flux complet : du navigateur à la réponse\n\n```\nNavigateur            Flask (app.py)        Chatbot (chatbot.py)\n    |                      |                        |\n    |  POST /chat          |                        |\n    |  {message: \"?\"}     |                        |\n    |--------------------> |                        |\n    |                      |  get_response(\"?\")     |\n    |                      |----------------------->|\n    |                      |                        | 1. transform() -> vecteur\n    |                      |                        | 2. cosine_similarity()\n    |                      |                        | 3. argmax() -> best match\n    |                      |                        | 4. score < 0.2 ? -> fallback\n    |                      |  {answer, score}       |\n    |                      |<-----------------------|\n    |  200 OK              |                        |\n    |  {answer, score}     |                        |\n    |<-------------------- |                        |\n    |                      |                        |\n    Affiche la reponse\n    + score de confiance\n```\n\n**Durée typique d'une requête :** < 5 ms pour une FAQ de 100 questions."
+    },
+    {
+      "id": "s14",
       "title": "Flux complet d'une requête",
       "type": "steps",
       "stepsTitle": "De la question à la réponse",
@@ -97,28 +115,64 @@
       "steps": [
         {
           "label": "L'utilisateur tape sa question",
-          "content": "Via l'interface web, il tape par exemple : \"comment faire du machine learning en python ?\". Un `fetch()` POST est envoyé vers `/chat` avec `{\"message\": \"comment faire du machine learning en python ?\"}`."
+          "content": "Via l'interface web, il tape : \"comment faire du machine learning en python ?\". Un fetch() POST est envoyé vers /chat avec {\"message\": \"comment faire du machine learning en python ?\"}."
         },
         {
           "label": "Flask reçoit la requête",
-          "content": "`app.py` reçoit le JSON, extrait le champ `message`, et appelle `bot.get_response(user_input)`."
+          "content": "app.py reçoit le JSON, extrait le champ message, et appelle bot.get_response(user_input)."
         },
         {
           "label": "Vectorisation de la question",
-          "content": "`TfidfVectorizer.transform()` convertit la question en vecteur TF-IDF en utilisant le vocabulaire déjà appris sur la FAQ. On obtient un vecteur creux dans $\\mathbb{R}^{5000}$."
+          "content": "TfidfVectorizer.transform() convertit la question en vecteur TF-IDF en utilisant le vocabulaire déjà appris sur la FAQ. On obtient un vecteur creux dans un espace à 5000 dimensions."
         },
         {
           "label": "Calcul des similarités",
-          "content": "`cosine_similarity()` compare le vecteur question à tous les vecteurs FAQ. On obtient un tableau de scores, ex : `[0.12, 0.08, 0.74, 0.31, ...]`."
+          "content": "cosine_similarity() compare le vecteur question à tous les vecteurs FAQ. On obtient un tableau de scores, par exemple [0.12, 0.08, 0.74, 0.31, ...]."
         },
         {
           "label": "Sélection et réponse",
-          "content": "On prend l'index du score maximum (ici 0.74 → question 3). Si score ≥ 0.2, on retourne `{\"answer\": \"...\", \"score\": 0.74, \"matched_question\": \"...\"}`. L'interface affiche la réponse."
+          "content": "On prend l'index du score maximum (ici 0.74). Si score >= 0.2, on retourne la réponse correspondante avec son score. Sinon, message d'excuse."
         }
       ]
     },
     {
-      "id": "s12",
+      "id": "s15",
+      "title": "Flashcard — TF-IDF",
+      "type": "flashcard",
+      "question": "Que signifie TF-IDF et quel est son rôle ?",
+      "answer": "**TF × IDF**\n\n- **TF** : fréquence du mot dans CE document\n- **IDF** : rareté du mot dans TOUS les documents\n\nMots rares et spécifiques → score élevé\nMots communs (\"le\", \"est\") → score ≈ 0",
+      "hint": "Balance entre fréquence locale et fréquence globale"
+    },
+    {
+      "id": "s16",
+      "title": "Flashcard — fit_transform vs transform",
+      "type": "flashcard",
+      "question": "Quelle est la différence entre `fit_transform()` et `transform()` dans scikit-learn ?",
+      "answer": "**fit_transform(FAQ)**\n→ apprend le vocabulaire + vectorise\n→ une seule fois au démarrage\n\n**transform(question)**\n→ applique le vocabulaire appris\n→ à chaque requête utilisateur\n\nErreur classique : appeler fit_transform() à chaque requête.",
+      "hint": "fit = apprendre, transform = appliquer"
+    },
+    {
+      "id": "s17",
+      "title": "Calcul — Term Frequency",
+      "type": "number",
+      "question": "Un document contient 20 mots au total. Le mot **\"Python\"** y apparaît **4 fois**.\n\nCalculez **TF(Python, doc) × 100** (entier, sans décimale).",
+      "answer": 20,
+      "tolerance": 0,
+      "hint": "TF = nombre d'occurrences / nombre total de mots",
+      "explanation": "TF(Python, doc) = 4 / 20 = 0.20\n\nTF × 100 = **20**\n\nLa formule est : TF(t, d) = (occurrences de t dans d) / (nombre total de mots dans d)"
+    },
+    {
+      "id": "s18",
+      "title": "Calcul — Similarité cosinus simple",
+      "type": "number",
+      "question": "Deux vecteurs unitaires ont un **produit scalaire de 0.5**.\n\nLeur norme est 1 chacun. Quelle est leur **similarité cosinus** × 10 (entier) ?",
+      "answer": 5,
+      "tolerance": 0,
+      "hint": "cos(θ) = produit scalaire / (||u|| × ||v||). Les deux normes valent 1.",
+      "explanation": "sim(u, v) = (u · v) / (||u|| × ||v||) = 0.5 / (1 × 1) = **0.5**\n\nMultiplié par 10 → **5**\n\nQuand les vecteurs sont unitaires (norme = 1), la similarité cosinus est simplement égale au produit scalaire."
+    },
+    {
+      "id": "s19",
       "title": "Quiz — TF-IDF",
       "type": "quiz",
       "question": "Quel est l'effet de l'IDF sur un mot qui apparaît dans tous les documents de la FAQ ?",
@@ -128,10 +182,10 @@
         { "id": "c", "text": "L'IDF n'a aucun effet sur les mots fréquents", "correct": false },
         { "id": "d", "text": "Le mot sera supprimé de la matrice TF-IDF", "correct": false }
       ],
-      "explanation": "L'IDF est log(N / (1 + df(t))). Si un mot apparaît dans tous les N documents, df(t) = N, donc IDF ≈ log(1) = 0. Multiplié par TF, le score final TF-IDF est donc ~0. Ce mot n'aide pas à distinguer les documents entre eux."
+      "explanation": "IDF = log(N / (1 + df(t))). Si un mot apparaît dans tous les N documents, df(t) = N, donc IDF = log(1) = 0. Le score TF-IDF final est donc 0. Ce mot ne permet pas de distinguer les documents entre eux."
     },
     {
-      "id": "s13",
+      "id": "s20",
       "title": "Quiz — Similarité cosinus",
       "type": "quiz",
       "question": "Pourquoi préfère-t-on la similarité cosinus à la distance euclidienne pour comparer des textes ?",
@@ -139,41 +193,82 @@
         { "id": "a", "text": "Elle est plus rapide à calculer", "correct": false },
         { "id": "b", "text": "Elle est invariante à la longueur des vecteurs (et donc à la longueur des textes)", "correct": true },
         { "id": "c", "text": "Elle fonctionne uniquement avec des vecteurs TF-IDF", "correct": false },
-        { "id": "d", "text": "Elle donne toujours un résultat entre -1 et 1 contrairement à la distance euclidienne", "correct": false }
+        { "id": "d", "text": "Elle évite les divisions par zéro", "correct": false }
       ],
-      "explanation": "La similarité cosinus mesure l'angle entre deux vecteurs, pas leur longueur. Un texte court et un texte long sur le même sujet auront un angle faible (cos proche de 1) même si leurs normes sont très différentes. La distance euclidienne, elle, pénaliserait le texte long pour sa simple longueur."
+      "explanation": "La similarité cosinus mesure l'angle entre deux vecteurs, pas leur longueur. Un texte court et un texte long sur le même sujet auront un angle faible (cos proche de 1) même si leurs normes sont très différentes. La distance euclidienne pénaliserait injustement le texte plus long."
     },
     {
-      "id": "s14",
-      "title": "Vrai ou Faux — Flask",
+      "id": "s21",
+      "title": "Quiz — Architecture Flask",
+      "type": "quiz",
+      "question": "Dans app.py, pourquoi `bot = FAQChatbot(...)` est-il placé en dehors des fonctions de route ?",
+      "choices": [
+        { "id": "a", "text": "Pour que Flask puisse accéder à la variable globalement", "correct": false },
+        { "id": "b", "text": "Pour entraîner le modèle une seule fois au démarrage et ne pas répéter ce coût à chaque requête", "correct": true },
+        { "id": "c", "text": "C'est une contrainte de syntaxe de Flask", "correct": false },
+        { "id": "d", "text": "Pour pouvoir utiliser le bot dans plusieurs fichiers Python", "correct": false }
+      ],
+      "explanation": "fit_transform() entraîne le TfidfVectorizer sur toute la FAQ — c'est une opération coûteuse. En instanciant le bot au démarrage du serveur (hors des routes), cet entraînement ne se fait qu'une seule fois. Chaque requête utilise ensuite transform() qui est très rapide."
+    },
+    {
+      "id": "s22",
+      "title": "Vrai ou Faux — TfidfVectorizer",
       "type": "truefalse",
       "statement": "Dans l'application Flask, le `TfidfVectorizer` est ré-entraîné à chaque fois qu'un utilisateur envoie une question via la route `/chat`.",
       "answer": false,
-      "explanation": "FAUX. Le bot est instancié UNE SEULE FOIS au démarrage du serveur (`bot = FAQChatbot(...)` à la racine de `app.py`). La route `/chat` appelle uniquement `bot.get_response()` qui utilise `.transform()` (pas `.fit_transform()`). Ré-entraîner à chaque requête serait extrêmement inefficace."
+      "explanation": "FAUX. Le bot est instancié UNE SEULE FOIS au démarrage du serveur. La route /chat appelle uniquement get_response() qui utilise transform() (pas fit_transform()). Ré-entraîner à chaque requête serait extrêmement inefficace."
     },
     {
-      "id": "s15",
-      "title": "Association — Composants",
+      "id": "s23",
+      "title": "Vrai ou Faux — n-grammes de caractères",
+      "type": "truefalse",
+      "statement": "Avec `analyzer='char_wb'`, le TfidfVectorizer peut retrouver une correspondance même si l'utilisateur fait une faute d'orthographe comme \"instalation\" au lieu de \"installation\".",
+      "answer": true,
+      "explanation": "VRAI. Les n-grammes de caractères découpent les mots en fragments de 2 à 4 lettres. \"instalation\" et \"installation\" partagent la plupart de leurs fragments (\"in\", \"st\", \"al\", \"la\", \"at\", \"ti\", \"io\", \"on\"...) donc leurs vecteurs sont proches malgré la faute."
+    },
+    {
+      "id": "s24",
+      "title": "Vrai ou Faux — Seuil de confiance",
+      "type": "truefalse",
+      "statement": "Un seuil de similarité (`threshold`) trop bas (proche de 0) améliore la qualité des réponses du chatbot car il retourne toujours une réponse.",
+      "answer": false,
+      "explanation": "FAUX. Un seuil trop bas fait retourner des réponses même quand il n'y a aucune correspondance pertinente dans la FAQ. Le chatbot donne alors des réponses incorrectes ou hors-sujet. Il est préférable d'admettre \"je ne sais pas\" plutôt que de répondre n'importe quoi."
+    },
+    {
+      "id": "s25",
+      "title": "Association — Concepts NLP",
+      "type": "matching",
+      "instruction": "Associez chaque terme à sa définition.",
+      "pairs": [
+        { "left": "TF (Term Frequency)", "right": "Fréquence d'un mot dans un document" },
+        { "left": "IDF", "right": "Pénalise les mots présents dans tous les documents" },
+        { "left": "cosine_similarity()", "right": "Mesure l'angle entre deux vecteurs" },
+        { "left": "fit_transform()", "right": "Entraîne le modèle et vectorise en une étape" }
+      ]
+    },
+    {
+      "id": "s26",
+      "title": "Association — Composants du projet",
       "type": "matching",
       "instruction": "Associez chaque fichier à son rôle dans le projet.",
       "pairs": [
         { "left": "faq_data.json", "right": "Base de paires question / réponse" },
         { "left": "chatbot.py", "right": "TfidfVectorizer + cosine_similarity" },
-        { "left": "app.py", "right": "Routes HTTP GET / et POST /chat" },
+        { "left": "app.py", "right": "Routes HTTP GET et POST /chat" },
         { "left": "requirements.txt", "right": "Liste des bibliothèques Python" }
       ]
     },
     {
-      "id": "s16",
+      "id": "s27",
       "title": "Améliorations possibles",
       "type": "markdown",
-      "content": "# Aller plus loin\n\n## Limites actuelles du TF-IDF\n\n- ❌ Ne comprend pas la **sémantique** : \"voiture\" et \"automobile\" ont 0 de similarité\n- ❌ Sensible à la **langue** : une FAQ en français ne reconnaît pas une question en anglais\n- ❌ Pas de **contexte conversationnel** : chaque question est traitée indépendamment\n\n## Améliorations à implémenter\n\n### Court terme\n- **Prétraitement** : lemmatisation, suppression des stopwords\n- **Seuil adaptatif** : ajuster le `threshold` selon la taille de la FAQ\n- **Logging** : enregistrer les questions sans réponse pour enrichir la FAQ\n\n### Moyen terme\n- **Word2Vec / FastText** : vecteurs sémantiques qui capturent les synonymes\n- **Sentence-BERT** : encodeur de phrases état de l'art (HuggingFace)\n\n### Long terme\n```python\n# Remplacement du TfidfVectorizer par Sentence-BERT\nfrom sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')\nembeddings = model.encode(questions)  # vecteurs sémantiques denses\n```\n\n> Sentence-BERT comprend que *\"voiture\"* ≈ *\"automobile\"* ≈ *\"car\"* — sans jamais les avoir vus ensemble."
+      "content": "# Aller plus loin\n\n## Limites actuelles du TF-IDF\n\n- Ne comprend pas la **sémantique** : \"voiture\" et \"automobile\" ont 0 de similarité\n- Sensible à la **langue** : une FAQ en français ne reconnaît pas une question en anglais\n- Pas de **contexte conversationnel** : chaque question est traitée indépendamment\n\n## Améliorations\n\n**Court terme**\n- Prétraitement : lemmatisation, suppression des stopwords\n- Seuil adaptatif : ajuster le threshold selon la taille de la FAQ\n- Logging : enregistrer les questions sans réponse pour enrichir la FAQ\n\n**Moyen terme**\n- Word2Vec / FastText : vecteurs sémantiques qui capturent les synonymes\n- Sentence-BERT : encodeur de phrases état de l'art (HuggingFace)\n\n**Long terme**\n```python\nfrom sentence_transformers import SentenceTransformer\n\nmodel = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')\nembeddings = model.encode(questions)\n```\n\n> Sentence-BERT comprend que *\"voiture\"* est proche de *\"automobile\"* — sans jamais les avoir vus ensemble."
     },
     {
-      "id": "s17",
+      "id": "s28",
       "title": "Conclusion",
       "type": "markdown",
-      "content": "# Conclusion\n\n## Ce que vous avez appris\n\n| Concept | Compétence acquise |\n|---------|-------------------|\n| **TF-IDF** | Représenter du texte en vecteurs numériques |\n| **Similarité cosinus** | Mesurer la proximité sémantique |\n| **scikit-learn** | Utiliser `TfidfVectorizer` et `cosine_similarity` |\n| **Flask** | Créer une API REST en Python |\n| **Architecture** | Séparer données / logique / interface |\n\n## Points clés à retenir\n\n1. **TF-IDF** pénalise les mots trop communs et valorise les mots spécifiques\n2. **`char_wb` n-grammes** rendent le système robuste aux fautes de frappe\n3. **Le seuil de confiance** évite les fausses réponses\n4. **Instancier le modèle une seule fois** est crucial pour les performances\n5. **La FAQ est le vrai moteur** : plus elle est riche, plus le bot est bon\n\n## Pour aller plus loin\n\n- 📘 [scikit-learn : TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)\n- 📘 [Flask documentation](https://flask.palletsprojects.com/)\n- 📘 [Sentence-BERT](https://www.sbert.net/) — pour dépasser les limites du TF-IDF\n\n> *\"All models are wrong, but some are useful.\"* — George Box"
+      "content": "# Conclusion\n\n## Ce que vous avez appris\n\n- **TF-IDF** → représenter du texte en vecteurs numériques\n- **Similarité cosinus** → mesurer la proximité sémantique entre phrases\n- **scikit-learn** → utiliser TfidfVectorizer et cosine_similarity\n- **Flask** → créer une API REST en Python\n- **Architecture** → séparer données, logique et interface\n\n## Points clés à retenir\n\n1. TF-IDF pénalise les mots trop communs et valorise les mots spécifiques\n2. Les n-grammes de caractères rendent le système robuste aux fautes de frappe\n3. Le seuil de confiance évite les fausses réponses\n4. Instancier le modèle une seule fois est crucial pour les performances\n5. La FAQ est le vrai moteur : plus elle est riche, plus le bot est bon\n\n## Pour aller plus loin\n\n- [scikit-learn : TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)\n- [Flask documentation](https://flask.palletsprojects.com/)\n- [Sentence-BERT](https://www.sbert.net/)\n\n> *\"All models are wrong, but some are useful.\"* — George Box"
     }
   ]
 }

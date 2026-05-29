@@ -5,7 +5,7 @@
     "description": "Construire un chatbot FAQ intelligent en Python : TF-IDF, similarité cosinus, API Flask et interface web. Cours orienté pratique pour étudiants ingénieurs.",
     "tags": ["Python", "NLP", "TF-IDF", "Flask", "scikit-learn", "IA", "école d'ingénieurs"],
     "createdAt": "2026-05-29",
-    "slideCount": 17
+    "slideCount": 28
   },
   {
     "id": "tude-de-fonction-terminale",
