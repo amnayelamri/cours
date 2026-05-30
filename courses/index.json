@@ -3,7 +3,15 @@
     "id": "chatbot-faq-tfidf-ingenieur",
     "title": "Chatbot FAQ avec TF-IDF — École d'ingénieurs",
     "description": "Construire un chatbot FAQ intelligent en Python : TF-IDF, similarité cosinus, API Flask et interface web. Cours orienté pratique pour étudiants ingénieurs.",
-    "tags": ["Python", "NLP", "TF-IDF", "Flask", "scikit-learn", "IA", "école d'ingénieurs"],
+    "tags": [
+      "Python",
+      "NLP",
+      "TF-IDF",
+      "Flask",
+      "scikit-learn",
+      "IA",
+      "école d'ingénieurs"
+    ],
     "createdAt": "2026-05-29",
     "slideCount": 28
   },
@@ -171,5 +179,19 @@
     ],
     "createdAt": "2026-05-21",
     "slideCount": 18
+  },
+  {
+    "id": "quran-pwa-cours-v2",
+    "title": "Comment fonctionne l'application Coran — cours complet",
+    "description": "Un cours progressif sur la construction et le fonctionnement de l'application Coran, de la page HTML jusqu'à la synchronisation GitHub.",
+    "tags": [
+      "PWA",
+      "JavaScript",
+      "Node.js",
+      "GitHub Pages",
+      "iOS"
+    ],
+    "createdAt": "2026-05-30",
+    "slideCount": 32
   }
 ]
