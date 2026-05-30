@@ -179,7 +179,7 @@ const CoursePage = () => {
         <div className="slide-area">
           {slide.title && <div className="slide-title">{slide.title}</div>}
           <div className="slide-content">
-            <SlideContent slide={slide} courseId={id} />
+            <SlideContent key={current} slide={slide} courseId={id} />
           </div>
           <div className="slide-nav">
             <button onClick={prev} disabled={current === 0} className="nav-btn">
@@ -237,7 +237,7 @@ const CoursePage = () => {
                   <span className="mobile-slide-counter">{current} / {total}</span>
                 </div>
                 <div className="mobile-slide-content">
-                  <SlideContent slide={prevSlide} courseId={id} />
+                  <SlideContent key={`prev-${current}`} slide={prevSlide} courseId={id} />
                 </div>
               </>
             )}
@@ -250,7 +250,7 @@ const CoursePage = () => {
               <span className="mobile-slide-counter">{current + 1} / {total}</span>
             </div>
             <div className="mobile-slide-content">
-              <SlideContent slide={slide} courseId={id} />
+              <SlideContent key={`curr-${current}`} slide={slide} courseId={id} />
             </div>
             <div className="mobile-progress">
               {course.slides.map((_, pi) => (
@@ -268,7 +268,7 @@ const CoursePage = () => {
                   <span className="mobile-slide-counter">{current + 2} / {total}</span>
                 </div>
                 <div className="mobile-slide-content">
-                  <SlideContent slide={nextSlide} courseId={id} />
+                  <SlideContent key={`next-${current}`} slide={nextSlide} courseId={id} />
                 </div>
               </>
             )}

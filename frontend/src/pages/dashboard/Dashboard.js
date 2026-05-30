@@ -459,8 +459,8 @@ const Dashboard = () => {
         </button>
       </div>
 
-      {/* ── Bouton Publier ── */}
-      <div className="deploy-bar">
+      {/* ── Bouton Publier (pas sur l'onglet Balances) ── */}
+      <div className="deploy-bar" style={{ visibility: tab === 'balances' ? 'hidden' : 'visible' }}>
         <button
           className={`btn-deploy${deploying ? ' deploying' : ''}`}
           onClick={handleDeploy}
