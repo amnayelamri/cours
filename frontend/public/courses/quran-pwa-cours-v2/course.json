@@ -1,0 +1,621 @@
+{
+  "id": "quran-pwa-cours-v2",
+  "title": "Comment fonctionne l'application Coran — cours complet",
+  "description": "Un cours progressif sur la construction et le fonctionnement de l'application Coran, de la page HTML jusqu'à la synchronisation GitHub.",
+  "tags": [
+    "PWA",
+    "JavaScript",
+    "Node.js",
+    "GitHub Pages",
+    "iOS"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction — qu'est-ce qu'on a construit ?",
+      "type": "markdown",
+      "content": "# Qu'est-ce qu'on a construit ?\n\nNous avons construit une **application Coran** qui fonctionne sur téléphone, sans passer par l'App Store.\n\nConcrètement, c'est un **site web** qui se comporte comme une vraie application mobile. On appelle ça une **PWA** — Progressive Web App.\n\nL'utilisateur peut :\n\n- Feuilleter les 485 pages du مصحف التجويد الملون en glissant le doigt\n- Accéder directement à n'importe quel hizb\n- Voir des annotations (notes, audio, images) associées à chaque page\n- Utiliser l'app **sans connexion internet** une fois les pages visitées\n- L'installer sur son écran d'accueil comme une vraie app\n\nTout cela sans aucune ligne de code Swift, Kotlin ou React Native."
+    },
+    {
+      "id": "s2",
+      "title": "Le projet en deux parties",
+      "type": "markdown",
+      "content": "# Le projet en deux parties\n\nLe projet est divisé en deux parties qui travaillent ensemble.\n\n## Partie 1 — la PWA\n\nC'est l'application que l'utilisateur utilise sur son téléphone. Elle est hébergée gratuitement sur **GitHub Pages** et accessible depuis n'importe quel appareil avec un navigateur.\n\nElle est construite avec trois fichiers principaux :\n\n- `index.html` — la structure de la page\n- `style.css` — le design (couleurs, motifs, animations)\n- `app.js` — toute la logique (navigation, gestes, chargement des images)\n\n## Partie 2 — le Dashboard\n\nC'est un outil réservé au propriétaire, qui tourne sur son **PC en local**. Il permet d'ajouter des annotations (notes, audio, liens) pour chaque page du Coran.\n\nIl est construit avec **Node.js** et **Express**, un mini-serveur web qui écoute sur le port `3001`."
+    },
+    {
+      "id": "q1",
+      "title": "Exercice 1",
+      "type": "quiz",
+      "question": "L'application Coran est une PWA. Qu'est-ce que cela signifie concrètement pour l'utilisateur ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il doit la télécharger depuis l'App Store",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Il peut l'installer depuis son navigateur sans passer par un store",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Elle ne fonctionne que sur Android",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Elle nécessite une connexion internet permanente",
+          "correct": false
+        }
+      ],
+      "explanation": "Une PWA s'installe directement depuis le navigateur. Sur iPhone, on utilise le bouton Partager de Safari puis 'Sur l'écran d'accueil'. Aucun App Store n'est nécessaire."
+    },
+    {
+      "id": "s3",
+      "title": "Les images du Coran — d'où viennent-elles ?",
+      "type": "markdown",
+      "content": "# D'où viennent les images du Coran ?\n\nLe point de départ était un fichier PDF : le مصحف التجويد الملون المجزأ, un mushaf en couleurs pour le tajwid.\n\nCe PDF contenait **485 pages**. On ne peut pas afficher un PDF directement dans une PWA de façon fluide — les pages seraient trop lentes à rendre.\n\nLa solution : **convertir chaque page en image JPG** avant de déployer l'application.\n\n## Comment la conversion a été faite\n\nOn a utilisé **PyMuPDF**, une bibliothèque Python, avec ce script :\n\n```python\nimport fitz  # PyMuPDF\n\ndoc = fitz.open('quran.pdf')\nfor i, page in enumerate(doc):\n    mat = fitz.Matrix(150/72, 150/72)  # 150 DPI\n    pix = page.get_pixmap(matrix=mat)\n    pix.save(f'data/pages/page-{i+1:03d}.jpg', jpg_quality=88)\n```\n\nRésultat : **485 fichiers JPG**, nommés `page-001.jpg` à `page-485.jpg`, pour un total de **93 MB**.\n\nCes images sont stockées dans le dépôt GitHub et servies directement par GitHub Pages."
+    },
+    {
+      "id": "s4",
+      "title": "L'affichage d'une page — comment ça marche ?",
+      "type": "markdown",
+      "content": "# Comment une page du Coran s'affiche-t-elle ?\n\nChaque page est simplement une balise `<img>` dont on change le `src`.\n\nLa fonction qui construit l'URL d'une image est :\n\n```js\nconst PAGE_IMG_URL = (n) => {\n  const file = `page-${String(n).padStart(3, '0')}.jpg`;\n  return `../data/pages/${file}`;\n};\n```\n\n`padStart(3, '0')` garantit que le numéro a toujours 3 chiffres : `1` devient `001`, `42` devient `042`.\n\n## Le pré-chargement\n\nPour que la navigation soit **instantanée**, l'application charge à l'avance les pages voisines :\n\n```js\n// Quand on est à la page 50 :\nimgPrev.src = PAGE_IMG_URL(49); // page 49 préchargée\nimgNext.src = PAGE_IMG_URL(51); // page 51 préchargée\n```\n\nLe navigateur télécharge ces images en arrière-plan. Quand on navigue, l'image est déjà disponible."
+    },
+    {
+      "id": "q2",
+      "title": "Exercice 2",
+      "type": "quiz",
+      "question": "Quelle URL correspond à la page 7 du Coran dans notre application ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "../data/pages/page-7.jpg",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "../data/pages/page-07.jpg",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "../data/pages/page-007.jpg",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "../data/pages/007.jpg",
+          "correct": false
+        }
+      ],
+      "explanation": "La fonction padStart(3, '0') transforme le chiffre 7 en '007'. Cela garantit que tous les fichiers ont un nom de longueur uniforme, ce qui facilite le tri alphabétique et évite des bugs."
+    },
+    {
+      "id": "s5",
+      "title": "La navigation — les 3 wrappers",
+      "type": "markdown",
+      "content": "# Comment fonctionne la navigation entre pages ?\n\nL'astuce centrale de la navigation est d'utiliser **3 conteneurs** positionnés l'un au-dessus de l'autre :\n\n```\n       ┌────────────────┐\n       │   Page N-1     │  ← positionnée à -100% (au-dessus, invisible)\n       ├────────────────┤\n       │   Page N       │  ← positionnée à 0 (visible à l'écran)\n       ├────────────────┤\n       │   Page N+1     │  ← positionnée à +100% (en-dessous, invisible)\n       └────────────────┘\n```\n\nQuand on navigue vers la **page suivante**, on déplace tout le bloc vers le haut de 100% :\n\n```js\nquranTrack.style.transform = 'translateY(-100%)';\n```\n\nLa page N+1 remonte et devient visible. La page N sort par le haut.\n\nEnsuite, à la fin de l'animation, on **remet tout à zéro** et on met à jour les images — tout cela de façon invisible pour l'utilisateur."
+    },
+    {
+      "id": "q3",
+      "title": "Exercice 3",
+      "type": "quiz",
+      "question": "On est à la page 100. L'utilisateur glisse vers le haut (page suivante). Quelle transformation CSS est appliquée ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "translateY(+100%)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "translateX(-100%)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "translateY(-100%)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "translateY(0)",
+          "correct": false
+        }
+      ],
+      "explanation": "Pour faire monter le contenu (révéler la page suivante en-dessous), on déplace le track vers le haut, c'est-à-dire en valeur négative sur l'axe Y. translateY(-100%) fait remonter l'ensemble d'une hauteur d'écran complète."
+    },
+    {
+      "id": "s6",
+      "title": "Le problème du flash — et sa solution",
+      "type": "markdown",
+      "content": "# Pourquoi y avait-il un flash lors des transitions ?\n\nAprès l'animation, l'application doit :\n\n1. Remettre le transform à `''` (reset de position)\n2. Charger la nouvelle image dans `imgCurr`\n\nLe problème : entre ces deux étapes, il y avait **une fraction de seconde** où `imgCurr` affichait encore l'ancienne image à sa nouvelle position. Ce flash était visible uniquement en mode **standalone** sur iPhone.\n\n## La solution en deux étapes\n\n**Étape 1** — copier l'image visible dans `imgCurr` **avant** de reset :\n```js\nimgCurr.src = imgNext.src; // image déjà chargée = pas de délai\n```\n\n**Étape 2** — attendre que le GPU ait terminé de peindre avec un double `requestAnimationFrame` :\n```js\nrequestAnimationFrame(() => {\n  requestAnimationFrame(() => {\n    quranTrack.style.transform = ''; // reset invisible\n  });\n});\n```\n\nLe `requestAnimationFrame` demande au navigateur d'exécuter le code au **prochain cycle de rendu**. En le doublant, on s'assure que la nouvelle image est bien dessinée avant de toucher au transform."
+    },
+    {
+      "id": "q4",
+      "title": "Exercice 4",
+      "type": "quiz",
+      "question": "Pourquoi le flash n'était-il visible qu'en mode standalone (app installée) et pas dans Safari ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Safari désactive les animations CSS pour économiser la batterie",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Safari charge les images deux fois plus vite",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "En mode standalone, iOS utilise un pipeline GPU différent sans le buffering de Safari",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Le Service Worker est inactif dans Safari",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand Safari affiche un site normalement, il utilise ses propres couches de composition qui absorbent ce flash. En mode standalone, WebKit expose directement son pipeline GPU, ce qui rend visible le moindre changement de frame. D'où la nécessité du double requestAnimationFrame."
+    },
+    {
+      "id": "s7",
+      "title": "La détection des gestes tactiles",
+      "type": "markdown",
+      "content": "# Comment l'application détecte-t-elle les gestes ?\n\nLes gestes sont détectés avec les événements tactiles natifs du navigateur.\n\n## Les trois événements\n\n`touchstart` — l'utilisateur pose le doigt. On enregistre la position de départ :\n```js\ntouchStartX = e.touches[0].clientX;\ntouchStartY = e.touches[0].clientY;\n```\n\n`touchmove` — le doigt se déplace. On détermine si le geste est **horizontal ou vertical** :\n```js\nconst dx = Math.abs(e.touches[0].clientX - touchStartX);\nconst dy = Math.abs(e.touches[0].clientY - touchStartY);\nif (dx > 8 || dy > 8)\n  swipeAxis = dx > dy ? 'h' : 'v';\n```\n\n`touchend` — le doigt se lève. On vérifie si c'est un swipe valide (distance > 50px, durée < 600ms) :\n\n- Swipe **vertical** → changer de page\n- Swipe **horizontal gauche** → ouvrir le panneau d'annotations\n- Swipe **horizontal droit** → fermer le panneau"
+    },
+    {
+      "id": "q5",
+      "title": "Exercice 5",
+      "type": "quiz",
+      "question": "L'utilisateur déplace son doigt de 30px vers la droite et 80px vers le bas. Quel type de geste est détecté ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Horizontal — ouverture du panneau",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Vertical — changement de page",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Aucun geste — déplacement insuffisant",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Diagonal — ignoré",
+          "correct": false
+        }
+      ],
+      "explanation": "On compare dx (30px) et dy (80px). Puisque dy > dx, le geste est classé comme vertical. L'axe dominant détermine l'intention : ici l'utilisateur veut changer de page."
+    },
+    {
+      "id": "q6",
+      "title": "Exercice 6",
+      "type": "quiz",
+      "question": "Pourquoi vérifie-t-on que la durée du swipe est inférieure à 600ms ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour économiser la batterie",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour distinguer un swipe rapide d'un défilement lent intentionnel",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que les animations CSS durent 600ms",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour éviter les conflits avec le Service Worker",
+          "correct": false
+        }
+      ],
+      "explanation": "Un swipe intentionnel est un geste bref et décisif. Si l'utilisateur glisse lentement pendant 2 secondes, c'est probablement un scroll ou un ajustement, pas une navigation. La limite de 600ms filtre ces cas ambigus."
+    },
+    {
+      "id": "s8",
+      "title": "Le Service Worker — l'app hors-ligne",
+      "type": "markdown",
+      "content": "# Le Service Worker — comment l'app fonctionne sans internet\n\nLe fichier `sw.js` est un **service worker** : un script qui s'exécute en arrière-plan, séparé de la page, et qui intercepte toutes les requêtes réseau.\n\n## Installation\n\nLors de la première visite, le service worker s'installe et met en cache les fichiers essentiels :\n```js\nself.addEventListener('install', e => {\n  e.waitUntil(\n    caches.open('quran-pwa-v9').then(c => c.addAll([\n      '/quran-pwa/pwa/index.html',\n      '/quran-pwa/pwa/style.css',\n      '/quran-pwa/pwa/app.js'\n    ]))\n  );\n});\n```\n\n## Interception des requêtes\n\nPour chaque image de page demandée, le service worker applique la stratégie **cache-first** :\n\n```js\n// Si l'image est en cache → on la sert directement\n// Sinon → on la télécharge, on la met en cache, on la sert\nconst cached = await cache.match(request);\nif (cached) return cached;\nconst response = await fetch(request);\ncache.put(request, response.clone());\nreturn response;\n```\n\nRésultat : chaque page visitée est automatiquement disponible **hors-ligne** lors de la prochaine visite."
+    },
+    {
+      "id": "q7",
+      "title": "Exercice 7",
+      "type": "quiz",
+      "question": "Vous visitez la page 200 du Coran avec du WiFi, puis vous coupez internet. Que se passe-t-il si vous revenez sur la page 200 ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "La page affiche une erreur réseau",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La page s'affiche normalement depuis le cache du Service Worker",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "La page se recharge depuis le PDF local",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "L'app se ferme automatiquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Lors de la première visite avec WiFi, le Service Worker a mis l'image en cache (stratégie cache-first). Lors de la visite suivante sans internet, il sert directement l'image depuis ce cache, sans faire aucune requête réseau."
+    },
+    {
+      "id": "q8",
+      "title": "Exercice 8",
+      "type": "quiz",
+      "question": "Le Service Worker a une version 'quran-pwa-v9'. Pourquoi incrémente-t-on ce numéro à chaque mise à jour ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour respecter les règles de GitHub Pages",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour que le navigateur supprime l'ancien cache et télécharge les nouveaux fichiers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Pour numéroter les commits Git",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour la sécurité de l'application",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand le Service Worker détecte un nouveau numéro de cache, il installe la nouvelle version et supprime l'ancienne lors de l'activation. C'est le mécanisme standard de 'cache busting' pour les Service Workers."
+    },
+    {
+      "id": "s9",
+      "title": "La navigation par Hizb",
+      "type": "markdown",
+      "content": "# La navigation par Hizb\n\nLe Coran est divisé en **60 hizbs**. L'application permet d'aller directement à un hizb via le bouton **حزب** dans le header.\n\n## La formule de conversion\n\nLe propriétaire de l'application a fourni la règle suivante :\n\n- Le hizb **1** commence à la page **1**\n- Le hizb **k** commence à la page **8k + 3** (pour k ≥ 2)\n\nCe qui donne en JavaScript :\n```js\nfunction hizbToPage(k) {\n  if (k === 1) return 1;\n  return 8 * k + 3;\n}\n```\n\n## Vérification de cohérence\n\nLe hizb 60 (le dernier) correspond à la page :\n```\n8 × 60 + 3 = 483\n```\nOr le mushaf a 485 pages. Cela signifie que le dernier hizb occupe les pages 483 à 485. C'est parfaitement cohérent.\n\n## La conversion inverse\n\nPour afficher le hizb courant à partir d'un numéro de page :\n```js\nfunction pageToHizb(page) {\n  for (let k = 60; k >= 1; k--)\n    if (hizbToPage(k) <= page) return k;\n}\n```\nOn cherche le plus grand k dont la page de début est ≤ à la page courante."
+    },
+    {
+      "id": "q9",
+      "title": "Exercice 9",
+      "type": "quiz",
+      "question": "À quelle page commence le hizb 15 ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Page 120",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Page 123",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Page 118",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Page 130",
+          "correct": false
+        }
+      ],
+      "explanation": "Formule : 8 × 15 + 3 = 120 + 3 = 123. La page 123 est le début du hizb 15."
+    },
+    {
+      "id": "q10",
+      "title": "Exercice 10",
+      "type": "quiz",
+      "question": "L'utilisateur est à la page 170. Dans quel hizb se trouve-t-il ? (rappel : hizb k → page 8k+3)",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hizb 20",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Hizb 21",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Hizb 20 (page 163) car hizb 21 commence à la page 171",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Hizb 22",
+          "correct": false
+        }
+      ],
+      "explanation": "Hizb 20 → 8×20+3 = 163. Hizb 21 → 8×21+3 = 171. Comme 163 ≤ 170 < 171, la page 170 est dans le hizb 20. La fonction pageToHizb parcourt les hizbs du plus grand au plus petit et retourne le premier dont la page de début est ≤ 170."
+    },
+    {
+      "id": "s10",
+      "title": "Le panneau d'annotations",
+      "type": "markdown",
+      "content": "# Le panneau d'annotations\n\nEn glissant vers la **gauche**, un panneau latéral sort depuis la droite. Il affiche les éléments associés à la page courante.\n\n## La position CSS\n\nLe panneau est positionné hors-écran par défaut :\n```css\n#elements-panel {\n  position: absolute;\n  right: calc(-1 * var(--panel-w)); /* hors écran à droite */\n  width: 90vw;\n  transition: transform 0.38s ease;\n}\n```\n\nQuand il s'ouvre, on lui applique une translation :\n```css\n#elements-panel.open {\n  transform: translateX(calc(-1 * var(--panel-w)));\n}\n```\n\n## Le chargement des données\n\nQuand le panneau s'ouvre, l'application va chercher les annotations de la page :\n\n**Sur téléphone (GitHub Pages)** : lecture d'un fichier statique :\n```js\nfetch('../data/elements.json?t=' + Date.now())\n```\n\n**Sur PC (localhost)** : appel à l'API locale :\n```js\nfetch('http://localhost:3001/api/elements/42')\n```\n\nLe paramètre `?t=Date.now()` force le navigateur à ne pas utiliser son cache pour toujours avoir les données les plus récentes."
+    },
+    {
+      "id": "q11",
+      "title": "Exercice 11",
+      "type": "quiz",
+      "question": "Pourquoi ajoute-t-on '?t=Date.now()' à l'URL du fichier elements.json ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour mesurer le temps de chargement",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour contourner le cache du navigateur et toujours obtenir les données fraîches",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C'est une exigence de l'API GitHub",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour identifier l'utilisateur de façon unique",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand une URL change (même légèrement), le navigateur considère que c'est une nouvelle ressource et ne sert pas la version en cache. Date.now() retourne un timestamp unique à chaque appel, garantissant que la dernière version du fichier est toujours récupérée depuis le serveur."
+    },
+    {
+      "id": "s11",
+      "title": "Le Dashboard — ajouter des annotations",
+      "type": "markdown",
+      "content": "# Le Dashboard\n\nLe dashboard est une interface web qui tourne sur votre PC. On y accède via `http://localhost:3001/dashboard`.\n\n## Le serveur Express\n\nExpress est un framework Node.js minimal pour créer des APIs HTTP. Notre serveur expose plusieurs routes :\n\n- `POST /api/elements/:page` — ajouter un élément à une page\n- `GET /api/elements/:page` — lire les éléments d'une page\n- `DELETE /api/elements/:page/:id` — supprimer un élément\n- `GET /api/all-elements` — exporter tout le fichier JSON\n\n## Le stockage\n\nToutes les données sont sauvegardées dans un simple fichier JSON :\n```\ndata/elements.json\n```\n\nStructure du fichier :\n```json\n{\n  \"1\": [\n    {\n      \"id\": \"1780139930158\",\n      \"type\": \"note\",\n      \"title\": \"Bismillah\",\n      \"content\": \"بسم الله الرحمن الرحيم\",\n      \"createdAt\": \"2026-05-30T11:18:50Z\"\n    }\n  ],\n  \"42\": [ ... ]\n}\n```\n\nLa clé est le **numéro de page**, la valeur est la **liste des éléments** de cette page."
+    },
+    {
+      "id": "q12",
+      "title": "Exercice 12",
+      "type": "quiz",
+      "question": "Un utilisateur ajoute une note à la page 100 via le dashboard. Dans quel fichier est-elle sauvegardée ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Dans une base de données MySQL",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Dans data/elements.json sur le PC local",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Directement sur GitHub",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Dans le localStorage du navigateur",
+          "correct": false
+        }
+      ],
+      "explanation": "Le serveur Express lit et écrit dans data/elements.json sur le PC. Ce fichier n'est pas automatiquement synchronisé avec GitHub — il faut cliquer sur 'Publier sur GitHub' pour propager les changements vers le téléphone."
+    },
+    {
+      "id": "s12",
+      "title": "La publication sur GitHub",
+      "type": "markdown",
+      "content": "# Comment les annotations arrivent-elles sur le téléphone ?\n\nLe bouton **⬆ Publier sur GitHub** dans le dashboard déclenche une séquence en 4 étapes.\n\n## Étape 1 — Récupérer les données locales\n```js\nconst data = await fetch('/api/all-elements').then(r => r.json());\n```\nOn demande au serveur local tout le contenu de `elements.json`.\n\n## Étape 2 — Récupérer le SHA du fichier sur GitHub\n```js\nconst meta = await fetch(\n  'https://api.github.com/repos/amnayelamri/quran-pwa/contents/data/elements.json',\n  { headers: { Authorization: `token ${token}` } }\n).then(r => r.json());\nconst sha = meta.sha;\n```\nL'API GitHub exige le **SHA** (empreinte) du fichier existant pour pouvoir le remplacer.\n\n## Étape 3 — Encoder et envoyer\n```js\nconst content = btoa(unescape(encodeURIComponent(JSON.stringify(data))));\nawait fetch('...same URL...', {\n  method: 'PUT',\n  body: JSON.stringify({ message: 'Mise à jour', content, sha })\n});\n```\nLe contenu doit être encodé en **Base64** (`btoa`). GitHub crée automatiquement un commit.\n\n## Étape 4 — GitHub Pages se redéploie\n\nGitHub détecte le nouveau commit et reconstruit le site. Après environ **1 minute**, le téléphone peut lire le nouveau `elements.json`."
+    },
+    {
+      "id": "q13",
+      "title": "Exercice 13",
+      "type": "quiz",
+      "question": "Pourquoi l'API GitHub exige-t-elle le SHA du fichier pour le modifier ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour vérifier que le fichier n'est pas corrompu",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour éviter d'écraser des modifications faites depuis un autre endroit (protection contre les conflits)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Pour authentifier l'utilisateur",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "C'est une exigence de sécurité liée au token",
+          "correct": false
+        }
+      ],
+      "explanation": "Le SHA est l'empreinte du fichier actuel. En l'exigeant, GitHub s'assure que vous travaillez sur la bonne version du fichier. Si quelqu'un d'autre a modifié le fichier entre-temps, votre SHA sera obsolète et l'API refusera l'opération — c'est un mécanisme anti-conflit."
+    },
+    {
+      "id": "q14",
+      "title": "Exercice 14",
+      "type": "quiz",
+      "question": "Pourquoi encode-t-on le contenu de elements.json en Base64 avant de l'envoyer à GitHub ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour compresser le fichier et réduire sa taille",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour le chiffrer et protéger les données",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Parce que l'API GitHub Contents exige que le contenu soit en Base64",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Pour éviter les problèmes d'encodage des caractères arabes",
+          "correct": false
+        }
+      ],
+      "explanation": "L'API GitHub Contents utilise le format Base64 pour transporter du contenu binaire ou textuel de façon fiable dans un payload JSON. C'est une convention de cette API spécifique, pas une question de compression ou de sécurité."
+    },
+    {
+      "id": "s13",
+      "title": "L'installation sur iPhone — les détails techniques",
+      "type": "markdown",
+      "content": "# L'installation sur iPhone — comment ça fonctionne\n\nSafari sur iOS supporte l'installation des PWA depuis 2018, mais avec des contraintes.\n\n## Le fichier manifest.json\n\nCe fichier JSON dit au navigateur comment traiter l'application :\n```json\n{\n  \"name\": \"القرآن الكريم\",\n  \"start_url\": \"/quran-pwa/pwa/index.html\",\n  \"scope\": \"/quran-pwa/\",\n  \"display\": \"standalone\",\n  \"background_color\": \"#0f2d1b\",\n  \"theme_color\": \"#1a4a2e\"\n}\n```\n\n`start_url` doit pointer vers l'URL **exacte** de l'app. Puisque le site est dans un sous-dossier (`/quran-pwa/`), il faut spécifier le chemin complet — sans ça, iOS essaie d'ouvrir la racine de `github.io` qui n'existe pas.\n\n`display: standalone` supprime la barre d'adresse et les boutons du navigateur.\n\n## La gestion des zones sûres\n\niOS réserve de l'espace pour la barre de statut (notch, Dynamic Island) et l'indicateur home. Sans configuration, le contenu se retrouve caché derrière.\n\n```css\n#app {\n  padding-top: env(safe-area-inset-top);\n  padding-bottom: env(safe-area-inset-bottom);\n}\n```\n\n`env(safe-area-inset-top)` est une valeur CSS fournie par iOS qui indique exactement combien d'espace réserver."
+    },
+    {
+      "id": "q15",
+      "title": "Exercice 15",
+      "type": "quiz",
+      "question": "La première version de l'app avait start_url: '/' dans manifest.json. Que voyait l'utilisateur en ouvrant l'app installée ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "L'application Coran s'ouvrait normalement",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Un message d'erreur 'There isn't a GitHub Pages site here'",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Une page blanche",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La page d'accueil de GitHub",
+          "correct": false
+        }
+      ],
+      "explanation": "start_url: '/' pointe vers https://amnayelamri.github.io/ — la racine de GitHub Pages. Mais ce dépôt spécial (username.github.io) n'existe pas. GitHub Pages affiche alors son message d'erreur par défaut. La correction : start_url: '/quran-pwa/pwa/index.html'."
+    },
+    {
+      "id": "q16",
+      "title": "Exercice 16",
+      "type": "quiz",
+      "question": "env(safe-area-inset-top) peut valoir 0 sur certains appareils. Dans quel cas ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Quand l'app est ouverte dans Safari (pas en standalone)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Sur des iPhone sans notch ni Dynamic Island (comme l'iPhone SE)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Quand le WiFi est désactivé",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Quand l'écran est en mode paysage",
+          "correct": false
+        }
+      ],
+      "explanation": "Les appareils sans encoche (comme l'iPhone SE avec son bouton Home physique) n'ont pas de zone réservée en haut. La valeur env(safe-area-inset-top) vaut alors 0. Le padding-top n'a aucun effet, ce qui est exactement le comportement attendu."
+    },
+    {
+      "id": "s14",
+      "title": "Récapitulatif — le flux complet",
+      "type": "markdown",
+      "content": "# Le flux complet de l'application\n\nVoici ce qui se passe de bout en bout :\n\n## 1. Préparation (une seule fois)\n\nLe PDF du mushaf est converti en 485 images JPG avec PyMuPDF. Ces images sont poussées dans le dépôt GitHub avec `git push`.\n\n## 2. Hébergement\n\nGitHub Pages sert automatiquement les fichiers du dépôt à l'URL `amnayelamri.github.io/quran-pwa/`.\n\n## 3. Première visite sur téléphone\n\nL'utilisateur ouvre l'URL dans Safari. Le Service Worker s'installe. Les fichiers statiques sont mis en cache. L'utilisateur installe l'app sur son écran d'accueil.\n\n## 4. Utilisation quotidienne\n\nL'utilisateur feuillete le Coran par glissements. Les images visitées sont mises en cache progressivement. La navigation par hizb permet d'aller directement à une section.\n\n## 5. Ajout d'annotations (PC)\n\nLe propriétaire ouvre le dashboard sur son PC (`localhost:3001`). Il ajoute des notes, des audios, des liens pour certaines pages. Il clique sur 'Publier sur GitHub'.\n\n## 6. Synchronisation\n\nLe dashboard pousse `elements.json` vers GitHub via l'API REST. GitHub redéploie le site en ~1 minute. Le téléphone lit le nouveau fichier à la prochaine ouverture du panneau d'annotations."
+    },
+    {
+      "id": "q17",
+      "title": "Exercice final — synthèse",
+      "type": "quiz",
+      "question": "Le propriétaire ajoute une note audio à la page 300 depuis le dashboard, puis clique sur Publier. L'utilisateur ouvre l'app sur son téléphone (hors WiFi) et va à la page 300. Que voit-il ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "La page 300 s'affiche mais pas la note audio (pas de WiFi pour la télécharger)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "La page 300 ne s'affiche pas (pas de WiFi)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La page 300 s'affiche avec la note audio si la page a déjà été visitée avec WiFi",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "L'app se bloque en attendant la connexion",
+          "correct": false
+        }
+      ],
+      "explanation": "La page 300 s'affiche si son image JPG est en cache (Service Worker). Mais elements.json contient la note audio : or ce fichier est téléchargé à chaque ouverture du panneau (?t=Date.now() contourne le cache). Sans WiFi, la requête échoue et l'app affiche le panneau vide. L'image de la page s'affiche, pas l'annotation."
+    },
+    {
+      "id": "q18",
+      "title": "Exercice final — architecture",
+      "type": "quiz",
+      "question": "Pourquoi a-t-on choisi de stocker les annotations dans un simple fichier JSON plutôt qu'une vraie base de données ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce que JavaScript ne peut pas communiquer avec une base de données",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour pouvoir le versionner avec Git et le servir statiquement depuis GitHub Pages sans aucun serveur distant",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que les bases de données sont trop lentes pour cette application",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour des raisons de sécurité islamique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le choix du fichier JSON est une décision d'architecture clé : un fichier JSON peut être commité dans Git, servi comme fichier statique par GitHub Pages (gratuit, sans serveur), et lu directement par le navigateur du téléphone. Une base de données nécessiterait un serveur distant payant et une API en ligne — bien plus complexe pour un usage personnel."
+    }
+  ],
+  "createdAt": "2026-05-30"
+}
