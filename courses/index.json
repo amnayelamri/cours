@@ -193,5 +193,51 @@
     ],
     "createdAt": "2026-05-30",
     "slideCount": 32
+  },
+  {
+    "id": "cours-modele-preentraine",
+    "title": "Comment fonctionne un modèle pré-entraîné ?",
+    "description": "Comprendre ce qu'est un modèle pré-entraîné, comment il apprend, et pourquoi on l'utilise dans nos projets d'intelligence artificielle.",
+    "tags": [
+      "deep-learning",
+      "nlp",
+      "transformers",
+      "pre-entrainement",
+      "hugging-face"
+    ],
+    "createdAt": "2026-06-04",
+    "slideCount": 14
+  },
+  {
+    "id": "cours-creation-chatbot",
+    "title": "Créer un chatbot conversationnel avec Python et Flask",
+    "description": "Apprendre à construire un chatbot de A à Z : structure du projet, backend Python, intégration d'un modèle Hugging Face, et interface web.",
+    "tags": [
+      "python",
+      "flask",
+      "hugging-face",
+      "transformers",
+      "chatbot",
+      "html",
+      "css",
+      "javascript"
+    ],
+    "createdAt": "2026-06-04",
+    "slideCount": 16
+  },
+  {
+    "id": "cours-finetuning",
+    "title": "Le fine-tuning : adapter un modèle à son besoin",
+    "description": "Apprendre à fine-tuner DialoGPT sur ses propres données pour créer un chatbot personnalisé, étape par étape.",
+    "tags": [
+      "fine-tuning",
+      "transformers",
+      "hugging-face",
+      "python",
+      "dataset",
+      "entrainement"
+    ],
+    "createdAt": "2026-06-04",
+    "slideCount": 16
   }
 ]
