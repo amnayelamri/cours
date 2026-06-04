@@ -1,0 +1,191 @@
+{
+  "id": "cours-modele-preentraine",
+  "title": "Comment fonctionne un modèle pré-entraîné ?",
+  "description": "Comprendre ce qu'est un modèle pré-entraîné, comment il apprend, et pourquoi on l'utilise dans nos projets d'intelligence artificielle.",
+  "tags": [
+    "deep-learning",
+    "nlp",
+    "transformers",
+    "pre-entrainement",
+    "hugging-face"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Qu'est-ce qu'un modèle pré-entraîné ?\n\nUn modèle pré-entraîné est un réseau de neurones qui a déjà été entraîné sur une très grande quantité de données, par une équipe de chercheurs disposant de ressources informatiques considérables.\n\nPar exemple, DialoGPT — le modèle que nous utilisons dans notre chatbot — a été entraîné par Microsoft sur des millions de conversations extraites de Reddit.\n\nL'idée centrale est simple : plutôt que de repartir de zéro, on récupère un modèle qui sait déjà beaucoup de choses sur le langage, et on l'utilise directement ou on l'adapte à notre besoin spécifique.\n\nC'est exactement ce que nous faisons dans notre projet : nous téléchargeons le modèle depuis Hugging Face et nous l'utilisons pour générer des réponses dans notre chatbot, sans avoir écrit une seule ligne d'entraînement."
+    },
+    {
+      "id": "s2",
+      "title": "Le problème que ça résout",
+      "type": "markdown",
+      "content": "# Pourquoi ne pas entraîner son propre modèle ?\n\nEntraîner un modèle de langage depuis zéro nécessite trois choses que la plupart des développeurs n'ont pas.\n\n**Des données**\nDes centaines de gigaoctets, voire des téraoctets de texte. GPT-3 a été entraîné sur environ 45 téraoctets de données textuelles.\n\n**Du temps**\nL'entraînement de GPT-3 a duré plusieurs semaines sur des milliers de processeurs graphiques fonctionnant en parallèle.\n\n**De l'argent**\nL'entraînement de ce même modèle a coûté plusieurs millions de dollars en infrastructure informatique.\n\nLe pré-entraînement résout ce problème. Les grandes organisations comme Google, Microsoft ou Meta font cet investissement une seule fois. Ensuite, elles mettent le modèle à disposition de la communauté, souvent gratuitement, via des plateformes comme Hugging Face.\n\nVous téléchargez en quelques minutes le résultat de semaines de calculs."
+    },
+    {
+      "id": "s3",
+      "title": "Comment un modèle apprend le langage",
+      "type": "markdown",
+      "content": "# La phase d'entraînement\n\nPendant l'entraînement, le modèle lit des quantités astronomiques de texte et apprend à répondre à une question apparemment simple : quel mot vient ensuite ?\n\nPar exemple, si le modèle lit la phrase :\n\n```\n\"La capitale de la France est ___\"\n```\n\nIl doit prédire que le mot suivant est très probablement \"Paris\".\n\nIl fait cette prédiction, compare sa réponse avec la réalité, mesure son erreur, puis ajuste ses millions de paramètres internes pour faire mieux la prochaine fois. Ce processus se répète des milliards de fois.\n\nEn apprenant à prédire des mots, le modèle ne fait pas que mémoriser des phrases. Il développe une compréhension implicite de la grammaire, du contexte, des faits sur le monde, et même du ton ou du style d'écriture.\n\nC'est ce qu'on appelle l'apprentissage auto-supervisé : le modèle apprend sans qu'un humain ait besoin d'étiqueter chaque exemple."
+    },
+    {
+      "id": "q1",
+      "title": "Quiz — L'apprentissage",
+      "type": "quiz",
+      "question": "Quelle tâche principale permet à un modèle de langage d'apprendre pendant la phase de pré-entraînement ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Classer des images en catégories",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Prédire le mot suivant dans une séquence de texte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Traduire des phrases d'une langue à une autre",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Répondre à des questions posées par un humain",
+          "correct": false
+        }
+      ],
+      "explanation": "Pendant le pré-entraînement, le modèle apprend principalement à prédire le mot suivant dans une séquence. C'est cette tâche simple, répétée des milliards de fois sur des données massives, qui lui permet de développer une compréhension profonde du langage."
+    },
+    {
+      "id": "s4",
+      "title": "Les paramètres du modèle",
+      "type": "markdown",
+      "content": "# Ce que contient un modèle\n\nQuand vous téléchargez le fichier pytorch_model.bin ou model.safetensors depuis Hugging Face, vous téléchargez en réalité un fichier contenant des centaines de millions de nombres.\n\nCes nombres sont appelés les paramètres ou les poids du modèle. Ils sont le résultat de toute la phase d'entraînement. Chaque paramètre encode une infime partie de la connaissance acquise.\n\nDialoGPT-medium contient environ 345 millions de paramètres. C'est pourquoi le fichier pèse 863 mégaoctets.\n\nLorsque vous posez une question au chatbot, votre texte traverse ces 345 millions de paramètres sous forme de calculs mathématiques successifs. La réponse émerge de ce passage, comme la lumière traversant un prisme.\n\nPlus un modèle a de paramètres, plus il est capable de représenter des connaissances complexes, mais plus il est lent à utiliser sans carte graphique puissante — ce que vous observez directement avec notre chatbot."
+    },
+    {
+      "id": "s5",
+      "title": "L'architecture Transformer",
+      "type": "markdown",
+      "content": "# L'architecture qui a tout changé\n\nDialoGPT, GPT-2, BERT, et la quasi-totalité des modèles de langage modernes partagent la même architecture de base : le Transformer.\n\nLe Transformer a été introduit en 2017 par des chercheurs de Google dans un article intitulé \"Attention is All You Need\".\n\nSon innovation principale est le mécanisme d'attention. Avant le Transformer, les modèles lisaient le texte mot par mot, de gauche à droite, sans vraiment pouvoir relier des mots éloignés entre eux.\n\nL'attention permet au modèle de regarder tous les mots d'une phrase simultanément et de décider lesquels sont pertinents pour comprendre chaque mot en particulier.\n\nPar exemple, dans la phrase \"Le chat s'est assis parce qu'il était fatigué\", le modèle doit comprendre que \"il\" fait référence à \"chat\" et non à un autre mot. L'attention lui permet d'établir cette connexion même si les deux mots sont éloignés.\n\nC'est grâce à ce mécanisme que les modèles modernes comprennent le contexte avec une précision bien supérieure à leurs prédécesseurs."
+    },
+    {
+      "id": "s6",
+      "title": "Vidéo — Les Transformers expliqués",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=SZorAJ4I-sA"
+    },
+    {
+      "id": "q2",
+      "title": "Quiz — Les paramètres",
+      "type": "quiz",
+      "question": "Que représente concrètement le fichier pytorch_model.bin téléchargé depuis Hugging Face ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le code source Python du modèle",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La base de données utilisée pendant l'entraînement",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Des centaines de millions de nombres représentant les poids appris pendant l'entraînement",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Les logs de l'entraînement du modèle",
+          "correct": false
+        }
+      ],
+      "explanation": "Le fichier pytorch_model.bin contient les paramètres du modèle, c'est-à-dire des centaines de millions de valeurs numériques apprises pendant l'entraînement. Ces poids encodent toute la connaissance du modèle sur le langage."
+    },
+    {
+      "id": "s7",
+      "title": "Le fine-tuning",
+      "type": "markdown",
+      "content": "# Adapter un modèle à son besoin\n\nUn modèle pré-entraîné est généraliste. Il a appris le langage dans toute sa diversité, mais il n'est pas spécialisé pour une tâche précise.\n\nLe fine-tuning est le processus qui permet de prendre un modèle pré-entraîné et de continuer son entraînement sur un jeu de données plus petit et plus ciblé.\n\nPar exemple :\n- Prendre BERT et le fine-tuner sur des avis médicaux pour créer un modèle spécialisé en médecine\n- Prendre DialoGPT et le fine-tuner sur des conversations en français pour qu'il réponde en français\n- Prendre GPT-2 et le fine-tuner sur du code Python pour qu'il génère du code\n\nC'est bien plus économique qu'un entraînement complet, car les bases du langage sont déjà acquises. On ne modifie que les dernières couches du modèle pour l'orienter vers la tâche voulue.\n\nDans notre projet, nous utilisons DialoGPT sans fine-tuning. C'est pourquoi le modèle répond principalement en anglais et peut parfois produire des réponses surprenantes en français."
+    },
+    {
+      "id": "s8",
+      "title": "Hugging Face",
+      "type": "markdown",
+      "content": "# D'où vient le modèle dans notre projet ?\n\nHugging Face est une plateforme qui héberge des dizaines de milliers de modèles pré-entraînés, mis à disposition gratuitement par des chercheurs et des entreprises du monde entier.\n\nDans notre code, une seule ligne suffit à télécharger et charger DialoGPT :\n\n```python\nfrom transformers import AutoModelForCausalLM, AutoTokenizer\n\ntokenizer = AutoTokenizer.from_pretrained(\"microsoft/DialoGPT-medium\")\nmodel = AutoModelForCausalLM.from_pretrained(\"microsoft/DialoGPT-medium\")\n```\n\nLa bibliothèque transformers de Hugging Face s'occupe de tout : elle télécharge les fichiers, les met en cache sur votre disque dans C:/Users/user/.cache/huggingface, et charge le modèle en mémoire.\n\nC'est pourquoi la deuxième fois que vous lancez le serveur, le modèle démarre beaucoup plus vite : il est déjà sur votre disque, plus besoin de le re-télécharger.\n\nHugging Face propose aussi des modèles francophones, multilingues, spécialisés en code, en biologie, en droit, et bien d'autres domaines."
+    },
+    {
+      "id": "q3",
+      "title": "Quiz — Le fine-tuning",
+      "type": "quiz",
+      "question": "Pourquoi notre chatbot DialoGPT répond-il principalement en anglais même quand on lui parle en français ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce que Flask ne supporte pas l'encodage UTF-8",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Parce que le modèle n'a pas été fine-tuné sur des données françaises",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que Python ne peut pas traiter des caractères accentués",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Parce que DialoGPT est trop petit pour comprendre le français",
+          "correct": false
+        }
+      ],
+      "explanation": "DialoGPT a été entraîné par Microsoft sur des conversations Reddit majoritairement en anglais. Sans fine-tuning sur des données françaises, le modèle tend à répondre dans la langue qu'il connaît le mieux. Pour un chatbot français, il faudrait soit fine-tuner le modèle, soit utiliser un modèle pré-entraîné sur des données francophones."
+    },
+    {
+      "id": "s9",
+      "title": "Le chemin d'un message dans le modèle",
+      "type": "markdown",
+      "content": "# Ce qui se passe quand vous envoyez un message\n\nQuand vous tapez un message dans notre chatbot, voici ce qui se passe à l'intérieur du modèle.\n\n**1. La tokenisation**\nVotre texte est découpé en tokens. Un token est une unité de texte qui peut être un mot, une partie de mot, ou un signe de ponctuation. Le mot \"bonjour\" devient un seul token, mais le mot \"extraordinaire\" peut en devenir plusieurs.\n\n**2. L'encodage**\nChaque token est transformé en un vecteur de plusieurs centaines de nombres. Ces vecteurs sont la représentation mathématique du texte que le modèle peut traiter.\n\n**3. Le passage dans les couches**\nCes vecteurs traversent successivement une douzaine de couches de Transformer. A chaque couche, le mécanisme d'attention enrichit la représentation de chaque token en tenant compte de son contexte.\n\n**4. La génération**\nAprès la dernière couche, le modèle produit une distribution de probabilité sur tout son vocabulaire. Il choisit le token suivant le plus probable, l'ajoute à la séquence, et recommence jusqu'à produire une réponse complète.\n\nC'est ce processus de génération mot par mot qui explique pourquoi la réponse met plusieurs secondes à arriver sur votre CPU."
+    },
+    {
+      "id": "q4",
+      "title": "Quiz — La tokenisation",
+      "type": "quiz",
+      "question": "Qu'est-ce qu'un token dans le contexte d'un modèle de langage ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Un identifiant de session pour sécuriser les échanges avec Flask",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Un fichier de configuration du modèle",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Une unité de texte (mot, partie de mot ou ponctuation) traitée par le modèle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Un paramètre du modèle ajusté pendant l'entraînement",
+          "correct": false
+        }
+      ],
+      "explanation": "Un token est l'unité de base que le modèle traite. Selon le tokenizer utilisé, un token peut correspondre à un mot entier, une syllabe, ou un caractère. Le modèle ne traite jamais du texte brut : il travaille toujours sur des séquences de tokens convertis en vecteurs numériques."
+    },
+    {
+      "id": "s10",
+      "title": "Résumé et perspectives",
+      "type": "markdown",
+      "content": "# Ce que vous avez compris\n\nUn modèle pré-entraîné est le résultat d'un entraînement massif réalisé une seule fois par une organisation disposant des ressources nécessaires. Il encode dans ses paramètres une compréhension profonde du langage, acquise en apprenant à prédire des mots sur des milliards d'exemples.\n\nGrâce à Hugging Face et à la bibliothèque transformers, vous pouvez utiliser ces modèles en quelques lignes de code, sans avoir à reproduire cet entraînement.\n\nLe fine-tuning vous permet ensuite d'adapter un modèle généraliste à un domaine ou une langue spécifique, à un coût bien inférieur à un entraînement complet.\n\n**Les prochaines étapes pour votre projet**\n\nSi vous souhaitez un chatbot plus rapide, vous pouvez passer à l'Option C du projet initial : utiliser une API comme OpenAI ou Mistral, où les calculs sont effectués sur des serveurs distants équipés de GPU. Vous n'avez alors plus à télécharger ni à héberger le modèle vous-même.\n\nSi vous souhaitez un chatbot francophone de qualité sans API externe, des modèles comme Mistral-7B ou Falcon-7B-instruct offrent d'excellentes performances en français, au prix d'une empreinte mémoire plus importante."
+    }
+  ],
+  "createdAt": "2026-06-04"
+}

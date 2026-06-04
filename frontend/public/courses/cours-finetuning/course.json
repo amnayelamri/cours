@@ -1,0 +1,204 @@
+{
+  "id": "cours-finetuning",
+  "title": "Le fine-tuning : adapter un modèle à son besoin",
+  "description": "Apprendre à fine-tuner DialoGPT sur ses propres données pour créer un chatbot personnalisé, étape par étape.",
+  "tags": [
+    "fine-tuning",
+    "transformers",
+    "hugging-face",
+    "python",
+    "dataset",
+    "entrainement"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Qu'est-ce que le fine-tuning",
+      "type": "markdown",
+      "content": "# Qu'est-ce que le fine-tuning ?\n\nLe fine-tuning est le processus qui consiste à reprendre un modèle déjà entraîné et à continuer son entraînement sur un jeu de données plus petit et plus ciblé.\n\nConcrètement, dans notre projet, DialoGPT a appris à converser en anglais à partir de millions de conversations Reddit. Le fine-tuning va lui permettre d'apprendre à converser dans le style et la langue que nous lui imposons, en lui montrant des exemples de conversations que nous avons nous-mêmes créées.\n\nLa différence fondamentale avec un entraînement complet est que les bases sont déjà acquises. Le modèle sait déjà ce qu'est le langage, comment fonctionne une conversation, ce que signifient les mots. On ne lui apprend pas à parler, on lui apprend à parler d'une certaine façon.\n\nC'est pourquoi le fine-tuning prend quelques minutes ou quelques heures là où un entraînement complet prendrait des semaines."
+    },
+    {
+      "id": "s2",
+      "title": "La structure du projet",
+      "type": "markdown",
+      "content": "# Ce que nous allons créer\n\nNous allons ajouter deux fichiers à notre projet existant.\n\n```\nchatbot-conv/\n├── chatbot.py\n├── app.py\n├── requirements.txt\n├── dataset.json          <- nouveau : nos données d'entraînement\n├── finetune.py           <- nouveau : le script d'entraînement\n└── templates/\n    └── index.html\n```\n\n`dataset.json` contient les conversations que nous voulons enseigner au modèle. C'est la matière première du fine-tuning. Plus ce fichier est riche et varié, meilleur sera le résultat.\n\n`finetune.py` est le script qui lit ces données, les transforme dans un format compris par le modèle, et lance l'entraînement. A la fin de son exécution, il sauvegarde un nouveau modèle sur le disque.\n\nUne fois le fine-tuning terminé, on modifie simplement une ligne dans `chatbot.py` pour pointer vers le nouveau modèle au lieu de l'original."
+    },
+    {
+      "id": "s3",
+      "title": "Créer le dataset",
+      "type": "markdown",
+      "content": "# Préparer les données d'entraînement\n\nUn dataset de fine-tuning pour un chatbot est une liste de conversations. Chaque conversation est une alternance de messages entre un utilisateur et le bot.\n\n```json\n[\n  {\n    \"conversation\": [\n      {\"role\": \"user\", \"text\": \"Bonjour, comment vas-tu ?\"},\n      {\"role\": \"bot\",  \"text\": \"Bonjour ! Je vais très bien, merci. Et toi ?\"},\n      {\"role\": \"user\", \"text\": \"Bien aussi. Qu'est-ce que tu sais faire ?\"},\n      {\"role\": \"bot\",  \"text\": \"Je peux répondre à tes questions et discuter avec toi en français.\"}\n    ]\n  },\n  {\n    \"conversation\": [\n      {\"role\": \"user\", \"text\": \"C'est quoi le machine learning ?\"},\n      {\"role\": \"bot\",  \"text\": \"Le machine learning est une branche de l'IA qui permet aux machines d'apprendre à partir de données.\"}\n    ]\n  }\n]\n```\n\nQuelques règles importantes pour un bon dataset :\n\n- Chaque conversation doit être cohérente du début à la fin\n- Les réponses du bot doivent être dans le style et la langue que vous voulez obtenir\n- Plus vous avez de conversations variées, meilleur sera le résultat\n- Une cinquantaine de conversations est un minimum raisonnable pour observer un effet"
+    },
+    {
+      "id": "q1",
+      "title": "Quiz — Le dataset",
+      "type": "quiz",
+      "question": "Quelle est la quantité minimale raisonnable de conversations pour commencer à observer un effet lors d'un fine-tuning ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5 conversations",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Une cinquantaine de conversations",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "10 000 conversations minimum",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La quantité n'a aucune importance",
+          "correct": false
+        }
+      ],
+      "explanation": "Une cinquantaine de conversations est un minimum pour commencer à observer un effet. Avec moins, le modèle n'a pas assez d'exemples pour apprendre un nouveau comportement. Plus le dataset est grand et varié, meilleur sera le résultat, mais on peut déjà tester avec une petite quantité."
+    },
+    {
+      "id": "s4",
+      "title": "Préparer les données en Python",
+      "type": "markdown",
+      "content": "# Transformer le dataset pour le modèle\n\nLe modèle ne comprend pas le JSON directement. Il faut transformer chaque conversation en une séquence de texte avec un format précis, puis la tokeniser.\n\n```python\nimport json\nfrom transformers import AutoTokenizer\n\ntokenizer = AutoTokenizer.from_pretrained(\"microsoft/DialoGPT-small\")\n\ndef load_dataset(path):\n    with open(path, \"r\", encoding=\"utf-8\") as f:\n        data = json.load(f)\n\n    all_input_ids = []\n\n    for item in data:\n        conversation = item[\"conversation\"]\n        tokens = []\n\n        for turn in conversation:\n            text = turn[\"text\"] + tokenizer.eos_token\n            encoded = tokenizer.encode(text)\n            tokens.extend(encoded)\n\n        all_input_ids.append(tokens)\n\n    return all_input_ids\n```\n\nChaque tour de conversation est encodé en tokens et séparé par le token spécial `eos_token` (End Of Sequence). Ce token indique au modèle qu'un tour de parole est terminé et qu'un nouveau commence.\n\nLe résultat est une liste de séquences de tokens, une par conversation, prête à être utilisée pour l'entraînement."
+    },
+    {
+      "id": "s5",
+      "title": "La classe Dataset PyTorch",
+      "type": "markdown",
+      "content": "# Créer un Dataset PyTorch\n\nPyTorch exige que les données d'entraînement soient encapsulées dans une classe Dataset. Cette classe doit implémenter deux méthodes obligatoires.\n\n```python\nimport torch\nfrom torch.utils.data import Dataset\n\nclass ConversationDataset(Dataset):\n    def __init__(self, tokenizer, data_path, max_length=512):\n        self.examples = []\n        raw_data = load_dataset(data_path)\n\n        for tokens in raw_data:\n            if len(tokens) > max_length:\n                tokens = tokens[:max_length]\n            self.examples.append(torch.tensor(tokens, dtype=torch.long))\n\n    def __len__(self):\n        return len(self.examples)\n\n    def __getitem__(self, idx):\n        return self.examples[idx]\n```\n\n`__len__` retourne le nombre total d'exemples dans le dataset. PyTorch l'utilise pour savoir combien d'étapes d'entraînement effectuer.\n\n`__getitem__` retourne un exemple précis par son index. PyTorch l'appelle automatiquement lors de l'entraînement pour piocher les exemples un par un ou par lots.\n\n`max_length=512` tronque les conversations trop longues. La plupart des modèles ont une limite de tokens qu'ils peuvent traiter en une seule fois."
+    },
+    {
+      "id": "q2",
+      "title": "Quiz — Dataset PyTorch",
+      "type": "quiz",
+      "question": "Pourquoi tronque-t-on les conversations à max_length=512 tokens ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour que le fichier JSON soit plus léger sur le disque",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Parce que les modèles ont une limite maximale de tokens qu'ils peuvent traiter en une seule fois",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que Flask ne peut pas envoyer plus de 512 tokens par requête",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour accélérer uniquement l'affichage dans le navigateur",
+          "correct": false
+        }
+      ],
+      "explanation": "Les modèles Transformer ont une fenêtre de contexte limitée, c'est-à-dire un nombre maximum de tokens qu'ils peuvent traiter simultanément. Pour DialoGPT, cette limite est de 1024 tokens. Dépasser cette limite provoque des erreurs. On tronque à 512 pour rester dans une marge confortable."
+    },
+    {
+      "id": "s6",
+      "title": "Le script d'entraînement",
+      "type": "markdown",
+      "content": "# Lancer le fine-tuning\n\nVoici le coeur du script `finetune.py`. Il charge le modèle, configure l'entraînement, et le lance.\n\n```python\nfrom transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments\nfrom torch.utils.data import DataLoader\n\nMODEL_NAME = \"microsoft/DialoGPT-small\"\nOUTPUT_DIR = \"./model-finetuned\"\n\ntokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)\nmodel = AutoModelForCausalLM.from_pretrained(MODEL_NAME)\n\ndataset = ConversationDataset(tokenizer, \"dataset.json\")\n\ntraining_args = TrainingArguments(\n    output_dir=OUTPUT_DIR,\n    num_train_epochs=3,\n    per_device_train_batch_size=1,\n    save_steps=500,\n    logging_steps=50,\n    learning_rate=5e-5,\n    fp16=False,\n)\n\ntrainer = Trainer(\n    model=model,\n    args=training_args,\n    train_dataset=dataset,\n    data_collator=lambda data: {\n        'input_ids': torch.nn.utils.rnn.pad_sequence(data, batch_first=True, padding_value=tokenizer.eos_token_id),\n        'labels': torch.nn.utils.rnn.pad_sequence(data, batch_first=True, padding_value=-100)\n    }\n)\n\ntrainer.train()\nmodel.save_pretrained(OUTPUT_DIR)\ntokenizer.save_pretrained(OUTPUT_DIR)\nprint(\"Fine-tuning termine. Modele sauvegarde dans\", OUTPUT_DIR)\n```"
+    },
+    {
+      "id": "s7",
+      "title": "Les paramètres d'entraînement",
+      "type": "markdown",
+      "content": "# Comprendre TrainingArguments\n\nLes paramètres d'entraînement contrôlent comment et combien de temps le modèle apprend.\n\n**num_train_epochs**\nC'est le nombre de fois que le modèle va voir l'intégralité du dataset. Avec 3 epochs, le modèle lit chaque conversation 3 fois. Trop peu et il n'apprend pas assez. Trop et il mémorise les données au lieu de généraliser, ce qu'on appelle l'overfitting.\n\n**per_device_train_batch_size**\nC'est le nombre d'exemples traités simultanément avant de mettre à jour les poids du modèle. On le fixe à 1 car les modèles de langage consomment beaucoup de mémoire. Augmenter cette valeur accélère l'entraînement mais nécessite plus de RAM.\n\n**learning_rate**\nC'est la vitesse à laquelle le modèle modifie ses poids à chaque mise à jour. Une valeur trop grande et le modèle apprend de manière chaotique. Une valeur trop petite et l'apprentissage est très lent. `5e-5` est une valeur classique et stable pour le fine-tuning.\n\n**logging_steps**\nTous les 50 pas d'entraînement, le script affiche dans le terminal la perte actuelle, ce qui permet de suivre la progression de l'apprentissage."
+    },
+    {
+      "id": "s8",
+      "title": "Le data collator",
+      "type": "markdown",
+      "content": "# Le data collator : harmoniser les longueurs\n\nLes conversations de notre dataset n'ont pas toutes la même longueur. Or, pour les traiter par lots, PyTorch a besoin que tous les exemples d'un même lot aient exactement la même taille.\n\nLe data collator est une fonction qui s'occupe de cette harmonisation en ajoutant du padding, c'est-à-dire en complétant les séquences courtes avec un token neutre jusqu'à la longueur maximale du lot.\n\n```python\ndata_collator=lambda data: {\n    'input_ids': torch.nn.utils.rnn.pad_sequence(\n        data,\n        batch_first=True,\n        padding_value=tokenizer.eos_token_id\n    ),\n    'labels': torch.nn.utils.rnn.pad_sequence(\n        data,\n        batch_first=True,\n        padding_value=-100\n    )\n}\n```\n\nLes `input_ids` sont complétés avec le token EOS, qui est le token neutre de DialoGPT.\n\nLes `labels` sont complétés avec `-100`, une valeur spéciale qui indique à PyTorch d'ignorer ces positions dans le calcul de la perte. Cela évite que le modèle soit pénalisé pour ne pas avoir prédit correctement un token de padding qui n'a aucune signification."
+    },
+    {
+      "id": "q3",
+      "title": "Quiz — L'entraînement",
+      "type": "quiz",
+      "question": "Qu'est-ce que l'overfitting et pourquoi faut-il l'éviter ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "C'est quand le modèle consomme trop de mémoire RAM pendant l'entraînement",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "C'est quand le modèle mémorise les données d'entraînement au lieu d'apprendre à généraliser, et devient mauvais sur de nouveaux exemples",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C'est quand le learning rate est trop faible et que l'entraînement est trop lent",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "C'est quand on utilise trop d'epochs et que le modèle devient plus rapide",
+          "correct": false
+        }
+      ],
+      "explanation": "L'overfitting se produit quand le modèle apprend les données d'entraînement par coeur plutôt que d'en extraire des règles générales. Il performe très bien sur les exemples qu'il a déjà vus, mais échoue face à de nouvelles entrées. Pour l'éviter, on limite le nombre d'epochs et on utilise un dataset suffisamment varié."
+    },
+    {
+      "id": "s9",
+      "title": "Utiliser le modèle fine-tuné",
+      "type": "markdown",
+      "content": "# Brancher le nouveau modèle sur le chatbot\n\nUne fois le fine-tuning terminé, le nouveau modèle est sauvegardé dans le dossier `model-finetuned/`. Pour l'utiliser dans notre chatbot, il suffit de changer une seule ligne dans `chatbot.py`.\n\nAvant :\n```python\nMODEL_NAME = \"microsoft/DialoGPT-small\"\n```\n\nAprès :\n```python\nMODEL_NAME = \"./model-finetuned\"\n```\n\nLa bibliothèque Transformers accepte aussi bien un nom de modèle Hugging Face qu'un chemin vers un dossier local. Elle détecte automatiquement que le chemin commence par `./` et charge le modèle depuis le disque au lieu de le télécharger.\n\nRedémarrez ensuite Flask avec `python app.py` et le chatbot utilisera désormais votre modèle personnalisé.\n\nSi le comportement ne vous satisfait pas, vous pouvez enrichir le dataset, ajuster les paramètres d'entraînement, et relancer le script `finetune.py`. L'ancien dossier `model-finetuned/` sera écrasé par le nouveau."
+    },
+    {
+      "id": "s10",
+      "title": "Suivre la progression",
+      "type": "markdown",
+      "content": "# Interpréter les logs d'entraînement\n\nPendant l'entraînement, le terminal affiche des informations toutes les `logging_steps` étapes. Voici comment les lire.\n\n```\n{'loss': 3.42, 'learning_rate': 5e-05, 'epoch': 0.5}\n{'loss': 2.18, 'learning_rate': 4e-05, 'epoch': 1.0}\n{'loss': 1.54, 'learning_rate': 3e-05, 'epoch': 1.5}\n{'loss': 1.12, 'learning_rate': 2e-05, 'epoch': 2.0}\n{'loss': 0.89, 'learning_rate': 1e-05, 'epoch': 2.5}\n{'loss': 0.76, 'learning_rate': 0,     'epoch': 3.0}\n```\n\n**loss** est la mesure de l'erreur du modèle. Plus elle est basse, mieux le modèle prédit les tokens suivants sur vos données. Une loss qui diminue régulièrement est le signe que l'entraînement se passe bien.\n\nSi la loss stagne dès le début, votre dataset est peut-être trop petit ou trop répétitif.\n\nSi la loss descend très bas très vite et que le chatbot répète toujours les mêmes phrases, c'est un signe d'overfitting : réduire le nombre d'epochs ou enrichir le dataset.\n\n**epoch** indique à quel point de l'entraînement on se trouve. Une valeur de 1.5 signifie que le modèle a vu une fois et demie l'intégralité du dataset."
+    },
+    {
+      "id": "q4",
+      "title": "Quiz — La loss",
+      "type": "quiz",
+      "question": "Que signifie une loss qui diminue régulièrement pendant l'entraînement ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le modèle consomme de moins en moins de mémoire",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "L'entraînement se passe bien et le modèle apprend à mieux prédire les tokens suivants",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Le modèle télécharge des données supplémentaires depuis Hugging Face",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le fine-tuning est terminé et on peut arrêter le script",
+          "correct": false
+        }
+      ],
+      "explanation": "La loss mesure l'écart entre ce que le modèle prédit et ce qui était attendu. Une loss qui diminue régulièrement signifie que le modèle fait des erreurs de moins en moins grandes, ce qui indique qu'il apprend bien à partir de vos données."
+    },
+    {
+      "id": "s11",
+      "title": "Conseils pour un bon fine-tuning",
+      "type": "markdown",
+      "content": "# Les bonnes pratiques\n\n**Qualité avant quantité**\nDix conversations bien écrites, cohérentes et variées valent mieux que cent conversations répétitives ou incohérentes. Le modèle apprend à imiter ce que vous lui montrez. Si vos exemples sont de mauvaise qualité, les réponses le seront aussi.\n\n**Varier les formulations**\nSi vous voulez que le chatbot réponde à la question \"Qu'est-ce que l'IA ?\", écrivez cette question de plusieurs façons dans le dataset : \"C'est quoi l'IA ?\", \"Explique-moi l'intelligence artificielle\", \"Parle-moi de l'IA\". Cela rend le modèle plus robuste aux variations de formulation.\n\n**Tester souvent**\nAprès chaque fine-tuning, testez le chatbot avec des questions qui ne sont pas dans le dataset. C'est ce qui permet de vérifier que le modèle a bien généralisé et non pas simplement mémorisé.\n\n**Sauvegarder les versions**\nAvant de relancer un fine-tuning, renommez le dossier `model-finetuned/` en `model-finetuned-v1/` par exemple. Cela vous permet de revenir en arrière si la nouvelle version est moins bonne que la précédente.\n\n**Augmenter progressivement le dataset**\nCommencez avec une cinquantaine de conversations, testez, identifiez les lacunes du modèle, ajoutez des exemples qui couvrent ces lacunes, et relancez. Cette approche itérative est bien plus efficace qu'essayer de tout prévoir dès le départ."
+    },
+    {
+      "id": "s12",
+      "title": "Le fichier finetune.py complet",
+      "type": "markdown",
+      "content": "# Le script complet prêt à l'emploi\n\n```python\nimport json\nimport torch\nfrom torch.utils.data import Dataset\nfrom transformers import (\n    AutoModelForCausalLM,\n    AutoTokenizer,\n    Trainer,\n    TrainingArguments\n)\n\nMODEL_NAME = \"microsoft/DialoGPT-small\"\nOUTPUT_DIR = \"./model-finetuned\"\nDATASET_PATH = \"dataset.json\"\n\n\ndef load_dataset_raw(path, tokenizer):\n    with open(path, \"r\", encoding=\"utf-8\") as f:\n        data = json.load(f)\n    all_tokens = []\n    for item in data:\n        tokens = []\n        for turn in item[\"conversation\"]:\n            tokens.extend(tokenizer.encode(turn[\"text\"] + tokenizer.eos_token))\n        all_tokens.append(tokens)\n    return all_tokens\n\n\nclass ConversationDataset(Dataset):\n    def __init__(self, tokenizer, path, max_length=512):\n        raw = load_dataset_raw(path, tokenizer)\n        self.examples = [\n            torch.tensor(t[:max_length], dtype=torch.long) for t in raw\n        ]\n\n    def __len__(self):\n        return len(self.examples)\n\n    def __getitem__(self, idx):\n        return self.examples[idx]\n\n\ndef collate(data, pad_token_id):\n    padded = torch.nn.utils.rnn.pad_sequence(\n        data, batch_first=True, padding_value=pad_token_id\n    )\n    labels = torch.nn.utils.rnn.pad_sequence(\n        data, batch_first=True, padding_value=-100\n    )\n    return {\"input_ids\": padded, \"labels\": labels}\n\n\ntokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)\nmodel = AutoModelForCausalLM.from_pretrained(MODEL_NAME)\ndataset = ConversationDataset(tokenizer, DATASET_PATH)\n\nargs = TrainingArguments(\n    output_dir=OUTPUT_DIR,\n    num_train_epochs=3,\n    per_device_train_batch_size=1,\n    save_steps=500,\n    logging_steps=50,\n    learning_rate=5e-5,\n    fp16=False,\n)\n\ntrainer = Trainer(\n    model=model,\n    args=args,\n    train_dataset=dataset,\n    data_collator=lambda d: collate(d, tokenizer.eos_token_id)\n)\n\ntrainer.train()\nmodel.save_pretrained(OUTPUT_DIR)\ntokenizer.save_pretrained(OUTPUT_DIR)\nprint(\"Termine. Modele sauvegarde dans\", OUTPUT_DIR)\n```\n\nPour lancer le fine-tuning :\n```bash\npython finetune.py\n```"
+    }
+  ],
+  "createdAt": "2026-06-04"
+}

@@ -1,0 +1,206 @@
+{
+  "id": "cours-creation-chatbot",
+  "title": "Créer un chatbot conversationnel avec Python et Flask",
+  "description": "Apprendre à construire un chatbot de A à Z : structure du projet, backend Python, intégration d'un modèle Hugging Face, et interface web.",
+  "tags": [
+    "python",
+    "flask",
+    "hugging-face",
+    "transformers",
+    "chatbot",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Ce que nous allons construire",
+      "type": "markdown",
+      "content": "# Ce que nous allons construire\n\nNous allons créer un chatbot conversationnel complet, accessible depuis un navigateur web.\n\nLe projet est composé de trois parties distinctes qui communiquent entre elles.\n\nLa première partie est le moteur du chatbot, écrit en Python. Il charge un modèle de langage pré-entraîné et génère des réponses à partir des messages reçus.\n\nLa deuxième partie est le serveur web, également en Python, qui fait le lien entre le navigateur et le moteur. Il reçoit les messages de l'utilisateur, les transmet au moteur, et renvoie les réponses.\n\nLa troisième partie est l'interface utilisateur, écrite en HTML, CSS et JavaScript. C'est ce que voit et utilise l'utilisateur dans son navigateur.\n\nA la fin de ce cours, vous aurez un projet fonctionnel avec la structure suivante :\n\n```\nchatbot-conv/\n├── chatbot.py\n├── app.py\n├── requirements.txt\n└── templates/\n    └── index.html\n```"
+    },
+    {
+      "id": "s2",
+      "title": "Les outils utilisés",
+      "type": "markdown",
+      "content": "# Les outils utilisés\n\nAvant d'écrire la moindre ligne de code, il faut comprendre le rôle de chaque bibliothèque que nous installons.\n\n**Flask**\nFlask est un framework web Python. Il nous permet de créer un serveur qui écoute les requêtes HTTP venant du navigateur et renvoie des réponses. Sans Flask, notre moteur Python serait inaccessible depuis le navigateur.\n\n**Transformers**\nTransformers est la bibliothèque officielle de Hugging Face. Elle nous permet de télécharger et d'utiliser des modèles de langage pré-entraînés en quelques lignes de code, sans avoir à gérer les détails complexes de leur architecture.\n\n**Torch**\nPyTorch est le moteur de calcul mathématique sur lequel repose le modèle. La bibliothèque Transformers en a besoin pour faire fonctionner le modèle. On ne l'utilise pas directement dans notre code, mais il doit être installé.\n\nOn installe tout en une seule commande :\n\n```bash\npip install flask transformers torch accelerate\n```"
+    },
+    {
+      "id": "s3",
+      "title": "Le fichier chatbot.py",
+      "type": "markdown",
+      "content": "# Créer le moteur du chatbot\n\nLe fichier chatbot.py contient une classe Python qui encapsule toute la logique du chatbot.\n\n```python\nfrom transformers import AutoModelForCausalLM, AutoTokenizer\nimport torch\n\nclass ConversationalChatbot:\n    MODEL_NAME = \"microsoft/DialoGPT-small\"\n\n    def __init__(self):\n        self.tokenizer = AutoTokenizer.from_pretrained(self.MODEL_NAME)\n        self.model = AutoModelForCausalLM.from_pretrained(self.MODEL_NAME)\n        self.model.eval()\n        self._histories = {}\n```\n\nLa méthode `__init__` est appelée une seule fois au démarrage du serveur. Elle charge le modèle en mémoire. C'est cette étape qui prend du temps au premier lancement.\n\n`self._histories` est un dictionnaire qui stocke l'historique de conversation de chaque utilisateur. La clé est un identifiant de session unique, la valeur est la séquence de tokens représentant l'échange jusqu'ici.\n\nC'est grâce à cet historique que le chatbot se souvient de ce qui a été dit avant dans la conversation."
+    },
+    {
+      "id": "s4",
+      "title": "La méthode chat()",
+      "type": "markdown",
+      "content": "# Générer une réponse\n\nLa méthode `chat()` est le coeur du chatbot. Elle prend un message en entrée et retourne une réponse.\n\n```python\ndef chat(self, message: str, session_id: str = \"default\") -> str:\n    history_ids = self._histories.get(session_id, None)\n\n    new_input_ids = self.tokenizer.encode(\n        message + self.tokenizer.eos_token,\n        return_tensors=\"pt\"\n    )\n\n    bot_input_ids = (\n        torch.cat([history_ids, new_input_ids], dim=-1)\n        if history_ids is not None\n        else new_input_ids\n    )\n\n    with torch.no_grad():\n        output_ids = self.model.generate(\n            bot_input_ids,\n            max_new_tokens=120,\n            pad_token_id=self.tokenizer.eos_token_id,\n            do_sample=True,\n            temperature=0.75,\n        )\n\n    self._histories[session_id] = output_ids\n\n    response = self.tokenizer.decode(\n        output_ids[:, bot_input_ids.shape[-1]:][0],\n        skip_special_tokens=True\n    )\n    return response.strip()\n```\n\nLa ligne `torch.no_grad()` indique à PyTorch de ne pas calculer les gradients pendant la génération. Cela accélère le calcul et réduit la consommation mémoire, car les gradients ne sont utiles que pendant l'entraînement, pas pendant l'utilisation."
+    },
+    {
+      "id": "q1",
+      "title": "Quiz — La classe chatbot",
+      "type": "quiz",
+      "question": "Pourquoi stocke-t-on l'historique de conversation dans self._histories plutôt que dans une simple variable ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour économiser de la mémoire RAM",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour gérer plusieurs utilisateurs simultanément, chacun avec sa propre conversation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que Flask l'exige pour fonctionner",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour sauvegarder les conversations sur le disque",
+          "correct": false
+        }
+      ],
+      "explanation": "Un dictionnaire keyed par session_id permet à plusieurs utilisateurs d'avoir des conversations indépendantes en même temps. Si on utilisait une simple variable, tous les utilisateurs partageraient le même historique et les conversations se mélangeraient."
+    },
+    {
+      "id": "s5",
+      "title": "Le fichier app.py",
+      "type": "markdown",
+      "content": "# Créer le serveur Flask\n\nLe fichier app.py démarre le serveur web et définit les routes, c'est-à-dire les URLs auxquelles le serveur répond.\n\n```python\nfrom flask import Flask, render_template, request, jsonify, session\nfrom chatbot import ConversationalChatbot\nimport uuid\nimport os\n\napp = Flask(__name__)\napp.secret_key = os.urandom(24)\n\nbot = ConversationalChatbot()\n\n@app.route(\"/\")\ndef index():\n    if \"session_id\" not in session:\n        session[\"session_id\"] = str(uuid.uuid4())\n    return render_template(\"index.html\")\n\n@app.route(\"/chat\", methods=[\"POST\"])\ndef chat():\n    data = request.get_json()\n    message = data.get(\"message\", \"\").strip()\n    session_id = session.get(\"session_id\", \"default\")\n    response = bot.chat(message, session_id)\n    return jsonify({\"response\": response})\n\n@app.route(\"/reset\", methods=[\"POST\"])\ndef reset():\n    session_id = session.get(\"session_id\", \"default\")\n    bot.reset(session_id)\n    return jsonify({\"status\": \"ok\"})\n\nif __name__ == \"__main__\":\n    app.run(debug=False)\n```\n\n`app.secret_key` est nécessaire pour que Flask puisse chiffrer les cookies de session. Sans cette clé, les sessions ne fonctionnent pas.\n\n`uuid.uuid4()` génère un identifiant unique aléatoire pour chaque nouvel onglet ou visiteur, ce qui permet d'isoler les conversations."
+    },
+    {
+      "id": "s6",
+      "title": "Les routes Flask",
+      "type": "markdown",
+      "content": "# Comprendre les routes\n\nUne route Flask est une association entre une URL et une fonction Python. Quand le navigateur envoie une requête vers cette URL, Flask appelle la fonction correspondante.\n\nNotre application a trois routes.\n\n**GET /**\nC'est la route principale. Quand l'utilisateur ouvre le navigateur sur `http://127.0.0.1:5000`, Flask appelle la fonction `index()` qui retourne la page HTML. La méthode GET signifie que le navigateur demande une ressource sans envoyer de données.\n\n**POST /chat**\nC'est la route qui reçoit les messages. La méthode POST signifie que le navigateur envoie des données au serveur. Ici, il envoie le message de l'utilisateur au format JSON, et le serveur retourne la réponse du chatbot, aussi en JSON.\n\n**POST /reset**\nCette route efface l'historique de la conversation en cours. Elle ne retourne pas de HTML, juste une confirmation JSON que la réinitialisation a bien eu lieu."
+    },
+    {
+      "id": "q2",
+      "title": "Quiz — Les routes Flask",
+      "type": "quiz",
+      "question": "Quelle est la différence entre une requête GET et une requête POST ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "GET est plus rapide que POST",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "GET demande une ressource sans envoyer de données, POST envoie des données au serveur",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "POST est utilisé uniquement pour les fichiers, GET pour le texte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Il n'y a aucune différence, Flask les traite de la même façon",
+          "correct": false
+        }
+      ],
+      "explanation": "GET est utilisé pour récupérer une ressource, comme charger une page web. POST est utilisé pour envoyer des données au serveur, comme soumettre un formulaire ou envoyer un message. Dans notre app, on charge la page avec GET / et on envoie les messages avec POST /chat."
+    },
+    {
+      "id": "s7",
+      "title": "La structure HTML",
+      "type": "markdown",
+      "content": "# Construire l'interface\n\nLe fichier index.html est placé dans le dossier `templates/`. Flask sait automatiquement chercher les templates dans ce dossier quand on appelle `render_template()`.\n\nL'interface est divisée en quatre zones dans l'ordre vertical :\n\n```html\n<div class=\"wrapper\">\n\n  <header>\n    <!-- Logo et titre du chatbot -->\n  </header>\n\n  <div class=\"chat-card\">\n\n    <div class=\"card-topbar\">\n      <!-- Nom du modèle + bouton Nouvelle conversation -->\n    </div>\n\n    <div id=\"messages\">\n      <!-- Les bulles de conversation s'ajoutent ici dynamiquement -->\n    </div>\n\n    <div class=\"suggestions\">\n      <!-- Chips cliquables pour tester rapidement -->\n    </div>\n\n    <div class=\"input-area\">\n      <!-- Champ de saisie + bouton Envoyer -->\n    </div>\n\n  </div>\n\n</div>\n```\n\nLa zone `#messages` est la seule qui change au cours de l'utilisation. Toutes les bulles de conversation y sont ajoutées dynamiquement par JavaScript, sans jamais recharger la page."
+    },
+    {
+      "id": "s8",
+      "title": "Le JavaScript — Envoyer un message",
+      "type": "markdown",
+      "content": "# La communication avec Flask\n\nLe JavaScript est responsable de deux choses : afficher les messages dans l'interface et communiquer avec Flask via des requêtes HTTP.\n\n```javascript\nasync function sendMessage() {\n  const text = inputEl.value.trim();\n  if (!text) return;\n\n  addMessage(text, 'user');       // afficher le message de l'utilisateur\n  inputEl.value = '';\n  btnEl.disabled = true;\n  showTyping();                   // afficher les trois points d'attente\n\n  const controller = new AbortController();\n  const timeout = setTimeout(() => controller.abort(), 300000);\n\n  try {\n    const res = await fetch('/chat', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ message: text }),\n      signal: controller.signal\n    });\n    clearTimeout(timeout);\n    const data = await res.json();\n    removeTyping();\n    addMessage(data.response, 'bot');  // afficher la réponse\n  } catch (e) {\n    removeTyping();\n    addMessage(\"Erreur de connexion.\", 'bot');\n  }\n\n  btnEl.disabled = false;\n  inputEl.focus();\n}\n```\n\n`fetch()` est la fonction native JavaScript qui envoie une requête HTTP. Le mot-clé `await` met la fonction en pause jusqu'à ce que la réponse arrive, sans bloquer le reste de la page.\n\n`AbortController` et `setTimeout` servent à définir un délai maximum d'attente. Si le modèle met plus de 5 minutes à répondre, la requête est annulée proprement."
+    },
+    {
+      "id": "s9",
+      "title": "Le JavaScript — Afficher les messages",
+      "type": "markdown",
+      "content": "# Construire les bulles dynamiquement\n\nChaque message est créé en JavaScript et injecté dans le DOM, c'est-à-dire dans la structure HTML de la page, sans rechargement.\n\n```javascript\nfunction addMessage(text, role) {\n  const row = document.createElement('div');\n  row.className = 'msg-row ' + role;\n\n  const avatar = document.createElement('div');\n  avatar.className = 'avatar ' + role;\n  avatar.textContent = role === 'bot' ? 'B' : 'U';\n\n  const bubble = document.createElement('div');\n  bubble.className = 'bubble ' + role;\n  bubble.textContent = text;\n\n  row.appendChild(avatar);\n  row.appendChild(bubble);\n\n  document.getElementById('messages').appendChild(row);\n  messagesEl.scrollTop = messagesEl.scrollHeight;\n}\n```\n\n`document.createElement()` crée un nouvel élément HTML en mémoire.\n`appendChild()` l'ajoute à la page.\n`scrollTop = scrollHeight` fait défiler automatiquement vers le bas pour que le dernier message soit toujours visible.\n\nLe paramètre `role` vaut soit `'user'` soit `'bot'`. Il est utilisé à la fois pour choisir l'avatar et pour appliquer le bon style CSS à la bulle, ce qui place les messages utilisateur à droite et les messages du bot à gauche."
+    },
+    {
+      "id": "q3",
+      "title": "Quiz — Le JavaScript",
+      "type": "quiz",
+      "question": "Pourquoi utilise-t-on fetch() avec await plutôt qu'une requête synchrone classique ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce que Flask n'accepte que les requêtes asynchrones",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour que la page reste utilisable pendant que le modèle génère la réponse, sans se figer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que JSON ne peut être lu qu'en asynchrone",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour réduire la taille du fichier JavaScript",
+          "correct": false
+        }
+      ],
+      "explanation": "Une requête synchrone bloquerait complètement le navigateur pendant que le modèle génère la réponse — l'utilisateur ne pourrait plus rien faire, pas même voir l'indicateur de chargement. Avec async/await, la page reste réactive : les animations tournent, l'interface reste visible, et la réponse s'affiche dès qu'elle arrive."
+    },
+    {
+      "id": "s10",
+      "title": "Le CSS — Glassmorphism",
+      "type": "markdown",
+      "content": "# Le style de l'interface\n\nL'interface utilise un effet visuel appelé Glassmorphism, qui donne l'impression de regarder à travers du verre dépoli.\n\nCet effet repose sur trois propriétés CSS combinées.\n\n```css\n.chat-card {\n  background: rgba(255, 255, 255, 0.07);\n  backdrop-filter: blur(24px);\n  border: 1px solid rgba(255, 255, 255, 0.12);\n  border-radius: 24px;\n}\n```\n\n`background: rgba(255, 255, 255, 0.07)` rend le fond presque transparent.\n\n`backdrop-filter: blur(24px)` applique un flou gaussien sur tout ce qui se trouve derrière l'élément. C'est cette propriété qui crée l'effet verre dépoli.\n\n`border: 1px solid rgba(255, 255, 255, 0.12)` ajoute un contour très subtil et semi-transparent qui renforce l'illusion de profondeur.\n\nLes orbes de couleur en arrière-plan sont créées avec les pseudo-éléments `::before` et `::after` du body, positionnés en `fixed` et animés avec des keyframes CSS. Ce sont eux qui donnent les couleurs visibles à travers le verre."
+    },
+    {
+      "id": "s11",
+      "title": "Lancer le projet",
+      "type": "markdown",
+      "content": "# Du code au navigateur\n\nUne fois tous les fichiers écrits, le lancement du projet se fait en trois commandes.\n\n**Installer les dépendances**\n```bash\npip install -r requirements.txt\n```\nCette commande lit le fichier requirements.txt et installe chaque bibliothèque listée. A faire une seule fois.\n\n**Lancer le serveur**\n```bash\npython app.py\n```\nCette commande démarre Flask. Le modèle se télécharge au premier lancement (plusieurs centaines de mégaoctets). Les fois suivantes, il est chargé depuis le cache local et le démarrage est beaucoup plus rapide.\n\n**Ouvrir le navigateur**\n```\nhttp://127.0.0.1:5000\n```\n`127.0.0.1` est l'adresse de votre propre machine. C'est équivalent à `localhost`. Le port `5000` est celui que Flask utilise par défaut.\n\nLe serveur reste actif tant que le terminal est ouvert. Pour l'arrêter, appuyez sur `Ctrl + C` dans le terminal."
+    },
+    {
+      "id": "q4",
+      "title": "Quiz — Le lancement",
+      "type": "quiz",
+      "question": "Que signifie l'adresse 127.0.0.1 dans http://127.0.0.1:5000 ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "L'adresse IP du serveur Hugging Face",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "L'adresse IP de votre propre machine, aussi appelée localhost",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "L'adresse du réseau Wi-Fi auquel vous êtes connecté",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Un identifiant généré automatiquement par Flask",
+          "correct": false
+        }
+      ],
+      "explanation": "127.0.0.1 est l'adresse de loopback, c'est-à-dire l'adresse qui désigne votre propre machine. Quand Flask tourne sur 127.0.0.1:5000, le serveur n'est accessible que depuis votre ordinateur. Personne d'autre sur le réseau ne peut y accéder, ce qui est normal pour le développement local."
+    },
+    {
+      "id": "s12",
+      "title": "Les améliorations possibles",
+      "type": "markdown",
+      "content": "# Pour aller plus loin\n\nLe projet que nous avons construit est une base solide. Voici les évolutions les plus naturelles.\n\n**Ajouter un favicon**\nLe `404` sur `/favicon.ico` visible dans les logs Flask indique que le navigateur cherche une icône pour l'onglet. Il suffit de placer un fichier `favicon.ico` dans le dossier `static/` et de le référencer dans le HTML.\n\n**Sauvegarder les conversations**\nActuellement, l'historique disparaît quand on redémarre Flask. On peut le sauvegarder dans un fichier JSON ou une base de données SQLite pour le conserver entre les sessions.\n\n**Déployer en ligne**\nPour rendre le chatbot accessible depuis n'importe où, on peut le déployer sur des plateformes comme Render ou Railway. Ces services hébergent des applications Flask gratuitement pour des projets de portfolio.\n\n**Passer à une API externe**\nPlutôt que de faire tourner le modèle localement sur CPU, on peut appeler une API comme OpenAI ou Mistral. Les calculs se font alors sur leurs serveurs GPU et les réponses arrivent en moins d'une seconde. C'est l'approche de l'Option C du projet."
+    }
+  ],
+  "createdAt": "2026-06-04"
+}

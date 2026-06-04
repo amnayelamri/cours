@@ -36,5 +36,17 @@
     "courseIds": [
       "mod-lisation-de-l-agglom-ration-des-globules-rouges"
     ]
+  },
+  {
+    "title": "Projet chatbot",
+    "emoji": "",
+    "description": "",
+    "courseIds": [
+      "chatbot-faq-tfidf-ingenieur",
+      "cours-modele-preentraine",
+      "cours-creation-chatbot",
+      "cours-finetuning"
+    ],
+    "id": "projet-chatbot"
   }
 ]
