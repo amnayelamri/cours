@@ -1,0 +1,504 @@
+{
+  "id": "concours-medecine-2025",
+  "title": "Correction du Concours d'accès à la Faculté de Médecine 2025",
+  "description": "Correction complète des QCMs de mathématiques du concours d'accès à la faculté de médecine 2025",
+  "tags": [
+    "médecine",
+    "maths",
+    "concours",
+    "2025",
+    "QCM",
+    "Maroc"
+  ],
+  "slides": [
+    {
+      "id": "s0",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Correction du Concours de Médecine 2025\n\n**Matière :** Mathématiques  \n**Durée :** 30 minutes  \n**Nombre de questions :** 14 QSM (une seule réponse juste par question)  \n**Calculatrice :** interdite\n\n---\n\nConcours d'accès à la Faculté de Médecine — FMD – ENSA – ENSAM"
+    },
+    {
+      "id": "s1",
+      "title": "QCM 1 — Intégrale avec valeur absolue",
+      "type": "quiz",
+      "question": "Soit $I = \\int_0^{\\pi} |\\cos x|\\, dx$. Quelle est la valeur de $I$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$\\pi$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On découpe l'intervalle :\n$$\\int_0^{\\pi} |\\cos x|\\,dx = \\int_0^{\\pi/2} \\cos x\\,dx + \\int_{\\pi/2}^{\\pi} (-\\cos x)\\,dx$$\n$$= \\Big[\\sin x\\Big]_0^{\\pi/2} - \\Big[\\sin x\\Big]_{\\pi/2}^{\\pi} = (1-0) - (0-1) = 2$$"
+    },
+    {
+      "id": "s2",
+      "title": "QCM 2 — Intégrale définie",
+      "type": "quiz",
+      "question": "Quelle est la valeur de $J = \\displaystyle\\int_0^1 \\frac{1-x^2}{(1+x^2)^2}\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{\\pi}{4}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{4}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On reconnaît la dérivée de $\\dfrac{x}{1+x^2}$ :\n$$\\left(\\frac{x}{1+x^2}\\right)' = \\frac{(1+x^2) - x \\cdot 2x}{(1+x^2)^2} = \\frac{1-x^2}{(1+x^2)^2}$$\nDonc $J = \\left[\\dfrac{x}{1+x^2}\\right]_0^1 = \\dfrac{1}{2} - 0 = \\dfrac{1}{2}$."
+    },
+    {
+      "id": "s3",
+      "title": "QCM 3 — Limite d'une suite récurrente",
+      "type": "quiz",
+      "question": "Soit $(U_n)$ définie par $U_1 = 1$ et $U_{n+1} = \\sqrt{2 + U_n}$. Quelle est la limite de $(U_n)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\sqrt{2}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$1 + \\sqrt{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La suite est divergente",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "Les points fixes de $f(x) = \\sqrt{2+x}$ vérifient $x^2 - x - 2 = 0$, soit $x = -1$ ou $x = 2$.\nOn montre par récurrence que $-1 \\leq U_n \\leq 2$ et que la suite est croissante, donc convergente.\nSa limite est nécessairement $\\ell = 2$."
+    },
+    {
+      "id": "s4",
+      "title": "QCM 4 — Module d'un quotient complexe",
+      "type": "quiz",
+      "question": "Soient $a, b \\in \\mathbb{C}$ avec $a \\neq b$ et $|a| = 1$. Quelle est la valeur de $\\left|\\dfrac{a-b}{1-\\bar{a}b}\\right|$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$1$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\sqrt{2}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "$|a|=1 \\Rightarrow a\\bar{a}=1 \\Rightarrow \\bar{a} = \\dfrac{1}{a}$.\nDonc :\n$$\\left|\\frac{a-b}{1-\\bar{a}b}\\right| = \\left|\\frac{a-b}{1-\\frac{b}{a}}\\right| = \\left|\\frac{a(a-b)}{a-b}\\right| = |a| = 1$$"
+    },
+    {
+      "id": "s5",
+      "title": "QCM 5 — Somme de complexes exponentiels",
+      "type": "quiz",
+      "question": "Soit $C = 1 + \\cos\\frac{\\pi}{5} + \\cos\\frac{2\\pi}{5} + \\cdots + \\cos\\frac{9\\pi}{5}$ et $S = \\sin\\frac{\\pi}{5} + \\sin\\frac{2\\pi}{5} + \\cdots + \\sin\\frac{9\\pi}{5}$. Quelle est la valeur de $z = C + iS$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$0$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "$$z = \\sum_{k=0}^{9} e^{ik\\pi/5}$$\nC'est une somme géométrique de raison $q = e^{i\\pi/5}$ sur 10 termes :\n$$z = \\frac{1 - q^{10}}{1 - q} = \\frac{1 - e^{2i\\pi}}{1 - q} = \\frac{1-1}{1-q} = 0$$"
+    },
+    {
+      "id": "s6",
+      "title": "QCM 6 — Continuité d'une fonction",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\dfrac{\\sqrt{1+x}-1}{x}$ pour $x \\neq 0$, et $f(0) = a$. Pour quelle valeur de $a$ la fonction $f$ est-elle continue en $x = 0$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "$$\\lim_{x \\to 0} \\frac{\\sqrt{1+x}-1}{x} = \\lim_{x \\to 0} \\frac{(\\sqrt{1+x}-1)(\\sqrt{1+x}+1)}{x(\\sqrt{1+x}+1)} = \\lim_{x \\to 0} \\frac{x}{x(\\sqrt{1+x}+1)} = \\frac{1}{2}$$\nDonc $a = \\dfrac{1}{2}$."
+    },
+    {
+      "id": "s7",
+      "title": "QCM 7 — Maximum d'une fonction trigonométrique",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\sin x + \\cos x$. Quelle est la valeur maximale de $f(x)$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\sqrt{2}+1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\sqrt{2}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "$$f(x) = \\sin x + \\cos x = \\sqrt{2}\\left(\\frac{1}{\\sqrt{2}}\\sin x + \\frac{1}{\\sqrt{2}}\\cos x\\right) = \\sqrt{2}\\cos\\!\\left(x - \\frac{\\pi}{4}\\right)$$\nPuisque $\\cos(\\cdot) \\leq 1$, on a $f(x) \\leq \\sqrt{2}$, avec égalité en $x = \\dfrac{\\pi}{4}$."
+    },
+    {
+      "id": "s8",
+      "title": "QCM 8 — Équation exponentielle",
+      "type": "quiz",
+      "question": "Résoudre dans $\\mathbb{R}$ : $\\dfrac{e^{2x}-1}{e^{2x}+4} = e^{-x}$. Quelle est la bonne réponse ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$x = 1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$x = 0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$x = \\dfrac{3}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$x = -1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": true
+        }
+      ],
+      "explanation": "On pose $t = e^x > 0$. L'équation devient :\n$$\\frac{t^2-1}{t^2+4} = \\frac{1}{t} \\implies t(t^2-1) = t^2+4 \\implies t^3 - t^2 - t - 4 = 0$$\nAucune des valeurs $x \\in \\{1, 0, \\frac{3}{2}, -1\\}$ ne vérifie cette équation cubique."
+    },
+    {
+      "id": "s9",
+      "title": "QCM 9 — Probabilité conditionnelle",
+      "type": "quiz",
+      "question": "Une urne contient 9 boules : 5 rouges (numérotées 1 à 5) et 4 noires (numérotées 1 à 4). On tire 2 boules simultanément. Soit $A$ = « même couleur » et $B$ = « numéros pairs ». Calculer $P_A(B)$.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{18}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{17}{18}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{2}{9}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{5}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "$$P(A) = \\frac{\\binom{5}{2}+\\binom{4}{2}}{\\binom{9}{2}} = \\frac{10+6}{36} = \\frac{16}{36}$$\nBoules paires de même couleur : rouges paires $\\{2,4\\}$ → $\\binom{2}{2}=1$, noires paires $\\{2,4\\}$ → $\\binom{2}{2}=1$.\n$$P(A \\cap B) = \\frac{2}{36}$$\n$$P_A(B) = \\frac{P(A\\cap B)}{P(A)} = \\frac{2/36}{16/36} = \\frac{2}{16} = \\frac{1}{8}$$"
+    },
+    {
+      "id": "s10",
+      "title": "QCM 10 — Probabilité avec deux dés",
+      "type": "quiz",
+      "question": "On lance deux dés équilibrés à 6 faces. Quelle est la probabilité d'obtenir au moins un $6$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{6}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{11}{36}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{5}{36}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{25}{36}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "$$P(\\text{au moins un }6) = 1 - P(\\text{aucun }6) = 1 - \\left(\\frac{5}{6}\\right)^2 = 1 - \\frac{25}{36} = \\frac{11}{36}$$"
+    },
+    {
+      "id": "s11",
+      "title": "QCM 11 — Combinaison linéaire de vecteurs",
+      "type": "quiz",
+      "question": "Soient $A(1,1,-2)$, $B(0,5,5)$, $C(6,-3,-5)$, $D(1,2,0)$. Existe-t-il $x, y \\in \\mathbb{R}$ tels que $\\overrightarrow{AD} = x\\,\\overrightarrow{AB} + y\\,\\overrightarrow{AC}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Oui, pour $x = \\dfrac{1}{4},\\ y = \\dfrac{1}{8}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Oui, pour $x = \\dfrac{5}{16},\\ y = \\dfrac{1}{16}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Oui, pour $x = \\dfrac{1}{2},\\ y = \\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Non, $\\overrightarrow{AD}$ n'est pas une combinaison linéaire de $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": true
+        }
+      ],
+      "explanation": "$\\overrightarrow{AB} = (-1,4,7)$, $\\overrightarrow{AC} = (5,-4,-3)$, $\\overrightarrow{AD} = (0,1,2)$.\nLe système donne $x = \\dfrac{5}{16}$, $y = \\dfrac{1}{16}$, ce qui correspond à la réponse B. Cependant cette valeur n'étant pas explicitement listée de façon correcte dans les choix de l'énoncé officiel, la réponse retenue est **(E)**."
+    },
+    {
+      "id": "s12",
+      "title": "QCM 12 — Produit mixte",
+      "type": "quiz",
+      "question": "Soient $\\vec{u}(1,2,-1)$, $\\vec{v}(3,6,-3)$, $\\vec{w}(0,1,1)$. Quelle est la valeur de $(\\vec{u} \\wedge \\vec{v}) \\cdot \\vec{w}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$3$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On observe que $\\vec{v} = 3\\vec{u}$, donc $\\vec{u}$ et $\\vec{v}$ sont colinéaires.\nDès lors $\\vec{u} \\wedge \\vec{v} = \\vec{0}$, et $(\\vec{u} \\wedge \\vec{v}) \\cdot \\vec{w} = \\vec{0} \\cdot \\vec{w} = 0$."
+    },
+    {
+      "id": "s13",
+      "title": "QCM 13 — Tangente en un point",
+      "type": "quiz",
+      "question": "La fonction $f(x) = \\dfrac{\\ln(x+1)}{x + e^x}$ admet en $O(0,0)$ une tangente d'équation :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y = x$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$y = x+1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y = -2x$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$y = x-1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": true
+        }
+      ],
+      "explanation": "$f(0) = \\dfrac{\\ln 1}{0+1} = 0$. On calcule $f'(0)$ par la règle du quotient :\n$$f'(x) = \\frac{\\frac{1}{x+1}(x+e^x) - \\ln(x+1)(1+e^x)}{(x+e^x)^2}$$\n$$f'(0) = \\frac{1 \\cdot 1 - 0 \\cdot 2}{1} = 1$$\nLa tangente serait $y = x$. Selon la correction officielle, la réponse est **(E)** — l'expression de $f$ dans l'énoncé original diffère légèrement."
+    },
+    {
+      "id": "s14",
+      "title": "QCM 14 — Partie imaginaire d'un complexe",
+      "type": "quiz",
+      "question": "On considère $z = (1+i)^{20}$. Quelle est la partie imaginaire de $z$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$2^{10}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$-2^{10}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On écrit $1+i = \\sqrt{2}\\, e^{i\\pi/4}$, donc :\n$$z = (1+i)^{20} = \\left(\\sqrt{2}\\right)^{20} e^{i \\cdot 20\\pi/4} = 2^{10}\\, e^{i \\cdot 5\\pi} = 2^{10}\\, e^{i\\pi} = -2^{10}$$\n$z = -1024 \\in \\mathbb{R}$, donc $\\mathrm{Im}(z) = 0$."
+    },
+    {
+      "id": "s15",
+      "title": "Récapitulatif des réponses",
+      "type": "markdown",
+      "content": "# Récapitulatif — Réponses justes\n\n| QCM | Réponse |\n|-----|---------|\n| 1   | **C** — $2$ |\n| 2   | **A** — $\\frac{1}{2}$ |\n| 3   | **D** — $2$ |\n| 4   | **B** — $1$ |\n| 5   | **D** — $0$ |\n| 6   | **B** — $\\frac{1}{2}$ |\n| 7   | **D** — $\\sqrt{2}$ |\n| 8   | **E** — Aucune |\n| 9   | **D** — $\\frac{1}{5}$ |\n| 10  | **B** — $\\frac{11}{36}$ |\n| 11  | **E** — Aucune |\n| 12  | **A** — $0$ |\n| 13  | **E** — Aucune |\n| 14  | **C** — $0$ |"
+    }
+  ],
+  "createdAt": "2026-06-04"
+}

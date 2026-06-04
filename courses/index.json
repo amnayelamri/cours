@@ -239,5 +239,20 @@
     ],
     "createdAt": "2026-06-04",
     "slideCount": 16
+  },
+  {
+    "id": "concours-medecine-2025",
+    "title": "Correction du Concours d'accès à la Faculté de Médecine 2025",
+    "description": "Correction complète des QCMs de mathématiques du concours d'accès à la faculté de médecine 2025",
+    "tags": [
+      "médecine",
+      "maths",
+      "concours",
+      "2025",
+      "QCM",
+      "Maroc"
+    ],
+    "createdAt": "2026-06-04",
+    "slideCount": 16
   }
 ]
