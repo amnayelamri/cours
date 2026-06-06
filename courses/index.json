@@ -270,5 +270,61 @@
     ],
     "createdAt": "2026-06-05",
     "slideCount": 28
+  },
+  {
+    "id": "finetuning-cours1-fondements",
+    "title": "Fine-Tuning — Cours 1 : Fondements & Philosophie",
+    "description": "Comprendre ce qu'est le fine-tuning, pourquoi il existe, et comment le visualiser grâce à des métaphores et analogies.",
+    "tags": [
+      "fine-tuning",
+      "IA",
+      "LLM",
+      "fondements",
+      "débutant"
+    ],
+    "createdAt": "2026-06-06",
+    "slideCount": 9
+  },
+  {
+    "id": "finetuning-cours2-vocabulaire",
+    "title": "Fine-Tuning — Cours 2 : Vocabulaire & Concepts Clés",
+    "description": "Maîtriser tous les termes essentiels du fine-tuning pour lire, comprendre et communiquer dans l'écosystème de l'IA.",
+    "tags": [
+      "fine-tuning",
+      "vocabulaire",
+      "LLM",
+      "glossaire",
+      "IA"
+    ],
+    "createdAt": "2026-06-06",
+    "slideCount": 11
+  },
+  {
+    "id": "finetuning-cours3-interactions",
+    "title": "Fine-Tuning — Cours 3 : Interactions & Scénarios",
+    "description": "Comprendre comment les composants du fine-tuning s'articulent entre eux à travers des cas concrets et des scénarios réels.",
+    "tags": [
+      "fine-tuning",
+      "scénarios",
+      "LLM",
+      "interactions",
+      "cas d'usage"
+    ],
+    "createdAt": "2026-06-06",
+    "slideCount": 11
+  },
+  {
+    "id": "finetuning-cours4-pratique",
+    "title": "Fine-Tuning — Cours 4 : Pratique & Concrétisation",
+    "description": "Suivre un projet de fine-tuning de bout en bout : de la définition du besoin à la mise en production, sans code mais avec une méthode rigoureuse.",
+    "tags": [
+      "fine-tuning",
+      "pratique",
+      "méthodologie",
+      "projet",
+      "production"
+    ],
+    "createdAt": "2026-06-06",
+    "slideCount": 12
   }
 ]

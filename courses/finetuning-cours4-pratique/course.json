@@ -1,0 +1,179 @@
+{
+  "id": "finetuning-cours4-pratique",
+  "title": "Fine-Tuning — Cours 4 : Pratique & Concrétisation",
+  "description": "Suivre un projet de fine-tuning de bout en bout : de la définition du besoin à la mise en production, sans code mais avec une méthode rigoureuse.",
+  "tags": [
+    "fine-tuning",
+    "pratique",
+    "méthodologie",
+    "projet",
+    "production"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction : La méthode en 6 étapes",
+      "type": "markdown",
+      "content": "# Du Besoin au Modèle en Production\n\nDans ce cours, vous allez suivre un projet complet de fine-tuning en adoptant une méthode structurée en **6 étapes**.\n\nNous utiliserons un cas fil rouge concret tout au long du cours :\n\n> **Projet** : Un assistant IA pour une école de langues qui répond aux questions des élèves en adoptant un ton pédagogique, encourageant, et adapté au niveau de l'élève.\n\n---\n\n## Les 6 étapes\n\n```\nÉtape 1 → Définir le besoin\nÉtape 2 → Choisir le modèle de base\nÉtape 3 → Préparer les données\nÉtape 4 → Configurer et lancer l'entraînement\nÉtape 5 → Évaluer et itérer\nÉtape 6 → Déployer et surveiller\n```\n\nChaque étape a des **critères de validation** — ne passez pas à la suivante sans les respecter."
+    },
+    {
+      "id": "s2",
+      "title": "Étape 1 : Définir le besoin",
+      "type": "markdown",
+      "content": "# Étape 1 — Définir le Besoin avec Précision\n\n## Pourquoi cette étape est cruciale\nUn besoin mal défini = des données mal préparées = un modèle inutile. C'est l'étape la plus importante.\n\n## Les questions à se poser\n\n### 1. Quel est le comportement exact attendu ?\n> ❌ Vague : \"Je veux un assistant pédagogique\"\n> ✅ Précis : \"Le modèle doit détecter le niveau de l'élève dans sa question et adapter sa réponse avec 3 niveaux de langage (débutant / intermédiaire / avancé), toujours conclure par un encouragement, et ne jamais donner directement la réponse si l'élève peut la trouver seul.\"\n\n### 2. Le fine-tuning est-il vraiment nécessaire ?\nTester d'abord avec du prompt engineering. Si 80% des cas sont couverts, le fine-tuning n'est peut-être pas nécessaire.\n\n### 3. Quelles sont les limites acceptables ?\n- Taux d'erreur acceptable ?\n- Délai de réponse maximum ?\n- Langues prises en charge ?\n\n## Livrable de l'étape 1\nUn document d'une page : **\"Fiche comportement du modèle\"** avec des exemples concrets de ce que le modèle DOIT et NE DOIT PAS faire."
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : Définition du besoin",
+      "type": "quiz",
+      "question": "Avant de commencer à collecter des données, quelle est la première chose à vérifier ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Que le GPU est suffisamment puissant",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Que le fine-tuning est vraiment nécessaire et qu'un prompt engineering simple ne suffit pas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Que le dataset contient au moins 10 000 exemples",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Quel modèle concurrent utilise la concurrence",
+          "correct": false
+        }
+      ],
+      "explanation": "Le fine-tuning est coûteux en temps et en ressources. Avant de s'y lancer, il faut s'assurer qu'un prompt engineering bien conçu ne résout pas déjà le problème. Si oui, inutile d'aller plus loin."
+    },
+    {
+      "id": "s4",
+      "title": "Étape 2 : Choisir le modèle de base",
+      "type": "markdown",
+      "content": "# Étape 2 — Choisir le Bon Modèle de Base\n\n## Les critères de sélection\n\n### 1. Open-source ou API propriétaire ?\n\n| | Open-source (LLaMA, Mistral…) | API (OpenAI, Anthropic…) |\n|---|---|---|\n| Contrôle | Total | Limité |\n| Coût initial | GPU requis | Pay-per-use |\n| Confidentialité des données | Totale | Données envoyées au provider |\n| Complexité | Plus élevée | Plus simple |\n\n### 2. La taille du modèle\nLa taille (en milliards de paramètres) influence les performances et les ressources nécessaires :\n- **1-3B paramètres** : léger, rapide, pour tâches simples\n- **7-13B paramètres** : bon équilibre performance/ressources\n- **70B+ paramètres** : très performant, infrastructure lourde\n\n### 3. Le modèle est-il déjà pré-entraîné sur votre domaine ?\nIl existe des modèles spécialisés : LegalBERT (juridique), BioMedLM (médical), CodeLlama (code)…\n\n## Pour notre projet école de langues\n✅ Un modèle 7B open-source (ex: Mistral 7B) est un bon point de départ : performant en multilangue, suffisamment léger pour être fine-tuné sans infrastructure lourde."
+    },
+    {
+      "id": "s5",
+      "title": "Étape 3 : Préparer les données",
+      "type": "markdown",
+      "content": "# Étape 3 — Préparer les Données (L'étape la plus longue)\n\n## La règle des 70%\nDans un projet de fine-tuning réel, **70% du temps** est consacré à la préparation des données. C'est normal.\n\n## Le pipeline de préparation\n\n### Phase A : Collecte\n- Récupérer des échanges réels (conversations passées avec des élèves)\n- Créer manuellement des exemples représentatifs\n- Utiliser un LLM pour générer des variations (sous supervision humaine)\n\n### Phase B : Nettoyage\n- Supprimer les doublons\n- Corriger les erreurs factuelles\n- Standardiser le format Prompt/Completion\n- Vérifier la cohérence entre exemples\n\n### Phase C : Annotation & Validation\n- Faire valider un échantillon par un expert du domaine\n- Vérifier que la distribution des exemples est équilibrée (pas 80% d'un même type de question)\n\n### Phase D : Split du dataset\n```\nDataset total\n├── Training Set (80%) → pour l'entraînement\n├── Validation Set (10%) → pour surveiller l'overfitting\n└── Test Set (10%) → pour l'évaluation finale\n```\n\n## Pour notre projet\n- 800 exemples de dialogues pédagogiques validés par des enseignants\n- 3 niveaux représentés équitablement (débutant / intermédiaire / avancé)\n- Format : paire question élève → réponse enseignant idéale"
+    },
+    {
+      "id": "s6",
+      "title": "Quiz : Préparation des données",
+      "type": "quiz",
+      "question": "Lors de la préparation du dataset, vous réalisez que 75% de vos exemples concernent le niveau débutant, et seulement 12% chacun pour intermédiaire et avancé. Quel est le risque ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le modèle aura une loss plus élevée",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le modèle sera biaisé et performera mal avec les élèves de niveau intermédiaire et avancé",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "L'entraînement prendra plus longtemps",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le modèle refusera d'apprendre les niveaux minoritaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Un dataset déséquilibré produit un modèle biaisé. S'il a vu 6 fois plus d'exemples débutants, il va sur-performer pour ce niveau et sous-performer pour les autres. Il faut équilibrer la distribution ou utiliser des techniques de rééquilibrage."
+    },
+    {
+      "id": "s7",
+      "title": "Étape 4 : Configurer l'entraînement",
+      "type": "markdown",
+      "content": "# Étape 4 — Configurer et Lancer l'Entraînement\n\n## Les paramètres à choisir\n\n### Méthode de fine-tuning\n- **Full Fine-Tuning** : modifie tous les poids. Puissant mais très coûteux en ressources.\n- **LoRA** : recommandé pour la majorité des projets. Efficace et léger.\n- **QLoRA** : si ressources GPU limitées.\n\n### Hyperparamètres de base\n\n| Paramètre | Valeur typique | Impact |\n|---|---|---|\n| Learning Rate | 1e-4 à 1e-5 | Vitesse d'apprentissage |\n| Batch Size | 4 à 32 | Mémoire GPU et stabilité |\n| Epochs | 3 à 10 | Durée et risque d'overfitting |\n| LoRA Rank (r) | 8 à 64 | Capacité d'adaptation |\n\n### La règle de prudence\n> Commencez toujours avec les valeurs par défaut recommandées. N'ajustez qu'un paramètre à la fois et observez l'effet.\n\n## La checklist avant lancement\n- [ ] Dataset vérifié et splité (train/val/test)\n- [ ] Modèle de base téléchargé\n- [ ] Méthode de fine-tuning choisie\n- [ ] Learning rate conservateur sélectionné\n- [ ] Early Stopping configuré\n- [ ] Logs et monitoring activés\n\n## Pour notre projet\nLoRA sur Mistral 7B, learning rate = 2e-4, 5 epochs max avec early stopping, batch size = 8."
+    },
+    {
+      "id": "s8",
+      "title": "Étape 5 : Évaluer et itérer",
+      "type": "markdown",
+      "content": "# Étape 5 — Évaluer et Itérer\n\n## L'évaluation en deux temps\n\n### Évaluation quantitative (les chiffres)\nSurveiller la **loss** sur le Validation Set pendant l'entraînement :\n- Elle doit baisser de manière régulière\n- Si elle remonte : overfitting → arrêter et ajuster\n- Si elle baisse très peu : underfitting → plus d'epochs ou learning rate plus élevé\n\n### Évaluation qualitative (le jugement humain)\nTester manuellement le modèle avec :\n- Des cas typiques (ceux bien représentés dans le dataset)\n- Des cas limites (questions inattendues)\n- Des cas adversariaux (tentatives de le faire sortir de son rôle)\n\n## La grille d'évaluation pour notre assistant pédagogique\n\n| Critère | Comment le tester |\n|---|---|\n| Adaptation du niveau | Poser la même question en langages différents |\n| Ton encourageant | Vérifier que chaque réponse contient une valorisation |\n| Ne pas donner la réponse | Tester avec une question directe |\n| Cohérence | Poser des questions similaires et comparer |\n\n## Le cycle d'itération\n```\nEntraîner → Évaluer → Identifier problèmes\n→ Corriger les données OU ajuster les hyperparamètres\n→ Ré-entraîner → Évaluer…\n```\nPrévoyez **2 à 4 cycles d'itération** avant d'atteindre un modèle satisfaisant."
+    },
+    {
+      "id": "s9",
+      "title": "Quiz : Évaluation",
+      "type": "quiz",
+      "question": "Après 3 epochs, votre modèle obtient une loss de 0.8 sur le Training Set mais de 1.9 sur le Validation Set. Que devez-vous faire ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Continuer l'entraînement, le modèle a besoin de plus d'epochs",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Arrêter — c'est un signe d'overfitting. Analyser et augmenter le dataset ou réduire les epochs.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Augmenter le learning rate pour accélérer la convergence",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Passer directement au déploiement en production",
+          "correct": false
+        }
+      ],
+      "explanation": "Un écart important entre la loss d'entraînement (0.8) et la loss de validation (1.9) est le signe classique d'overfitting. Il faut s'arrêter, identifier la cause (dataset trop petit, trop d'epochs, données peu diverses) et corriger avant de relancer."
+    },
+    {
+      "id": "s10",
+      "title": "Étape 6 : Déployer et surveiller",
+      "type": "markdown",
+      "content": "# Étape 6 — Déployer et Surveiller en Production\n\n## Le déploiement n'est pas la fin\nUn modèle en production doit être **surveillé en continu**. Le monde change, les utilisateurs évoluent, les besoins se transforment.\n\n## Les points de surveillance post-déploiement\n\n### 1. La dérive du modèle (Model Drift)\nAvec le temps, les données réelles peuvent différer des données d'entraînement.\n- Exemple : de nouveaux types de questions apparaissent que le modèle n'a jamais vus\n- Solution : collecter ces nouveaux cas et préparer un cycle de re-fine-tuning\n\n### 2. Le feedback utilisateur\n- Mettre en place un mécanisme simple (👍/👎 sur les réponses)\n- Analyser les cas où les utilisateurs ne sont pas satisfaits\n- Ces cas deviennent de futurs exemples d'entraînement\n\n### 3. Les métriques de production\n- Taux de satisfaction utilisateur\n- Taux de questions non répondues (escalades vers un humain)\n- Temps de réponse\n\n## La boucle vertueuse\n\n```\nModèle en production\n        ↓\nCollecte des retours utilisateurs\n        ↓\nNouveaux exemples d'entraînement\n        ↓\nNouveau cycle de fine-tuning\n        ↓\nModèle amélioré\n        ↓\n(retour au début)\n```\n\n> Le fine-tuning n'est pas un projet ponctuel, c'est un **processus continu d'amélioration**."
+    },
+    {
+      "id": "s11",
+      "title": "Quiz : Surveillance en production",
+      "type": "quiz",
+      "question": "Trois mois après le déploiement, vous remarquez que les élèves posent de plus en plus des questions sur un nouveau programme d'études que le modèle gère mal. Quelle est la bonne démarche ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Recommencer un fine-tuning complet depuis zéro avec un nouveau modèle de base",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Collecter les nouveaux cas, créer des exemples pour ce programme, et lancer un nouveau cycle de fine-tuning",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Ignorer le problème — le modèle s'adaptera seul avec le temps",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Remplacer le modèle par un système de règles manuelles",
+          "correct": false
+        }
+      ],
+      "explanation": "C'est exactement la boucle vertueuse du fine-tuning en production. Les nouveaux cas non gérés deviennent des données d'entraînement pour le prochain cycle. Pas besoin de repartir de zéro — on capitalise sur le modèle existant."
+    },
+    {
+      "id": "s12",
+      "title": "Récapitulatif final : Les 6 étapes",
+      "type": "markdown",
+      "content": "# Vous Savez Maintenant Piloter un Projet de Fine-Tuning 🚀\n\n## Les 6 étapes en résumé\n\n| Étape | Action | Livrable |\n|---|---|---|\n| **1. Définir** | Préciser le comportement attendu | Fiche comportement |\n| **2. Choisir** | Sélectionner le modèle de base | Choix documenté |\n| **3. Préparer** | Collecter, nettoyer, valider les données | Dataset splité |\n| **4. Configurer** | Choisir méthode et hyperparamètres | Checklist validée |\n| **5. Évaluer** | Mesurer et itérer | Rapport d'évaluation |\n| **6. Déployer** | Mettre en prod et surveiller | Dashboard de monitoring |\n\n## Les 5 erreurs à éviter\n\n1. ❌ Sauter l'étape de définition et se lancer directement dans la collecte de données\n2. ❌ Croire que plus de données = forcément meilleur modèle\n3. ❌ Ignorer le Validation Set pendant l'entraînement\n4. ❌ Ajuster plusieurs hyperparamètres en même temps\n5. ❌ Considérer le déploiement comme la fin du projet\n\n## Ce que vous avez accompli\n\nEn 4 cours, vous êtes passé de :\n> *\"Je veux un modèle spécialisé\"*\n\nÀ :\n> *\"Je sais définir mon besoin, préparer mes données, configurer l'entraînement, évaluer les résultats, et piloter le modèle en production.\"*\n\n---\n\n🎓 **Félicitations — vous avez terminé la formation Fine-Tuning !**"
+    }
+  ],
+  "createdAt": "2026-06-06"
+}

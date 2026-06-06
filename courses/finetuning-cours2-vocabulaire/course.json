@@ -1,0 +1,196 @@
+{
+  "id": "finetuning-cours2-vocabulaire",
+  "title": "Fine-Tuning — Cours 2 : Vocabulaire & Concepts Clés",
+  "description": "Maîtriser tous les termes essentiels du fine-tuning pour lire, comprendre et communiquer dans l'écosystème de l'IA.",
+  "tags": [
+    "fine-tuning",
+    "vocabulaire",
+    "LLM",
+    "glossaire",
+    "IA"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Pourquoi maîtriser le vocabulaire ?",
+      "type": "markdown",
+      "content": "# Parler le Langage du Fine-Tuning\n\nDans le monde du fine-tuning, chaque terme a une signification précise. Confondre *epoch* et *batch*, ou *overfitting* et *underfitting*, peut mener à de mauvaises décisions.\n\n> **Objectif de ce cours** : vous rendre capable de lire une documentation, comprendre un tutoriel, ou collaborer avec une équipe ML sans être perdu par le jargon.\n\nChaque terme est présenté en **français et en anglais**, car la majorité des ressources sont en anglais.\n\n---\n\nNous allons couvrir 4 familles de termes :\n1. 🧠 Le modèle et ses composants\n2. 📊 Les données\n3. ⚙️ L'entraînement\n4. 📈 L'évaluation"
+    },
+    {
+      "id": "s2",
+      "title": "Famille 1 : Le Modèle",
+      "type": "markdown",
+      "content": "# 🧠 Vocabulaire : Le Modèle\n\n## Modèle de base / Foundation Model / Base Model\nLe grand modèle pré-entraîné sur des données massives (ex: LLaMA, Mistral, GPT). C'est le point de départ du fine-tuning.\n\n## Poids / Weights / Parameters\nLes valeurs numériques internes du modèle qui encodent sa connaissance. Un modèle de 7 milliards de paramètres a 7 milliards de ces valeurs. Le fine-tuning **modifie** ces poids.\n\n## Architecture\nLa structure du réseau de neurones (ex: Transformer). Le fine-tuning ne change pas l'architecture.\n\n## Checkpoint\nUne sauvegarde des poids du modèle à un instant T durant l'entraînement. Permet de reprendre ou de comparer différentes étapes.\n\n## LoRA (Low-Rank Adaptation)\nUne technique de fine-tuning efficiente : au lieu de modifier tous les poids, on ajoute de petites matrices d'adaptation. Beaucoup plus léger et rapide.\n\n## QLoRA\nVersion quantifiée de LoRA — encore plus légère en mémoire, idéale pour les machines avec peu de GPU."
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : Modèle de base",
+      "type": "quiz",
+      "question": "Qu'est-ce qu'un 'checkpoint' dans le contexte du fine-tuning ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le moment où on arrête définitivement l'entraînement",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Une sauvegarde des poids du modèle à un instant donné de l'entraînement",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Un test de performance du modèle final",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le nom du modèle de base utilisé",
+          "correct": false
+        }
+      ],
+      "explanation": "Un checkpoint est une photo de l'état du modèle à un moment de l'entraînement. Il permet de revenir en arrière, de comparer plusieurs étapes, ou de reprendre un entraînement interrompu."
+    },
+    {
+      "id": "s4",
+      "title": "Famille 2 : Les Données",
+      "type": "markdown",
+      "content": "# 📊 Vocabulaire : Les Données\n\n## Dataset (jeu de données)\nL'ensemble des exemples utilisés pour entraîner, valider ou tester le modèle.\n\n## Training Set / Données d'entraînement\nLa portion du dataset utilisée pour modifier les poids du modèle. Typiquement 70-80% du dataset total.\n\n## Validation Set / Données de validation\nPortion réservée pour mesurer les performances **pendant** l'entraînement, sans l'influencer. Permet de détecter l'overfitting.\n\n## Test Set / Données de test\nPortion réservée pour l'évaluation **finale** du modèle, une fois l'entraînement terminé.\n\n## Prompt / Completion\nDans le fine-tuning de LLMs, les données sont structurées en paires :\n- **Prompt** : la question ou l'entrée\n- **Completion** : la réponse attendue\n\n## Data Augmentation\nTechnique pour enrichir artificiellement un dataset en créant des variantes des exemples existants (paraphrase, traduction, etc.).\n\n## Annotation / Labeling\nLe processus de création manuelle ou semi-automatique des exemples d'entraînement (souvent fait par des humains)."
+    },
+    {
+      "id": "s5",
+      "title": "Quiz : Les données",
+      "type": "quiz",
+      "question": "Quelle portion du dataset est utilisée pour détecter l'overfitting pendant l'entraînement ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le Training Set",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le Test Set",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Le Validation Set",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Le Dataset complet",
+          "correct": false
+        }
+      ],
+      "explanation": "Le Validation Set est évalué régulièrement pendant l'entraînement pour surveiller les performances sur des données que le modèle n'a pas vues. Si la performance monte sur le Training Set mais baisse sur le Validation Set, c'est un signe d'overfitting."
+    },
+    {
+      "id": "s6",
+      "title": "Famille 3 : L'Entraînement",
+      "type": "markdown",
+      "content": "# ⚙️ Vocabulaire : L'Entraînement\n\n## Epoch\nUn passage complet de l'ensemble du dataset d'entraînement à travers le modèle. On fait souvent 3 à 10 epochs.\n\n## Batch / Mini-batch\nUn sous-ensemble d'exemples traités simultanément avant de mettre à jour les poids. Ex : batch size = 32 signifie que 32 exemples sont traités à la fois.\n\n## Learning Rate (taux d'apprentissage)\nUn nombre qui contrôle la vitesse à laquelle le modèle ajuste ses poids. Trop élevé → instabilité. Trop faible → entraînement très lent.\n\n## Gradient / Backpropagation\nMécanisme mathématique par lequel le modèle calcule comment ajuster ses poids pour réduire les erreurs.\n\n## Loss (fonction de perte)\nMesure de l'erreur du modèle sur les données. L'objectif de l'entraînement est de **minimiser** la loss.\n\n## GPU (Graphics Processing Unit)\nLe processeur spécialisé utilisé pour accélérer les calculs d'entraînement. Sans GPU, le fine-tuning peut prendre des jours au lieu de minutes.\n\n## VRAM\nLa mémoire RAM du GPU. Une contrainte majeure : les grands modèles nécessitent beaucoup de VRAM."
+    },
+    {
+      "id": "s7",
+      "title": "Quiz : L'entraînement",
+      "type": "quiz",
+      "question": "Si un modèle est entraîné avec 1000 exemples, un batch size de 100 et 5 epochs, combien y a-t-il d'étapes (steps) d'entraînement au total ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "100 steps",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "50 steps",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "5000 steps",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "1000 steps",
+          "correct": false
+        }
+      ],
+      "explanation": "Chaque epoch = 1000/100 = 10 steps. Sur 5 epochs = 50 steps au total. La formule est : (nombre d'exemples / batch size) × nombre d'epochs."
+    },
+    {
+      "id": "s8",
+      "title": "Famille 4 : L'Évaluation",
+      "type": "markdown",
+      "content": "# 📈 Vocabulaire : L'Évaluation\n\n## Overfitting (sur-apprentissage)\nLe modèle a trop appris les données d'entraînement : il les mémorise au lieu de généraliser. Il performe bien sur les données vues, mais échoue sur les nouvelles.\n\n## Underfitting (sous-apprentissage)\nLe modèle n'a pas assez appris : ses performances sont mauvaises même sur les données d'entraînement. Souvent dû à un dataset trop petit ou un entraînement trop court.\n\n## Benchmark\nUn test standardisé pour comparer les performances de différents modèles (ex: MMLU, HumanEval).\n\n## Inference (inférence)\nL'utilisation du modèle en production pour générer des réponses. À ne pas confondre avec l'entraînement.\n\n## RLHF (Reinforcement Learning from Human Feedback)\nTechnique avancée où des humains notent les réponses du modèle pour l'affiner. Utilisée par OpenAI et Anthropic pour aligner leurs modèles.\n\n## Hallucination\nQuand le modèle génère des informations fausses avec confiance. Un risque que le fine-tuning peut réduire (mais pas éliminer) dans un domaine précis.\n\n## Token\nL'unité de base du traitement du texte par un LLM. Un token ≈ 0,75 mot en anglais. Les coûts d'API et les limites de contexte sont mesurés en tokens."
+    },
+    {
+      "id": "s9",
+      "title": "Quiz : Overfitting vs Underfitting",
+      "type": "quiz",
+      "question": "Un modèle fine-tuné obtient 98% de précision sur ses données d'entraînement, mais seulement 52% sur de nouvelles données. De quel problème s'agit-il ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Underfitting — le modèle n'a pas assez appris",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Overfitting — le modèle a trop mémorisé les données d'entraînement",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Un problème de learning rate trop élevé",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Un problème de GPU insuffisant",
+          "correct": false
+        }
+      ],
+      "explanation": "L'écart massif entre la performance sur les données d'entraînement (98%) et sur les nouvelles données (52%) est le signe classique de l'overfitting. Le modèle a mémorisé les exemples au lieu d'apprendre à généraliser."
+    },
+    {
+      "id": "s10",
+      "title": "Quiz final : Vocabulaire global",
+      "type": "quiz",
+      "question": "Dans le contexte du fine-tuning, qu'est-ce qu'un 'token' ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Un mot-clé de programmation",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "L'unité de base du texte traitée par le LLM (≈ 0,75 mot)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Un identifiant unique de session GPU",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Un checkpoint sauvegardé automatiquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les LLMs ne lisent pas les mots comme des humains — ils découpent le texte en tokens. 'fine-tuning' peut être 2-3 tokens. Les coûts d'API, les limites de contexte, et les performances sont tous mesurés en tokens."
+    },
+    {
+      "id": "s11",
+      "title": "Récapitulatif du Cours 2",
+      "type": "markdown",
+      "content": "# Glossaire Complet — À Conserver 📚\n\n| Terme EN | Terme FR | Définition courte |\n|---|---|---|\n| Base Model | Modèle de base | Modèle pré-entraîné généraliste |\n| Weights / Parameters | Poids / Paramètres | Valeurs internes ajustées par l'entraînement |\n| Checkpoint | Point de sauvegarde | Snapshot des poids à un instant T |\n| LoRA / QLoRA | LoRA / QLoRA | Fine-tuning léger par matrices d'adaptation |\n| Dataset | Jeu de données | Ensemble d'exemples d'entraînement |\n| Training / Validation / Test Set | Données train / val / test | 3 partitions du dataset |\n| Prompt / Completion | Entrée / Sortie | Paire d'exemple pour le fine-tuning |\n| Epoch | Époque | Un passage complet du dataset |\n| Batch Size | Taille de lot | Nombre d'exemples par étape |\n| Learning Rate | Taux d'apprentissage | Vitesse d'ajustement des poids |\n| Loss | Perte | Mesure de l'erreur du modèle |\n| Overfitting | Sur-apprentissage | Mémorisation au lieu de généralisation |\n| Underfitting | Sous-apprentissage | Apprentissage insuffisant |\n| RLHF | RLHF | Affinage par retour humain |\n| Token | Token | Unité de texte ≈ 0,75 mot |\n| Inference | Inférence | Utilisation du modèle en production |\n\n**Prochain cours →** Vous allez voir comment ces éléments **interagissent** dans des scénarios concrets."
+    }
+  ],
+  "createdAt": "2026-06-06"
+}
