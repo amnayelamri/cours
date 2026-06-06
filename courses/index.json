@@ -254,5 +254,21 @@
     ],
     "createdAt": "2026-06-04",
     "slideCount": 16
+  },
+  {
+    "id": "quran-pwa-saadi-complet",
+    "title": "Construire une app Coran et récupérer le Tafsir As-Sa'di automatiquement",
+    "description": "Un cours technique complet : comment nous avons construit une PWA pour lire le Coran sur téléphone, et comment un script Python de 100 lignes a récupéré des centaines de milliers de mots du Tafsir As-Sa'di depuis Internet en respectant exactement la structure du mushaf.",
+    "tags": [
+      "PWA",
+      "Python",
+      "API",
+      "JavaScript",
+      "Service Worker",
+      "PDF",
+      "تفسير السعدي"
+    ],
+    "createdAt": "2026-06-05",
+    "slideCount": 28
   }
 ]
