@@ -1,0 +1,37 @@
+{
+  "id": "1234567890",
+  "title": "Introduction à l'Ecologie: Fondements, Contexte et Pratiques",
+  "description": "Apprendre les bases de la science de la vie pour comprendre comment nous pouvons vivre en harmonie avec notre environnement.",
+  "tags": [
+    "science",
+    "ecology",
+    "environmental"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Les Fondsements: Études Historiques et Philosophiques",
+      "type": "markdown",
+      "content": "# Introduction à l'Ecologie\n\nL'écologie, c'est la science qui étudie les relations entre le vivant et son environnement. Elle est fondée sur des concepts philosophiques comme la vie biologique et la chaîne alimentaire.\n\n**Historique**: L'histoire de l'écologie remonte à 1804, avec les travaux de Charles Darwin.\n\n**Philosophie**: Cette science s'inspire du concept de symbiose, qui est une collaboration entre deux organismes vivants. \n\n**Pratiques**: Actuellement, nous pouvons pratiquer l'écologie en réduisant notre impact sur la nature et en favorisant les interactions positives avec notre environnement."
+    },
+    {
+      "id": "s2",
+      "title": "Le Vocabulaire: Comprendre les Termes Techniques",
+      "type": "markdown",
+      "content": "# Le Vocabulaire\n\nDans l'écologie, on trouve des termes comme \"écosystème\", \"biotope\", ou encore \"anatomie écologique\".\n\n**Terme**: **Ecosystème** est une unité environnementale qui comprend un ensemble de la vie et les moyens dont elle dispose.\n\n**Exemple**: Dans le ecosystème forestier, le _écosystème_ inclut la forêt entière, ses animaux, plantes et l'air pur.\n\n**Quiz**: Trouver le terme : \"Le lieu où la vie se trouve\"."
+    },
+    {
+      "id": "s3",
+      "title": "Les Interactions entre Nôtres Notions: Étapes Pratiques",
+      "type": "markdown",
+      "content": "# Les Interactions\n\nDans l'écologie, les interactions sont des relations complexes qui entrelacent divers conceptes. Par exemple, la faune et la végétation interagissent pour créer un écosystème.\n\n**Exemple**: La pêche de poissons dans une rivière est influencée par la présence d'oiseaux qui veulent manger les crustacés.\n\n**Quiz**: Trouver l'action: 'La faune et la végétation interagissent pour créer un écosystème'."
+    },
+    {
+      "id": "s4",
+      "title": "La Pratique: Étapes Progressives de la Création d'un Ecosystème",
+      "type": "markdown",
+      "content": "# La Pratique\n\nPour créer un écosystème, il faut suivre les étapes suivantes:\n1. **Choisir le lieu**: Il doit être bien situé pour que les conditions de vie soient optimales.\n2. **Sélectionner la faune et la végétation**: Il faut choisir les espèces qui peuvent cohabiter harmonieusement.\n3. **Créer une alimentation**: La faune doit avoir des nourritures appropriées.\n4. **Faire le cycle de l'eau**: Le sol et les eaux du lieu doivent être propices à la croissance de la végétation.\n5. **Maintenir l'équilibre**: Il faut réguler les flux d'oxygène, de nutrient, etc.\n\n**Exemple**: Créer un jardin bio.\n**Quiz**: Trouver l'étape: 'Sélectionner la faune et la végétation'."
+    }
+  ],
+  "createdAt": "2026-06-06"
+}
