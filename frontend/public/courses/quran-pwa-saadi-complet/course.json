@@ -1,0 +1,484 @@
+{
+  "id": "quran-pwa-saadi-complet",
+  "title": "Construire une app Coran et récupérer le Tafsir As-Sa'di automatiquement",
+  "description": "Un cours technique complet : comment nous avons construit une PWA pour lire le Coran sur téléphone, et comment un script Python de 100 lignes a récupéré des centaines de milliers de mots du Tafsir As-Sa'di depuis Internet en respectant exactement la structure du mushaf.",
+  "tags": [
+    "PWA",
+    "Python",
+    "API",
+    "JavaScript",
+    "Service Worker",
+    "PDF",
+    "تفسير السعدي"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Le point de départ — un PDF et une idée",
+      "type": "markdown",
+      "content": "# Le point de départ — un PDF et une idée\n\nTout a commencé avec un fichier PDF : **مصحف التجويد الملون المجزأ أثمان كل ثمن** — un mushaf en couleurs pour le tajwid, découpé en huitièmes de hizb.\n\nL'idée était simple : créer une application mobile pour lire ce mushaf, et associer à chaque page le tafsir de Sheikh As-Sa'di.\n\n## Les deux contraintes techniques\n\n**Contrainte 1** — On ne peut pas afficher un PDF directement dans une application web fluide. Les pages seraient trop lentes à rendre.\n\n**Contrainte 2** — Le Tafsir As-Sa'di est un ouvrage de plusieurs volumes. Impossible de le saisir manuellement.\n\n## Les deux solutions techniques\n\nPour la contrainte 1 : **convertir chaque page du PDF en image JPG** avant de déployer.\n\nPour la contrainte 2 : **écrire un script Python** qui récupère le tafsir automatiquement depuis une API islamique en ligne.\n\nCe cours vous explique comment les deux solutions ont été réalisées, et pourquoi les choix techniques effectués sont les bons."
+    },
+    {
+      "id": "s2",
+      "title": "Qu'est-ce qu'une PWA ?",
+      "type": "markdown",
+      "content": "# Qu'est-ce qu'une PWA ?\n\nUne **Progressive Web App** est un site web qui se comporte comme une application mobile native.\n\nConcrètement, l'utilisateur ouvre l'URL dans Safari sur iPhone, appuie sur *Partager* puis *Sur l'écran d'accueil*, et l'application apparaît comme n'importe quelle autre app — sans passer par l'App Store, sans frais de développeur Apple.\n\n## Ce que ça change\n\nSans PWA, il faudrait :\n- Apprendre Swift pour iOS\n- Payer 99€/an de licence Apple\n- Attendre la validation de l'App Store\n- Maintenir deux versions (iOS et Android)\n\nAvec une PWA :\n- Un seul code en HTML/CSS/JavaScript\n- Zéro frais de distribution\n- Mise à jour instantanée sans validation\n- Fonctionne sur tous les appareils\n\n## Les trois fichiers essentiels\n\nNotre application tient en trois fichiers :\n\n`index.html` — la structure de la page\n\n`style.css` — le design (couleurs islamiques, motifs géométriques, animations)\n\n`app.js` — toute la logique (navigation, gestes tactiles, chargement des images)"
+    },
+    {
+      "id": "q1",
+      "title": "Exercice 1",
+      "type": "quiz",
+      "question": "Pourquoi a-t-on choisi une PWA plutôt qu'une application native Swift ou Kotlin ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce que Swift et Kotlin ne supportent pas l'arabe",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour éviter les frais et délais de l'App Store, maintenir un seul code pour tous les appareils",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que les PWA sont plus rapides que les apps natives",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Parce que le PDF ne peut pas être lu par une app native",
+          "correct": false
+        }
+      ],
+      "explanation": "Une PWA élimine les frictions de distribution : pas d'App Store, pas de validation, pas de licence annuelle. Un seul code JavaScript tourne sur iPhone, Android et ordinateur. Le compromis est une légère limitation sur certaines fonctionnalités matérielles avancées, qui n'ont pas d'importance pour une app de lecture."
+    },
+    {
+      "id": "s3",
+      "title": "De PDF à images — la conversion avec PyMuPDF",
+      "type": "markdown",
+      "content": "# De PDF à images — la conversion avec PyMuPDF\n\nLe PDF source contient 485 pages. Afficher un PDF page par page dans un navigateur est lent et peu fluide. La solution : **pré-convertir chaque page en image JPG** une seule fois.\n\n## Le script de conversion\n\n```python\nimport fitz  # PyMuPDF\n\ndoc = fitz.open('quran.pdf')\n\nfor i, page in enumerate(doc):\n    mat = fitz.Matrix(150/72, 150/72)  # résolution 150 DPI\n    pix = page.get_pixmap(matrix=mat, colorspace=fitz.csRGB)\n    pix.save(f'pages/page-{i+1:03d}.jpg', jpg_quality=88)\n```\n\n## Décrypter les paramètres\n\n`fitz.Matrix(150/72, 150/72)` — un PDF est défini en points (72 points = 1 pouce). On veut 150 pixels par pouce pour une bonne qualité sur écran mobile. Le ratio 150/72 convertit les points en pixels.\n\n`i+1:03d` — le numéro de page est formaté sur 3 chiffres avec des zéros (`001`, `042`, `485`). Sans ça, le tri alphabétique mettrait `page-10.jpg` avant `page-2.jpg`.\n\n`jpg_quality=88` — compromis entre qualité visuelle et taille de fichier. La valeur 88 donne des images nettes sans trop alourdir.\n\n## Le résultat\n\n485 fichiers JPG, nommés `page-001.jpg` à `page-485.jpg`, pour un total de **93 mégaoctets**. Ces fichiers sont stockés dans le dépôt GitHub et servis gratuitement via GitHub Pages."
+    },
+    {
+      "id": "q2",
+      "title": "Exercice 2",
+      "type": "quiz",
+      "question": "Quel est le nom du fichier correspondant à la page 7 du mushaf ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "page-7.jpg",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "page-07.jpg",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "page-007.jpg",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "007.jpg",
+          "correct": false
+        }
+      ],
+      "explanation": "Le format `03d` avec zéros garantit que tous les noms ont exactement 3 chiffres. Cela évite un bug de tri : sans zéros, le système place 'page-10.jpg' avant 'page-2.jpg' (car '1' < '2' alphabétiquement). Avec zéros : 'page-002.jpg' vient toujours avant 'page-010.jpg'."
+    },
+    {
+      "id": "s4",
+      "title": "La navigation — les trois conteneurs",
+      "type": "markdown",
+      "content": "# La navigation — les trois conteneurs\n\nL'astuce centrale de la navigation est d'utiliser **trois conteneurs** positionnés l'un au-dessus de l'autre :\n\n```\n── page précédente ── (positionnée à -100%, invisible au-dessus)\n── page courante ──── (positionnée à 0, visible)\n── page suivante ──── (positionnée à +100%, invisible en-dessous)\n```\n\nLorsque l'utilisateur glisse vers le haut, on déplace tout le bloc d'un écran vers le haut :\n\n```js\nquranTrack.style.transform = 'translateY(-100%)';\n```\n\nLa page suivante — qui était cachée en-dessous — remonte et devient visible. C'est une animation CSS pure, traitée par le GPU du téléphone, donc parfaitement fluide.\n\n## Le piège du flash\n\nAprès l'animation, on doit remettre le `transform` à zéro et charger la nouvelle image. Pendant une fraction de seconde, l'ancienne image est visible à sa nouvelle position.\n\nCe flash était imperceptible dans Safari, mais **visible sur iPhone en mode application installée**. Pourquoi ? En mode standalone, iOS utilise un pipeline GPU différent sans le buffering de Safari.\n\n## La solution en deux étapes\n\n```js\n// Étape 1 : copier l'image déjà visible dans le conteneur central\nimgCurr.src = imgNext.src;  // déjà en cache, instantané\n\n// Étape 2 : attendre que le GPU ait peint avant de reset\nrequestAnimationFrame(() => {\n  requestAnimationFrame(() => {  // double rAF = 2 cycles GPU\n    quranTrack.style.transform = '';  // reset invisible\n  });\n});\n```"
+    },
+    {
+      "id": "q3",
+      "title": "Exercice 3",
+      "type": "quiz",
+      "question": "Pourquoi utilise-t-on un double requestAnimationFrame et non un simple setTimeout de quelques millisecondes ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "requestAnimationFrame est plus précis que setTimeout pour synchroniser avec les 60 FPS de l'écran",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "setTimeout ne fonctionne pas dans les PWA installées",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Deux requestAnimationFrame durent exactement 33ms, ce qu'il faut",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Pour économiser la batterie du téléphone",
+          "correct": false
+        }
+      ],
+      "explanation": "requestAnimationFrame synchronise l'exécution avec le prochain cycle de rendu du navigateur. Le premier rAF planifie pour le prochain frame, le second pour celui d'après — garantissant que le GPU a terminé de peindre l'image avant le reset. Un setTimeout de 16ms serait imprécis : il peut s'exécuter au milieu d'un rendu GPU."
+    },
+    {
+      "id": "s5",
+      "title": "Le Service Worker — l'application hors-ligne",
+      "type": "markdown",
+      "content": "# Le Service Worker — l'application hors-ligne\n\nUn Service Worker est un script JavaScript qui s'exécute en arrière-plan, indépendamment de la page, et qui **intercepte toutes les requêtes réseau**.\n\nIl joue le rôle d'un proxy entre l'application et Internet.\n\n## Le cycle de vie\n\n**Installation** — lors de la première visite, le Service Worker met en cache les fichiers essentiels de l'application (HTML, CSS, JS).\n\n**Activation** — il prend le contrôle et supprime les anciens caches.\n\n**Interception** — à chaque requête réseau, il décide : servir depuis le cache, ou aller sur le réseau.\n\n## La stratégie pour les images du Coran\n\n```js\nself.addEventListener('fetch', e => {\n  if (url.pathname.startsWith('/pages/')) {\n    e.respondWith(\n      caches.open(CACHE).then(async cache => {\n        const cached = await cache.match(e.request);\n        if (cached) return cached;  // déjà en cache\n        const response = await fetch(e.request);  // télécharger\n        cache.put(e.request, response.clone());  // mettre en cache\n        return response;\n      })\n    );\n  }\n});\n```\n\nChaque image visitée est automatiquement mise en cache. La prochaine fois, même sans internet, elle s'affiche instantanément.\n\n## Le cache busting\n\nÀ chaque mise à jour de l'application, on change le numéro de version :\n```js\nconst CACHE = 'quran-pwa-v9';\n```\nL'ancien cache est automatiquement supprimé lors de l'activation du nouveau Service Worker."
+    },
+    {
+      "id": "q4",
+      "title": "Exercice 4",
+      "type": "quiz",
+      "question": "Un utilisateur a visité les pages 1 à 50 avec WiFi. Il coupe internet et tente d'ouvrir la page 30. Que se passe-t-il ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "La page 30 s'affiche normalement depuis le cache du Service Worker",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "L'application affiche une erreur réseau",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "L'application tente de recharger le PDF original",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La page 30 s'affiche mais en noir et blanc",
+          "correct": false
+        }
+      ],
+      "explanation": "Lors des 50 premières visites avec WiFi, le Service Worker a mis en cache chaque image JPG avec la stratégie cache-first. Quand l'utilisateur demande la page 30 sans internet, le Service Worker intercepte la requête, trouve l'image dans son cache, et la sert directement — sans aucune connexion réseau."
+    },
+    {
+      "id": "s6",
+      "title": "La découverte clé — les marqueurs cachés dans le PDF",
+      "type": "markdown",
+      "content": "# La découverte clé — les marqueurs cachés dans le PDF\n\nPour associer le bon tafsir à chaque page, il fallait savoir **quels versets apparaissent sur chaque page**. Le PDF source est-il une image pure, ou contient-il du texte ?\n\nOn a testé avec PyMuPDF :\n\n```python\nimport fitz\ndoc = fitz.open('quran.pdf')\nfor i in [2, 10, 18]:  # pages 3, 11, 19\n    print(doc[i].get_text().strip())\n```\n\n## Le résultat surprenant\n\n```\nPDF page  3 : [1نمث 1- بزح]\nPDF page 11 : [1نمث 2 بزح]\nPDF page 19 : [1نمث 3- بزح]\n```\n\nCes chaînes, lues de droite à gauche, donnent :\n\n`حزب ١ ثمن ١` — Hizb 1, Huitième 1\n\n`حزب ٢ ثمن ١` — Hizb 2, Huitième 1\n\n`حزب ٣ ثمن ١` — Hizb 3, Huitième 1\n\n**Chaque page du mushaf contient son marqueur exact de position dans le Coran.** Ce n'est pas une coïncidence — c'est le design du mushaf المجزأ أثمان, qui découpe le Coran en huitièmes de hizb (ثمن).\n\nSoudain, le problème d'alignement est résolu : on sait exactement quel ثمن est sur chaque page, et donc exactement quels versets y apparaissent."
+    },
+    {
+      "id": "q5",
+      "title": "Exercice 5",
+      "type": "quiz",
+      "question": "La première version du script utilisait un mapping proportionnel (page × 604 / 485). Quel était le problème ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le calcul prenait trop de temps",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le tafsir affiché ne correspondait pas aux versets réellement sur la page — décalage systématique",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "L'API Quran.com refusait les numéros de pages non entiers",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Les deux mushafs ont exactement le même nombre de pages",
+          "correct": false
+        }
+      ],
+      "explanation": "Le mapping proportionnel suppose que les deux mushafs (485 et 604 pages) découpent le Coran de façon identique et uniforme. Ce n'est pas le cas : la répartition des versets par page dépend du formatage typographique propre à chaque édition. Résultat : le tafsir affiché pouvait être décalé de plusieurs pages par rapport au contenu réel."
+    },
+    {
+      "id": "s7",
+      "title": "La structure du Coran — Hizb et ثمن",
+      "type": "markdown",
+      "content": "# La structure du Coran — Hizb et ثمن\n\nPour comprendre la solution, il faut connaître la structure classique du Coran.\n\n## Les divisions\n\nLe Coran est divisé en **30 Juz** pour la lecture quotidienne (un juz par jour pendant le Ramadan).\n\nChaque Juz est divisé en **2 Hizb** → 60 hizbs au total.\n\nChaque Hizb est divisé en **8 ثمن** (huitièmes) → 480 ثمنs au total.\n\n## Le mushaf المجزأ أثمان\n\nCe mushaf est conçu pour que **chaque page corresponde exactement à un ثمن**. C'est son principe de conception.\n\nAvec 60 hizbs × 8 ثمنs = 480 ثمنs de contenu, plus quelques pages d'introduction, on arrive à 485 pages — ce qui correspond exactement au PDF.\n\n## Ce que ça permet\n\nSi on sait qu'une page correspond au **Hizb 7, ثمن 3**, on peut :\n\n1. Demander à l'API tous les versets du Hizb 7\n2. Diviser ces versets en 8 groupes égaux\n3. Prendre le 3ème groupe\n4. Récupérer le tafsir **exactement** pour ces versets\n\nC'est précis, automatique, et ne nécessite aucune base de données externe."
+    },
+    {
+      "id": "q6",
+      "title": "Exercice 6",
+      "type": "quiz",
+      "question": "Le Coran a 60 hizbs × 8 ثمنs = 480 segments. Notre mushaf a 485 pages. Comment expliquer la différence de 5 ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Certains hizbs ont 9 ثمنs au lieu de 8",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Les 5 pages supplémentaires sont des pages d'introduction, de couverture ou de tables",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "L'API renvoie des données incorrectes pour 5 hizbs",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le Coran contient en réalité 485 ثمنs",
+          "correct": false
+        }
+      ],
+      "explanation": "Les 480 ثمنs de contenu coranique occupent 480 pages. Les 5 pages restantes sont des pages de garde, la Basmallah, la table des hizbs, ou d'autres éléments éditoriaux. Ces pages n'ont pas de marqueur حزب/ثمن dans le PDF — le script les détecte automatiquement et les ignore."
+    },
+    {
+      "id": "s8",
+      "title": "L'API Quran.com — comment ça fonctionne",
+      "type": "markdown",
+      "content": "# L'API Quran.com — comment ça fonctionne\n\nQuran.com met à disposition une API publique et gratuite qui donne accès au texte du Coran, aux traductions, et aux tafsirs.\n\n## Un appel API simple\n\n```python\nimport urllib.request, json\n\nurl = 'https://api.quran.com/api/v4/tafsirs/91/by_ayah/2:255'\nreq = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})\nwith urllib.request.urlopen(req, timeout=20) as r:\n    data = json.loads(r.read().decode('utf-8'))\n\ntafsir = data['tafsir']['text']\n```\n\nCe code envoie une requête HTTP à l'API et reçoit en retour un objet JSON contenant le tafsir.\n\n## Décrypter l'URL\n\n`tafsirs/91` — le tafsir numéro 91 dans la base de données de Quran.com. Il s'agit du **Tafsir As-Sa'di en arabe**.\n\n`by_ayah/2:255` — le verset clé sous la forme `sourate:numéro`. Ici, Sourate Al-Baqarah, verset 255 (Ayat al-Kursi).\n\n## Pourquoi l'ID 91 et pas 169 ?\n\nUne erreur initiale avait utilisé l'ID 169, qui correspond en réalité au **Tafsir Ibn Kathir abrégé**. La liste complète des tafsirs arabes disponibles :\n\n- ID 14 — Tafsir Ibn Kathir (complet)\n- ID 15 — Tafsir Al-Tabari\n- ID 16 — Tafsir Muyassar\n- ID 91 — **التفسير السعدي ← celui qu'on utilise**\n- ID 90 — Al-Qurtubi"
+    },
+    {
+      "id": "q7",
+      "title": "Exercice 7",
+      "type": "quiz",
+      "question": "On veut récupérer le Tafsir As-Sa'di pour le verset 36:1 (Sourate Yaseen, verset 1). Quelle URL utiliser ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "https://api.quran.com/api/v4/tafsirs/169/by_ayah/36:1",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "https://api.quran.com/api/v4/tafsirs/91/by_ayah/36:1",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "https://api.quran.com/api/v4/tafsirs/91/by_page/36",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "https://api.quran.com/api/v4/saadi/36:1",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ID 91 est le Tafsir As-Sa'di en arabe. L'endpoint by_ayah prend une clé au format sourate:verset. Pour Sourate Yaseen (36) verset 1 : by_ayah/36:1. L'ID 169 est le Tafsir Ibn Kathir abrégé — une erreur que nous avons corrigée dans la version 2 du script."
+    },
+    {
+      "id": "s9",
+      "title": "Les vêtements HTML du tafsir — les enlever",
+      "type": "markdown",
+      "content": "# Les vêtements HTML du tafsir — les enlever\n\nQuand l'API renvoie le texte du tafsir, il arrive habillé de balises HTML :\n\n```html\n<span class=\"arabic qpc-hafs brown\">{ بِسْمِ اللَّهِ }</span>\nأي: أبتدئ بكل اسم لله تعالى, لأن لفظ\n<span class=\"arabic qpc-hafs brown\">{ اسم }</span>\nمفرد مضاف, فيعم جميع الأسماء\n```\n\nSi on stocke ce texte tel quel dans notre application, l'utilisateur verrait les balises `<span>` affichées comme du texte brut — illisible.\n\n## La fonction de nettoyage\n\n```python\nimport re\n\ndef strip_html(text):\n    text = re.sub(r'<[^>]+>', '', text)  # supprime tout entre < et >\n    text = re.sub(r'\\s+', ' ', text)     # normalise les espaces\n    return text.strip()\n```\n\n`re.sub(r'<[^>]+>', '', text)` — cette expression régulière cherche tout ce qui commence par `<`, suivi de n'importe quels caractères sauf `>`, suivi de `>`. Elle les supprime.\n\nRésultat du nettoyage :\n```\n{ بِسْمِ اللَّهِ } أي: أبتدئ بكل اسم لله تعالى,\nلأن لفظ { اسم } مفرد مضاف, فيعم جميع الأسماء\n```\n\nLe texte coranique entre accolades `{ }` reste, ce qui est parfait pour identifier les versets cités dans le tafsir."
+    },
+    {
+      "id": "q8",
+      "title": "Exercice 8",
+      "type": "quiz",
+      "question": "Quel est le résultat de strip_html sur cette chaîne : '<b>الحمد</b> لله <i>رب</i> العالمين' ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "b الحمد /b لله i رب /i العالمين",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "الحمد لله رب العالمين",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "La chaîne est vide car elle contient du HTML",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "<b>الحمد</b> لله <i>رب</i> العالمين (inchangé)",
+          "correct": false
+        }
+      ],
+      "explanation": "Le regex <[^>]+> correspond à <b>, </b>, <i> et </i> — il les supprime tous. Il reste uniquement le texte arabe : 'الحمد لله رب العالمين'. La normalisation des espaces avec \\s+ assure qu'il n'y a pas d'espaces doubles là où les balises ont été retirées."
+    },
+    {
+      "id": "s10",
+      "title": "Les références en arabe — to_arabic_num",
+      "type": "markdown",
+      "content": "# Les références en arabe — to_arabic_num\n\nDans la version 1 du script, les références de versets apparaissaient comme `[2:255]` — des chiffres occidentaux avec des crochets latins. Dans un tafsir arabe, c'est visuellement incohérent.\n\n## La solution — chiffres arabes-orientaux\n\nL'arabe utilise ses propres chiffres : ٠١٢٣٤٥٦٧٨٩\n\n```python\ndef to_arabic_num(n):\n    eastern = str.maketrans('0123456789', '٠١٢٣٤٥٦٧٨٩')\n    return str(n).translate(eastern)\n```\n\n`str.maketrans` crée une table de correspondance caractère par caractère. `translate` applique cette table à la chaîne.\n\n## La fonction de référence\n\n```python\ndef ref_arabe(surah, ayah):\n    noms = {1: 'الفاتحة', 2: 'البقرة', 3: 'آل عمران', ...}\n    return f'سورة {noms[surah]} — آية {to_arabic_num(ayah)}'\n```\n\nRésultat pour le verset 2:255 :\n```\nسورة البقرة — آية ٢٥٥\n```\n\nEt le titre de chaque annotation :\n```\nتفسير السعدي — حزب ٧ ثمن ٣\n```\n\nL'ensemble du contenu est désormais en arabe pur, sans aucun caractère latin."
+    },
+    {
+      "id": "q9",
+      "title": "Exercice 9",
+      "type": "quiz",
+      "question": "Que retourne to_arabic_num(2025) ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2025",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "٢٠٢٥",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "ألفان وخمسة وعشرون",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "MMXXV",
+          "correct": false
+        }
+      ],
+      "explanation": "str.maketrans crée une correspondance un-à-un : 0→٠, 1→١, 2→٢, etc. translate applique cette table à chaque caractère de la chaîne '2025'. Le résultat est '٢٠٢٥' — les chiffres arabes-orientaux qui s'affichent naturellement dans un texte arabe."
+    },
+    {
+      "id": "s11",
+      "title": "La protection contre les pannes — retry et sleep",
+      "type": "markdown",
+      "content": "# La protection contre les pannes — retry et sleep\n\nLe script envoie environ 2 000 requêtes à l'API (485 pages × plusieurs versets par page). Une connexion internet n'est jamais parfaite : des requêtes vont échouer.\n\n## La fonction fetch avec retry\n\n```python\ndef fetch(url, retries=3):\n    for attempt in range(retries):\n        try:\n            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})\n            with urllib.request.urlopen(req, timeout=20) as r:\n                return json.loads(r.read().decode('utf-8'))\n        except Exception as e:\n            print(f'réessai {attempt+1}/3 : {e}')\n            time.sleep(2)\n    return None\n```\n\nSi une requête échoue, on attend 2 secondes et on réessaie. Après 3 échecs, on renvoie `None` et on passe à la page suivante sans arrêter le script.\n\n## La pause entre requêtes\n\n```python\ntime.sleep(0.15)  # 150ms entre chaque verset\n```\n\nSans cette pause, envoyer des milliers de requêtes en quelques secondes peut déclencher le **rate limiting** de l'API — le serveur bloque notre adresse IP temporairement car on ressemble à une attaque.\n\n## La sauvegarde progressive\n\n```python\nif pwa_page % 40 == 0:\n    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:\n        json.dump(result, f, ensure_ascii=False, indent=2)\n```\n\nToutes les 40 pages, le fichier JSON est sauvegardé. Si le script s'interrompt (coupure de courant, erreur réseau), on ne repart pas de zéro."
+    },
+    {
+      "id": "q10",
+      "title": "Exercice 10",
+      "type": "quiz",
+      "question": "Sans time.sleep(0.15) entre les requêtes, quel risque court-on ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le script Python plante car il ne peut traiter qu'une requête à la fois",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "L'API bloque notre adresse IP pour trop de requêtes en trop peu de temps (rate limiting)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Le fichier JSON sera corrompu",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Les données seront mélangées entre les pages",
+          "correct": false
+        }
+      ],
+      "explanation": "Le rate limiting est une protection standard des APIs : si une IP envoie plus de X requêtes par seconde, le serveur renvoie une erreur 429 Too Many Requests et peut bloquer l'IP temporairement. Une pause de 150ms ramène notre débit à environ 6 requêtes/seconde, bien en-dessous des seuils habituels."
+    },
+    {
+      "id": "s12",
+      "title": "ensure_ascii=False — sauvegarder l'arabe correctement",
+      "type": "markdown",
+      "content": "# ensure_ascii=False — sauvegarder l'arabe correctement\n\nPython peut écrire des fichiers JSON de deux façons.\n\n## Avec ensure_ascii=True (comportement par défaut)\n\n```python\njson.dump({'content': 'بسم الله'}, f)\n# Résultat dans le fichier :\n# {\"content\": \"\\u0628\\u0633\\u0645 \\u0627\\u0644\\u0644\\u0647\"}\n```\n\nChaque caractère arabe est remplacé par son code Unicode `\\uXXXX`. Le fichier ne contient que des caractères ASCII. Il est techniquement valide, mais illisible pour un humain.\n\n## Avec ensure_ascii=False\n\n```python\njson.dump({'content': 'بسم الله'}, f, ensure_ascii=False)\n# Résultat dans le fichier :\n# {\"content\": \"بسم الله\"}\n```\n\nLe texte arabe est écrit directement. Le fichier est lisible et modifiable.\n\n## L'encodage du fichier\n\n```python\nopen(OUTPUT_FILE, 'w', encoding='utf-8')\n```\n\nUTF-8 est le seul encodage qui supporte simultanément l'arabe, le français, l'anglais et tous les autres alphabets du monde. Sans cette précision, Python pourrait utiliser l'encodage Windows (CP1252) qui ne supporte pas l'arabe et produirait des fichiers corrompus."
+    },
+    {
+      "id": "q11",
+      "title": "Exercice 11",
+      "type": "quiz",
+      "question": "Un fichier JSON contient '\\u0628\\u0633\\u0645'. Que représente ce texte ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Une erreur de corruption du fichier",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Les caractères arabes 'بسم' encodés en notation Unicode échappée",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Un code hexadécimal de couleur CSS",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Un identifiant d'utilisateur hashé",
+          "correct": false
+        }
+      ],
+      "explanation": "\\u0628 = ب, \\u0633 = س, \\u0645 = م. C'est la notation Unicode échappée pour 'بسم'. Les deux représentations sont équivalentes pour les navigateurs et Python — c'est juste une question de lisibilité pour les développeurs. ensure_ascii=False choisit la forme lisible."
+    },
+    {
+      "id": "s13",
+      "title": "Le format JSON final — structure de l'import",
+      "type": "markdown",
+      "content": "# Le format JSON final — structure de l'import\n\nLe script produit un fichier `tafsir_assaadi.json` avec cette structure :\n\n```json\n{\n  \"3\": [\n    {\n      \"type\": \"note\",\n      \"title\": \"تفسير السعدي — حزب ١ ثمن ١\",\n      \"content\": \"سورة الفاتحة — آية ١\\n{ بِسْمِ اللَّهِ } أي: أبتدئ بكل اسم لله تعالى...\"\n    }\n  ],\n  \"4\": [\n    {\n      \"type\": \"note\",\n      \"title\": \"تفسير السعدي — حزب ١ ثمن ٢\",\n      \"content\": \"سورة البقرة — آية ٨\\n{ وَمِنَ النَّاسِ مَن يَقُولُ } هؤلاء المنافقون...\"\n    }\n  ]\n}\n```\n\n## Ce que signifient les clés\n\nLes clés `\"3\"`, `\"4\"`, etc. sont les numéros de page de notre application (1-485).\n\nLes pages 1 et 2 n'ont pas d'entrée car ce sont des pages d'introduction sans marqueur حزب/ثمن dans le PDF.\n\n## L'importation dans le dashboard\n\nCe fichier est importé en un clic dans le dashboard via le bouton **استيراد JSON**. Le serveur Node.js lit le fichier et ajoute chaque élément à la bonne page dans `elements.json`."
+    },
+    {
+      "id": "s14",
+      "title": "De l'import au téléphone — la chaîne complète",
+      "type": "markdown",
+      "content": "# De l'import au téléphone — la chaîne complète\n\nVoici ce qui se passe entre le script Python et l'affichage sur le téléphone.\n\n## Sur le PC\n\n**Étape 1** — Le script Python tourne environ 20 minutes. Il envoie ~2 000 requêtes à l'API Quran.com et produit `tafsir_assaadi.json`.\n\n**Étape 2** — Le fichier est importé dans le dashboard via **استيراد JSON**. Le serveur Node.js l'enregistre dans `data/elements.json`.\n\n**Étape 3** — Le bouton **نشر على GitHub** envoie `elements.json` sur GitHub via l'API GitHub. Un commit est créé automatiquement.\n\n## Sur GitHub\n\n**Étape 4** — GitHub Pages détecte le nouveau commit et reconstruit le site. Délai : environ 1 minute.\n\n## Sur le téléphone\n\n**Étape 5** — L'utilisateur ouvre le panneau latéral sur une page. L'application demande `elements.json` avec un timestamp unique (`?t=1234567890`) pour contourner le cache.\n\n**Étape 6** — Le fichier JSON contient le tafsir de toutes les pages. L'application affiche le tafsir de la page courante.\n\n**Résultat** — Des centaines de milliers de mots du Tafsir As-Sa'di, parfaitement alignés avec les pages du mushaf, accessibles hors-ligne une fois chargés."
+    },
+    {
+      "id": "q12",
+      "title": "Exercice 12",
+      "type": "quiz",
+      "question": "Pourquoi ajoute-t-on ?t=Date.now() à l'URL de elements.json lors du chargement ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour mesurer le temps de chargement",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Pour forcer le téléchargement d'une nouvelle version en contournant le cache du navigateur",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Pour identifier l'utilisateur de façon unique",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "C'est requis par l'API GitHub Pages",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand une URL change, le navigateur considère que c'est une nouvelle ressource et ne sert pas la version en cache. Date.now() retourne un timestamp différent à chaque milliseconde. Cela garantit que l'utilisateur récupère toujours la dernière version de ses annotations, même si le Service Worker a mis une ancienne version en cache."
+    },
+    {
+      "id": "s15",
+      "title": "Récapitulatif — ce qu'on a accompli",
+      "type": "markdown",
+      "content": "# Récapitulatif — ce qu'on a accompli\n\nDeux problèmes de nature très différente, deux solutions élégantes.\n\n## Problème 1 — Afficher 485 pages de façon fluide\n\nSolution : **conversion PDF → JPG** avec PyMuPDF, **navigation par GPU** avec CSS transforms, **cache automatique** avec Service Worker. Résultat : une application installable, fluide, fonctionnelle hors-ligne.\n\n## Problème 2 — Aligner le Tafsir As-Sa'di avec chaque page\n\nSolution en 4 découvertes :\n\n**Découverte 1** — Le PDF contient des marqueurs cachés حزب/ثمن sur chaque page.\n\n**Découverte 2** — Ce mushaf est conçu pour que chaque page = un ثمن exact.\n\n**Découverte 3** — L'API Quran.com fournit les versets par hizb (ID du tafsir السعدي = 91).\n\n**Découverte 4** — On peut diviser les versets d'un hizb en 8 ثمنs égaux mathématiquement.\n\nCes quatre découvertes enchaînées permettent à un script de 100 lignes de Python de produire un fichier JSON parfaitement aligné avec les 485 pages du mushaf.\n\n## Le chiffre qui impressionne\n\nSans ce script, aligner manuellement le Tafsir As-Sa'di avec 480 ثمنs prendrait plusieurs mois de travail. Le script le fait en **20 minutes**."
+    },
+    {
+      "id": "q13",
+      "title": "Exercice final — synthèse",
+      "type": "quiz",
+      "question": "On veut faire la même chose avec le Tafsir Al-Tabari (ID 15). Quels éléments du script faut-il modifier ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Tout réécrire — le script est trop spécifique au Tafsir As-Sa'di",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Changer TAFSIR_ID = 91 en TAFSIR_ID = 15 et mettre à jour le titre dans le JSON",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Changer TAFSIR_ID et aussi remplacer l'API Quran.com par une autre",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Changer uniquement le nom du fichier de sortie",
+          "correct": false
+        }
+      ],
+      "explanation": "Le script est conçu de façon générique. La logique d'extraction des marqueurs PDF, de découpage en ثمنs, et de construction du JSON est identique pour tous les tafsirs. Seul TAFSIR_ID change (15 pour Al-Tabari). Il faudrait aussi mettre à jour le titre de l'annotation pour refléter le bon auteur — mais c'est une modification d'une ligne."
+    }
+  ],
+  "createdAt": "2026-06-05"
+}
