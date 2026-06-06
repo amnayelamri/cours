@@ -48,5 +48,17 @@
       "cours-finetuning"
     ],
     "id": "projet-chatbot"
+  },
+  {
+    "title": "Fine-tuning",
+    "emoji": "",
+    "description": "",
+    "courseIds": [
+      "finetuning-cours1-fondements",
+      "finetuning-cours2-vocabulaire",
+      "finetuning-cours3-interactions",
+      "finetuning-cours4-pratique"
+    ],
+    "id": "fine-tuning"
   }
 ]

@@ -1,0 +1,138 @@
+{
+  "id": "finetuning-cours1-fondements",
+  "title": "Fine-Tuning — Cours 1 : Fondements & Philosophie",
+  "description": "Comprendre ce qu'est le fine-tuning, pourquoi il existe, et comment le visualiser grâce à des métaphores et analogies.",
+  "tags": [
+    "fine-tuning",
+    "IA",
+    "LLM",
+    "fondements",
+    "débutant"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction : Le problème de départ",
+      "type": "markdown",
+      "content": "# Pourquoi le Fine-Tuning existe-t-il ?\n\nImaginez que vous recrutez un diplômé de grande école — brillant, cultivé, capable de parler de tout.\n\nMais vous avez besoin d'un expert **spécifiquement** dans votre domaine : la finance islamique, la rédaction médicale, ou encore le support client de votre application.\n\n> Ce diplômé sait beaucoup de choses, mais il ne connaît **pas vos codes, vos termes, votre façon de répondre**.\n\n**Le fine-tuning, c'est la formation spécialisée que vous lui donnez.**\n\nUn modèle de langage (LLM) comme GPT ou Claude est d'abord entraîné sur des milliards de textes du web. Il devient un généraliste puissant. Le fine-tuning lui permet ensuite de devenir **un spécialiste de votre cas d'usage**."
+    },
+    {
+      "id": "s2",
+      "title": "La métaphore du sculpteur",
+      "type": "markdown",
+      "content": "# Le Modèle comme un Bloc de Marbre\n\nPensez à un modèle pré-entraîné comme un **grand bloc de marbre brut**.\n\nLe bloc contient déjà toute la matière nécessaire. Il a une forme générale. Mais il n'est pas encore la statue que vous voulez.\n\n## Le pré-entraînement\nC'est l'extraction du marbre — un travail colossal, réalisé par des équipes de recherche (OpenAI, Anthropic, Meta…). Il coûte des millions d'euros et plusieurs mois.\n\n## Le fine-tuning\nC'est le travail du sculpteur — **vous**. Vous prenez ce bloc déjà façonné et vous lui donnez la forme précise dont vous avez besoin. C'est bien plus rapide et bien moins coûteux.\n\n---\n\n### Ce que le fine-tuning **change**\n- Le ton et le style de réponse\n- Le vocabulaire utilisé\n- Le comportement face à certaines questions\n- La spécialisation sur un domaine\n\n### Ce que le fine-tuning **ne change pas**\n- Les capacités fondamentales du modèle\n- Sa connaissance générale du monde\n- Son architecture profonde"
+    },
+    {
+      "id": "s3",
+      "title": "Contexte historique : d'où vient cette idée ?",
+      "type": "markdown",
+      "content": "# Un Peu d'Histoire\n\n## Avant le fine-tuning\nLes modèles d'IA étaient entraînés **de zéro** pour chaque tâche. Vouloir un modèle de traduction ? On entraîne un modèle de traduction. Un modèle de résumé ? Un autre modèle, entraîné différemment.\n\nC'était coûteux, lent, et chaque modèle restait très limité.\n\n## L'idée du Transfer Learning (années 2010)\nDes chercheurs ont eu une idée clé : **pourquoi ne pas réutiliser ce qu'un modèle a déjà appris ?**\n\nC'est le *Transfer Learning* (apprentissage par transfert). On entraîne un grand modèle généraliste, puis on le spécialise.\n\n## L'ère des LLMs (2018 → aujourd'hui)\nAvec l'arrivée de BERT (Google, 2018) puis GPT (OpenAI), le fine-tuning devient la **méthode standard** pour adapter les modèles de langage.\n\nAujourd'hui, des milliers d'équipes dans le monde fine-tunent des modèles open-source (LLaMA, Mistral…) pour leurs propres besoins.\n\n---\n\n> **Idée clé** : Le fine-tuning n'est pas une invention récente. C'est l'application du bon sens — pourquoi reconstruire ce qui existe déjà ?"
+    },
+    {
+      "id": "s4",
+      "title": "Quiz : La métaphore du spécialiste",
+      "type": "quiz",
+      "question": "Un modèle pré-entraîné est comparé à un diplômé généraliste. Que représente le fine-tuning dans cette analogie ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le diplôme universitaire obtenu après 5 ans d'études",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La formation spécialisée reçue après le recrutement",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Le CV envoyé par le candidat",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "L'entretien de recrutement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le pré-entraînement correspond aux années de formation générale (université). Le fine-tuning, c'est la spécialisation dans le contexte spécifique de l'entreprise — plus rapide, plus ciblée."
+    },
+    {
+      "id": "s5",
+      "title": "Fine-Tuning vs Autres approches",
+      "type": "markdown",
+      "content": "# Trois Façons d'Adapter un Modèle\n\nIl existe plusieurs manières d'adapter un LLM à vos besoins. Le fine-tuning est l'une d'elles.\n\n## 1. Le Prompt Engineering\n> On guide le modèle via des instructions dans le texte.\n\n✅ Rapide, pas de coût d'entraînement\n❌ Limité, le modèle peut « oublier » les instructions\n\n## 2. Le RAG (Retrieval-Augmented Generation)\n> On connecte le modèle à une base de données externe qu'il consulte à chaque réponse.\n\n✅ Idéal pour des données récentes ou volumineuses\n❌ Plus complexe à mettre en place, dépend de la qualité de la base\n\n## 3. Le Fine-Tuning\n> On modifie les poids internes du modèle avec de nouveaux exemples.\n\n✅ Comportement profondément modifié, style cohérent, efficace\n❌ Nécessite des données d'entraînement et du temps de calcul\n\n---\n\n| | Prompt | RAG | Fine-Tuning |\n|---|---|---|---|\n| Coût | 💚 Faible | 🟡 Moyen | 🔴 Élevé |\n| Mise à jour | 💚 Immédiate | 💚 Facile | 🔴 Difficile |\n| Profondeur | 🔴 Superficielle | 🟡 Moyenne | 💚 Profonde |\n| Données nécessaires | 💚 Peu | 🟡 Moyennement | 🔴 Beaucoup |"
+    },
+    {
+      "id": "s6",
+      "title": "Quiz : Choisir la bonne approche",
+      "type": "quiz",
+      "question": "Une startup veut que son assistant IA réponde toujours avec le ton décontracté de sa marque et utilise son propre jargon interne. Quelle approche est la plus adaptée ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le Prompt Engineering uniquement",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le RAG (connexion à une base de données)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Le Fine-Tuning",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Créer un nouveau modèle de zéro",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand on veut changer en profondeur le comportement, le ton et le style du modèle, le fine-tuning est la solution la plus adaptée. Le prompt engineering est trop fragile pour garantir une cohérence de marque sur le long terme."
+    },
+    {
+      "id": "s7",
+      "title": "La philosophie générale : apprendre par l'exemple",
+      "type": "markdown",
+      "content": "# Comment Apprend un Modèle ?\n\nLa philosophie du fine-tuning repose sur une idée simple :\n\n> **Montrez au modèle des exemples de ce que vous voulez, et il apprendra à reproduire ce comportement.**\n\n## Le principe entrée → sortie\n\nOn fournit au modèle des paires :\n\n```\nEntrée (input) : \"Comment annuler ma commande ?\"\nSortie (output) : \"Bonjour ! Pour annuler votre commande, rendez-vous dans Mon Compte > Mes commandes. Notre équipe reste disponible 7j/7 😊\"\n```\n\nOn répète cela avec **des centaines ou milliers d'exemples**. Le modèle ajuste progressivement ses paramètres internes pour coller à ces exemples.\n\n## La métaphore de l'apprenti\n\nC'est exactement comme un apprenti qui observe un maître artisan :\n- Il voit comment le maître réagit dans différentes situations\n- Il intègre progressivement les réflexes, le style, les bonnes pratiques\n- Après suffisamment d'exemples, il peut reproduire ce comportement de manière autonome\n\n---\n\n> **À retenir** : La qualité du fine-tuning dépend directement de la qualité des exemples fournis. Des exemples médiocres → un modèle médiocre."
+    },
+    {
+      "id": "s8",
+      "title": "Quiz : Le principe fondamental",
+      "type": "quiz",
+      "question": "Quelle est la condition la plus importante pour obtenir un bon fine-tuning ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Avoir le modèle de base le plus récent possible",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Fournir des données d'entraînement de haute qualité",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Utiliser le plus grand nombre de paramètres possible",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Lancer l'entraînement le plus longtemps possible",
+          "correct": false
+        }
+      ],
+      "explanation": "Le fine-tuning suit le principe 'garbage in, garbage out'. La qualité des exemples fournis est le facteur numéro un du succès. Un bon modèle avec de mauvaises données donnera de mauvais résultats."
+    },
+    {
+      "id": "s9",
+      "title": "Récapitulatif du Cours 1",
+      "type": "markdown",
+      "content": "# Ce que vous avez appris 🎓\n\n## Les idées clés\n\n1. **Le fine-tuning** = spécialiser un modèle généraliste sur un cas d'usage précis\n2. **Métaphore du sculpteur** : le modèle de base est le marbre, le fine-tuning est le ciseau\n3. **Contexte historique** : né du Transfer Learning, devenu standard avec les LLMs\n4. **3 approches** : Prompt Engineering (rapide), RAG (données fraîches), Fine-Tuning (profond)\n5. **Philosophie** : apprendre par l'exemple — entrée → sortie\n\n## La question à retenir\n\n> *Est-ce que je veux changer ce que le modèle SAIT, ou changer comment il SE COMPORTE ?*\n\n- Changer ce qu'il **sait** → RAG\n- Changer comment il **se comporte** → Fine-Tuning\n\n---\n\n**Prochain cours →** Vous allez apprendre tout le vocabulaire spécifique du fine-tuning pour parler comme un expert."
+    }
+  ],
+  "createdAt": "2026-06-06"
+}

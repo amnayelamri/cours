@@ -1,0 +1,173 @@
+{
+  "id": "finetuning-cours3-interactions",
+  "title": "Fine-Tuning — Cours 3 : Interactions & Scénarios",
+  "description": "Comprendre comment les composants du fine-tuning s'articulent entre eux à travers des cas concrets et des scénarios réels.",
+  "tags": [
+    "fine-tuning",
+    "scénarios",
+    "LLM",
+    "interactions",
+    "cas d'usage"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction : Tout connecter",
+      "type": "markdown",
+      "content": "# Mettre les Pièces en Relation\n\nDans les cours précédents, vous avez appris :\n- **Pourquoi** le fine-tuning existe (philosophie)\n- **Ce que signifient** les termes clés (vocabulaire)\n\nDans ce cours, vous allez comprendre **comment ces éléments s'influencent mutuellement** à travers des scénarios concrets.\n\n---\n\n## Les 3 grandes interactions à comprendre\n\n1. 🔗 **Données ↔ Modèle** : comment la qualité des données façonne le comportement du modèle\n2. ⚖️ **Hyperparamètres ↔ Résultats** : comment les réglages d'entraînement influencent la performance\n3. 🎯 **Cas d'usage ↔ Stratégie** : comment choisir la bonne approche selon le problème"
+    },
+    {
+      "id": "s2",
+      "title": "Scénario 1 : La startup de support client",
+      "type": "markdown",
+      "content": "# Scénario 1 — Support Client Automatisé\n\n## Le contexte\nUne startup e-commerce veut créer un chatbot qui répond aux clients dans le ton de la marque : chaleureux, bref, et avec les emojis de la charte.\n\n## Les décisions à prendre\n\n### Quelle approche choisir ?\n- ❌ **Prompt Engineering** : le ton peut dériver selon les formulations des clients\n- ❌ **RAG** : le problème n'est pas le manque d'infos, mais le style\n- ✅ **Fine-Tuning** : idéal pour ancrer un comportement et un style profonds\n\n### Quel type de données préparer ?\nDes paires Prompt/Completion représentatives :\n```\nPrompt : \"Mon colis n'est pas arrivé depuis 5 jours\"\nCompletion : \"Oh non, on est vraiment désolés ! 😟 On vérifie ça\nimmédiatement. Pouvez-vous nous donner votre numéro de commande ?\"\n```\n\n### Combien d'exemples ?\nPour un ajustement de style : **300 à 1000 exemples** de qualité suffisent généralement.\n\n## Le résultat attendu\nUn modèle qui maintient automatiquement le ton de marque, sans avoir besoin de longues instructions dans chaque prompt."
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : Scénario support client",
+      "type": "quiz",
+      "question": "Dans le scénario de la startup, pourquoi le RAG n'est-il pas la bonne solution ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce que le RAG est trop coûteux",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Parce que le problème est un problème de style, pas de connaissance manquante",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que le RAG ne fonctionne pas avec les chatbots",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Parce que le RAG nécessite trop de données",
+          "correct": false
+        }
+      ],
+      "explanation": "Le RAG est fait pour donner au modèle accès à des informations externes qu'il ne possède pas. Ici, le défi est comportemental (le ton, le style, les emojis) — c'est le domaine du fine-tuning."
+    },
+    {
+      "id": "s4",
+      "title": "Scénario 2 : L'interaction données ↔ modèle",
+      "type": "markdown",
+      "content": "# Scénario 2 — Données de Mauvaise Qualité\n\n## Le contexte\nUne équipe fine-tune un modèle médical avec 2000 exemples de diagnostics. Mais les résultats sont décevants : le modèle donne des réponses incohérentes.\n\n## Le diagnostic du problème\n\nEn analysant les données, ils découvrent :\n- 30% des exemples contiennent des abréviations médicales incohérentes\n- 15% des paires Prompt/Completion ont des erreurs de copier-coller\n- 10% des exemples se contredisent entre eux\n\n## L'interaction en jeu\n\n```\nDonnées incohérentes\n        ↓\nLe modèle apprend des patterns contradictoires\n        ↓\nComportement instable en production\n```\n\n## La solution\nAvant tout fine-tuning, **auditer et nettoyer les données** :\n- Standardiser le vocabulaire médical\n- Supprimer les doublons contradictoires\n- Faire valider un expert sur un échantillon\n\n> **Règle d'or** : 500 exemples parfaits valent mieux que 5000 exemples approximatifs.\n\n## Résultat après nettoyage\nAvec seulement 600 exemples nettoyés et validés, le modèle performe bien mieux que celui entraîné sur les 2000 exemples bruts."
+    },
+    {
+      "id": "s5",
+      "title": "Scénario 3 : Les hyperparamètres en action",
+      "type": "markdown",
+      "content": "# Scénario 3 — Le Piège du Learning Rate\n\n## Le contexte\nUne équipe fine-tune un modèle et observe un comportement étrange : après chaque epoch, les performances empirent au lieu de s'améliorer.\n\n## Analyser l'interaction\n\n### Cas A : Learning Rate trop élevé\n```\nLearning Rate élevé → Grands sauts dans les poids\n→ Le modèle \"dépasse\" les bonnes valeurs\n→ Instabilité, performances qui oscillent ou empirent\n```\n**Symptôme** : La loss monte et descend sans converger.\n\n### Cas B : Learning Rate trop faible\n```\nLearning Rate trop bas → Petits ajustements infimes\n→ L'entraînement est très lent\n→ Après 5 epochs, le modèle n'a presque pas changé\n```\n**Symptôme** : La loss diminue très lentement, le modèle ressemble encore au modèle de base.\n\n## La solution : le Learning Rate Scheduler\nTechnique qui fait **diminuer progressivement** le learning rate au cours de l'entraînement :\n- Grands pas au début (exploration)\n- Petits pas à la fin (précision)\n\nC'est comme chercher ses clés : on commence par regarder dans toute la maison (grands pas), puis on fouille méthodiquement chaque tiroir (petits pas)."
+    },
+    {
+      "id": "s6",
+      "title": "Quiz : Hyperparamètres",
+      "type": "quiz",
+      "question": "Un modèle en cours d'entraînement montre une loss qui monte et descend de manière chaotique sans jamais converger. Quelle est la cause la plus probable ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le dataset est trop petit",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le learning rate est trop élevé",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Il y a trop d'epochs",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le batch size est trop grand",
+          "correct": false
+        }
+      ],
+      "explanation": "Une loss chaotique et non-convergente est le signe classique d'un learning rate trop élevé. Le modèle 'saute' au-dessus des bonnes valeurs à chaque étape. La solution est de réduire le learning rate."
+    },
+    {
+      "id": "s7",
+      "title": "Scénario 4 : Overfitting dans la vraie vie",
+      "type": "markdown",
+      "content": "# Scénario 4 — Le Modèle qui Récite\n\n## Le contexte\nUne équipe juridique fine-tune un modèle sur 200 contrats types. En test interne, il performe parfaitement. Mais en production, face à de nouveaux contrats, il échoue.\n\n## L'interaction en jeu\n\n```\nPetit dataset (200 exemples) + Entraînement long\n        ↓\nLe modèle mémorise les 200 contrats mot pour mot\n        ↓\nFace à un nouveau contrat → il ne sait pas généraliser\n        ↓\nOVERFITTING\n```\n\n## Les signaux d'alerte\n- Performance excellente sur le Training Set\n- Performance médiocre sur le Validation Set\n- Le modèle répète des phrases entières des exemples d'entraînement\n\n## Les solutions\n\n| Solution | Description |\n|---|---|\n| Augmenter le dataset | Ajouter plus d'exemples variés |\n| Early Stopping | Arrêter l'entraînement avant le sur-apprentissage |\n| Réduire les epochs | Moins de passages sur les mêmes données |\n| Data Augmentation | Créer des variantes des exemples existants |\n| Dropout | Technique qui désactive aléatoirement des neurones pendant l'entraînement |\n\n> **L'Early Stopping** : surveiller la performance sur le Validation Set et arrêter l'entraînement dès qu'elle commence à baisser — même si la performance sur le Training Set continue de monter."
+    },
+    {
+      "id": "s8",
+      "title": "Quiz : Overfitting et solutions",
+      "type": "quiz",
+      "question": "Quelle technique consiste à arrêter l'entraînement dès que la performance sur le Validation Set commence à se dégrader ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Data Augmentation",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Dropout",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Early Stopping",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Learning Rate Scheduling",
+          "correct": false
+        }
+      ],
+      "explanation": "L'Early Stopping surveille en continu la performance sur le Validation Set. Dès qu'elle se dégrade (signe d'overfitting), l'entraînement s'arrête — même si la loss d'entraînement continue de baisser. C'est une des protections les plus simples et efficaces contre l'overfitting."
+    },
+    {
+      "id": "s9",
+      "title": "Scénario 5 : Fine-Tuning vs RAG — Quand combiner ?",
+      "type": "markdown",
+      "content": "# Scénario 5 — L'Assistant d'un Cabinet Médical\n\n## Le contexte\nUn cabinet médical veut un assistant IA qui :\n1. Répond avec un ton professionnel et bienveillant (style)\n2. Connaît les dernières recommandations de l'HAS (données récentes)\n3. Adapte ses réponses aux protocoles internes du cabinet\n\n## L'analyse\n\nAucune approche seule ne suffit :\n\n| Besoin | Approche adaptée |\n|---|---|\n| Ton professionnel et bienveillant | Fine-Tuning |\n| Recommandations récentes de l'HAS | RAG (base de données mise à jour) |\n| Protocoles du cabinet | RAG ou Fine-Tuning (selon la fréquence de changement) |\n\n## La solution hybride\n\n```\nModèle de base\n      ↓\n[Fine-Tuning] → Style médical professionnel ancré\n      ↓\n[RAG] → Accès en temps réel aux recommandations HAS + protocoles\n      ↓\nAssistant médical complet\n```\n\n> **Leçon clé** : Fine-Tuning et RAG ne sont pas en compétition — ils sont **complémentaires**. Le fine-tuning forme le caractère, le RAG donne la mémoire."
+    },
+    {
+      "id": "s10",
+      "title": "Quiz : Approche hybride",
+      "type": "quiz",
+      "question": "Dans le scénario médical, pourquoi utilise-t-on le RAG pour les recommandations de l'HAS plutôt que le Fine-Tuning ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce que le RAG est moins cher",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Parce que les recommandations médicales changent régulièrement et doivent rester à jour",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que le Fine-Tuning ne peut pas apprendre des informations médicales",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Parce que le RAG est plus précis pour les contenus longs",
+          "correct": false
+        }
+      ],
+      "explanation": "Les recommandations médicales évoluent régulièrement. Avec le Fine-Tuning, chaque mise à jour nécessiterait un ré-entraînement coûteux. Le RAG permet de mettre à jour la base de données externe sans toucher au modèle — bien plus agile pour des données dynamiques."
+    },
+    {
+      "id": "s11",
+      "title": "Récapitulatif du Cours 3",
+      "type": "markdown",
+      "content": "# Ce que vous avez compris 🔗\n\n## Les grandes interactions\n\n1. **Données → Modèle** : des données incohérentes produisent un modèle incohérent. La qualité prime sur la quantité.\n\n2. **Learning Rate → Stabilité** : trop haut = instabilité, trop bas = lenteur. Un scheduler progressif est souvent la solution.\n\n3. **Dataset size + Epochs → Overfitting** : un petit dataset avec trop d'epochs conduit le modèle à mémoriser plutôt qu'à apprendre.\n\n4. **Fine-Tuning + RAG = synergie** : le fine-tuning ancre le comportement, le RAG fournit les connaissances dynamiques.\n\n## La carte mentale\n\n```\nCas d'usage\n    ↓\nStyle/comportement ? → Fine-Tuning\nConnaissances récentes ? → RAG\nLes deux ? → Hybride\n    ↓\nPréparer les données (qualité avant quantité)\n    ↓\nChoisir les hyperparamètres avec soin\n    ↓\nSurveiller overfitting avec Validation Set\n    ↓\nModèle prêt pour la production\n```\n\n**Prochain cours →** Vous allez suivre un projet de fine-tuning de bout en bout, de la définition du besoin jusqu'à la mise en production."
+    }
+  ],
+  "createdAt": "2026-06-06"
+}
