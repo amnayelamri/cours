@@ -326,5 +326,17 @@
     ],
     "createdAt": "2026-06-06",
     "slideCount": 12
+  },
+  {
+    "id": "1234567890",
+    "title": "Introduction à l'Ecologie: Fondements, Contexte et Pratiques",
+    "description": "Apprendre les bases de la science de la vie pour comprendre comment nous pouvons vivre en harmonie avec notre environnement.",
+    "tags": [
+      "science",
+      "ecology",
+      "environmental"
+    ],
+    "createdAt": "2026-06-06",
+    "slideCount": 4
   }
 ]
