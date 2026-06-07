@@ -72,5 +72,14 @@
       "prompt-engineering-cours4-pratique"
     ],
     "id": "prompt-engineering"
+  },
+  {
+    "title": "Concours de Medecine - Maths",
+    "emoji": "",
+    "description": "",
+    "courseIds": [
+      "math-matiques-concours-m-decine-2025-2026"
+    ],
+    "id": "concours-de-medecine-maths"
   }
 ]

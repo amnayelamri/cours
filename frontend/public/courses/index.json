@@ -425,5 +425,21 @@
     ],
     "createdAt": "2026-06-07",
     "slideCount": 14
+  },
+  {
+    "id": "math-matiques-concours-m-decine-2025-2026",
+    "title": "Mathématiques - Concours Médecine 2025-2026",
+    "description": "Cours de révision complet couvrant les thèmes du concours commun d'accès aux facultés de médecine : intégrales, suites, nombres complexes, probabilités, géométrie vectorielle et analyse.",
+    "tags": [
+      "mathématiques",
+      "concours médecine",
+      "intégrales",
+      "suites",
+      "complexes",
+      "probabilités",
+      "analyse"
+    ],
+    "createdAt": "2026-06-07",
+    "slideCount": 14
   }
 ]
