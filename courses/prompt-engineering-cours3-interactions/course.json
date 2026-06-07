@@ -1,0 +1,179 @@
+{
+  "id": "prompt-engineering-cours3-interactions",
+  "title": "Prompt Engineering — Cours 3 : Interactions & Scénarios",
+  "description": "Comprendre comment les techniques de prompt engineering s'articulent entre elles à travers des cas concrets et des scénarios réels.",
+  "tags": [
+    "prompt engineering",
+    "scénarios",
+    "LLM",
+    "interactions",
+    "cas d'usage"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction : Assembler les techniques",
+      "type": "markdown",
+      "content": "# Mettre les Techniques en Relation\n\nDans les cours précédents, vous avez appris :\n- **Pourquoi** le prompt engineering existe (philosophie, 4 composants)\n- **Ce que signifient** les techniques et termes clés (vocabulaire)\n\nDans ce cours, vous allez comprendre **comment ces techniques s'influencent et se combinent** à travers 5 scénarios concrets.\n\n---\n\n## Les grandes interactions à comprendre\n\n1. 🎭 **Rôle + Contexte** → comment les combiner pour maximiser la pertinence\n2. 🔗 **Few-Shot + Chain-of-Thought** → la puissance du raisonnement guidé par l'exemple\n3. 📐 **Format + Grounding** → fiabilité et structure pour les applications réelles\n4. 🔄 **Prompt Chaining** → décomposer les tâches complexes\n5. ⚠️ **Limites et contournements** → quand le prompt engineering ne suffit pas"
+    },
+    {
+      "id": "s2",
+      "title": "Scénario 1 : Rôle + Contexte en synergie",
+      "type": "markdown",
+      "content": "# Scénario 1 — Le Consultant en Stratégie\n\n## Le contexte\nUn entrepreneur veut analyser l'opportunité d'entrer sur un nouveau marché. Il essaie plusieurs formulations.\n\n---\n\n## Version 1 — Sans rôle ni contexte\n> *\"Analyse le marché des applications de livraison de repas au Maroc.\"*\n\n**Résultat** : Une réponse générique sur le marché mondial. Peu utile.\n\n---\n\n## Version 2 — Avec rôle seulement\n> *\"Tu es un consultant en stratégie. Analyse le marché des applications de livraison de repas au Maroc.\"*\n\n**Résultat** : Meilleur, mais encore trop général.\n\n---\n\n## Version 3 — Rôle + Contexte + Contrainte\n> *\"Tu es un consultant senior en stratégie spécialisé dans les marchés émergents africains. Mon entreprise est une startup marocaine avec 500k MAD de budget initial. Nous envisageons d'entrer sur le marché de la livraison de repas à Casablanca. Analyse les opportunités et risques en te concentrant sur les 3 principaux concurrents locaux et les habitudes de consommation spécifiques au marché marocain. Présente ton analyse en 4 points avec une recommandation finale.\"*\n\n**Résultat** : Analyse précise, actionnables, adaptée à la réalité locale.\n\n---\n\n> **Leçon** : Le rôle définit l'expertise. Le contexte oriente cette expertise vers votre situation spécifique. Les deux ensemble multiplient la valeur de la réponse."
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : Rôle et Contexte",
+      "type": "quiz",
+      "question": "Dans le scénario du consultant, qu'apporte principalement le contexte (budget, ville, concurrents) par rapport au rôle seul ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il améliore la grammaire et le style de la réponse",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Il oriente l'expertise du rôle vers la situation spécifique, rendant la réponse actionnable",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Il force le modèle à faire des recherches en temps réel",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Il réduit les hallucinations en limitant le sujet",
+          "correct": false
+        }
+      ],
+      "explanation": "Le rôle donne une expertise générale (consultant en stratégie). Le contexte transforme cette expertise générale en analyse ciblée sur votre situation précise. Sans contexte, le consultant répond à une question abstraite. Avec contexte, il répond à VOTRE question."
+    },
+    {
+      "id": "s4",
+      "title": "Scénario 2 : Few-Shot + Chain-of-Thought",
+      "type": "markdown",
+      "content": "# Scénario 2 — Classification de tickets de support\n\n## Le problème\nUne équipe support reçoit 500 tickets par jour. Elle veut les classer automatiquement en : Bug critique / Bug mineur / Question usage / Demande fonctionnalité.\n\n## Approche Zero-Shot (insuffisante)\n```\nPrompt : \"Classe ce ticket : 'L'appli plante quand j'essaie d'exporter un PDF'\"\nRésultat : \"Bug\" — trop vague, catégorie incorrecte\n```\n\n## Approche Few-Shot seul (meilleure)\nOn fournit 2 exemples par catégorie avant le vrai ticket.\n```\nBug critique : \"L'application est inaccessible pour tous les utilisateurs depuis 2h\"\nBug mineur : \"Le bouton retour ne fonctionne pas sur la page profil\"\nQuestion usage : \"Comment exporter mes données en CSV ?\"\nDemande fonctionnalité : \"Pourrait-on ajouter un mode sombre ?\"\n\nClasse maintenant : 'L'appli plante quand j'essaie d'exporter un PDF'\n```\n**Résultat** : Bug mineur — mieux, mais parfois des erreurs sur des cas limites.\n\n## Approche Few-Shot + Chain-of-Thought (optimale)\n```\nAvant de classifier, analyse d'abord :\n1. L'action déclenche-t-elle une panne totale ? (→ critique)\n2. Concerne-t-elle une fonctionnalité secondaire ? (→ mineur)\n3. Est-ce une question sur l'utilisation ? (→ question)\n4. Est-ce une suggestion d'amélioration ? (→ fonctionnalité)\n\nApplique ce raisonnement étape par étape au ticket :\n'L'appli plante quand j'essaie d'exporter un PDF'\n```\n**Résultat** : Raisonnement visible, classification plus fiable et explicable.\n\n> **Leçon** : Few-Shot apprend le pattern. CoT force le raisonnement. Ensemble, ils produisent des résultats plus précis et auditables."
+    },
+    {
+      "id": "s5",
+      "title": "Vidéo : Chain-of-Thought Prompting expliqué",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=BO9GpZ4AFBI"
+    },
+    {
+      "id": "s6",
+      "title": "Quiz : Few-Shot + CoT",
+      "type": "quiz",
+      "question": "Pourquoi combiner Few-Shot et Chain-of-Thought est-il plus puissant que chacun séparément ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce que cela réduit le nombre de tokens utilisés",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le Few-Shot montre le pattern attendu, le CoT force un raisonnement explicite — ensemble ils donnent des réponses plus fiables et auditables",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce que le modèle peut apprendre de nouvelles données grâce aux deux combinés",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Parce que cela élimine totalement les hallucinations",
+          "correct": false
+        }
+      ],
+      "explanation": "Le Few-Shot oriente le modèle vers le bon format/pattern via des exemples. Le CoT l'oblige à décomposer son raisonnement avant de conclure. La combinaison donne des réponses plus précises (Few-Shot) ET plus vérifiables (CoT)."
+    },
+    {
+      "id": "s7",
+      "title": "Scénario 3 : Grounding + Format structuré",
+      "type": "markdown",
+      "content": "# Scénario 3 — Assistant juridique d'entreprise\n\n## Le problème\nUne PME veut un assistant qui répond aux questions RH de ses managers en se basant sur son règlement intérieur — sans inventer de règles.\n\n## Le risque sans Grounding\n```\nQuestion : \"Un salarié peut-il poser des RTT sans préavis ?\"\nRéponse sans grounding : \"En France, les RTT doivent être posés...\"\n→ Le modèle cite le droit général, pas les règles spécifiques de l'entreprise.\nRisque : réponses incorrectes, litiges potentiels.\n```\n\n## La solution : Grounding + Format structuré\n\n```\nSYSTEM PROMPT :\nTu es l'assistant RH de notre entreprise. Tu réponds UNIQUEMENT\nen te basant sur le règlement intérieur fourni ci-dessous.\nSi la réponse ne figure pas dans ce document, réponds :\n\"Cette situation n'est pas couverte par notre règlement — consultez le service RH.\"\n\nRègle ta réponse sur ce format JSON :\n{\n  \"reponse\": \"...\",\n  \"source\": \"Article X du règlement\",\n  \"confiance\": \"haute/moyenne/basse\"\n}\n\nRÈGLEMENT INTÉRIEUR :\n[texte du règlement ici]\n\nQUESTION : Un salarié peut-il poser des RTT sans préavis ?\n```\n\n## Le résultat\n```json\n{\n  \"reponse\": \"Selon notre règlement, les RTT doivent être posés avec un délai minimum de 48h.\",\n  \"source\": \"Article 12.3 — Gestion des RTT\",\n  \"confiance\": \"haute\"\n}\n```\n\n> **Leçon** : Le Grounding évite les inventions. Le format structuré rend la réponse intégrable dans un système. Les deux ensemble créent un outil fiable et autonôme."
+    },
+    {
+      "id": "s8",
+      "title": "Scénario 4 : Le Prompt Chaining en action",
+      "type": "markdown",
+      "content": "# Scénario 4 — Produire un Rapport Complet\n\n## Le problème\nUne équipe marketing veut un rapport complet sur un concurrent : analyse SWOT, positionnement, recommandations stratégiques. En un seul prompt, le résultat est superficiel.\n\n## La solution : Prompt Chaining\n\nOn décompose en 4 prompts séquentiels :\n\n### Prompt 1 — Collecte d'informations\n```\nListe les informations clés sur [Concurrent X] :\nproduits, prix, marchés cibles, présence digitale, avis clients.\n```\n→ **Sortie 1** : Fiche descriptive structurée\n\n### Prompt 2 — Analyse SWOT\n```\nÀ partir de la fiche suivante : [Sortie 1]\nRéalise une analyse SWOT complète. Sois factuel.\n```\n→ **Sortie 2** : Matrice SWOT détaillée\n\n### Prompt 3 — Positionnement comparatif\n```\nEn te basant sur cette SWOT : [Sortie 2]\nComment nous positionner par rapport à [Concurrent X] ?\nIdentifie 3 axes de différenciation.\n```\n→ **Sortie 3** : Axes de différenciation\n\n### Prompt 4 — Recommandations finales\n```\nSynthétise [Sorties 1, 2, 3] en un rapport exécutif de 2 pages\navec 5 recommandations actionnables, classées par priorité.\n```\n→ **Sortie finale** : Rapport complet, cohérent, de haute qualité\n\n---\n\n> **Leçon** : Chaque étape se concentre sur une seule tâche. La qualité de chaque étape nourrit la suivante. Le résultat final est infiniment plus riche qu'un prompt unique."
+    },
+    {
+      "id": "s9",
+      "title": "Quiz : Prompt Chaining",
+      "type": "quiz",
+      "question": "Quel est le principal avantage du Prompt Chaining sur un prompt unique très long ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il coûte moins cher en tokens",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Chaque étape peut être vérifiée et corrigée indépendamment, et chaque prompt est focalisé sur une seule tâche",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Il permet d'utiliser des modèles plus petits",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Il élimine le besoin de System Prompt",
+          "correct": false
+        }
+      ],
+      "explanation": "Le prompt chaining permet d'inspecter et valider chaque étape intermédiaire. Si une étape produit un résultat décevant, on peut la corriger sans tout recommencer. De plus, chaque prompt focalisé sur une tâche unique produit de meilleurs résultats qu'un super-prompt qui essaie de tout faire en une fois."
+    },
+    {
+      "id": "s10",
+      "title": "Scénario 5 : Quand le prompt engineering atteint ses limites",
+      "type": "markdown",
+      "content": "# Scénario 5 — Les Limites à Connaître\n\n## Limite 1 : La fenêtre de contexte\n\n**Situation** : Vous voulez analyser 500 contrats clients.\n\nLe prompt engineering ne peut pas traiter plus de texte que la fenêtre de contexte du modèle. Au-delà :\n- → **RAG** : indexer les contrats et interroger par chunks\n- → **Prompt Chaining** : traiter les contrats par lots\n\n## Limite 2 : La cohérence sur longues conversations\n\n**Situation** : Après 30 échanges, le chatbot oublie les instructions initiales ou dérive de son rôle.\n\nLe modèle ne \"mémorise\" pas vraiment — il traite la fenêtre de contexte disponible.\n- → **System Prompt robuste** + rappel périodique des instructions clés\n- → **Fine-Tuning** si le comportement doit être ancré profondément\n\n## Limite 3 : La spécialisation de domaine pointu\n\n**Situation** : Vous voulez un assistant qui maîtrise parfaitement votre jargon interne et vos processus très spécifiques.\n\nLe prompt engineering peut guider, mais ne peut pas remplacer une vraie connaissance profonde.\n- → **Fine-Tuning** sur vos données métier\n- → **RAG** avec votre documentation interne\n\n## La règle de décision\n\n```\nPrompt Engineering → Pour orienter le comportement et le style\nRAG → Pour les connaissances dynamiques et volumineuses\nFine-Tuning → Pour les comportements profonds et permanents\n```\n\n> Ce n'est pas une compétition — c'est une boîte à outils complémentaire."
+    },
+    {
+      "id": "s11",
+      "title": "Quiz : Choisir la bonne approche",
+      "type": "quiz",
+      "question": "Un hôpital veut un assistant qui comprend parfaitement son protocole médical interne de 800 pages et répond toujours en utilisant les termes exacts de ce protocole. Quelle combinaison est la plus adaptée ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Prompt Engineering seul avec le protocole dans le System Prompt",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "RAG pour accéder au protocole + Fine-Tuning pour ancrer le ton médical",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Fine-Tuning seul avec tout le protocole",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Prompt Chaining avec le protocole découpé en 10 parties",
+          "correct": false
+        }
+      ],
+      "explanation": "800 pages ne rentrent pas dans un System Prompt (limite de contexte). Le RAG permet d'interroger le protocole de façon ciblée. Le Fine-Tuning ancre le comportement (ton médical, format de réponse). La combinaison des deux est optimale pour ce cas d'usage critique."
+    },
+    {
+      "id": "s12",
+      "title": "Récapitulatif du Cours 3",
+      "type": "markdown",
+      "content": "# Ce que vous avez compris 🔗\n\n## Les grandes interactions\n\n1. **Rôle + Contexte** = expertise orientée vers votre situation spécifique\n2. **Few-Shot + CoT** = pattern appris + raisonnement explicite → précision maximale\n3. **Grounding + Format structuré** = fiabilité + intégrabilité dans des systèmes réels\n4. **Prompt Chaining** = tâches complexes décomposées en étapes vérifiables\n5. **Limites** = connaître les frontières du prompt engineering pour savoir quand appeler RAG ou Fine-Tuning\n\n## La carte de décision\n\n```\nBesoin de style / ton / comportement ? → Rôle + System Prompt\nBesoin de précision sur des données précises ? → Grounding\nBesoin de raisonnement fiable ? → Chain-of-Thought\nBesoin de cohérence de format ? → Structured Output\nTâche trop complexe pour un seul prompt ? → Prompt Chaining\nDonnées trop volumineuses ? → RAG\nComportement profond et permanent ? → Fine-Tuning\n```\n\n**Prochain cours →** Vous allez appliquer tout cela en pratique avec des templates réutilisables, des cas métier concrets, et une méthode pour améliorer vos prompts systématiquement."
+    }
+  ],
+  "createdAt": "2026-06-07"
+}

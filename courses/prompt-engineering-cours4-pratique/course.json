@@ -1,0 +1,185 @@
+{
+  "id": "prompt-engineering-cours4-pratique",
+  "title": "Prompt Engineering — Cours 4 : Pratique & Concrétisation",
+  "description": "Maîtriser une méthode pour créer, tester et améliorer ses prompts — avec des templates réutilisables pour les LLMs grand public et les cas d'usage développeurs.",
+  "tags": [
+    "prompt engineering",
+    "pratique",
+    "templates",
+    "méthode",
+    "cas d'usage"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction : De la théorie à la production",
+      "type": "markdown",
+      "content": "# Devenir un Prompt Engineer Opérationnel\n\nDans ce cours, vous allez acquérir une **méthode complète et reproductible** pour créer des prompts efficaces — que vous soyez en train d'utiliser ChatGPT dans votre navigateur ou d'intégrer un LLM dans une application professionnelle.\n\n---\n\n## Ce que vous allez apprendre\n\n1. 🔬 **La méthode RCTF** — un cadre pour structurer n'importe quel prompt\n2. 💼 **Cas d'usage grand public** — templates pour le quotidien professionnel\n3. ⚙️ **Cas d'usage développeur** — System Prompts, structured output, chaînage\n4. 🔁 **La boucle d'amélioration** — comment itérer méthodiquement sur ses prompts\n5. 📋 **La bibliothèque de templates** — vos prompts à réutiliser immédiatement\n\n---\n\n> **Note** : Tous les exemples fonctionnent avec ChatGPT, Claude, Gemini ou tout autre LLM grand public. Les sections développeur précisent les spécificités API."
+    },
+    {
+      "id": "s2",
+      "title": "La méthode RCTF",
+      "type": "markdown",
+      "content": "# La Méthode RCTF : Votre Cadre Universel\n\nTout prompt efficace peut être construit avec 4 blocs. Retenez l'acronyme **RCTF** :\n\n---\n\n## R — Rôle\n> Qui est le modèle dans cette interaction ?\n\n*\"Tu es un expert en communication de crise avec 20 ans d'expérience dans les grandes entreprises françaises.\"*\n\n**Pourquoi** : Le rôle calibre le registre, le niveau d'expertise et le point de vue.\n\n---\n\n## C — Contexte\n> Quelle est la situation ? Quelles sont les contraintes ?\n\n*\"Mon entreprise (PME de 50 personnes, secteur logistique) vient de subir une panne informatique majeure. Nos clients attendent des livraisons urgentes. Nous n'avons pas de service communication.\"*\n\n**Pourquoi** : Le contexte transforme une réponse générique en réponse adaptée.\n\n---\n\n## T — Tâche\n> Qu'est-ce qu'on demande exactement ?\n\n*\"Rédige un email d'excuse et d'explication à envoyer à nos clients. L'email doit être sincère, expliquer sans détails techniques, rassurer sur la résolution, et proposer une compensation.\"*\n\n**Pourquoi** : La tâche précise évite les suppositions.\n\n---\n\n## F — Format\n> Comment la réponse doit-elle être présentée ?\n\n*\"Email de 3 paragraphes maximum. Objet inclus. Ton professionnel mais humain. Pas de jargon technique.\"*\n\n**Pourquoi** : Le format garantit que la réponse est directement utilisable."
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : La méthode RCTF",
+      "type": "quiz",
+      "question": "Dans le prompt suivant, quel composant RCTF est absent ? — \"Rédige une fiche produit pour nos nouvelles chaussures de running, en mettant en avant la légèreté et le confort. Présente-la avec un titre, 3 arguments et un appel à l'action.\"",
+      "choices": [
+        {
+          "id": "a",
+          "text": "La Tâche (T) — on ne sait pas quoi faire",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le Format (F) — le format n'est pas précisé",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Le Rôle (R) et le Contexte (C) — qui écrit et pour quel public / quelle marque ?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Rien — ce prompt est complet",
+          "correct": false
+        }
+      ],
+      "explanation": "La Tâche et le Format sont clairs. Mais on ne sait pas qui 'parle' (un copywriter spécialisé sport ? lifestyle ?), ni pour quel public (runners amateurs, professionnels ?), ni quelle est la marque (premium, accessible ?). Ces absences vont produire une fiche générique sans personnalité."
+    },
+    {
+      "id": "s4",
+      "title": "Cas grand public : 5 templates essentiels",
+      "type": "markdown",
+      "content": "# 💼 Templates Grand Public — À Utiliser Immédiatement\n\n## Template 1 — Rédaction d'email professionnel\n```\nTu es un expert en communication professionnelle.\nContexte : [Décrire la situation et la relation avec le destinataire]\nTâche : Rédige un email pour [objectif de l'email].\nContraintes : [ton souhaité], [longueur max], [points à inclure obligatoirement].\nFormat : Inclure l'objet, respecter les conventions de l'email professionnel.\n```\n\n## Template 2 — Analyse et synthèse de document\n```\nTu es un analyste senior spécialisé en [domaine du document].\nVoici le document à analyser : [coller le texte]\nTâche : Produis une synthèse en 5 points clés, identifie les 2 risques principaux,\net formule 3 recommandations actionnables.\nPublic cible de la synthèse : [dirigeants / équipe technique / client...]\nFormat : Bullet points, langage [technique / accessible], maximum 400 mots.\n```\n\n## Template 3 — Brainstorming structuré\n```\nTu es un consultant en innovation créative.\nContexte : [Décrire le problème ou l'opportunité]\nTâche : Génère 10 idées originales pour [objectif].\nContraintes : [budget, délai, ressources disponibles]\nFormat : Pour chaque idée : titre (5 mots max), description (2 phrases), faisabilité (faible/moyenne/haute).\n```\n\n## Template 4 — Correction et amélioration de texte\n```\nTu es un éditeur professionnel spécialisé en [type de texte].\nVoici le texte original : [coller le texte]\nTâche : Corrige les erreurs, améliore la fluidité et l'impact, sans changer le sens.\nObjectif du texte : [informer / convaincre / vendre / expliquer]\nTon cible : [professionnel / chaleureux / technique / grand public]\nFormat : Présenter le texte corrigé, puis lister les 3 principaux changements effectués.\n```\n\n## Template 5 — Plan d'action\n```\nTu es un chef de projet expérimenté.\nContexte : [Décrire le projet, l'équipe, les ressources disponibles]\nObjectif : [Ce qu'on veut accomplir et pour quand]\nTâche : Crée un plan d'action détaillé.\nFormat : Tableau avec colonnes : Étape / Responsable / Délai / Livrable / Risque principal.\n```"
+    },
+    {
+      "id": "s5",
+      "title": "Vidéo : Techniques avancées de Prompt Engineering",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=dOxUroR57xs"
+    },
+    {
+      "id": "s6",
+      "title": "Cas développeur : System Prompt et API",
+      "type": "markdown",
+      "content": "# ⚙️ Templates Développeur — Intégration API\n\n## La structure d'un appel API bien conçu\n\nDans un contexte API, le prompt se divise en deux niveaux :\n\n```\n┌─────────────────────────────────────┐\n│  SYSTEM PROMPT                      │\n│  (invisible à l'utilisateur)        │\n│  • Rôle et comportement permanent   │\n│  • Règles et contraintes            │\n│  • Format de sortie attendu         │\n│  • Grounding (documents de base)    │\n└─────────────────────────────────────┘\n            ↓\n┌─────────────────────────────────────┐\n│  USER PROMPT                        │\n│  (message de l'utilisateur)         │\n│  • Question ou demande spécifique   │\n│  • Données variables                │\n└─────────────────────────────────────┘\n```\n\n## Template System Prompt — Assistant Métier\n```\nTu es [Nom de l'assistant], l'assistant IA de [Nom de l'entreprise].\n\nTon rôle : [Description précise du rôle]\n\nTu DOIS :\n- [Comportement 1]\n- [Comportement 2]\n- Répondre en [langue] uniquement\n- Structurer tes réponses en [format]\n\nTu NE DOIS PAS :\n- Répondre aux questions hors de [domaine]\n- Inventer des informations non présentes dans [source]\n- Mentionner d'autres produits ou concurrents\n\nSi une question dépasse ton périmètre, réponds exactement :\n\"Cette question dépasse mon domaine. Contactez [contact] pour assistance.\"\n\nBase de connaissances :\n[Insérer les documents ou données pertinents]\n```\n\n## Template Sortie Structurée (JSON)\n```\nAnalyse le texte suivant et retourne UNIQUEMENT un objet JSON valide.\nN'ajoute aucun texte avant ou après le JSON.\n\nStructure attendue :\n{\n  \"sentiment\": \"positif | négatif | neutre\",\n  \"score_confiance\": 0.0 à 1.0,\n  \"themes_principaux\": [\"theme1\", \"theme2\"],\n  \"action_requise\": true | false,\n  \"resumé\": \"Une phrase maximum\"\n}\n\nTexte à analyser : [TEXTE]\n```"
+    },
+    {
+      "id": "s7",
+      "title": "Quiz : System Prompt vs User Prompt",
+      "type": "quiz",
+      "question": "Dans une application où un assistant répond aux questions RH des employés, où devez-vous placer la règle 'Ne réponds qu'aux questions liées aux ressources humaines' ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Dans chaque User Prompt envoyé par l'employé",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Dans le System Prompt, défini une fois pour toute la session",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Dans une variable séparée passée avec chaque requête API",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Cette règle ne peut pas être imposée via le prompt",
+          "correct": false
+        }
+      ],
+      "explanation": "Le System Prompt est l'endroit exact pour les règles permanentes de comportement. L'utilisateur ne le voit pas et ne peut pas le modifier. L'inclure dans chaque User Prompt serait redondant et risquerait d'être contourné par un utilisateur malveillant."
+    },
+    {
+      "id": "s8",
+      "title": "La boucle d'amélioration",
+      "type": "markdown",
+      "content": "# 🔁 Améliorer ses Prompts Méthodiquement\n\nUn bon prompt se construit rarement du premier coup. Voici la méthode d'itération en 5 étapes :\n\n## Étape 1 — Écrire un premier prompt (v1)\nAppliquer RCTF. Ne pas chercher la perfection, juste être complet.\n\n## Étape 2 — Tester sur 3-5 cas\nPas sur un seul exemple — tester sur des cas variés :\n- Un cas typique\n- Un cas limite (question ambiguë)\n- Un cas adversarial (tentative de faire dériver le modèle)\n\n## Étape 3 — Diagnostiquer les échecs\nQuand la réponse est décevante, se demander :\n\n| Symptôme | Cause probable | Solution |\n|---|---|---|\n| Réponse trop générique | Contexte insuffisant | Enrichir le C de RCTF |\n| Mauvais format | Format non spécifié | Ajouter le F de RCTF |\n| Réponse trop longue | Longueur non contrainte | Ajouter \"maximum X mots\" |\n| Modèle invente des faits | Pas de grounding | Ajouter les sources dans le prompt |\n| Réponse hors sujet | Rôle trop vague | Préciser le R de RCTF |\n| Mauvais raisonnement | Pas de CoT | Ajouter \"réfléchis étape par étape\" |\n\n## Étape 4 — Corriger un problème à la fois\nNe jamais modifier plusieurs éléments simultanément. Sinon impossible de savoir ce qui a fonctionné.\n\n## Étape 5 — Documenter et versionner\nConserver chaque version avec sa note de performance :\n```\nprompt_v1.txt — résultat : 6/10, problème : format trop long\nprompt_v2.txt — résultat : 7/10, problème : manque grounding\nprompt_v3.txt — résultat : 9/10 ✅\n```"
+    },
+    {
+      "id": "s9",
+      "title": "Quiz : Diagnostic d'un prompt",
+      "type": "quiz",
+      "question": "Votre prompt demande de résumer un article, mais le modèle produit systématiquement des résumés de 600 mots alors que vous en voulez 150 maximum. Quelle est la correction à apporter ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Changer le rôle assigné au modèle",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Ajouter une contrainte de longueur explicite : 'Maximum 150 mots'",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Utiliser le Chain-of-Thought pour forcer plus de concision",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Réduire la temperature du modèle",
+          "correct": false
+        }
+      ],
+      "explanation": "Un modèle produit des réponses longues parce qu'aucune contrainte de longueur n'est spécifiée. La solution directe est d'ajouter 'Maximum 150 mots' dans le format. Le modèle respecte généralement très bien les contraintes de longueur explicites."
+    },
+    {
+      "id": "s10",
+      "title": "Le prompt parfait : exemple complet",
+      "type": "markdown",
+      "content": "# Exemple Complet : Du Naïf à l'Expert\n\n## Cas : Préparer une réunion client\n\n### Version naïve ❌\n```\nAide-moi à préparer ma réunion de demain.\n```\nRésultat : Conseils génériques, inutilisables directement.\n\n---\n\n### Version RCTF complète ✅\n\n```\n[RÔLE]\nTu es un consultant senior en développement commercial\nspécialisé dans la vente B2B de solutions SaaS.\n\n[CONTEXTE]\nJe suis account manager chez une startup EdTech.\nDemain, je rencontre le DSI d'une école de 2000 élèves\nqui utilise actuellement un logiciel concurrent (SchoolPro).\nObjectif : lui présenter notre solution de gestion pédagogique.\nPoint clé : le client a exprimé une inquiétude sur la migration\nde ses données existantes.\n\n[TÂCHE]\nPrépare-moi :\n1. Les 3 questions d'ouverture pour établir le rapport\n2. Les 5 objections probables et les meilleures réponses\n3. Les 3 arguments différenciants vs SchoolPro\n4. La question de closing idéale pour cette réunion\n\n[FORMAT]\nPrésente chaque section clairement séparée.\nTon : professionnel et direct.\nPour les objections, utilise le format :\nObjection → Réponse suggérée → Argument de renforcement.\n```\n\n---\n\n> **Ce prompt prend 2 minutes à écrire et économise 30 minutes de préparation.**\n\nC'est la promesse concrète du prompt engineering maîtrisé."
+    },
+    {
+      "id": "s11",
+      "title": "Vidéo : Prompt Engineering avancé pour les professionnels",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=jC4v5AS4RIM"
+    },
+    {
+      "id": "s12",
+      "title": "Quiz : Prompt complet",
+      "type": "quiz",
+      "question": "Dans le prompt de préparation de réunion, pourquoi préciser que le client 'utilise actuellement SchoolPro' et 'a exprimé une inquiétude sur la migration' ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pour que le modèle puisse rechercher des informations sur SchoolPro sur internet",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Ce sont des détails inutiles qui alourdissent le prompt",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Ce contexte permet au modèle de générer des arguments différenciants pertinents et d'anticiper les vraies objections du client",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Pour augmenter le nombre de tokens et améliorer la qualité",
+          "correct": false
+        }
+      ],
+      "explanation": "Ces détails contextuels transforment une réponse générique en réponse utile. Sans savoir que le client utilise SchoolPro, le modèle ne peut pas proposer de comparaison pertinente. Sans l'inquiétude sur la migration, il ne préparera pas l'objection la plus probable. Le contexte précis = la réponse précise."
+    },
+    {
+      "id": "s13",
+      "title": "Récapitulatif final",
+      "type": "markdown",
+      "content": "# Vous Êtes Maintenant un Prompt Engineer Opérationnel 🚀\n\n## Votre boîte à outils complète\n\n| Outil | Quand l'utiliser |\n|---|---|\n| **Méthode RCTF** | Toujours — cadre de base pour tout prompt |\n| **Rôle / Persona** | Quand vous avez besoin d'expertise ou d'un ton spécifique |\n| **Few-Shot** | Quand vous avez un format ou pattern précis à reproduire |\n| **Chain-of-Thought** | Pour les problèmes complexes ou le raisonnement multi-étapes |\n| **Grounding** | Pour éviter les hallucinations sur des données précises |\n| **Structured Output** | Pour intégrer la réponse dans un système automatisé |\n| **Prompt Chaining** | Pour les tâches complexes à décomposer |\n| **System Prompt** | Pour les comportements permanents d'un assistant |\n| **Boucle d'amélioration** | Pour itérer méthodiquement sur ses prompts |\n\n## Les 5 règles d'or\n\n1. ✅ **Toujours appliquer RCTF** — Rôle, Contexte, Tâche, Format\n2. ✅ **Tester sur plusieurs cas** — pas seulement le cas idéal\n3. ✅ **Corriger un élément à la fois** — pour savoir ce qui fonctionne\n4. ✅ **Documenter vos prompts** — créez votre bibliothèque réutilisable\n5. ✅ **Connaître les limites** — savoir quand passer au RAG ou au Fine-Tuning\n\n## La question à toujours se poser\n\n> *\"Ai-je donné au modèle TOUT ce dont il a besoin pour répondre exactement comme je le veux ?\"*\n\n---\n\n🎓 **Félicitations — vous avez terminé la formation Prompt Engineering !**\n\nCombinez maintenant ces compétences avec vos connaissances en Fine-Tuning pour devenir un expert complet de l'adaptation des LLMs."
+    }
+  ],
+  "createdAt": "2026-06-07"
+}

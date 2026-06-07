@@ -1,0 +1,150 @@
+{
+  "id": "prompt-engineering-cours1-fondements",
+  "title": "Prompt Engineering — Cours 1 : Fondements & Philosophie",
+  "description": "Comprendre ce qu'est le prompt engineering, pourquoi il existe, et comment penser la communication avec un LLM grâce à des métaphores et analogies.",
+  "tags": [
+    "prompt engineering",
+    "LLM",
+    "IA",
+    "fondements",
+    "communication"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction : Parler à une IA, ça s'apprend",
+      "type": "markdown",
+      "content": "# Pourquoi le Prompt Engineering existe-t-il ?\n\nVous avez déjà posé une question à ChatGPT ou Claude et reçu une réponse décevante, trop vague, ou complètement à côté ?\n\nPuis vous avez reformulé différemment — et la réponse était parfaite.\n\n> **Ce que vous avez fait sans le savoir, c'est du prompt engineering.**\n\n## La définition simple\n\nLe **prompt engineering** est l'art de formuler des instructions à un modèle de langage pour obtenir exactement le résultat souhaité.\n\nCe n'est pas de la programmation. Ce n'est pas de la magie. C'est une **compétence de communication** — apprise, structurée, et reproductible.\n\n---\n\n## Pourquoi c'est devenu une discipline à part entière ?\n\nLes LLMs sont des systèmes statistiques extraordinairement puissants, mais ils répondent à ce qu'on leur dit **littéralement**. La façon dont vous formulez votre demande influence radicalement la qualité de la réponse.\n\nUne étude de 2023 a montré que reformuler la même question avec de meilleures instructions peut améliorer la précision d'un modèle de **30 à 50%** — sans changer le modèle."
+    },
+    {
+      "id": "s2",
+      "title": "La métaphore du nouveau collaborateur",
+      "type": "markdown",
+      "content": "# Le LLM comme un Collaborateur Brillant mais Littéral\n\nImaginez que vous recrutez un collaborateur avec une mémoire encyclopédique, disponible 24h/24, et capable de travailler sur n'importe quel sujet.\n\nMais ce collaborateur a une particularité :\n\n> **Il fait exactement ce que vous lui dites — ni plus, ni moins.**\n\n## Les conséquences de cette particularité\n\n### Si vous dites : *\"Résume ce texte\"*\nIl résume. Mais en combien de mots ? Dans quel style ? Pour quel public ? Il devine — et devine parfois mal.\n\n### Si vous dites : *\"Résume ce texte en 5 points clés, en langage accessible pour un manager non-technique, en insistant sur les implications financières\"*\nIl produit exactement ce dont vous avez besoin.\n\n---\n\n## La différence fondamentale\n\n| Instruction vague | Instruction précise |\n|---|---|\n| Écris un email | Écris un email de relance, ton professionnel mais chaleureux, 3 paragraphes max, pour un client qui n'a pas répondu depuis 2 semaines |\n| Explique le machine learning | Explique le machine learning à un lycéen de 16 ans sans bagage scientifique, en utilisant une analogie sportive |\n| Traduis ce texte | Traduis ce texte en anglais britannique formel, en conservant les termes techniques en français |\n\nLa précision de votre instruction = la qualité de la réponse."
+    },
+    {
+      "id": "s3",
+      "title": "Vidéo : Introduction au Prompt Engineering",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=_ZvnD73m40o"
+    },
+    {
+      "id": "s4",
+      "title": "La philosophie : le modèle est un miroir",
+      "type": "markdown",
+      "content": "# Le Modèle Reflète la Qualité de Votre Demande\n\nVoici la vérité fondamentale du prompt engineering :\n\n> **Un LLM ne peut pas produire une réponse meilleure que la question qu'on lui pose.**\n\n## La métaphore du miroir déformant\n\nUn LLM est comme un miroir très sophistiqué. Il vous renvoie une image amplifiée de ce que vous lui montrez :\n- Vous lui donnez une question floue → il vous renvoie une réponse floue, mais élaborée\n- Vous lui donnez un contexte riche et précis → il vous renvoie une réponse riche et précise\n\n## Les 3 niveaux de qualité d'un prompt\n\n### Niveau 1 — Le prompt naïf\n*\"Aide-moi avec mon CV\"*\nLe modèle suppose, généralise, produit du générique.\n\n### Niveau 2 — Le prompt structuré\n*\"Améliore mon CV pour un poste de chef de projet dans une startup tech. Voici mon CV actuel : [...]\"*\nLe modèle a du contexte, produit quelque chose d'utile.\n\n### Niveau 3 — Le prompt expert\n*\"Tu es un recruteur senior avec 15 ans d'expérience dans les startups tech. Analyse mon CV ci-dessous pour un poste de chef de projet. Identifie les 3 points forts à mettre en avant, les 2 faiblesses à corriger, et propose une reformulation du titre de poste actuel. Ton : direct et constructif. CV : [...]\"*\nLe modèle produit une analyse précise, actionnables et différenciée.\n\n---\n\n> **La progression d'un prompt engineer, c'est apprendre à passer systématiquement du niveau 1 au niveau 3.**"
+    },
+    {
+      "id": "s5",
+      "title": "Quiz : La philosophie du prompt",
+      "type": "quiz",
+      "question": "Selon la philosophie fondamentale du prompt engineering, que se passe-t-il quand on donne une instruction vague à un LLM ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le modèle demande des précisions avant de répondre",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le modèle suppose et généralise, produisant une réponse floue ou générique",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Le modèle refuse de répondre faute d'informations",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le modèle recherche des informations supplémentaires sur internet",
+          "correct": false
+        }
+      ],
+      "explanation": "Un LLM ne demande pas de clarification par défaut — il complète le texte de la façon la plus probable. Face à une instruction vague, il suppose ce que vous voulez dire et produit une réponse générique. C'est pourquoi la précision du prompt est si importante."
+    },
+    {
+      "id": "s6",
+      "title": "Contexte historique : comment en est-on arrivé là ?",
+      "type": "markdown",
+      "content": "# L'Émergence du Prompt Engineering\n\n## 2017 — L'architecture Transformer\nLa publication du papier *\"Attention Is All You Need\"* par Google pose les bases des LLMs modernes. Les modèles commencent à comprendre le contexte de façon bien plus sophistiquée.\n\n## 2020 — GPT-3 et la révélation\nOpenAI publie GPT-3 (175 milliards de paramètres). Les chercheurs découvrent quelque chose d'inattendu : la façon de formuler les questions influence massivement les résultats. Le terme *\"prompt engineering\"* commence à circuler.\n\n## 2022 — ChatGPT démocratise tout\nAvec l'interface conversationnelle de ChatGPT, des millions de personnes interagissent avec des LLMs. Les différences de qualité entre bonnes et mauvaises formulations deviennent évidentes pour le grand public.\n\n## 2023-2024 — Une discipline académique et professionnelle\n- Des rôles de *\"Prompt Engineer\"* apparaissent dans les offres d'emploi\n- Des papiers de recherche publient des techniques systématiques (Chain-of-Thought, Few-Shot…)\n- Des salaires de 200 000$/an sont proposés pour les meilleurs spécialistes\n\n## Aujourd'hui\nLe prompt engineering est une compétence transversale attendue dans de nombreux métiers : marketing, juridique, médical, développement, RH, finance…\n\n> Ce n'est plus une curiosité technique — c'est une **compétence professionnelle fondamentale**."
+    },
+    {
+      "id": "s7",
+      "title": "Prompt Engineering vs Fine-Tuning vs RAG",
+      "type": "markdown",
+      "content": "# Situer le Prompt Engineering dans l'écosystème IA\n\nTrois grandes approches pour adapter un LLM à vos besoins :\n\n## Le Prompt Engineering\n> On guide le modèle à chaque interaction via des instructions dans le texte.\n\n✅ Instantané, sans coût d'infrastructure, accessible à tous\n✅ Modifiable en temps réel\n❌ Le modèle peut \"dériver\" sur de longues conversations\n❌ Limité par la fenêtre de contexte\n\n## Le RAG (Retrieval-Augmented Generation)\n> On connecte le modèle à une base de données externe consultée dynamiquement.\n\n✅ Idéal pour des données récentes ou volumineuses\n❌ Infrastructure plus complexe\n\n## Le Fine-Tuning\n> On ré-entraîne le modèle sur des données spécifiques pour modifier son comportement en profondeur.\n\n✅ Comportement ancré et cohérent\n❌ Coûteux, long, nécessite des données\n\n---\n\n## La règle de priorité\n\n```\nD'abord → Essayez le Prompt Engineering\nSi insuffisant → Ajoutez du RAG\nSi toujours insuffisant → Envisagez le Fine-Tuning\n```\n\n> Le prompt engineering est toujours la **première étape** avant d'investir dans des solutions plus lourdes."
+    },
+    {
+      "id": "s8",
+      "title": "Quiz : Positionnement du Prompt Engineering",
+      "type": "quiz",
+      "question": "Une équipe veut que son assistant IA ait accès aux données internes de l'entreprise mises à jour chaque semaine. Quelle est la meilleure approche ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Fine-Tuning toutes les semaines avec les nouvelles données",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Prompt Engineering avec les données collées dans le prompt",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "RAG connecté à la base de données interne",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Créer un nouveau modèle chaque semaine",
+          "correct": false
+        }
+      ],
+      "explanation": "Des données dynamiques et régulièrement mises à jour sont le cas d'usage parfait du RAG. Le fine-tuning serait trop coûteux à relancer chaque semaine, et coller les données dans le prompt atteindrait rapidement les limites de contexte."
+    },
+    {
+      "id": "s9",
+      "title": "Les 4 composants d'un bon prompt",
+      "type": "markdown",
+      "content": "# La Recette d'un Prompt Efficace\n\nTout prompt de qualité contient tout ou partie de ces 4 composants :\n\n## 1. Le Rôle (Persona)\n> Qui est le modèle dans cette interaction ?\n\n*\"Tu es un expert en droit du travail français avec 20 ans d'expérience...\"*\n\nDéfinir un rôle ancre le registre, le niveau d'expertise, et le ton attendus.\n\n## 2. Le Contexte\n> Quelle est la situation ? Quelles sont les contraintes ?\n\n*\"Je rédige une proposition pour un client PME du secteur agroalimentaire, budget serré, décision attendue dans 48h...\"*\n\nPlus le contexte est riche, plus la réponse sera pertinente.\n\n## 3. La Tâche\n> Qu'est-ce qu'on demande exactement ?\n\n*\"Rédige un email de 3 paragraphes maximum, avec un objet accrocheur, en mettant en avant les économies réalisables...\"*\n\nSoyez précis sur le format, la longueur, et l'objectif.\n\n## 4. Le Format de sortie\n> Comment la réponse doit-elle être présentée ?\n\n*\"Réponds sous forme de tableau avec 3 colonnes : Avantage / Inconvénient / Impact estimé\"*\n\nSpécifier le format évite les réponses en prose quand vous voulez une liste, ou vice versa.\n\n---\n\n> **Ces 4 composants sont votre boîte à outils de base. Vous les retrouverez dans toutes les techniques avancées.**"
+    },
+    {
+      "id": "s10",
+      "title": "Quiz : Les composants d'un prompt",
+      "type": "quiz",
+      "question": "Dans le prompt suivant, quel composant manque ? — \"Tu es un expert en nutrition. Analyse ce menu et dis-moi s'il est équilibré.\"",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le Rôle — il faudrait préciser qui est le modèle",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La Tâche — l'action demandée n'est pas assez claire",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Le Contexte et le Format de sortie — on ne sait pas pour qui, ni comment présenter la réponse",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Rien — ce prompt est complet",
+          "correct": false
+        }
+      ],
+      "explanation": "Le rôle est défini (expert en nutrition) et la tâche est claire (analyser le menu). Mais il manque le contexte (pour qui ? enfant, sportif, personne âgée ?) et le format de sortie (tableau, liste, paragraphe ?). Ces informations manquantes vont conduire le modèle à faire des suppositions."
+    },
+    {
+      "id": "s11",
+      "title": "Récapitulatif du Cours 1",
+      "type": "markdown",
+      "content": "# Ce que vous avez appris 🎓\n\n## Les idées clés\n\n1. **Le prompt engineering** = l'art de formuler des instructions précises pour obtenir des résultats fiables d'un LLM\n2. **Métaphore du collaborateur littéral** : le modèle fait exactement ce qu'on lui dit — ni plus, ni moins\n3. **Métaphore du miroir** : la qualité de la réponse reflète la qualité de la question\n4. **Histoire** : né avec GPT-3, devenu discipline professionnelle dès 2022\n5. **Hiérarchie** : Prompt Engineering d'abord → RAG si besoin → Fine-Tuning en dernier recours\n6. **4 composants** : Rôle, Contexte, Tâche, Format\n\n## La question à retenir\n\n> *Ai-je donné au modèle tout ce dont il a besoin pour répondre exactement comme je le veux ?*\n\nSi la réponse est non → enrichissez votre prompt.\n\n---\n\n**Prochain cours →** Vous allez maîtriser tout le vocabulaire spécifique du prompt engineering pour lire les ressources avancées et communiquer avec les équipes IA."
+    }
+  ],
+  "createdAt": "2026-06-07"
+}

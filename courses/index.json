@@ -338,5 +338,76 @@
     ],
     "createdAt": "2026-06-06",
     "slideCount": 4
+  },
+  {
+    "id": "prompt-engineering-cours1-fondements",
+    "title": "Prompt Engineering — Cours 1 : Fondements & Philosophie",
+    "description": "Comprendre ce qu'est le prompt engineering, pourquoi il existe, et comment penser la communication avec un LLM grâce à des métaphores et analogies.",
+    "tags": [
+      "prompt engineering",
+      "LLM",
+      "IA",
+      "fondements",
+      "communication"
+    ],
+    "createdAt": "2026-06-07",
+    "slideCount": 11
+  },
+  {
+    "id": "prompt-engineering-cours2-vocabulaire",
+    "title": "Prompt Engineering — Cours 2 : Vocabulaire & Concepts Clés",
+    "description": "Maîtriser tous les termes essentiels du prompt engineering pour lire, comprendre et utiliser les techniques avancées.",
+    "tags": [
+      "prompt engineering",
+      "vocabulaire",
+      "LLM",
+      "glossaire",
+      "techniques"
+    ],
+    "createdAt": "2026-06-07",
+    "slideCount": 12
+  },
+  {
+    "id": "prompt-engineering-cours3-interactions",
+    "title": "Prompt Engineering — Cours 3 : Interactions & Scénarios",
+    "description": "Comprendre comment les techniques de prompt engineering s'articulent entre elles à travers des cas concrets et des scénarios réels.",
+    "tags": [
+      "prompt engineering",
+      "scénarios",
+      "LLM",
+      "interactions",
+      "cas d'usage"
+    ],
+    "createdAt": "2026-06-07",
+    "slideCount": 12
+  },
+  {
+    "id": "prompt-engineering-cours4-pratique",
+    "title": "Prompt Engineering — Cours 4 : Pratique & Concrétisation",
+    "description": "Maîtriser une méthode pour créer, tester et améliorer ses prompts — avec des templates réutilisables pour les LLMs grand public et les cas d'usage développeurs.",
+    "tags": [
+      "prompt engineering",
+      "pratique",
+      "templates",
+      "méthode",
+      "cas d'usage"
+    ],
+    "createdAt": "2026-06-07",
+    "slideCount": 13
+  },
+  {
+    "id": "seerah-quraysh-001",
+    "title": "السيرة النبوية — قريش في مواجهة الإسلام",
+    "description": "فهم لماذا كانت دعوة النبي ﷺ تمثّل ثورةً سياسيةً واقتصاديةً وروحيةً في نظر قريش، وكيف واجهوها.",
+    "tags": [
+      "السيرة النبوية",
+      "الإسلام",
+      "التاريخ",
+      "قريش",
+      "التوحيد",
+      "مكة المكرمة"
+    ],
+    "createdAt": "2026-06-07",
+    "slideCount": 12
   }
 ]

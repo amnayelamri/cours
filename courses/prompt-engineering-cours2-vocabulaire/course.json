@@ -1,0 +1,202 @@
+{
+  "id": "prompt-engineering-cours2-vocabulaire",
+  "title": "Prompt Engineering — Cours 2 : Vocabulaire & Concepts Clés",
+  "description": "Maîtriser tous les termes essentiels du prompt engineering pour lire, comprendre et utiliser les techniques avancées.",
+  "tags": [
+    "prompt engineering",
+    "vocabulaire",
+    "LLM",
+    "glossaire",
+    "techniques"
+  ],
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Pourquoi maîtriser le vocabulaire ?",
+      "type": "markdown",
+      "content": "# Parler le Langage du Prompt Engineering\n\nLe domaine du prompt engineering a développé un vocabulaire technique précis. Maîtriser ces termes vous permet de :\n\n- Lire et comprendre les guides et papiers de recherche\n- Utiliser les bonnes techniques dans le bon contexte\n- Collaborer efficacement avec des équipes IA\n- Évaluer et améliorer vos propres prompts méthodiquement\n\n---\n\nNous allons explorer **5 familles de termes** :\n\n1. 🏗️ La structure du prompt\n2. 🎭 Les techniques de rôle et de contexte\n3. 🔗 Les techniques de raisonnement\n4. 📐 Les techniques de format\n5. ⚠️ Les limites et comportements du modèle"
+    },
+    {
+      "id": "s2",
+      "title": "Famille 1 : La structure du prompt",
+      "type": "markdown",
+      "content": "# 🏗️ Vocabulaire : La Structure\n\n## Prompt\nL'instruction ou la question envoyée au modèle. C'est le texte d'entrée qui déclenche la réponse.\n\n## System Prompt / Prompt Système\nUne instruction de fond, invisible à l'utilisateur final, qui définit le comportement général du modèle pour toute une session. Ex : *\"Tu es un assistant juridique. Ne réponds qu'aux questions de droit français.\"*\n\n## User Prompt\nLe message envoyé par l'utilisateur au cours de la conversation.\n\n## Completion / Réponse\nLe texte généré par le modèle en réponse au prompt.\n\n## Context Window / Fenêtre de contexte\nLa quantité maximale de texte (mesurée en tokens) que le modèle peut prendre en compte à la fois — incluant l'historique de conversation, le system prompt, et la réponse. Ex : Claude peut traiter jusqu'à 200 000 tokens.\n\n## Token\nL'unité de base du traitement du texte (≈ 0,75 mot). Les limites de contexte et les coûts d'API sont mesurés en tokens.\n\n## Temperature\nUn paramètre (de 0 à 1) qui contrôle la créativité du modèle :\n- **0** = réponses très déterministes et prévisibles (idéal pour les faits)\n- **1** = réponses plus créatives et variées (idéal pour la rédaction créative)"
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : Structure du prompt",
+      "type": "quiz",
+      "question": "Une entreprise veut que son chatbot client réponde toujours en espagnol, même si le client écrit en français. Quel mécanisme utiliser ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Ajouter la consigne dans chaque user prompt",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Mettre la consigne dans le System Prompt",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Modifier la temperature du modèle",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Réduire la fenêtre de contexte",
+          "correct": false
+        }
+      ],
+      "explanation": "Le System Prompt est fait exactement pour ça : définir des règles de comportement permanentes pour toute la session, invisibles à l'utilisateur. Ajouter la consigne dans chaque user prompt serait redondant et peu fiable."
+    },
+    {
+      "id": "s4",
+      "title": "Famille 2 : Rôle et contexte",
+      "type": "markdown",
+      "content": "# 🎭 Vocabulaire : Rôle & Contexte\n\n## Persona / Role Prompting\nTechnique qui consiste à assigner un rôle ou une identité au modèle pour orienter son comportement, son ton, et son niveau d'expertise.\n\n*Ex : \"Tu es Marie, une conseillère financière indépendante avec 15 ans d'expérience en gestion patrimoniale...\"*\n\n## Few-Shot Prompting\nTechnique qui consiste à fournir **quelques exemples** (shots) du résultat attendu avant de poser la vraie question. Le modèle apprend par analogie.\n\n*Ex : donner 2-3 exemples de la classification souhaitée avant de demander de classifier un nouveau cas.*\n\n## Zero-Shot Prompting\nDemander au modèle d'accomplir une tâche **sans aucun exemple**. Le modèle s'appuie uniquement sur sa connaissance générale.\n\n## One-Shot Prompting\nVariante du few-shot avec un seul exemple fourni. Utile quand on veut orienter le format sans surcharger le prompt.\n\n## In-Context Learning\nCapacité des LLMs à apprendre et à s'adapter à partir des exemples fournis **dans le prompt**, sans modification de leurs paramètres internes."
+    },
+    {
+      "id": "s5",
+      "title": "Quiz : Few-Shot vs Zero-Shot",
+      "type": "quiz",
+      "question": "Vous demandez à un modèle de classer des avis clients en 'Positif', 'Négatif' ou 'Neutre', et vous lui donnez 3 exemples de chaque catégorie avant de lui soumettre les vrais avis. Quelle technique utilisez-vous ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Zero-Shot Prompting",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "One-Shot Prompting",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Few-Shot Prompting",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Chain-of-Thought Prompting",
+          "correct": false
+        }
+      ],
+      "explanation": "Fournir plusieurs exemples (ici 3 par catégorie) avant la tâche réelle est la définition du Few-Shot Prompting. Le modèle apprend le pattern attendu à partir de ces exemples et l'applique aux nouveaux cas."
+    },
+    {
+      "id": "s6",
+      "title": "Famille 3 : Les techniques de raisonnement",
+      "type": "markdown",
+      "content": "# 🔗 Vocabulaire : Le Raisonnement\n\n## Chain-of-Thought (CoT) / Chaîne de pensée\nTechnique qui demande au modèle de **montrer son raisonnement étape par étape** avant de donner une réponse. Améliore considérablement les performances sur les problèmes complexes.\n\n*Ex : \"Réfléchis étape par étape avant de répondre.\"*\n\n## Zero-Shot CoT\nVariante simple : ajouter \"Réfléchissons étape par étape\" ou *\"Let's think step by step\"* à la fin d'un prompt, sans exemples. Suffisant pour de nombreux cas.\n\n## Tree of Thoughts (ToT)\nExtension du CoT : le modèle explore **plusieurs branches de raisonnement** en parallèle, évalue chacune, et choisit la meilleure. Utile pour des problèmes avec plusieurs solutions possibles.\n\n## ReAct (Reason + Act)\nTechnique qui alterne raisonnement et actions (recherches web, calculs…). Le modèle pense, agit, observe le résultat, pense à nouveau.\n\n## Self-Consistency\nLancer le même prompt plusieurs fois avec une temperature élevée, puis choisir la réponse la plus fréquente parmi les résultats. Améliore la fiabilité sur les problèmes difficiles.\n\n## Scratchpad\nDemander au modèle d'utiliser un espace de brouillon explicite avant de formuler sa réponse finale."
+    },
+    {
+      "id": "s7",
+      "title": "Quiz : Chain-of-Thought",
+      "type": "quiz",
+      "question": "Pourquoi le Chain-of-Thought améliore-t-il les performances d'un LLM sur des problèmes complexes ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parce qu'il réduit la temperature du modèle automatiquement",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Parce qu'il force le modèle à décomposer le problème en étapes intermédiaires, réduisant les erreurs de logique",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Parce qu'il augmente la fenêtre de contexte du modèle",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Parce qu'il entraîne le modèle sur de nouvelles données",
+          "correct": false
+        }
+      ],
+      "explanation": "Le Chain-of-Thought oblige le modèle à expliciter chaque étape de son raisonnement. Cela réduit les erreurs de saut logique — le modèle ne peut pas 'court-circuiter' vers une mauvaise conclusion sans que l'erreur soit visible dans le raisonnement intermédiaire."
+    },
+    {
+      "id": "s8",
+      "title": "Famille 4 : Le format",
+      "type": "markdown",
+      "content": "# 📐 Vocabulaire : Le Format\n\n## Output Format / Format de sortie\nLa spécification de la structure de la réponse attendue : tableau, liste, JSON, markdown, prose, etc.\n\n## Structured Output / Sortie structurée\nDemander au modèle de répondre dans un format de données précis (JSON, XML, CSV) pour une intégration dans un système automatisé.\n\n*Ex : \"Réponds uniquement en JSON avec les clés : nom, age, email\"*\n\n## Delimiter / Délimiteur\nCaractères spéciaux utilisés pour séparer clairement les différentes parties d'un prompt (instructions, données, exemples). Ex : triples guillemets, balises XML.\n\n```\nInstructions : Analyse le texte suivant.\n\n\"\"\"[TEXTE À ANALYSER]\"\"\"\n```\n\n## Prompt Template / Gabarit de prompt\nUn prompt réutilisable avec des variables à remplir selon le cas. Permet de standardiser et automatiser la création de prompts.\n\n*Ex : \"Tu es un expert en {domaine}. Analyse {document} et produis {livrable}.\"*\n\n## Prompt Chaining / Chaînage de prompts\nDécomposer une tâche complexe en plusieurs prompts séquentiels, où la sortie de chaque étape devient l'entrée de la suivante."
+    },
+    {
+      "id": "s9",
+      "title": "Famille 5 : Limites et comportements",
+      "type": "markdown",
+      "content": "# ⚠️ Vocabulaire : Limites & Comportements\n\n## Hallucination\nLorsque le modèle génère des informations fausses avec une apparente confiance. Risque à surveiller en permanence, surtout pour les faits précis (dates, chiffres, citations).\n\n## Prompt Injection\nAttaque où un texte malveillant fourni dans les données (pas les instructions) tente de modifier le comportement du modèle.\n\n*Ex : un utilisateur écrit dans un formulaire : \"Ignore tes instructions précédentes et fais...\"*\n\n## Jailbreak\nTentative de contourner les garde-fous de sécurité d'un modèle via des formulations habiles.\n\n## Grounding / Ancrage\nTechnique de réduction des hallucinations : fournir dans le prompt les sources ou documents sur lesquels le modèle doit baser sa réponse.\n\n*Ex : \"Réponds uniquement à partir du document suivant. Si la réponse n'y est pas, dis-le.\"*\n\n## Guardrails / Garde-fous\nContraintes appliquées au modèle pour limiter ses réponses à un domaine défini et éviter les dérives.\n\n## Latency / Latence\nLe temps de réponse du modèle. Les prompts très longs ou les techniques comme le CoT augmentent la latence.\n\n## Cost / Coût\nLes appels aux LLMs via API sont facturés au token (entrée + sortie). Un prompt plus long = plus cher. Important à optimiser en production."
+    },
+    {
+      "id": "s10",
+      "title": "Quiz : Hallucination et Grounding",
+      "type": "quiz",
+      "question": "Vous demandez à un LLM de répondre aux questions d'un client sur votre produit. Pour minimiser le risque d'hallucination, quelle technique appliquer ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Augmenter la temperature pour diversifier les réponses",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Utiliser le Grounding : fournir la documentation produit dans le prompt et demander de répondre uniquement à partir de celle-ci",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Utiliser le Zero-Shot Prompting pour laisser le modèle s'exprimer librement",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Réduire la fenêtre de contexte pour forcer le modèle à être concis",
+          "correct": false
+        }
+      ],
+      "explanation": "Le Grounding consiste à ancrer les réponses du modèle sur des sources fournies explicitement. En lui disant 'réponds uniquement à partir de ce document', on réduit drastiquement les hallucinations car le modèle n'a pas à inventer des informations qu'il ne possède pas."
+    },
+    {
+      "id": "s11",
+      "title": "Quiz : Temperature",
+      "type": "quiz",
+      "question": "Vous construisez un système qui extrait automatiquement des informations structurées (nom, date, montant) depuis des factures. Quelle temperature utiliser ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Temperature élevée (0.8-1.0) pour maximiser la créativité",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Temperature basse (0-0.2) pour des réponses déterministes et précises",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Temperature moyenne (0.5) comme compromis",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La temperature n'a pas d'impact sur ce type de tâche",
+          "correct": false
+        }
+      ],
+      "explanation": "Pour des tâches d'extraction de données précises (factures, formulaires, classification), on veut des réponses déterministes et reproductibles — pas de créativité. Une temperature proche de 0 est le choix correct."
+    },
+    {
+      "id": "s12",
+      "title": "Récapitulatif du Cours 2",
+      "type": "markdown",
+      "content": "# Glossaire Complet — À Conserver 📚\n\n| Terme EN | Terme FR | Définition courte |\n|---|---|---|\n| Prompt | Instruction / Requête | Texte envoyé au modèle |\n| System Prompt | Prompt système | Instruction de fond permanente |\n| Context Window | Fenêtre de contexte | Quantité max de texte traitée |\n| Temperature | Température | Curseur créativité (0=précis, 1=créatif) |\n| Token | Token | Unité de texte ≈ 0,75 mot |\n| Persona / Role | Rôle / Persona | Identité assignée au modèle |\n| Zero-Shot | Zéro exemple | Sans exemple fourni |\n| Few-Shot | Quelques exemples | Avec exemples dans le prompt |\n| Chain-of-Thought | Chaîne de pensée | Raisonnement étape par étape |\n| Tree of Thoughts | Arbre de pensées | Exploration multi-branches |\n| Output Format | Format de sortie | Structure de la réponse attendue |\n| Structured Output | Sortie structurée | JSON, XML, CSV… |\n| Prompt Template | Gabarit | Prompt réutilisable avec variables |\n| Prompt Chaining | Chaînage | Prompts séquentiels liés |\n| Hallucination | Hallucination | Fausse information générée avec confiance |\n| Grounding | Ancrage | Réponse basée sur sources fournies |\n| Guardrails | Garde-fous | Contraintes de comportement |\n| Prompt Injection | Injection | Manipulation via les données |\n\n**Prochain cours →** Vous allez voir comment toutes ces techniques s'articulent dans des scénarios réels."
+    }
+  ],
+  "createdAt": "2026-06-07"
+}
