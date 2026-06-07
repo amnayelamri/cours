@@ -1,0 +1,493 @@
+{
+  "title": "Mathématiques - Concours Médecine 2025-2026",
+  "description": "Cours de révision complet couvrant les thèmes du concours commun d'accès aux facultés de médecine : intégrales, suites, nombres complexes, probabilités, géométrie vectorielle et analyse.",
+  "tags": [
+    "mathématiques",
+    "concours médecine",
+    "intégrales",
+    "suites",
+    "complexes",
+    "probabilités",
+    "analyse"
+  ],
+  "slides": [
+    {
+      "id": "s3",
+      "title": "QCM — Intégrale valeur absolue",
+      "type": "quiz",
+      "question": "Soit $I = \\int_0^{\\pi} |\\cos x|\\,dx$. Quelle est la valeur de $I$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "π",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On décompose : sur [0, π/2], cos x ≥ 0 ; sur [π/2, π], cos x ≤ 0. Donc I = [sin x]₀^{π/2} + [−sin x]_{π/2}^π = 1 + 1 = 2."
+    },
+    {
+      "id": "s4",
+      "title": "QCM — Intégrale rationnelle",
+      "type": "quiz",
+      "question": "Quelle est la valeur de $J = \\int_0^1 \\frac{1-x^2}{(1+x^2)^2}\\,dx$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1/2",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "π/4",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "1/4",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On remarque que d/dx[x/(1+x²)] = (1−x²)/(1+x²)². Donc J = [x/(1+x²)]₀¹ = 1/2 − 0 = 1/2."
+    },
+    {
+      "id": "s6",
+      "title": "QCM — Suite récurrente",
+      "type": "quiz",
+      "question": "Soit $(U_n)$ définie par $U_1 = 1$ et $U_{n+1} = \\sqrt{2 + U_n}$ pour tout $n \\geq 1$. Quelle est la limite de $(U_n)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "√2",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "1 + √2",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La suite est divergente",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "La suite est croissante et majorée par 2. La limite L vérifie L = √(2+L), donc L² − L − 2 = 0, ce qui donne L = 2 (valeur positive)."
+    },
+    {
+      "id": "s8",
+      "title": "QCM — Module d'une expression complexe",
+      "type": "quiz",
+      "question": "Soient $a$ et $b$ deux nombres complexes tels que $a \\neq b$ et $|a| = 1$. Quelle est la valeur de $\\left|\\dfrac{a-b}{1-\\bar{a}b}\\right|$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "√2",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "Avec |a|=1, on calcule |(a−b)|² = (a−b)(ā−b̄) et |1−āb|² = (1−āb)(1−ab̄). En développant et utilisant aā=1, on montre que les deux expressions sont égales, donc le module vaut 1."
+    },
+    {
+      "id": "s9",
+      "title": "QCM — Somme de complexes",
+      "type": "quiz",
+      "question": "Soit $C = 1 + \\cos\\frac{\\pi}{5} + \\cdots + \\cos\\frac{9\\pi}{5}$ et $S = \\sin\\frac{\\pi}{5} + \\cdots + \\sin\\frac{9\\pi}{5}$. Quelle est la valeur de $z = C + iS$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "0",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "z = Σ_{k=0}^{9} e^{ikπ/5} est une suite géométrique de raison e^{iπ/5} ≠ 1. La somme vaut (1 − e^{i·2π})/(1 − e^{iπ/5}) = 0/(...) = 0."
+    },
+    {
+      "id": "s10",
+      "title": "QCM — Partie imaginaire d'une puissance",
+      "type": "quiz",
+      "question": "On considère le nombre complexe $z = (1+i)^{20}$. Quelle est la partie imaginaire de $z$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2¹⁰",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "−2¹⁰",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "√2",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "1+i = √2·e^{iπ/4}, donc (1+i)^{20} = 2^{10}·e^{i·5π} = 2^{10}·e^{iπ} = −2^{10}. C'est un réel négatif, donc la partie imaginaire est 0."
+    },
+    {
+      "id": "s12",
+      "title": "QCM — Continuité par prolongement",
+      "type": "quiz",
+      "question": "Pour quelle valeur de $a$ la fonction $f(x) = \\frac{\\sqrt{1+x}-1}{x}$ si $x \\neq 0$, $f(0) = a$, est-elle continue en $x = 0$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "1/2",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "-1",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On rationalise : (√(1+x)−1)/x = x / [x(√(1+x)+1)] → 1/2 quand x→0. Donc a = 1/2."
+    },
+    {
+      "id": "s13",
+      "title": "QCM — Maximum de sin x + cos x",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\sin x + \\cos x$. Quelle est la valeur maximale de $f(x)$ sur $\\mathbb{R}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "√2 + 1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "√2",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "f(x) = √2·sin(x + π/4), donc le maximum est √2, atteint pour x = π/4."
+    },
+    {
+      "id": "s14",
+      "title": "QCM — Tangente au point O",
+      "type": "quiz",
+      "question": "La fonction $f(x) = \\dfrac{\\ln(x+1)}{x+e^x}$ admet au point $O(0,0)$ une tangente d'équation :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "y = x",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "y = x + 1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "y = −2x",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "y = x − 1",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "f(0) = 0. On calcule f'(0) : numérateur dérivé en 0 vaut 1·(0+1) = 1, dénominateur = (0+1)² = 1. Donc f'(0) = 1 et la tangente est y = x."
+    },
+    {
+      "id": "s16",
+      "title": "QCM — Équation exponentielle",
+      "type": "quiz",
+      "question": "Résoudre dans $\\mathbb{R}$ : $\\dfrac{e^{2x-1}}{\\sqrt{e^{2x+4}}} = e^{-x}$",
+      "choices": [
+        {
+          "id": "a",
+          "text": "x = 1",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "x = 0",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "x = 3/2",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "x = −1",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "√(e^{2x+4}) = e^{x+2}, donc l'équation devient e^{(2x−1)−(x+2)} = e^{−x}, soit e^{x−3} = e^{−x}, d'où x−3 = −x, donc x = 3/2."
+    },
+    {
+      "id": "s18",
+      "title": "QCM — Probabilité conditionnelle (urne)",
+      "type": "quiz",
+      "question": "Une urne contient 5 boules rouges (numérotées 1–5) et 4 boules noires (numérotées 1–4). On tire 2 boules simultanément. Soit $A$ : « même couleur » et $B$ : « numéros pairs ». Quelle est $P_{\\bar{A}}(B)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1/18",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "17/18",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "2/9",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "1/5",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "P(Ā∩B) = 4/36 (une rouge paire + une noire paire). P(Ā) = 20/36. Donc P_Ā(B) = (4/36)/(20/36) = 4/20 = 1/5."
+    },
+    {
+      "id": "s19",
+      "title": "QCM — Probabilité avec deux dés",
+      "type": "quiz",
+      "question": "On lance deux dés équilibrés à 6 faces. Quelle est la probabilité d'obtenir au moins un 6 ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1/6",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "11/36",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "5/36",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "25/36",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "P(au moins un 6) = 1 − P(aucun 6) = 1 − (5/6)² = 1 − 25/36 = 11/36."
+    },
+    {
+      "id": "s21",
+      "title": "QCM — Combinaison linéaire de vecteurs",
+      "type": "quiz",
+      "question": "Soient $A(1,1,-2)$, $B(0,5,5)$, $C(6,-3,-5)$, $D(1,2,0)$. $\\overrightarrow{AD}$ est-il dans le plan engendré par $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Oui, pour x = 1/4, y = −1/8",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Oui, pour x = 5/16, y = 1/16",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Oui, pour x = 1/2, y = 1/2",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Non, car AD n'est pas une combinaison linéaire de AB et AC",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On résout le système : −x+5y=0, 4x−4y=1, 7x−3y=2. On trouve x=5/16 et y=1/16, qui vérifient les 3 équations."
+    },
+    {
+      "id": "s22",
+      "title": "QCM — Produit vectoriel",
+      "type": "quiz",
+      "question": "Soient $\\vec{u}(1,2,-1)$, $\\vec{v}(3,6,-3)$, $\\vec{w}(0,1,1)$. Quelle est la valeur de $(\\vec{u} \\wedge \\vec{v}) \\cdot \\vec{w}$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Aucune des réponses n'est juste",
+          "correct": false
+        }
+      ],
+      "explanation": "On remarque que v = 3u, donc u ∧ v = 0⃗ (produit vectoriel de deux vecteurs colinéaires). Ainsi (u ∧ v)·w = 0⃗·w = 0."
+    }
+  ],
+  "id": "math-matiques-concours-m-decine-2025-2026",
+  "createdAt": "2026-06-07"
+}
