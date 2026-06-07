@@ -60,5 +60,17 @@
       "finetuning-cours4-pratique"
     ],
     "id": "fine-tuning"
+  },
+  {
+    "title": "Prompt Engineering",
+    "emoji": "",
+    "description": "",
+    "courseIds": [
+      "prompt-engineering-cours1-fondements",
+      "prompt-engineering-cours2-vocabulaire",
+      "prompt-engineering-cours3-interactions",
+      "prompt-engineering-cours4-pratique"
+    ],
+    "id": "prompt-engineering"
   }
 ]
