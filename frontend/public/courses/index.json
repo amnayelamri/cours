@@ -1,5 +1,29 @@
 [
   {
+    "id": "pretest-congruence-1bac-sm",
+    "title": "Pré-test — Congruence modulo n — 1ère BAC SM",
+    "description": "Questionnaire diagnostique Séance 1 : divisibilité dans ℤ, division euclidienne, PGCD et première découverte de la congruence. Niveau 1ère BAC Sciences Mathématiques.",
+    "tags": ["1BAC SM", "Arithmétique", "Congruence", "Divisibilité", "Pré-test"],
+    "createdAt": "2026-06-10",
+    "slideCount": 15
+  },
+  {
+    "id": "grille-observation-congruence-s2",
+    "title": "Grille d'Observation — Séance 2 (Enseignant/Chercheur)",
+    "description": "Outil d'observation pour la résolution de problèmes sur la congruence modulo n. Comportements à observer, profils d'élèves, typologies d'erreurs et synthèse post-séance.",
+    "tags": ["1BAC SM", "Congruence", "Observation", "Didactique", "Recherche"],
+    "createdAt": "2026-06-10",
+    "slideCount": 12
+  },
+  {
+    "id": "posttest-congruence-1bac-sm",
+    "title": "Post-test et Métacognitif — Congruence modulo n — 1ère BAC SM",
+    "description": "Questionnaire post-test Séance 3 : propriétés avancées de la congruence, calcul de puissances, preuves par congruences, critère de divisibilité par 9 et réflexion métacognitive.",
+    "tags": ["1BAC SM", "Arithmétique", "Congruence", "Post-test", "Métacognitif"],
+    "createdAt": "2026-06-10",
+    "slideCount": 16
+  },
+  {
     "id": "chatbot-faq-tfidf-ingenieur",
     "title": "Chatbot FAQ avec TF-IDF — École d'ingénieurs",
     "description": "Construire un chatbot FAQ intelligent en Python : TF-IDF, similarité cosinus, API Flask et interface web. Cours orienté pratique pour étudiants ingénieurs.",
@@ -412,7 +436,7 @@
   },
   {
     "id": "mina-ribat-001",
-    "title": "برنامج منا الرباط — المشهد السياسي والحقوقي المغربي",
+    "title": "برنامج من الرباط — المشهد السياسي والحقوقي المغربي",
     "description": "نقاش شامل حول أبرز الملفات السياسية والاقتصادية والحقوقية في المغرب: من أزمة عيد الأضحى إلى ملفات العقارات والتشهير وقانون المحاماة والانتخابات التشريعية المقبلة.",
     "tags": [
       "المغرب",
@@ -441,5 +465,23 @@
     ],
     "createdAt": "2026-06-07",
     "slideCount": 14
+  },
+  {
+    "id": "concours-m-decine-2024-2025-qcm-corrig-s-03-ao-t-2024",
+    "title": "Concours Médecine 2024-2025 — QCM corrigés (03 Août 2024)",
+    "description": "Les 56 questions du concours d'accès aux facultés de Médecine, Pharmacie et Médecine Dentaire (session du 03 août 2024, version française), avec la bonne réponse et une explication pour chaque QCM. Matières : SVT, Physique, Chimie, Mathématiques (formules en LaTeX).",
+    "tags": [
+      "concours médecine",
+      "QCM",
+      "SVT",
+      "Physique",
+      "Chimie",
+      "Mathématiques",
+      "baccalauréat",
+      "2024-2025",
+      "LaTeX"
+    ],
+    "createdAt": "2026-06-07",
+    "slideCount": 60
   }
 ]

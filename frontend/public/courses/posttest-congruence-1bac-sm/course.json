@@ -1,0 +1,183 @@
+{
+  "id": "posttest-congruence-1bac-sm",
+  "title": "Post-test et Métacognitif — Congruence modulo n — 1ère BAC SM",
+  "description": "Questionnaire post-test Séance 3 : propriétés avancées de la congruence, calcul de puissances, preuves par congruences, critère de divisibilité par 9 et réflexion métacognitive.",
+  "tags": ["1BAC SM", "Arithmétique", "Congruence", "Post-test", "Métacognitif"],
+  "createdAt": "2026-06-10",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Instructions",
+      "type": "markdown",
+      "content": "# Questionnaire Post-test et Métacognitif — Séance 3\n## Arithmétique dans ℤ : La Congruence modulo n\n\n**Code élève :** *(même code qu'en Séance 1 — important pour le suivi !)*\n\n> Ce questionnaire complète celui de la Séance 1. Il n'est pas noté.\n\n**Durée : 40 minutes**\n\n- 25 minutes : post-test (Partie A)\n- 15 minutes : questionnaire métacognitif (Partie B)\n\n**Structure :**\n\n- **Partie A** — Post-test : définition, propriétés, preuves\n- **Partie B** — Réflexion métacognitive sur votre compréhension"
+    },
+    {
+      "id": "s2",
+      "title": "Flashcard — Révision : définition de la congruence",
+      "type": "flashcard",
+      "question": "Compléter la définition :\n\n$a \\equiv b\\ [n]$ si et seulement si...",
+      "answer": "$n$ divise $(b - a)$\n\nÉquivalences :\n- $a$ et $b$ ont le **même reste** dans la division par $n$\n- $\\exists k \\in \\mathbb{Z}$ tel que $b - a = kn$\n\nExemple : $23 \\equiv 2\\ [7]$ car $2 - 23 = -21 = 7 \\times (-3)$",
+      "hint": "La définition implique une divisibilité par n"
+    },
+    {
+      "id": "s3",
+      "title": "A1c — Vérification : 23 ≡ 2 [7]",
+      "type": "truefalse",
+      "statement": "**A1c.** $23 \\equiv 2\\ [7]$",
+      "answer": true,
+      "explanation": "**VRAI.** $2 - 23 = -21 = 7 \\times (-3)$, donc $7 \\mid (-21)$ ✓\n\nAutre méthode : $23 = 7 \\times 3 + 2$, reste $= 2$. Et $2 = 7 \\times 0 + 2$, reste $= 2$. Même reste → congrus ✓"
+    },
+    {
+      "id": "s4",
+      "title": "A1c — Vérification : −6 ≡ 2 [8]",
+      "type": "truefalse",
+      "statement": "**A1c.** $-6 \\equiv 2\\ [8]$",
+      "answer": true,
+      "explanation": "**VRAI.** $2 - (-6) = 2 + 6 = 8 = 8 \\times 1$, donc $8 \\mid 8$ ✓\n\nAutre méthode : $-6 = 8 \\times (-1) + 2$, reste $= 2$. Et $2 = 8 \\times 0 + 2$, reste $= 2$ → congrus ✓"
+    },
+    {
+      "id": "s5",
+      "title": "A2a — Calcul de 3⁸ mod 5",
+      "type": "number",
+      "question": "**A2a.** Sachant que $3^4 \\equiv 1\\ [5]$, calculer $3^8 \\bmod 5$ **sans calculer $3^8$ directement**.\n\n$3^8 \\equiv$ ? $[5]$",
+      "answer": 1,
+      "tolerance": 0,
+      "hint": "Écrire 3⁸ = (3⁴)². Si 3⁴ ≡ 1 [5], que vaut (3⁴)² [5] ?",
+      "explanation": "$$3^8 = (3^4)^2 \\equiv 1^2 = 1\\ [5]$$\n\nCar la congruence est compatible avec la multiplication : si $a \\equiv b\\ [n]$, alors $a^k \\equiv b^k\\ [n]$.\n\n**Vérification :** $3^8 = 6561 = 5 \\times 1312 + 1$ → reste $1$ ✓"
+    },
+    {
+      "id": "s6",
+      "title": "A2b — Calcul de 3²⁰²⁶ mod 5",
+      "type": "number",
+      "question": "**A2b.** Sachant que $3^4 \\equiv 1\\ [5]$, calculer $3^{2026} \\bmod 5$.\n\nIndice : effectuer la division euclidienne de $2026$ par $4$.\n\n$3^{2026} \\equiv$ ? $[5]$",
+      "answer": 4,
+      "tolerance": 0,
+      "hint": "2026 = 4 × 506 + 2. Donc 3²⁰²⁶ = (3⁴)⁵⁰⁶ × 3² ≡ 1⁵⁰⁶ × 3² [5]. Que vaut 3² mod 5 ?",
+      "explanation": "**Division euclidienne :** $2026 = 4 \\times 506 + 2$\n\n$$3^{2026} = 3^{4 \\times 506 + 2} = (3^4)^{506} \\times 3^2 \\equiv 1^{506} \\times 9 \\equiv 9\\ [5]$$\n\n$$9 = 5 \\times 1 + 4 \\Rightarrow 9 \\equiv 4\\ [5]$$\n\nDonc $3^{2026} \\equiv \\mathbf{4}\\ [5]$"
+    },
+    {
+      "id": "s7",
+      "title": "A3a — Sens du reste",
+      "type": "quiz",
+      "question": "**A3a.** Si $a \\equiv r\\ [n]$ avec $0 \\leq r < n$, que représente $r$ ?",
+      "choices": [
+        { "id": "a", "text": "Le quotient de la division de a par n", "correct": false },
+        { "id": "b", "text": "Le reste de la division euclidienne de a par n", "correct": true },
+        { "id": "c", "text": "La différence a − n", "correct": false },
+        { "id": "d", "text": "Aucun des précédents", "correct": false }
+      ],
+      "explanation": "**Réponse : le reste de la division euclidienne de $a$ par $n$.**\n\nSi $a = nq + r$ avec $0 \\leq r < n$, alors $a - r = nq$, donc $n \\mid (a - r)$, soit $a \\equiv r\\ [n]$.\n\nCe lien entre congruence et reste est fondamental : **deux entiers sont congrus modulo $n$ si et seulement si ils ont le même reste dans la division par $n$.**"
+    },
+    {
+      "id": "s8",
+      "title": "A3b — Valeur absolue et congruence",
+      "type": "truefalse",
+      "statement": "**A3b.** Deux entiers congrus modulo $n$ ont nécessairement la même valeur absolue.",
+      "answer": false,
+      "explanation": "**FAUX.** Contre-exemple : $10 \\equiv 3\\ [7]$, or $|10| = 10 \\neq 3 = |3|$.\n\nPlus généralement, tous les entiers $\\{\\ldots, -11, -4, 3, 10, 17, 24, \\ldots\\}$ sont congrus modulo $7$ mais ont des valeurs absolues très différentes.\n\nLa congruence regroupe des entiers qui ont le **même reste**, sans contrainte sur leur taille."
+    },
+    {
+      "id": "s9",
+      "title": "A3c — Entiers congrus à 3 mod 7",
+      "type": "number",
+      "question": "**A3c.** Parmi les entiers $\\{-4,\\ 10,\\ 17,\\ -11,\\ 24,\\ 100\\}$, **combien** sont congrus à $3$ modulo $7$ ?",
+      "answer": 5,
+      "tolerance": 0,
+      "hint": "Calculer le reste de chacun dans la division par 7. Rappel : pour un entier négatif comme -4, chercher -4 = 7q + r avec 0 ≤ r < 7.",
+      "explanation": "Calculons le reste de chaque entier dans la division par $7$ :\n\n- $-4 = 7 \\times (-1) + 3$ → $-4 \\equiv 3\\ [7]$ ✓\n- $10 = 7 \\times 1 + 3$ → $10 \\equiv 3\\ [7]$ ✓\n- $17 = 7 \\times 2 + 3$ → $17 \\equiv 3\\ [7]$ ✓\n- $-11 = 7 \\times (-2) + 3$ → $-11 \\equiv 3\\ [7]$ ✓\n- $24 = 7 \\times 3 + 3$ → $24 \\equiv 3\\ [7]$ ✓\n- $100 = 7 \\times 14 + 2$ → $100 \\equiv 2\\ [7]$ ✗\n\n**5 entiers sur 6** sont congrus à $3$ modulo $7$."
+    },
+    {
+      "id": "s10",
+      "title": "A4 — Preuve : n² − n est pair",
+      "type": "steps",
+      "stepsTitle": "Montrer que $n^2 - n$ est pair pour tout $n \\in \\mathbb{Z}$",
+      "intro": "Utiliser les congruences modulo 2. Rappel : un entier est pair si et seulement s'il est congru à 0 modulo 2.",
+      "steps": [
+        {
+          "label": "Cas 1 : n est pair",
+          "content": "Si $n \\equiv 0\\ [2]$, alors $n^2 \\equiv 0^2 = 0\\ [2]$, donc $n^2 - n \\equiv 0 - 0 = 0\\ [2]$ → pair ✓"
+        },
+        {
+          "label": "Cas 2 : n est impair",
+          "content": "Si $n \\equiv 1\\ [2]$, alors $n^2 \\equiv 1^2 = 1\\ [2]$, donc $n^2 - n \\equiv 1 - 1 = 0\\ [2]$ → pair ✓"
+        },
+        {
+          "label": "Conclusion",
+          "content": "Dans les deux cas, $n^2 - n \\equiv 0\\ [2]$, donc $2 \\mid (n^2 - n)$ : l'entier $n^2 - n$ est toujours pair.\n\nNote : on peut aussi factoriser $n^2 - n = n(n-1)$, produit de deux entiers consécutifs, donc toujours pair."
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "A5 — Critère de divisibilité par 9",
+      "type": "steps",
+      "stepsTitle": "Démontrer le critère de divisibilité par 9",
+      "intro": "Montrer : un entier est divisible par 9 si et seulement si la somme de ses chiffres est divisible par 9.\n\nIndication : utiliser le fait que $10 \\equiv 1\\ [9]$.",
+      "steps": [
+        {
+          "label": "Écriture décimale",
+          "content": "Soit $N = a_k \\cdot 10^k + a_{k-1} \\cdot 10^{k-1} + \\ldots + a_1 \\cdot 10 + a_0$ la décomposition décimale de $N$ (où $0 \\leq a_i \\leq 9$ sont les chiffres)."
+        },
+        {
+          "label": "Congruences des puissances de 10",
+          "content": "Puisque $10 \\equiv 1\\ [9]$, on a : $10^k \\equiv 1^k = 1\\ [9]$ pour tout $k \\geq 0$.\n\nDonc $10^0 \\equiv 10^1 \\equiv 10^2 \\equiv \\ldots \\equiv 1\\ [9]$."
+        },
+        {
+          "label": "Congruence de N",
+          "content": "$N = a_k \\cdot 10^k + \\ldots + a_0 \\equiv a_k \\cdot 1 + \\ldots + a_0 \\cdot 1 = a_k + \\ldots + a_0\\ [9]$\n\nSoit $S = a_0 + a_1 + \\ldots + a_k$ la somme des chiffres."
+        },
+        {
+          "label": "Conclusion",
+          "content": "$N \\equiv S\\ [9]$, donc $9 \\mid N \\iff 9 \\mid S$.\n\nExemple : $N = 2025$ → $S = 2 + 0 + 2 + 5 = 9$ → $9 \\mid 9$ → $9 \\mid 2025$ ✓ (car $2025 = 9 \\times 225$)."
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Association — Propriétés de la congruence",
+      "type": "matching",
+      "instruction": "Associez chaque propriété à son énoncé correct.",
+      "pairs": [
+        { "left": "Compatibilité avec l'addition", "right": "$a \\equiv b\\ [n] \\Rightarrow a+c \\equiv b+c\\ [n]$" },
+        { "left": "Compatibilité avec la multiplication", "right": "$a \\equiv b\\ [n]$ et $c \\equiv d\\ [n]$ $\\Rightarrow$ $ac \\equiv bd\\ [n]$" },
+        { "left": "Compatibilité avec les puissances", "right": "$a \\equiv b\\ [n] \\Rightarrow a^k \\equiv b^k\\ [n]$" },
+        { "left": "Réflexivité", "right": "$a \\equiv a\\ [n]$ pour tout $a \\in \\mathbb{Z}$" }
+      ]
+    },
+    {
+      "id": "s13",
+      "title": "B2 — Ce qui reste difficile",
+      "type": "quiz",
+      "question": "**B2 (Métacognitif).** Parmi ces tâches, laquelle vous semble encore la plus difficile après le cours ?",
+      "choices": [
+        { "id": "a", "text": "Vérifier si a ≡ b [n] est vraie ou fausse", "correct": false },
+        { "id": "b", "text": "Utiliser les congruences pour calculer une puissance (ex: 3²⁰²⁶ mod 5)", "correct": false },
+        { "id": "c", "text": "Faire une preuve avec les congruences (ex: n² − n est pair)", "correct": false },
+        { "id": "d", "text": "Expliquer ce que signifie a ≡ b [n] dans le fond", "correct": false }
+      ],
+      "explanation": "Toutes les réponses sont recevables — l'important est l'honnêteté.\n\n**Pour l'analyse :** cette question sert à mesurer l'évolution de la perception de difficulté entre la Séance 1 (D1) et la Séance 3. Comparer les réponses pour identifier si la difficulté perçue s'est déplacée du procédural (vérifier) vers le conceptuel (expliquer le sens) — ce qui serait un signe de progression."
+    },
+    {
+      "id": "s14",
+      "title": "B4 — Recettes vs compréhension",
+      "type": "truefalse",
+      "statement": "**B4 (Métacognitif).** Il est possible de maîtriser les calculs avec les congruences (résoudre correctement tous les exercices) sans avoir vraiment compris ce que signifie $a \\equiv b\\ [n]$.",
+      "answer": true,
+      "explanation": "**VRAI.** C'est précisément l'un des enjeux de cette recherche.\n\nUn élève peut apprendre à vérifier $n \\mid (b-a)$ mécaniquement, à appliquer les propriétés comme des recettes, sans jamais construire une représentation mentale du sens de la congruence.\n\nCette conscience métacognitive — savoir si on comprend vraiment ou si on applique des recettes — est un indicateur important de la qualité de l'apprentissage."
+    },
+    {
+      "id": "s15",
+      "title": "Flashcard — Compatibilité et limites",
+      "type": "flashcard",
+      "question": "La simplification suivante est-elle toujours valide ?\n\n$ac \\equiv bc\\ [n]$ $\\Rightarrow$ $a \\equiv b\\ [n]$",
+      "answer": "**NON, pas en général.**\n\nContre-exemple : $2 \\times 3 \\equiv 4 \\times 3\\ [6]$ car $6 - 12 = -6$, mais $2 \\not\\equiv 4\\ [6]$.\n\n**Condition pour simplifier :**\n$ac \\equiv bc\\ [n]$ $\\Rightarrow$ $a \\equiv b\\ [n/d]$ où $d = \\text{PGCD}(c, n)$.\n\nEn particulier, si $\\text{PGCD}(c, n) = 1$, alors on peut simplifier.",
+      "hint": "La simplification est valide dans ℤ pour l'égalité, mais la congruence est plus subtile"
+    },
+    {
+      "id": "s16",
+      "title": "Bilan — Comparaison Séance 1 / Séance 3",
+      "type": "markdown",
+      "content": "# Bilan — Évolution attendue entre les deux séances\n\n## Indicateurs de progression\n\n**A1b (définition en langage courant)** → comparer avec B4 de la Séance 1\n- Évolution de la représentation personnelle de la congruence\n\n**A2 (puissances)** → comparer avec C3 de la Séance 1\n- Passage de l'opérationnel (calculer $2^6 = 64$) au conceptuel (utiliser $2 \\equiv -1\\ [3]$)\n\n**A3a (sens du reste)** → comparer avec C1 de la Séance 1\n- Clarification de la confusion reste/quotient\n\n**B3 (définition personnelle)** → comparer avec B4 de la Séance 1\n- Enrichissement ou précision de la définition personnelle\n\n## Score de progression\n\n$$\\text{Taux} = \\frac{\\text{score S3} - \\text{score S1}}{\\text{score maximal}} \\times 100$$\n\nIdentifier les items en **régression** → points d'attention prioritaires."
+    }
+  ]
+}

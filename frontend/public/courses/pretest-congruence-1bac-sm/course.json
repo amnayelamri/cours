@@ -1,0 +1,158 @@
+{
+  "id": "pretest-congruence-1bac-sm",
+  "title": "Pré-test — Congruence modulo n — 1ère BAC SM",
+  "description": "Questionnaire diagnostique Séance 1 : divisibilité dans ℤ, division euclidienne, PGCD et première découverte de la congruence. Niveau 1ère BAC Sciences Mathématiques.",
+  "tags": ["1BAC SM", "Arithmétique", "Congruence", "Divisibilité", "Pré-test"],
+  "createdAt": "2026-06-10",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Instructions",
+      "type": "markdown",
+      "content": "# Questionnaire Diagnostique — Séance 1\n\n## Arithmétique dans ℤ : La Congruence modulo n\n### 1ère Baccalauréat Sciences Mathématiques\n\n> Ce questionnaire est utilisé dans le cadre d'une recherche en didactique des mathématiques. Il ne sera pas noté. Répondez honnêtement et faites de votre mieux.\n\n**Durée : 35 minutes**\n\n**Structure du questionnaire :**\n\n- **Partie A** — Pré-requis : Divisibilité et Division Euclidienne\n- **Partie B** — Première découverte de la congruence\n- **Partie C** — Compréhension du sens\n- **Partie D** — Perception et ressenti"
+    },
+    {
+      "id": "s2",
+      "title": "Partie A — Divisibilité dans ℤ",
+      "type": "markdown",
+      "content": "# Partie A — Pré-requis\n\n## Rappel : Divisibilité dans $\\mathbb{Z}$\n\nOn dit que $b$ **divise** $a$ (noté $b \\mid a$) s'il existe un entier $k \\in \\mathbb{Z}$ tel que :\n$$a = b \\times k$$\n\n**Propriétés fondamentales :**\n\n- Les diviseurs peuvent être **négatifs** : $-3 \\mid 12$ car $12 = (-3) \\times (-4)$\n- Tout entier non nul **divise 0** : $n \\mid 0$ car $0 = n \\times 0$\n- La divisibilité est **transitive** : $a \\mid b$ et $b \\mid c$ $\\Rightarrow$ $a \\mid c$\n- Si $b \\mid a$, alors $b \\mid (-a)$ et $b \\mid (ka)$ pour tout $k \\in \\mathbb{Z}$"
+    },
+    {
+      "id": "s3",
+      "title": "A1 — Identifier l'affirmation vraie",
+      "type": "quiz",
+      "question": "**A1.** Parmi les affirmations suivantes, laquelle est **vraie** ?",
+      "choices": [
+        { "id": "a", "text": "15 divise 5", "correct": false },
+        { "id": "b", "text": "7 divise 0", "correct": true },
+        { "id": "c", "text": "Un diviseur doit être un entier strictement positif", "correct": false },
+        { "id": "d", "text": "−3 ne peut pas diviser 12 car il est négatif", "correct": false }
+      ],
+      "explanation": "**7 divise 0 — VRAI** : $0 = 7 \\times 0$, donc $7 \\mid 0$. Plus généralement, tout entier non nul divise 0.\n\n- $15 \\nmid 5$ : $5 = 15 \\times 0 + 5$, reste non nul.\n- Dans $\\mathbb{Z}$, les diviseurs peuvent être négatifs : $-3 \\mid 12$ car $12 = (-3) \\times (-4)$.\n- Erreur classique : croire que seuls les entiers positifs peuvent être diviseurs."
+    },
+    {
+      "id": "s4",
+      "title": "A2 — Division euclidienne de 47 par 6",
+      "type": "number",
+      "question": "**A2.** Effectuer la division euclidienne de $47$ par $6$.\n\nÉcrire : $47 = 6q + r$ avec $0 \\leq r < 6$.\n\nQuel est le **reste** $r$ ?",
+      "answer": 5,
+      "tolerance": 0,
+      "hint": "Trouver le plus grand multiple de 6 inférieur ou égal à 47. C'est 6 × 7 = 42.",
+      "explanation": "$$47 = 6 \\times 7 + 5$$\n\n- Quotient : $q = 7$\n- **Reste : $r = 5$**\n\nVérification : $6 \\times 7 + 5 = 42 + 5 = 47$ ✓ et $0 \\leq 5 < 6$ ✓"
+    },
+    {
+      "id": "s5",
+      "title": "A3 — PGCD(84, 60) par l'algorithme d'Euclide",
+      "type": "number",
+      "question": "**A3.** Calculer $\\text{PGCD}(84, 60)$ par l'algorithme d'Euclide.\n\nRappel : $\\text{PGCD}(a, b) = \\text{PGCD}(b, r)$ où $r$ est le reste de la division de $a$ par $b$.",
+      "answer": 12,
+      "tolerance": 0,
+      "hint": "Appliquer Euclide jusqu'à obtenir un reste nul.",
+      "explanation": "**Algorithme d'Euclide :**\n\n- $84 = 60 \\times 1 + 24$ → $\\text{PGCD}(84,60) = \\text{PGCD}(60,24)$\n- $60 = 24 \\times 2 + 12$ → $\\text{PGCD}(60,24) = \\text{PGCD}(24,12)$\n- $24 = 12 \\times 2 + 0$ → $\\text{PGCD}(24,12) = 12$\n\n$$\\text{PGCD}(84, 60) = \\mathbf{12}$$"
+    },
+    {
+      "id": "s6",
+      "title": "A4 — Divisibilité et opposé",
+      "type": "truefalse",
+      "statement": "**A4.** Si $b$ divise $a$, alors $b$ divise aussi $-a$.",
+      "answer": true,
+      "explanation": "**VRAI.** Si $b \\mid a$, il existe $k \\in \\mathbb{Z}$ tel que $a = bk$.\n\nAlors $-a = b \\times (-k)$, donc $b \\mid (-a)$.\n\nPlus généralement : si $b \\mid a$, alors $b \\mid (\\lambda a)$ pour tout $\\lambda \\in \\mathbb{Z}$."
+    },
+    {
+      "id": "s7",
+      "title": "Partie B — Définition de la congruence",
+      "type": "markdown",
+      "content": "# Partie B — Première Découverte de la Congruence\n\n## Définition\n\nOn dit que $a$ est **congru à $b$ modulo $n$** (noté $a \\equiv b\\ [n]$) si $n$ divise $(b - a)$ :\n\n$$a \\equiv b\\ [n] \\iff n \\mid (b - a)$$\n\n## Exemples\n\n- $17 \\equiv 5\\ [4]$ : car $5 - 17 = -12 = 4 \\times (-3)$ ✓\n- $10 \\equiv 3\\ [7]$ : car $3 - 10 = -7 = 7 \\times (-1)$ ✓\n- $8 \\equiv 0\\ [4]$ : car $0 - 8 = -8 = 4 \\times (-2)$ ✓\n\n## Interprétation clé\n\n$a \\equiv b\\ [n]$ signifie que $a$ et $b$ ont le **même reste** dans la division euclidienne par $n$."
+    },
+    {
+      "id": "s8",
+      "title": "B2c — Vérifier une congruence",
+      "type": "truefalse",
+      "statement": "**B2c.** $-5 \\equiv 3\\ [8]$",
+      "answer": true,
+      "explanation": "**VRAI.** $3 - (-5) = 3 + 5 = 8 = 8 \\times 1$, donc $8 \\mid 8$ ✓\n\nAutre méthode : $-5 = 8 \\times (-1) + 3$, donc le reste de $-5$ par $8$ est $3$.\nOr le reste de $3$ par $8$ est aussi $3$ → même reste → congrus ✓\n\n**Attention aux négatifs** : $-5 \\neq -1 \\times 8 + 3$ (correct) et non $-5 \\neq -1 \\times 8 - (-3)$ (erreur fréquente)."
+    },
+    {
+      "id": "s9",
+      "title": "B3 — Trouver le résidu de −11 mod 4",
+      "type": "number",
+      "question": "**B3.** Trouver $r$ tel que $-11 \\equiv r\\ [4]$ avec $0 \\leq r < 4$.\n\n*(Quel est le reste de la division euclidienne de $-11$ par $4$ ?)*",
+      "answer": 1,
+      "tolerance": 0,
+      "hint": "Le reste doit être positif ou nul. Trouver q et r tels que -11 = 4q + r avec 0 ≤ r < 4.",
+      "explanation": "$$-11 = 4 \\times (-3) + 1$$\n\nDonc $-11 \\equiv 1\\ [4]$, le reste est $r = \\mathbf{1}$.\n\n**Erreur fréquente :** écrire $-11 = 4 \\times (-2) + (-3)$, mais $-3 < 0$ donc ce n'est pas une division euclidienne valide. Le reste doit toujours satisfaire $0 \\leq r < n$."
+    },
+    {
+      "id": "s10",
+      "title": "Flashcard — Congruence modulo n",
+      "type": "flashcard",
+      "question": "Que signifie $a \\equiv b\\ [n]$ ?",
+      "answer": "$n$ divise $(b - a)$\n\nÉquivalences :\n- $a$ et $b$ ont le **même reste** dans la division par $n$\n- Il existe $k \\in \\mathbb{Z}$ tel que $b - a = kn$\n- $a$ et $b$ sont dans la même **classe de congruence** modulo $n$",
+      "hint": "Penser à la différence b − a et à sa divisibilité par n"
+    },
+    {
+      "id": "s11",
+      "title": "C1 — Sens de a ≡ 0 [n]",
+      "type": "quiz",
+      "question": "**C1.** Si $a \\equiv 0\\ [n]$, qu'est-ce que cela signifie pour $a$ ?",
+      "choices": [
+        { "id": "a", "text": "a = 0", "correct": false },
+        { "id": "b", "text": "n divise a", "correct": true },
+        { "id": "c", "text": "a divise n", "correct": false },
+        { "id": "d", "text": "a est congru à n", "correct": false }
+      ],
+      "explanation": "**Réponse : n divise a.**\n\n$a \\equiv 0\\ [n]$ signifie $n \\mid (0 - a) = -a$, donc $n \\mid a$.\n\n**Erreur classique (Obstacle C1) :** confondre $a \\equiv 0\\ [n]$ avec $a = 0$.\n\nExemple : $12 \\equiv 0\\ [4]$ car $4 \\mid 12$, mais $12 \\neq 0$."
+    },
+    {
+      "id": "s12",
+      "title": "C2 — Compatibilité avec l'addition",
+      "type": "truefalse",
+      "statement": "**C2.** Si $5 \\equiv 2\\ [3]$, alors $5 + 4 \\equiv 2 + 4\\ [3]$.",
+      "answer": true,
+      "explanation": "**VRAI.** La congruence est **compatible avec l'addition** :\n\nSi $a \\equiv b\\ [n]$, alors $a + c \\equiv b + c\\ [n]$ pour tout $c \\in \\mathbb{Z}$.\n\nVérification : $9 \\equiv 6\\ [3]$ car $6 - 9 = -3 = 3 \\times (-1)$ ✓"
+    },
+    {
+      "id": "s13",
+      "title": "C3 — Calcul de 2⁶ mod 3",
+      "type": "number",
+      "question": "**C3.** Sachant que $2 \\equiv -1\\ [3]$, calculer $2^6 \\bmod 3$ **sans calculer $2^6 = 64$ directement**.\n\n$2^6 \\equiv$ ? $[3]$",
+      "answer": 1,
+      "tolerance": 0,
+      "hint": "Si 2 ≡ −1 [3], alors 2⁶ ≡ (−1)⁶ [3]. Que vaut (−1)⁶ ?",
+      "explanation": "$$2 \\equiv -1\\ [3] \\Rightarrow 2^6 \\equiv (-1)^6 = 1\\ [3]$$\n\nCar $(-1)^6 = 1$ (exposant pair).\n\n**Vérification :** $2^6 = 64 = 3 \\times 21 + 1$ → reste $1$ ✓\n\n**Méthode :** utiliser la propriété de compatibilité avec la multiplication : si $a \\equiv b\\ [n]$, alors $a^k \\equiv b^k\\ [n]$."
+    },
+    {
+      "id": "s14",
+      "title": "Association — Concepts clés",
+      "type": "matching",
+      "instruction": "Associez chaque expression à sa définition.",
+      "pairs": [
+        { "left": "$a \\equiv b\\ [n]$", "right": "$n$ divise $(b - a)$" },
+        { "left": "$a \\equiv 0\\ [n]$", "right": "$n$ divise $a$" },
+        { "left": "$a \\equiv r\\ [n]$, $0 \\leq r < n$", "right": "$r$ est le reste de la division de $a$ par $n$" },
+        { "left": "$\\text{PGCD}(a,b) = 1$", "right": "$a$ et $b$ sont premiers entre eux" }
+      ]
+    },
+    {
+      "id": "s15",
+      "title": "Partie D — Synthèse des difficultés",
+      "type": "steps",
+      "stepsTitle": "Réflexion sur les difficultés perçues",
+      "intro": "Ces questions n'ont pas de bonne ou mauvaise réponse. Elles servent à mieux comprendre votre rapport à la notion de congruence.",
+      "steps": [
+        {
+          "label": "D1 — Classement des difficultés",
+          "content": "Parmi les notions suivantes, classez de 1 (plus difficile) à 5 (plus facile) : la Divisibilité, la Division euclidienne, le PGCD / algorithme d'Euclide, la Congruence modulo n, la Décomposition en facteurs premiers."
+        },
+        {
+          "label": "D2 — Ce qui semble difficile",
+          "content": "Qu'est-ce qui vous semble difficile dans la notion de congruence ? Exprimez-vous librement."
+        },
+        {
+          "label": "D3 — Analogies et connexions",
+          "content": "Avez-vous déjà rencontré une notion similaire à la congruence, en mathématiques ou en dehors ? (Exemple possible : la notion d'heure sur une horloge de 12h, les jours de la semaine...)"
+        }
+      ]
+    }
+  ]
+}

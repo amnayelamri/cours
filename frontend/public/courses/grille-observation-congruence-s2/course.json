@@ -1,0 +1,148 @@
+{
+  "id": "grille-observation-congruence-s2",
+  "title": "Grille d'Observation — Séance 2 (Enseignant/Chercheur)",
+  "description": "Outil d'observation pour la résolution de problèmes sur la congruence modulo n. Comportements à observer, profils d'élèves, typologies d'erreurs et synthèse post-séance.",
+  "tags": ["1BAC SM", "Congruence", "Observation", "Didactique", "Recherche"],
+  "createdAt": "2026-06-10",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Contexte et utilisation",
+      "type": "markdown",
+      "content": "# Grille d'Observation — Séance 2\n## Observation de Résolution de Problèmes : Congruence modulo n\n\nCet outil est destiné à l'**enseignant-chercheur** pour collecter des données qualitatives pendant la séance de résolution de problèmes.\n\n**À renseigner avant la séance :**\n\n- Date de la séance\n- Nombre d'élèves présents\n- Durée effective de la séance\n\n**Structure de l'observation :**\n\n- **Partie 1** — Observations globales (résolution individuelle)\n- **Partie 2** — Observations ciblées (3 élèves à suivre)\n- **Partie 3** — Erreurs typiques recensées\n- **Partie 4** — Mise en commun\n- **Partie 5** — Synthèse post-séance"
+    },
+    {
+      "id": "s2",
+      "title": "Protocole d'observation",
+      "type": "steps",
+      "stepsTitle": "Déroulement de la séance d'observation",
+      "intro": "Suivre les 5 phases dans l'ordre. Ne pas intervenir dans la résolution individuelle sauf demande explicite.",
+      "steps": [
+        {
+          "label": "Phase 1 — Lancement (5 min)",
+          "content": "Distribuer la feuille d'exercices. Observer les comportements immédiats : qui commence sans hésiter, qui relit la définition, qui reste bloqué dès le départ."
+        },
+        {
+          "label": "Phase 2 — Résolution individuelle (20 min)",
+          "content": "Observer les 3 élèves ciblés (profils A, B, C). Noter les comportements sur la grille : ordre de b−a vs a−b, usage spontané des propriétés, tentative de preuve par exemple."
+        },
+        {
+          "label": "Phase 3 — Exercice 4 spécifique (10 min)",
+          "content": "Observer spécifiquement comment les élèves abordent la preuve par congruences. Qui utilise mod 2 ET mod 3 séparément ? Qui tente une récurrence ? Qui abandonne ?"
+        },
+        {
+          "label": "Phase 4 — Mise en commun (15 min)",
+          "content": "Observer les réactions lors des présentations au tableau : désaccords entre élèves, questions spontanées, concepts que l'enseignant doit ré-expliquer."
+        },
+        {
+          "label": "Phase 5 — Synthèse post-séance (30 min max)",
+          "content": "Compléter les parties 3, 4 et 5 de la grille dans les 30 minutes suivant la séance, pendant que les observations sont encore fraîches."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Partie 1 — Comportements globaux",
+      "type": "markdown",
+      "content": "# Partie 1 — Observations Globales\n\n## Comportements à recenser dans la classe\n\nPour chaque comportement, noter le **nombre d'élèves approximatif** :\n\n- Commence immédiatement et sans hésiter\n- Relit la définition avant de commencer\n- Reste bloqué dès le premier item\n- Calcule $b - a$ pour vérifier la divisibilité (correct)\n- Calcule $a - b$ — ordre inversé (erreur procédurale)\n- Confond $\\equiv$ avec $=$ (écrit $a = b$ dans ses calculs)\n- Utilise les propriétés (addition/multiplication) **spontanément**\n- Calcule directement la puissance sans utiliser la congruence\n- Donne une explication en **langage naturel**"
+    },
+    {
+      "id": "s4",
+      "title": "Profils des 3 élèves à suivre",
+      "type": "steps",
+      "stepsTitle": "Sélection et observation des 3 profils",
+      "intro": "Identifier 3 élèves représentant des profils différents dès le début de la séance.",
+      "steps": [
+        {
+          "label": "Élève A — Compréhension conceptuelle",
+          "content": "Profil : semble comprendre le sens de la congruence. Observer ses démarches aux exercices 1, 3, 5 et lors de la mise en commun. Relever comment il/elle formule les justifications."
+        },
+        {
+          "label": "Élève B — Application mécanique",
+          "content": "Profil : applique mécaniquement mais commet des erreurs de sens. Observer si les propriétés sont appliquées sans compréhension du pourquoi. Relever les verbatim révélateurs."
+        },
+        {
+          "label": "Élève C — Blocage ou confusion",
+          "content": "Profil : est bloqué ou confus face à la notion. Observer la nature du blocage : est-ce la définition ? Le calcul de b−a ? Le lien avec la divisibilité ? La généralisation ?"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Flashcard — Obstacle conceptuel vs procédural",
+      "type": "flashcard",
+      "question": "Quelle est la différence entre une **erreur procédurale** et une **erreur conceptuelle** dans le contexte de la congruence ?",
+      "answer": "**Erreur procédurale (Type A)**\nErreur dans l'exécution d'une procédure correctement connue.\nExemple : calculer $a - b$ au lieu de $b - a$.\n\n**Erreur conceptuelle (Type B)**\nMauvaise représentation du concept lui-même.\nExemple : croire que $a \\equiv 0\\ [n]$ signifie $a = 0$.\n\nLa distinction est cruciale : le remède pédagogique n'est pas le même.",
+      "hint": "L'erreur de procédure se corrige par entraînement ; l'erreur conceptuelle nécessite un conflit cognitif"
+    },
+    {
+      "id": "s6",
+      "title": "Partie 3 — Typologies d'erreurs",
+      "type": "matching",
+      "instruction": "Associez chaque erreur observée à son type (A = procédurale, B = conceptuelle, C = transfert abusif).",
+      "pairs": [
+        { "left": "Calcule $a - b$ au lieu de $b - a$", "right": "Type A — Erreur procédurale" },
+        { "left": "Croit que $a \\equiv 0\\ [n]$ implique $a = 0$", "right": "Type B — Erreur conceptuelle" },
+        { "left": "Simplifie $\\frac{a}{c} \\equiv \\frac{b}{c}\\ [n]$ comme en algèbre", "right": "Type C — Transfert abusif" },
+        { "left": "Importe la divisibilité de $\\mathbb{N}$ vers $\\mathbb{Z}$ sans ajustement", "right": "Type C — Transfert abusif" }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Erreurs procédurales — Type A",
+      "type": "markdown",
+      "content": "# Erreurs Procédurales — Type A\n\n## Erreurs les plus fréquentes\n\n**A1 — Inversion de l'ordre $b - a$**\n- L'élève calcule $a - b$ au lieu de $b - a$\n- Révèle une lecture superficielle de la définition\n- Impact : le résultat est l'opposé, mais la conclusion peut rester correcte (si divisible par $n$, $-n$ aussi l'est)\n\n**A2 — Erreur dans la division euclidienne**\n- Reste négatif non corrigé : $-11 = 4 \\times (-2) + (-3)$\n- Doit être : $-11 = 4 \\times (-3) + 1$\n\n**A3 — Mauvaise application de $a^k \\equiv b^k\\ [n]$**\n- L'élève applique la règle sans vérifier que $a \\equiv b$\n- Calcule directement $2^6 = 64$ sans passer par $2 \\equiv -1\\ [3]$"
+    },
+    {
+      "id": "s8",
+      "title": "Erreurs conceptuelles — Type B",
+      "type": "markdown",
+      "content": "# Erreurs Conceptuelles — Type B\n\n## Obstacles conceptuels majeurs\n\n**B1 — Confusion congruence = égalité**\n- L'élève écrit $a = b$ dans ses calculs au lieu de $a \\equiv b\\ [n]$\n- Révèle une conception : la congruence est vue comme une égalité affaiblie\n\n**B2 — $a \\equiv 0\\ [n]$ implique $a = 0$**\n- Obstacle conceptuel majeur, très fréquent\n- Contre-exemple à montrer : $12 \\equiv 0\\ [4]$ mais $12 \\neq 0$\n\n**B3 — Confusion reste / quotient**\n- L'élève donne le quotient à la place du reste\n- Révèle une mauvaise maîtrise de la division euclidienne\n\n**B4 — $a \\equiv b\\ [n]$ implique $a < n$**\n- L'élève pense que les entiers congrus sont forcément inférieurs à $n$"
+    },
+    {
+      "id": "s9",
+      "title": "Erreurs de transfert abusif — Type C",
+      "type": "markdown",
+      "content": "# Erreurs de Transfert Abusif — Type C\n\n## Importation incorrecte de règles d'autres domaines\n\n**C1 — Règles de l'égalité appliquées à la congruence**\n- Simplification : $ac \\equiv bc\\ [n]$ → $a \\equiv b\\ [n]$ (FAUX en général)\n- Ceci est vrai seulement si $\\text{PGCD}(c, n) = 1$\n\n**C2 — Confusion divisibilité et congruence**\n- L'élève utilise $n \\mid a$ et $a \\equiv 0\\ [n]$ comme s'ils étaient différents (ils sont équivalents)\n- Ou inversement, pense que toute congruence implique une divisibilité directe\n\n**C3 — Import de propriétés de $\\mathbb{N}$ vers $\\mathbb{Z}$**\n- Refus des diviseurs négatifs\n- Pense que le reste doit avoir le même signe que le dividende\n\n> Ces erreurs révèlent un obstacle **épistémologique** : l'extension des objets mathématiques au-delà de $\\mathbb{N}$."
+    },
+    {
+      "id": "s10",
+      "title": "Vrai ou Faux — Obstacle type B",
+      "type": "truefalse",
+      "statement": "L'affirmation suivante est un exemple d'**erreur conceptuelle de Type B** : un élève écrit « $24 \\equiv 0\\ [4]$ donc $24 = 0$ ».",
+      "answer": true,
+      "explanation": "**VRAI.** C'est exactement l'obstacle conceptuel B2 : confondre $a \\equiv 0\\ [n]$ avec $a = 0$.\n\nCet obstacle est très fréquent. Il révèle que l'élève n'a pas encore construit le sens de la congruence comme relation d'équivalence distincte de l'égalité.\n\nPiste pédagogique : multiplier les contre-exemples concrets ($12 \\equiv 0\\ [4]$, $-8 \\equiv 0\\ [4]$...) et faire formuler la définition par les élèves eux-mêmes."
+    },
+    {
+      "id": "s11",
+      "title": "Partie 5 — Synthèse post-séance",
+      "type": "steps",
+      "stepsTitle": "À compléter dans les 30 minutes suivant la séance",
+      "intro": "Cette synthèse constitue une donnée qualitative précieuse pour l'analyse. La compléter rapidement, pendant que les observations sont encore vives.",
+      "steps": [
+        {
+          "label": "5.1 — Obstacle principal observé",
+          "content": "Quel a été l'obstacle le plus fréquent et le plus bloquant pour les élèves ? Documenter avec des exemples tirés des copies."
+        },
+        {
+          "label": "5.2 — Élément de compréhension qui a bien fonctionné",
+          "content": "Quelle notion, quel exercice ou quelle intervention a produit un effet positif visible sur la compréhension des élèves ?"
+        },
+        {
+          "label": "5.3 — Points d'attention pour la Séance 3",
+          "content": "Quels comportements ou conceptions méritent un suivi particulier lors du post-test ?"
+        },
+        {
+          "label": "5.4 — Citations remarquables d'élèves",
+          "content": "Consigner verbatim les formulations surprenantes, révélatrices ou particulièrement pertinentes d'élèves. Ces données qualitatives sont précieuses pour l'analyse."
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Indicateurs clés de progression",
+      "type": "markdown",
+      "content": "# Indicateurs de Progression à Observer\n\n## Du procédural vers le conceptuel\n\nL'évolution attendue d'un élève entre la Séance 1 et la Séance 3 :\n\n**Niveau 1 — Opérationnel**\n- Applique la définition mécaniquement\n- Vérifie $n \\mid (b-a)$ sans comprendre le sens\n\n**Niveau 2 — Procédural maîtrisé**\n- Utilise les propriétés (addition, multiplication, puissance)\n- Calcule des puissances sans calculer directement\n\n**Niveau 3 — Conceptuel**\n- Explique ce que signifie la congruence avec ses propres mots\n- Fait le lien avec le reste de la division euclidienne\n- Utilise la congruence comme outil de preuve\n\n**Niveau 4 — Maîtrise réflexive**\n- Peut expliquer pourquoi les propriétés fonctionnent\n- Perçoit les limites (la simplification $ac \\equiv bc \\not\\Rightarrow a \\equiv b$ en général)"
+    }
+  ]
+}
