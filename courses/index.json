@@ -1,5 +1,14 @@
 [
   {
+    "id": "qissat-almal-ep1-tarikh-iqtisadi",
+    "title": "قصة المال — الحلقة 1: بوصلة الثروة",
+    "description": "سلسلة اقتصادية على منصة تاريخنا مع الدكتور محمد طلال لحلو. نكتشف كيف انتقل مركز الثقل الاقتصادي من الشرق المنتج إلى الغرب المستعمِر، وكيف وُلدت الرأسمالية من فوهة البندقية.",
+    "tags": ["اقتصاد", "تاريخ", "رأسمالية", "استعمار", "تاريخنا", "قصة المال"],
+    "lang": "ar",
+    "createdAt": "2026-06-10",
+    "slideCount": 20
+  },
+  {
     "id": "pretest-congruence-1bac-sm",
     "title": "Pré-test — Congruence modulo n — 1ère BAC SM",
     "description": "Questionnaire diagnostique Séance 1 : divisibilité dans ℤ, division euclidienne, PGCD et première découverte de la congruence. Niveau 1ère BAC Sciences Mathématiques.",
