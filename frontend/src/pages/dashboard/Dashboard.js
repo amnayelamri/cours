@@ -6,10 +6,11 @@ import {
 } from '../../services/collectionService';
 import { getArticles, createArticle, deleteArticle } from '../../services/articleService';
 import { getBalances, createBalance, updateBalance, deleteBalance } from '../../services/balanceService';
+import { getProjects, createProject, updateProject, deleteProject } from '../../services/projectService';
 import {
   FiPlus, FiUpload, FiEdit2, FiTrash2, FiBook, FiEye,
   FiClipboard, FiX, FiCheck, FiFolder, FiFolderPlus, FiSave, FiFileText,
-  FiSliders, FiGlobe
+  FiSliders, FiGlobe, FiCode, FiExternalLink
 } from 'react-icons/fi';
 
 const formatDate = (dateStr) =>
@@ -283,6 +284,90 @@ const BalanceModal = ({ balance, onSave, onClose }) => {
   );
 };
 
+// ─── Composant modal Projet ────────────────────────────────────────────────
+const ProjectModal = ({ project, onSave, onClose }) => {
+  const isNew = !project?.id;
+  const [form, setForm] = useState({
+    emoji:       project?.emoji       || '🌐',
+    title:       project?.title       || '',
+    description: project?.description || '',
+    url:         project?.url         || '',
+    tags:        (project?.tags || []).join(', '),
+  });
+  const [saving, setSaving] = useState(false);
+  const [err,    setErr]    = useState('');
+
+  const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
+
+  const handleSave = async () => {
+    if (!form.title.trim()) { setErr('Le titre est requis.'); return; }
+    if (!form.url.trim())   { setErr("L'URL est requise."); return; }
+    setSaving(true); setErr('');
+    try {
+      const data = {
+        ...form,
+        tags: form.tags ? form.tags.split(',').map(t => t.trim()).filter(Boolean) : [],
+      };
+      if (isNew) await createProject(data);
+      else       await updateProject(project.id, { ...project, ...data });
+      onSave();
+    } catch (e) { setErr('Erreur : ' + e.message); }
+    finally { setSaving(false); }
+  };
+
+  return (
+    <div className="paste-modal-overlay" onClick={onClose}>
+      <div className="paste-modal col-modal" onClick={e => e.stopPropagation()}>
+        <div className="paste-modal-header">
+          <h2><FiCode size={17} /> {isNew ? 'Nouveau projet' : 'Modifier le projet'}</h2>
+          <button onClick={onClose} className="close-btn"><FiX size={18} /></button>
+        </div>
+        <div className="col-form">
+          <div className="col-form-row">
+            <div className="col-form-field" style={{ flex: '0 0 80px' }}>
+              <label>Emoji</label>
+              <input className="col-input" value={form.emoji}
+                onChange={e => set('emoji', e.target.value.slice(-2))}
+                placeholder="🌐" maxLength={2} />
+            </div>
+            <div className="col-form-field" style={{ flex: 1 }}>
+              <label>Titre <span className="required">*</span></label>
+              <input className="col-input" value={form.title} autoFocus
+                onChange={e => set('title', e.target.value)}
+                placeholder="Nom du projet" />
+            </div>
+          </div>
+          <div className="col-form-field">
+            <label>Description</label>
+            <textarea className="col-input col-textarea" rows={3} value={form.description}
+              onChange={e => set('description', e.target.value)}
+              placeholder="Décrivez brièvement ce projet..." />
+          </div>
+          <div className="col-form-field">
+            <label>URL <span className="required">*</span></label>
+            <input className="col-input" value={form.url} type="url"
+              onChange={e => set('url', e.target.value)}
+              placeholder="https://monsite.com" />
+          </div>
+          <div className="col-form-field">
+            <label>Tags (séparés par des virgules)</label>
+            <input className="col-input" value={form.tags}
+              onChange={e => set('tags', e.target.value)}
+              placeholder="React, Python, Flask" />
+          </div>
+        </div>
+        {err && <div className="error-message">{err}</div>}
+        <div className="paste-modal-footer">
+          <button onClick={onClose} className="btn-secondary">Annuler</button>
+          <button onClick={handleSave} className="btn-primary" disabled={saving || !form.title.trim() || !form.url.trim()}>
+            <FiSave size={15} /> {saving ? 'Enregistrement...' : 'Enregistrer'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ─── Dashboard principal ───────────────────────────────────────────────────
 const Dashboard = () => {
   const [tab, setTab]               = useState('cours');
@@ -291,6 +376,11 @@ const Dashboard = () => {
   const [articles,    setArticles]    = useState([]);
   const [balances,    setBalances]    = useState([]);
   const [balanceModal, setBalanceModal] = useState(null);
+  const [projects,    setProjects]    = useState([]);
+  const [projectModal, setProjectModal] = useState(null);
+  const [balPasteOpen,  setBalPasteOpen]  = useState(false);
+  const [balPasteText,  setBalPasteText]  = useState('');
+  const [balPasteError, setBalPasteError] = useState('');
   const [deploying,   setDeploying]   = useState(false);
   const [deployMsg,   setDeployMsg]   = useState('');
   const [loading, setLoading]       = useState(true);
@@ -304,12 +394,13 @@ const Dashboard = () => {
   const [editingCol, setEditingCol]     = useState(null);
   const textareaRef    = useRef(null);
   const artTextareaRef = useRef(null);
+  const balTextareaRef = useRef(null);
 
   const loadAll = () => {
     setLoading(true);
-    Promise.all([getCourses(), getCollections(), getArticles(), getBalances()])
-      .then(([c, col, art, bal]) => {
-        setCourses(c); setCollections(col); setArticles(art); setBalances(bal);
+    Promise.all([getCourses(), getCollections(), getArticles(), getBalances(), getProjects()])
+      .then(([c, col, art, bal, proj]) => {
+        setCourses(c); setCollections(col); setArticles(art); setBalances(bal); setProjects(proj);
       })
       .catch(() => setError('Impossible de charger les données.'))
       .finally(() => setLoading(false));
@@ -406,7 +497,7 @@ const Dashboard = () => {
   const handleDeploy = async () => {
     setDeploying(true); setDeployMsg('');
     try {
-      const res = await fetch('http://localhost:3001/api/deploy', { method: 'POST' });
+      const res = await fetch('http://localhost:3002/api/deploy', { method: 'POST' });
       const data = await res.json();
       setDeployMsg(data.message);
     } catch {
@@ -417,8 +508,38 @@ const Dashboard = () => {
     }
   };
 
+  // ── Projets ──
+  const handleProjectSaved = () => { setProjectModal(null); loadAll(); };
+
+  const handleDeleteProject = async (proj) => {
+    if (!window.confirm(`Supprimer "${proj.title}" ?`)) return;
+    try { await deleteProject(proj.id); setProjects(p => p.filter(x => x.id !== proj.id)); }
+    catch { setError('Erreur lors de la suppression.'); }
+  };
+
   // ── Balances ──
   const handleBalanceSaved = () => { setBalanceModal(null); loadAll(); };
+
+  const openBalPaste = () => {
+    setBalPasteText(''); setBalPasteError(''); setBalPasteOpen(true);
+    setTimeout(() => balTextareaRef.current?.focus(), 50);
+  };
+
+  const handlePasteBalanceImport = async () => {
+    setBalPasteError('');
+    try {
+      const raw = JSON.parse(balPasteText);
+      const list = Array.isArray(raw) ? raw : [raw];
+      if (list.length === 0) throw new Error('Le tableau est vide.');
+      for (const bal of list) {
+        if (!Array.isArray(bal.items)) throw new Error('Chaque balance doit avoir un champ "items".');
+      }
+      for (const bal of list) {
+        await createBalance({ title: bal.title || '', items: bal.items });
+      }
+      setBalPasteOpen(false); setBalPasteText(''); loadAll();
+    } catch (err) { setBalPasteError('JSON invalide : ' + err.message); }
+  };
 
   const handleDeleteBalance = async (bal) => {
     const name = bal.title || 'cette balance';
@@ -456,6 +577,12 @@ const Dashboard = () => {
           onClick={() => setTab('balances')}
         >
           <FiSliders size={15} /> Balances ({balances.length})
+        </button>
+        <button
+          className={`dash-tab${tab === 'projets' ? ' active' : ''}`}
+          onClick={() => setTab('projets')}
+        >
+          <FiCode size={15} /> Projets ({projects.length})
         </button>
       </div>
 
@@ -724,10 +851,44 @@ const Dashboard = () => {
         <>
           <div className="dashboard-header">
             <h1>Mes balances</h1>
-            <button className="btn-primary" onClick={() => setBalanceModal({})}>
-              <FiPlus size={15} /> Nouvelle balance
-            </button>
+            <div className="dashboard-actions">
+              <button className="btn-secondary import-btn" onClick={openBalPaste}>
+                <FiClipboard size={15} /> Coller JSON
+              </button>
+              <button className="btn-primary" onClick={() => setBalanceModal({})}>
+                <FiPlus size={15} /> Nouvelle balance
+              </button>
+            </div>
           </div>
+
+          {/* ── Modal coller JSON balances ── */}
+          {balPasteOpen && (
+            <div className="paste-modal-overlay" onClick={() => setBalPasteOpen(false)}>
+              <div className="paste-modal" onClick={e => e.stopPropagation()}>
+                <div className="paste-modal-header">
+                  <h2><FiClipboard size={18} /> Coller des balances en JSON</h2>
+                  <button onClick={() => setBalPasteOpen(false)} className="close-btn"><FiX size={18} /></button>
+                </div>
+                <p className="paste-hint">Colle un tableau JSON de balances. Chaque balance doit avoir <code>items</code> (et optionnellement <code>title</code>).</p>
+                <textarea
+                  ref={balTextareaRef}
+                  className="paste-textarea"
+                  value={balPasteText}
+                  onChange={e => { setBalPasteText(e.target.value); setBalPasteError(''); }}
+                  placeholder={'[\n  {\n    "title": "Ma balance",\n    "items": [\n      { "label": "Texte A", "value": "1" },\n      { "label": "Texte B", "value": "2" }\n    ]\n  }\n]'}
+                  rows={16}
+                  spellCheck={false}
+                />
+                {balPasteError && <div className="error-message">{balPasteError}</div>}
+                <div className="paste-modal-footer">
+                  <button onClick={() => setBalPasteOpen(false)} className="btn-secondary">Annuler</button>
+                  <button onClick={handlePasteBalanceImport} className="btn-primary" disabled={!balPasteText.trim()}>
+                    <FiCheck size={15} /> Importer les balances
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {balances.length === 0 ? (
             <div className="empty-state">
@@ -780,6 +941,82 @@ const Dashboard = () => {
               ))}
             </div>
           )}
+          {/* ── Schéma JSON pour l'IA ── */}
+          <div className="schema-box">
+            <h3>Format JSON pour générer des balances avec une IA</h3>
+            <p className="schema-hint">Donne ce schéma à l'IA avec ton contenu, puis colle le tableau généré.</p>
+            <pre>{JSON.stringify([
+              {
+                title: "Titre de la balance (optionnel)",
+                items: [
+                  { label: "Texte descriptif (droite)", value: "Code court (gauche, ex: N, S, 1, 2…)" },
+                  { label: "Deuxième élément", value: "E" }
+                ]
+              },
+              {
+                title: "Deuxième balance",
+                items: [
+                  { label: "Exemple", value: "A" }
+                ]
+              }
+            ], null, 2)}</pre>
+          </div>
+        </>
+      )}
+
+      {/* ══════════════ TAB PROJETS ══════════════ */}
+      {tab === 'projets' && (
+        <>
+          <div className="dashboard-header">
+            <h1>Mes projets</h1>
+            <button className="btn-primary" onClick={() => setProjectModal({})}>
+              <FiPlus size={15} /> Nouveau projet
+            </button>
+          </div>
+
+          {projects.length === 0 ? (
+            <div className="empty-state">
+              <FiCode size={56} />
+              <p>Aucun projet. Ajoutez vos sites et applications.</p>
+            </div>
+          ) : (
+            <div className="dashboard-courses">
+              {projects.map(proj => (
+                <div key={proj.id} className="dashboard-row">
+                  <div className="course-info" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                    <span style={{ fontSize: 28, lineHeight: 1, flexShrink: 0 }}>{proj.emoji || '🌐'}</span>
+                    <div style={{ minWidth: 0 }}>
+                      <h3>{proj.title}</h3>
+                      {proj.description && <p>{proj.description}</p>}
+                      <div className="course-meta">
+                        {proj.url && (
+                          <a href={proj.url} target="_blank" rel="noopener noreferrer"
+                            style={{ color: 'var(--primary-color)', fontSize: 12 }}>
+                            {proj.url} <FiExternalLink size={11} />
+                          </a>
+                        )}
+                        {(proj.tags || []).map(t => <span key={t} className="tag">{t}</span>)}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row-actions">
+                    <a href={proj.url} target="_blank" rel="noopener noreferrer"
+                      className="btn-secondary icon-btn" title="Voir le site">
+                      <FiExternalLink size={15} />
+                    </a>
+                    <button className="btn-secondary icon-btn"
+                      onClick={() => setProjectModal(proj)} title="Modifier">
+                      <FiEdit2 size={15} />
+                    </button>
+                    <button className="btn-danger icon-btn"
+                      onClick={() => handleDeleteProject(proj)} title="Supprimer">
+                      <FiTrash2 size={15} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </>
       )}
 
@@ -790,6 +1027,15 @@ const Dashboard = () => {
           courses={courses}
           onSave={handleColSaved}
           onClose={() => setEditingCol(null)}
+        />
+      )}
+
+      {/* ── Modal projet ── */}
+      {projectModal !== null && (
+        <ProjectModal
+          project={projectModal && projectModal.id ? projectModal : null}
+          onSave={handleProjectSaved}
+          onClose={() => setProjectModal(null)}
         />
       )}
 

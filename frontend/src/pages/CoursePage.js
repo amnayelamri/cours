@@ -13,22 +13,26 @@ import TrueFalseViewer   from '../components/viewers/TrueFalseViewer';
 import MatchingViewer    from '../components/viewers/MatchingViewer';
 import { FiChevronLeft, FiChevronRight, FiList, FiArrowLeft } from 'react-icons/fi';
 
-const SlideContent = ({ slide, courseId }) => {
+const SlideContent = ({ slide, courseId, lang }) => {
+  const isRtl = lang === 'ar';
+  let content;
   switch (slide.type) {
     case 'content':
-    case 'markdown': return <MarkdownViewer content={slide.content} />;
-    case 'pdf':      return <PDFViewer url={getAssetUrl(courseId, slide.file)} />;
-    case 'image':    return <ImageViewer url={getAssetUrl(courseId, slide.file)} caption={slide.caption} />;
-    case 'video':    return <VideoViewer url={slide.url} caption={slide.caption} />;
-    case 'html':     return <div className="html-viewer" dangerouslySetInnerHTML={{ __html: slide.content }} />;
-    case 'quiz':      return <QuizViewer question={slide.question} choices={slide.choices} explanation={slide.explanation} />;
-    case 'flashcard': return <FlashcardViewer question={slide.question} answer={slide.answer} hint={slide.hint} />;
-    case 'number':    return <NumberViewer question={slide.question} answer={slide.answer} hint={slide.hint} explanation={slide.explanation} tolerance={slide.tolerance || 0} />;
-    case 'steps':     return <StepsViewer title={slide.stepsTitle} intro={slide.intro} steps={slide.steps || []} />;
-    case 'truefalse': return <TrueFalseViewer statement={slide.statement} answer={slide.answer} explanation={slide.explanation} />;
-    case 'matching':  return <MatchingViewer instruction={slide.instruction} pairs={slide.pairs || []} />;
-    default:          return <div className="error">Type inconnu : {slide.type}</div>;
+    case 'markdown': content = <MarkdownViewer content={slide.content} />; break;
+    case 'pdf':      content = <PDFViewer url={getAssetUrl(courseId, slide.file)} />; break;
+    case 'image':    content = <ImageViewer url={getAssetUrl(courseId, slide.file)} caption={slide.caption} />; break;
+    case 'video':    content = <VideoViewer url={slide.url} caption={slide.caption} />; break;
+    case 'html':     content = <div className="html-viewer" dangerouslySetInnerHTML={{ __html: slide.content }} />; break;
+    case 'quiz':      content = <QuizViewer question={slide.question} choices={slide.choices} explanation={slide.explanation} />; break;
+    case 'flashcard': content = <FlashcardViewer question={slide.question} answer={slide.answer} hint={slide.hint} />; break;
+    case 'number':    content = <NumberViewer question={slide.question} answer={slide.answer} hint={slide.hint} explanation={slide.explanation} tolerance={slide.tolerance || 0} />; break;
+    case 'steps':     content = <StepsViewer title={slide.stepsTitle} intro={slide.intro} steps={slide.steps || []} />; break;
+    case 'truefalse': content = <TrueFalseViewer statement={slide.statement} answer={slide.answer} explanation={slide.explanation} />; break;
+    case 'matching':  content = <MatchingViewer instruction={slide.instruction} pairs={slide.pairs || []} />; break;
+    default:          content = <div className="error">Type inconnu : {slide.type}</div>; break;
   }
+  if (isRtl) return <div dir="rtl" className="lang-ar">{content}</div>;
+  return content;
 };
 
 const CoursePage = () => {
@@ -158,6 +162,8 @@ const CoursePage = () => {
   const slide     = course.slides[current];
   const prevSlide = current > 0         ? course.slides[current - 1] : null;
   const nextSlide = current < total - 1 ? course.slides[current + 1] : null;
+  const lang      = course.lang;
+  const isRtl     = lang === 'ar';
 
   return (
     <div className="course-page">
@@ -165,7 +171,7 @@ const CoursePage = () => {
         <button onClick={() => navigate('/')} className="back-btn">
           <FiArrowLeft size={16} /> Retour
         </button>
-        <div className="course-title">
+        <div className="course-title" dir={isRtl ? 'rtl' : undefined}>
           <h2>{course.title}</h2>
           <span>{current + 1} / {total}</span>
         </div>
@@ -177,9 +183,9 @@ const CoursePage = () => {
       {/* ── DESKTOP ── */}
       <div className="course-layout desktop-only">
         <div className="slide-area">
-          {slide.title && <div className="slide-title">{slide.title}</div>}
+          {slide.title && <div className="slide-title" dir={isRtl ? 'rtl' : undefined}>{slide.title}</div>}
           <div className="slide-content">
-            <SlideContent key={current} slide={slide} courseId={id} />
+            <SlideContent key={current} slide={slide} courseId={id} lang={lang} />
           </div>
           <div className="slide-nav">
             <button onClick={prev} disabled={current === 0} className="nav-btn">
@@ -232,12 +238,12 @@ const CoursePage = () => {
           <div className="mobile-slide-panel">
             {prevSlide && (
               <>
-                <div className="mobile-slide-header">
+                <div className="mobile-slide-header" dir={isRtl ? 'rtl' : undefined}>
                   {prevSlide.title && <span className="mobile-slide-title">{prevSlide.title}</span>}
                   <span className="mobile-slide-counter">{current} / {total}</span>
                 </div>
                 <div className="mobile-slide-content">
-                  <SlideContent key={`prev-${current}`} slide={prevSlide} courseId={id} />
+                  <SlideContent key={`prev-${current}`} slide={prevSlide} courseId={id} lang={lang} />
                 </div>
               </>
             )}
@@ -245,12 +251,12 @@ const CoursePage = () => {
 
           {/* Panneau CENTRE — slide actuelle */}
           <div className="mobile-slide-panel" ref={centerPanelRef}>
-            <div className="mobile-slide-header">
+            <div className="mobile-slide-header" dir={isRtl ? 'rtl' : undefined}>
               {slide.title && <span className="mobile-slide-title">{slide.title}</span>}
               <span className="mobile-slide-counter">{current + 1} / {total}</span>
             </div>
             <div className="mobile-slide-content">
-              <SlideContent key={`curr-${current}`} slide={slide} courseId={id} />
+              <SlideContent key={`curr-${current}`} slide={slide} courseId={id} lang={lang} />
             </div>
             <div className="mobile-progress">
               {course.slides.map((_, pi) => (
@@ -263,12 +269,12 @@ const CoursePage = () => {
           <div className="mobile-slide-panel">
             {nextSlide && (
               <>
-                <div className="mobile-slide-header">
+                <div className="mobile-slide-header" dir={isRtl ? 'rtl' : undefined}>
                   {nextSlide.title && <span className="mobile-slide-title">{nextSlide.title}</span>}
                   <span className="mobile-slide-counter">{current + 2} / {total}</span>
                 </div>
                 <div className="mobile-slide-content">
-                  <SlideContent key={`next-${current}`} slide={nextSlide} courseId={id} />
+                  <SlideContent key={`next-${current}`} slide={nextSlide} courseId={id} lang={lang} />
                 </div>
               </>
             )}

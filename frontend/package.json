@@ -25,7 +25,7 @@
       "react-app"
     ]
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3002",
   "homepage": ".",
   "browserslist": {
     "production": [

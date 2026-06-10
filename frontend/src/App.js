@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import CollectionPage from './pages/CollectionPage';
 import ArticlesPage from './pages/ArticlesPage';
 import ArticlePage from './pages/ArticlePage';
+import ProjectsPage from './pages/ProjectsPage';
 import Dashboard from './pages/dashboard/Dashboard';
 import CourseEditor from './pages/dashboard/CourseEditor';
 import ArticleEditor from './pages/dashboard/ArticleEditor';
@@ -27,6 +28,7 @@ function App() {
             <Route path="/collection/:id"       element={<CollectionPage />} />
             <Route path="/articles"                       element={<ArticlesPage />} />
             <Route path="/articles/:id"                   element={<ArticlePage />} />
+            <Route path="/projects"                       element={<ProjectsPage />} />
             <Route path="/dashboard"                      element={<Dashboard />} />
             <Route path="/dashboard/new"                  element={<CourseEditor />} />
             <Route path="/dashboard/edit/:id"             element={<CourseEditor />} />

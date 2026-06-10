@@ -6,12 +6,13 @@ const cors = require('cors');
 const { execSync } = require('child_process');
 
 const app = express();
-const PORT = 3001;
+const PORT = 3002;
 const COURSES_DIR      = path.join(__dirname, 'frontend', 'public', 'courses');
 const COLLECTIONS_FILE = path.join(__dirname, 'frontend', 'public', 'collections', 'index.json');
 const ARTICLES_DIR     = path.join(__dirname, 'frontend', 'public', 'articles');
 const ARTICLES_INDEX   = path.join(ARTICLES_DIR, 'index.json');
 const BALANCES_FILE    = path.join(__dirname, 'data', 'balances.json');
+const PROJECTS_FILE    = path.join(__dirname, 'frontend', 'public', 'projects', 'index.json');
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json({ limit: '50mb' }));
@@ -261,6 +262,42 @@ app.put('/api/balances/:id', (req, res) => {
 
 app.delete('/api/balances/:id', (req, res) => {
   writeBalances(readBalances().filter(b => b.id !== req.params.id));
+  res.json({ message: 'Deleted' });
+});
+
+// ── Projets ───────────────────────────────────────────────────────────────────
+
+const readProjects  = () => {
+  if (!fs.existsSync(PROJECTS_FILE)) fs.writeFileSync(PROJECTS_FILE, '[]');
+  return JSON.parse(fs.readFileSync(PROJECTS_FILE, 'utf-8'));
+};
+const writeProjects = (data) => fs.writeFileSync(PROJECTS_FILE, JSON.stringify(data, null, 2));
+
+app.get('/api/projects', (req, res) => res.json(readProjects()));
+
+app.post('/api/projects', (req, res) => {
+  const project = {
+    ...req.body,
+    id: req.body.id || 'project-' + Date.now(),
+    createdAt: req.body.createdAt || new Date().toISOString().split('T')[0],
+  };
+  const list = readProjects();
+  list.unshift(project);
+  writeProjects(list);
+  res.status(201).json(project);
+});
+
+app.put('/api/projects/:id', (req, res) => {
+  const list = readProjects();
+  const idx  = list.findIndex(p => p.id === req.params.id);
+  if (idx < 0) return res.status(404).json({ message: 'Project not found' });
+  list[idx] = { ...list[idx], ...req.body, id: req.params.id };
+  writeProjects(list);
+  res.json(list[idx]);
+});
+
+app.delete('/api/projects/:id', (req, res) => {
+  writeProjects(readProjects().filter(p => p.id !== req.params.id));
   res.json({ message: 'Deleted' });
 });
 

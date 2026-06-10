@@ -391,6 +391,12 @@ const CourseEditor = () => {
 
   const addSlide = () => setCourse({ ...course, slides: [...course.slides, newSlide()] });
 
+  const insertSlide = (atIndex) => {
+    const slides = [...course.slides];
+    slides.splice(atIndex, 0, newSlide());
+    setCourse({ ...course, slides });
+  };
+
   const deleteSlide = (i) =>
     setCourse({ ...course, slides: course.slides.filter((_, idx) => idx !== i) });
 
@@ -447,20 +453,35 @@ const CourseEditor = () => {
       <div className="slides-section">
         <h2>Slides ({course.slides.length})</h2>
         {course.slides.map((slide, i) => (
-          <SlideEditor
-            key={slide.id || i}
-            slide={slide}
-            index={i}
-            total={course.slides.length}
-            courseId={savedId}
-            onChange={s => updateSlide(i, s)}
-            onDelete={() => deleteSlide(i)}
-            onMove={(idx, dir) => moveSlide(idx, dir)}
-          />
+          <React.Fragment key={slide.id || i}>
+            {i === 0 && (
+              <div className="insert-row">
+                <button className="insert-slide-btn" onClick={() => insertSlide(0)} title="Insérer avant la première slide">
+                  <FiPlus size={11} /> insérer ici
+                </button>
+              </div>
+            )}
+            <SlideEditor
+              slide={slide}
+              index={i}
+              total={course.slides.length}
+              courseId={savedId}
+              onChange={s => updateSlide(i, s)}
+              onDelete={() => deleteSlide(i)}
+              onMove={(idx, dir) => moveSlide(idx, dir)}
+            />
+            <div className="insert-row">
+              <button className="insert-slide-btn" onClick={() => insertSlide(i + 1)} title="Insérer un slide ici">
+                <FiPlus size={11} /> insérer ici
+              </button>
+            </div>
+          </React.Fragment>
         ))}
-        <button onClick={addSlide} className="add-slide-btn">
-          <FiPlus size={16} /> Ajouter un slide
-        </button>
+        {course.slides.length === 0 && (
+          <button onClick={addSlide} className="add-slide-btn">
+            <FiPlus size={16} /> Ajouter un slide
+          </button>
+        )}
       </div>
     </div>
   );
