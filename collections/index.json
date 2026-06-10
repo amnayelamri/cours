@@ -74,12 +74,23 @@
     "id": "prompt-engineering"
   },
   {
-    "title": "Concours de Medecine - Maths",
+    "title": "Concours de Medecine ",
     "emoji": "",
     "description": "",
     "courseIds": [
       "math-matiques-concours-m-decine-2025-2026"
     ],
     "id": "concours-de-medecine-maths"
+  },
+  {
+    "title": "Didactique des mathématiques ( Arithmétique pour 1 SM )",
+    "emoji": "",
+    "description": "projet de recherche en didactique des mathématiques. ",
+    "courseIds": [
+      "pretest-congruence-1bac-sm",
+      "grille-observation-congruence-s2",
+      "posttest-congruence-1bac-sm"
+    ],
+    "id": "didactique-des-mathematiques-arithmetique-pour-1-sm"
   }
 ]

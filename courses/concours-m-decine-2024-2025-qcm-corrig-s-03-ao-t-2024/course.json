@@ -1,0 +1,1947 @@
+{
+  "title": "Concours Médecine 2024-2025 — QCM corrigés (03 Août 2024)",
+  "description": "Les 56 questions du concours d'accès aux facultés de Médecine, Pharmacie et Médecine Dentaire (session du 03 août 2024, version française), avec la bonne réponse et une explication pour chaque QCM. Matières : SVT, Physique, Chimie, Mathématiques (formules en LaTeX).",
+  "tags": [
+    "concours médecine",
+    "QCM",
+    "SVT",
+    "Physique",
+    "Chimie",
+    "Mathématiques",
+    "baccalauréat",
+    "2024-2025",
+    "LaTeX"
+  ],
+  "slides": [
+    {
+      "id": "sec-svt",
+      "title": "SVT — Sciences de la Vie et de la Terre",
+      "type": "markdown",
+      "content": "# SVT — Sciences de la Vie et de la Terre\n\nQuestions de cette section : 14"
+    },
+    {
+      "id": "q1",
+      "title": "SVT — Question 1",
+      "type": "quiz",
+      "question": "Consommation de la matière organique et flux d'énergie :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Le cycle de Krebs produit : NADH+H⁺, FADH₂, CO₂ et l'Acétyl-CoA.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. La fermentation lactique produit : l'Acide lactique, le CO₂ et l'ATP.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Dans la mitochondrie, les processus d'oxydo-réduction permettent la régénération de l'ATP.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. La chaîne respiratoire permet la réduction du NAD⁺ et du FAD⁺.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Au cours du transfert des électrons par la chaîne respiratoire, il y a un pompage des protons H⁺ de l'espace intermembranaire vers la matrice mitochondriale.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : C — Les oxydo-réductions de la chaîne respiratoire libèrent l'énergie qui régénère l'ATP (chimiosmose). Le cycle de Krebs ne produit pas l'acétyl-CoA (c'est un substrat d'entrée), la fermentation lactique ne libère pas de CO₂, la chaîne respiratoire OXYDE le NADH/FADH₂ (et non l'inverse), et le pompage des H⁺ se fait de la matrice vers l'espace intermembranaire."
+    },
+    {
+      "id": "q2",
+      "title": "SVT — Question 2",
+      "type": "quiz",
+      "question": "Lors du catabolisme aérobie, la plus grande partie du CO₂ est libérée pendant :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. La glycolyse.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Le cycle de Krebs.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. La fermentation lactique.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Le transport d'électrons.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. La phosphorylation oxydative.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — C'est au niveau du cycle de Krebs (décarboxylations oxydatives) que la majeure partie du CO₂ du catabolisme aérobie est libérée."
+    },
+    {
+      "id": "q3",
+      "title": "SVT — Question 3",
+      "type": "quiz",
+      "question": "Lors d'un exercice physique intense et de courte durée, l'utilisation de la glycolyse anaérobie pour produire de l'ATP par les muscles conduit à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. La production d'une grande quantité d'ATP et d'acide lactique ; ce dernier sera immédiatement utilisé pour resynthétiser du glucose.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. La production d'une faible quantité d'ATP et d'acide lactique ; ce dernier s'accumule dans les muscles et contribue à la fatigue musculaire.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. La production de l'acide pyruvique, qui va se convertir en acétyl-CoA ; ce dernier va entrer dans le cycle de Krebs pour augmenter la production d'ATP.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La production de l'acide lactique, qui va se transformer en dioxyde de carbone et en eau au niveau de la chaîne respiratoire.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. L'augmentation de la production d'ATP et de l'acide lactique ; ce dernier sera utilisé pour la synthèse de protéines musculaires.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — La glycolyse anaérobie ne fournit que peu d'ATP ; l'acide lactique produit s'accumule dans le muscle et participe à la sensation de fatigue musculaire."
+    },
+    {
+      "id": "q4",
+      "title": "SVT — Question 4",
+      "type": "quiz",
+      "question": "L'insuline :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Correspond à une hormone synthétisée par les cellules α des îlots de Langerhans du pancréas.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Correspond à une hormone hyperglycémiante.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Est constituée de 15 acides aminés.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La production de l'insuline repose sur le principe de la transcription de l'ARNm en ADNc par la transcriptase inverse.",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. La production de l'insuline est réalisée en synthétisant 3 chaînes peptidiques.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — La production industrielle (recombinante) de l'insuline humaine utilise la transcriptase inverse pour transformer l'ARNm en ADNc, qui est ensuite inséré dans une bactérie. (Rappel : l'insuline est sécrétée par les cellules β, est hypoglycémiante, contient 51 acides aminés répartis en 2 chaînes A et B.)"
+    },
+    {
+      "id": "q5",
+      "title": "SVT — Question 5",
+      "type": "quiz",
+      "question": "L'ADN polymérase :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Correspond à une enzyme qui sépare les deux brins de la double hélice d'ADN.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Correspond à une protéine de déstabilisation de l'hélice.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Permet de synthétiser un nouveau brin d'ADN à partir du brin matrice.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. Permet la transcription de l'ADN en ARN.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Permet de casser les liaisons hydrogène.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : C — L'ADN polymérase synthétise le brin complémentaire à partir du brin matrice lors de la réplication. (L'hélicase sépare les brins/casse les liaisons H, les protéines SSB stabilisent l'ADN simple brin, l'ARN polymérase assure la transcription.)"
+    },
+    {
+      "id": "q6",
+      "title": "SVT — Question 6",
+      "type": "quiz",
+      "question": "En ce qui concerne la Galle du Collet :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. La maladie est provoquée par la chaleur élevée.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. La maladie est due à Agrobacterium tumefaciens.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. La maladie est due à une tuméfaction inflammatoire.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Les opines sont des substances secrétées par la cellule pour se défendre contre l'agent pathogène.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Après la mort des cellules infectées, les agents pathogènes subissent une nécrose.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — La galle du collet (crown gall) est une maladie tumorale des plantes provoquée par la bactérie Agrobacterium tumefaciens, qui transfère une partie de son ADN (plasmide Ti) dans le génome de la plante."
+    },
+    {
+      "id": "q7",
+      "title": "SVT — Question 7",
+      "type": "quiz",
+      "question": "Le caryotype standard :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Est un examen qui permet de détecter les anomalies chromosomiques de grande taille.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Est un examen qui met en évidence une mutation d'un gène.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Correspond à l'examen de référence pour confirmer la myopathie de Duchenne.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Repose sur le principe de complémentarité pour révéler les anomalies.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Correspond à la génération de quantités importantes d'une séquence donnée d'ADN à partir de l'ADN total d'une cellule.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — Le caryotype permet de visualiser les chromosomes et donc de détecter des anomalies chromosomiques de structure ou de nombre de grande taille — pas les mutations ponctuelles d'un gène (qui nécessitent un séquençage)."
+    },
+    {
+      "id": "q8",
+      "title": "SVT — Question 8",
+      "type": "quiz",
+      "question": "La mucoviscidose :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Est une maladie polygénique.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Est une maladie autosomique dominante.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Ses manifestations sont dues à une viscosité trop basse du mucus.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La maladie peut se manifester par des troubles digestifs.",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. La maladie résulte de différentes mutations d'un gène localisé sur le chromosome 17.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — La mucoviscidose, maladie monogénique autosomique récessive (gène CFTR, chromosome 7), provoque un mucus anormalement épais (et non « peu visqueux ») qui obstrue les voies respiratoires et digestives, causant entre autres des troubles digestifs."
+    },
+    {
+      "id": "q9",
+      "title": "SVT — Question 9",
+      "type": "quiz",
+      "question": "Avec quel mode de transmission l'arbre généalogique fourni est-il compatible ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Mode autosomique récessif.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Mode autosomique dominant.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Mode dominant lié au chromosome X.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Mode récessif lié au chromosome X.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Mode lié au chromosome Y.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — D'après la généalogie présentée (parents sains ayant un/des enfants atteints), seul un mode autosomique récessif permet d'expliquer la réapparition du caractère chez la descendance de parents non atteints. (Réponse à confirmer en relisant précisément les symboles pleins/vides de l'arbre fourni dans le sujet.)"
+    },
+    {
+      "id": "q10",
+      "title": "SVT — Question 10",
+      "type": "quiz",
+      "question": "En ce qui concerne la molécule de l'hémoglobine :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Les gènes qui codent pour β-globine et α-globine sont localisés tous les deux sur le chromosome 16.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Au niveau du globule rouge, on note la présence de 2 globines β et une globine α.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. L'hémoglobine est constituée uniquement de groupement protéique.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La synthèse incomplète de la β-globine donne la β-thalassémie.",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. L'α-globine est constituée de 476 acides aminés.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Une production insuffisante de chaînes β donne la β-thalassémie. (Le gène de la β-globine est sur le chr.11 et celui de l'α-globine sur le chr.16 ; l'hémoglobine = 2 chaînes α + 2 chaînes β + groupement hème non protéique ; l'α-globine compte 141 acides aminés.)"
+    },
+    {
+      "id": "q11",
+      "title": "SVT — Question 11",
+      "type": "quiz",
+      "question": "À propos de l'hémophilie :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. C'est une maladie récessive liée à l'X.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. C'est une maladie liée à l'Y.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Le gène responsable est présent sur le chromosome 8.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Chez les filles porteuses de la mutation, une simple blessure entraîne toujours une hémorragie mortelle.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Les garçons porteurs de la mutation ne manifestent pas les symptômes de la maladie.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — L'hémophilie est une maladie héréditaire récessive liée au chromosome X — un garçon porteur de l'allèle muté (hémizygote) est obligatoirement atteint, et une femme porteuse est généralement asymptomatique (hétérozygote)."
+    },
+    {
+      "id": "q12",
+      "title": "SVT — Question 12",
+      "type": "quiz",
+      "question": "À propos des organes lymphoïdes et de l'origine des cellules immunitaires :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. La maturation des lymphocytes B a lieu dans le thymus.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. La maturation des lymphocytes T a lieu dans la moelle osseuse.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. La formation des lymphocytes T a lieu dans le thymus.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La formation des lymphocytes B a lieu dans la moelle osseuse.",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. Seuls les lymphocytes T regagnent les ganglions lymphatiques après leur formation et maturation.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Tous les lymphocytes (B et T) sont formés dans la moelle osseuse à partir de cellules souches ; les LB y achèvent aussi leur maturation, alors que les futurs LT migrent vers le thymus pour y mûrir. Les deux types regagnent ensuite les organes lymphoïdes secondaires."
+    },
+    {
+      "id": "q13",
+      "title": "SVT — Question 13",
+      "type": "quiz",
+      "question": "Le rejet d'une greffe :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Est une réaction immunitaire non spécifique.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Est facilitée par une injection de sérum provenant d'un individu ayant déjà rejeté la même greffe.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Ne peut se produire en l'absence de complément.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Se produit lorsque le CMH du donneur et du receveur sont différents.",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. Est une réaction immunitaire à médiation humorale.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Le rejet de greffe est une réaction immunitaire spécifique à médiation cellulaire déclenchée par la reconnaissance du non-soi : elle survient lorsque les molécules du CMH (complexe majeur d'histocompatibilité) du donneur diffèrent de celles du receveur."
+    },
+    {
+      "id": "q14",
+      "title": "SVT — Question 14",
+      "type": "quiz",
+      "question": "La réponse immunitaire spécifique à médiation cellulaire :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Repose essentiellement sur l'activation des lymphocytes B.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Nécessite une coopération entre les macrophages, les lymphocytes LT4 et les lymphocytes B.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Nécessite la différenciation des lymphocytes B en plasmocytes.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Met en jeu l'interleukine IL2 sécrétée par les lymphocytes LT4 et LTh (helpers).",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. Met en jeu la différenciation des lymphocytes LT4 en lymphocytes T cytotoxiques (LTc).",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Dans la réponse cellulaire, les LT4 (auxiliaires/helpers) sécrètent de l'interleukine IL2, qui stimule la prolifération et la différenciation des LT8 en lymphocytes T cytotoxiques (LTc) — ce ne sont pas les LT4 qui se transforment en LTc, et les options A, B, C décrivent la réponse humorale (LB → plasmocytes)."
+    },
+    {
+      "id": "sec-physique",
+      "title": "Physique",
+      "type": "markdown",
+      "content": "# Physique\n\nQuestions de cette section : 14"
+    },
+    {
+      "id": "q15",
+      "title": "Physique — Question 15",
+      "type": "quiz",
+      "question": "Diffraction — une source laser S de longueur d'onde λ est placée devant un écran E à D = 5,5 m, derrière un fil de diamètre a. L est la largeur de la tache centrale. L'expression de λ en fonction de D, L et a s'écrit :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. λ = L/2D",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. λ = L/2a",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. λ = L.D/2a",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. λ = L.a/2D",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. λ = D/2L",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Le demi-angle de diffraction vérifie θ ≈ λ/a et θ ≈ L/(2D), d'où λ/a = L/(2D), c'est-à-dire λ = L·a / (2D)."
+    },
+    {
+      "id": "q16",
+      "title": "Physique — Question 16",
+      "type": "quiz",
+      "question": "On utilise des fils de diamètres différents : L est proportionnelle à 1/a, avec un coefficient P = 7.10⁻⁶ m². On donne 35/55 = 0,63. La longueur d'onde λ est ici :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. λ = P/D",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. λ = 2P/D",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. λ = 6,3.10⁻⁷ m",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. λ = 6,3.10⁷ m",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. λ = 63.10⁻⁷ m",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : C — Comme L = P/a, la relation λ = L·a/(2D) donne λ = P/(2D) = 7.10⁻⁶ / (2 × 5,5) = 7/11 ×10⁻⁶ ≈ 0,63×10⁻⁶ = 6,3.10⁻⁷ m."
+    },
+    {
+      "id": "q17",
+      "title": "Physique — Question 17",
+      "type": "quiz",
+      "question": "Pour un poil de diamètre d, la mesure de la tache centrale donne L = 35 mm. Le calcul du diamètre du poil donne :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. d = 0,2 mm",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. d = 2 mm",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. d = 5 mm",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. d = 0,5 mm",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. d = 5.10⁻⁷ mm",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — En isolant a = d dans λ = L·a/(2D) : d = 2λD/L = (2 × 6,3.10⁻⁷ × 5,5)/(35.10⁻³) ≈ 1,98.10⁻⁴ m ≈ 0,2 mm."
+    },
+    {
+      "id": "q18",
+      "title": "Physique — Question 18",
+      "type": "quiz",
+      "question": "Le Molybdène Mo99 (Z=42) est radioactif β⁻, de demi-vie T₁ = 66 h. Le noyau fils obtenu est lui-même radioactif. Le noyau fils est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Mo98 (Z=42)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Tc99m (Z=43)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. Mo100 (Z=42)",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Tc98 (Z=43)",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Tc100 (Z=43)",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — Lors d'une désintégration β⁻, le numéro atomique augmente d'une unité et le nombre de masse reste constant : ₄₂Mo99 → ₄₃Tc99m (technétium métastable, célèbre isotope médical)."
+    },
+    {
+      "id": "q19",
+      "title": "Physique — Question 19",
+      "type": "quiz",
+      "question": "La demi-vie physique T₂ du noyau fils est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. 60 jours",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. 60 heures",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. 6 jours",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. 6 heures",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. 6 minutes",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Le technétium-99m (Tc99m), largement utilisé en scintigraphie médicale, possède une demi-vie physique caractéristique d'environ 6 heures."
+    },
+    {
+      "id": "q20",
+      "title": "Physique — Question 20",
+      "type": "quiz",
+      "question": "La scintigraphie est réalisée par injection d'une activité de 640 MBq à t=0 (8h). On donne ln2 ≈ 0,70. Le nombre de noyaux du radioélément fils administrés à t = 0 est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. 2.10¹⁰",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. 2.10¹¹",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. 2.10¹²",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. 0,2.10¹⁴",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. 0,2.10¹⁵",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — À t = 0 : N₀ = A₀/λ avec λ = ln2/T₂ = 0,70/(6×3600) ≈ 3,24.10⁻⁵ s⁻¹. D'où N₀ = 6,4.10⁸ / 3,24.10⁻⁵ ≈ 1,97.10¹³ ≈ 0,2.10¹⁴ noyaux."
+    },
+    {
+      "id": "q21",
+      "title": "Physique — Question 21",
+      "type": "quiz",
+      "question": "Juste à la fin de l'examen, l'activité mesurée est égale à 70 % de sa valeur à 8h. On donne ln(10/7) = 0,35. L'examen s'est donc terminé à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. 10 h",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. 11 h",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. 12 h",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. 13 h",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. 14 h",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — A = A₀.e^(−λt) = 0,70 A₀ ⇒ λt = ln(10/7) = 0,35. Avec λ = ln2/6 ≈ 0,1167 h⁻¹, on obtient t ≈ 3 h. L'injection ayant eu lieu à 8 h, l'examen s'est terminé à 8 h + 3 h = 11 h."
+    },
+    {
+      "id": "q22",
+      "title": "Physique — Question 22",
+      "type": "quiz",
+      "question": "La décroissance du Mo99 (A₁₀ = 1 GBq) engendre la croissance du fils, qui atteint son activité maximale A2max après tmax = 24 h. On donne 4/11 = 0,36 et 2^(−0,36) = 0,78. L'activité A2max est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. 780 MBq",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. 78 MBq",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. A2max ≠ A1(tmax)",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. A2max < A1(tmax)",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. A2max > A1(tmax)",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — L'activité du fils est maximale lorsque A₂ = A₁ (équilibre). A₁(tmax) = A₁₀ × 2^(−tmax/T₁) = 1 GBq × 2^(−24/66) = 1 GBq × 2^(−0,36) = 0,78 GBq = 780 MBq = A2max."
+    },
+    {
+      "id": "q23",
+      "title": "Physique — Question 23",
+      "type": "quiz",
+      "question": "Un solide (S), masse mₛ, glisse sans frottement sur un plan incliné d'angle α = 24°, lâché sans vitesse initiale. Les coordonnées du vecteur accélération a⃗_G dans le repère R(A, i⃗, j⃗) sont :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. aₓ = g.sinα ; a_y = 0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. aₓ = 0 ; a_y = g.sinα",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. aₓ = g.cosα ; a_y = 0",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. aₓ = 0 ; a_y = -g.cosα",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. aₓ = g.sinα ; a_y = -g.cosα",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — L'axe x étant choisi le long de la ligne de plus grande pente : seule la composante du poids selon x (g.sinα) accélère le mobile ; il n'y a pas de mouvement selon y (perpendiculaire au plan), donc a_y = 0."
+    },
+    {
+      "id": "q24",
+      "title": "Physique — Question 24",
+      "type": "quiz",
+      "question": "On donne mₛ = 10 kg, g = 10 m.s⁻², AB = 2 m, sin24° = 0,4, cos24° = 0,9. La vitesse V_B au point B est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. 1,99 m.s⁻¹",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. 4 m.s⁻¹",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. 7,98 m.s⁻¹",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. 15,96 m.s⁻¹",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. 17,84 m.s⁻¹",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — Mouvement uniformément accéléré sans vitesse initiale : v_B² = 2 × a × AB = 2 × (g.sinα) × AB = 2 × (10 × 0,4) × 2 = 16, donc v_B = 4 m.s⁻¹."
+    },
+    {
+      "id": "q25",
+      "title": "Physique — Question 25",
+      "type": "quiz",
+      "question": "L'intensité de la force R exercée par le plan AB sur le solide (S) est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. 0,88 N",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. 8,82 N",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. 90 N",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. 882 N",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. 961 N",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : C — Le plan étant sans frottement, R est la réaction normale : R = N = mₛ.g.cosα = 10 × 10 × 0,9 = 90 N."
+    },
+    {
+      "id": "q26",
+      "title": "Physique — Question 26",
+      "type": "quiz",
+      "question": "Dans un circuit électrique, si l'on applique une tension de 12 V à une résistance de 6 Ω, quelle est l'intensité du courant ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. 3 A",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. 6 A",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. 9 A",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. 12 A",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Les propositions A, B, C, D sont incorrectes",
+          "correct": true
+        }
+      ],
+      "explanation": "Bonne réponse : E — Loi d'Ohm : I = U/R = 12/6 = 2 A. Cette valeur ne figurant pas parmi les propositions A à D, la bonne réponse est E."
+    },
+    {
+      "id": "q27",
+      "title": "Physique — Question 27",
+      "type": "quiz",
+      "question": "Un condensateur déchargé (C = 10 µF) est en série avec un conducteur ohmique (R = 2 kΩ) et un générateur de f.é.m. E = 4 V. À t = 0, on ferme l'interrupteur K. L'intensité i(t) du courant s'écrit :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. i(t) = (R/E).e^(−t/RC)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. i(t) = (E/R).e^(−t/RC)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. i(t) = 2.10⁻³ . e^(−50t)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. i(t) = 4,5.10⁻⁵ . e^(−RCt)",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. i(t) = 5,7.10⁻⁵ . e^(−RCt)",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : C — La solution classique de la charge d'un RC est i(t) = (E/R).e^(−t/RC). Numériquement : E/R = 4/2000 = 2.10⁻³ A et 1/(RC) = 1/(2000 × 10.10⁻⁶) = 50 s⁻¹, soit i(t) = 2.10⁻³.e^(−50t) — qui correspond à l'option C."
+    },
+    {
+      "id": "q28",
+      "title": "Physique — Question 28",
+      "type": "quiz",
+      "question": "L'intensité du courant à l'instant t = 0 et la charge maximale dans le condensateur sont :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. i = 2 µA ; Qmax = 4.10⁻⁵ C",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. i = 0 ; Qmax = 7.10⁻⁶ C",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. i = 20 µA ; Qmax = 7.10⁻⁶ C",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. i = 2 mA ; Qmax = 40 µC",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. i = 1,5 mA ; Qmax = 20 µC",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — À t = 0, le condensateur est déchargé donc i(0) = E/R = 4/2000 = 2.10⁻³ A = 2 mA. La charge maximale (régime permanent) vaut Qmax = C.E = 10.10⁻⁶ × 4 = 4.10⁻⁵ C = 40 µC."
+    },
+    {
+      "id": "sec-chimie",
+      "title": "Chimie",
+      "type": "markdown",
+      "content": "# Chimie\n\nQuestions de cette section : 14"
+    },
+    {
+      "id": "q29",
+      "title": "Chimie — Question 29",
+      "type": "quiz",
+      "question": "Parmi les affirmations suivantes, laquelle est INCORRECTE concernant les transformations rapides et lentes d'un système chimique ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Une transformation rapide est une transformation dont la durée est courte.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Une transformation lente est une transformation dont la durée est observable.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. La température n'a aucun effet sur la vitesse des réactions chimiques.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. Un catalyseur peut accélérer une transformation chimique lente.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Toutes les affirmations ci-dessus sont correctes.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : C — C'est faux : la température est, au contraire, l'un des principaux facteurs cinétiques — une élévation de température accélère systématiquement une réaction chimique."
+    },
+    {
+      "id": "q30",
+      "title": "Chimie — Question 30",
+      "type": "quiz",
+      "question": "La combustion du papier est un exemple de :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Transformation physique",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Transformation chimique rapide",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. Transformation chimique lente",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Transformation nucléaire",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Aucune des affirmations ci-dessus n'est correcte",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — La combustion est une réaction chimique qui se produit en un temps très court : c'est une transformation chimique rapide."
+    },
+    {
+      "id": "q31",
+      "title": "Chimie — Question 31",
+      "type": "quiz",
+      "question": "La rouille du fer est un exemple de :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Transformation physique",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Transformation chimique rapide",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Transformation chimique lente",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. Transformation nucléaire",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Aucune des affirmations ci-dessus n'est correcte",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : C — La formation de la rouille (oxydation du fer) est progressive et s'étale sur plusieurs jours/semaines : c'est une transformation chimique lente."
+    },
+    {
+      "id": "q32",
+      "title": "Chimie — Question 32",
+      "type": "quiz",
+      "question": "Parmi les facteurs suivants, lequel a peu d'effet sur la vitesse d'une transformation chimique ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Concentration des réactants",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Nature des réactants",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Température",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Pression",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. Lumière",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Pour des transformations en solution (cas le plus courant au programme), la pression a très peu d'influence sur la vitesse de réaction, contrairement à la concentration, la température, la nature des réactifs ou la lumière (photochimie)."
+    },
+    {
+      "id": "q33",
+      "title": "Chimie — Question 33",
+      "type": "quiz",
+      "question": "Un catalyseur est une substance qui :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Augmente la vitesse d'une transformation chimique sans être consommée.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Diminue la vitesse d'une transformation chimique sans être consommée.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Est consommée au cours de la transformation chimique.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. N'a aucun effet sur la vitesse d'une transformation chimique.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Aucune des affirmations ci-dessus n'est correcte",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — Par définition, un catalyseur accélère une réaction chimique sans être consommé : il est régénéré intégralement à la fin de la réaction."
+    },
+    {
+      "id": "q34",
+      "title": "Chimie — Question 34",
+      "type": "quiz",
+      "question": "Une transformation chimique non totale est une transformation dans laquelle :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Tous les réactants sont transformés en produits.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Une partie des réactants reste à l'état initial (non transformée).",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. La réaction est irréversible.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La réaction est réversible.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Aucune des affirmations ci-dessus n'est correcte",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — Dans une transformation non totale (limitée), le système atteint un état d'équilibre où une partie des réactifs initiaux subsiste : la réaction ne va pas à son terme."
+    },
+    {
+      "id": "q35",
+      "title": "Chimie — Question 35",
+      "type": "quiz",
+      "question": "La constante d'équilibre (Kc) d'une transformation non totale :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Est une quantité sans dimension.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Dépend des concentrations des réactants et des produits à l'équilibre.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Augmente avec la température.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Diminue avec la température.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Toutes les affirmations ci-dessus sont correctes.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — Kc est une grandeur sans dimension, caractéristique de la réaction à une température donnée — elle ne dépend pas des concentrations (ce sont elles qui s'ajustent pour que leur rapport égale Kc), et son évolution avec la température dépend du caractère exo- ou endothermique de la réaction."
+    },
+    {
+      "id": "q36",
+      "title": "Chimie — Question 36",
+      "type": "quiz",
+      "question": "Pour une transformation non totale exothermique, l'augmentation de la température :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Favorise la réaction directe.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Favorise la réaction inverse.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. N'a aucun effet sur le sens de la réaction.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Déplace l'équilibre vers la formation des réactants.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Déplace l'équilibre vers la formation des produits.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : B — Selon la loi de modération (Le Chatelier), pour une réaction exothermique, élever la température favorise le sens qui consomme de la chaleur, c'est-à-dire la réaction inverse (endothermique)."
+    },
+    {
+      "id": "q37",
+      "title": "Chimie — Question 37",
+      "type": "quiz",
+      "question": "Soit A + B ⇌ C + D, Kc = 10 à 25 °C. À une certaine température, on introduit une quantité supplémentaire de A. L'équilibre se déplacera :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Vers la droite (formation de C et D).",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Vers la gauche (formation de A et B).",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Ne se déplacera pas.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Les informations données ne sont pas suffisantes pour le déterminer.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Aucune des affirmations ci-dessus n'est correcte",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — L'ajout de réactif A augmente le quotient de réaction au-dessous de Kc : par modération, le système évolue dans le sens direct pour consommer l'excès de A, donc vers la formation de C et D (déplacement vers la droite)."
+    },
+    {
+      "id": "q38",
+      "title": "Chimie — Question 38",
+      "type": "quiz",
+      "question": "Un mélange réactionnel est à l'équilibre pour A + 2B ⇌ C + D, Kc = 4. On retire une partie du produit C. L'équilibre se déplacera :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Vers la droite (formation de C et D).",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Vers la gauche (formation de A et B).",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Ne se déplacera pas.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Les informations données ne sont pas suffisantes pour le déterminer.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Aucune des affirmations ci-dessus n'est correcte",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — En retirant du produit C, le quotient de réaction Q devient inférieur à Kc : le système réagit en formant à nouveau du C (et du D), donc l'équilibre se déplace vers la droite — c'est le principe de modération."
+    },
+    {
+      "id": "q39",
+      "title": "Chimie — Question 39",
+      "type": "quiz",
+      "question": "Pour une transformation chimique donnée, la variation d'enthalpie standard (ΔH°) est négative. Cela signifie que la transformation est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Exothermique",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Endothermique",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Spontanée dans tous les cas",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Non spontanée dans tous les cas",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Les informations données ne sont pas suffisantes pour le déterminer.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — Par définition, une réaction qui libère de la chaleur (ΔH° < 0) est exothermique."
+    },
+    {
+      "id": "q40",
+      "title": "Chimie — Question 40",
+      "type": "quiz",
+      "question": "Pour une transformation chimique donnée, la variation d'entropie standard (ΔS°) est positive. Cela signifie que :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Le désordre du système augmente.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Le désordre du système diminue.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. La transformation est spontanée dans tous les cas.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La transformation est non spontanée dans tous les cas.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Les informations données ne sont pas suffisantes.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — L'entropie mesure le désordre d'un système : ΔS° > 0 signifie que le désordre (le nombre de micro-états accessibles) augmente au cours de la transformation."
+    },
+    {
+      "id": "q41",
+      "title": "Chimie — Question 41",
+      "type": "quiz",
+      "question": "Soit A + B ⇌ C + D, avec ΔH° = −20 kJ/mol et ΔS° = 10 J/(mol·K). La transformation est-elle spontanée à 25 °C (T = 298 K) ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Oui, car ΔH° est négatif et ΔS° est positif.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. Oui, car ΔH° et ΔS° sont tous deux positifs.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Non, car ΔH° est négatif et ΔS° est positif.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Non, car ΔH° est négatif et ΔS° est négatif.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. Les informations données ne sont pas suffisantes.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : A — ΔG° = ΔH° − T·ΔS° = −20 000 − 298 × 10 = −22 980 J/mol < 0 : la réaction est spontanée. Cela se produit nécessairement lorsque ΔH° < 0 et ΔS° > 0 (les deux termes contribuent négativement à ΔG°)."
+    },
+    {
+      "id": "q42",
+      "title": "Chimie — Question 42",
+      "type": "quiz",
+      "question": "Soit 2A + B ⇌ C + D, Kc = 2. On mesure [A] = 0,1 ; [B] = 0,2 ; [C] = 0,3 ; [D] = 0,1 mol/L. La réaction est-elle à l'équilibre ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. Oui, car les concentrations des réactants et des produits sont égales.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Oui, car le rapport des concentrations des produits aux concentrations des réactants est égal à Kc.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. Non, car les concentrations des réactants et des produits ne sont pas égales.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. Non, car le rapport des concentrations des produits aux concentrations des réactants n'est pas égal à Kc.",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. Les informations données ne sont pas suffisantes pour le déterminer.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : D — Le quotient de réaction Q = [C][D]/([A]²[B]) = (0,3 × 0,1)/(0,1² × 0,2) = 0,03/0,002 = 15. Comme Q = 15 ≠ Kc = 2, le système n'est pas à l'équilibre."
+    },
+    {
+      "id": "sec-maths",
+      "title": "Mathématiques",
+      "type": "markdown",
+      "content": "# Mathématiques\n\nQuestions de cette section : 14"
+    },
+    {
+      "id": "q43",
+      "title": "Maths — Question 43",
+      "type": "quiz",
+      "question": "On considère la fonction $f$ définie par $f(x) = x - \\dfrac{(\\ln x)^2}{x}$. Quelle est l'expression de $f'$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $f' = 1 + \\dfrac{2\\ln x - (\\ln x)^2}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $f' = 1 - \\dfrac{2\\ln x - (\\ln x)^2}{x^2}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. $f' = -1 + \\dfrac{2\\ln x - (\\ln x)^2}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $f' = -1 - \\dfrac{2\\ln x - (\\ln x)^2}{x^2}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $f' = 1 + \\dfrac{2\\ln x + (\\ln x)^2}{x^2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **B** — En dérivant $\\dfrac{(\\ln x)^2}{x}$ comme un quotient $\\dfrac{u}{v}$ : $\\dfrac{u'v - uv'}{v^2} = \\dfrac{2\\ln x \\cdot \\frac{1}{x} \\cdot x - (\\ln x)^2}{x^2} = \\dfrac{2\\ln x - (\\ln x)^2}{x^2}$. D'où $f'(x) = 1 - \\dfrac{2\\ln x - (\\ln x)^2}{x^2}$."
+    },
+    {
+      "id": "q44",
+      "title": "Maths — Question 44",
+      "type": "quiz",
+      "question": "La fonction $f$ définie par $f(x) = 2\\ln\\!\\left[\\dfrac{e^{x}+2}{\\sqrt{1+e^{x}}}\\right]$ admet une asymptote lorsque $x \\to +\\infty$. Quelle est l'équation de cette asymptote ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $y = 2x$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $y = x$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. $y = 0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $y = -2\\ln 2$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $y = -2x$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **B** — $f(x) = 2\\ln(e^{x}+2) - \\ln(1+e^{x})$. Quand $x \\to +\\infty$ : $\\ln(e^{x}+2) = x + \\ln(1+2e^{-x}) \\approx x$ et $\\ln(1+e^{x}) = x + \\ln(1+e^{-x}) \\approx x$, donc $f(x) - x \\to 0$ : la droite d'équation $y = x$ est asymptote oblique en $+\\infty$."
+    },
+    {
+      "id": "q45",
+      "title": "Maths — Question 45",
+      "type": "quiz",
+      "question": "On considère la fonction $g$ définie par $g(x) = \\dfrac{x^2+1}{x+1}$. Déterminer le point $x_0$ où la tangente à $C_g$ est parallèle à la droite d'équation $y = x$.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $x_0 = 0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $x_0 = -1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $x_0 = 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $x_0 = 2$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $x_0 = \\varnothing$ (ensemble vide)",
+          "correct": true
+        }
+      ],
+      "explanation": "Bonne réponse : **E** — $g'(x) = \\dfrac{x^2 + 2x - 1}{(x+1)^2}$. La tangente est parallèle à $y = x$ quand $g'(x) = 1$, soit $x^2 + 2x - 1 = (x+1)^2 = x^2 + 2x + 1$, ce qui donne $-1 = 1$ : impossible. Il n'existe donc aucun point $x_0$ : l'ensemble des solutions est vide ($x_0 = \\varnothing$)."
+    },
+    {
+      "id": "q46",
+      "title": "Maths — Question 46",
+      "type": "quiz",
+      "question": "Soit $z = \\dfrac{(1-i)^{10}}{(1+i\\sqrt{3})^{4}}$. Quelle est la bonne réponse ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $|z| = 4$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $|z| = \\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $\\arg(z) = \\dfrac{\\pi}{6} \\ [2\\pi]$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. $\\arg(z) = \\dfrac{3\\pi}{2} \\ [2\\pi]$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $\\arg(z) = \\dfrac{\\pi}{2} \\ [2\\pi]$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **C** — $1-i = \\sqrt{2}\\, e^{-i\\pi/4}$ donne $(1-i)^{10} = 32\\, e^{-i5\\pi/2} = 32\\, e^{-i\\pi/2}$. $1+i\\sqrt{3} = 2\\, e^{i\\pi/3}$ donne $(1+i\\sqrt{3})^{4} = 16\\, e^{i4\\pi/3}$. Donc $z = 2\\, e^{i(-\\pi/2 - 4\\pi/3)} = 2\\, e^{i\\pi/6}$ : $|z| = 2$ et $\\arg(z) = \\dfrac{\\pi}{6}\\ [2\\pi]$."
+    },
+    {
+      "id": "q47",
+      "title": "Maths — Question 47",
+      "type": "quiz",
+      "question": "Soient $z_1, z_2, z_3$ trois nombres complexes distincts ayant le même cube, c'est-à-dire $z_1^{3} = z_2^{3} = z_3^{3}$. Quelles sont les valeurs possibles de $z_1$, $z_2$ et $z_3$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $z_1 = 1,\\ z_2 = i,\\ z_3 = -i$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $z_1 = 1,\\ z_2 = \\omega,\\ z_3 = \\omega^2$ où $\\omega = e^{2i\\pi/3}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. $z_1 = 1,\\ z_2 = \\dfrac{1}{2} + i\\dfrac{\\sqrt{3}}{2},\\ z_3 = -\\dfrac{1}{2} - i\\dfrac{\\sqrt{3}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $z_1 = 2,\\ z_2 = -1,\\ z_3 = 1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $z_1 = 1,\\ z_2 = -\\omega,\\ z_3 = -\\omega^2$ où $\\omega = e^{2i\\pi/3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **B** — Trois complexes distincts de même cube sont nécessairement les trois racines cubiques d'un même nombre, c'est-à-dire de la forme $z, z\\omega, z\\omega^2$ avec $\\omega = e^{2i\\pi/3}$ (racine cubique de l'unité). C'est exactement le triplet $\\{1, \\omega, \\omega^2\\}$, dont les cubes valent tous $1$. Les autres triplets proposés ont des cubes différents."
+    },
+    {
+      "id": "q48",
+      "title": "Maths — Question 48",
+      "type": "quiz",
+      "question": "Dans l'espace muni d'un repère orthonormé direct $(O, \\vec{i}, \\vec{j}, \\vec{k})$, on donne $A(0;3;1)$, $B(-1;3;0)$, $C(0;5;0)$. La sphère $(S)$ a pour équation $x^2+y^2+z^2-4x-5 = 0$. Quelles sont les coordonnées du point de tangence $H$ du plan $(ABC)$ et de la sphère $(S)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $(2\\,;\\,2\\,;\\,\\sqrt{5})$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $(2\\,;\\,3\\,;\\,1)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $(2\\,;\\,2\\,;\\,1)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $(0\\,;\\,1\\,;\\,2)$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "E. $(0\\,;\\,-1\\,;\\,2)$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **D** — $(S) : (x-2)^2 + y^2 + z^2 = 9$, centre $\\Omega(2;0;0)$, rayon $3$. Le plan $(ABC)$ a pour équation $2x - y - 2z + 5 = 0$ (vecteur normal $\\vec{n} = \\vec{AB} \\wedge \\vec{AC} = (2;-1;-2)$) ; la distance de $\\Omega$ à ce plan vaut $\\dfrac{|9|}{3} = 3 = $ rayon, le plan est donc tangent à la sphère. Le point de contact $H$ est le projeté orthogonal de $\\Omega$ sur le plan : $H = \\Omega - \\dfrac{\\vec{n}}{\\|\\vec{n}\\|^2} \\times 9 = (2;0;0) - (2;-1;-2) = (0\\,;\\,1\\,;\\,2)$."
+    },
+    {
+      "id": "q49",
+      "title": "Maths — Question 49",
+      "type": "quiz",
+      "question": "$2000$ personnes ont envoyé un SMS pour répondre à une question à $2$ choix. La société sélectionne $30$ SMS au hasard parmi les $2000$. On note $\\Omega$ l'ensemble de tous les sous-ensembles de $30$ SMS distincts. Combien d'éléments contient $\\Omega$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $A_{2000}^{30}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $C_{2000}^{30}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. $1970$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $\\dfrac{2000!}{30!}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $2000$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **B** — Choisir un sous-ensemble (non ordonné) de $30$ éléments parmi $2000$ correspond à une combinaison : $\\mathrm{card}(\\Omega) = C_{2000}^{30}$ (et non un arrangement, car l'ordre de sélection n'a pas d'importance)."
+    },
+    {
+      "id": "q50",
+      "title": "Maths — Question 50",
+      "type": "quiz",
+      "question": "On considère que vous faites partie des personnes qui ont envoyé un SMS. Quelle est la probabilité que vous soyez sélectionné(e) parmi les $2000$ participants ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $0{,}12$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $0{,}03$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $0{,}015$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. $0{,}02$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $0{,}3$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **C** — $P = \\dfrac{\\text{nombre de tirages vous contenant}}{\\text{nombre total de tirages}} = \\dfrac{C_{1999}^{29}}{C_{2000}^{30}} = \\dfrac{30}{2000} = 0{,}015$."
+    },
+    {
+      "id": "q51",
+      "title": "Maths — Question 51",
+      "type": "quiz",
+      "question": "Soit $U_n = \\ln(1 + n\\,e^{-n})$, $n \\in \\mathbb{N}$. Quelle est la bonne réponse ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. La suite $(U_n)$ est bornée.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $\\displaystyle\\lim_{n \\to +\\infty} U_n = +\\infty$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $\\displaystyle\\lim_{n \\to +\\infty} U_n = 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. La suite $(U_n)$ est divergente.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $\\displaystyle\\lim_{n \\to +\\infty} U_n = 0$",
+          "correct": true
+        }
+      ],
+      "explanation": "Bonne réponse : **E** — Par croissance comparée, $n\\,e^{-n} \\to 0$ lorsque $n \\to +\\infty$ (l'exponentielle l'emporte sur la puissance), donc $1 + n\\,e^{-n} \\to 1$, et par continuité du logarithme, $U_n = \\ln(1 + n\\,e^{-n}) \\to \\ln(1) = 0$."
+    },
+    {
+      "id": "q52",
+      "title": "Maths — Question 52",
+      "type": "quiz",
+      "question": "Soit $(w_n)$ définie par $w_0 = 1$ et $w_{n+1} = \\dfrac{w_n+3}{2w_n+4}$, et on pose $y_n = \\dfrac{4}{2+w_n}$. La suite $(y_n)$ vérifie la relation suivante :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $y_{n+1} = \\dfrac{23}{6+y_n}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $y_{n+1} = \\dfrac{32}{6+y_n}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $y_{n+1} = \\dfrac{-6}{32+y_n}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $y_{n+1} = \\dfrac{6}{32+y_n}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $y_{n+1} = \\dfrac{32}{20+y_n}$",
+          "correct": true
+        }
+      ],
+      "explanation": "Bonne réponse : **E** — On exprime $w_n = \\dfrac{4-2y_n}{y_n}$, puis on calcule $y_{n+1} = \\dfrac{4}{2+w_{n+1}}$. Après simplification (numérateur $\\dfrac{32}{y_n}$, dénominateur $\\dfrac{20+y_n}{y_n}$), on obtient $y_{n+1} = \\dfrac{32}{20+y_n}$."
+    },
+    {
+      "id": "q53",
+      "title": "Maths — Question 53",
+      "type": "quiz",
+      "question": "Soit $(E)$ l'équation : $x^{x} = (\\sqrt{x})^{x+1}$. Quelle est la bonne réponse ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $x = 1$ est une solution.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "B. $x = 2$ est une solution.",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $x = 0$ est une solution.",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $x = e$ est une solution.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. L'équation $(E)$ n'admet pas de solution.",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **A** — Pour $x > 0$, l'équation s'écrit $x\\ln x = \\dfrac{x+1}{2}\\ln x$, soit $\\ln x \\left[x - \\dfrac{x+1}{2}\\right] = 0$, c'est-à-dire $\\ln x \\cdot \\dfrac{x-1}{2} = 0$. On obtient $x = 1$ (qui annule les deux facteurs). Vérification : $1^1 = 1$ et $(\\sqrt{1})^2 = 1$. ✓ ($x = 2$ et $x = e$ ne vérifient pas l'équation.)"
+    },
+    {
+      "id": "q54",
+      "title": "Maths — Question 54",
+      "type": "quiz",
+      "question": "Calculer l'intégrale suivante : $\\displaystyle\\int \\dfrac{\\cos x}{2 + \\sin x}\\, dx$",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $\\dfrac{1}{2}\\ln|2+\\sin x| + C$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $\\ln|2+\\sin x| + C$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. $-\\ln|2+\\sin x| + C$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $\\ln|2+\\cos x| + C$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $\\dfrac{1}{2}\\ln|2+\\cos x| + C$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **B** — En posant $u = 2 + \\sin x$, on a $du = \\cos x\\, dx$, donc l'intégrale devient $\\displaystyle\\int \\dfrac{du}{u} = \\ln|u| + C = \\ln|2 + \\sin x| + C$."
+    },
+    {
+      "id": "q55",
+      "title": "Maths — Question 55",
+      "type": "quiz",
+      "question": "Soit $f(x) = \\left(1 + \\dfrac{1}{x}\\right)^{x}$. Quel est son domaine de définition $D_f$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $D_f = \\,]0, +\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. $D_f = \\mathbb{R}^*$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "C. $D_f = \\,]-\\infty,-1[\\, \\cup \\,]0,+\\infty[$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "D. $D_f = \\,]-1, 1[$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $D_f = [-1, 1]$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **C** — $f(x) = e^{x\\ln(1+1/x)}$ est défini lorsque $1 + \\dfrac{1}{x} > 0$, soit $\\dfrac{x+1}{x} > 0$, ce qui équivaut à $x < -1$ ou $x > 0$. D'où $D_f = \\,]-\\infty, -1[\\, \\cup \\,]0, +\\infty[$."
+    },
+    {
+      "id": "q56",
+      "title": "Maths — Question 56",
+      "type": "quiz",
+      "question": "Soit $f(x) = x\\sin(\\pi x) - \\ln x - 1$, définie sur $\\,]0, 1]$. Quelle est la bonne réponse ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A. $f$ est majorée.",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "B. Il existe $c \\in \\,]0,1]$ tel que $f(c) = 0$.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "C. $\\displaystyle\\lim_{x \\to 0^+} f(x) = -\\infty$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "D. $f$ est croissante.",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "E. $\\displaystyle\\lim_{x \\to 1^-} f(x) = -1$",
+          "correct": false
+        }
+      ],
+      "explanation": "Bonne réponse : **B** — $f$ est continue sur $]0,1]$ ; $f(1) = 0 - 0 - 1 = -1 < 0$, et $\\displaystyle\\lim_{x \\to 0^+} f(x) = +\\infty$ (car $-\\ln x \\to +\\infty$). D'après le théorème des valeurs intermédiaires, il existe $c \\in \\,]0,1]$ tel que $f(c) = 0$. (Et $\\lim_{x\\to 0^+} f(x) = +\\infty$, pas $-\\infty$ : la proposition C est donc fausse.)"
+    }
+  ],
+  "id": "concours-m-decine-2024-2025-qcm-corrig-s-03-ao-t-2024",
+  "createdAt": "2026-06-07"
+}
