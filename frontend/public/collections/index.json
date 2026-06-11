@@ -3,7 +3,7 @@
     "id": "terminale-spe-maths",
     "title": "Terminale Spé Maths",
     "description": "Cours et exercices de Terminale Spécialité Mathématiques : dérivées, primitives, intégration, probabilités et étude de fonctions.",
-    "emoji": "📐",
+    "emoji": "",
     "courseIds": [
       "tude-de-fonction-terminale",
       "calcul-de-d-riv-es-terminale",
@@ -20,7 +20,7 @@
     "id": "arithmetique-1bac-sm",
     "title": "Arithmétique — 1BAC SM",
     "description": "Cours complet et séries corrigées d'arithmétique pour 1re Baccalauréat Sciences Maths : divisibilité, congruences, PGCD et algorithme d'Euclide.",
-    "emoji": "🔢",
+    "emoji": "",
     "courseIds": [
       "cours-arithmetique-z-1bacsm",
       "arith-divisibilite-1bac-sm",
@@ -32,7 +32,7 @@
     "id": "cpge-modelisation",
     "title": "CPGE — Modélisation",
     "description": "Cours de modélisation et calcul scientifique pour classes préparatoires : systèmes différentiels, points fixes, agrégation.",
-    "emoji": "🔬",
+    "emoji": "",
     "courseIds": [
       "mod-lisation-de-l-agglom-ration-des-globules-rouges"
     ]
@@ -78,7 +78,16 @@
     "emoji": "",
     "description": "",
     "courseIds": [
-      "math-matiques-concours-m-decine-2025-2026"
+      "math-matiques-concours-m-decine-2025-2026",
+      "concours-m-decine-2024-2025-qcm-corrig-s-03-ao-t-2024",
+      "concours-medecine-2023",
+      "concours-medecine-2019-casa",
+      "concours-medecine-2020",
+      "concours-medecine-2021",
+      "concours-medecine-2022",
+      "concours-medecine-sujet-a",
+      "concours-medecine-sujet-b",
+      "concours-medecine-sujet-c"
     ],
     "id": "concours-de-medecine-maths"
   },
@@ -92,5 +101,16 @@
       "posttest-congruence-1bac-sm"
     ],
     "id": "didactique-des-mathematiques-arithmetique-pour-1-sm"
+  },
+  {
+    "title": "PodAct",
+    "emoji": "",
+    "description": "Suivre des podcast de manière active. ",
+    "courseIds": [
+      "qissat-almal-ep1-tarikh-iqtisadi",
+      "seerah-quraysh-001",
+      "mina-ribat-001"
+    ],
+    "id": "podact"
   }
 ]

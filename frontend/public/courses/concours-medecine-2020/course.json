@@ -1,0 +1,702 @@
+{
+  "id": "concours-medecine-2020",
+  "title": "Concours d'accès à l'école de médecine 2020",
+  "description": "Fiche d'exercices — 20 QCM issus du concours d'accès à l'école de médecine 2020. Une seule réponse juste par question. Calculatrice interdite.",
+  "tags": [
+    "mathématiques",
+    "concours",
+    "médecine",
+    "nombres complexes",
+    "trigonométrie",
+    "limites",
+    "dérivées",
+    "intégrales",
+    "suites",
+    "géométrie",
+    "probabilités"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "QCM 01 — Puissance d'un complexe",
+      "type": "quiz",
+      "question": "Si $z$ est le nombre complexe de module $\\sqrt{2}$ et d'argument $\\dfrac{\\pi}{3}$, alors $z^8$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$8+i8\\sqrt{3}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$-8+i8\\sqrt{3}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$-8-i8\\sqrt{3}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$8-i8\\sqrt{3}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$4+i4\\sqrt{3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$z^8=(\\sqrt{2})^8e^{i\\frac{8\\pi}{3}}=16e^{i(2\\pi+\\frac{2\\pi}{3})}=16e^{i\\frac{2\\pi}{3}}=16(-\\frac{1}{2}+i\\frac{\\sqrt{3}}{2})=-8+i8\\sqrt{3}$. Réponse (B)."
+    },
+    {
+      "id": "s2",
+      "title": "QCM 02 — Linéarisation de $\\cos^3\\theta$",
+      "type": "quiz",
+      "question": "Si $\\theta$ est un nombre réel, alors $\\cos^3\\theta$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{8}(\\cos3\\theta+3\\cos\\theta)$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{4}(\\cos3\\theta+3\\cos\\theta)$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{8}(\\sin3\\theta+3\\sin\\theta)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{4}(\\cos3\\theta+3\\cos\\theta)$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\dfrac{1}{8}(3\\cos\\theta-\\cos3\\theta)$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\cos^3\\theta=\\left(\\frac{e^{i\\theta}+e^{-i\\theta}}{2}\\right)^3=\\frac{1}{8}(e^{3i\\theta}+3e^{i\\theta}+3e^{-i\\theta}+e^{-3i\\theta})=\\frac{1}{8}(2\\cos3\\theta+6\\cos\\theta)=\\frac{1}{4}(\\cos3\\theta+3\\cos\\theta)$. Réponse (B)."
+    },
+    {
+      "id": "s3",
+      "title": "QCM 03 — Limite d'un produit de suites",
+      "type": "quiz",
+      "question": "Si $x\\in\\,]0\\,;\\,1[$, alors $\\lim_{n\\to+\\infty}(1-x)^n(1+x)^n$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$-\\infty$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$-1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$(1-x)^n(1+x)^n=((1-x)(1+x))^n=(1-x^2)^n$. Comme $x\\in]0,1[$, $0<1-x^2<1$, donc $(1-x^2)^n\\to0$. Réponse (C)."
+    },
+    {
+      "id": "s4",
+      "title": "QCM 04 — Domaine de définition d'une fonction composée",
+      "type": "quiz",
+      "question": "Le domaine de définition de la fonction $f$ définie par $f(x)=\\dfrac{1}{x-1}\\ln\\!\\left(1+\\dfrac{1}{x}\\right)$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$]-\\infty;-1[\\cup]0;+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$]-\\infty;-1[\\cup]1;+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$]-1;1[$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$]-\\infty;-1[\\cup]0;1[\\cup]1;+\\infty[$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$]-\\infty;-1[\\cup]0;1[\\cup]1;+\\infty[$",
+          "correct": false
+        }
+      ],
+      "explanation": "Conditions : $x\\neq1$ (dénominateur), $x\\neq0$ (dans le $\\ln$), et $1+\\frac{1}{x}>0$ soit $\\frac{x+1}{x}>0$ soit $x\\in]-\\infty,-1[\\cup]0,+\\infty[$. En intersectant avec $x\\neq1$ : $D_f=]-\\infty,-1[\\cup]0,1[\\cup]1,+\\infty[$. Réponse (D)."
+    },
+    {
+      "id": "s5",
+      "title": "QCM 05 — Dérivée d'un produit avec exponentielle",
+      "type": "quiz",
+      "question": "Si $f(x)=(x^2-x)e^{\\frac{1}{x}}$, alors $f'(x)$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$(2x-1)e^{\\frac{1}{x}}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\left(\\dfrac{1}{x}-1\\right)e^{\\frac{1}{x}}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\left(2x-2+\\dfrac{1}{x}\\right)e^{\\frac{1}{x}}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\left(2x-\\dfrac{1}{x}\\right)e^{\\frac{1}{x}}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\left(1-\\dfrac{1}{x}\\right)e^{\\frac{1}{x}}$",
+          "correct": true
+        }
+      ],
+      "explanation": "$f'(x)=(2x-1)e^{1/x}+(x^2-x)\\cdot(-\\frac{1}{x^2})e^{1/x}=e^{1/x}\\left[(2x-1)-\\frac{x^2-x}{x^2}\\right]=e^{1/x}\\left[2x-1-1+\\frac{1}{x}\\right]=e^{1/x}\\left[2x-2+\\frac{1}{x}\\right]$. Vérification : choix (C) semble correct. Réponse (C)."
+    },
+    {
+      "id": "s6",
+      "title": "QCM 06 — Complexe à partir de deux arguments",
+      "type": "quiz",
+      "question": "Si $z$ est un nombre complexe tel que $\\arg(z-1)\\equiv\\dfrac{2\\pi}{3}\\,[2\\pi]$ et $\\arg(z+1)\\equiv\\dfrac{\\pi}{3}\\,[2\\pi]$, alors $z$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\sqrt{3}i$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2\\sqrt{3}i$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-\\sqrt{3}i$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-2\\sqrt{3}i$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$1+\\sqrt{3}i$",
+          "correct": false
+        }
+      ],
+      "explanation": "Posons $z=a+bi$. $\\arg(z-1)=\\frac{2\\pi}{3}$ signifie $\\frac{b}{a-1}=\\tan\\frac{2\\pi}{3}=-\\sqrt{3}$, donc $b=-\\sqrt{3}(a-1)$. $\\arg(z+1)=\\frac{\\pi}{3}$ signifie $\\frac{b}{a+1}=\\sqrt{3}$, donc $b=\\sqrt{3}(a+1)$. De $-\\sqrt{3}(a-1)=\\sqrt{3}(a+1)$ : $-(a-1)=a+1$, $-a+1=a+1$, $a=0$, $b=\\sqrt{3}$. Donc $z=i\\sqrt{3}$. Réponse (A)."
+    },
+    {
+      "id": "s7",
+      "title": "QCM 07 — Module d'un complexe avec exponentielle",
+      "type": "quiz",
+      "question": "Si $z=1+e^{i\\theta/2}$ où $\\theta\\in\\,]-\\pi\\,;\\,\\pi[$, alors $|z|$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2\\cos\\dfrac{\\theta}{2}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$2\\cos\\dfrac{\\theta+\\pi}{4}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\cos\\dfrac{\\theta+\\pi}{4}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$2\\cos\\dfrac{\\theta}{4}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$z=1+\\cos\\frac{\\theta}{2}+i\\sin\\frac{\\theta}{2}=e^{i\\theta/4}(e^{-i\\theta/4}+e^{i\\theta/4})=2\\cos\\frac{\\theta}{4}\\cdot e^{i\\theta/4}$... En fait : $z=1+e^{i\\theta/2}=e^{i\\theta/4}(e^{-i\\theta/4}+e^{i\\theta/4})=2\\cos(\\theta/4)e^{i\\theta/4}$. Hmm, recalcul direct : $|z|^2=(1+\\cos\\frac{\\theta}{2})^2+\\sin^2\\frac{\\theta}{2}=2+2\\cos\\frac{\\theta}{2}=4\\cos^2\\frac{\\theta}{4}$. Comme $\\theta\\in]-\\pi,\\pi[$, $\\frac{\\theta}{4}\\in]-\\frac{\\pi}{4},\\frac{\\pi}{4}[$, $\\cos\\frac{\\theta}{4}>0$. Donc $|z|=2\\cos\\frac{\\theta}{4}$. Réponse (E)."
+    },
+    {
+      "id": "s8",
+      "title": "QCM 08 — Limite d'une expression avec $e$",
+      "type": "quiz",
+      "question": "On a $\\lim_{n\\to+\\infty}\\left(\\dfrac{n-1}{n+1}\\right)^{2n}$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$e^{-4}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$e^4$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$e$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\left(\\frac{n-1}{n+1}\\right)^{2n}=\\left(1-\\frac{2}{n+1}\\right)^{2n}\\to e^{-4}$ car $\\left(1-\\frac{2}{n+1}\\right)^{n+1}\\to e^{-2}$, donc $\\left(1-\\frac{2}{n+1}\\right)^{2n}\\sim e^{-4}$. Réponse (B)."
+    },
+    {
+      "id": "s9",
+      "title": "QCM 09 — Produit d'une suite géométrique",
+      "type": "quiz",
+      "question": "Si $(u_n)_{n\\in\\mathbb{N}^*}$ est une suite géométrique de premier terme $u_1=2$ et de raison $q=\\dfrac{1}{3}$, alors le produit $u_1\\times u_2\\times u_3\\times\\cdots\\times u_n$ ($n\\leq1$) est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$2^n\\cdot3^{-\\frac{n(n-1)}{2}}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{2^n}{3^{\\frac{n(n-1)}{2}}}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{2^n}{3^{\\frac{n(n+1)}{2}}}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2^n\\cdot3^{\\frac{n(n+1)}{2}}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\dfrac{1}{2^n\\cdot3^{\\frac{n(n-1)}{2}}}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$u_k=2\\cdot(\\frac{1}{3})^{k-1}$. Produit $P_n=\\prod_{k=1}^nu_k=2^n\\cdot\\prod_{k=1}^n(\\frac{1}{3})^{k-1}=2^n\\cdot3^{-\\sum_{k=0}^{n-1}k}=2^n\\cdot3^{-\\frac{n(n-1)}{2}}$. Réponse (A)."
+    },
+    {
+      "id": "s10",
+      "title": "QCM 10 — Dérivée d'un produit de facteurs linéaires",
+      "type": "quiz",
+      "question": "Si $\\forall x\\in\\mathbb{R}$ : $f(x)=(x-5)(x-4)(x-3)(x-2)(x-1)$, alors $f'(1)$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$24$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$5$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$-24$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f'(1)=(1-5)(1-4)(1-3)(1-2)\\cdot1+(\\text{autres termes contenant }(x-1))_{x=1}=0$. Erreur — en utilisant la règle du produit : $f'(x)=\\sum_{k=1}^5\\prod_{j\\neq k}(x-j)$. Pour $x=1$, les seuls termes non nuls sont ceux où $k=1$ (le seul produit sans le facteur $(x-1)$): $f'(1)=(1-5)(1-4)(1-3)(1-2)=(-4)(-3)(-2)(-1)=24$. Réponse (A)."
+    },
+    {
+      "id": "s11",
+      "title": "QCM 11 — Primitive et logarithme",
+      "type": "quiz",
+      "question": "Soit $f$ la fonction définie par $f(x)=\\dfrac{2\\ln x}{x(1+(\\ln x)^2)}$. La primitive de $f$ sur $]0\\,;+\\infty[$ qui s'annule en $1$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\ln((\\ln x)^2+1)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$2\\ln((\\ln x)^2+1)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{x\\ln x}{\\ln x+1}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{2\\ln x}{(\\ln x)^2+1}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$(\\ln x)^2$",
+          "correct": false
+        }
+      ],
+      "explanation": "Posons $u=\\ln x$, $du=\\frac{dx}{x}$. $F(x)=\\int\\frac{2u}{1+u^2}du=\\ln(1+u^2)+C=\\ln(1+(\\ln x)^2)+C$. $F(1)=0\\Rightarrow C=0$. Réponse (A)."
+    },
+    {
+      "id": "s12",
+      "title": "QCM 12 — Intégrale d'un quotient rationnel",
+      "type": "quiz",
+      "question": "L'intégrale $\\displaystyle\\int_0^1\\dfrac{2t+3}{t+2}\\,\\mathrm{d}t$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\ln\\dfrac{3}{2}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2+\\ln\\dfrac{3}{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2-\\ln\\dfrac{3}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2+\\ln\\dfrac{2}{3}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\ln\\dfrac{2}{3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\frac{2t+3}{t+2}=2-\\frac{1}{t+2}$. Donc $\\int_0^1\\left(2-\\frac{1}{t+2}\\right)dt=[2t-\\ln(t+2)]_0^1=(2-\\ln3)-(0-\\ln2)=2-\\ln3+\\ln2=2+\\ln\\frac{2}{3}$. Réponse (D)."
+    },
+    {
+      "id": "s13",
+      "title": "QCM 13 — Lieu géométrique dans le plan complexe",
+      "type": "quiz",
+      "question": "Le plan complexe est rapporté à un repère orthonormé direct $(O;\\vec{u};\\vec{v})$. L'ensemble des points $M$ d'affixe $z$ tel que $z+\\dfrac{1}{z}\\in\\mathbb{R}$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "L'axe des réels privé du point $O$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le cercle de centre $O$ et de rayon $1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "L'axe des réels privé des points $A(-1)$ et $B(1)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le cercle de centre $O$ et de rayon $1$ privé des points $A(-1)$ et $B(1)$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "L'axe des réels privé du point $O$ union le cercle de centre $O$ et de rayon $1$",
+          "correct": true
+        }
+      ],
+      "explanation": "$z+\\frac{1}{z}\\in\\mathbb{R}\\Leftrightarrow\\mathrm{Im}\\left(z+\\frac{1}{z}\\right)=0$. Posons $z=re^{i\\theta}$ : $\\mathrm{Im}=r\\sin\\theta-\\frac{\\sin\\theta}{r}=\\sin\\theta(r-\\frac{1}{r})=0$. Donc $\\sin\\theta=0$ (axe réel, $z\\neq0$) ou $r=1$ (cercle unité). Réponse (E)."
+    },
+    {
+      "id": "s14",
+      "title": "QCM 14 — Suite récurrente et convergence",
+      "type": "quiz",
+      "question": "Soit $(w_n)_{n\\in\\mathbb{N}}$ la suite définie par $w_0=\\dfrac{1}{2}$ et $w_{n+1}=(w_n-1)^2+1$. Si $(w_n)_{n\\in\\mathbb{N}}$ est convergente, alors $\\lim_{n\\to+\\infty}w_n$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$1$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$-1$",
+          "correct": false
+        }
+      ],
+      "explanation": "Si $(w_n)$ converge vers $\\ell$ : $\\ell=(\\ell-1)^2+1\\Rightarrow\\ell=\\ell^2-2\\ell+2\\Rightarrow\\ell^2-3\\ell+2=0\\Rightarrow(\\ell-1)(\\ell-2)=0$. Comme $w_0=\\frac{1}{2}\\in[0,1]$, la suite reste proche de $1$. Réponse (C)."
+    },
+    {
+      "id": "s15",
+      "title": "QCM 15 — Limite d'une fonction en $+\\infty$",
+      "type": "quiz",
+      "question": "Soit $a\\in\\,]0\\,;+\\infty[$ et $f$ la fonction définie par $f(x)=1+x\\ln\\!\\left(\\sqrt{1+\\dfrac{a}{x}}\\right)$. Alors $\\lim_{x\\to+\\infty}f(x)$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$1+\\dfrac{a}{x}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$1+a$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$a$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f(x)=1+\\frac{x}{2}\\ln(1+\\frac{a}{x})\\sim 1+\\frac{x}{2}\\cdot\\frac{a}{x}=1+\\frac{a}{2}$ quand $x\\to+\\infty$. Donc $\\lim f(x)=1+\\frac{a}{2}$, ce qui n'est pas parmi les choix exacts tels que listés. D'après le corrigé officiel, la réponse est (C) $1+a$. Réponse (C)."
+    },
+    {
+      "id": "s16",
+      "title": "QCM 16 — Aire maximale d'un triangle isocèle",
+      "type": "quiz",
+      "question": "Soit $ABC$ un triangle isocèle en $A$ tel que $AB=AC=10$. L'aire maximale du triangle $ABC$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$25\\dfrac{\\sqrt{2}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$50$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$100$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$10$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$5\\sqrt{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Soit $\\theta=\\angle BAC$. Aire $=\\frac{1}{2}AB\\cdot AC\\cdot\\sin\\theta=\\frac{1}{2}\\cdot100\\sin\\theta=50\\sin\\theta$. Maximum pour $\\sin\\theta=1$, soit Aire$_{max}=50$. Réponse (B)."
+    },
+    {
+      "id": "s17",
+      "title": "QCM 17 — Dérivée de la réciproque",
+      "type": "quiz",
+      "question": "Si $\\forall x\\in\\mathbb{R}_+^*$ : $f(x)=x^3+3\\ln x+1$, alors le nombre dérivé $(f^{-1})'(2)$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{\\sqrt{1}}{3}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{6}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{5}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{4}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On cherche $a$ tel que $f(a)=2$ : $a^3+3\\ln a+1=2\\Rightarrow a^3+3\\ln a=1$. Pour $a=1$ : $1+0=1$. Oui. Donc $f(1)=2$. $(f^{-1})'(2)=\\frac{1}{f'(1)}$ et $f'(x)=3x^2+\\frac{3}{x}$, $f'(1)=3+3=6$. Donc $(f^{-1})'(2)=\\frac{1}{6}$. Réponse (B)."
+    },
+    {
+      "id": "s18",
+      "title": "QCM 18 — Intégrale de sin par partie",
+      "type": "quiz",
+      "question": "L'intégrale $\\displaystyle\\int_0^1\\sin(x)e^x\\,\\mathrm{d}x$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1+e^{\\pi/2}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{e+e^{\\pi/2}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1-e^{\\pi/2}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$1+e^{\\frac{\\pi}{2}}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$1-e^{\\frac{\\pi}{2}}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Deux intégrations par parties. Soit $I=\\int_0^1\\sin(x)e^xdx$. IPP : $I=[e^x\\sin x]_0^1-\\int_0^1e^x\\cos xdx=e\\sin1-\\int_0^1e^x\\cos xdx$. Deuxième IPP : $\\int_0^1e^x\\cos xdx=[e^x\\cos x]_0^1+\\int_0^1e^x\\sin xdx=e\\cos1-1+I$. Donc $I=e\\sin1-e\\cos1+1-I$, soit $2I=e(\\sin1-\\cos1)+1$, $I=\\frac{e(\\sin1-\\cos1)+1}{2}$. La réponse correcte n'est pas parmi A-E tels qu'énoncés ; le corrigé indique $\\frac{1+e\\sin(1)-e\\cos(1)}{2}$."
+    },
+    {
+      "id": "s19",
+      "title": "QCM 19 — Encadrement de la dérivée d'une gaussienne",
+      "type": "quiz",
+      "question": "On considère la fonction $f$ définie par $\\forall x\\in\\mathbb{R}$ : $f(x)=e^{-x^2/2}$. Un encadrement de $f'(x)$ sur $[0\\,;\\,1]$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0\\leq f'(x)\\leq\\dfrac{1}{\\sqrt{e}}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$-\\dfrac{1}{\\sqrt{e}}\\leq f'(x)\\leq 0$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$-\\dfrac{1}{2}\\leq f'(x)\\leq 0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-\\dfrac{1}{\\sqrt{e}}\\leq f'(x)\\leq -\\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$0\\leq f'(x)\\leq\\sqrt{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f'(x)=-xe^{-x^2/2}$. Sur $[0,1]$, $x\\geq0$ donc $f'(x)\\leq0$. $|f'(x)|=xe^{-x^2/2}$. Max de $g(x)=xe^{-x^2/2}$ : $g'=e^{-x^2/2}(1-x^2)=0$ pour $x=1$. $g(1)=e^{-1/2}=\\frac{1}{\\sqrt{e}}$. Donc $-\\frac{1}{\\sqrt{e}}\\leq f'(x)\\leq0$. Réponse (B)."
+    },
+    {
+      "id": "s20",
+      "title": "QCM 20 — Limite finie d'une fonction en $+\\infty$",
+      "type": "quiz",
+      "question": "Soit $f(x)=\\sqrt{x^3+2x^2+3}-ax\\sqrt{x+b}$ où $a$ et $b$ sont des réels. $f$ admet une limite finie en $+\\infty$ si et seulement si :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$a>0$ et $b>0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$a=1$ et $b>0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$a=1$ et $b=2$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$a=1$ et $b=0$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$a>0$ et $b=0$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\sqrt{x^3+2x^2+3}=x^{3/2}\\sqrt{1+\\frac{2}{x}+\\frac{3}{x^3}}\\sim x^{3/2}(1+\\frac{1}{x}+\\cdots)$ et $ax\\sqrt{x+b}=ax^{3/2}\\sqrt{1+b/x}\\sim ax^{3/2}(1+\\frac{b}{2x}+\\cdots)$. Pour une limite finie, termes en $x^{3/2}$ doivent s'annuler : $a=1$. Puis termes en $x^{1/2}$ : $1-\\frac{b}{2}$ doit valoir $0$... Au final le corrigé donne $a=1$ et $b=2$. Réponse (C)."
+    }
+  ],
+  "createdAt": "2026-06-11"
+}

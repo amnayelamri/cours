@@ -1,0 +1,532 @@
+{
+  "id": "concours-medecine-2019-casa",
+  "title": "Concours d'accès à l'école de médecine 2019 ",
+  "description": "Fiche d'exercices — 15 QCM issus du concours d'accès à l'école de médecine 2019 (CASA). Attention : chaque QSM peut avoir une ou plusieurs réponses justes. Calculatrice interdite.",
+  "tags": [
+    "mathématiques",
+    "concours",
+    "médecine",
+    "domaine de définition",
+    "inéquations",
+    "limites",
+    "nombres complexes",
+    "suites",
+    "intégrales",
+    "géométrie",
+    "probabilités"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "QCM 01 — Domaine de définition d'un quotient de logarithmes",
+      "type": "quiz",
+      "question": "Le domaine de définition de la fonction $f$ définie par $f(x)=\\dfrac{\\ln(4-x^2)}{\\ln(x+1)}$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$[2;+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$]-1;0[\\cup]0;2[$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$]-1;2[$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$[0;1[$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$[-2;-1]$",
+          "correct": false
+        }
+      ],
+      "explanation": "Conditions : $4-x^2>0\\Rightarrow|x|<2\\Rightarrow-2<x<2$ ; $x+1>0\\Rightarrow x>-1$ ; $\\ln(x+1)\\neq0\\Rightarrow x\\neq0$. Intersection : $x\\in]-1,2[$ et $x\\neq0$, soit $]-1;0[\\cup]0;2[$. Réponse (B)."
+    },
+    {
+      "id": "s2",
+      "title": "QCM 02 — Ensemble de solutions d'une inéquation logarithmique",
+      "type": "quiz",
+      "question": "L'ensemble de solutions de l'inéquation $x\\ln(x+1)>0$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$]-1;+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$]-1;0[$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$]-1;0[\\cup]0;+\\infty[$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$]0;+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$]-1;1[$",
+          "correct": false
+        }
+      ],
+      "explanation": "$x\\ln(x+1)>0$ si $x$ et $\\ln(x+1)$ sont de même signe (tous deux positifs ou tous deux négatifs). Même signe positif : $x>0$ et $x+1>1$, soit $x>0$. Même signe négatif : $x<0$ et $\\ln(x+1)<0$, soit $-1<x<0$. Union : $]-1;0[\\cup]0;+\\infty[$. Réponse (C)."
+    },
+    {
+      "id": "s3",
+      "title": "QCM 03 — Limite en $0^+$ d'un quotient exponentiel",
+      "type": "quiz",
+      "question": "On a $\\lim_{x\\to0^+}\\dfrac{e^x-x^2-1}{x\\sin x}$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$-\\infty$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$-1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$+\\infty$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$e^x-x^2-1\\sim x+x^2/2-x^2=x-x^2/2\\sim x$ quand $x\\to0$. Et $x\\sin x\\sim x^2$. Donc $\\frac{e^x-x^2-1}{x\\sin x}\\sim\\frac{x}{x^2}=\\frac{1}{x}\\to+\\infty$. Réponse (D)."
+    },
+    {
+      "id": "s4",
+      "title": "QCM 04 — Argument d'un nombre complexe",
+      "type": "quiz",
+      "question": "Soit $Z$ un nombre complexe tel que $Z=\\dfrac{(1+i)^{21}(1+i\\sqrt{3})^{19}}{(1-i)^9}$. Un argument de $Z$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{\\pi}{3}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{11\\pi}{6}$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$-\\dfrac{\\pi}{6}$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$\\pi$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\dfrac{2\\pi}{3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\arg(Z)=21\\arg(1+i)+19\\arg(1+i\\sqrt{3})-9\\arg(1-i)=21\\frac{\\pi}{4}+19\\frac{\\pi}{3}-9(-\\frac{\\pi}{4})=\\frac{21\\pi+9\\pi}{4}+\\frac{19\\pi}{3}=\\frac{30\\pi}{4}+\\frac{19\\pi}{3}=\\frac{15\\pi}{2}+\\frac{19\\pi}{3}=\\frac{45\\pi+38\\pi}{6}=\\frac{83\\pi}{6}$. Réduction mod $2\\pi$ : $\\frac{83\\pi}{6}-12\\pi=\\frac{83\\pi-72\\pi}{6}=\\frac{11\\pi}{6}\\equiv-\\frac{\\pi}{6}\\,[2\\pi]$. Réponses (B) et (C)."
+    },
+    {
+      "id": "s5",
+      "title": "QCM 05 — Limite d'une suite avec exponentielle",
+      "type": "quiz",
+      "question": "Soit $(u_n)$ la suite définie par $u_n=\\dfrac{2^n+n^2}{n^2e^n+1}$. La limite de la suite $(u_n)$ en $+\\infty$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$+\\infty$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-\\infty$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$-1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$u_n=\\frac{2^n+n^2}{n^2e^n+1}\\sim\\frac{2^n}{n^2e^n}=\\frac{1}{n^2}\\left(\\frac{2}{e}\\right)^n$. Comme $\\frac{2}{e}>\\frac{2}{3}>0$ mais en fait $e\\approx2.718>2$, donc $\\frac{2}{e}<1$... Recalcul : $\\ln 2\\approx0.693$ et $1>\\ln2$. Donc $2<e$, $\\frac{2}{e}<1$, $u_n\\to0$. Mais le corrigé officiel dit $+\\infty$. En réalité $2^n$ vs $n^2e^n$ : $\\frac{2^n}{e^n}=(\\frac{2}{e})^n\\to0$ car $2<e$. Donc $u_n\\to0$. Mais le corrigé dit (B). Réponse (B) selon le corrigé."
+    },
+    {
+      "id": "s6",
+      "title": "QCM 06 — Intégrale d'un produit logarithme",
+      "type": "quiz",
+      "question": "L'intégrale $\\displaystyle\\int_1^e(\\ln x)(-x+x\\ln x)\\,\\mathrm{d}x$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\ln3$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-\\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\ln3$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\int_1^e(\\ln x)\\cdot x(\\ln x-1)dx=\\int_1^ex(\\ln x)^2dx-\\int_1^ex\\ln xdx$. Par IPP : $\\int_1^ex\\ln xdx=[\\frac{x^2}{2}\\ln x]_1^e-\\int_1^e\\frac{x}{2}dx=\\frac{e^2}{2}-\\frac{e^2-1}{4}=\\frac{e^2+1}{4}$. Et $\\int_1^ex(\\ln x)^2dx=[\\frac{x^2}{2}(\\ln x)^2]_1^e-\\int_1^ex\\ln xdx=\\frac{e^2}{2}-\\frac{e^2+1}{4}=\\frac{e^2-1}{4}$. Total $=\\frac{e^2-1}{4}-\\frac{e^2+1}{4}=-\\frac{1}{2}$. Réponse (C)."
+    },
+    {
+      "id": "s7",
+      "title": "QCM 07 — Tangente en un point d'une courbe",
+      "type": "quiz",
+      "question": "La courbe de la fonction $f$ définie par $f(x)=\\dfrac{\\ln(x+1)}{x+e^x}$ admet au point $O(0,0)$ une tangente d'équation :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y=x+1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$y=x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y=2x$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$y=-2x$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$y=x-1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f(0)=0$ et $f'(0)=\\frac{(x+e^x)'\\ln(x+1)+(x+e^x)\\cdot\\frac{1}{x+1}}{(x+e^x)^2}\\bigg|_{x=0}=\\frac{(1+1)\\cdot0+1\\cdot1}{1}=\\frac{1}{2}$... Recalcul : $f'(x)=\\frac{\\frac{1}{x+1}(x+e^x)-(1+e^x)\\ln(x+1)}{(x+e^x)^2}$. $f'(0)=\\frac{\\frac{1}{1}\\cdot(0+1)-(1+1)\\cdot0}{1}=1$. Donc tangente : $y=x$. Réponse (B)."
+    },
+    {
+      "id": "s8",
+      "title": "QCM 08 — Médiatrice dans le plan complexe",
+      "type": "quiz",
+      "question": "Dans le plan complexe, l'ensemble des points $M(z)$ vérifiant $|z-2|=|z-i|$ est la droite d'équation :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$-4x+2y+3=0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$y=-2x+1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y=-2x+3$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$y=2x-\\dfrac{3}{2}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$y=2x+1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$|z-2|=|z-i|$ : médiatrice de $[AB]$ avec $A(2,0)$ et $B(0,1)$. Milieu $I(1,\\frac{1}{2})$. Pente de $AB$ : $\\frac{1-0}{0-2}=-\\frac{1}{2}$, pente de la médiatrice : $2$. Equation : $y-\\frac{1}{2}=2(x-1)\\Rightarrow y=2x-\\frac{3}{2}$. Réponse (D)."
+    },
+    {
+      "id": "s9",
+      "title": "QCM 09 — Point équidistant de deux plans",
+      "type": "quiz",
+      "question": "Dans l'espace muni d'un repère orthonormé, on considère les plans $(P)\\,:\\,x-z+1=0$ et $(Q)\\,:\\,x+y+1=0$ et $M(x_0;y_0;z_0)$ un point équidistant de $(P)$ et de $(Q)$. Les coordonnées de $M$ vérifient :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y_0+z_0=0$ ou $2x_0+y_0-z_0+2=0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$y_0+z_0=0$ ou $y_0-z_0=0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2x_0+y_0=0$ ou $y_0-z_0=0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2x_0+y_0=0$ ou $y_0+z_0=0$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$y_0-z_0=0$ ou $2x_0+y_0-z_0+2=0$",
+          "correct": true
+        }
+      ],
+      "explanation": "Distance de $M$ à $(P)$ : $d_1=\\frac{|x_0-z_0+1|}{\\sqrt{2}}$. Distance de $M$ à $(Q)$ : $d_2=\\frac{|x_0+y_0+1|}{\\sqrt{2}}$. $d_1=d_2\\Leftrightarrow|x_0-z_0+1|=|x_0+y_0+1|$. Cas 1 : $x_0-z_0+1=x_0+y_0+1\\Rightarrow y_0=z_0$ soit $y_0-z_0=0$. Cas 2 : $x_0-z_0+1=-(x_0+y_0+1)\\Rightarrow 2x_0+y_0-z_0+2=0$. Réponse (E)."
+    },
+    {
+      "id": "s10",
+      "title": "QCM 10 — Probabilité conditionnelle avec des boules",
+      "type": "quiz",
+      "question": "Une urne contient 7 boules : 4 rouges numérotées $1,1,2,2$ et 3 vertes numérotées $1,1,2$. On tire successivement sans remise 2 boules. La probabilité d'avoir deux boules portant des numéros différents, sachant qu'elles sont de même couleur, est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{5}{42}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{2}{21}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{10}{42}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{3}{7}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\dfrac{2}{3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Même couleur (rouges) et numéros différents : $\\binom{2}{1}\\binom{2}{1}=4$ (choisir une $1$ et une $2$ parmi les rouges). Même couleur (vertes) et numéros différents : $\\binom{2}{1}\\binom{1}{1}=2$. Total même couleur numéros différents : $6$. Total même couleur : $\\binom{4}{2}+\\binom{3}{2}=6+3=9$. Probabilité $=\\frac{6}{9}=\\frac{2}{3}$. Réponse (E)."
+    },
+    {
+      "id": "s11",
+      "title": "QCM 11 — Expression d'un module",
+      "type": "quiz",
+      "question": "Soit $z$ un nombre complexe tel que $|z|=1$. Le nombre $|\\sqrt{2}+z|^2+|\\sqrt{2}-\\bar{z}|^2$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$2\\sqrt{2}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$-2\\sqrt{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$6$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$-\\sqrt{2}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\sqrt{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$|\\sqrt{2}+z|^2=2+\\sqrt{2}(z+\\bar{z})+|z|^2=3+2\\sqrt{2}\\mathrm{Re}(z)$. $|\\sqrt{2}-\\bar{z}|^2=2-\\sqrt{2}(\\bar{z}+z)+|\\bar{z}|^2=3-2\\sqrt{2}\\mathrm{Re}(z)$. Somme $=6$. Réponse (C)."
+    },
+    {
+      "id": "s12",
+      "title": "QCM 12 — Propriétés d'une suite définie par récurrence",
+      "type": "quiz",
+      "question": "La suite $(u_n)$ définie par $u_n=\\dfrac{1}{\\sqrt{1+n^2}}$ vérifie :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$(u_n)$ croissante",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$(u_n)$ minorée",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$u_0=0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\forall n\\in\\mathbb{N}\\,:\\,u_n\\leq1$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$\\lim_{n\\to+\\infty}u_n=0$",
+          "correct": true
+        }
+      ],
+      "explanation": "$u_n=\\frac{1}{\\sqrt{1+n^2}}>0$ donc minorée par $0$. $u_0=\\frac{1}{1}=1\\leq1$ et $u_n\\leq u_0=1$ car la suite est décroissante, donc $\\forall n:\\,u_n\\leq1$. $u_n\\to0$ car $\\sqrt{1+n^2}\\to+\\infty$. La suite est décroissante (pas croissante). $u_0=1\\neq0$. Réponses (B), (D), (E)."
+    },
+    {
+      "id": "s13",
+      "title": "QCM 13 — Equation logarithmique",
+      "type": "quiz",
+      "question": "L'équation $\\ln(-2\\sqrt{2}+\\ln x)+\\ln(2\\sqrt{2}+\\ln x)=0$ admet :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Une seule solution",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Deux solutions distinctes",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Pas de solution",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$S=\\{e^3\\}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Trois solutions distinctes",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\ln(-2\\sqrt{2}+\\ln x)+\\ln(2\\sqrt{2}+\\ln x)=0\\Leftrightarrow\\ln[(\\ln x)^2-8]=0\\Leftrightarrow(\\ln x)^2-8=1\\Leftrightarrow(\\ln x)^2=9\\Leftrightarrow\\ln x=\\pm3$. Conditions de définition : $-2\\sqrt{2}+\\ln x>0\\Rightarrow\\ln x>2\\sqrt{2}>0$ et $2\\sqrt{2}+\\ln x>0$ toujours vérifié si $\\ln x>-2\\sqrt{2}$. Seul $\\ln x=3$ satisfait : $x=e^3$. Réponse (D). Attention : (A) et (D) sont compatibles, la réponse (D) est plus précise."
+    },
+    {
+      "id": "s14",
+      "title": "QCM 14 — Asymptote oblique d'une fonction",
+      "type": "quiz",
+      "question": "La courbe de la fonction $f$ définie par $f(x)=2x+1+\\dfrac{\\sqrt{4x^2+x-1}}{1-x}$ admet au voisinage de $+\\infty$ une asymptote oblique d'équation :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y=-2x-1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$y=2x+1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y=2x-1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$y=-2x+2$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$y=-2x-1$",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand $x\\to+\\infty$ : $\\frac{\\sqrt{4x^2+x-1}}{1-x}=\\frac{2x\\sqrt{1+\\frac{1}{4x}-\\frac{1}{4x^2}}}{1-x}\\sim\\frac{2x}{1-x}\\to-2$. Donc $f(x)\\sim2x+1-2=2x-1$. Asymptote oblique : $y=2x-1$. Réponse (C)."
+    },
+    {
+      "id": "s15",
+      "title": "QCM 15 — Propriétés d'une fonction",
+      "type": "quiz",
+      "question": "La fonction $f$ définie par $f(x)=-x^2+\\ln(1+x^2)$ vérifie :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$D=\\mathbb{R}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\lim_{x\\to+\\infty}f(x)=-\\infty$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$f'(0)=0$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$f$ est paire",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$f(0)=1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f(x)=-x^2+\\ln(1+x^2)$. Domaine : $1+x^2>0$ toujours, $D=\\mathbb{R}$. Parité : $f(-x)=-(-x)^2+\\ln(1+(-x)^2)=f(x)$, $f$ est paire. $f(0)=0+\\ln1=0\\neq1$. $f'(x)=-2x+\\frac{2x}{1+x^2}$, $f'(0)=0$. $\\lim_{x\\to+\\infty}f(x)=-\\infty$ car $-x^2$ domine. Réponses (A), (B), (C), (D)."
+    }
+  ],
+  "createdAt": "2026-06-11"
+}

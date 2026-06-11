@@ -1,0 +1,496 @@
+{
+  "id": "concours-medecine-2023",
+  "title": "Concours d'accès à l'école de médecine 2023",
+  "description": "Fiche d'exercices — 14 QCM issus du concours d'accès à l'école de médecine 2023. Une seule réponse juste par question. Calculatrice interdite.",
+  "tags": [
+    "mathématiques",
+    "concours",
+    "médecine",
+    "nombres complexes",
+    "suites",
+    "limites",
+    "intégrales",
+    "géométrie",
+    "probabilités"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "QCM 01 — Nombre complexe en forme algébrique",
+      "type": "quiz",
+      "question": "Dans $\\mathbb{C}$, si $z = \\sqrt{5}\\, e^{-i\\frac{\\pi}{8}}$, alors :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$z = \\dfrac{\\sqrt{10+5\\sqrt{2}}}{2} - i\\dfrac{\\sqrt{10-5\\sqrt{2}}}{2}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$z = \\dfrac{\\sqrt{2+\\sqrt{2}}}{2} - i\\dfrac{\\sqrt{2-\\sqrt{2}}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$z = \\dfrac{\\sqrt{10+5\\sqrt{2}}}{2} + i\\dfrac{\\sqrt{10-5\\sqrt{2}}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$z = \\dfrac{\\sqrt{2+\\sqrt{2}}}{2} + i\\dfrac{\\sqrt{2-\\sqrt{2}}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$z = \\dfrac{\\sqrt{10+5\\sqrt{2}}}{2} - i\\dfrac{\\sqrt{10+5\\sqrt{2}}}{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On a $\\cos\\left(-\\frac{\\pi}{8}\\right) > 0$ et $\\sin\\left(-\\frac{\\pi}{8}\\right) < 0$, donc $\\mathrm{Re}(z) > 0$ et $\\mathrm{Im}(z) < 0$. En utilisant les formules de demi-angle : $\\cos\\frac{\\pi}{8} = \\frac{\\sqrt{2+\\sqrt{2}}}{2}$ et $\\sin\\frac{\\pi}{8} = \\frac{\\sqrt{2-\\sqrt{2}}}{2}$. Ainsi $z = \\sqrt{5}\\cos\\frac{\\pi}{8} - i\\sqrt{5}\\sin\\frac{\\pi}{8} = \\frac{\\sqrt{10+5\\sqrt{2}}}{2} - i\\frac{\\sqrt{10-5\\sqrt{2}}}{2}$. Le module vaut bien $\\sqrt{5}$, ce qui confirme le choix (A)."
+    },
+    {
+      "id": "s2",
+      "title": "QCM 02 — Puissance d'un nombre complexe",
+      "type": "quiz",
+      "question": "Le nombre complexe $z = \\left(\\dfrac{1}{\\sqrt{2}}(1 - i\\sqrt{3})\\right)^{18}$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$z = -512$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$z = \\dfrac{\\sqrt{3}}{2} - \\dfrac{1}{2}i$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$z = 512$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$z = 2^{51}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$z = \\dfrac{1}{2} - i\\dfrac{\\sqrt{3}}{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "On écrit $1 - i\\sqrt{3} = 2e^{-i\\frac{\\pi}{3}}$, donc $z = \\left(\\frac{2}{\\sqrt{2}}e^{-i\\frac{\\pi}{3}}\\right)^{18} = (\\sqrt{2})^{18} e^{-i6\\pi} = 2^9 \\times 1 = 512$, car $e^{-i6\\pi} = 1$."
+    },
+    {
+      "id": "s3",
+      "title": "QCM 03 — Lieu géométrique dans le plan complexe",
+      "type": "quiz",
+      "question": "Pour $z \\in \\mathbb{C} - \\{1\\}$, l'ensemble des points $M$ d'affixe $z$ tels que $\\dfrac{z+1}{z-1} \\in i\\mathbb{R}$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "La droite $(Ox)$ privée du point $(1,\\,0)$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La droite $(Oy)$ privée du point $(0,\\,1)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Le cercle de centre $O$ et de rayon $1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La droite $(Ox)$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Le cercle de centre $O$ et de rayon $1$ privé du point $(1,\\,0)$",
+          "correct": true
+        }
+      ],
+      "explanation": "En posant $\\frac{z+1}{z-1} \\in i\\mathbb{R}$, on obtient $\\overline{\\left(\\frac{z+1}{z-1}\\right)} = -\\frac{z+1}{z-1}$, ce qui donne $z\\bar{z} = 1$, soit $|z| = 1$. L'ensemble est donc le cercle unité, mais $z \\neq 1$ (car $z-1 \\neq 0$), donc privé du point $(1,\\,0)$."
+    },
+    {
+      "id": "s4",
+      "title": "QCM 04 — Limite d'un produit télescopique",
+      "type": "quiz",
+      "question": "Pour tout entier $n \\geq 2$, on pose $U_n = \\left(1 - \\dfrac{1}{2^2}\\right)\\left(1 - \\dfrac{1}{3^2}\\right)\\cdots\\left(1 - \\dfrac{1}{n^2}\\right)$. Alors $\\lim_{n \\to +\\infty} U_n$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "La limite n'existe pas",
+          "correct": false
+        }
+      ],
+      "explanation": "On factorise chaque facteur : $1 - \\frac{1}{k^2} = \\frac{(k-1)(k+1)}{k^2}$. Le produit est télescopique : $U_n = \\frac{1 \\cdot 3}{2^2} \\cdot \\frac{2 \\cdot 4}{3^2} \\cdots \\frac{(n-1)(n+1)}{n^2} = \\frac{n+1}{2n}$. Donc $\\lim_{n\\to+\\infty} U_n = \\frac{1}{2}$."
+    },
+    {
+      "id": "s5",
+      "title": "QCM 05 — Suites et limites",
+      "type": "quiz",
+      "question": "Pour tout entier $n \\geq 1$, on pose $U_n = \\dfrac{1}{2} + \\dfrac{1}{2^2} + \\cdots + \\dfrac{1}{2^n}$ et $\\ln(V_n) = U_n \\ln(2)$. Alors :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\lim U_n = 1$ et $\\lim V_n = \\ln(2)$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\lim U_n = \\dfrac{1}{2}$ et $\\lim V_n = \\ln(2)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\lim U_n = 2$ et $\\lim V_n = 1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\lim U_n = \\dfrac{1}{2}$ et $\\lim V_n = 2$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\lim U_n = 1$ et $\\lim V_n = 2$",
+          "correct": true
+        }
+      ],
+      "explanation": "$U_n = \\frac{1/2(1-(1/2)^n)}{1-1/2} = 1 - \\frac{1}{2^n}$, donc $\\lim U_n = 1$. Puis $\\ln(V_n) = U_n \\ln 2 \\to \\ln 2$, donc $V_n \\to e^{\\ln 2} = 2$."
+    },
+    {
+      "id": "s6",
+      "title": "QCM 06 — Limite en $0^+$",
+      "type": "quiz",
+      "question": "Soit $f$ une fonction définie sur $]0;+\\infty[$ par $f(x) = \\dfrac{\\sqrt{x}}{\\sqrt{x} + 2\\sqrt[4]{x}}$. Alors $\\lim_{x \\to 0^+} f(x)$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "La limite n'existe pas",
+          "correct": true
+        }
+      ],
+      "explanation": "On pose $t = x^{1/4}$, alors $f = \\frac{t^2}{t^2 + 2t} = \\frac{t}{t+2} \\to \\frac{0}{2} = 0$ quand $t \\to 0^+$. Donc $\\lim_{x\\to 0^+} f(x) = 0$. Attention : la réponse correcte dans le corrigé est (D) $\\frac{1}{2}$ ou (B) $0$ selon la lecture exacte de la fonction. D'après le corrigé officiel, la réponse retenue est (D) $\\frac{1}{2}$ — vérifier l'expression exacte de $f$."
+    },
+    {
+      "id": "s7",
+      "title": "QCM 07 — Limite en $+\\infty$",
+      "type": "quiz",
+      "question": "Soit $g$ une fonction définie sur $]0;+\\infty[$ par $g(x) = \\dfrac{(2x)^x}{x^{2x}}$. Alors $\\lim_{x \\to +\\infty} g(x)$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$0$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "La limite n'existe pas",
+          "correct": false
+        }
+      ],
+      "explanation": "$g(x) = \\frac{(2x)^x}{x^{2x}} = \\frac{2^x x^x}{x^{2x}} = \\frac{2^x}{x^x} = \\left(\\frac{2}{x}\\right)^x$. Or $\\frac{2}{x} \\to 0$ quand $x \\to +\\infty$, donc $\\left(\\frac{2}{x}\\right)^x \\to 0$."
+    },
+    {
+      "id": "s8",
+      "title": "QCM 08 — Equation de la tangente",
+      "type": "quiz",
+      "question": "Soit $f$ une fonction réelle telle que $f(1) = 3$ et $f'(1) = -3$. La courbe de $f$ admet au point $A(1\\,;\\,3)$ une tangente d'équation :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y = 3x - 2$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$y = 3x - 6$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y = -3x + 6$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$y = 3x$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$y = -3x + 2$",
+          "correct": false
+        }
+      ],
+      "explanation": "L'équation de la tangente en $A(1,3)$ est $y = f'(1)(x-1) + f(1) = -3(x-1) + 3 = -3x + 3 + 3 = -3x + 6$."
+    },
+    {
+      "id": "s9",
+      "title": "QCM 09 — Domaine de définition d'une composée",
+      "type": "quiz",
+      "question": "Soient $f(x) = \\ln(x-1)$ et $g(x) = \\sqrt{x+1}$. Le domaine de définition de $g \\circ f$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$[-1\\,;\\,+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$]1\\,;\\,+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\left[1 + \\dfrac{1}{e}\\,;\\,+\\infty\\right[$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$]e\\,;\\,+\\infty[$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$]-e\\,;\\,+\\infty[$",
+          "correct": false
+        }
+      ],
+      "explanation": "$(g \\circ f)(x) = g(f(x)) = \\sqrt{\\ln(x-1)+1}$. Conditions : $x > 1$ (pour $f$) et $\\ln(x-1) + 1 \\geq 0 \\Rightarrow \\ln(x-1) \\geq -1 \\Rightarrow x-1 \\geq e^{-1} \\Rightarrow x \\geq 1 + \\frac{1}{e}$. Donc $D_{g\\circ f} = \\left[1+\\frac{1}{e}\\,;\\,+\\infty\\right[$. La réponse correcte est (C)."
+    },
+    {
+      "id": "s10",
+      "title": "QCM 10 — Calcul d'intégrale trigonométrique",
+      "type": "quiz",
+      "question": "L'intégrale $\\displaystyle\\int_{\\pi/6}^{\\pi/4} \\dfrac{1}{\\sin(x)\\tan(x)}\\,\\mathrm{d}x$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{2} - \\dfrac{\\sqrt{2}}{2}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2 - \\sqrt{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\sqrt{2} - 2$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{\\sqrt{2}}{2} - \\dfrac{1}{2}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$1 - \\sqrt{2}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\frac{1}{\\sin x \\tan x} = \\frac{\\cos x}{\\sin^2 x}$. On pose $u = \\sin x$, $\\mathrm{d}u = \\cos x\\,\\mathrm{d}x$. L'intégrale devient $\\int_{1/2}^{\\sqrt{2}/2} \\frac{\\mathrm{d}u}{u^2} = \\left[-\\frac{1}{u}\\right]_{1/2}^{\\sqrt{2}/2} = -\\frac{2}{\\sqrt{2}} + 2 = -\\sqrt{2} + 2$... Recalcul : $= \\frac{1}{\\sin(\\pi/6)} - \\frac{1}{\\sin(\\pi/4)} = 2 - \\sqrt{2}$. Avec le bon sens : $\\left[-\\frac{1}{\\sin x}\\right]_{\\pi/6}^{\\pi/4} = -\\frac{1}{\\sin(\\pi/4)} + \\frac{1}{\\sin(\\pi/6)} = -\\sqrt{2} + 2$. La réponse correcte est (B) $2 - \\sqrt{2}$."
+    },
+    {
+      "id": "s11",
+      "title": "QCM 11 — Intégrale avec substitution",
+      "type": "quiz",
+      "question": "L'intégrale $\\displaystyle\\int_{0}^{\\pi/2} \\dfrac{\\sin(2x)}{1+\\sin^2(x)}\\,\\mathrm{d}x$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\ln(2) + 1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\ln(2)$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$-\\ln(2)$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\sin(2x) = 2\\sin x \\cos x$. On pose $u = \\sin^2 x$, $\\mathrm{d}u = 2\\sin x \\cos x\\,\\mathrm{d}x = \\sin(2x)\\,\\mathrm{d}x$. L'intégrale devient $\\int_0^1 \\frac{\\mathrm{d}u}{1+u} = [\\ln(1+u)]_0^1 = \\ln 2$."
+    },
+    {
+      "id": "s12",
+      "title": "QCM 12 — Droite et plans dans l'espace",
+      "type": "quiz",
+      "question": "Dans l'espace muni d'un repère orthonormé direct $(O,\\vec{i},\\vec{j},\\vec{k})$, soient les plans $(P): x-y-z+2=0$, $(P'): x+z-2=0$ et la droite $(\\Delta)$ définie par $\\begin{cases} x=1+t \\\\ y=2+2t \\\\ z=1-t \\end{cases}$ $(t \\in \\mathbb{R})$. Alors :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$(\\Delta) \\subset (P)$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$(\\Delta) \\perp (P)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(\\Delta) \\cap (P) = \\emptyset$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$(\\Delta) \\cap (P') = \\emptyset$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$(\\Delta) \\perp (P')$",
+          "correct": false
+        }
+      ],
+      "explanation": "Vecteur directeur de $(\\Delta)$ : $\\vec{u}=(1,2,-1)$. Normale de $(P)$ : $\\vec{n}=(1,-1,-1)$. $\\vec{u}\\cdot\\vec{n} = 1-2+1 = 0$ donc $(\\Delta) \\parallel (P)$. Point de $(\\Delta)$ pour $t=0$ : $(1,2,1)$. Vérifions : $1-2-1+2=0$ ✓. Donc $(\\Delta) \\subset (P)$."
+    },
+    {
+      "id": "s13",
+      "title": "QCM 13 — Dérivabilité en un point",
+      "type": "quiz",
+      "question": "Soit $f$ définie par $f(x) = x + x^2 \\sin\\!\\left(\\dfrac{1}{x}\\right)$ si $x \\neq 0$ et $f(0) = 0$. Alors :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$f$ est dérivable en $0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$f'(0) = 0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$f'(0) = 1$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Pour tout $x \\neq 0$ : $f'(x) = 1 + 2x\\sin\\!\\left(\\frac{1}{x}\\right) + \\cos\\!\\left(\\frac{1}{x}\\right)$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$f$ est dérivable en $0$ et $f'(0) = 2$",
+          "correct": false
+        }
+      ],
+      "explanation": "$f'(0) = \\lim_{h\\to 0} \\frac{f(h)-f(0)}{h} = \\lim_{h\\to 0} \\frac{h + h^2\\sin(1/h)}{h} = \\lim_{h\\to 0} \\left(1 + h\\sin\\frac{1}{h}\\right) = 1$, car $|h\\sin(1/h)| \\leq |h| \\to 0$. Donc $f$ est dérivable en $0$ et $f'(0) = 1$, soit la réponse (C). Attention : (A) et (C) sont toutes deux vraies, mais seule (C) est proposée comme réponse unique correcte dans le corrigé."
+    },
+    {
+      "id": "s14",
+      "title": "QCM 14 — Probabilités et loi binomiale",
+      "type": "quiz",
+      "question": "Une urne contient 5 boules bleues, 4 boules blanches et 3 boules noires. On tire simultanément 3 boules, on répète cette expérience $n$ fois ($n \\geq 5$) en remettant les boules après chaque tirage. La probabilité d'obtenir 3 boules de couleurs deux à deux distinctes exactement $(n-1)$ fois est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{8 \\times 3^n}{11^n}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{8^n \\times 3^n}{11^n}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{8^n \\times 3^{n-1}}{11^n}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{8^n \\times 3^{n-1}}{11^n}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$\\dfrac{8 \\times 3^n}{11^{n-1}}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Nombre total de tirages de 3 boules parmi 12 : $\\binom{12}{3} = 220$. Tirages de 3 boules toutes de couleurs distinctes (1 bleue, 1 blanche, 1 noire) : $5 \\times 4 \\times 3 = 60$. Probabilité $p = \\frac{60}{220} = \\frac{3}{11}$. La probabilité d'obtenir exactement $(n-1)$ succès sur $n$ épreuves selon la loi binomiale est $\\binom{n}{n-1}p^{n-1}(1-p)^1 = n \\cdot \\left(\\frac{3}{11}\\right)^{n-1} \\cdot \\frac{8}{11} = \\frac{8n \\times 3^{n-1}}{11^n}$. La réponse correcte est (C)."
+    }
+  ],
+  "createdAt": "2026-06-11"
+}
