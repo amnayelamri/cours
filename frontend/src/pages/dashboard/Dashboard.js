@@ -139,7 +139,7 @@ const CollectionModal = ({ collection, courses, onSave, onClose }) => {
                 className="col-input"
                 value={form.emoji}
                 onChange={e => set('emoji', e.target.value.slice(-2))}
-                placeholder="📁"
+                placeholder="(optionnel)"
                 maxLength={2}
               />
             </div>
@@ -766,7 +766,9 @@ const Dashboard = () => {
               {collections.map(col => (
                 <div key={col.id} className="dashboard-row">
                   <div className="course-info" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                    <span style={{ fontSize: 28, lineHeight: 1, flexShrink: 0 }}>{col.emoji || '📁'}</span>
+                    <span style={{ fontSize: 28, lineHeight: 1, flexShrink: 0, display:'flex', alignItems:'center', color:'var(--text-secondary)' }}>
+                      {col.emoji ? col.emoji : <FiFolder size={28} />}
+                    </span>
                     <div style={{ minWidth: 0 }}>
                       <h3>{col.title}</h3>
                       {col.description && <p>{col.description}</p>}
