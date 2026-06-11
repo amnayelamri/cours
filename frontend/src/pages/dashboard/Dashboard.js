@@ -21,16 +21,63 @@ const JSON_SCHEMA = {
   title: "Titre du cours (requis)",
   description: "Description courte",
   tags: ["tag1", "tag2"],
+  lang: "fr (ou 'ar' pour aligner le texte à droite en arabe)",
   slides: [
-    { id: "s1", title: "Titre slide", type: "markdown", content: "# Contenu Markdown" },
-    { id: "s2", title: "Vidéo", type: "video", url: "https://youtube.com/watch?v=..." },
-    { id: "s3", title: "QCM", type: "quiz",
+    {
+      id: "s1", title: "Cours / Texte", type: "markdown",
+      content: "# Titre\n\nTexte en **Markdown**. Supports LaTeX : $a^2 + b^2 = c^2$"
+    },
+    {
+      id: "s2", title: "Vidéo", type: "video",
+      url: "https://youtube.com/watch?v=..."
+    },
+    {
+      id: "s3", title: "QCM", type: "quiz",
       question: "Question ?",
       choices: [
         { id: "a", text: "Bonne réponse", correct: true },
-        { id: "b", text: "Mauvaise réponse", correct: false }
+        { id: "b", text: "Mauvaise réponse", correct: false },
+        { id: "c", text: "Autre choix", correct: false }
       ],
-      explanation: "Explication optionnelle"
+      explanation: "Explication affichée après réponse (optionnel)"
+    },
+    {
+      id: "s4", title: "Carte à retourner", type: "flashcard",
+      question: "Question au recto de la carte ?",
+      answer: "Réponse au verso. Supporte le **Markdown**.",
+      hint: "Indice optionnel affiché avant de retourner"
+    },
+    {
+      id: "s5", title: "Vrai ou Faux", type: "truefalse",
+      statement: "Affirmation à évaluer (Markdown supporté).",
+      answer: true,
+      explanation: "Explication affichée après la réponse (optionnel)"
+    },
+    {
+      id: "s6", title: "Réponse numérique", type: "number",
+      question: "Calculer $2^{10}$ = ?",
+      answer: 1024,
+      tolerance: 0,
+      hint: "Indice optionnel",
+      explanation: "Explication après réponse (optionnel)"
+    },
+    {
+      id: "s7", title: "Étapes révélées", type: "steps",
+      stepsTitle: "Titre de la liste d'étapes",
+      intro: "Introduction optionnelle avant les étapes.",
+      steps: [
+        { label: "Étape 1", content: "Description de l'étape 1" },
+        { label: "Étape 2", content: "Description de l'étape 2" }
+      ]
+    },
+    {
+      id: "s8", title: "Relier les éléments", type: "matching",
+      instruction: "Reliez chaque élément de gauche à sa correspondance à droite.",
+      pairs: [
+        { left: "Élément A", right: "Correspond à 1" },
+        { left: "Élément B", right: "Correspond à 2" },
+        { left: "Élément C", right: "Correspond à 3" }
+      ]
     }
   ]
 };
@@ -686,8 +733,14 @@ const Dashboard = () => {
           )}
 
           <div className="schema-box">
-            <h3>Structure JSON pour générer un cours avec une IA</h3>
-            <p className="schema-hint">Copiez ce schéma, donnez-le à une IA avec votre contenu, puis importez le JSON généré.</p>
+            <h3>Structure JSON — tous les types de slides</h3>
+            <p className="schema-hint">
+              8 types disponibles : <strong>markdown</strong>, <strong>video</strong>, <strong>quiz</strong>,{' '}
+              <strong>flashcard</strong> (carte à retourner), <strong>truefalse</strong>,{' '}
+              <strong>number</strong>, <strong>steps</strong> (étapes révélées),{' '}
+              <strong>matching</strong> (relier les éléments).{' '}
+              Copiez ce schéma, donnez-le à l'IA avec votre contenu, puis importez le JSON généré.
+            </p>
             <pre>{JSON.stringify(JSON_SCHEMA, null, 2)}</pre>
           </div>
         </>
