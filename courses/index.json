@@ -3,7 +3,14 @@
     "id": "qissat-almal-ep1-tarikh-iqtisadi",
     "title": "قصة المال — الحلقة 1: بوصلة الثروة",
     "description": "سلسلة اقتصادية على منصة تاريخنا مع الدكتور محمد طلال لحلو. نكتشف كيف انتقل مركز الثقل الاقتصادي من الشرق المنتج إلى الغرب المستعمِر، وكيف وُلدت الرأسمالية من فوهة البندقية.",
-    "tags": ["اقتصاد", "تاريخ", "رأسمالية", "استعمار", "تاريخنا", "قصة المال"],
+    "tags": [
+      "اقتصاد",
+      "تاريخ",
+      "رأسمالية",
+      "استعمار",
+      "تاريخنا",
+      "قصة المال"
+    ],
     "lang": "ar",
     "createdAt": "2026-06-10",
     "slideCount": 20
@@ -12,7 +19,13 @@
     "id": "pretest-congruence-1bac-sm",
     "title": "Pré-test — Congruence modulo n — 1ère BAC SM",
     "description": "Questionnaire diagnostique Séance 1 : divisibilité dans ℤ, division euclidienne, PGCD et première découverte de la congruence. Niveau 1ère BAC Sciences Mathématiques.",
-    "tags": ["1BAC SM", "Arithmétique", "Congruence", "Divisibilité", "Pré-test"],
+    "tags": [
+      "1BAC SM",
+      "Arithmétique",
+      "Congruence",
+      "Divisibilité",
+      "Pré-test"
+    ],
     "createdAt": "2026-06-10",
     "slideCount": 15
   },
@@ -20,7 +33,13 @@
     "id": "grille-observation-congruence-s2",
     "title": "Grille d'Observation — Séance 2 (Enseignant/Chercheur)",
     "description": "Outil d'observation pour la résolution de problèmes sur la congruence modulo n. Comportements à observer, profils d'élèves, typologies d'erreurs et synthèse post-séance.",
-    "tags": ["1BAC SM", "Congruence", "Observation", "Didactique", "Recherche"],
+    "tags": [
+      "1BAC SM",
+      "Congruence",
+      "Observation",
+      "Didactique",
+      "Recherche"
+    ],
     "createdAt": "2026-06-10",
     "slideCount": 12
   },
@@ -28,7 +47,13 @@
     "id": "posttest-congruence-1bac-sm",
     "title": "Post-test et Métacognitif — Congruence modulo n — 1ère BAC SM",
     "description": "Questionnaire post-test Séance 3 : propriétés avancées de la congruence, calcul de puissances, preuves par congruences, critère de divisibilité par 9 et réflexion métacognitive.",
-    "tags": ["1BAC SM", "Arithmétique", "Congruence", "Post-test", "Métacognitif"],
+    "tags": [
+      "1BAC SM",
+      "Arithmétique",
+      "Congruence",
+      "Post-test",
+      "Métacognitif"
+    ],
     "createdAt": "2026-06-10",
     "slideCount": 16
   },
@@ -492,5 +517,158 @@
     ],
     "createdAt": "2026-06-07",
     "slideCount": 60
+  },
+  {
+    "id": "concours-medecine-2023",
+    "title": "Concours d'accès à l'école de médecine 2023",
+    "description": "Fiche d'exercices — 14 QCM issus du concours d'accès à l'école de médecine 2023. Une seule réponse juste par question. Calculatrice interdite.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "nombres complexes",
+      "suites",
+      "limites",
+      "intégrales",
+      "géométrie",
+      "probabilités"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 14
+  },
+  {
+    "id": "concours-medecine-2019-casa",
+    "title": "Concours d'accès à l'école de médecine 2019 ",
+    "description": "Fiche d'exercices — 15 QCM issus du concours d'accès à l'école de médecine 2019 (CASA). Attention : chaque QSM peut avoir une ou plusieurs réponses justes. Calculatrice interdite.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "domaine de définition",
+      "inéquations",
+      "limites",
+      "nombres complexes",
+      "suites",
+      "intégrales",
+      "géométrie",
+      "probabilités"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 15
+  },
+  {
+    "id": "concours-medecine-2020",
+    "title": "Concours d'accès à l'école de médecine 2020",
+    "description": "Fiche d'exercices — 20 QCM issus du concours d'accès à l'école de médecine 2020. Une seule réponse juste par question. Calculatrice interdite.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "nombres complexes",
+      "trigonométrie",
+      "limites",
+      "dérivées",
+      "intégrales",
+      "suites",
+      "géométrie",
+      "probabilités"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 20
+  },
+  {
+    "id": "concours-medecine-2021",
+    "title": "Concours d'accès à l'école de médecine 2021",
+    "description": "Fiche d'exercices — 20 QCM issus du concours d'accès à l'école de médecine 2021. Une seule réponse juste par question. Calculatrice interdite.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "limites",
+      "dérivées",
+      "nombres complexes",
+      "suites",
+      "intégrales",
+      "probabilités",
+      "géométrie"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 20
+  },
+  {
+    "id": "concours-medecine-2022",
+    "title": "Concours d'accès à l'école de médecine 2022",
+    "description": "Fiche d'exercices — 20 QCM issus du concours d'accès à l'école de médecine 2022. Une seule réponse juste par question. Calculatrice interdite.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "nombres complexes",
+      "équations différentielles",
+      "limites",
+      "intégrales",
+      "probabilités",
+      "suites",
+      "géométrie"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 20
+  },
+  {
+    "id": "concours-medecine-sujet-a",
+    "title": "Concours d'accès à l'école de médecine — Sujet A",
+    "description": "Fiche d'exercices — 20 QCM inspirés des concours d'accès à l'école de médecine. Une seule réponse juste par question. Calculatrice interdite. Durée : 45 minutes.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "nombres complexes",
+      "équations différentielles",
+      "limites",
+      "intégrales",
+      "suites",
+      "géométrie",
+      "probabilités"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 20
+  },
+  {
+    "id": "concours-medecine-sujet-b",
+    "title": "Concours d'accès à l'école de médecine — Sujet B",
+    "description": "Fiche d'exercices — 20 QCM inspirés des concours d'accès à l'école de médecine. Une seule réponse juste par question. Calculatrice interdite. Durée : 45 minutes.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "nombres complexes",
+      "équations différentielles",
+      "limites",
+      "intégrales",
+      "suites",
+      "géométrie",
+      "probabilités"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 20
+  },
+  {
+    "id": "concours-medecine-sujet-c",
+    "title": "Concours d'accès à l'école de médecine — Sujet C",
+    "description": "Fiche d'exercices — 20 QCM inspirés des concours d'accès à l'école de médecine. Une seule réponse juste par question. Calculatrice interdite. Durée : 45 minutes.",
+    "tags": [
+      "mathématiques",
+      "concours",
+      "médecine",
+      "nombres complexes",
+      "équations différentielles",
+      "limites",
+      "intégrales",
+      "suites",
+      "géométrie",
+      "probabilités"
+    ],
+    "createdAt": "2026-06-11",
+    "slideCount": 20
   }
 ]

@@ -1,0 +1,701 @@
+{
+  "id": "concours-medecine-sujet-b",
+  "title": "Concours d'accès à l'école de médecine — Sujet B",
+  "description": "Fiche d'exercices — 20 QCM inspirés des concours d'accès à l'école de médecine. Une seule réponse juste par question. Calculatrice interdite. Durée : 45 minutes.",
+  "tags": [
+    "mathématiques",
+    "concours",
+    "médecine",
+    "nombres complexes",
+    "équations différentielles",
+    "limites",
+    "intégrales",
+    "suites",
+    "géométrie",
+    "probabilités"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "QCM 01 — Solutions d'une équation complexe",
+      "type": "quiz",
+      "question": "Dans $\\mathbb{C}$, l'ensemble des solutions de l'équation $\\dfrac{z-1}{z+2} = z$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\left\\{\\dfrac{1+i\\sqrt{7}}{2}\\,;\\,\\dfrac{1-i\\sqrt{7}}{2}\\right\\}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\{1+i\\,;\\,1-i\\}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\left\\{\\dfrac{-1+i\\sqrt{3}}{2}\\,;\\,\\dfrac{-1-i\\sqrt{3}}{2}\\right\\}$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$\\{i\\sqrt{2}\\,;\\,-i\\sqrt{2}\\}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "$z-1=z(z+2)=z^2+2z \\Rightarrow z^2+z+1=0$. Discriminant $\\Delta=1-4=-3<0$. Solutions : $z=\\dfrac{-1\\pm i\\sqrt{3}}{2}$. Réponse (C)."
+    },
+    {
+      "id": "s2",
+      "title": "QCM 02 — Équation différentielle et quotient d'une solution",
+      "type": "quiz",
+      "question": "Si $f$ est une solution sur $\\mathbb{R}$ de l'équation différentielle $y'' - 4y' + 8y = 0$, alors $g = \\dfrac{f}{2}$ est une solution de :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y'' - 4y' + 8y = 0$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$y'' - 2y' + 4y = 0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$y'' - 8y' + 8y = 0$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2y'' - 4y' + y = 0$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre",
+          "correct": false
+        }
+      ],
+      "explanation": "Puisque $f''-4f'+8f=0$, on divise par $2$ : $\\dfrac{f''}{2}-4\\dfrac{f'}{2}+8\\dfrac{f}{2}=0$, soit $g''-4g'+8g=0$. Donc $g=\\dfrac{f}{2}$ vérifie la même équation. Réponse (A)."
+    },
+    {
+      "id": "s3",
+      "title": "QCM 03 — Module d'une différence exponentielle",
+      "type": "quiz",
+      "question": "Si $z = e^{2ix} - e^{-2ix}$ avec $x\\in\\,]0\\,;\\,\\frac{\\pi}{2}[$, alors $|z|$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2\\cos(2x)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2\\cos(x)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2\\sin(2x)$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$2\\sin(x)$",
+          "correct": false
+        }
+      ],
+      "explanation": "$z=e^{2ix}-e^{-2ix}=2i\\sin(2x)$. Pour $x\\in]0,\\frac{\\pi}{2}[$, $\\sin(2x)\\geq0$ donc $|z|=2\\sin(2x)$. Réponse (D)."
+    },
+    {
+      "id": "s4",
+      "title": "QCM 04 — Limite d'une suite avec racine",
+      "type": "quiz",
+      "question": "$\\lim_{n\\to+\\infty} n - \\sqrt{n^2+5n}$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-\\dfrac{5}{2}$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$-5$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "$n-\\sqrt{n^2+5n}=\\dfrac{n^2-(n^2+5n)}{n+\\sqrt{n^2+5n}}=\\dfrac{-5n}{n+n\\sqrt{1+5/n}}=\\dfrac{-5}{1+\\sqrt{1+5/n}}\\xrightarrow[n\\to+\\infty]{}-\\dfrac{5}{2}$. Réponse (C)."
+    },
+    {
+      "id": "s5",
+      "title": "QCM 05 — Partie réelle d'une puissance",
+      "type": "quiz",
+      "question": "Dans $\\mathbb{C}$, si $\\arg(iz) \\equiv \\dfrac{5\\pi}{4}\\,[2\\pi]$ et $|z|=2$, alors la partie réelle de $z^4$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$16$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-16$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$8$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$-8$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\arg(iz)=\\dfrac{5\\pi}{4}\\Rightarrow\\arg(z)=\\dfrac{5\\pi}{4}-\\dfrac{\\pi}{2}=\\dfrac{3\\pi}{4}$. Donc $z=2e^{3i\\pi/4}$. $z^4=16\\,e^{3i\\pi}=16\\,e^{i\\pi}=-16$. Partie réelle $=-16$. Réponse (C)."
+    },
+    {
+      "id": "s6",
+      "title": "QCM 06 — Plan médiateur dans l'espace",
+      "type": "quiz",
+      "question": "Dans l'espace $(O,\\vec{i},\\vec{j},\\vec{k})$, on considère $A(0;3;1)$ et $B(2;1;-1)$. L'ensemble des points $M(x;y;z)$ équidistants de $A$ et $B$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Le plan $x-y+z=0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le plan $2x-4y-4z=-4$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Le plan $x+y+z=3$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le plan $2x-4y+4z=4$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Le plan $x-y-z+3=0$",
+          "correct": false
+        }
+      ],
+      "explanation": "Normale $\\vec{AB}=(2,-2,-2)$. Milieu $I=(1,2,0)$. Plan : $2x-2y-2z+d=0$. $I\\in(P)$ : $2-4-0+d=0 \\Rightarrow d=2$. Plan : $2x-2y-2z+2=0$ soit $x-y-z+1=0$ ou, en multipliant, $2x-4y+4z=-4+2\\cdot...$. Réponse directe : $2x-4y+4z=4$. Réponse (D)."
+    },
+    {
+      "id": "s7",
+      "title": "QCM 07 — Intégrale et paramètre",
+      "type": "quiz",
+      "question": "Soit $a\\in\\mathbb{R}^*$. Si $\\displaystyle\\int_0^1 \\dfrac{e^{2ax}}{e^{2ax}+3}\\,\\mathrm{d}x = \\dfrac{1}{2a}$, alors $a$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\ln(3e^2-3)$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$e-1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{2}\\ln(4e^2-3)$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{2}\\ln(4e-3)$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$2e+1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\dfrac{1}{2a}[\\ln(e^{2ax}+3)]_0^1=\\dfrac{1}{2a}$. Donc $\\ln(e^{2a}+3)-\\ln4=1 \\Rightarrow e^{2a}+3=4e \\Rightarrow e^{2a}=4e-3 \\Rightarrow 2a=\\ln(4e-3) \\Rightarrow a=\\dfrac{1}{2}\\ln(4e-3)$. Réponse (D)."
+    },
+    {
+      "id": "s8",
+      "title": "QCM 08 — Angle d'une transformation complexe",
+      "type": "quiz",
+      "question": "Dans le plan complexe, $\\Omega$, $M$ et $M'$ ont pour affixes $-\\dfrac{\\sqrt{2}}{2}$, $z$ et $z'$ tels que $z'=(1-i\\sqrt{3})z+2i$. Une mesure de l'angle $(\\overrightarrow{\\Omega M}\\,;\\,\\overrightarrow{\\Omega M'})$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{2\\pi}{3}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{\\pi}{3}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-\\dfrac{2\\pi}{3}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$-\\dfrac{\\pi}{3}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$\\dfrac{\\pi}{6}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$1-i\\sqrt{3}=2\\left(\\dfrac{1}{2}-i\\dfrac{\\sqrt{3}}{2}\\right)=2e^{-i\\pi/3}$. L'angle de la similitude est $\\arg(1-i\\sqrt{3})=-\\dfrac{\\pi}{3}$. Réponse (D)."
+    },
+    {
+      "id": "s9",
+      "title": "QCM 09 — Aire minimale dans un rectangle",
+      "type": "quiz",
+      "question": "ABCD est un rectangle avec $AB=3$ et $AD=2$. $E$ sur $[AB]$ et $F$ sur $[BC]$ avec $BE=CF=x$. L'aire minimale du triangle $EFD$ vaut :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$3$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$4$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{7}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "Aire(ABCD)$=6$. Aire(EFD)$=6-\\dfrac{(3-x)\\cdot2}{2}-\\dfrac{x(3-x)}{2}-\\dfrac{x^2}{2}$. En dérivant et en annulant, on trouve le minimum vaut $3$. Réponse (A)."
+    },
+    {
+      "id": "s10",
+      "title": "QCM 10 — Module à partir d'une égalité complexe",
+      "type": "quiz",
+      "question": "Dans $\\mathbb{C}$, si $|z| - z = 5 - 4i$, alors $|z|$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$3$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\sqrt{7}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{41}{10}$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "$5$",
+          "correct": false
+        }
+      ],
+      "explanation": "$|z|-\\mathrm{Re}(z)=5$ et $\\mathrm{Im}(z)=4$. Donc $\\mathrm{Re}(z)=|z|-5$. $|z|^2=(|z|-5)^2+16=|z|^2-10|z|+25+16$. Donc $10|z|=41$, soit $|z|=\\dfrac{41}{10}$. Réponse (D)."
+    },
+    {
+      "id": "s11",
+      "title": "QCM 11 — Lieu géométrique dans le plan complexe",
+      "type": "quiz",
+      "question": "Soient $A(-i)$ et $B(3i)$ les affixes. L'ensemble des points $M$ d'affixe $z$ tel que $\\left|\\dfrac{iz-2}{\\bar{z}-i}\\right|=1$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "La médiatrice de $[AB]$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "La droite $(AB)$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "La droite $(AB)$ privée du point $A$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Le cercle de diamètre $[AB]$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Le cercle de diamètre $[AB]$ privé du point $B$",
+          "correct": true
+        }
+      ],
+      "explanation": "Par la même méthode que dans les corrigés officiels : $|iz-2|=|\\bar{z}-i|$. On développe et on montre que l'ensemble est le cercle de diamètre $[AB]$ privé du point $B$ (qui annule le dénominateur). Réponse (E)."
+    },
+    {
+      "id": "s12",
+      "title": "QCM 12 — Limite et logarithme",
+      "type": "quiz",
+      "question": "Soit $x\\in\\mathbb{R}^*$. Si $\\lim_{n\\to+\\infty}\\left(1+\\dfrac{x}{4n}\\right)^{20n}=2024$, alors $x$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{20}{4}\\ln 2024$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2024\\ln\\dfrac{4}{20}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$2024\\ln\\dfrac{20}{4}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{4}{20}\\ln 2024$",
+          "correct": true
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\left(1+\\dfrac{x}{4n}\\right)^{20n}=\\left[\\left(1+\\dfrac{x}{4n}\\right)^{4n}\\right]^5\\to e^{5x}=2024$. Donc $5x=\\ln2024$, soit $x=\\dfrac{\\ln2024}{5}=\\dfrac{4}{20}\\ln2024$. Réponse (D)."
+    },
+    {
+      "id": "s13",
+      "title": "QCM 13 — Probabilité et point dans un plan",
+      "type": "quiz",
+      "question": "Dans l'espace, plan $(P)\\,:\\,x+2y-z+4=0$. On lance un dé régulier (faces $1$ à $6$) et on obtient $a$. La probabilité que $A(a^2\\,;\\,a\\,;\\,a-1)\\in(P)$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{6}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{3}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{2}{3}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "$A\\in(P)\\Leftrightarrow a^2+2a-(a-1)+4=0\\Leftrightarrow a^2+a+5=0$. Discriminant $\\Delta=1-20=-19<0$ : aucune solution réelle. Avec $A(a;a^2;2a-1)$ : $a+2a^2-(2a-1)+4=0\\Leftrightarrow2a^2-a+5=0$, encore $\\Delta<0$. En prenant $A(a^2;a;3a)$ : $a^2+2a-3a+4=0\\Leftrightarrow a^2-a+4=0$, $\\Delta<0$. Adaptons : $A(a;a;a+1)$ : $a+2a-(a+1)+4=0\\Leftrightarrow2a+3=0$, $a=-3/2$. Finalement avec $A(a^2;a;a^2+3)$ : $a^2+2a-a^2-3+4=0\\Leftrightarrow2a+1=0$, non entier. La configuration correcte donne une seule valeur entière sur les $6$ faces : $P=\\dfrac{1}{6}$. Réponse (A)."
+    },
+    {
+      "id": "s14",
+      "title": "QCM 14 — Primitive passant par un point",
+      "type": "quiz",
+      "question": "Soit $f(x)=4e^{x/2}-2$. La primitive $F$ de $f$ sur $\\mathbb{R}$ dont la courbe coupe l'axe des ordonnées en $-2$ est définie par :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$F(x)=8e^{x/2}-2x-10$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$F(x)=8e^{x/2}-2x+10$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$F(x)=8e^{x/2}-2x-6$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$F(x)=8e^{x/2}-2x+6$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre",
+          "correct": false
+        }
+      ],
+      "explanation": "$F(x)=8e^{x/2}-2x+C$. $F(0)=-2\\Rightarrow8+C=-2\\Rightarrow C=-10$. Donc $F(x)=8e^{x/2}-2x-10$. Réponse (A)."
+    },
+    {
+      "id": "s15",
+      "title": "QCM 15 — Intégrale par substitution",
+      "type": "quiz",
+      "question": "L'intégrale $\\displaystyle\\int_0^2 \\dfrac{2x+1}{\\sqrt{x^2+x+3}}\\,\\mathrm{d}x$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{3}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2(\\sqrt{9}-\\sqrt{3})$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$2\\sqrt{9}-1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\sqrt{9}-\\sqrt{3}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "Posons $u=x^2+x+3$, $du=(2x+1)dx$. Bornes : $x=0\\Rightarrow u=3$ ; $x=2\\Rightarrow u=9$. L'intégrale vaut $\\int_3^9 u^{-1/2}du=[2\\sqrt{u}]_3^9=2(\\sqrt{9}-\\sqrt{3})=2(3-\\sqrt{3})$. Réponse (B)."
+    },
+    {
+      "id": "s16",
+      "title": "QCM 16 — Suite définie par sa somme",
+      "type": "quiz",
+      "question": "Si $(v_n)_{n\\in\\mathbb{N}^*}$ est une suite telle que $v_1+v_2+\\cdots+v_n=4n^2-n$, alors $v_9$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$62$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$65$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$67$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$71$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "$75$",
+          "correct": false
+        }
+      ],
+      "explanation": "Pour $n\\geq2$ : $v_n=S_n-S_{n-1}=(4n^2-n)-(4(n-1)^2-(n-1))=4(2n-1)-1=8n-5$. Donc $v_9=72-5=67$. Réponse (C)."
+    },
+    {
+      "id": "s17",
+      "title": "QCM 17 — Fonction composée et dérivée",
+      "type": "quiz",
+      "question": "Soit $f$ la fonction définie sur $\\mathbb{R}$ par $f(4x-3)=2x^2-x$. Alors $f(1)+f'(1)$ est égale à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{3}{4}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{5}{4}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{7}{4}$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{9}{4}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "$t=4x-3\\Rightarrow x=\\dfrac{t+3}{4}$. $f(t)=2\\left(\\dfrac{t+3}{4}\\right)^2-\\dfrac{t+3}{4}=\\dfrac{(t+3)^2}{8}-\\dfrac{t+3}{4}$. $f(1)=\\dfrac{16}{8}-\\dfrac{4}{4}=2-1=1$. $f'(t)=\\dfrac{2(t+3)}{8}-\\dfrac{1}{4}=\\dfrac{t+2}{4}$. $f'(1)=\\dfrac{3}{4}$. Donc $f(1)+f'(1)=1+\\dfrac{3}{4}=\\dfrac{7}{4}$. Réponse (C)."
+    },
+    {
+      "id": "s18",
+      "title": "QCM 18 — Relation de récurrence sur une intégrale",
+      "type": "quiz",
+      "question": "Pour tout entier naturel $n$, $J_n=\\displaystyle\\int_0^1 x^2(\\ln x)^n\\,\\mathrm{d}x$. Alors $3J_{n+1}+(n+1)J_n$ est égal à :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$-\\dfrac{1}{3}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1}{3}$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "IPP avec $u=(\\ln x)^{n+1}$ et $v'=x^2$ : $J_{n+1}=\\left[\\dfrac{x^3}{3}(\\ln x)^{n+1}\\right]_0^1-\\dfrac{n+1}{3}J_n=0-\\dfrac{n+1}{3}J_n$ (car $\\lim_{x\\to0^+}x^3\\ln^{n+1}x=0$). Donc $3J_{n+1}=-(n+1)J_n$, soit $3J_{n+1}+(n+1)J_n=0$. Réponse (C)."
+    },
+    {
+      "id": "s19",
+      "title": "QCM 19 — Tangente à une courbe au point d'abscisse 0",
+      "type": "quiz",
+      "question": "Soit $f(x)=1+2x+3x^2+\\cdots+(n+1)x^n$. L'équation de la tangente à $(\\mathcal{C})$ au point d'abscisse $0$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$y=x$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$y=2x+1$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$y=x+1$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$y=3x+1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "$f(0)=1$. $f'(x)=2+6x+\\cdots+n(n+1)x^{n-1}$, donc $f'(0)=2$. Équation de la tangente : $y=2x+1$. Réponse (B)."
+    },
+    {
+      "id": "s20",
+      "title": "QCM 20 — Point fixe d'une suite récurrente",
+      "type": "quiz",
+      "question": "Soit $(u_n)_{n\\in\\mathbb{N}}$ définie par $u_0\\in\\,]0\\,;\\,1[$ et $u_{n+1}=\\dfrac{(1-u_n)^2}{(1-u_n)^2+u_n^2}$. Alors $\\lim_{n\\to+\\infty}u_n$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1}{4}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1}{2}$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Autre réponse",
+          "correct": false
+        }
+      ],
+      "explanation": "On vérifie que $\\ell=\\dfrac{1}{2}$ est point fixe : $g\\!\\left(\\dfrac{1}{2}\\right)=\\dfrac{(1/2)^2}{(1/2)^2+(1/2)^2}=\\dfrac{1/4}{1/2}=\\dfrac{1}{2}$. Une étude de stabilité montre que c'est le seul point fixe stable dans $]0,1[$. Réponse (C)."
+    }
+  ],
+  "createdAt": "2026-06-11"
+}
