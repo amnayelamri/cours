@@ -670,5 +670,89 @@
     ],
     "createdAt": "2026-06-11",
     "slideCount": 20
+  },
+  {
+    "id": "ensam-maths-2011",
+    "title": "Concours ENSAM 2011 — Mathematiques",
+    "description": "Epreuve de mathematiques du concours d'entree en 1ere annee de l'ENSAM Meknes, filiere Sciences Mathematiques A et B. Mardi 09/08/2011, duree 2h10.",
+    "tags": [
+      "ENSAM",
+      "concours",
+      "2011",
+      "mathematiques",
+      "prepa"
+    ],
+    "createdAt": "2026-06-13",
+    "slideCount": 26
+  },
+  {
+    "id": "ensam-maths-2012",
+    "title": "Concours ENSAM 2012 — Mathematiques",
+    "description": "Epreuve de mathematiques du concours d'entree en 1ere annee de l'ENSAM Meknes, filiere Sciences Mathematiques A et B. Jeudi 26 juillet 2012, duree 2h.",
+    "tags": [
+      "ENSAM",
+      "concours",
+      "2012",
+      "mathematiques",
+      "prepa"
+    ],
+    "createdAt": "2026-06-13",
+    "slideCount": 23
+  },
+  {
+    "id": "ensam-maths-2013",
+    "title": "Concours ENSAM 2013 — Mathematiques",
+    "description": "Epreuve de mathematiques du concours commun d'acces en 1ere annee de l'ENSAM Meknes et Casablanca, filiere Sciences Mathematiques A et B. Lundi 29 juillet 2013, duree 2h.",
+    "tags": [
+      "ENSAM",
+      "concours",
+      "2013",
+      "mathematiques",
+      "prepa"
+    ],
+    "createdAt": "2026-06-13",
+    "slideCount": 25
+  },
+  {
+    "id": "ensam-maths-2014",
+    "title": "Concours ENSAM 2014 — Mathematiques",
+    "description": "Epreuve de mathematiques du concours d'acces en 1ere annee des annees preparatoires ENSAM Casablanca et Meknes, filiere Sciences Mathematiques A et B. Samedi 02 aout 2014, duree 2h.",
+    "tags": [
+      "ENSAM",
+      "concours",
+      "2014",
+      "mathematiques",
+      "prepa"
+    ],
+    "createdAt": "2026-06-13",
+    "slideCount": 22
+  },
+  {
+    "id": "ensam-maths-2015",
+    "title": "Concours ENSAM 2015 — Mathematiques",
+    "description": "Epreuve de mathematiques du concours d'acces en 1ere annee de l'ENSAM Meknes et Casablanca, filiere Sciences Mathematiques A et B. Vendredi 24 juillet 2015, duree 2h.",
+    "tags": [
+      "ENSAM",
+      "concours",
+      "2015",
+      "mathematiques",
+      "prepa"
+    ],
+    "createdAt": "2026-06-13",
+    "slideCount": 23
+  },
+  {
+    "id": "ensam-maths-2016",
+    "title": "Concours ENSAM 2016 — Mathematiques",
+    "description": "Epreuve de mathematiques du concours d'entree en 1ere annee des annees preparatoires ENSAM Casablanca et Meknes, filiere Sciences Mathematiques A et B. 1er aout 2016, duree 2h.",
+    "tags": [
+      "ENSAM",
+      "concours",
+      "2016",
+      "mathematiques",
+      "prepa"
+    ],
+    "createdAt": "2026-06-13",
+    "slideCount": 19
   }
 ]
