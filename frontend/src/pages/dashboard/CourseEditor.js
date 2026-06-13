@@ -15,6 +15,7 @@ const TYPES = [
   { value: 'steps',     label: '👣 Pas à pas' },
   { value: 'truefalse', label: '⚖️ Vrai / Faux' },
   { value: 'matching',  label: '🔗 Association' },
+  { value: 'reveal',    label: '👁️ Réponses masquées' },
   { value: 'video',     label: 'Vidéo' },
   { value: 'pdf',       label: 'PDF' },
   { value: 'image',     label: 'Image' },
@@ -45,6 +46,10 @@ const newSlide = () => ({
   pairs: [
     { left: '', right: '' },
     { left: '', right: '' },
+  ],
+  // reveal
+  items: [
+    { question: '', answer: '' },
   ],
 });
 
@@ -263,6 +268,39 @@ const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove
               <button className="add-choice-btn"
                 onClick={() => onChange({...slide,pairs:[...(slide.pairs||[]),{left:'',right:''}]})}>
                 + Ajouter une paire
+              </button>
+            </div>
+          </div>
+        )}
+
+        {slide.type === 'reveal' && (
+          <div className="quiz-editor">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {(slide.items || []).map((item, ri) => (
+                <div key={ri} style={{ background: 'var(--background)', border: '1px solid var(--border-color)', borderRadius: 6, padding: 12 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                    <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Question {ri + 1}
+                    </span>
+                    {slide.items.length > 1 && (
+                      <button
+                        style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: 2, padding: '3px 8px', color: 'var(--error-color)', cursor: 'pointer', fontSize: 12 }}
+                        onClick={() => onChange({ ...slide, items: slide.items.filter((_, idx) => idx !== ri) })}>
+                        ✕
+                      </button>
+                    )}
+                  </div>
+                  <textarea rows={2} placeholder="Question (Markdown + LaTeX supportés)" value={item.question || ''}
+                    style={{ width: '100%', fontFamily: 'monospace', fontSize: 13, marginBottom: 8 }}
+                    onChange={e => { const it = [...slide.items]; it[ri] = { ...it[ri], question: e.target.value }; onChange({ ...slide, items: it }); }} />
+                  <textarea rows={2} placeholder="Réponse masquée (Markdown + LaTeX supportés)" value={item.answer || ''}
+                    style={{ width: '100%', fontFamily: 'monospace', fontSize: 13 }}
+                    onChange={e => { const it = [...slide.items]; it[ri] = { ...it[ri], answer: e.target.value }; onChange({ ...slide, items: it }); }} />
+                </div>
+              ))}
+              <button className="add-choice-btn"
+                onClick={() => onChange({ ...slide, items: [...(slide.items || []), { question: '', answer: '' }] })}>
+                + Ajouter une question
               </button>
             </div>
           </div>
