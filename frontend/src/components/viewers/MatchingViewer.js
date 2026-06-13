@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import { FiRefreshCw, FiCheckCircle } from 'react-icons/fi';
+
+const Inline = ({ children }) => <>{children}</>;
+const mdProps = {
+  remarkPlugins: [remarkMath],
+  rehypePlugins: [rehypeKatex],
+  components: { p: Inline },
+};
 
 const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
@@ -7,9 +18,9 @@ const MatchingViewer = ({ instruction, pairs = [] }) => {
   const makeRight = () => shuffle(pairs.map((p, i) => ({ ...p, originalIdx: i })));
 
   const [shuffledRight, setShuffledRight] = useState(makeRight);
-  const [selectedLeft,  setSelectedLeft]  = useState(null); // index | null
-  const [matched,  setMatched]  = useState({}); // { leftIdx: rightOriginalIdx }
-  const [wrongIdx, setWrongIdx] = useState(null); // flashes red
+  const [selectedLeft,  setSelectedLeft]  = useState(null);
+  const [matched,  setMatched]  = useState({});
+  const [wrongIdx, setWrongIdx] = useState(null);
 
   const matchedLeft    = Object.keys(matched).map(Number);
   const matchedRight   = Object.values(matched);
@@ -26,12 +37,10 @@ const MatchingViewer = ({ instruction, pairs = [] }) => {
     if (selectedLeft === null) return;
 
     if (item.originalIdx === selectedLeft) {
-      // ✅ Correct
       setMatched(m => ({ ...m, [selectedLeft]: item.originalIdx }));
       setSelectedLeft(null);
       setWrongIdx(null);
     } else {
-      // ❌ Wrong — flash rouge
       setWrongIdx(item.originalIdx);
       setTimeout(() => setWrongIdx(null), 700);
     }
@@ -58,7 +67,11 @@ const MatchingViewer = ({ instruction, pairs = [] }) => {
 
   return (
     <div className="matching-viewer">
-      {instruction && <p className="matching-instruction">{instruction}</p>}
+      {instruction && (
+        <p className="matching-instruction">
+          <ReactMarkdown {...mdProps}>{instruction}</ReactMarkdown>
+        </p>
+      )}
 
       {done ? (
         <div className="matching-done">
@@ -84,7 +97,7 @@ const MatchingViewer = ({ instruction, pairs = [] }) => {
                   disabled={matchedLeft.includes(idx)}
                 >
                   {matchedLeft.includes(idx) && <span className="matching-check">✓</span>}
-                  {pair.left}
+                  <ReactMarkdown {...mdProps}>{pair.left || ''}</ReactMarkdown>
                 </button>
               ))}
             </div>
@@ -99,7 +112,7 @@ const MatchingViewer = ({ instruction, pairs = [] }) => {
                   disabled={matchedRight.includes(item.originalIdx)}
                 >
                   {matchedRight.includes(item.originalIdx) && <span className="matching-check">✓</span>}
-                  {item.right}
+                  <ReactMarkdown {...mdProps}>{item.right || ''}</ReactMarkdown>
                 </button>
               ))}
             </div>

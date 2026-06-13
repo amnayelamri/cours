@@ -1,4 +1,15 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
+
+const Inline = ({ children }) => <>{children}</>;
+const mdProps = {
+  remarkPlugins: [remarkMath],
+  rehypePlugins: [rehypeKatex],
+  components: { p: Inline },
+};
 
 const FlashcardViewer = ({ question, answer, hint }) => {
   const [flipped, setFlipped] = useState(false);
@@ -16,15 +27,23 @@ const FlashcardViewer = ({ question, answer, hint }) => {
         {/* Recto */}
         <div className="flashcard-face flashcard-front">
           <span className="flashcard-label">Question</span>
-          <div className="flashcard-text">{question}</div>
-          {hint && <div className="flashcard-hint">💡 {hint}</div>}
+          <div className="flashcard-text">
+            <ReactMarkdown {...mdProps}>{question || ''}</ReactMarkdown>
+          </div>
+          {hint && (
+            <div className="flashcard-hint">
+              💡 <ReactMarkdown {...mdProps}>{hint}</ReactMarkdown>
+            </div>
+          )}
           <span className="flashcard-tap">Cliquer pour voir la réponse ↩</span>
         </div>
 
         {/* Verso */}
         <div className="flashcard-face flashcard-back">
           <span className="flashcard-label">Réponse</span>
-          <div className="flashcard-text">{answer}</div>
+          <div className="flashcard-text">
+            <ReactMarkdown {...mdProps}>{answer || ''}</ReactMarkdown>
+          </div>
           <span className="flashcard-tap">↩ Cliquer pour retourner</span>
         </div>
       </div>
