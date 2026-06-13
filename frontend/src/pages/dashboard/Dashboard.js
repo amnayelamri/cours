@@ -78,6 +78,13 @@ const JSON_SCHEMA = {
         { left: "Élément B", right: "Correspond à 2" },
         { left: "Élément C", right: "Correspond à 3" }
       ]
+    },
+    {
+      id: "s9", title: "Questions / Réponses masquées", type: "reveal",
+      items: [
+        { question: "Qu'est-ce que la congruence modulo $n$ ?", answer: "On dit que $a \\equiv b \\pmod{n}$ si $n \\mid (a - b)$." },
+        { question: "La congruence est-elle une relation d'équivalence ?", answer: "Oui : elle est réflexive, symétrique et transitive." }
+      ]
     }
   ]
 };
@@ -738,7 +745,8 @@ const Dashboard = () => {
               8 types disponibles : <strong>markdown</strong>, <strong>video</strong>, <strong>quiz</strong>,{' '}
               <strong>flashcard</strong> (carte à retourner), <strong>truefalse</strong>,{' '}
               <strong>number</strong>, <strong>steps</strong> (étapes révélées),{' '}
-              <strong>matching</strong> (relier les éléments).{' '}
+              <strong>matching</strong> (relier les éléments),{' '}
+              <strong>reveal</strong> (questions/réponses masquées).{' '}
               Copiez ce schéma, donnez-le à l'IA avec votre contenu, puis importez le JSON généré.
             </p>
             <pre>{JSON.stringify(JSON_SCHEMA, null, 2)}</pre>

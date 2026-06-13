@@ -11,6 +11,7 @@ import NumberViewer      from '../components/viewers/NumberViewer';
 import StepsViewer       from '../components/viewers/StepsViewer';
 import TrueFalseViewer   from '../components/viewers/TrueFalseViewer';
 import MatchingViewer    from '../components/viewers/MatchingViewer';
+import RevealViewer     from '../components/viewers/RevealViewer';
 import { FiChevronLeft, FiChevronRight, FiList, FiArrowLeft } from 'react-icons/fi';
 
 const SlideContent = ({ slide, courseId, lang }) => {
@@ -29,6 +30,7 @@ const SlideContent = ({ slide, courseId, lang }) => {
     case 'steps':     content = <StepsViewer title={slide.stepsTitle} intro={slide.intro} steps={slide.steps || []} />; break;
     case 'truefalse': content = <TrueFalseViewer statement={slide.statement} answer={slide.answer} explanation={slide.explanation} />; break;
     case 'matching':  content = <MatchingViewer instruction={slide.instruction} pairs={slide.pairs || []} />; break;
+    case 'reveal':    content = <RevealViewer items={slide.items || []} />; break;
     default:          content = <div className="error">Type inconnu : {slide.type}</div>; break;
   }
   if (isRtl) return <div dir="rtl" className="lang-ar">{content}</div>;
