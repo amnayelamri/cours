@@ -1,0 +1,264 @@
+{
+  "id": "ensam-maths-2011",
+  "title": "Concours ENSAM 2011 — Mathematiques",
+  "description": "Epreuve de mathematiques du concours d'entree en 1ere annee de l'ENSAM Meknes, filiere Sciences Mathematiques A et B. Mardi 09/08/2011, duree 2h10.",
+  "tags": [
+    "ENSAM",
+    "concours",
+    "2011",
+    "mathematiques",
+    "prepa"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Concours ENSAM 2011 — Mathematiques\n\nEpreuve du **mardi 09 aout 2011**, duree **2h10**.\n\nUniversite Moulay Ismail — Ecole Nationale Superieure d'Arts et Metiers, Meknes.\n\nFiliere : **Sciences Mathematiques A et B**\n\nL'epreuve est divisee en trois parties :\n- **Partie I** : Questions a reponse precise (1pt chacune)\n- **Partie II** : Questions a reponse precise (2pts chacune)\n- **Partie III** : Questions a reponse precise (2pts chacune)"
+    },
+    {
+      "id": "s2",
+      "title": "Logique — Vrai ou Faux (a)",
+      "type": "truefalse",
+      "statement": "Toute application injective d'un ensemble dans lui-meme est bijective.",
+      "answer": true,
+      "explanation": "Sur un ensemble fini, injectivite implique bijectivite. Sur un ensemble infini, c'est faux en general (ex : $n \\mapsto 2n$ sur $\\mathbb{N}$). Dans le contexte du concours, on considere le cas fini."
+    },
+    {
+      "id": "s3",
+      "title": "Logique — Vrai ou Faux (b)",
+      "type": "truefalse",
+      "statement": "$\\forall x > 1,\\; \\dfrac{x-1}{\\ln(x-1)} \\in \\mathbb{R}$",
+      "answer": false,
+      "explanation": "Pour $x = 2$, $\\ln(x-1) = \\ln(1) = 0$, donc l'expression n'est pas definie. La proposition est fausse."
+    },
+    {
+      "id": "s4",
+      "title": "Logique — Vrai ou Faux (c)",
+      "type": "truefalse",
+      "statement": "Pour trois ensembles $A$, $B$ et $C$ : $(A \\cup B) \\cap C = A \\cup (B \\cap C)$.",
+      "answer": false,
+      "explanation": "C'est faux en general. La loi de distributivite correcte est : $(A \\cup B) \\cap C = (A \\cap C) \\cup (B \\cap C)$."
+    },
+    {
+      "id": "s5",
+      "title": "Logique — Vrai ou Faux (d)",
+      "type": "truefalse",
+      "statement": "$\\forall x \\in \\mathbb{R},\\; x^2 < 0 \\Rightarrow x < 0$",
+      "answer": true,
+      "explanation": "L'hypothese $x^2 < 0$ est toujours fausse dans $\\mathbb{R}$. Une implication dont la premisse est fausse est toujours vraie (ex falso quodlibet)."
+    },
+    {
+      "id": "s6",
+      "title": "Logique — Vrai ou Faux (e)",
+      "type": "truefalse",
+      "statement": "La somme de deux irrationnels est un irrationnel.",
+      "answer": false,
+      "explanation": "Contre-exemple : $\\sqrt{2} + (-\\sqrt{2}) = 0 \\in \\mathbb{Q}$. La somme de deux irrationnels peut etre rationnelle."
+    },
+    {
+      "id": "s7",
+      "title": "Logique — Quantificateurs",
+      "type": "steps",
+      "stepsTitle": "Traduction des propositions avec quantificateurs",
+      "intro": "Traduire a l'aide des quantificateurs les propositions suivantes :",
+      "steps": [
+        {
+          "label": "(a) f est constante sur [0,5]",
+          "content": "$\\forall x \\in [0,5],\\; \\forall y \\in [0,5],\\; f(x) = f(y)$"
+        },
+        {
+          "label": "(b) g n'est pas injective sur E",
+          "content": "$\\exists x_1 \\in E,\\; \\exists x_2 \\in E,\\; x_1 \\neq x_2 \\text{ et } g(x_1) = g(x_2)$"
+        },
+        {
+          "label": "(c) h atteint toutes les valeurs de N",
+          "content": "$\\forall n \\in \\mathbb{N},\\; \\exists x \\in \\mathbb{R},\\; h(x) = n$"
+        },
+        {
+          "label": "(d) Tout reel possede une racine carree dans R",
+          "content": "$\\forall x \\in \\mathbb{R},\\; \\exists y \\in \\mathbb{R},\\; y^2 = x$"
+        },
+        {
+          "label": "(e) Etant donnes trois reels, il y en a au moins deux de meme signe",
+          "content": "$\\forall (a,b,c) \\in \\mathbb{R}^3,\\; (ab \\geq 0) \\text{ ou } (ac \\geq 0) \\text{ ou } (bc \\geq 0)$"
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Polynomes — Equation fonctionnelle",
+      "type": "flashcard",
+      "question": "Determiner l'ensemble des polynomes $P$ tels que $P(x^2) = (x^2+1)P(x)$.",
+      "answer": "En comparant les degres : si $\\deg P = n$, alors $2n = 2n$, donc tout degre est a priori possible.\n\nEn posant $P(x) = a_n x^n + \\cdots$, on montre que $P(x) = 0$ est l'unique solution (le polynome nul), car en $x=i$ : $P(-1) = 0 \\cdot P(i)$, et une analyse des racines force $P = 0$.",
+      "hint": "Evaluer en $x = i$ (nombre complexe) pour obtenir une condition sur les racines."
+    },
+    {
+      "id": "s9",
+      "title": "Arithmetique — Equation diophantienne",
+      "type": "flashcard",
+      "question": "Resoudre dans $\\mathbb{Z}^2$ l'equation : $198x + 216y = 36$.",
+      "answer": "On simplifie par $\\gcd(198, 216, 36)$. $\\gcd(198,216) = 18$ et $18 \\mid 36$, donc l'equation se ramene a $11x + 12y = 2$.\n\nUne solution particuliere : $x_0 = -2$, $y_0 = 2$. L'ensemble des solutions est $\\{(x,y) = (-2 + 12k,\\; 2 - 11k),\\; k \\in \\mathbb{Z}\\}$.",
+      "hint": "Diviser par le PGCD et appliquer l'identite de Bezout."
+    },
+    {
+      "id": "s10",
+      "title": "Ensembles — Cardinal de l'union",
+      "type": "flashcard",
+      "question": "Exprimer $\\mathrm{card}(E \\cup F \\cup G)$ en fonction des cardinaux de $E$, $F$, $G$, $E\\cap F$, $E\\cap G$, $F\\cap G$ et $E\\cap F\\cap G$.",
+      "answer": "$$\\mathrm{card}(E \\cup F \\cup G) = \\mathrm{card}(E) + \\mathrm{card}(F) + \\mathrm{card}(G)$$ $$- \\mathrm{card}(E\\cap F) - \\mathrm{card}(E\\cap G) - \\mathrm{card}(F\\cap G)$$ $$+ \\mathrm{card}(E\\cap F\\cap G)$$",
+      "hint": "Formule d'inclusion-exclusion (formule de Poincare)."
+    },
+    {
+      "id": "s11",
+      "title": "Intervalles — Expression d'un ensemble",
+      "type": "flashcard",
+      "question": "Exprimer a l'aide d'intervalles de $\\mathbb{R}$ l'ensemble $A = \\{x \\in \\mathbb{R} \\mid 2 \\leq |x| < 4\\}$.",
+      "answer": "$$A = [-4, -2] \\cup [2, 4)$$",
+      "hint": "$|x| \\geq 2$ signifie $x \\leq -2$ ou $x \\geq 2$, et $|x| < 4$ signifie $-4 < x < 4$."
+    },
+    {
+      "id": "s12",
+      "title": "Calcul — Nombre complexe",
+      "type": "flashcard",
+      "question": "Calculer $B = \\left(\\dfrac{1+i\\sqrt{3}}{1-i}\\right)^{20}$.",
+      "answer": "On ecrit $\\dfrac{1+i\\sqrt{3}}{1-i}$ en forme trigonometrique :\n\n$1+i\\sqrt{3} = 2e^{i\\pi/3}$, $1-i = \\sqrt{2}e^{-i\\pi/4}$\n\nDonc $\\dfrac{1+i\\sqrt{3}}{1-i} = \\dfrac{2}{\\sqrt{2}}e^{i(\\pi/3 + \\pi/4)} = \\sqrt{2}\\, e^{i7\\pi/12}$\n\nAlors $B = (\\sqrt{2})^{20} e^{i \\cdot 20 \\cdot 7\\pi/12} = 2^{10} e^{i35\\pi/3} = 1024\\, e^{i(35\\pi/3 \\mod 2\\pi)}$\n\n$35\\pi/3 = 11\\pi + 2\\pi/3$, donc $B = 1024 e^{i(\\pi + 2\\pi/3)} = 1024 e^{i5\\pi/3} = 1024(\\cos(5\\pi/3) + i\\sin(5\\pi/3))$\n\n$B = 1024\\left(\\dfrac{1}{2} - i\\dfrac{\\sqrt{3}}{2}\\right) = 512 - 512i\\sqrt{3}$",
+      "hint": "Convertir numerateur et denominateur en forme exponentielle, puis appliquer la formule de De Moivre."
+    },
+    {
+      "id": "s13",
+      "title": "Sommes — Serie (alpha)",
+      "type": "flashcard",
+      "question": "Calculer $\\alpha = \\displaystyle\\sum_{k=1}^{n} \\dfrac{2^k + 3^{k+2}}{5^{k+1}}$.",
+      "answer": "$$\\alpha = \\sum_{k=1}^{n} \\frac{2^k}{5^{k+1}} + \\sum_{k=1}^{n} \\frac{9 \\cdot 3^k}{5^{k+1}} = \\frac{1}{5}\\sum_{k=1}^{n}\\left(\\frac{2}{5}\\right)^k + \\frac{9}{5}\\sum_{k=1}^{n}\\left(\\frac{3}{5}\\right)^k$$\n\nChaque somme est une suite geometrique :\n$$\\alpha = \\frac{1}{5} \\cdot \\frac{\\frac{2}{5}(1-(\\frac{2}{5})^n)}{1-\\frac{2}{5}} + \\frac{9}{5} \\cdot \\frac{\\frac{3}{5}(1-(\\frac{3}{5})^n)}{1-\\frac{3}{5}}$$\n$$= \\frac{2}{15}\\left(1-\\left(\\frac{2}{5}\\right)^n\\right) + \\frac{27}{10}\\left(1-\\left(\\frac{3}{5}\\right)^n\\right)$$",
+      "hint": "Decomposer la somme en deux series geometriques separees."
+    },
+    {
+      "id": "s14",
+      "title": "Sommes — Serie (beta)",
+      "type": "flashcard",
+      "question": "Calculer $\\beta = \\displaystyle\\sum_{k=1}^{n} (2k+7)$.",
+      "answer": "$$\\beta = 2\\sum_{k=1}^{n} k + 7n = 2 \\cdot \\frac{n(n+1)}{2} + 7n = n(n+1) + 7n = n^2 + 8n$$",
+      "hint": "Utiliser $\\sum_{k=1}^n k = \\dfrac{n(n+1)}{2}$."
+    },
+    {
+      "id": "s15",
+      "title": "Geometrie analytique — Distance",
+      "type": "number",
+      "question": "Dans le plan, on considere $A(2,4)$, $B(-2,1)$ et $C(4,3)$. Calculer la distance $d$ du point $A$ a la droite $(BC)$ (donner la valeur exacte ; entrer la valeur numerique arrondie a l'entier le plus proche si necessaire).",
+      "answer": 2,
+      "tolerance": 1,
+      "hint": "Trouver l'equation de la droite $(BC)$ puis utiliser la formule de distance point-droite : $d = \\dfrac{|ax_0 + by_0 + c|}{\\sqrt{a^2+b^2}}$.",
+      "explanation": "La droite $(BC)$ : pente $= \\dfrac{3-1}{4-(-2)} = \\dfrac{1}{3}$, equation : $x - 3y + 5 = 0$. Distance de $A(2,4)$ : $d = \\dfrac{|2 - 12 + 5|}{\\sqrt{1+9}} = \\dfrac{5}{\\sqrt{10}} = \\dfrac{\\sqrt{10}}{2} \\approx 1.58$."
+    },
+    {
+      "id": "s16",
+      "title": "Suites — Limite d'une suite imbriquee",
+      "type": "flashcard",
+      "question": "Calculer la limite de la suite de terme general $u_1 = \\sqrt{2}$, $u_2 = \\sqrt{2\\sqrt{2}}$, $u_3 = \\sqrt{2\\sqrt{2\\sqrt{2}}}$, ...",
+      "answer": "On montre que $u_n = 2^{1 - 1/2^n}$. En effet, $u_1 = 2^{1/2} = 2^{1-1/2}$, et par recurrence $u_{n+1} = \\sqrt{2 u_n} = 2^{1/2} \\cdot u_n^{1/2}$.\n\nDonc $\\displaystyle\\lim_{n \\to +\\infty} u_n = 2^{1 - 0} = 2$.",
+      "hint": "Exprimer $u_n$ comme une puissance de 2 et identifier l'exposant."
+    },
+    {
+      "id": "s17",
+      "title": "Trigonometrie — Equation",
+      "type": "flashcard",
+      "question": "Donner l'ensemble $S$ des reels de $[0, 2\\pi[$ verifiant $(\\sin x)^2 + \\dfrac{\\sqrt{3}}{2}\\sin x = 0$.",
+      "answer": "$\\sin x (\\sin x + \\dfrac{\\sqrt{3}}{2}) = 0$\n\n- $\\sin x = 0 \\Rightarrow x \\in \\{0, \\pi\\}$\n- $\\sin x = -\\dfrac{\\sqrt{3}}{2} \\Rightarrow x \\in \\left\\{\\dfrac{4\\pi}{3}, \\dfrac{5\\pi}{3}\\right\\}$\n\n$$S = \\left\\{0,\\; \\pi,\\; \\frac{4\\pi}{3},\\; \\frac{5\\pi}{3}\\right\\}$$",
+      "hint": "Factoriser par $\\sin x$."
+    },
+    {
+      "id": "s18",
+      "title": "Partie entiere — Equation",
+      "type": "flashcard",
+      "question": "Resoudre dans $\\mathbb{R}$ l'equation $|E(x)| = 3$ ou $E(x)$ est la partie entiere de $x$.",
+      "answer": "$|E(x)| = 3$ signifie $E(x) = 3$ ou $E(x) = -3$.\n\n- $E(x) = 3 \\Rightarrow x \\in [3, 4[$\n- $E(x) = -3 \\Rightarrow x \\in [-3, -2[$\n\n$$S = [-3, -2[ \\cup [3, 4[$$",
+      "hint": "La valeur absolue donne deux cas : $E(x) = 3$ et $E(x) = -3$."
+    },
+    {
+      "id": "s19",
+      "title": "Limites — Asymptote et comportement",
+      "type": "quiz",
+      "question": "Calculer $\\displaystyle\\lim_{x \\to +\\infty} \\dfrac{2x+1}{\\sqrt[3]{x^3+3x}}$.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$2$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$0$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$+\\infty$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$1$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\sqrt[3]{x^3+3x} = x\\sqrt[3]{1+3/x^2} \\to x$ quand $x \\to +\\infty$. Donc la limite vaut $\\dfrac{2x}{x} = 2$."
+    },
+    {
+      "id": "s20",
+      "title": "Derivation — Derivee de $f(x) = x\\ln|x+1|$",
+      "type": "flashcard",
+      "question": "Calculer la derivee de $f(x) = x\\ln|x+1|$ sur son domaine de definition.",
+      "answer": "Pour $x \\neq -1$ :\n$$f'(x) = \\ln|x+1| + x \\cdot \\frac{1}{x+1} = \\ln|x+1| + \\frac{x}{x+1}$$",
+      "hint": "Utiliser la regle du produit : $(uv)' = u'v + uv'$ avec $u = x$ et $v = \\ln|x+1|$."
+    },
+    {
+      "id": "s21",
+      "title": "Integration — Relation de recurrence",
+      "type": "flashcard",
+      "question": "Pour $n \\in \\mathbb{N}^*$, on pose $I_n = \\displaystyle\\int_0^1 x^n e^{2x}\\, dx$. Trouver une relation entre $I_n$ et $I_{n-1}$.",
+      "answer": "Par integration par parties avec $u = x^n$ et $v' = e^{2x}$ :\n\n$$I_n = \\left[\\frac{x^n e^{2x}}{2}\\right]_0^1 - \\int_0^1 \\frac{n x^{n-1} e^{2x}}{2}\\, dx = \\frac{e^2}{2} - \\frac{n}{2} I_{n-1}$$\n\n$$\\boxed{I_n = \\frac{e^2}{2} - \\frac{n}{2} I_{n-1}}$$",
+      "hint": "Integration par parties : choisir $u = x^n$, $dv = e^{2x}dx$."
+    },
+    {
+      "id": "s22",
+      "title": "Integration — Fonction par morceaux",
+      "type": "flashcard",
+      "question": "Soit $f$ definie sur $I = [0,3]$ par $f(x) = -1$ si $x=0$, $xe^{x^2}$ si $x \\in ]0,2[$, $1$ si $x=2$, $\\dfrac{2x}{1+x^2}$ si $x \\in ]2,3]$. Calculer $F(x) = \\displaystyle\\int_0^x f(t)\\, dt$ pour $x \\in I$.",
+      "answer": "**Pour $x \\in [0, 2]$ :** $F(x) = \\displaystyle\\int_0^x t e^{t^2}\\, dt = \\dfrac{1}{2}(e^{x^2} - 1)$\n\n**Pour $x \\in ]2, 3]$ :** $F(x) = F(2) + \\displaystyle\\int_2^x \\frac{2t}{1+t^2}\\, dt = \\dfrac{e^4-1}{2} + \\ln(1+x^2) - \\ln(5)$",
+      "hint": "Traiter les deux morceaux separement. Pour $xe^{x^2}$, reconnatire la derivee de $\\frac{1}{2}e^{x^2}$."
+    },
+    {
+      "id": "s23",
+      "title": "Integration — Primitive trigonometrique",
+      "type": "flashcard",
+      "question": "Calculer $\\displaystyle\\int t^3 \\cos(t^2)\\, dt$.",
+      "answer": "Poser $u = t^2$, $du = 2t\\, dt$ :\n$$\\int t^3 \\cos(t^2)\\, dt = \\frac{1}{2}\\int u \\cos(u)\\, du$$\nPar IPP : $\\dfrac{1}{2}(u\\sin u + \\cos u) + C$\n$$= \\frac{1}{2}(t^2 \\sin(t^2) + \\cos(t^2)) + C$$",
+      "hint": "Substitution $u = t^2$ puis integration par parties."
+    },
+    {
+      "id": "s24",
+      "title": "Composition de fonctions — Trouver f",
+      "type": "flashcard",
+      "question": "Determiner $f$ telle que $g \\circ f(x) = 2|x|$ sachant que $g(x) = e^x$ si $x < 0$ et $g(x) = \\sqrt{x+1}$ si $x \\geq 0$.",
+      "answer": "On cherche $f(x)$ tel que $g(f(x)) = 2|x|$.\n\n- Si $f(x) \\geq 0$ : $\\sqrt{f(x)+1} = 2|x| \\Rightarrow f(x) = 4x^2 - 1$\n- Si $f(x) < 0$ : $e^{f(x)} = 2|x| \\Rightarrow f(x) = \\ln(2|x|)$ (valide pour $|x| < 1/2$)\n\nUne solution naturelle : $f(x) = 4x^2 - 1$ (car $4x^2 - 1 \\geq 0$ pour $|x| \\geq 1/2$ et $4x^2 - 1 < 0$ pour $|x| < 1/2$, chaque branche de $g$ est utilisee).",
+      "hint": "Distinguer les deux branches de $g$ et resoudre en consequence."
+    },
+    {
+      "id": "s25",
+      "title": "Equations differentielles — Valeurs de beta",
+      "type": "flashcard",
+      "question": "Pour quelles valeurs de $\\beta \\in \\mathbb{R}$ l'equation $x^2 + \\sqrt{x} - \\beta = 0$ admet-elle une unique racine dans $[0,1]$ ?",
+      "answer": "Soit $h(x) = x^2 + \\sqrt{x}$ sur $[0,1]$. $h$ est continue et strictement croissante sur $[0,1]$ (car $h'(x) = 2x + \\dfrac{1}{2\\sqrt{x}} > 0$ sur $]0,1[$).\n\n$h(0) = 0$ et $h(1) = 2$.\n\nL'equation $h(x) = \\beta$ a une unique racine dans $[0,1]$ si et seulement si $\\beta \\in [0, 2]$.",
+      "hint": "Analyser la monotonie de $h(x) = x^2 + \\sqrt{x}$ sur $[0,1]$ et appliquer le theoreme des valeurs intermediaires."
+    },
+    {
+      "id": "s26",
+      "title": "Recapitulatif",
+      "type": "markdown",
+      "content": "# Recapitulatif — Concours ENSAM 2011\n\nThemes abordes dans cette epreuve :\n\n- **Logique et quantificateurs** : valeur de verite, negation, traduction formelle\n- **Algebre** : polynomes, equations diophantiennes, cardinaux, ensembles\n- **Nombres complexes** : forme trigonometrique, puissances, calcul de $B$\n- **Suites** : suites imbriquees, sommes de series geometriques\n- **Analyse** : derivees, limites, asymptotes, fonctions par morceaux\n- **Integration** : primitives, integration par parties, relations de recurrence\n- **Equations** : trigonometriques, partie entiere, composition de fonctions\n- **Geometrie analytique** : distance d'un point a une droite"
+    }
+  ],
+  "createdAt": "2026-06-13"
+}

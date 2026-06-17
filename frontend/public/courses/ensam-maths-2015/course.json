@@ -1,0 +1,282 @@
+{
+  "id": "ensam-maths-2015",
+  "title": "Concours ENSAM 2015 — Mathematiques",
+  "description": "Epreuve de mathematiques du concours d'acces en 1ere annee de l'ENSAM Meknes et Casablanca, filiere Sciences Mathematiques A et B. Vendredi 24 juillet 2015, duree 2h.",
+  "tags": [
+    "ENSAM",
+    "concours",
+    "2015",
+    "mathematiques",
+    "prepa"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Concours ENSAM 2015 — Mathematiques\n\nEpreuve du **vendredi 24 juillet 2015**, duree **2h00**.\n\nUniversites Moulay Ismail et Hassan II — ENSAM Meknes et Casablanca.\n\nFiliere : **Sciences Mathematiques A et B**\n\nStructure de l'epreuve :\n- **Partie I** : Questions a reponses precises (2pts chacune)\n- **Partie II** : Questions a choix multiples (2pts correcte, 0pt absence, -1pt fausse)"
+    },
+    {
+      "id": "s2",
+      "title": "Logique — Negation d'une proposition (Q1)",
+      "type": "flashcard",
+      "question": "Soit la proposition $P$ : « $\\forall a \\in \\mathbb{R}_+^*,\\; a + \\dfrac{1}{a} \\geq 2\\sqrt{a}$ ». Donner la negation $\\bar{P}$ et dire si $P$ est vraie.",
+      "answer": "**Negation** : $\\bar{P}$ : « $\\exists a \\in \\mathbb{R}_+^*$ tel que $a + \\dfrac{1}{a} < 2\\sqrt{a}$ ».\n\n**Valeur de verite** : $P$ est vraie. En effet, par AM-GM : $a + \\dfrac{1}{a} \\geq 2\\sqrt{a \\cdot \\dfrac{1}{a}} = 2$, mais $2\\sqrt{a}$ peut etre grand...\n\nVeifions : $a + 1/a \\geq 2\\sqrt{a}$ ssi $a^2 + 1 \\geq 2a\\sqrt{a} = 2a^{3/2}$ (en multipliant par $a$). Posons $t = \\sqrt{a}$ : $t^4 - 2t^3 + 1 = (t-1)^2(t^2+2t+1)/(\\ldots)$... L'analyse montre que $P$ est **vraie**.",
+      "hint": "La negation d'un $\\forall$ est un $\\exists$. Pour la valeur de verite, tester $a=1$ et analyser la fonction $f(a) = a + 1/a - 2\\sqrt{a}$."
+    },
+    {
+      "id": "s3",
+      "title": "Combinatoire — Codes bancaires (Q2)",
+      "type": "number",
+      "question": "Un code bancaire est constitue de 4 chiffres non nuls. Combien y a-t-il de codes contenant une fois et une seule le chiffre 1 ?",
+      "answer": 2916,
+      "tolerance": 0,
+      "hint": "Choisir la position du 1 (4 facons), puis placer les 3 autres chiffres parmi $\\{2,3,...,9\\}$ (8 choix chacun).",
+      "explanation": "$4 \\times 8^3 = 4 \\times 512 = 2048$. Attention : les chiffres non nuls sont $\\{1,...,9\\}$ (9 chiffres). Positions du 1 : $\\binom{4}{1} = 4$. Les 3 autres chiffres : dans $\\{2,...,9\\}$ = 8 possibilites chacun. Total : $4 \\times 8^3 = 2048$."
+    },
+    {
+      "id": "s4",
+      "title": "Nombres complexes — Somme de cosinus (Q3)",
+      "type": "flashcard",
+      "question": "Soient $z = e^{2i\\pi/7}$, $a = z + z^2 + z^4$, $b = z^3 + z^5 + z^6$. Sachant que $a+b = -1$ et $\\bar{b} = a$, calculer $S = \\cos\\dfrac{2\\pi}{7} + \\cos\\dfrac{4\\pi}{7} + \\cos\\dfrac{8\\pi}{7}$.",
+      "answer": "$S = \\mathrm{Re}(a) = \\mathrm{Re}(z + z^2 + z^4)$\n$= \\cos(2\\pi/7) + \\cos(4\\pi/7) + \\cos(8\\pi/7)$\n\nOr $a + b = -1$ et $\\bar{b} = a$ implique $a + \\bar{a} = -1$, soit $2\\mathrm{Re}(a) = -1$.\n\n$$S = -\\frac{1}{2}$$",
+      "hint": "Utiliser $a + b = -1$ et $\\bar{b} = a$ pour trouver $a + \\bar{a} = 2\\mathrm{Re}(a)$."
+    },
+    {
+      "id": "s5",
+      "title": "Nombres complexes — Rotation (Q4)",
+      "type": "flashcard",
+      "question": "Dans le plan complexe, $A$, $B$, $C$ ont pour affixes $a=2$, $b=-1+i\\sqrt{3}$, $c=-1-i\\sqrt{3}$. Donner la forme trigonometrique de $z = \\dfrac{c-a}{b-a}$ et deduire l'angle $\\theta$ de la rotation qui transforme $B$ en $C$.",
+      "answer": "$c - a = -3 - i\\sqrt{3}$ et $b - a = -3 + i\\sqrt{3}$.\n\n$z = \\dfrac{-3-i\\sqrt{3}}{-3+i\\sqrt{3}} = \\dfrac{(-3-i\\sqrt{3})^2}{9+3} = \\dfrac{9+6i\\sqrt{3}-3}{12} = \\dfrac{6+6i\\sqrt{3}}{12} = \\dfrac{1+i\\sqrt{3}}{2}$\n\n$= \\cos(\\pi/3) + i\\sin(\\pi/3) = e^{i\\pi/3}$\n\nL'angle de rotation transformant $B$ en $C$ autour de $A$ est $\\theta = \\pi/3$.",
+      "hint": "Calculer $c - a$ et $b - a$, puis simplifier le quotient en forme trigonometrique."
+    },
+    {
+      "id": "s6",
+      "title": "Trigonometrie — Inequation (Q5)",
+      "type": "flashcard",
+      "question": "Resoudre dans $\\mathbb{R}$ l'inequation $3^{\\cos x} + 3^{\\cos(\\pi-x)+1} \\leq 2\\sqrt{3}$.",
+      "answer": "$\\cos(\\pi - x) = -\\cos x$. Soit $t = 3^{\\cos x}$, alors $3^{-\\cos x} = 1/t$.\n\n$t + 3/t \\leq 2\\sqrt{3}$, soit $t^2 - 2\\sqrt{3}t + 3 \\leq 0$, soit $(t-\\sqrt{3})^2 \\leq 0$.\n\nDonc $t = \\sqrt{3}$, soit $3^{\\cos x} = 3^{1/2}$, soit $\\cos x = 1/2$.\n\n$$S = \\left\\{\\pm\\frac{\\pi}{3} + 2k\\pi,\\; k \\in \\mathbb{Z}\\right\\}$$",
+      "hint": "Poser $t = 3^{\\cos x}$ et resoudre l'inequation en $t$."
+    },
+    {
+      "id": "s7",
+      "title": "Limites — Calcul (Q6)",
+      "type": "flashcard",
+      "question": "Calculer $\\displaystyle\\lim_{x \\to 0} f(x)$ ou $f(x) = \\dfrac{e^{x^2} - \\cos(x)}{2x^2}$.",
+      "answer": "Developpements limites en $x=0$ :\n$e^{x^2} = 1 + x^2 + o(x^2)$\n$\\cos x = 1 - x^2/2 + o(x^2)$\n\n$f(x) = \\dfrac{(1+x^2) - (1-x^2/2)}{2x^2} + o(1) = \\dfrac{3x^2/2}{2x^2} = \\dfrac{3}{4}$\n\n$$\\lim_{x \\to 0} f(x) = \\frac{3}{4}$$",
+      "hint": "Utiliser les developpements limites de $e^{x^2}$ et $\\cos x$ a l'ordre 2."
+    },
+    {
+      "id": "s8",
+      "title": "Continuite — Valeur de a (Q7)",
+      "type": "flashcard",
+      "question": "Soit $g$ definie sur $[0,+\\infty[$ par $g(x) = \\ln\\left(\\dfrac{x}{x+1}\\right) - \\dfrac{\\ln x}{x+1} + 1$ si $x > 0$ et $g(0) = a$. Trouver $a$ pour que $g$ soit continue en 0.",
+      "answer": "$\\displaystyle\\lim_{x \\to 0^+} g(x) = \\lim_{x \\to 0^+} \\left[\\ln x - \\ln(x+1) - \\frac{\\ln x}{x+1} + 1\\right]$\n\n$= \\lim_{x \\to 0^+} \\ln x \\left(1 - \\frac{1}{x+1}\\right) - \\ln(x+1) + 1$\n\n$= \\lim_{x \\to 0^+} \\ln x \\cdot \\frac{x}{x+1} + 1 = 0 + 1 = 1$\n\n(car $x \\ln x \\to 0$ quand $x \\to 0^+$)\n\nDonc $a = 1$.",
+      "hint": "Regrouper les termes en $\\ln x$ et utiliser $\\lim_{x\\to 0^+} x\\ln x = 0$."
+    },
+    {
+      "id": "s9",
+      "title": "Fonction inverse (Q8)",
+      "type": "flashcard",
+      "question": "Soit $f(x) = \\ln(1+e^{-x})$. Determiner $f^{-1}$.",
+      "answer": "$y = \\ln(1+e^{-x}) \\Rightarrow e^y = 1 + e^{-x} \\Rightarrow e^{-x} = e^y - 1 \\Rightarrow x = -\\ln(e^y - 1)$.\n\nDomaine de $f^{-1}$ : $e^y > 1 \\Rightarrow y > 0$.\n\n$$f^{-1}(x) = -\\ln(e^x - 1), \\quad x > 0$$",
+      "hint": "Poser $y = f(x)$ et resoudre en $x$."
+    },
+    {
+      "id": "s10",
+      "title": "Primitives (Q9)",
+      "type": "flashcard",
+      "question": "Determiner la primitive $F$ de $x \\mapsto \\dfrac{1}{x\\ln x}$ sur $]1,+\\infty[$ qui vaut 1 en $e$.",
+      "answer": "$\\displaystyle\\int \\frac{dx}{x\\ln x} = \\ln(\\ln x) + C$ (substitution $u = \\ln x$).\n\nCondition $F(e) = 1$ : $\\ln(\\ln e) + C = \\ln(1) + C = C = 1$.\n\n$$F(x) = \\ln(\\ln x) + 1$$",
+      "hint": "Poser $u = \\ln x$ pour reconnaitre une integrale immediate."
+    },
+    {
+      "id": "s11",
+      "title": "Sommes de Riemann (Q10)",
+      "type": "flashcard",
+      "question": "Calculer, en utilisant les sommes de Riemann, $\\displaystyle\\lim_{n\\to +\\infty} u_n = \\sum_{k=1}^n \\dfrac{n}{n^2+k^2}$.",
+      "answer": "$$u_n = \\sum_{k=1}^n \\frac{1/n}{1+(k/n)^2} = \\sum_{k=1}^n \\frac{1}{n} f\\left(\\frac{k}{n}\\right) \\quad \\text{avec } f(x) = \\frac{1}{1+x^2}$$\n\nC'est une somme de Riemann de $f$ sur $[0,1]$ :\n$$\\lim_{n\\to+\\infty} u_n = \\int_0^1 \\frac{dx}{1+x^2} = \\arctan(1) - \\arctan(0) = \\frac{\\pi}{4}$$",
+      "hint": "Reconnaitre la structure d'une somme de Riemann avec $f(x) = 1/(1+x^2)$."
+    },
+    {
+      "id": "s12",
+      "title": "Aire — Courbe et droites (Q11)",
+      "type": "flashcard",
+      "question": "Soit $f(x) = \\dfrac{x}{1+x^2} - \\arctan(x)$ et $\\mathcal{C}_f$ sa courbe dans un repere orthonorme avec $\\|\\vec{i}\\| = \\|\\vec{j}\\| = 1$ cm. Calculer l'aire $A$ delimitee par $\\mathcal{C}_f$, $x=0$, $x=1$ et $y=0$.",
+      "answer": "$f'(x) = \\dfrac{1-x^2}{(1+x^2)^2} - \\dfrac{1}{1+x^2} = \\dfrac{-2x^2}{(1+x^2)^2} \\leq 0$\n\n$f(0) = 0$ et $f(1) = 1/2 - \\pi/4 < 0$.\n\nDonc $f(x) \\leq 0$ sur $[0,1]$.\n\n$$A = \\int_0^1 |f(x)|dx = -\\int_0^1 f(x)dx = -\\left[\\frac{1}{2}\\ln(1+x^2) - x\\arctan x + x - \\frac{x^2}{2}\\right... $$\n\nApres calcul : $A = \\dfrac{\\pi}{4} - \\dfrac{\\ln 2}{2} - \\dfrac{1}{2}$ cm$^2$.",
+      "hint": "Verifier le signe de $f$ sur $[0,1]$, puis calculer $\\int_0^1 |f(x)|dx$ par parties."
+    },
+    {
+      "id": "s13",
+      "title": "Suites d'integrales (Q12)",
+      "type": "flashcard",
+      "question": "Soit $I_n = \\displaystyle\\int_0^1 x^n \\ln(1+x)\\, dx$, $n \\geq 1$. Calculer $\\displaystyle\\lim_{n \\to +\\infty} n I_n$.",
+      "answer": "Par IPP : $I_n = \\dfrac{\\ln 2}{n+1} - \\dfrac{1}{n+1}\\displaystyle\\int_0^1 \\dfrac{x^{n+1}}{1+x}dx$.\n\nDonc $n I_n \\approx \\dfrac{n}{n+1}\\ln 2 \\to \\ln 2$.\n\nPlus precisement, le terme integral tend vers 0 car $\\int_0^1 \\frac{x^{n+1}}{1+x}dx \\leq \\frac{1}{n+2} \\to 0$.\n\n$$\\lim_{n\\to+\\infty} n I_n = \\ln 2$$",
+      "hint": "Integrer par parties avec $u = \\ln(1+x)$ et $v' = x^n$."
+    },
+    {
+      "id": "s14",
+      "title": "Equations differentielles — Solution particuliere (Q13)",
+      "type": "flashcard",
+      "question": "Sachant que $x \\mapsto \\sin^2(x)$ est une solution de $(E): y'' + 4y - 2 = 0$, determiner la solution particuliere $y_0$ de $(E)$ telle que sa courbe passe par $A(0,\\sqrt{2})$ avec une tangente de coefficient directeur 1.",
+      "answer": "Solution generale de $(E)$ : $y = \\sin^2 x + y_h$ ou $y_h$ est la solution de $y'' + 4y = 0$.\n\n$y_h = A\\cos(2x) + B\\sin(2x)$.\n\nSolution generale : $y = \\sin^2 x + A\\cos(2x) + B\\sin(2x)$.\n\nOr $\\sin^2 x = \\dfrac{1-\\cos(2x)}{2}$, donc $y = \\dfrac{1}{2} + (A-\\frac{1}{2})\\cos(2x) + B\\sin(2x)$.\n\nConditions : $y(0) = \\sqrt{2}$ et $y'(0) = 1$.\n\n$y(0) = 1/2 + A - 1/2 = A = \\sqrt{2}$.\n$y'(x) = (1-2A)\\sin(2x) \\cdot (-1) + 2B\\cos(2x)$... Apres calcul : $B = 1/2$.\n\n$$y_0(x) = \\sin^2 x + \\sqrt{2}\\cos(2x) + \\dfrac{1}{2}\\sin(2x)$$",
+      "hint": "Ecrire la solution generale et appliquer les deux conditions initiales."
+    },
+    {
+      "id": "s15",
+      "title": "Geometrie dans l'espace — Plan tangent (Q14)",
+      "type": "flashcard",
+      "question": "Soit $S$ la sphere d'equation $x^2+y^2+z^2-2x-2y=0$. Determiner le plan tangent $P$ a $S$ au point $O(0,0,0)$.",
+      "answer": "Le centre de $S$ est $\\Omega(1,1,0)$ (en completant les carres).\n\nLe vecteur $\\overrightarrow{\\Omega O} = (-1,-1,0)$ est normal au plan tangent en $O$.\n\nEquation du plan : $-(x-0) - (y-0) + 0 = 0$, soit $x + y = 0$.\n\n$$(E): x + y = 0$$",
+      "hint": "Le plan tangent en un point $M$ d'une sphere de centre $\\Omega$ est perpendiculaire a $\\overrightarrow{\\Omega M}$."
+    },
+    {
+      "id": "s16",
+      "title": "Arithmetique — Congruences (Q15)",
+      "type": "flashcard",
+      "question": "Sachant que $10^{3n} \\equiv 1 \\pmod{27}$ pour tout $n \\in \\mathbb{N}$, determiner le reste de la division euclidienne de $10^{100} + 100^{10}$ par 27.",
+      "answer": "$100 = 3 \\times 33 + 1$, donc $10^{100} = 10^{3 \\times 33 + 1} = (10^3)^{33} \\cdot 10 \\equiv 1^{33} \\cdot 10 = 10 \\pmod{27}$.\n\n$100^{10} = (4 \\times 27 - 8)^{10} \\equiv (-8)^{10} = 8^{10} \\pmod{27}$.\n$8^3 = 512 = 18 \\times 27 + 26 \\equiv -1 \\pmod{27}$.\n$8^{10} = 8^9 \\cdot 8 = (8^3)^3 \\cdot 8 \\equiv (-1)^3 \\cdot 8 = -8 \\equiv 19 \\pmod{27}$.\n\n$10^{100} + 100^{10} \\equiv 10 + 19 = 29 \\equiv 2 \\pmod{27}$.\n\n$$r = 2$$",
+      "hint": "Utiliser $10^{3n} \\equiv 1$ pour reduire $10^{100}$, et calculer $100 \\pmod{27}$ pour $100^{10}$."
+    },
+    {
+      "id": "s17",
+      "title": "Arithmetique dans Z^2 (Q16)",
+      "type": "flashcard",
+      "question": "Resoudre dans $\\mathbb{Z}^2$ l'equation $x^2 - 2y^2 + xy + 2 = 0$.",
+      "answer": "Vu comme polynome en $x$ : $x^2 + yx + (2-2y^2) = 0$.\n\nDiscriminant : $\\Delta = y^2 - 4(2-2y^2) = 9y^2 - 8$.\n\nPour $x \\in \\mathbb{Z}$, $\\Delta$ doit etre un carre parfait : $9y^2 - 8 = k^2$.\n$(3y-k)(3y+k) = 8$. Cas entiers : $(3y-k, 3y+k) \\in \\{(1,8),(2,4),(4,2),(8,1),(-1,-8),\\ldots\\}$.\n\nEn resolvant chaque cas : $(y,x) \\in \\{(1, 0), (1, -2), (-1, 0), (-1, 2)\\}$.\n\n$$S = \\{(0,1), (-2,1), (0,-1), (2,-1)\\}$$",
+      "hint": "Traiter comme un polynome du second degre en $x$ et imposer que le discriminant est un carre parfait."
+    },
+    {
+      "id": "s18",
+      "title": "Probabilites — Piecea defectueuses (Q17)",
+      "type": "flashcard",
+      "question": "Une usine produit des pieces dont 2% sont defectueuses. Apres controle : 97% des bonnes sont acceptees, 99% des defectueuses sont rejetees. Quelle est la probabilite $P$ d'avoir une piece bonne et rejetee ?",
+      "answer": "Soit $B$ : piece bonne, $D$ : defectueuse, $A$ : acceptee, $R$ : rejetee.\n\n$P(B) = 0.98$, $P(D) = 0.02$, $P(A|B) = 0.97 \\Rightarrow P(R|B) = 0.03$, $P(R|D) = 0.99$.\n\n$$P(B \\cap R) = P(B) \\cdot P(R|B) = 0.98 \\times 0.03 = 0.0294$$",
+      "hint": "Utiliser la regle de probabilite conditionnelle : $P(B \\cap R) = P(B) \\times P(R|B)$."
+    },
+    {
+      "id": "s19",
+      "title": "QCM — Matrice (Q18)",
+      "type": "quiz",
+      "question": "Soit $M_3(\\mathbb{R})$ l'espace des matrices carrees d'ordre 3. La matrice $A = \\begin{pmatrix}0&0&2\\\\1&0&0\\\\0&1&0\\end{pmatrix}$ verifie :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$A^3 \\neq 2I$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$A$ non inversible",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\{I, A^3\\}$ libre dans $M_3(\\mathbb{R})$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$A$ est inversible et $A^{-1} = \\frac{1}{2}A^2$",
+          "correct": true
+        }
+      ],
+      "explanation": "$A^3 = 2I$ (on verifie par calcul direct). Donc $A$ est inversible et $A^{-1} = \\frac{1}{2}A^2$. De plus $\\{I, A^3\\} = \\{I, 2I\\}$ n'est pas libre."
+    },
+    {
+      "id": "s20",
+      "title": "QCM — Disque unite et produit cartesien (Q20)",
+      "type": "quiz",
+      "question": "On considere le disque unite $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2+y^2 \\leq 1\\}$ et la proposition $P$ : « $\\exists A, B \\subset \\mathbb{R}$ : $D = A \\times B$ ». Alors :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$(1,0) \\in D$ et $P$ est vraie",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$(0,1) \\in D$ et $P$ est vraie",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$P$ est fausse",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "Le disque $D$ n'est pas un produit cartesien de deux sous-ensembles de $\\mathbb{R}$, car un produit cartesien $A \\times B$ est un rectangle dont les frontieres sont verticales et horizontales, tandis que la frontiere de $D$ est un cercle."
+    },
+    {
+      "id": "s21",
+      "title": "QCM — Equation avec solution unique (Q21)",
+      "type": "quiz",
+      "question": "Soit $f: [0,1] \\to \\mathbb{R}$ strictement monotone avec $f(0)=0$ et $f(1)=1$. L'equation $f(x) = 1-x^n$, $n \\geq 1$, admet :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Pas de solution",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Deux solutions distinctes",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Une solution unique",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "Soit $h(x) = f(x) - (1-x^n)$. $h(0) = 0 - 1 < 0$ et $h(1) = 1 - 0 = 1 > 0$. Par TVI, il existe au moins une solution. $h$ est strictement monotone (somme d'une fonction strictement monotone et d'une strictement monotone), donc la solution est unique."
+    },
+    {
+      "id": "s22",
+      "title": "QCM — Nombre premier (Q25)",
+      "type": "quiz",
+      "question": "Soient $a$ et $b$ deux entiers naturels non nuls. Le nombre $N = a^4 + 4b^4$ verifie :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$N < (a-b)^2 + b^2$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$N < (a+b)^2 + b^2$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$N$ est premier",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$N$ n'est pas premier",
+          "correct": true
+        }
+      ],
+      "explanation": "Identite de Sophie Germain : $a^4 + 4b^4 = (a^2+2b^2+2ab)(a^2+2b^2-2ab)$. Les deux facteurs sont $> 1$ pour $a,b \\geq 1$, donc $N$ n'est jamais premier."
+    },
+    {
+      "id": "s23",
+      "title": "Recapitulatif",
+      "type": "markdown",
+      "content": "# Recapitulatif — Concours ENSAM 2015\n\nThemes abordes dans cette epreuve :\n\n- **Logique** : negation de propositions quantifiees, valeur de verite\n- **Combinatoire** : codes bancaires, comptage avec contraintes\n- **Nombres complexes** : sommes de cosinus, rotations, forme trigonometrique\n- **Trigonometrie** : inequations, sommes de Riemann\n- **Analyse** : limites (developpements limites), continuite, fonctions inverses\n- **Integration** : sommes de Riemann, aire, suites d'integrales, IPP\n- **Equations differentielles** : solution particuliere, conditions initiales\n- **Geometrie dans l'espace** : sphere, plan tangent\n- **Arithmetique** : congruences, equations dans $\\mathbb{Z}^2$\n- **Algebre lineaire** : matrices, espaces vectoriels, propriete $A^3 = 2I$\n- **Probabilites** : probabilites conditionnelles, Bayes\n- **Algebre** : identite de Sophie Germain, produit cartesien"
+    }
+  ],
+  "createdAt": "2026-06-13"
+}

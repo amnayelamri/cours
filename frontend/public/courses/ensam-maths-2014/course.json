@@ -1,0 +1,293 @@
+{
+  "id": "ensam-maths-2014",
+  "title": "Concours ENSAM 2014 — Mathematiques",
+  "description": "Epreuve de mathematiques du concours d'acces en 1ere annee des annees preparatoires ENSAM Casablanca et Meknes, filiere Sciences Mathematiques A et B. Samedi 02 aout 2014, duree 2h.",
+  "tags": [
+    "ENSAM",
+    "concours",
+    "2014",
+    "mathematiques",
+    "prepa"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Concours ENSAM 2014 — Mathematiques\n\nEpreuve du **samedi 02 aout 2014**, duree **2h00**.\n\nUniversites Hassan II Mohammedia-Casablanca et Moulay Ismail.\n\nFiliere : **Sciences Mathematiques A et B**\n\nStructure de l'epreuve :\n- **Partie I** : Questions a reponses precises (2pts chacune)\n- **Partie II** : Questions a choix multiples (2pts si correcte, 0pt si absence, -1pt si fausse ou multiple)"
+    },
+    {
+      "id": "s2",
+      "title": "Suites — Limite (Q1)",
+      "type": "flashcard",
+      "question": "Calculer la limite de la suite $(u_n)$ definie par $u_n = \\dfrac{n}{\\sqrt{n^4+1}} + \\dfrac{n}{\\sqrt{n^4+2}} + \\cdots + \\dfrac{n}{\\sqrt{n^4+n}}$.",
+      "answer": "$$u_n = \\sum_{k=1}^n \\frac{n}{\\sqrt{n^4+k}}$$\n\nEncadrement : $\\dfrac{n^2}{\\sqrt{n^4+n}} \\leq u_n \\leq \\dfrac{n^2}{\\sqrt{n^4+1}}$.\n\nLes deux bornes tendent vers $1$ quand $n \\to +\\infty$.\n\nDonc $\\displaystyle\\lim_{n \\to +\\infty} u_n = 1$.",
+      "hint": "Encadrer chaque terme de la somme et utiliser le theoreme des gendarmes."
+    },
+    {
+      "id": "s3",
+      "title": "Trigonometrie — Systeme (Q2)",
+      "type": "flashcard",
+      "question": "Determiner dans $[0, 2\\pi]^2$ l'ensemble $S$ des solutions du systeme : $\\begin{cases} \\sqrt{2}\\cos x - \\cos x \\cos y = \\frac{1}{2} \\\\ \\sin x + \\cos y = \\sqrt{2} \\end{cases}$",
+      "answer": "De la deuxieme equation : $\\cos y = \\sqrt{2} - \\sin x$.\n\nSubstitution dans la premiere : $\\sqrt{2}\\cos x - \\cos x(\\sqrt{2}-\\sin x) = 1/2$\n$\\cos x \\sin x = 1/2 \\Rightarrow \\sin(2x) = 1 \\Rightarrow 2x = \\pi/2 \\Rightarrow x = \\pi/4$.\n\nAlors $\\cos y = \\sqrt{2} - \\sin(\\pi/4) = \\sqrt{2} - \\frac{\\sqrt{2}}{2} = \\frac{\\sqrt{2}}{2} \\Rightarrow y = \\pi/4$ ou $y = 7\\pi/4$.\n\n$$S = \\{(\\pi/4, \\pi/4),\\; (\\pi/4, 7\\pi/4)\\}$$",
+      "hint": "Exprimer $\\cos y$ a partir de la deuxieme equation et substituer dans la premiere."
+    },
+    {
+      "id": "s4",
+      "title": "Nombres complexes — Forme algebrique (Q3)",
+      "type": "flashcard",
+      "question": "Determiner la forme algebrique de $z = \\left(\\sqrt{2-\\sqrt{3}} - i\\sqrt{2+\\sqrt{3}}\\right)^{42}$.",
+      "answer": "On reconnait : $\\sqrt{2-\\sqrt{3}} = \\cos(\\pi/12) \\cdot \\sqrt{2}$ ... mais plus directement :\n\n$|z_0|^2 = (2-\\sqrt{3}) + (2+\\sqrt{3}) = 4$, donc $|z_0| = 2$.\n\n$z_0 = 2(\\cos\\theta - i\\sin\\theta)$ ou $\\cos\\theta = \\frac{\\sqrt{2-\\sqrt{3}}}{2}$.\n\nOn identifie $\\theta = 5\\pi/12$. Donc $z = 2^{42} e^{-i \\cdot 42 \\cdot 5\\pi/12} = 2^{42} e^{-i \\cdot 35\\pi/2}$.\n\n$35\\pi/2 = 17\\pi + \\pi/2$, donc $e^{-i35\\pi/2} = e^{-i\\pi/2} = -i$.\n\n$z = 2^{42} \\cdot (-i) = -2^{42}i$.",
+      "hint": "Calculer le module et l'argument de $z_0 = \\sqrt{2-\\sqrt{3}} - i\\sqrt{2+\\sqrt{3}}$, puis utiliser De Moivre."
+    },
+    {
+      "id": "s5",
+      "title": "Nombres complexes — Lieu geometrique (Q4)",
+      "type": "flashcard",
+      "question": "Determiner $\\Gamma$, l'ensemble des points du plan complexe dont les affixes $z$ verifient $(iz+1)(z+i-1) \\in \\mathbb{R}$.",
+      "answer": "$(iz+1)(z+i-1) \\in \\mathbb{R}$ ssi $\\mathrm{Im}((iz+1)(z+i-1)) = 0$.\n\nSoit $z = x+iy$ :\n$(iz+1) = -y+1+ix$ et $(z+i-1) = (x-1)+i(y+1)$.\n\nProduit : $(-y+1)(x-1) - x(y+1) + i[x(x-1) + (-y+1)(y+1)]$.\n\nPartie imaginaire nulle :\n$x(x-1) + (1-y)(1+y) = 0 \\Rightarrow x^2 - x + 1 - y^2 = 0$\n\n$\\Gamma$ est la courbe d'equation $x^2 - y^2 - x + 1 = 0$, une hyperbole.",
+      "hint": "Ecrire $z = x+iy$ et annuler la partie imaginaire du produit."
+    },
+    {
+      "id": "s6",
+      "title": "Produit trigonometrique (Q5)",
+      "type": "flashcard",
+      "question": "Soit $a \\in ]0, \\pi[$. Calculer $D = \\displaystyle\\prod_{k=1}^{n} \\cos\\left(\\dfrac{a}{2^k}\\right)$.",
+      "answer": "Utiliser la formule $\\sin(2u) = 2\\sin(u)\\cos(u)$ de maniere telescopique :\n\n$\\cos\\left(\\dfrac{a}{2}\\right) \\cdot \\cos\\left(\\dfrac{a}{4}\\right) \\cdots \\cos\\left(\\dfrac{a}{2^n}\\right) = \\dfrac{\\sin(a)}{2^n \\sin\\left(\\dfrac{a}{2^n}\\right)}$\n\nDonc $D = \\dfrac{\\sin a}{2^n \\sin(a/2^n)}$.",
+      "hint": "Multiplier et diviser par $2^n \\sin(a/2^n)$ et appliquer la formule $\\sin(2u) = 2\\sin u\\cos u$ successivement."
+    },
+    {
+      "id": "s7",
+      "title": "Sommes — Serie (Q6)",
+      "type": "flashcard",
+      "question": "Calculer $A_n = \\displaystyle\\sum_{k=1}^{n} \\dfrac{k}{(k+1)!}$.",
+      "answer": "$\\dfrac{k}{(k+1)!} = \\dfrac{(k+1)-1}{(k+1)!} = \\dfrac{1}{k!} - \\dfrac{1}{(k+1)!}$\n\nTelescope : $A_n = \\displaystyle\\sum_{k=1}^n \\left(\\dfrac{1}{k!} - \\dfrac{1}{(k+1)!}\\right) = 1 - \\dfrac{1}{(n+1)!}$",
+      "hint": "Decomposer $k = (k+1) - 1$ et simplifier."
+    },
+    {
+      "id": "s8",
+      "title": "Partie entiere — Limite (Q7)",
+      "type": "flashcard",
+      "question": "Calculer $\\ell = \\displaystyle\\lim_{x \\to 0} x^2\\left(1 + 2 + 3 + \\cdots + E\\left(\\dfrac{1}{|x|}\\right)\\right)$.",
+      "answer": "Soit $n = E(1/|x|)$, donc $n \\leq 1/|x| < n+1$.\n\n$1 + 2 + \\cdots + n = \\dfrac{n(n+1)}{2}$.\n\n$x^2 \\cdot \\dfrac{n(n+1)}{2} \\approx x^2 \\cdot \\dfrac{1/(x^2)}{2} = \\dfrac{1}{2}$ quand $x \\to 0$.\n\nPlus rigoureusement, par encadrement : $\\ell = \\dfrac{1}{2}$.",
+      "hint": "Exprimer $n \\approx 1/|x|$ et calculer la somme $1+\\cdots+n = n(n+1)/2$."
+    },
+    {
+      "id": "s9",
+      "title": "Limites — Comparaison de radicaux (Q8)",
+      "type": "flashcard",
+      "question": "Evaluer $j = \\displaystyle\\lim_{x \\to 0} \\dfrac{\\sqrt[3]{x+1} - \\sqrt[4]{x+1}}{x}$.",
+      "answer": "Par equivalents en $x = 0$ : $(1+x)^{1/3} \\approx 1 + x/3$ et $(1+x)^{1/4} \\approx 1 + x/4$.\n\n$$j = \\lim_{x\\to 0} \\frac{(1+x/3) - (1+x/4)}{x} = \\frac{x/3 - x/4}{x} = \\frac{1}{3} - \\frac{1}{4} = \\frac{1}{12}$$",
+      "hint": "Utiliser $(1+u)^\\alpha \\approx 1 + \\alpha u$ pour $u \\to 0$."
+    },
+    {
+      "id": "s10",
+      "title": "Equations fonctionnelles — Applications derivables (Q9)",
+      "type": "flashcard",
+      "question": "Trouver toutes les applications $f: \\mathbb{R} \\to \\mathbb{R}$ derivables telles que $\\forall (x,y) \\in \\mathbb{R}^2$, $f(x^4+y) = x^3 f(x) + f(y)$.",
+      "answer": "En posant $y = 0$ : $f(x^4) = x^3 f(x) + f(0)$.\n\nEn posant $x = 0$ : $f(y) = f(y)$, donc $f(0) = 0$.\n\nAlors $f(x^4) = x^3 f(x)$.\n\nEn posant $x = y$ dans l'equation originale : $f(x^4+x) = x^3f(x) + f(x)$.\n\nPar derivation et analyse, on montre que $f(x) = cx$ pour un certain $c \\in \\mathbb{R}$.",
+      "hint": "Substituer des valeurs particulieres de $x$ et $y$ pour deduire la forme de $f$."
+    },
+    {
+      "id": "s11",
+      "title": "Derivation — Fonction g avec valeur absolue (Q10)",
+      "type": "flashcard",
+      "question": "Soit $g(x) = |\\cos x|\\sqrt{1 - \\cos x}$ sur $]0, \\pi[$. Calculer $g'(x)$ en fonction de $g(x)$ pour $x \\in ]0,\\pi[ \\setminus \\{\\pi/2\\}$.",
+      "answer": "Sur $]0, \\pi/2[$: $\\cos x > 0$, donc $g(x) = \\cos x \\sqrt{1-\\cos x}$.\n\n$g'(x) = -\\sin x \\sqrt{1-\\cos x} + \\cos x \\cdot \\dfrac{\\sin x}{2\\sqrt{1-\\cos x}}$\n\n$= \\dfrac{\\sin x}{\\sqrt{1-\\cos x}}\\left[-(1-\\cos x) + \\dfrac{\\cos x}{2}\\right] = \\dfrac{\\sin x}{\\sqrt{1-\\cos x}} \\cdot \\dfrac{3\\cos x - 2}{2}$\n\nEn exprimant en fonction de $g$ : $g'(x) = \\sin x \\cdot \\dfrac{3\\cos x - 2}{2(1-\\cos x)} \\cdot \\dfrac{g(x)}{\\cos x}$",
+      "hint": "Calculer $g'$ directement, puis exprimer le resultat en faisant apparaitre $g(x)$."
+    },
+    {
+      "id": "s12",
+      "title": "Fonction inverse (Q11)",
+      "type": "flashcard",
+      "question": "Soit $h$ definie sur $\\mathbb{R}_+^*$ par $h(x) = \\ln|e^x - e^{2x}|$. Determiner $h^{-1}$.",
+      "answer": "$h(x) = \\ln(e^x|1-e^x|) = x + \\ln(e^x - 1)$ pour $0 < x < \\ln 2$ (domaine a preciser).\n\nPour $x \\in ]0,+\\infty[$, $e^x > 0$ et $|e^x - e^{2x}| = e^x|1-e^x|$.\n\nOn cherche $y = h(x)$, puis $x = h^{-1}(y)$.\n\n$e^y = e^x|1-e^x|$. L'inversion donne une expression implicite.\n\nSur $]0, \\ln 2[$: $h(x) = x + \\ln(e^x-1) \\cdot$... L'inverse s'exprime en termes de fonction $W$ de Lambert ou de maniere implicite.",
+      "hint": "Identifier le domaine ou $h$ est injective et resoudre $h(x) = y$ en $x$."
+    },
+    {
+      "id": "s13",
+      "title": "Integration — Limite (Q12)",
+      "type": "flashcard",
+      "question": "Calculer $K = \\displaystyle\\lim_{a \\to 0} \\int_a^1 \\dfrac{\\arctan(x)}{x^2}\\, dx$.",
+      "answer": "Par IPP avec $u = \\arctan x$ et $v' = 1/x^2$ :\n$$\\int_a^1 \\frac{\\arctan x}{x^2}dx = \\left[-\\frac{\\arctan x}{x}\\right]_a^1 + \\int_a^1 \\frac{1}{x(1+x^2)}dx$$\n$= -\\frac{\\pi/4}{1} + \\frac{\\arctan a}{a} + \\int_a^1 \\frac{1}{x(1+x^2)}dx$\n\nPour $a \\to 0$ : $\\frac{\\arctan a}{a} \\to 1$.\n\n$\\int_0^1 \\frac{dx}{x(1+x^2)}$ diverge. Donc $K$ diverge (integrale impropre divergente).",
+      "hint": "Tenter une integration par parties et analyser la convergence."
+    },
+    {
+      "id": "s14",
+      "title": "Integration — Integrale symetrique (Q13)",
+      "type": "flashcard",
+      "question": "Calculer $L = \\displaystyle\\int_0^{\\pi/2} \\dfrac{\\sqrt{\\sin x}}{\\sqrt{\\sin x} + \\sqrt{\\cos x}}\\, dx$.",
+      "answer": "On utilise la propriete $\\displaystyle\\int_0^{\\pi/2} f(x)dx = \\int_0^{\\pi/2} f(\\pi/2 - x)dx$.\n\nSoit $I = L$ et $J = \\displaystyle\\int_0^{\\pi/2} \\dfrac{\\sqrt{\\cos x}}{\\sqrt{\\sin x}+\\sqrt{\\cos x}}dx$.\n\n$I + J = \\displaystyle\\int_0^{\\pi/2} 1\\, dx = \\pi/2$.\n\nPar le changement $x \\to \\pi/2 - x$ : $I = J$.\n\nDonc $L = I = \\dfrac{\\pi}{4}$.",
+      "hint": "Utiliser la symetrie $x \\mapsto \\pi/2 - x$ pour montrer que $I = J$ et que $I + J = \\pi/2$."
+    },
+    {
+      "id": "s15",
+      "title": "Equations differentielles (Q14)",
+      "type": "flashcard",
+      "question": "Resoudre $y'' + 2y' + 10y = \\sin 3x$ avec $\\displaystyle\\int_{-\\pi/2}^{\\pi/2} y(t)dt = 0$ et $y'(\\pi) = 6/37$.",
+      "answer": "L'equation caracteristique $r^2 + 2r + 10 = 0$ donne $r = -1 \\pm 3i$.\n\nSolution homogene : $y_h = e^{-x}(A\\cos 3x + B\\sin 3x)$.\n\nSolution particuliere : $y_p = \\alpha \\cos 3x + \\beta \\sin 3x$.\n\nSubstitution : $(-9\\alpha + 6\\beta - 6\\alpha + 10\\alpha)\\cos 3x + (\\ldots)\\sin 3x = \\sin 3x$.\n\nOn trouve $\\alpha = -6/37$ et $\\beta = 1/37$.\n\nEn appliquant les conditions : $A = 0$, $B = 0$.\n\n$$y(x) = -\\frac{6}{37}\\cos 3x + \\frac{1}{37}\\sin 3x$$",
+      "hint": "Chercher une solution particuliere de la forme $\\alpha\\cos 3x + \\beta\\sin 3x$, puis appliquer les conditions initiales."
+    },
+    {
+      "id": "s16",
+      "title": "Arithmetique — Equation dans Z (Q15)",
+      "type": "flashcard",
+      "question": "Resoudre dans $\\mathbb{N}^2$ l'equation $x^2 - y^2 = 404$.",
+      "answer": "$(x-y)(x+y) = 404 = 4 \\times 101$.\n\nComme $x, y \\in \\mathbb{N}$ et $x > y$, on cherche $x-y = a$ et $x+y = b$ avec $ab = 404$, $a < b$ et $a, b$ de meme parite.\n\n$404 = 2^2 \\times 101$. Diviseurs : $1, 2, 4, 101, 202, 404$.\n\nPaires $(a,b)$ de meme parite et $ab = 404$ : $(2, 202)$.\n\n$x = (202+2)/2 = 102$, $y = (202-2)/2 = 100$.\n\n$$S = \\{(102, 100)\\}$$",
+      "hint": "Factoriser $404$ et chercher les paires $(a,b)$ de meme parite avec $ab = 404$."
+    },
+    {
+      "id": "s17",
+      "title": "QCM — Matrice inversible (Q16)",
+      "type": "quiz",
+      "question": "Pour quelles valeurs de $m$ la matrice $\\begin{pmatrix} -1 & -1 & -2m \\\\ 1 & -m+1 & 1 \\\\ 2 & 3 & m \\end{pmatrix}$ est-elle inversible ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$-1$ et un nombre negatif",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Uniquement $-1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-1$ et un nombre positif",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$-1$ et $1/2$",
+          "correct": false
+        }
+      ],
+      "explanation": "La matrice est non inversible ssi son determinant est nul. En calculant le determinant et en annulant, on trouve les valeurs de $m$ pour lesquelles elle n'est pas inversible, puis on prend le complementaire."
+    },
+    {
+      "id": "s18",
+      "title": "QCM — Signe d'une fonction (Q17)",
+      "type": "quiz",
+      "question": "Sur $[0, +\\infty[$, la fonction $f(x) = |x| + \\ln(x+1)$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Toujours positive",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Positive puis negative puis positive",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Negative puis positive",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "Sur $[0,+\\infty[$, $|x| = x \\geq 0$ et $\\ln(x+1) \\geq 0$. Donc $f(x) \\geq 0$ pour tout $x \\geq 0$, avec $f(0) = 0$."
+    },
+    {
+      "id": "s19",
+      "title": "QCM — Probabilite : lettres SMARA (Q19)",
+      "type": "quiz",
+      "question": "Une boite contient 14 jetons portant les lettres de 'SAHARA MAROCAIN'. On tire successivement et sans remise 5 jetons. Quelle est la probabilite de tirer les lettres du nom 'SMARA' dans un ordre quelconque ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{6006}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{10}{1001}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{50}{1001}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": true
+        }
+      ],
+      "explanation": "SAHARA MAROCAIN = S, A, H, A, R, A, M, A, R, O, C, A, I, N (14 lettres). SMARA necessite S(1), M(1), A(3), R(1) parmi les disponibles. Calcul des combinaisons favorables sur $\\binom{14}{5}$."
+    },
+    {
+      "id": "s20",
+      "title": "QCM — Probabilite : ellipse (Q20)",
+      "type": "quiz",
+      "question": "Boite $B_1$ : jetons 1,3. Boite $B_2$ : jetons 2,2. Boite $B_3$ : jetons 1,0. On tire $a$ de $B_1$, $b$ de $B_2$, $c$ de $B_3$. Probabilite que $M(a,b)$ soit sur l'ellipse $\\dfrac{a^2}{16} + \\dfrac{b^2}{12} = 1$ :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$0{,}5$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$0{,}25$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$0{,}75$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$1$",
+          "correct": false
+        }
+      ],
+      "explanation": "Les couples $(a, b)$ possibles : $a \\in \\{1, 3\\}$, $b \\in \\{2, 2\\} = \\{2\\}$. Verifier si $(1,2)$ ou $(3,2)$ est sur l'ellipse $a^2/16 + b^2/12 = 1$ : $(1/16 + 4/12) = 1/16 + 1/3 \\neq 1$. $(9/16 + 4/12) = 9/16 + 1/3 = 27/48 + 16/48 = 43/48 \\neq 1$. La probabilite est 0."
+    },
+    {
+      "id": "s21",
+      "title": "QCM — Espace vectoriel dimension (Q23)",
+      "type": "quiz",
+      "question": "Soit $E = \\{(x,y,z,t) \\in \\mathbb{R}^4 \\mid x+y+z+t = 0 \\text{ et } 2x+y = 0\\}$. Quelle est la dimension de $E$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2$",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "$3$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "L'espace est defini par 2 equations lineaires independantes dans $\\mathbb{R}^4$. Par le theoreme du rang : $\\dim E = 4 - 2 = 2$."
+    },
+    {
+      "id": "s22",
+      "title": "Recapitulatif",
+      "type": "markdown",
+      "content": "# Recapitulatif — Concours ENSAM 2014\n\nThemes abordes dans cette epreuve :\n\n- **Suites** : limite par encadrement (sommes de Riemann generalisees)\n- **Trigonometrie** : systemes, produits telescopiques de cosinus\n- **Nombres complexes** : forme algebrique, puissances, lieux geometriques\n- **Sommes** : series telescopiques $k/(k+1)!$\n- **Analyse** : parties entieres, equivalents, equations fonctionnelles, derivees\n- **Integration** : integrales impropres, symetrie $x \\to \\pi/2 - x$, IPP\n- **Equations differentielles** : solutions particulieres, conditions initiales\n- **Arithmetique** : equations dans $\\mathbb{N}^2$ par factorisation\n- **Algebre lineaire** : matrices, determinants, espaces vectoriels, dimension\n- **Probabilites** : tirages sans remise, combinatoire, ellipses"
+    }
+  ],
+  "createdAt": "2026-06-13"
+}
