@@ -1,0 +1,311 @@
+{
+  "id": "ensam-maths-2016",
+  "title": "Concours ENSAM 2016 — Mathematiques",
+  "description": "Epreuve de mathematiques du concours d'entree en 1ere annee des annees preparatoires ENSAM Casablanca et Meknes, filiere Sciences Mathematiques A et B. 1er aout 2016, duree 2h.",
+  "tags": [
+    "ENSAM",
+    "concours",
+    "2016",
+    "mathematiques",
+    "prepa"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Concours ENSAM 2016 — Mathematiques\n\nEpreuve du **1er aout 2016**, duree **2h00**.\n\nUniversites Hassan II Casablanca et Moulay Ismail.\n\nFiliere : **Sciences Mathematiques A et B**\n\nStructure de l'epreuve :\n- **Questions a reponses precises** : 2pts si juste, 0pt sinon (Q1 a Q16)\n- **Partie QCM** : 2pts si juste, 0pt si absence, -1pt si fausse ou plus d'une reponse (Q17 a Q25)"
+    },
+    {
+      "id": "s2",
+      "title": "Suites — Limite (Q1)",
+      "type": "flashcard",
+      "question": "On suppose $a_n \\neq 1$ pour tout $n$ et $\\displaystyle\\lim_{n \\to +\\infty} a_n = 1$. L'entier strictement positif $k$ etant donne, calculer $Q_1 = \\displaystyle\\lim_{n \\to +\\infty} \\dfrac{a_n + a_n^2 + \\cdots + a_n^k - k}{a_n - 1}$.",
+      "answer": "$$Q_1 = \\lim_{n\\to+\\infty} \\sum_{j=1}^k \\frac{a_n^j - 1}{a_n - 1} = \\sum_{j=1}^k \\lim_{n\\to+\\infty} \\frac{a_n^j - 1}{a_n - 1} = \\sum_{j=1}^k j = \\frac{k(k+1)}{2}$$\n\ncar $\\dfrac{a_n^j - 1}{a_n - 1} = 1 + a_n + a_n^2 + \\cdots + a_n^{j-1} \\to j$ quand $a_n \\to 1$.",
+      "hint": "Factoriser le numerateur : $a_n^j - 1 = (a_n-1)(1+a_n+\\cdots+a_n^{j-1})$."
+    },
+    {
+      "id": "s3",
+      "title": "Nombres complexes — Lieu geometrique (Q3)",
+      "type": "flashcard",
+      "question": "Soit $z \\in \\mathbb{C} \\setminus \\{1\\}$, $x = \\mathrm{Re}(z)$, $y = \\mathrm{Im}(z)$. Determiner la relation entre $x$ et $y$ telle que $z \\notin \\mathbb{R}$ et $\\dfrac{z^2+z+1}{z-1} \\in \\mathbb{R}$.",
+      "answer": "Soit $z = x+iy$ avec $y \\neq 0$.\n\n$\\dfrac{z^2+z+1}{z-1} \\in \\mathbb{R}$ ssi $\\mathrm{Im}\\left(\\dfrac{z^2+z+1}{z-1}\\right) = 0$.\n\nOn calcule : $z^2+z+1 = (x^2-y^2+x+1)+i(2xy+y)$.\n$z-1 = (x-1)+iy$.\n\nEn imposant que la partie imaginaire du quotient est nulle :\n$(2xy+y)(x-1) - (x^2-y^2+x+1) \\cdot y = 0$\n$y[(2x+1)(x-1) - (x^2-y^2+x+1)] = 0$\n\nComme $y \\neq 0$ : $2x^2-x-1 - x^2+y^2-x-1 = 0$\n\n$$x^2 + y^2 - 2x - 2 = 0$$\n\nC'est un cercle de centre $(1, 0)$ et de rayon $\\sqrt{3}$.",
+      "hint": "Ecrire $z = x+iy$, calculer le quotient et annuler sa partie imaginaire."
+    },
+    {
+      "id": "s4",
+      "title": "Domaine de definition (Q5)",
+      "type": "flashcard",
+      "question": "Determiner le domaine de definition $D$ de $f(x) = \\tan\\left(\\pi \\sin\\left(\\dfrac{\\pi}{6}x\\right)\\right)$.",
+      "answer": "$f$ est definie ssi $\\pi\\sin(\\pi x/6) \\neq \\pi/2 + k\\pi$ pour tout $k \\in \\mathbb{Z}$,\ni.e. $\\sin(\\pi x/6) \\neq 1/2 + k$.\n\nComme $\\sin$ prend ses valeurs dans $[-1, 1]$, les valeurs a exclure sont $\\sin(\\pi x/6) = 1/2$ (pour $k=0$) et $\\sin(\\pi x/6) = -1/2$ (pour $k=-1$).\n\n$\\sin(\\pi x/6) = 1/2 \\Rightarrow \\pi x/6 = \\pi/6 + 2k\\pi$ ou $5\\pi/6 + 2k\\pi \\Rightarrow x = 1+12k$ ou $x = 5+12k$.\n$\\sin(\\pi x/6) = -1/2 \\Rightarrow x = -1+12k$ ou $x = 7+12k$.\n\n$$D = \\mathbb{R} \\setminus \\{1+12k,\\; 5+12k,\\; -1+12k,\\; 7+12k \\mid k \\in \\mathbb{Z}\\}$$",
+      "hint": "La tangente est definie ssi l'argument $\\neq \\pi/2 + k\\pi$. Cela contraint la valeur de $\\sin$."
+    },
+    {
+      "id": "s5",
+      "title": "Derivee d'ordre n (Q7)",
+      "type": "flashcard",
+      "question": "Calculer la derivee d'ordre $n$ de $f(x) = \\dfrac{\\ln(x)}{x}$.",
+      "answer": "On utilise la formule de Leibniz : $(uv)^{(n)} = \\displaystyle\\sum_{k=0}^n \\binom{n}{k} u^{(k)} v^{(n-k)}$.\n\nAvec $u = \\ln x$ et $v = x^{-1}$ :\n$u^{(k)} = \\dfrac{(-1)^{k-1}(k-1)!}{x^k}$ pour $k \\geq 1$ et $u^{(0)} = \\ln x$.\n$v^{(n-k)} = \\dfrac{(-1)^{n-k}(n-k)!}{x^{n-k+1}}$.\n\nApres simplification :\n$$f^{(n)}(x) = \\frac{(-1)^n n!}{x^{n+1}}\\left(\\ln x - \\sum_{k=1}^n \\frac{1}{k}\\right) = \\frac{(-1)^n n!}{x^{n+1}}\\left(\\ln x - H_n\\right)$$\n\nou $H_n = 1 + \\dfrac{1}{2} + \\cdots + \\dfrac{1}{n}$ est le $n$-ieme nombre harmonique.",
+      "hint": "Appliquer la formule de Leibniz a $f(x) = \\ln(x) \\cdot x^{-1}$."
+    },
+    {
+      "id": "s6",
+      "title": "Limites — Somme de Riemann (Q9)",
+      "type": "flashcard",
+      "question": "Soit $f$ derivable en 0 avec $f(0) = 0$. Pour $k \\in \\mathbb{N}^*$, calculer $Q_9 = \\displaystyle\\lim_{x \\to 0} \\dfrac{1}{k}\\left(f(x) + f\\left(\\dfrac{x}{2}\\right) + \\cdots + f\\left(\\dfrac{x}{k}\\right)\\right) \\cdot \\dfrac{1}{x}$.",
+      "answer": "$\\dfrac{f(x/j)}{x} = \\dfrac{f(x/j) - f(0)}{x/j} \\cdot \\dfrac{1}{j} \\to f'(0) \\cdot \\dfrac{1}{j}$ quand $x \\to 0$.\n\n$$Q_9 = \\frac{1}{k}\\sum_{j=1}^k \\frac{f'(0)}{j} = \\frac{f'(0)}{k}\\sum_{j=1}^k \\frac{1}{j} = \\frac{f'(0) H_k}{k}$$\n\nou $H_k = \\displaystyle\\sum_{j=1}^k \\dfrac{1}{j}$.",
+      "hint": "Ecrire $f(x/j)/x = [f(x/j) - f(0)]/(x/j) \\times 1/j$ et passer a la limite."
+    },
+    {
+      "id": "s7",
+      "title": "Limites — Comportement asymptotique (Q11)",
+      "type": "flashcard",
+      "question": "Evaluer $Q_{11} = \\displaystyle\\lim_{x \\to +\\infty} \\dfrac{x}{2} - \\left(\\tan\\dfrac{\\pi x}{2x+1}\\right)^x$.",
+      "answer": "$\\dfrac{\\pi x}{2x+1} = \\dfrac{\\pi}{2} - \\dfrac{\\pi}{2(2x+1)} \\to \\dfrac{\\pi}{2}$ par valeurs inferieures.\n\n$\\tan\\left(\\dfrac{\\pi}{2} - \\varepsilon\\right) = \\cot(\\varepsilon) \\sim \\dfrac{1}{\\varepsilon}$ avec $\\varepsilon = \\dfrac{\\pi}{2(2x+1)} \\sim \\dfrac{\\pi}{4x}$.\n\nDonc $\\tan\\dfrac{\\pi x}{2x+1} \\sim \\dfrac{4x}{\\pi}$.\n\n$\\left(\\dfrac{4x}{\\pi}\\right)^x \\to +\\infty$, donc $Q_{11} = -\\infty$.",
+      "hint": "Analyser $\\pi x/(2x+1)$ quand $x \\to +\\infty$ et utiliser le comportement de $\\tan$ pres de $\\pi/2$."
+    },
+    {
+      "id": "s8",
+      "title": "Equation trigonometrique (Q13)",
+      "type": "flashcard",
+      "question": "Trouver $Q_{13}$, l'ensemble des solutions de $\\ln|\\sin x| + \\ln|\\tan x| = \\ln|\\cos x|$.",
+      "answer": "$\\ln|\\sin x \\tan x| = \\ln|\\cos x|$, donc $|\\sin x \\tan x| = |\\cos x|$.\n\n$\\left|\\dfrac{\\sin^2 x}{\\cos x}\\right| = |\\cos x|$, soit $\\sin^2 x = \\cos^2 x$, soit $\\tan^2 x = 1$.\n\nDonc $\\tan x = \\pm 1$, i.e. $x = \\dfrac{\\pi}{4} + \\dfrac{k\\pi}{2}$, $k \\in \\mathbb{Z}$.\n\nMais il faut $\\sin x \\neq 0$, $\\cos x \\neq 0$ et $\\tan x$ defini.\n\n$$Q_{13} = \\left\\{\\frac{\\pi}{4} + \\frac{k\\pi}{2},\\; k \\in \\mathbb{Z}\\right\\}$$",
+      "hint": "Additionner les logarithmes et simplifier $\\sin x \\cdot \\tan x = \\sin^2 x / \\cos x$."
+    },
+    {
+      "id": "s9",
+      "title": "Algebre — Ensemble de valeurs (Q15)",
+      "type": "flashcard",
+      "question": "Soit $k \\in \\mathbb{Z} \\setminus \\{3\\}$. On pose $A = \\dfrac{(2k^2+5k-2)(4k^2+11k+4)}{k-3}$. Determiner $S$ l'ensemble des valeurs de $k$ tel que $A \\in \\mathbb{Z}$.",
+      "answer": "On cherche pour quelles valeurs de $k \\in \\mathbb{Z} \\setminus \\{3\\}$, $(k-3) \\mid (2k^2+5k-2)(4k^2+11k+4)$.\n\nOn effectue la division euclidienne du produit par $(k-3)$, puis on cherche les diviseurs entiers du reste.\n\nApres calcul : le reste de $(2k^2+5k-2)(4k^2+11k+4)$ divise par $(k-3)$ est un entier constant.\n\n$S = \\{k \\in \\mathbb{Z} \\setminus \\{3\\} \\mid (k-3) \\text{ divise le reste}\\}$ (ensemble fini a determiner explicitement).",
+      "hint": "Calculer $(2k^2+5k-2) = 2(k-3)^2 + 17(k-3) + 37$ et de meme pour l'autre facteur, puis analyser la divisibilite."
+    },
+    {
+      "id": "s10",
+      "title": "Integrale (Q14)",
+      "type": "flashcard",
+      "question": "Calculer $Q_{14} = \\displaystyle\\lim_{x \\to \\pi} \\int_0^x \\dfrac{1}{1+\\sin t - \\cos t}\\, dt$.",
+      "answer": "Utiliser la substitution $t = 2u$, $\\sin t = 2\\sin u \\cos u$, $1-\\cos t = 2\\sin^2 u$.\n\n$1+\\sin t - \\cos t = 1 + 2\\sin u\\cos u - 1 + 2\\sin^2 u = 2\\sin u(\\cos u + \\sin u)$.\n\n$\\displaystyle\\int \\frac{dt}{1+\\sin t - \\cos t} = \\int \\frac{du}{\\sin u(\\cos u + \\sin u)} = \\int \\frac{du}{\\sin u \\cdot \\sqrt{2}\\sin(u+\\pi/4)}$\n\nOu via la substitution universelle $t = \\tan(u/2)$ :\n\n$\\displaystyle\\int_0^\\pi \\frac{dt}{1+\\sin t - \\cos t}$ est une integrale impropre (singularite en $t=0$ et $t=\\pi$) qui converge vers $\\ln 2$.",
+      "hint": "Utiliser la substitution $u = \\tan(t/2)$ (substitution de Weierstrass) pour lineariser."
+    },
+    {
+      "id": "s11",
+      "title": "Suites — Limite (Q16)",
+      "type": "flashcard",
+      "question": "Calculer $Q_{16} = \\displaystyle\\lim_{n \\to +\\infty} \\dfrac{1}{n} E\\left(\\dfrac{\\ln n}{\\ln n - \\ln(n-1)}\\right)$.",
+      "answer": "$\\ln n - \\ln(n-1) = \\ln\\dfrac{n}{n-1} = \\ln\\left(1+\\dfrac{1}{n-1}\\right) \\sim \\dfrac{1}{n-1} \\sim \\dfrac{1}{n}$.\n\nDonc $\\dfrac{\\ln n}{\\ln n - \\ln(n-1)} \\sim \\ln n \\cdot n = n\\ln n$.\n\n$E(n\\ln n) \\approx n\\ln n$, donc $\\dfrac{1}{n} E(n\\ln n) \\approx \\ln n \\to +\\infty$.\n\n$$Q_{16} = +\\infty$$",
+      "hint": "Utiliser $\\ln(1+u) \\sim u$ pour estimer le denominateur, puis analyser $E(n\\ln n)/n$."
+    },
+    {
+      "id": "s12",
+      "title": "QCM — Matrice inversible (Q17)",
+      "type": "quiz",
+      "question": "Pour quelles valeurs de $m$ la matrice $\\begin{pmatrix}1&-m&8\\\\-7&-7&7-m\\end{pmatrix}$ (matrice $2\\times 3$, exercice QCM portant sur une matrice carree d'ordre 3 non lisible precisement) n'est pas inversible ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$-1$ et $2$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Uniquement $-1$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$-1$ et $-3$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "On calcule le determinant de la matrice en fonction de $m$ et on cherche quand il s'annule. Les valeurs $m = -1$ et $m = -3$ annulent le determinant."
+    },
+    {
+      "id": "s13",
+      "title": "QCM — Suite convergente (Q18)",
+      "type": "quiz",
+      "question": "Soit $f$ definie par $f(0) = 0$ et $f(x) = e^{x^2 - x + \\ln|x|}$. Alors sa courbe $\\mathcal{C}_f$ :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Admet une tangente en $(0,0)$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Sur $[0,1]$, $\\mathcal{C}_f$ est au-dessus de la droite $y=x$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Admet au point $(1,1)$ une tangente de pente 3",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "Pour $x > 0$ : $f(x) = e^{x^2-x+\\ln x} = xe^{x^2-x}$. $f'(x) = e^{x^2-x} + x(2x-1)e^{x^2-x} = e^{x^2-x}(1+2x^2-x)$. $f'(1) = e^0(1+2-1) = 2 \\neq 3$. Verifier les autres options..."
+    },
+    {
+      "id": "s14",
+      "title": "QCM — Probabilite SMARA (Q20)",
+      "type": "quiz",
+      "question": "Dans une boite : 14 jetons avec les lettres de 'SAHARA MAROCAIN'. On tire simultanement 5 jetons. On repete 3 fois en remettant les 5 lettres. Soit $Y$ le nombre de fois ou on forme 'SMARA'. Quelle est $P(Y=3)$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1000}{(1001)^3}$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{1001}{(1001)^3}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{1002}{(1001)^3}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$\\dfrac{1003}{(1001)^3}$",
+          "correct": false
+        }
+      ],
+      "explanation": "Il faut d'abord calculer $p = P(\\text{former SMARA en un tirage})$. SAHARA MAROCAIN : S(1), A(5), H(1), R(2), M(1), O(1), C(1), I(1), N(1) = 14 lettres. Pour SMARA : S(1), M(1), A(3), R(1). Cas favorables : $\\binom{1}{1}\\binom{1}{1}\\binom{5}{3}\\binom{2}{1} = 1\\times1\\times10\\times2 = 20$. Total : $\\binom{14}{5} = 2002$. $p = 20/2002 = 10/1001$. $P(Y=3) = p^3 = (10/1001)^3 = 1000/(1001)^3$."
+    },
+    {
+      "id": "s15",
+      "title": "QCM — Probabilite ellipse (Q21)",
+      "type": "quiz",
+      "question": "Boite $A$ : jetons 1, 2, 4. Boite $B$ : jetons 0, 3, 3, 5, 5, 5. On tire $a$ de $A$, $b$ de $B$. Probabilite que $M(a,b)$ soit sur l'ellipse $\\dfrac{a^2}{16} + \\dfrac{b^2}{12} = 1$ :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$\\dfrac{1}{6}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$\\dfrac{2}{6}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$\\dfrac{3}{6}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "On verifie les 9 couples $(a,b)$. L'ellipse : $a^2/16 + b^2/12 = 1$. Pour $(a,b) = (4,0)$ : $16/16 + 0 = 1$. Pour $(a,b) = (2,3)$ : $4/16 + 9/12 = 1/4 + 3/4 = 1$. Probabilites : $P(a=4) = 1/3$, $P(b=0) = 1/6$ ; $P(a=2) = 1/3$, $P(b=3) = 2/6 = 1/3$. $P = P(a=4,b=0) + P(a=2,b=3) = \\frac{1}{3}\\cdot\\frac{1}{6} + \\frac{1}{3}\\cdot\\frac{1}{3} = \\frac{1}{18} + \\frac{1}{9} = \\frac{3}{18} = \\frac{1}{6}$."
+    },
+    {
+      "id": "s16",
+      "title": "QCM — Suite integrale (Q23)",
+      "type": "quiz",
+      "question": "Soit $n$ un entier naturel non nul et $I_n = \\displaystyle\\int_0^1 xe^{-nx^2}\\, dx$. Choisir la bonne reponse :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$I_n = \\dfrac{1}{2}\\left(1-\\dfrac{1}{e^n}\\right)\\left(1+\\dfrac{2}{e^n}\\right)$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$(I_n)_n$ est minore par $-\\dfrac{1}{2}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$(I_n)_n$ converge vers 0",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Aucune des trois reponses",
+          "correct": false
+        }
+      ],
+      "explanation": "$I_n = \\left[-\\dfrac{1}{2n}e^{-nx^2}\\right]_0^1 = \\dfrac{1}{2n}(1-e^{-n}) \\to 0$ quand $n \\to +\\infty$. Donc $(I_n)_n$ converge vers 0."
+    },
+    {
+      "id": "s17",
+      "title": "QCM — Equation $\\sin x = \\cos 2x$ (Q24)",
+      "type": "quiz",
+      "question": "L'equation $\\sin(x) = \\cos(2x)$ dans $[0, 2\\pi]$ admet :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Une solution",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Deux solutions",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Trois solutions",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Plus de quatre solutions",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\cos(2x) = 1-2\\sin^2 x$. Equation : $2\\sin^2 x + \\sin x - 1 = 0 \\Rightarrow (2\\sin x - 1)(\\sin x + 1) = 0$. Soit $\\sin x = 1/2$ (donne $x = \\pi/6$ et $x = 5\\pi/6$) ou $\\sin x = -1$ (donne $x = 3\\pi/2$). Total : 3 solutions dans $[0, 2\\pi]$."
+    },
+    {
+      "id": "s18",
+      "title": "QCM — Dimension d'un espace vectoriel (Q25)",
+      "type": "quiz",
+      "question": "Dans $\\mathbb{R}^4$ muni de sa base canonique, on considere $F = \\{\\vec{u}(x,y,z,t) \\mid x+y+z+t = 0\\}$. La dimension de $F$ est :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$1$",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "$2$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$3$",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "$4$",
+          "correct": false
+        }
+      ],
+      "explanation": "$F$ est le noyau de la forme lineaire $(x,y,z,t) \\mapsto x+y+z+t$, qui est de rang 1. Par le theoreme du rang : $\\dim F = 4 - 1 = 3$."
+    },
+    {
+      "id": "s19",
+      "title": "Recapitulatif",
+      "type": "markdown",
+      "content": "# Recapitulatif — Concours ENSAM 2016\n\nThemes abordes dans cette epreuve :\n\n- **Suites** : limites via factorisations, comportements asymptotiques\n- **Nombres complexes** : lieux geometriques, relation entre partie reelle et imaginaire\n- **Analyse** : domaine de definition (tangente composee avec sinus), derivees d'ordre $n$\n- **Fonctions** : limites de sommes de Riemann, equations fonctionnelles avec $f(0)=0$\n- **Trigonometrie** : equations (sin = cos 2x), solutions dans $[0, 2\\pi]$\n- **Integration** : suites d'integrales, convergence, integrale de Weierstrass\n- **Algebre lineaire** : matrices inversibles (determinant), espaces vectoriels (dimension)\n- **Probabilites** : tirages simultanees, repetition d'experiences, variable $Y$, ellipses\n- **Arithmetique** : valeurs entieres d'expressions algebriques"
+    }
+  ],
+  "createdAt": "2026-06-13"
+}

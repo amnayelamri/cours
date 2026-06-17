@@ -109,8 +109,23 @@
     "courseIds": [
       "qissat-almal-ep1-tarikh-iqtisadi",
       "seerah-quraysh-001",
-      "mina-ribat-001"
+      "mina-ribat-001",
+      "auto-1"
     ],
     "id": "podact"
+  },
+  {
+    "title": "Concours ENSAM",
+    "emoji": "",
+    "description": "",
+    "courseIds": [
+      "ensam-maths-2011",
+      "ensam-maths-2012",
+      "ensam-maths-2013",
+      "ensam-maths-2014",
+      "ensam-maths-2015",
+      "ensam-maths-2016"
+    ],
+    "id": "concours-ensam"
   }
 ]

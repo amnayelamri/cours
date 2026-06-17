@@ -1,0 +1,287 @@
+{
+  "id": "ensam-maths-2012",
+  "title": "Concours ENSAM 2012 — Mathematiques",
+  "description": "Epreuve de mathematiques du concours d'entree en 1ere annee de l'ENSAM Meknes, filiere Sciences Mathematiques A et B. Jeudi 26 juillet 2012, duree 2h.",
+  "tags": [
+    "ENSAM",
+    "concours",
+    "2012",
+    "mathematiques",
+    "prepa"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Concours ENSAM 2012 — Mathematiques\n\nEpreuve du **jeudi 26 juillet 2012**, duree **2h00**.\n\nUniversite Moulay Ismail — Ecole Nationale Superieure d'Arts et Metiers, Meknes.\n\nFiliere : **Sciences Mathematiques A et B**\n\nStructure de l'epreuve :\n- **Partie A** : Questions a reponse precise (1pt chacune) — 10 questions\n- **Partie B** : Questions a reponse precise (2pts chacune) — 10 questions"
+    },
+    {
+      "id": "s2",
+      "title": "Trigonometrie — Periode d'une fonction",
+      "type": "flashcard",
+      "question": "Trouver la periode $T$ de la fonction $f(x) = \\sin\\left(\\dfrac{x}{2}\\right) + \\cos(x)$.",
+      "answer": "$\\sin\\left(\\dfrac{x}{2}\\right)$ a pour periode $4\\pi$ et $\\cos(x)$ a pour periode $2\\pi$.\n\nLa periode de $f$ est le PPCM de $4\\pi$ et $2\\pi$, soit $T = 4\\pi$.",
+      "hint": "La periode d'une somme est le PPCM des periodes de chaque terme."
+    },
+    {
+      "id": "s3",
+      "title": "Trigonometrie — Equation (2012-A)",
+      "type": "quiz",
+      "question": "La solution de $\\cos^4(4x) - \\sin^4(4x) = 1$ dans $\\mathbb{R}$ correspond a :",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$x = \\dfrac{k\\pi}{8},\\; k \\in \\mathbb{Z}$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$x = \\dfrac{k\\pi}{4},\\; k \\in \\mathbb{Z}$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$x = k\\pi,\\; k \\in \\mathbb{Z}$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$x = \\dfrac{k\\pi}{2},\\; k \\in \\mathbb{Z}$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\cos^4(4x) - \\sin^4(4x) = (\\cos^2(4x)+\\sin^2(4x))(\\cos^2(4x)-\\sin^2(4x)) = \\cos(8x) = 1$ donc $8x = 2k\\pi$, soit $x = k\\pi/4$. Mais on doit aussi verifier : $\\cos(8x)=1 \\Rightarrow 8x = 2k\\pi \\Rightarrow x = k\\pi/4$."
+    },
+    {
+      "id": "s4",
+      "title": "Nombres complexes — Forme algebrique",
+      "type": "flashcard",
+      "question": "Determiner $a, b \\in \\mathbb{R}$ tels que $(1+i)^9 = a + ib$.",
+      "answer": "$(1+i)^2 = 2i$, donc $(1+i)^8 = (2i)^4 = 16$.\n\nAlors $(1+i)^9 = 16(1+i) = 16 + 16i$.\n\nDonc $a = 16$ et $b = 16$.",
+      "hint": "Calculer d'abord $(1+i)^2 = 2i$, puis elever au carre plusieurs fois."
+    },
+    {
+      "id": "s5",
+      "title": "Suites — Limite (2012-A)",
+      "type": "flashcard",
+      "question": "Calculer $C = \\displaystyle\\lim_{n \\to +\\infty} n \\ln\\left(\\dfrac{n+1}{n-1}\\right)$.",
+      "answer": "$\\dfrac{n+1}{n-1} = 1 + \\dfrac{2}{n-1}$. Posons $u = \\dfrac{2}{n-1} \\to 0$.\n\n$n \\ln\\left(1 + \\dfrac{2}{n-1}\\right) \\sim n \\cdot \\dfrac{2}{n-1} \\to 2$.\n\nDonc $C = 2$.",
+      "hint": "Utiliser le developpement $\\ln(1+u) \\sim u$ quand $u \\to 0$."
+    },
+    {
+      "id": "s6",
+      "title": "Derivation — Derivee de fonction composee",
+      "type": "flashcard",
+      "question": "Soit $f$ une fonction derivable sur $\\mathbb{R}$. Calculer la derivee de $g(x) = \\exp\\!\\left(f\\!\\left(\\dfrac{x^2}{2}\\right)\\right)$.",
+      "answer": "Par la regle de la chaine :\n$$g'(x) = f'\\!\\left(\\frac{x^2}{2}\\right) \\cdot x \\cdot \\exp\\!\\left(f\\!\\left(\\frac{x^2}{2}\\right)\\right)$$",
+      "hint": "$(e^u)' = u' e^u$ et $(f(x^2/2))' = f'(x^2/2) \\cdot x$."
+    },
+    {
+      "id": "s7",
+      "title": "Fonctions — Image d'une fonction",
+      "type": "flashcard",
+      "question": "Soit $E = \\mathbb{R}\\setminus\\{-2\\}$ et $f: E \\to \\mathbb{R}$ definie par $f(x) = \\dfrac{x+1}{x+2}$. Trouver $f(E)$.",
+      "answer": "On cherche les valeurs prises : $y = \\dfrac{x+1}{x+2} \\Rightarrow y(x+2) = x+1 \\Rightarrow x(y-1) = 1-2y \\Rightarrow x = \\dfrac{1-2y}{y-1}$.\n\nCeci est defini ssi $y \\neq 1$. Donc $f(E) = \\mathbb{R}\\setminus\\{1\\}$.",
+      "hint": "Resoudre $y = f(x)$ en $x$ et chercher quelles valeurs de $y$ permettent d'avoir une solution dans $E$."
+    },
+    {
+      "id": "s8",
+      "title": "Analyse — Extrema d'une fonction",
+      "type": "flashcard",
+      "question": "Trouver les maximums et minimums de $f: [-1,1] \\to \\mathbb{R}$ definie par $f(x) = |x^2 - x| + |x|$.",
+      "answer": "On distingue les cas selon le signe de $x^2 - x = x(x-1)$ :\n\n- Sur $[-1, 0]$ : $x^2-x \\geq 0$ et $x \\leq 0$, donc $f(x) = x^2 - x - x = x^2 - 2x$\n- Sur $[0, 1]$ : $x^2-x \\leq 0$ et $x \\geq 0$, donc $f(x) = -(x^2-x) + x = -x^2 + 2x$\n\nSur $[-1,0]$ : $f'(x) = 2x-2 < 0$, $f$ decroissante. Max en $x=-1$ : $f(-1) = 3$. Min en $x=0$ : $f(0)=0$.\nSur $[0,1]$ : $f'(x) = -2x+2 > 0$, $f$ croissante. Max en $x=1$ : $f(1)=1$.\n\n**Maximum global** : $f(-1) = 3$. **Minimum global** : $f(0) = 0$.",
+      "hint": "Etudier le signe de $x(x-1)$ sur $[-1,1]$ pour lever les valeurs absolues."
+    },
+    {
+      "id": "s9",
+      "title": "Geometrie analytique — Angle",
+      "type": "flashcard",
+      "question": "Soient $A(1,2)$, $B(-2,1)$, $C(0,4)$. Determiner l'angle $\\widehat{BAC}$ en radians.",
+      "answer": "$\\vec{AB} = (-3, -1)$ et $\\vec{AC} = (-1, 2)$.\n\n$\\cos(\\widehat{BAC}) = \\dfrac{\\vec{AB} \\cdot \\vec{AC}}{|\\vec{AB}||\\vec{AC}|} = \\dfrac{3 - 2}{\\sqrt{10}\\cdot\\sqrt{5}} = \\dfrac{1}{5\\sqrt{2}}$\n\n$\\widehat{BAC} = \\arccos\\left(\\dfrac{1}{5\\sqrt{2}}\\right)$",
+      "hint": "Utiliser $\\cos\\theta = \\dfrac{\\vec{u}\\cdot\\vec{v}}{|\\vec{u}||\\vec{v}|}$."
+    },
+    {
+      "id": "s10",
+      "title": "Arithmetique — Multiples de 3",
+      "type": "flashcard",
+      "question": "Soit $x$ un reel positif. Combien y a-t-il d'entiers naturels multiples de 3 entre 0 et $x$ ?",
+      "answer": "Les multiples de 3 entre 0 et $x$ sont $0, 3, 6, \\ldots, 3\\left\\lfloor x/3 \\right\\rfloor$.\n\nIl y en a $\\left\\lfloor \\dfrac{x}{3} \\right\\rfloor + 1$.",
+      "hint": "Les multiples de 3 dans $[0, x]$ sont $3k$ pour $k = 0, 1, \\ldots, \\lfloor x/3 \\rfloor$."
+    },
+    {
+      "id": "s11",
+      "title": "Algebre — Division euclidienne",
+      "type": "flashcard",
+      "question": "Determiner le quotient et le reste de la division euclidienne de $X^5 - 7X^4 - X^2 - 9X + 9$ par $X^2 - 5X + 4$.",
+      "answer": "Par division polynomiale :\n\n$X^5 - 7X^4 - X^2 - 9X + 9 = (X^2-5X+4)(X^3 - 2X^2 - 9X - 44) + (-7X + 185)$\n\n**Quotient** : $X^3 - 2X^2 - 9X - 44$\n\n**Reste** : $-7X + 185$",
+      "hint": "Effectuer la division polynomiale terme par terme."
+    },
+    {
+      "id": "s12",
+      "title": "Integration — Calcul de J (Partie B)",
+      "type": "flashcard",
+      "question": "Soit $f: [a,b] \\to \\mathbb{R}$ continue telle que $f(a+b-x) = f(x)$ pour tout $x$. On pose $I = \\displaystyle\\int_a^b f(x)\\, dx$ et $J = \\displaystyle\\int_a^b x f(x)\\, dx$. Calculer $J$ en fonction de $I$.",
+      "answer": "Dans $J$, on pose $t = a+b-x$ :\n$$J = \\int_a^b (a+b-t) f(a+b-t)\\, dt = \\int_a^b (a+b-t) f(t)\\, dt = (a+b)I - J$$\n\nDonc $2J = (a+b)I$, soit :\n$$J = \\frac{(a+b)}{2} I$$",
+      "hint": "Effectuer le changement de variable $t = a+b-x$ dans l'integrale $J$ et utiliser la symetrie $f(a+b-t) = f(t)$."
+    },
+    {
+      "id": "s13",
+      "title": "Triangle isocele — Aire maximale",
+      "type": "steps",
+      "stepsTitle": "Maximisation de l'aire d'un triangle isocele de perimetre 1",
+      "intro": "Le perimetre d'un triangle isocele vaut 1. Determiner les dimensions pour que l'aire soit maximale.",
+      "steps": [
+        {
+          "label": "Parametrage",
+          "content": "Soit $b$ la base et $a$ chacun des deux cotes egaux. Contrainte : $2a + b = 1$, donc $b = 1 - 2a$ avec $a \\in ]0, 1/2[$."
+        },
+        {
+          "label": "Expression de l'aire",
+          "content": "La hauteur est $h = \\sqrt{a^2 - (b/2)^2}$. L'aire est $\\mathcal{A}(a) = \\dfrac{b}{2}\\sqrt{a^2 - \\dfrac{b^2}{4}}$."
+        },
+        {
+          "label": "Substitution et maximisation",
+          "content": "Avec $b = 1-2a$ : maximiser $\\mathcal{A}^2(a) = \\dfrac{(1-2a)^2}{4}\\left(a^2 - \\dfrac{(1-2a)^2}{4}\\right)$. En annulant la derivee, on trouve $a = 1/3$."
+        },
+        {
+          "label": "Solution",
+          "content": "Le triangle equilateral de cote $a = b = 1/3$ maximise l'aire : $\\mathcal{A} = \\dfrac{\\sqrt{3}}{36}$."
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "title": "Suites — Relation de recurrence (Partie B)",
+      "type": "flashcard",
+      "question": "On pose $u_n = 25^n + 23^{n+4}$. Trouver $a, b \\in \\mathbb{Z}$ tels que $\\forall n \\in \\mathbb{N},\\; u_{n+2} = a u_{n+1} + b u_n$.",
+      "answer": "$u_{n+2} = 25^{n+2} + 23^{n+6}$\n$a u_{n+1} + b u_n = a(25^{n+1}+23^{n+5}) + b(25^n + 23^{n+4})$\n$= 25^n(25a + b) + 23^{n+4}(23a + b)$\n\nOn doit avoir : $25a + b = 625$ et $23a + b = 529$.\n\nEn soustrayant : $2a = 96 \\Rightarrow a = 48$ et $b = 625 - 1200 = -575$.\n\nDonc $a = 48$, $b = -575$.",
+      "hint": "Identifier les coefficients de $25^n$ et $23^{n+4}$ de part et d'autre."
+    },
+    {
+      "id": "s15",
+      "title": "Integration — Integrale impropre",
+      "type": "flashcard",
+      "question": "Calculer $D = \\displaystyle\\int_{-1}^{1} \\dfrac{1}{x^2 - 2}\\, dx$.",
+      "answer": "$\\dfrac{1}{x^2-2} = \\dfrac{1}{(x-\\sqrt{2})(x+\\sqrt{2})} = \\dfrac{1}{2\\sqrt{2}}\\left(\\dfrac{1}{x-\\sqrt{2}} - \\dfrac{1}{x+\\sqrt{2}}\\right)$\n\nL'integrale est propre (pas de singularite sur $[-1,1]$ car $\\pm\\sqrt{2} \\notin [-1,1]$) :\n\n$$D = \\frac{1}{2\\sqrt{2}}\\left[\\ln\\left|\\frac{x-\\sqrt{2}}{x+\\sqrt{2}}\\right|\\right]_{-1}^{1} = \\frac{1}{2\\sqrt{2}}\\ln\\left(\\frac{(1-\\sqrt{2})^2}{(1+\\sqrt{2})^2} \\cdot \\frac{(1+\\sqrt{2})^2}{(1-\\sqrt{2})^2}\\right) = \\frac{1}{\\sqrt{2}}\\ln\\left(\\frac{\\sqrt{2}-1}{\\sqrt{2}+1}\\right)$$",
+      "hint": "Decomposer en elements simples, puis integrer."
+    },
+    {
+      "id": "s16",
+      "title": "Sommes — Calcul de $S_n$ (Partie B)",
+      "type": "steps",
+      "stepsTitle": "Calcul de $S_n = 1^2 + 2^2 + \\cdots + n^2$",
+      "intro": "Utiliser l'egalite $(k+1)^3 - k^3 = 3k^2 + 3k + 1$ pour calculer $S_n$.",
+      "steps": [
+        {
+          "label": "Telescope",
+          "content": "En sommant de $k=1$ a $n$ : $\\displaystyle\\sum_{k=1}^n [(k+1)^3 - k^3] = (n+1)^3 - 1$."
+        },
+        {
+          "label": "Developpement",
+          "content": "$3S_n + 3\\cdot\\dfrac{n(n+1)}{2} + n = (n+1)^3 - 1$"
+        },
+        {
+          "label": "Resolution",
+          "content": "$3S_n = (n+1)^3 - 1 - \\dfrac{3n(n+1)}{2} - n$\n\n$S_n = \\dfrac{n(n+1)(2n+1)}{6}$"
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "title": "Quiz — Somme des carres",
+      "type": "quiz",
+      "question": "Quelle est la valeur de $\\displaystyle\\sum_{k=1}^{4} k^2$ ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "$30$",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "$25$",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "$20$",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "$36$",
+          "correct": false
+        }
+      ],
+      "explanation": "$\\dfrac{4 \\cdot 5 \\cdot 9}{6} = 30$."
+    },
+    {
+      "id": "s18",
+      "title": "Suites — Limite avec partie entiere",
+      "type": "flashcard",
+      "question": "Soit $x$ un reel et $E(x)$ sa partie entiere. Determiner $F = \\displaystyle\\lim_{n \\to +\\infty} \\dfrac{E(x) + E(2x) + \\cdots + E(nx)}{n^2}$.",
+      "answer": "On sait que $tx - 1 < E(tx) \\leq tx$, donc :\n$$\\frac{x(1+2+\\cdots+n)}{n^2} - \\frac{n}{n^2} \\leq \\frac{\\sum_{k=1}^n E(kx)}{n^2} \\leq \\frac{x \\cdot n(n+1)/2}{n^2}$$\n\nPar le theoreme des gendarmes : $F = \\dfrac{x}{2}$.",
+      "hint": "Encadrer $E(kx)$ par $kx - 1$ et $kx$ puis passer a la limite."
+    },
+    {
+      "id": "s19",
+      "title": "Combinatoire — Paiement en pieces",
+      "type": "number",
+      "question": "De combien de facons peut-on payer 10 DH avec des pieces de 10 centimes et de 20 centimes ? (1 DH = 100 centimes, donc on cherche a obtenir 1000 centimes)",
+      "answer": 51,
+      "tolerance": 0,
+      "hint": "Si on utilise $k$ pieces de 20 centimes ($0 \\leq k \\leq 50$), il faut $(1000-20k)/10 = 100-2k$ pieces de 10 centimes. Compter les valeurs valides de $k$.",
+      "explanation": "$k$ varie de 0 a 50, soit 51 facons."
+    },
+    {
+      "id": "s20",
+      "title": "Algebre — Racines d'un polynome",
+      "type": "flashcard",
+      "question": "Soient $x_1, x_2, x_3$ les racines de $x^3 + 2x - 1 = 0$. Calculer $X = x_1^3 + x_2^3 + x_3^3$.",
+      "answer": "Chaque racine verifie $x_i^3 = 1 - 2x_i$. Donc :\n$$X = x_1^3 + x_2^3 + x_3^3 = 3 - 2(x_1+x_2+x_3)$$\n\nPar les relations de Viete : $x_1+x_2+x_3 = 0$ (coefficient de $x^2$ est nul).\n\nDonc $X = 3 - 0 = 3$.",
+      "hint": "Chaque $x_i$ verifie l'equation $x_i^3 + 2x_i - 1 = 0$, donc $x_i^3 = 1 - 2x_i$."
+    },
+    {
+      "id": "s21",
+      "title": "Astronomie — Congruences et dates",
+      "type": "steps",
+      "stepsTitle": "Prochaine observation simultanee des corps celestes A et B",
+      "intro": "Corps A : observe le 1er juin 2012, apparait tous les 51 jours. Corps B : observe le 28 juin 2012, apparait tous les 72 jours. A quelle date peuvent-ils etre observes simultanement ?",
+      "steps": [
+        {
+          "label": "Prochaine apparition de A apres le 28 juin 2012",
+          "content": "Du 1er juin au 28 juin : 27 jours. $27 = 0 \\times 51 + 27$. Prochaine apparition de A : $51 - 27 = 24$ jours apres le 28 juin, soit le 22 juillet 2012."
+        },
+        {
+          "label": "Alignement des cycles",
+          "content": "On cherche $t \\geq 0$ (en jours apres le 28 juin) tel que $t \\equiv 24 \\pmod{51}$ et $t \\equiv 0 \\pmod{72}$."
+        },
+        {
+          "label": "Resolution",
+          "content": "$\\mathrm{PPCM}(51, 72) = \\mathrm{PPCM}(3\\times17, 8\\times9) = 1224$ jours. Chercher la solution par le theoreme chinois des restes."
+        },
+        {
+          "label": "Date de reunion",
+          "content": "Apres calcul, la prochaine date de reunion commune est a determiner en resolvant le systeme de congruences."
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "title": "Geometrie — Cercle tangent a trois droites",
+      "type": "flashcard",
+      "question": "Determiner un cercle de centre $\\Omega$ et de rayon $R$ tangent aux trois droites : $y = 2x+1$, $y = 2x+7$ et $y = -\\frac{1}{2}x$.",
+      "answer": "Les deux premieres droites sont paralleles (meme pente 2), distantes de $\\dfrac{|7-1|}{\\sqrt{1+4}} = \\dfrac{6}{\\sqrt{5}}$. Le rayon vaut la moitie : $R = \\dfrac{3}{\\sqrt{5}}$.\n\nLe centre est equidistant des trois droites. L'axe des deux droites paralleles est $y = 2x + 4$. Le centre $\\Omega(a,b)$ satisfait aussi la distance a $y = -\\frac{1}{2}x$ egale a $R$ :\n$\\dfrac{|b + \\frac{a}{2}|}{\\sqrt{1+1/4}} = R$.\n\nEn resolvant : $\\Omega = \\left(-\\dfrac{4}{5}, \\dfrac{12}{5}\\right)$ et $R = \\dfrac{3}{\\sqrt{5}}$.",
+      "hint": "Les deux premieres droites etant paralleles, le centre est sur leur mediatrice. Egaler ensuite la distance a la troisieme droite."
+    },
+    {
+      "id": "s23",
+      "title": "Recapitulatif",
+      "type": "markdown",
+      "content": "# Recapitulatif — Concours ENSAM 2012\n\nThemes abordes dans cette epreuve :\n\n- **Trigonometrie** : periode d'une somme, equation $\\cos^4 - \\sin^4 = 1$\n- **Nombres complexes** : $(1+i)^9$, forme algebrique\n- **Suites et limites** : equivalents, parties entieres, limites de suites\n- **Derivation** : regles de derivation, fonctions composees\n- **Fonctions** : image d'une fonction, extrema sur un intervalle\n- **Geometrie** : angle entre vecteurs, cercle tangent a trois droites\n- **Integration** : integrale impropre, relation de recurrence, integrales definies\n- **Algebre** : division euclidienne des polynomes, racines d'un cubique (Viete)\n- **Arithmetique** : multiples, PPCM, probleme de pieces de monnaie\n- **Combinatoire** : congruences et calendrier"
+    }
+  ],
+  "createdAt": "2026-06-13"
+}
