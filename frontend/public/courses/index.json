@@ -768,5 +768,19 @@
     ],
     "createdAt": "2026-06-17",
     "slideCount": 25
+  },
+  {
+    "id": "auto-généré si absent",
+    "title": "Le Diabète : Maladie, Marché et Pouvoir Pharmaceutique",
+    "description": "Un cours explorant la biologie du diabète, l'histoire de l'insuline, les dérives économiques de l'industrie pharmaceutique et les scandales sanitaires liés à cette maladie chronique.",
+    "tags": [
+      "diabète",
+      "insuline",
+      "santé publique",
+      "industrie pharmaceutique",
+      "endocrinologie"
+    ],
+    "createdAt": "2026-06-18",
+    "slideCount": 40
   }
 ]
