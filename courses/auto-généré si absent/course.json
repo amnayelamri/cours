@@ -1,0 +1,447 @@
+{
+  "id": "auto-généré si absent",
+  "title": "Le Diabète : Maladie, Marché et Pouvoir Pharmaceutique",
+  "description": "Un cours explorant la biologie du diabète, l'histoire de l'insuline, les dérives économiques de l'industrie pharmaceutique et les scandales sanitaires liés à cette maladie chronique.",
+  "tags": [
+    "diabète",
+    "insuline",
+    "santé publique",
+    "industrie pharmaceutique",
+    "endocrinologie"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# Le Diabète : Maladie, Marché et Pouvoir Pharmaceutique\n\nLe diabète touche aujourd'hui plus de **400 millions de personnes** dans le monde. Loin d'être seulement une question médicale, cette maladie chronique révèle des enjeux économiques, industriels et éthiques majeurs.\n\nDans ce cours, nous allons explorer :\n\n- Les mécanismes biologiques du diabète de type 1 et de type 2\n- L'histoire de la découverte et de la commercialisation de l'insuline\n- Les stratégies marketing des laboratoires pharmaceutiques\n- Les scandales sanitaires liés aux traitements antidiabétiques\n- Les pistes de rémission et les enjeux de santé publique\n\nCe parcours vous permettra de comprendre pourquoi le diabète est devenu, selon certains experts, *« un monde merveilleux pour les compagnies pharmaceutiques »*."
+    },
+    {
+      "id": "s2",
+      "title": "Comprendre le diabète",
+      "type": "markdown",
+      "content": "## Qu'est-ce que le diabète ?\n\nLe corps a besoin d'une petite quantité de sucre (glucose) dans le sang pour fonctionner. Lors d'un effort, l'organisme puise dans cette réserve apportée par le sang.\n\n**Deux déséquilibres possibles :**\n\n- S'il manque de sucre : le corps tombe en **hypoglycémie**\n- S'il y a trop de sucre accumulé : on parle d'**hyperglycémie**\n\nUn organe vital régule ce taux de sucre : le **pancréas**, qui sécrète une hormone appelée **insuline**.\n\nQuand le pancréas ne produit plus correctement d'insuline, c'est le diabète. On distingue deux types principaux, dont les mécanismes et les populations touchées diffèrent fortement."
+    },
+    {
+      "id": "s3",
+      "title": "Relier les concepts clés",
+      "type": "matching",
+      "instruction": "Reliez chaque terme à sa définition.",
+      "pairs": [
+        {
+          "left": "Hypoglycémie",
+          "right": "Manque de sucre dans le sang"
+        },
+        {
+          "left": "Hyperglycémie",
+          "right": "Excès de sucre dans le sang"
+        },
+        {
+          "left": "Pancréas",
+          "right": "Organe qui sécrète l'insuline"
+        },
+        {
+          "left": "Insuline",
+          "right": "Hormone qui régule le taux de sucre"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Diabète de type 1",
+      "type": "markdown",
+      "content": "## Le diabète de type 1\n\nLe diabète de type 1 se déclare **sans prévenir**, souvent chez des sujets jeunes. Il correspond à une défaillance irréversible du pancréas, qui cesse totalement de produire de l'insuline.\n\n**Conséquences sans traitement :**\n\n- Le sucre s'accumule dans le sang\n- Les organes fonctionnent mal\n- Le corps s'empoisonne\n- Le malade tombe dans le coma puis meurt\n\nPour éviter cette issue fatale, le malade doit **s'injecter de l'insuline de synthèse plusieurs fois par jour**.\n\nUne difficulté majeure : l'insuline injectée agit beaucoup plus lentement que l'insuline naturellement diffusée par le pancréas. Le patient doit donc constamment **anticiper** ses besoins, ce qui représente une charge mentale quotidienne considérable, bien plus lourde que la simple contrainte de la piqûre elle-même."
+    },
+    {
+      "id": "s5",
+      "title": "Vrai ou Faux : diabète de type 1",
+      "type": "truefalse",
+      "statement": "Pour un diabétique de type 1, la principale difficulté quotidienne est la douleur de la piqûre elle-même.",
+      "answer": false,
+      "explanation": "La piqûre est en réalité l'un des derniers désagréments cités par les patients. Le plus difficile est la nécessité constante d'anticiper les besoins en insuline, car celle-ci agit plus lentement que l'insuline naturelle du pancréas."
+    },
+    {
+      "id": "s6",
+      "title": "Diabète de type 2",
+      "type": "markdown",
+      "content": "## Le diabète de type 2 : une maladie de société\n\nÀ partir des années 60, avec le développement de la société de consommation, les styles de vie et l'alimentation changent : on mange plus gras, plus sucré, et on fait moins d'efforts physiques.\n\nSubmergé par les glucides, le pancréas sécrète trop d'insuline et finit par **s'user**.\n\n**Quelques chiffres :**\n\n- On passe de 50 à 430 millions de diabétiques dans le monde en quelques décennies\n- 90% des diabétiques sont de type 2\n- En Chine, presque inexistant il y a 30 ans, le diabète touche aujourd'hui 1 adulte sur 10\n- En Afrique, une progression de 150% est attendue d'ici 2050\n- En Allemagne, la prévalence est passée de moins de 1% dans les années 60 à 9-11% aujourd'hui\n\nCette maladie silencieuse s'installe souvent sans qu'on s'en aperçoive, jusqu'à l'apparition de complications graves."
+    },
+    {
+      "id": "s7",
+      "title": "Calcul : progression du diabète",
+      "type": "number",
+      "question": "Si le nombre de diabétiques dans le monde est passé de 50 millions à 430 millions, quelle est l'augmentation en millions de personnes ?",
+      "answer": 380,
+      "tolerance": 0,
+      "hint": "Soustrayez le nombre de départ du nombre final : $430 - 50$",
+      "explanation": "$430 - 50 = 380$ millions de personnes supplémentaires touchées par le diabète en quelques décennies."
+    },
+    {
+      "id": "s8",
+      "title": "Complications du diabète",
+      "type": "markdown",
+      "content": "## Les complications du diabète\n\nUn taux de sucre élevé dans le sang, maintenu durablement, peut entraîner des complications graves classées en deux catégories :\n\n**Complications microvasculaires :**\n\n- Atteintes des yeux\n- Atteintes des reins\n- Atteintes des nerfs\n\n**Complications macrovasculaires :**\n\n- Atteintes des artères du cou et du cœur\n\n**Conséquences majeures :**\n\nLes personnes diabétiques ont un risque de crise cardiaque aussi élevé que des non-diabétiques ayant déjà subi un accident cardiovasculaire. Le diabète est l'une des premières causes d'amputation en Europe et aux États-Unis, et il est à l'origine de la majorité des dialyses et des greffes rénales."
+    },
+    {
+      "id": "s9",
+      "title": "QCM : complications du diabète",
+      "type": "quiz",
+      "question": "Parmi les complications suivantes, laquelle est classée comme macrovasculaire ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Atteinte des yeux (rétinopathie)",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Atteinte des artères du cœur",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Atteinte des nerfs",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Atteinte des reins",
+          "correct": false
+        }
+      ],
+      "explanation": "Les complications macrovasculaires concernent les grosses artères, notamment celles du cou et du cœur, alors que les atteintes des yeux, des reins et des nerfs sont des complications microvasculaires."
+    },
+    {
+      "id": "s10",
+      "title": "Le coût mondial du diabète",
+      "type": "markdown",
+      "content": "## Le diabète, un fardeau économique mondial\n\nLe diabète représente un coût colossal pour les sociétés : pertes de productivité, coûts de santé, coûts médicaux directs.\n\n**Chiffre clé : 760 milliards de dollars par an** au niveau mondial.\n\nFace à ce constat, l'ONU a rédigé une déclaration sur le diabète en 2006. Le diabète est, avec le sida, la seule maladie à avoir fait l'objet d'une résolution de l'ONU.\n\nLes États se sont engagés à :\n\n- Mettre en place des plans nationaux pour contrôler les maladies chroniques\n- Élaborer des recommandations nationales\n- Adopter une approche multisectorielle dans leurs politiques de santé\n\nCe coût s'explique aussi par l'invalidité que la maladie engendre chez de nombreux patients, incapables de travailler à cause des complications."
+    },
+    {
+      "id": "s11",
+      "title": "Carte mémo : le coût du diabète",
+      "type": "flashcard",
+      "question": "Quel est le coût annuel mondial du diabète, et quelle institution internationale a réagi en 2006 ?",
+      "answer": "Le diabète coûte environ **760 milliards de dollars par an** au niveau mondial. En **2006**, l'**ONU** a rédigé une déclaration sur le diabète, en faisant l'une des deux seules maladies (avec le sida) à avoir fait l'objet d'une résolution de l'ONU.",
+      "hint": "Pensez à un chiffre en centaines de milliards et à une grande organisation internationale."
+    },
+    {
+      "id": "s12",
+      "title": "La découverte de l'insuline",
+      "type": "markdown",
+      "content": "## 1921 : la découverte de l'insuline\n\nEn 1921, deux chercheurs canadiens, **Best et Banting**, découvrent l'insuline et parviennent à la fabriquer. Cette découverte est une révolution qui permet de sauver des milliers de vies, en particulier celles de jeunes enfants dont les jours étaient comptés.\n\nFait marquant : les deux chercheurs vendent leur brevet pour **un dollar symbolique** au laboratoire américain Lilly, qui lance la production industrielle.\n\nÀ l'origine, l'insuline provient de pancréas animaux, réduits en pâte et mélangés à de l'alcool pour en extraire l'hormone.\n\nAu fil des décennies, trois laboratoires dominent ce marché : l'américain **Lilly**, le danois **Novo Nordisk** et le français **Sanofi**."
+    },
+    {
+      "id": "s13",
+      "title": "Étapes : évolution de l'insuline",
+      "type": "steps",
+      "stepsTitle": "De l'insuline animale à l'insuline génétiquement modifiée",
+      "intro": "L'insuline a connu plusieurs évolutions technologiques majeures depuis sa découverte.",
+      "steps": [
+        {
+          "label": "Étape 1 : Insuline animale",
+          "content": "Extraite de pancréas d'animaux, réduits en pâte et mélangés à de l'alcool pour dissoudre l'insuline."
+        },
+        {
+          "label": "Étape 2 : Insuline humaine",
+          "content": "Fabriquée en répliquant le gène humain de l'insuline, injecté dans un micro-organisme (levure). Les prix font un premier bond, 3 à 10 fois plus chers."
+        },
+        {
+          "label": "Étape 3 : Insuline analogue",
+          "content": "Le gène est modifié pour changer la vitesse de diffusion dans le corps (exemple : la Lantus de Sanofi en 2000), avec une nouvelle hausse de prix, multipliée par trois."
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "title": "Le cas de la Lantus",
+      "type": "markdown",
+      "content": "## La Lantus : une révolution marketing\n\nEn 2000, Sanofi annonce la **Lantus**, une insuline analogue présentée comme révolutionnaire. Le gène a été modifié pour se diffuser plus lentement dans le corps.\n\nSelon le laboratoire, cette innovation permettrait :\n\n- De réduire le nombre de piqûres quotidiennes (une seule toutes les 24 heures)\n- D'éviter les hypoglycémies nocturnes\n\nCependant, des critiques affirment que le laboratoire aurait exagéré la durée d'action réelle de cette insuline. Beaucoup de patients sous Lantus doivent en réalité faire **deux piqûres par jour**.\n\nCet argument marketing a permis à Sanofi d'obtenir, dès le début des années 2000, un taux de remboursement représentant **le double** de celui de ses concurrents."
+    },
+    {
+      "id": "s15",
+      "title": "QCM : la Lantus",
+      "type": "quiz",
+      "question": "Quel argument marketing Sanofi a-t-il utilisé pour justifier un prix de remboursement deux fois plus élevé pour la Lantus ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Une fabrication entièrement automatisée réduisant les coûts",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Une durée d'action de 24 heures avec une seule injection par jour",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Une compatibilité universelle avec tous les types de diabète",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Une absence totale d'effets secondaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Sanofi a mis en avant le fait que la Lantus durerait 24 heures avec une seule injection quotidienne, alors que dans la réalité, de nombreux patients devaient faire deux piqûres par jour."
+    },
+    {
+      "id": "s16",
+      "title": "Cibler le diabète de type 2",
+      "type": "markdown",
+      "content": "## Élargir le marché : viser les diabétiques de type 2\n\nAvec la Lantus, Sanofi ne veut pas se limiter aux diabétiques de type 1. Sa nouvelle cible : les diabétiques de type 2, pour lesquels l'insuline n'était traditionnellement prescrite qu'en dernier recours, après l'échec des comprimés oraux.\n\nPour ces patients, passer à l'insuline était souvent perçu comme une étape terminale, génératrice de peur.\n\nLe laboratoire a donc cherché à **dédiaboliser l'insuline** avec une approche plus simple et plus maniable, afin de l'utiliser plus tôt dans le parcours de soin et de faire évoluer les pratiques médicales."
+    },
+    {
+      "id": "s17",
+      "title": "Le marqueur HbA1c",
+      "type": "markdown",
+      "content": "## L'hémoglobine glyquée (HbA1c) : un outil marketing\n\nPour séduire les diabétiques de type 2, Sanofi a promu un marqueur simple et mémorisable : l'**hémoglobine glyquée (HbA1c)**.\n\nLe message des campagnes de prévention était clair : si l'HbA1c est inférieure à 7%, tout va bien ; au-delà, les complications surgissent.\n\nCe marqueur existait déjà mais n'était pas le plus utilisé. Sanofi a été moteur dans des **conférences de consensus**, réunissant des spécialistes mondiaux pour mettre au point un outil diagnostique de référence.\n\nGrâce à des campagnes comme « La vie est meilleure sous le CET », Sanofi a multiplié par 5 le nombre de médecins capables d'initialiser la Lantus en seulement 2 à 3 ans, doublant ainsi la population de patients insulinisés en 4 ans."
+    },
+    {
+      "id": "s18",
+      "title": "Carte mémo : seuil de l'HbA1c",
+      "type": "flashcard",
+      "question": "Quel est le seuil d'HbA1c mis en avant par les campagnes marketing pour indiquer un bon contrôle du diabète ?",
+      "answer": "Le seuil promu est **7%**. Selon le message marketing : en dessous de 7%, le patient va bien ; au-delà, les complications surgissent. Ce seuil a été largement popularisé via des conférences de consensus et des campagnes comme *« La vie est meilleure sous le CET »*.",
+      "hint": "C'est un chiffre à un seul chiffre, en pourcentage."
+    },
+    {
+      "id": "s19",
+      "title": "Le succès commercial de la Lantus",
+      "type": "markdown",
+      "content": "## La Lantus, un blockbuster pharmaceutique\n\nEn quelques années, l'insuline Lantus devient un véritable blockbuster de l'industrie du médicament.\n\nAu plus haut de sa gloire, en **2015**, juste avant que son brevet ne tombe dans le domaine public, la Lantus représente :\n\n- Près de **20%** du chiffre d'affaires de Sanofi\n- Soit plus de **6 milliards d'euros**\n\nCe succès commercial s'est construit malgré les controverses scientifiques sur sa réelle supériorité par rapport aux insulines plus anciennes."
+    },
+    {
+      "id": "s20",
+      "title": "Calcul : chiffre d'affaires de la Lantus",
+      "type": "number",
+      "question": "Si la Lantus représente 20% du chiffre d'affaires de Sanofi et que cela correspond à 6 milliards d'euros, quel est le chiffre d'affaires total de Sanofi cette année-là (en milliards d'euros) ?",
+      "answer": 30,
+      "tolerance": 1,
+      "hint": "Utilisez la règle de trois : si 20% = 6 milliards, alors 100% = ?",
+      "explanation": "$\\frac{6}{20} \\times 100 = 30$ milliards d'euros de chiffre d'affaires total pour Sanofi."
+    },
+    {
+      "id": "s21",
+      "title": "L'étude allemande sur la Lantus",
+      "type": "markdown",
+      "content": "## L'IQWiG remet en cause la supériorité de la Lantus\n\nEn 2004, le Comité fédéral, plus haute autorité de santé en Allemagne, mandate l'**IQWiG** (Institut pour l'évaluation des médicaments) pour étudier si la Lantus présentait un avantage réel sur les insulines précédentes, et si son surcoût était justifié.\n\n**Résultat de l'étude :** il n'y avait pas de différence significative entre les deux insulines. La Lantus n'était pas supérieure d'un point de vue médical.\n\nCette conclusion n'a pas convaincu l'industriel, qui a contesté les résultats et mené une campagne contre le directeur de l'institut, l'accusant d'être un ennemi de l'industrie.\n\n**Conséquence :** les autorités allemandes ont décidé que la Lantus ne serait remboursée, pour les diabétiques de type 2, qu'à hauteur du prix des insulines humaines."
+    },
+    {
+      "id": "s22",
+      "title": "Vrai ou Faux : l'étude IQWiG",
+      "type": "truefalse",
+      "statement": "L'étude menée par l'IQWiG en Allemagne a conclu que la Lantus était significativement plus efficace que les insulines humaines classiques.",
+      "answer": false,
+      "explanation": "L'étude a conclu qu'il n'y avait pas de différence significative entre la Lantus et les insulines précédentes, ce qui ne justifiait pas son surcoût. Cette conclusion a été contestée par l'industriel mais a conduit à une limitation du remboursement en Allemagne."
+    },
+    {
+      "id": "s23",
+      "title": "Coûts de fabrication vs prix de vente",
+      "type": "markdown",
+      "content": "## L'écart entre coût de fabrication et prix de vente\n\nDes chercheurs de l'Université de Genève ont étudié en détail les coûts réels de fabrication de l'insuline, en intégrant :\n\n- Le coût des matières premières\n- Les coûts réglementaires (essais cliniques, mise sur le marché)\n- Une marge pour le fabricant\n- Les coûts d'investissement en infrastructure\n\n**Résultats :**\n\nLe coût de fabrication d'une insuline humaine se situe entre **2,5 et 3,5 dollars par flacon**. Pour la plupart des insulines analogues, c'est le même ordre de grandeur.\n\nPourtant, en France, un flacon d'insuline humaine se vend environ **13 euros**, et un flacon de Lantus environ **25 euros**, soit presque le double.\n\n**Conclusion des chercheurs :** ni le prix de l'insuline humaine, ni le surcoût de l'insuline analogue ne sont justifiés par les coûts de fabrication réels. Les marges de l'industrie pharmaceutique sont considérables."
+    },
+    {
+      "id": "s24",
+      "title": "Calcul : écart de prix de vente",
+      "type": "number",
+      "question": "Si un flacon d'insuline humaine coûte 13 euros et un flacon de Lantus coûte 25 euros, quel est l'écart de prix en euros ?",
+      "answer": 12,
+      "tolerance": 0,
+      "hint": "Soustrayez le prix de l'insuline humaine du prix de la Lantus.",
+      "explanation": "$25 - 13 = 12$ euros d'écart entre les deux flacons, alors que leurs coûts de fabrication sont quasiment identiques."
+    },
+    {
+      "id": "s25",
+      "title": "La crise de l'insuline aux États-Unis",
+      "type": "markdown",
+      "content": "## Une crise sanitaire et sociale aux États-Unis\n\nAux États-Unis, l'oligopole des trois grands laboratoires a conduit à une situation dramatique : en 10 ans, le prix de l'insuline a été **multiplié par 10**.\n\nDe nombreux malades, même assurés, ne peuvent plus se payer cette hormone vitale. Des patients témoignent devoir :\n\n- Payer des franchises pouvant atteindre 14 000 dollars par an avant toute prise en charge\n- Dépendre de dons d'insuline de proches ou d'amis\n- Renoncer à des projets de vie (achat de maison, enfants) pour des raisons financières\n\nDes associations comme **T1 International**, fondée par des patients diabétiques de type 1, militent pour que l'accès à l'insuline soit reconnu comme un **droit humain**, dénonçant des hausses de prix dépassant parfois 1000% pour certaines entreprises."
+    },
+    {
+      "id": "s26",
+      "title": "Le rationnement de l'insuline",
+      "type": "markdown",
+      "content": "## Le rationnement, une pratique dangereuse et mortelle\n\nFace à l'impossibilité de payer leur insuline, certains patients sont contraints de la **rationner** : ils en prennent moins que nécessaire, ou parfois pas du tout.\n\nCette pratique est extrêmement dangereuse et peut être mortelle. Des patients perdent des années d'espérance de vie, ou meurent, simplement parce qu'ils ne peuvent pas se payer leur traitement.\n\nDes témoignages poignants évoquent des sacrifices personnels majeurs : renoncer à un projet de vie familiale, à l'achat d'un logement, ou même perdre un proche par manque de moyens financiers pour se procurer l'insuline."
+    },
+    {
+      "id": "s27",
+      "title": "QCM : la crise de l'insuline aux États-Unis",
+      "type": "quiz",
+      "question": "Quelle est la conséquence directe de la hausse massive des prix de l'insuline aux États-Unis évoquée dans le document ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Une baisse générale du nombre de diabétiques",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Le rationnement de l'insuline par certains patients, avec des conséquences parfois mortelles",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Une amélioration de la qualité de l'insuline produite",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Une baisse des assurances privées proposées aux patients",
+          "correct": false
+        }
+      ],
+      "explanation": "Faute de pouvoir payer leur insuline, certains patients américains sont contraints de la rationner, ce qui peut entraîner des complications graves et parfois la mort."
+    },
+    {
+      "id": "s28",
+      "title": "Auditions au Congrès américain",
+      "type": "markdown",
+      "content": "## Le Congrès américain interpelle les laboratoires\n\nDébut 2019, le Congrès américain a demandé aux trois principaux fabricants d'insuline de se justifier sur les fortes hausses de prix.\n\nLes laboratoires ont reporté la responsabilité sur le système de santé américain et ses nombreux intermédiaires.\n\nÀ la suite de ces auditions, les trois grands laboratoires se sont engagés à réduire les prix pour les patients les plus démunis. Cette mesure a cependant été perçue par certains observateurs comme **une mesure pour faire bonne figure**, sans résoudre le problème structurel.\n\nContrairement à l'Europe, les Américains ne bénéficient pas d'une prise en charge publique des dépenses de santé aussi généreuse, ce qui fait de l'insuline, pour beaucoup, un véritable **produit de luxe**."
+    },
+    {
+      "id": "s29",
+      "title": "Le glucocentrisme et ses dangers",
+      "type": "markdown",
+      "content": "## L'obsession du taux de sucre : le glucocentrisme\n\nPendant longtemps, l'objectif principal du traitement du diabète de type 2 a été de maintenir le taux d'HbA1c en dessous de 7%, quitte à empiler les médicaments.\n\nEn **2008**, une étude majeure a ébranlé cette certitude : plus on s'obstine à faire baisser le taux de sucre en multipliant les médicaments, plus le risque pour les malades augmente.\n\n**Résultats paradoxaux de l'étude :**\n\n- Un traitement intensif visant à faire fortement baisser la glycémie peut réduire certaines complications (yeux, nerfs)\n- Mais il **augmente** le risque d'hypoglycémie sévère et le risque cardiovasculaire\n- Les patients sous traitement intensif ont eu **plus** de complications que ceux dont la glycémie restait plus élevée\n\nCette obsession de la glycémie est en partie entretenue par des intérêts économiques : plus le seuil cible est bas, plus les médecins prescrivent de médicaments."
+    },
+    {
+      "id": "s30",
+      "title": "Vrai ou Faux : traitement intensif",
+      "type": "truefalse",
+      "statement": "Selon l'étude de 2008 évoquée dans le document, faire baisser intensivement le taux de sucre par de multiples médicaments réduit toujours le risque cardiovasculaire chez les diabétiques de type 2.",
+      "answer": false,
+      "explanation": "Paradoxalement, l'étude a montré que les traitements intensifs visant à faire baisser fortement la glycémie augmentaient le risque d'hypoglycémie et le risque cardiovasculaire, plutôt que de le réduire."
+    },
+    {
+      "id": "s31",
+      "title": "Le scandale de l'Avandia",
+      "type": "markdown",
+      "content": "## L'affaire Avandia : un scandale sanitaire majeur\n\nEn 2007, l'**Avandia**, traitement antidiabétique le plus vendu au monde à l'époque, est au cœur d'un immense scandale sanitaire.\n\nLe professeur **Steve Nissen**, cardiologue à Cleveland, découvre sur le site de GlaxoSmithKline 42 études cliniques, dont **35 n'avaient jamais été rendues publiques**.\n\n**Résultats alarmants :**\n\n- 40% de hausse des infarctus du myocarde\n- Une hausse presque identique de la mortalité cardiovasculaire\n- Environ **80 000 personnes** auraient eu des crises cardiaques à cause de l'Avandia\n\n**Conséquences réglementaires :**\n\n- Aux États-Unis, les prescriptions de l'Avandia sont restreintes\n- En Europe, le médicament est désormais **totalement interdit**"
+    },
+    {
+      "id": "s32",
+      "title": "Carte mémo : le scandale Avandia",
+      "type": "flashcard",
+      "question": "Qui a révélé le scandale de l'Avandia et quel chiffre clé illustre l'ampleur des dégâts causés ?",
+      "answer": "Le scandale a été révélé par le **professeur Steve Nissen**, cardiologue à Cleveland, qui a découvert 35 études cliniques non publiées montrant une hausse de 40% des infarctus. On estime qu'environ **80 000 personnes** auraient eu des crises cardiaques à cause de l'Avandia.",
+      "hint": "Pensez à un cardiologue américain et à un chiffre à cinq zéros."
+    },
+    {
+      "id": "s33",
+      "title": "Les failles de l'évaluation des antidiabétiques",
+      "type": "markdown",
+      "content": "## Un problème d'évaluation des médicaments\n\nLe scandale de l'Avandia a mis en lumière une faille majeure dans l'évaluation des antidiabétiques : les autorités de santé se concentraient sur **un seul critère** pour autoriser leur mise sur le marché : la baisse du taux de sucre dans le sang.\n\nCela signifiait qu'un médicament pouvait être approuvé sans que ses effets secondaires sur d'autres organes (notamment le cœur) ne soient correctement évalués par des **essais cliniques randomisés en double aveugle**, pourtant considérés comme le standard scientifique de référence.\n\nDepuis ce scandale, les autorités de santé ont pris conscience des dérives de ce **glucocentrisme**. Désormais, les nouveaux médicaments antidiabétiques doivent prouver qu'ils n'aggravent pas le risque cardiovasculaire."
+    },
+    {
+      "id": "s34",
+      "title": "Étapes : l'essai clinique randomisé en double aveugle",
+      "type": "steps",
+      "stepsTitle": "Principe d'un essai clinique randomisé en double aveugle",
+      "intro": "C'est le standard scientifique pour évaluer l'efficacité réelle d'un médicament.",
+      "steps": [
+        {
+          "label": "Étape 1",
+          "content": "On constitue deux groupes de patients de manière aléatoire (randomisation)."
+        },
+        {
+          "label": "Étape 2",
+          "content": "Un groupe reçoit le médicament à évaluer, l'autre groupe reçoit un placebo."
+        },
+        {
+          "label": "Étape 3",
+          "content": "Ni les patients ni les médecins ne savent qui reçoit le médicament ou le placebo (double aveugle)."
+        },
+        {
+          "label": "Étape 4",
+          "content": "On compare les résultats de santé entre les deux groupes pour mesurer l'efficacité réelle et les effets secondaires."
+        }
+      ]
+    },
+    {
+      "id": "s35",
+      "title": "La rémission du diabète de type 2",
+      "type": "markdown",
+      "content": "## Vers une rémission possible du diabète de type 2\n\nUn groupe de chercheurs britanniques a réalisé une étude sensationnelle, démontrant qu'une perte de poids radicale pouvait conduire à une **rémission du diabète de type 2**, sans aucune opération chirurgicale.\n\n**Résultats :** entre 50% et 80% des patients étudiés sont parvenus à une rémission, selon le poids perdu.\n\n**Mécanisme biologique :** lorsque le pancréas s'engraisse, la production d'insuline baisse car les cellules productrices sont endommagées, mais pas détruites. Quand le pancréas se dégraisse, ces cellules retrouvent leur fonction et la production d'insuline augmente, faisant baisser le taux de sucre dans le sang.\n\n**Méthode utilisée :** un régime très strict pendant trois semaines (boisson à base de soja très faible en calories), suivi d'un régime sans glucides."
+    },
+    {
+      "id": "s36",
+      "title": "Étapes : le protocole de rémission",
+      "type": "steps",
+      "stepsTitle": "Protocole de rémission du diabète de type 2",
+      "intro": "Une méthode radicale mise au point par des chercheurs britanniques, basée sur la perte de poids.",
+      "steps": [
+        {
+          "label": "Étape 1 : Phase initiale (3 semaines)",
+          "content": "Le patient suit un régime à base d'une boisson de soja très faible en calories."
+        },
+        {
+          "label": "Étape 2 : Phase de transition",
+          "content": "Le patient poursuit avec un régime sans hydrate de carbone (sans sucre)."
+        },
+        {
+          "label": "Étape 3 : Dégraissage du pancréas",
+          "content": "La perte de poids permet au pancréas de se dégraisser, ce qui restaure progressivement la production d'insuline."
+        },
+        {
+          "label": "Étape 4 : Suivi médical",
+          "content": "Des analyses sanguines régulières permettent de constater la rémission éventuelle et d'ajuster ou supprimer les traitements."
+        }
+      ]
+    },
+    {
+      "id": "s37",
+      "title": "QCM : la rémission du diabète de type 2",
+      "type": "quiz",
+      "question": "Quel pourcentage de patients ayant suivi le protocole de perte de poids radicale est parvenu à une rémission du diabète de type 2, selon l'étude britannique ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Entre 10% et 20%",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Entre 50% et 80%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "100% des patients",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Moins de 5%",
+          "correct": false
+        }
+      ],
+      "explanation": "Selon le poids perdu, entre 50% et 80% des patients sont parvenus à une rémission du diabète de type 2, sans opération chirurgicale, uniquement grâce à une perte de poids radicale."
+    },
+    {
+      "id": "s38",
+      "title": "Limites de la méthode de rémission",
+      "type": "markdown",
+      "content": "## Les limites de cette approche\n\nMalgré des résultats prometteurs, cette méthode de rémission présente des limites importantes :\n\n- Elle exige des **efforts considérables** et une grande motivation de la part du patient\n- Seul **un tiers** des diabétiques de type 2 qui commencent ce programme peuvent espérer guérir un jour\n- La majorité des malades devront continuer à vivre avec leur traitement\n\nPar ailleurs, certains observateurs soulignent que cette approche, bien que potentiellement source d'économies importantes pour les systèmes de santé, ne bénéficie pas du même soutien institutionnel que les traitements médicamenteux, en partie en raison du poids de l'industrie pharmaceutique, qui n'a pas d'intérêt économique à promouvoir une solution qui réduirait la consommation de médicaments."
+    },
+    {
+      "id": "s39",
+      "title": "Calcul : patients en rémission potentielle",
+      "type": "number",
+      "question": "Si un tiers des diabétiques de type 2 qui suivent le programme peuvent espérer guérir, sur un groupe de 300 patients, combien pourraient potentiellement parvenir à une rémission ?",
+      "answer": 100,
+      "tolerance": 0,
+      "hint": "Un tiers de 300, c'est $300 \\div 3$.",
+      "explanation": "$300 \\div 3 = 100$ patients pourraient potentiellement parvenir à une rémission selon les données du document."
+    },
+    {
+      "id": "s40",
+      "title": "Récapitulatif",
+      "type": "markdown",
+      "content": "# Récapitulatif du cours\n\nCe cours a permis d'explorer le diabète sous un angle à la fois médical, historique et économique.\n\n**Points clés à retenir :**\n\n- Le diabète de type 1 résulte d'une défaillance irréversible du pancréas, tandis que le diabète de type 2 est largement lié aux modes de vie modernes\n- L'insuline, découverte en 1921, a connu plusieurs évolutions technologiques (animale, humaine, analogue), chacune accompagnée de hausses de prix\n- Le cas de la Lantus illustre comment des stratégies marketing peuvent influencer les pratiques médicales et les remboursements, malgré des preuves scientifiques contestées\n- Les coûts de fabrication réels de l'insuline sont très inférieurs aux prix de vente pratiqués, révélant des marges importantes pour l'industrie pharmaceutique\n- Aux États-Unis, la flambée des prix a conduit à une crise sanitaire grave, avec rationnement et décès évitables\n- L'obsession du taux de sucre (glucocentrisme) et le scandale de l'Avandia ont révélé des failles majeures dans l'évaluation des antidiabétiques\n- Des approches non médicamenteuses, basées sur la perte de poids, offrent des perspectives de rémission pour certains patients atteints de diabète de type 2\n\nLe diabète apparaît ainsi comme un véritable révélateur des tensions entre santé publique, intérêts économiques et choix de société."
+    }
+  ],
+  "createdAt": "2026-06-18"
+}
