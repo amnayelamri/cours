@@ -1,0 +1,316 @@
+{
+  "id": "louis-xiv-mort-versailles",
+  "title": "La mort de Louis XIV (1715)",
+  "description": "Les derniers jours du Roi Soleil : maladie, agonie, adieux et funérailles royales",
+  "tags": [
+    "histoire",
+    "Louis XIV",
+    "Versailles",
+    "monarchie",
+    "17e siècle"
+  ],
+  "lang": "fr",
+  "slides": [
+    {
+      "id": "s1",
+      "title": "Introduction",
+      "type": "markdown",
+      "content": "# La mort de Louis XIV (1715)\n\nAu matin du **1er septembre 1715**, Louis XIV s'éteint en sa chambre du château de Versailles, emporté par une gangrène foudroyante après 23 jours d'agonie.\n\nAlors que ce monarque absolu avait gouverné la France pendant **72 ans** — le règne le plus long de l'histoire toutes périodes et tous pays confondus — sa mort devient, comme toute sa vie, un acte public et politique.\n\n## Ce cours explore :\n- Le contexte du déclin final du roi\n- La progression de la maladie et l'incompétence médicale\n- Les adieux du souverain à sa cour et à sa famille\n- Le rituel des funérailles royales"
+    },
+    {
+      "id": "s2",
+      "title": "Le contexte du déclin (1715)",
+      "type": "markdown",
+      "content": "# La France en 1715 : un royaume épuisé\n\n## Un roi vieillissant et isolé\n\nLouis XIV approche de ses **77 ans**, un record de longévité pour l'époque. Mais son moral est en berne :\n- Versailles est synonyme d'ennui, plus d'audace intellectuelle\n- Tous ses grands hommes ont disparu : Colbert, Louvois, Vauban, Le Brun...\n- Un nouveau siècle a commencé sans lui — les hommes des Lumières sont déjà là\n\n## Une famille royale décimée\n\nEntre 1711 et 1712, une série de deuils frappe la famille royale :\n- Son fils le Grand Dauphin (1711)\n- Son petit-fils le duc de Bourgogne (1712)\n- La duchesse de Bourgogne (1712)\n- L'arrière-petit-fils aîné (1712)\n\nSeul héritier direct : le petit duc d'Anjou, **âgé de 2 ans**, futur Louis XV.\n\n## Un peuple lassé\n\nLa **guerre de Succession d'Espagne** (15 ans de combats) a ruiné la France. Aggravé par le petit âge glaciaire, le pays connaît la famine, des épidémies, des émeutes. Plus d'**un million de morts**, soit plus de 5 % de la population."
+    },
+    {
+      "id": "s3",
+      "title": "Quiz : durée du règne de Louis XIV",
+      "type": "quiz",
+      "question": "Combien d'années Louis XIV a-t-il gouverné la France ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "54 ans",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "62 ans",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "72 ans",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "80 ans",
+          "correct": false
+        }
+      ],
+      "explanation": "Louis XIV gouverne la France depuis 72 ans au moment de sa mort en 1715. C'est le règne le plus long de l'histoire, toutes périodes et tous pays confondus."
+    },
+    {
+      "id": "s4",
+      "title": "Vrai ou Faux : la famille royale",
+      "type": "truefalse",
+      "statement": "En 1715, Louis XIV avait perdu la quasi-totalité de sa descendance directe entre 1711 et 1712.",
+      "answer": true,
+      "explanation": "En l'espace de deux ans, son fils le Grand Dauphin, son petit-fils le duc de Bourgogne, la duchesse de Bourgogne et l'arrière-petit-fils aîné moururent tous. Seul restait le petit duc d'Anjou, âgé de 2 ans, futur Louis XV."
+    },
+    {
+      "id": "s5",
+      "title": "La dernière maladie : chronologie",
+      "type": "steps",
+      "stepsTitle": "Progression de la maladie (août-septembre 1715)",
+      "intro": "La maladie se développe à partir du séjour de Louis XIV au château de Marly, où il passait ses étés.",
+      "steps": [
+        {
+          "label": "10 août 1715",
+          "content": "Le roi ressent une douleur à la jambe gauche à Marly. Il rentre à Versailles et continue sa vie de souverain : messe, conseil, repas publics."
+        },
+        {
+          "label": "12 août 1715",
+          "content": "Examiné par son premier médecin Fagon, qui diagnostique une sciatique — un diagnostic erroné qu'il maintiendra pendant plus de 12 jours, faisant perdre un temps précieux."
+        },
+        {
+          "label": "13 août 1715",
+          "content": "Dernière apparition officielle en public : le roi reçoit l'ambassadeur de Perse, sanglé dans un costume d'or et de velours noir incrusté de diamants, alors qu'il tient à peine debout."
+        },
+        {
+          "label": "14 août 1715",
+          "content": "La douleur est permanente, le roi ne peut plus marcher. Il se fait conduire en fauteuil pour une dernière messe à la chapelle royale de Versailles."
+        },
+        {
+          "label": "19 août 1715",
+          "content": "Le roi ne sort plus de sa chambre. La maladie est plus grave que prévu. Tout le dernier acte du règne va se jouer dans cette pièce."
+        },
+        {
+          "label": "22 août 1715",
+          "content": "Fagon convoque 10 médecins de Paris. Impuissants, ils proposent des remèdes dérisoires : lait d'ânesse, saignées, bains d'herbes aromatiques au vin de Bourgogne."
+        },
+        {
+          "label": "24 août 1715",
+          "content": "La jambe du roi est découverte marbrée de noir. Le diagnostic tombe enfin : c'est la gangrène. Le roi apprend que sa maladie est fatale."
+        },
+        {
+          "label": "1er septembre 1715",
+          "content": "Louis XIV s'éteint à 8h15 du matin, 'comme une chandelle qui s'éteint', selon le témoignage de ses proches."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Flashcard : le diagnostic de la gangrène",
+      "type": "flashcard",
+      "question": "Quelle maladie causa la mort de Louis XIV, et pourquoi fut-elle diagnostiquée si tardivement ?",
+      "answer": "Louis XIV mourut d'une **gangrène sénile** partie du pied gauche et remontant le long du corps. Le médecin Fagon diagnostiqua d'abord à tort une **sciatique** et s'acharna sur ce diagnostic pendant 12 jours. Les médecins hésitèrent à prononcer le mot 'gangrène' car ils savaient qu'à cet âge, cela signifiait quasiment la mort.",
+      "hint": "Regarder la date du 12 août et comparer avec le 24 août."
+    },
+    {
+      "id": "s7",
+      "title": "La médecine du Grand Siècle",
+      "type": "markdown",
+      "content": "# La médecine au 17e siècle : ignorance et rituels\n\n## Des théories héritées de l'Antiquité\n\nAu 17e siècle, la médecine n'a pas évolué depuis Hippocrate. On s'en tient à la **théorie des humeurs**, avec une idée très floue de la cause des maladies.\n\n## Deux remèdes universels\n\n- **La saignée** : on prélève le sang du malade à l'aide de petits plats (poilettes), pouvant représenter jusqu'à 30 cl de sang, ce qui provoquait souvent des pertes de connaissance chez des patients déjà affaiblis.\n- **La purgation** : le patient absorbe un liquide forçant les vomissements ou les selles ; parfois remplacée par un lavement.\n\n## Louis XIV, patient modèle... et victime\n\nLouis XIV subit plusieurs **centaines de saignées** au cours de sa vie. L'un des témoins de l'époque affirme que sans ces purges inhumaines, le roi aurait sans doute dépassé les 80 ans.\n\nPourtant, Louis XIV avait une robuste constitution qui l'avait aidé à surmonter :\n- La petite vérole à 9 ans\n- Une fièvre typhoïde à 22 ans\n- Une fistule anale à 47 ans — la célèbre **'grande opération'** de 1686"
+    },
+    {
+      "id": "s8",
+      "title": "Quiz : la médecine royale",
+      "type": "quiz",
+      "question": "Quel fut le premier diagnostic erroné posé par le médecin Fagon sur la maladie de Louis XIV ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "La goutte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Une sciatique",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Une fistule",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "La fièvre typhoïde",
+          "correct": false
+        },
+        {
+          "id": "e",
+          "text": "Une infection sanguine",
+          "correct": false
+        }
+      ],
+      "explanation": "Fagon diagnostiqua une sciatique et s'acharna sur ce diagnostic pendant plus de 12 jours, faisant perdre un temps précieux. La gangrène ne fut identifiée que le 24 août, lorsque la jambe du roi apparut marbrée de noir."
+    },
+    {
+      "id": "s9",
+      "title": "La 'bonne mort' du roi chrétien",
+      "type": "markdown",
+      "content": "# Mourir en roi et en chrétien\n\n## Le devoir de donner le spectacle d'une bonne mort\n\nLouis XIV porte le titre de **'roi très chrétien'**, il tient ses pouvoirs directement de Dieu — c'est la **monarchie de droit divin**. Sa mort doit être exemplaire et édifiante pour toute l'Europe.\n\n## Les derniers sacrements (25 août)\n\nDès le 24 août, ayant appris que sa maladie est fatale, le roi :\n- Se confesse auprès du père Le Tellier\n- Reçoit le **viatique** (communion)\n- Reçoit l'**extrême-onction**\n\nIl prononce ces mots : *'Si c'est ça de mourir, je n'ai pas peur, et j'aimerais souffrir davantage en expiation de mes péchés.'*\n\n## Les adieux (26 août)\n\nLe 26 août, apprenant qu'il lui reste **2 jours** à vivre, le roi organise ses adieux :\n- Aux **princes**, qu'il exhorte à rester unis\n- Aux **princesses**, dont il ne peut retenir les larmes\n- À **Madame de Maintenon**, son épouse secrète, dont il regrette de ne pas avoir été assez attentif\n- À son **arrière-petit-fils** de 5 ans, futur Louis XV, à qui il dit : *'Mignon, vous allez être un grand roi... évitez autant que vous le pourrez de faire la guerre. C'est la ruine des peuples. Ne suivez pas le mauvais exemple que je vous ai donné.'*"
+    },
+    {
+      "id": "s10",
+      "title": "Flashcard : le discours au futur Louis XV",
+      "type": "flashcard",
+      "question": "Quel conseil capital Louis XIV donna-t-il à son arrière-petit-fils de 5 ans, futur Louis XV ?",
+      "answer": "Louis XIV lui dit : **'Mignon, vous allez être un grand roi, mais tout votre bonheur dépendra d'être soumis à Dieu et du soin que vous aurez de soulager vos peuples. Évitez autant que vous le pourrez de faire la guerre. C'est la ruine des peuples. Ne suivez pas le mauvais exemple que je vous ai donné.'** — Un aveu remarquable de ses propres erreurs.",
+      "hint": "Louis XIV avait lui-même mené des guerres incessantes pendant tout son règne."
+    },
+    {
+      "id": "s11",
+      "title": "Vrai ou Faux : le testament royal",
+      "type": "truefalse",
+      "statement": "Louis XIV nomma le duc d'Orléans régent à part entière dans son testament.",
+      "answer": false,
+      "explanation": "Louis XIV nomma le duc d'Orléans non pas régent, mais président d'un conseil de régence composé de 13 personnes, dont les 12 autres étaient des ennemis du duc. Louis XIV avait même prédit que son testament serait cassé dès sa mort, ce qui advint dès le 2 septembre 1715."
+    },
+    {
+      "id": "s12",
+      "title": "La cour de Versailles et l'étiquette",
+      "type": "markdown",
+      "content": "# La vie en représentation à Versailles\n\n## Le système de cour porté à sa perfection\n\nLouis XIV avait élaboré un système fondé sur le **rayonnement royal** : tout procède du roi comme le soleil et ses satellites. L'étiquette était la plus complexe d'Europe.\n\n## Les petits privilèges qui structurent tout\n\n- Tenir le bougeoir au coucher du roi\n- Donner la chemise du roi par la manche droite\n- Être admis lors des chasses royales\n- Disposer d'un **brevet d'affaires** (accès au roi sur sa chaise percée)\n\nChaque petit privilège fixe les rangs, les rangs fixent l'importance des courtisans entre eux.\n\n## Diviser pour mieux régner\n\nLes nobles, au lieu de s'unir pour contester le pouvoir royal, avaient les yeux entièrement tournés vers le roi et se disputaient des privilèges infimes. Environ **3 000 courtisans** vivaient à Versailles en permanence ; lors des grandes fêtes, la cour atteignait **10 000 personnes**.\n\n## Le quotidien public du roi\n- Lever en public\n- Messe à la chapelle\n- Dîner public à midi\n- Souper public le soir\n- Coucher en public"
+    },
+    {
+      "id": "s13",
+      "title": "Matching : les espaces et leurs fonctions",
+      "type": "matching",
+      "instruction": "Reliez chaque lieu de Versailles à sa fonction dans la vie et la mort de Louis XIV.",
+      "pairs": [
+        {
+          "left": "La chambre royale",
+          "right": "Lieu du lever, du coucher et de la mort du roi"
+        },
+        {
+          "left": "La chapelle royale",
+          "right": "Messe quotidienne ; dernière visite du roi le 14 août"
+        },
+        {
+          "left": "Le salon d'Apollon (salle du trône)",
+          "right": "Audience de congé à l'ambassadeur de Perse, 13 août"
+        },
+        {
+          "left": "Le salon de Mercure",
+          "right": "Exposition du cercueil royal pendant 8 jours"
+        },
+        {
+          "left": "La basilique de Saint-Denis",
+          "right": "Nécropole royale ; lieu de repos éternel du corps de Louis XIV"
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "title": "Les funérailles royales",
+      "type": "steps",
+      "stepsTitle": "Rituel des funérailles de Louis XIV",
+      "intro": "Louis XIV n'ayant laissé aucune instruction funèbre, le duc d'Orléans ordonna de reconduire les mêmes célébrations que pour Louis XIII.",
+      "steps": [
+        {
+          "label": "1er septembre 1715",
+          "content": "Décès du roi à 8h15. Présentation publique du défunt à visage découvert dans son lit pendant une journée, pour que chacun puisse constater sa mort."
+        },
+        {
+          "label": "2 septembre",
+          "content": "Autopsie dans l'antichambre de l'Oeil-de-Boeuf devant une trentaine de personnes. La gangrène sénile, partie du pied gauche, avait remonté jusqu'à la tête. Le corps est divisé en trois parties : le corps, le coeur, et les entrailles."
+        },
+        {
+          "label": "2-9 septembre",
+          "content": "Le cercueil est exposé dans le salon de Mercure sur un podium avec drap d'or. Défilé protocolaire des grands corps de l'Etat, ambassadeurs et ecclésiastiques pendant 8 jours."
+        },
+        {
+          "label": "9 septembre au soir",
+          "content": "Le cercueil descend dans la cour royale de Versailles. Un cortège de 2 500 personnes (gardes, pauvres vêtus de gris portant des cierges, officiers, carrosses de princes) escorte le roi par l'avenue de Paris jusqu'à Saint-Denis."
+        },
+        {
+          "label": "10 septembre - 23 octobre",
+          "content": "Le corps est exposé sur un immense catafalque dans la basilique de Saint-Denis, transformée en salle d'opéra baroque : tout drapé de noir, milliers de cierges, loges construites. Puis déplacé 42 jours dans le chevet."
+        },
+        {
+          "label": "23 octobre 1715",
+          "content": "Après la messe solennelle, Louis XIV est déposé dans le caveau d'attente, tête tournée vers l'entrée, attendant son successeur. Le roi d'armes prononce : 'Le roi Louis XIV est mort. Longue vie au roi Louis XV !' — 'Le roi est mort, vive le roi.'"
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "title": "Quiz : la tripartition du corps royal",
+      "type": "quiz",
+      "question": "Lors de l'autopsie, le corps de Louis XIV fut symboliquement divisé en trois parties. Où fut déposé son coeur ?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A la basilique de Saint-Denis",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "A Notre-Dame de Paris",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "A l'église Saint-Louis des Jésuites",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "A la chapelle royale de Versailles",
+          "correct": false
+        }
+      ],
+      "explanation": "La tradition monarchique française divisait le corps royal en trois : le corps allait à Saint-Denis (nécropole royale), les entrailles à Notre-Dame de Paris, et le coeur à l'église Saint-Louis des Jésuites, rue Saint-Antoine — pour rejoindre celui de son père Louis XIII."
+    },
+    {
+      "id": "s16",
+      "title": "Matching : les trois tombeaux de Louis XIV",
+      "type": "matching",
+      "instruction": "Reliez chaque partie du corps royal au lieu de sa sépulture.",
+      "pairs": [
+        {
+          "left": "Le corps",
+          "right": "Basilique de Saint-Denis"
+        },
+        {
+          "left": "Le coeur",
+          "right": "Eglise Saint-Louis des Jésuites (rue Saint-Antoine)"
+        },
+        {
+          "left": "Les entrailles",
+          "right": "Notre-Dame de Paris"
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "title": "Nombre : l'âge de Louis XIV à sa mort",
+      "type": "number",
+      "question": "Quel âge avait Louis XIV au moment de sa mort le 1er septembre 1715 ? (Il était né le 5 septembre 1638.)",
+      "answer": 76,
+      "tolerance": 1,
+      "hint": "Il s'apprêtait à fêter ses 77 ans — calculer à partir de la date de naissance.",
+      "explanation": "Louis XIV est mort le 1er septembre 1715, quelques jours avant son 77e anniversaire (5 septembre). Il avait donc 76 ans accomplis au moment de son décès."
+    },
+    {
+      "id": "s18",
+      "title": "Vrai ou Faux : le testament cassé",
+      "type": "truefalse",
+      "statement": "Louis XIV s'attendait lui-même à ce que son testament soit annulé après sa mort.",
+      "answer": true,
+      "explanation": "Louis XIV l'affirma lui-même dans ses mémoires : 'Nous pouvons tout ce que nous voulons lorsque nous sommes, mais quand nous ne sommes plus, nous pouvons moins qu'un particulier.' Dès le 2 septembre 1715, le duc d'Orléans fit casser le testament au Parlement et obtint la régence à part entière."
+    },
+    {
+      "id": "s19",
+      "title": "Récapitulatif",
+      "type": "markdown",
+      "content": "# Récapitulatif : la mort de Louis XIV\n\n## Un roi épuisé dans un royaume à bout\n\nEn 1715, Louis XIV affronte sa mort dans un contexte sombre : famille décimée, peuple lassé, trésor ruiné par les guerres, et une cour vieillissante repliée sur elle-même.\n\n## Une maladie mal gérée\n\nLa **gangrène sénile** de la jambe gauche fut diagnostiquée trop tardivement par un corps médical encore prisonnier des théories antiques (saignées, purgations). L'amputation, envisagée, fut jugée trop tardive.\n\n## Une mort théâtrale et édifiante\n\nFidèle jusqu'au bout à son rôle de roi soleil, Louis XIV mourut en **spectacle public**, donnant l'exemple d'une mort chrétienne exemplaire, faisant ses adieux avec dignité et transmettant à son arrière-petit-fils un conseil de paix que lui-même n'avait pas suivi.\n\n## Un testament piétiné\n\nDès le 2 septembre, le duc d'Orléans fit casser le testament au Parlement et obtint la régence pleine et entière.\n\n## Des funérailles à la hauteur du règne\n\nPendant près de **deux mois**, les cérémonies funèbres se déroulent à Versailles, Saint-Denis, Paris, puis dans tout le royaume et en Europe. Louis XIV repose à la basilique de Saint-Denis, conformément à la tradition royale.\n\n---\n\n*Epitaphe gravée sur la boîte de vermeil contenant son coeur : 'Ici est le coeur de Louis XIV, par la grâce de Dieu roi de France et de Navarre, très chrétien, décédé en son château de Versailles le 1er jour de septembre 1715.'*"
+    }
+  ],
+  "createdAt": "2026-06-20"
+}
