@@ -782,5 +782,19 @@
     ],
     "createdAt": "2026-06-18",
     "slideCount": 40
+  },
+  {
+    "id": "louis-xiv-mort-versailles",
+    "title": "La mort de Louis XIV (1715)",
+    "description": "Les derniers jours du Roi Soleil : maladie, agonie, adieux et funérailles royales",
+    "tags": [
+      "histoire",
+      "Louis XIV",
+      "Versailles",
+      "monarchie",
+      "17e siècle"
+    ],
+    "createdAt": "2026-06-20",
+    "slideCount": 19
   }
 ]
