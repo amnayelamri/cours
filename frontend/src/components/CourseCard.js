@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiLayers, FiTag } from 'react-icons/fi';
+import { PiLeaf } from 'react-icons/pi';
 
 const CourseCard = ({ course }) => (
   <Link to={`/course/${course.id}`} className="course-card">
     <div className="course-card-header">
-      <img src={`${process.env.PUBLIC_URL}/tree.svg`} alt="arbre" className="card-tree" />
+      <PiLeaf size={48} />
     </div>
     <div className="course-card-body">
       <h3>{course.title}</h3>
