@@ -37,19 +37,16 @@ const NumberViewer = ({ question, answer, hint, explanation, tolerance = 0 }) =>
           className={`number-input${status ? ` number-input--${status}` : ''}`}
           value={value}
           onChange={e => { setValue(e.target.value); if (status) setStatus(null); }}
-          onKeyDown={e => e.key === 'Enter' && status !== 'correct' && check()}
+          onKeyDown={e => e.key === 'Enter' && status === null && check()}
           placeholder="Votre réponse…"
-          disabled={status === 'correct'}
+          disabled={status !== null}
         />
-        {status !== 'correct' ? (
-          <button
-            className="btn-primary number-check-btn"
-            onClick={check}
-            disabled={!value.trim()}
-          >
+        {status === null && (
+          <button className="btn-primary number-check-btn" onClick={check} disabled={!value.trim()}>
             Vérifier
           </button>
-        ) : (
+        )}
+        {status !== null && (
           <button className="btn-secondary number-check-btn" onClick={reset}>
             <FiRefreshCw size={14} /> Réessayer
           </button>
@@ -62,15 +59,16 @@ const NumberViewer = ({ question, answer, hint, explanation, tolerance = 0 }) =>
           <span>Correct !</span>
         </div>
       )}
+
       {status === 'wrong' && (
         <div className="number-feedback number-feedback--wrong">
           <FiX size={18} />
-          <span>Ce n'est pas la bonne réponse — réessayez.</span>
+          <span>Incorrect — la bonne réponse est <strong>{answer}</strong>.</span>
         </div>
       )}
 
-      {status === 'correct' && explanation && (
-        <div className="number-explanation">
+      {(status === 'correct' || status === 'wrong') && explanation && (
+        <div className="number-explanation" style={status === 'wrong' ? { borderLeftColor: '#f44336' } : {}}>
           <MarkdownViewer content={explanation} />
         </div>
       )}

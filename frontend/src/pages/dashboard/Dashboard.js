@@ -85,6 +85,16 @@ const JSON_SCHEMA = {
         { question: "Qu'est-ce que la congruence modulo $n$ ?", answer: "On dit que $a \\equiv b \\pmod{n}$ si $n \\mid (a - b)$." },
         { question: "La congruence est-elle une relation d'équivalence ?", answer: "Oui : elle est réflexive, symétrique et transitive." }
       ]
+    },
+    {
+      id: "s10", title: "Remettre dans l'ordre", type: "ordering",
+      instruction: "Remettez les étapes de la preuve dans le bon ordre.",
+      orderItems: [
+        "Supposons que $n \\mid a$ et $n \\mid b$",
+        "Alors $a = nk$ et $b = nl$ pour des entiers $k, l$",
+        "Donc $a + b = n(k+l)$",
+        "Ainsi $n \\mid (a+b)$"
+      ]
     }
   ]
 };
@@ -746,7 +756,8 @@ const Dashboard = () => {
               <strong>flashcard</strong> (carte à retourner), <strong>truefalse</strong>,{' '}
               <strong>number</strong>, <strong>steps</strong> (étapes révélées),{' '}
               <strong>matching</strong> (relier les éléments),{' '}
-              <strong>reveal</strong> (questions/réponses masquées).{' '}
+              <strong>reveal</strong> (questions/réponses masquées),{' '}
+              <strong>ordering</strong> (remettre dans l'ordre).{' '}
               Copiez ce schéma, donnez-le à l'IA avec votre contenu, puis importez le JSON généré.
             </p>
             <pre>{JSON.stringify(JSON_SCHEMA, null, 2)}</pre>

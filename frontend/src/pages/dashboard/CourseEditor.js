@@ -16,6 +16,7 @@ const TYPES = [
   { value: 'truefalse', label: '⚖️ Vrai / Faux' },
   { value: 'matching',  label: '🔗 Association' },
   { value: 'reveal',    label: '👁️ Réponses masquées' },
+  { value: 'ordering',  label: '🔢 Remettre dans l\'ordre' },
   { value: 'video',     label: 'Vidéo' },
   { value: 'pdf',       label: 'PDF' },
   { value: 'image',     label: 'Image' },
@@ -51,6 +52,8 @@ const newSlide = () => ({
   items: [
     { question: '', answer: '' },
   ],
+  // ordering
+  orderItems: ['', ''],
 });
 
 const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove }) => {
@@ -301,6 +304,45 @@ const SlideEditor = ({ slide, index, total, courseId, onChange, onDelete, onMove
               <button className="add-choice-btn"
                 onClick={() => onChange({ ...slide, items: [...(slide.items || []), { question: '', answer: '' }] })}>
                 + Ajouter une question
+              </button>
+            </div>
+          </div>
+        )}
+
+        {slide.type === 'ordering' && (
+          <div className="quiz-editor">
+            <input
+              placeholder="Consigne (ex: Remettez les étapes dans le bon ordre)"
+              value={slide.instruction || ''}
+              onChange={e => onChange({ ...slide, instruction: e.target.value })}
+            />
+            <p style={{ fontSize: 12, color: 'var(--text-secondary)', margin: '4px 0 8px' }}>
+              Entrez les éléments dans le bon ordre — ils seront mélangés pour l'apprenant.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {(slide.orderItems || []).map((item, oi) => (
+                <div key={oi} style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                  <span style={{ minWidth: 26, height: 26, borderRadius: '50%', background: 'var(--primary-color)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, flexShrink: 0 }}>
+                    {oi + 1}
+                  </span>
+                  <input
+                    placeholder={`Élément ${oi + 1} (Markdown + LaTeX)`}
+                    value={item || ''}
+                    style={{ flex: 1 }}
+                    onChange={e => { const it = [...slide.orderItems]; it[oi] = e.target.value; onChange({ ...slide, orderItems: it }); }}
+                  />
+                  {slide.orderItems.length > 2 && (
+                    <button
+                      style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: 2, padding: '4px 8px', color: 'var(--error-color)', cursor: 'pointer' }}
+                      onClick={() => onChange({ ...slide, orderItems: slide.orderItems.filter((_, idx) => idx !== oi) })}>
+                      ✕
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button className="add-choice-btn"
+                onClick={() => onChange({ ...slide, orderItems: [...(slide.orderItems || []), ''] })}>
+                + Ajouter un élément
               </button>
             </div>
           </div>
