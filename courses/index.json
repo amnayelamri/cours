@@ -11,9 +11,8 @@
       "تاريخنا",
       "قصة المال"
     ],
-    "lang": "ar",
     "createdAt": "2026-06-10",
-    "slideCount": 20
+    "slideCount": 21
   },
   {
     "id": "pretest-congruence-1bac-sm",
@@ -845,6 +844,6 @@
       "مراجعة"
     ],
     "createdAt": "2026-06-23",
-    "slideCount": 63
+    "slideCount": 60
   }
 ]
