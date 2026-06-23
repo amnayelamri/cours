@@ -48,6 +48,20 @@ const Home = () => {
 
       {error && <div className="error">{error}</div>}
 
+      {/* ── Dossiers (cachés pendant la recherche) ── */}
+      {!isSearching && collections.length > 0 && (
+        <section className="home-section">
+          <h2 className="home-section-title">
+            <FiFolder size={18} /> Dossiers
+          </h2>
+          <div className="courses-grid">
+            {collections.map(col => (
+              <CollectionCard key={col.id} collection={col} />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── Tous les cours ── */}
       <section className="home-section">
         <h2 className="home-section-title">
@@ -73,20 +87,6 @@ const Home = () => {
           </div>
         )}
       </section>
-
-      {/* ── Dossiers (cachés pendant la recherche) ── */}
-      {!isSearching && collections.length > 0 && (
-        <section className="home-section">
-          <h2 className="home-section-title">
-            <FiFolder size={18} /> Dossiers
-          </h2>
-          <div className="collections-list">
-            {collections.map(col => (
-              <CollectionCard key={col.id} collection={col} />
-            ))}
-          </div>
-        </section>
-      )}
     </div>
   );
 };
