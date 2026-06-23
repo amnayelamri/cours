@@ -1,0 +1,67 @@
+{
+  "title": "test ",
+  "description": "test ",
+  "tags": [],
+  "slides": [
+    {
+      "id": "slide-1782224203587",
+      "title": "",
+      "type": "ordering",
+      "content": "",
+      "file": "",
+      "url": "",
+      "caption": "",
+      "question": "",
+      "answer": "",
+      "hint": "",
+      "explanation": "",
+      "tolerance": 0,
+      "choices": [
+        {
+          "id": "a",
+          "text": "",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "",
+          "correct": false
+        }
+      ],
+      "statement": "",
+      "stepsTitle": "",
+      "intro": "",
+      "steps": [
+        {
+          "label": "Étape 1",
+          "content": ""
+        }
+      ],
+      "instruction": "",
+      "pairs": [
+        {
+          "left": "",
+          "right": ""
+        },
+        {
+          "left": "",
+          "right": ""
+        }
+      ],
+      "items": [
+        {
+          "question": "",
+          "answer": ""
+        }
+      ],
+      "orderItems": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    }
+  ],
+  "id": "test",
+  "createdAt": "2026-06-23"
+}
