@@ -46,6 +46,62 @@
       "explanation": "هذا مثال تاريخي مأساوي يلخص منطق السوق المنفلت من الأخلاق: تخصصت إيرلندا بالكامل في زراعة البطاطس بدافع الربح، وعندما ضرب المرض هذا المحصول، رفضت بريطانيا التدخل متمسكة بحرية السوق المطلقة حتى لو كان الثمن إباده شعب بأكمله."
     },
     {
+      "id": "slide-1782241943469",
+      "title": "",
+      "type": "video",
+      "content": "",
+      "file": "",
+      "url": "https://www.youtube.com/watch?v=M8Rbj7H0eX4",
+      "caption": "",
+      "question": "",
+      "answer": "",
+      "hint": "",
+      "explanation": "",
+      "tolerance": 0,
+      "choices": [
+        {
+          "id": "a",
+          "text": "",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "",
+          "correct": false
+        }
+      ],
+      "statement": "",
+      "stepsTitle": "",
+      "intro": "",
+      "steps": [
+        {
+          "label": "Étape 1",
+          "content": ""
+        }
+      ],
+      "instruction": "",
+      "pairs": [
+        {
+          "left": "",
+          "right": ""
+        },
+        {
+          "left": "",
+          "right": ""
+        }
+      ],
+      "items": [
+        {
+          "question": "",
+          "answer": ""
+        }
+      ],
+      "orderItems": [
+        "",
+        ""
+      ]
+    },
+    {
       "id": "s6",
       "title": "مجاعة البنغال الكبرى",
       "type": "markdown",
