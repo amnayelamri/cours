@@ -111,7 +111,8 @@
       "seerah-quraysh-001",
       "mina-ribat-001",
       "auto-1",
-      "auto-généré si absent"
+      "auto-généré si absent",
+      "qissat-almal-ep0-madkhal-tarikhiy"
     ],
     "id": "podact"
   },
@@ -128,5 +129,17 @@
       "ensam-maths-2016"
     ],
     "id": "concours-ensam"
+  },
+  {
+    "title": "مراجعة ",
+    "emoji": "",
+    "description": "",
+    "courseIds": [
+      "yusuf-warsh-exercises-01",
+      "yusuf-warsh-completion-02",
+      "yusuf-warsh-master-03",
+      "muraja3a-yunus-warsh-mutashabih"
+    ],
+    "id": "murajaah-quran"
   }
 ]

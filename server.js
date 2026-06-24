@@ -121,10 +121,11 @@ app.get('/api/collections', (req, res) => res.json(readCollections()));
 app.post('/api/collections', (req, res) => {
   const col = { ...req.body };
   if (!col.id) {
-    col.id = (col.title || 'dossier')
+    const slug = (col.title || 'dossier')
       .toLowerCase()
       .normalize('NFD').replace(/[̀-ͯ]/g, '')
       .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    col.id = slug || 'dossier-' + Date.now();
   }
   col.courseIds = col.courseIds || [];
   const list = readCollections();
