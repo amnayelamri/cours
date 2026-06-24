@@ -434,7 +434,7 @@ const CourseEditor = () => {
       getCourse(id)
         .then(data => {
           setCourse({ ...data, tags: (data.tags || []).join(', ') });
-          setSavedId(data.id);
+          setSavedId(data.id || id);
         })
         .catch(() => setMsg({ type: 'error', text: 'Impossible de charger le cours.' }));
     }
