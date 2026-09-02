@@ -395,10 +395,11 @@ a:hover {
 }
 
 /* ===== COURSE PAGE ===== */
-.course-page { display: flex; flex-direction: column; height: calc(100vh - 64px); }
+.course-page { display: flex; flex-direction: column; min-height: calc(100vh - 64px); }
 .course-header {
   display: flex; align-items: center; gap: 16px; padding: 12px 24px;
-  border-bottom: 1px solid var(--border-color); background: var(--surface); flex-shrink: 0;
+  border-bottom: 1px solid var(--border-color); background: var(--surface);
+  position: sticky; top: 64px; z-index: 50;
 }
 .course-header .back-btn {
   background: none; color: var(--text-secondary); display: flex;
@@ -414,27 +415,55 @@ a:hover {
   border: 1px solid var(--border-color); padding: 8px; border-radius: 2px; display: flex;
 }
 .list-btn:hover { color: var(--text-primary); }
-.course-layout { display: flex; flex: 1; overflow: hidden; }
-.slide-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
-.slide-title {
-  padding: 12px 32px; font-size: 17px; font-weight: 400;
-  color: var(--text-secondary); border-bottom: 1px solid var(--border-color); flex-shrink: 0;
+
+/* Layout body */
+.course-layout { display: flex; align-items: flex-start; }
+.slides-scroll { flex: 1; min-width: 0; padding: 24px 32px 120px; }
+
+/* Chaque slide = une section */
+.slide-section {
+  background: var(--surface); border: 1px solid var(--border-color);
+  border-radius: 6px; margin-bottom: 24px; overflow: hidden;
+  scroll-margin-top: 96px;
 }
-.slide-content { flex: 1; overflow-y: auto; padding: 32px; }
+.slide-section--active { border-color: var(--primary-color); }
+.slide-section-title {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 24px; font-size: 16px; font-weight: 500;
+  border-bottom: 1px solid var(--border-color); color: var(--text-primary);
+  background: var(--surface-hover);
+}
+.slide-section-num {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 26px; height: 26px; border-radius: 50%;
+  background: var(--primary-color); color: var(--surface);
+  font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+.slide-section-content { padding: 32px; }
+
+/* Barre de navigation fixe en bas */
 .slide-nav {
   display: flex; align-items: center; gap: 16px;
-  padding: 14px 32px; border-top: 1px solid var(--border-color);
-  background: var(--surface); flex-shrink: 0;
+  padding: 12px 24px; border-top: 1px solid var(--border-color);
+  background: var(--surface);
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
 }
 .nav-btn {
   background: var(--surface-hover); color: var(--text-primary);
   border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 2px;
   display: flex; align-items: center; gap: 4px; font-size: 13px;
 }
-.nav-btn:hover:not(:disabled) { background: var(--primary-color); }
-.progress-bar { flex: 1; height: 3px; background: var(--surface-hover); border-radius: 2px; overflow: hidden; }
-.progress-bar div { height: 100%; background: var(--primary-color); transition: width 0.3s ease; }
-.slide-list { width: 260px; border-left: 1px solid var(--border-color); overflow-y: auto; background: var(--surface); flex-shrink: 0; }
+.nav-btn:hover:not(:disabled) { background: var(--primary-color); color: var(--surface); }
+.nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.progress-bar { flex: 1; height: 4px; background: var(--surface-hover); border-radius: 2px; overflow: hidden; }
+.progress-bar div { height: 100%; background: var(--primary-color); transition: width 0.4s ease; }
+
+/* Liste latérale */
+.slide-list {
+  width: 260px; border-left: 1px solid var(--border-color); overflow-y: auto;
+  background: var(--surface); flex-shrink: 0;
+  position: sticky; top: 112px; max-height: calc(100vh - 180px);
+}
 .slide-list-header {
   padding: 14px 16px; font-size: 13px; font-weight: 500;
   border-bottom: 1px solid var(--border-color); color: var(--text-secondary);
@@ -1416,105 +1445,7 @@ a:hover {
   font-style: italic;
 }
 
-/* ===== MOBILE : CARROUSEL SWIPE ===== */
-
-/* Caché par défaut sur desktop */
-.mobile-slides { display: none; }
-
-@media (max-width: 768px) {
-  .desktop-only { display: none !important; }
-
-  .course-page {
-    height: 100dvh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Fenêtre visible : clips les panneaux hors-écran */
-  .mobile-slides {
-    display: flex;
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* Bande intérieure : 3 panneaux côte à côte (300vw).
-     Le transform est géré en inline style par React. */
-  .mobile-slides-inner {
-    display: flex;
-    width: 300vw;
-    height: 100%;
-    will-change: transform;
-  }
-
-  /* Chaque panneau : largeur = 1 écran, scroll vertical libre */
-  .mobile-slide-panel {
-    width: 100vw;
-    flex-shrink: 0;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    padding: 16px 16px 12px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    scrollbar-width: none;
-  }
-  .mobile-slide-panel::-webkit-scrollbar { display: none; }
-
-  .mobile-slide-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    flex-shrink: 0;
-  }
-
-  .mobile-slide-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-primary);
-    flex: 1;
-    margin-right: 10px;
-  }
-
-  .mobile-slide-counter {
-    font-size: 12px;
-    color: var(--text-secondary);
-    background: var(--surface-hover);
-    padding: 3px 8px;
-    border-radius: 10px;
-    flex-shrink: 0;
-  }
-
-  .mobile-slide-content { flex: 1; }
-
-  /* Points de progression */
-  .mobile-progress {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px;
-    padding-top: 14px;
-    flex-shrink: 0;
-  }
-
-  .mobile-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--border-color);
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .mobile-dot.active {
-    background: var(--primary-color);
-    transform: scale(1.4);
-  }
-}
+/* ===== COURSE PAGE — RESPONSIVE ===== */
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -1544,11 +1475,12 @@ a:hover {
   /* Course page */
   .course-header { padding: 10px 14px; gap: 10px; }
   .course-title h2 { font-size: 14px; }
-  .slide-content { padding: 16px; }
+  .slides-scroll { padding: 12px 12px 100px; }
+  .slide-section-content { padding: 16px; }
+  .slide-section-title { padding: 12px 16px; font-size: 14px; }
   .slide-nav { padding: 10px 16px; gap: 10px; }
   .nav-btn { padding: 8px 10px; font-size: 12px; }
-  .slide-title { padding: 10px 16px; font-size: 15px; }
-  .slide-list { width: 220px; }
+  .slide-list { display: none; } /* masqué sur mobile, navigation par scroll suffisante */
 
   /* Articles */
   .articles-page { padding: 16px; }

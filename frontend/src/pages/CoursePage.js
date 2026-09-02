@@ -1,20 +1,21 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getCourse, getAssetUrl } from '../services/courseService';
-import MarkdownViewer from '../components/viewers/MarkdownViewer';
-import PDFViewer from '../components/viewers/PDFViewer';
-import ImageViewer from '../components/viewers/ImageViewer';
-import VideoViewer from '../components/viewers/VideoViewer';
-import QuizViewer        from '../components/viewers/QuizViewer';
-import FlashcardViewer   from '../components/viewers/FlashcardViewer';
-import NumberViewer      from '../components/viewers/NumberViewer';
-import StepsViewer       from '../components/viewers/StepsViewer';
-import TrueFalseViewer   from '../components/viewers/TrueFalseViewer';
-import MatchingViewer    from '../components/viewers/MatchingViewer';
-import RevealViewer     from '../components/viewers/RevealViewer';
-import OrderingViewer   from '../components/viewers/OrderingViewer';
+import MarkdownViewer  from '../components/viewers/MarkdownViewer';
+import PDFViewer       from '../components/viewers/PDFViewer';
+import ImageViewer     from '../components/viewers/ImageViewer';
+import VideoViewer     from '../components/viewers/VideoViewer';
+import QuizViewer      from '../components/viewers/QuizViewer';
+import FlashcardViewer from '../components/viewers/FlashcardViewer';
+import NumberViewer    from '../components/viewers/NumberViewer';
+import StepsViewer     from '../components/viewers/StepsViewer';
+import TrueFalseViewer from '../components/viewers/TrueFalseViewer';
+import MatchingViewer  from '../components/viewers/MatchingViewer';
+import RevealViewer    from '../components/viewers/RevealViewer';
+import OrderingViewer  from '../components/viewers/OrderingViewer';
 import { FiChevronLeft, FiChevronRight, FiList, FiArrowLeft } from 'react-icons/fi';
 
+/* ── Contenu d'une slide ─────────────────────────────────────── */
 const SlideContent = ({ slide, courseId, lang }) => {
   const isRtl = lang === 'ar';
   let content;
@@ -39,23 +40,17 @@ const SlideContent = ({ slide, courseId, lang }) => {
   return content;
 };
 
+/* ── Page principale ─────────────────────────────────────────── */
 const CoursePage = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const { id }    = useParams();
+  const navigate  = useNavigate();
   const [course, setCourse]     = useState(null);
   const [current, setCurrent]   = useState(0);
   const [showList, setShowList] = useState(false);
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState('');
 
-  // ── Carousel mobile ────────────────────────────────────────────
-  const [dragOffset, setDragOffset]   = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const touchRef      = useRef({ x: 0, y: 0, dir: null });
-  const animatingRef  = useRef(false); // ref pour les callbacks (évite les closures périmées)
-  const containerRef  = useRef(null);
-  const centerPanelRef = useRef(null);
-  // ──────────────────────────────────────────────────────────────
+  const slideRefs = useRef([]);
 
   useEffect(() => {
     getCourse(id)
@@ -65,112 +60,58 @@ const CoursePage = () => {
   }, [id]);
 
   const total = course?.slides?.length || 0;
-  const prev  = useCallback(() => setCurrent(s => Math.max(0, s - 1)), []);
-  const next  = useCallback(() => setCurrent(s => Math.min(total - 1, s + 1)), [total]);
 
-  // Remet le scroll en haut à chaque changement de slide
-  useEffect(() => {
-    if (centerPanelRef.current) centerPanelRef.current.scrollTop = 0;
-  }, [current]);
-
-  // Clavier (desktop)
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft')  prev();
-    };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [prev, next]);
-
-  // ── Touch start ────────────────────────────────────────────────
-  const handleTouchStart = useCallback((e) => {
-    if (animatingRef.current) return;
-    touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY, dir: null };
+  /* Mise à jour du compteur courant au fil du scroll */
+  const updateCurrent = useCallback(() => {
+    const HEADER_H = 110; // hauteur approximative header + marge
+    let activeIdx = 0;
+    slideRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const top = el.getBoundingClientRect().top;
+      if (top <= HEADER_H + 40) activeIdx = i;
+    });
+    setCurrent(activeIdx);
   }, []);
 
-  // ── Touch move (non-passive, pour pouvoir appeler preventDefault) ──
-  const handleTouchMove = useCallback((e) => {
-    if (animatingRef.current) return;
-    const dx = e.touches[0].clientX - touchRef.current.x;
-    const dy = e.touches[0].clientY - touchRef.current.y;
-
-    // Verrouille la direction dès 8 px de mouvement
-    if (touchRef.current.dir === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
-      touchRef.current.dir = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
-    }
-
-    if (touchRef.current.dir === 'h') {
-      e.preventDefault(); // empêche le scroll natif sur l'axe horizontal
-      // Résistance en bout de course (1ère / dernière slide)
-      let offset = dx;
-      if ((dx > 0 && current === 0) || (dx < 0 && current === total - 1)) {
-        offset = dx * 0.2;
-      }
-      setDragOffset(offset);
-    }
-  }, [current, total]);
-
-  // ── Touch end ──────────────────────────────────────────────────
-  const handleTouchEnd = useCallback((e) => {
-    if (touchRef.current.dir !== 'h') return;
-
-    const dx        = e.changedTouches[0].clientX - touchRef.current.x;
-    const W         = window.innerWidth;
-    const threshold = W * 0.28; // 28 % de la largeur écran suffit
-
-    animatingRef.current = true;
-    setIsAnimating(true);
-
-    if (dx < -threshold && current < total - 1) {
-      // ── Glisse vers la gauche → slide suivante
-      setDragOffset(-W);
-      setTimeout(() => {
-        animatingRef.current = false;
-        setIsAnimating(false);
-        setCurrent(s => s + 1);
-        setDragOffset(0);
-      }, 300);
-    } else if (dx > threshold && current > 0) {
-      // ── Glisse vers la droite → slide précédente
-      setDragOffset(W);
-      setTimeout(() => {
-        animatingRef.current = false;
-        setIsAnimating(false);
-        setCurrent(s => s - 1);
-        setDragOffset(0);
-      }, 300);
-    } else {
-      // ── Pas assez → revient en place
-      setDragOffset(0);
-      setTimeout(() => {
-        animatingRef.current = false;
-        setIsAnimating(false);
-      }, 300);
-    }
-  }, [current, total]);
-
-  // Attache le listener touchmove en { passive: false } pour pouvoir preventDefault
   useEffect(() => {
-    const el = containerRef.current;
+    window.addEventListener('scroll', updateCurrent, { passive: true });
+    return () => window.removeEventListener('scroll', updateCurrent);
+  }, [updateCurrent]);
+
+  /* Scroll vers une slide précise */
+  const scrollToSlide = useCallback((idx) => {
+    const el = slideRefs.current[idx];
     if (!el) return;
-    el.addEventListener('touchmove', handleTouchMove, { passive: false });
-    return () => el.removeEventListener('touchmove', handleTouchMove);
-  }, [handleTouchMove]);
-  // ──────────────────────────────────────────────────────────────
+    const HEADER_H = 64;
+    const y = el.getBoundingClientRect().top + window.scrollY - HEADER_H - 16;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    setCurrent(idx);
+  }, []);
+
+  const prev = useCallback(() => scrollToSlide(Math.max(0, current - 1)),         [current, scrollToSlide]);
+  const next = useCallback(() => scrollToSlide(Math.min(total - 1, current + 1)), [current, total, scrollToSlide]);
+
+  /* Navigation clavier */
+  useEffect(() => {
+    const h = (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
+      if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [prev, next]);
 
   if (loading) return <div className="loading">Chargement du cours...</div>;
   if (error)   return <div className="error">{error}</div>;
   if (!total)  return <div className="error">Ce cours n'a pas encore de slides.</div>;
 
-  const slide     = course.slides[current];
-  const prevSlide = current > 0         ? course.slides[current - 1] : null;
-  const nextSlide = current < total - 1 ? course.slides[current + 1] : null;
-  const lang      = course.lang;
-  const isRtl     = lang === 'ar';
+  const lang  = course.lang;
+  const isRtl = lang === 'ar';
 
   return (
     <div className="course-page">
+
+      {/* ── En-tête fixe ── */}
       <div className="course-header">
         <button onClick={() => navigate('/')} className="back-btn">
           <FiArrowLeft size={16} /> Retour
@@ -184,33 +125,40 @@ const CoursePage = () => {
         </button>
       </div>
 
-      {/* ── DESKTOP ── */}
-      <div className="course-layout desktop-only">
-        <div className="slide-area">
-          {slide.title && <div className="slide-title" dir={isRtl ? 'rtl' : undefined}>{slide.title}</div>}
-          <div className="slide-content">
-            <SlideContent key={current} slide={slide} courseId={id} lang={lang} />
-          </div>
-          <div className="slide-nav">
-            <button onClick={prev} disabled={current === 0} className="nav-btn">
-              <FiChevronLeft size={20} /> Préc.
-            </button>
-            <div className="progress-bar">
-              <div style={{ width: `${((current + 1) / total) * 100}%` }} />
-            </div>
-            <button onClick={next} disabled={current === total - 1} className="nav-btn">
-              Suiv. <FiChevronRight size={20} />
-            </button>
-          </div>
+      {/* ── Corps ── */}
+      <div className="course-layout">
+
+        {/* Zone de scroll principal */}
+        <div className="slides-scroll">
+          {course.slides.map((slide, i) => (
+            <section
+              key={slide.id || i}
+              className={`slide-section${i === current ? ' slide-section--active' : ''}`}
+              ref={el => { slideRefs.current[i] = el; }}
+              data-idx={String(i)}
+            >
+              {slide.title && (
+                <div className="slide-section-title" dir={isRtl ? 'rtl' : undefined}>
+                  <span className="slide-section-num">{i + 1}</span>
+                  {slide.title}
+                </div>
+              )}
+              <div className="slide-section-content">
+                <SlideContent slide={slide} courseId={id} lang={lang} />
+              </div>
+            </section>
+          ))}
         </div>
+
+        {/* Liste latérale */}
         {showList && (
           <div className="slide-list">
             <div className="slide-list-header">Slides</div>
             {course.slides.map((s, i) => (
               <button
                 key={s.id || i}
-                className={`slide-list-item ${i === current ? 'active' : ''}`}
-                onClick={() => setCurrent(i)}
+                className={`slide-list-item${i === current ? ' active' : ''}`}
+                onClick={() => { scrollToSlide(i); setShowList(false); }}
               >
                 <span className="slide-num">{i + 1}</span>
                 <span className="slide-name">{s.title || `Slide ${i + 1}`}</span>
@@ -221,70 +169,19 @@ const CoursePage = () => {
         )}
       </div>
 
-      {/* ── MOBILE : carrousel 3 panneaux ── */}
-      <div
-        className="mobile-slides"
-        ref={containerRef}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        {/* Bande intérieure qui se déplace */}
-        <div
-          className="mobile-slides-inner"
-          style={{
-            transform: `translateX(calc(-100vw + ${dragOffset}px))`,
-            transition: isAnimating
-              ? 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-              : 'none',
-          }}
-        >
-          {/* Panneau GAUCHE — slide précédente */}
-          <div className="mobile-slide-panel">
-            {prevSlide && (
-              <>
-                <div className="mobile-slide-header" dir={isRtl ? 'rtl' : undefined}>
-                  {prevSlide.title && <span className="mobile-slide-title">{prevSlide.title}</span>}
-                  <span className="mobile-slide-counter">{current} / {total}</span>
-                </div>
-                <div className="mobile-slide-content">
-                  <SlideContent key={`prev-${current}`} slide={prevSlide} courseId={id} lang={lang} />
-                </div>
-              </>
-            )}
-          </div>
-
-          {/* Panneau CENTRE — slide actuelle */}
-          <div className="mobile-slide-panel" ref={centerPanelRef}>
-            <div className="mobile-slide-header" dir={isRtl ? 'rtl' : undefined}>
-              {slide.title && <span className="mobile-slide-title">{slide.title}</span>}
-              <span className="mobile-slide-counter">{current + 1} / {total}</span>
-            </div>
-            <div className="mobile-slide-content">
-              <SlideContent key={`curr-${current}`} slide={slide} courseId={id} lang={lang} />
-            </div>
-            <div className="mobile-progress">
-              {course.slides.map((_, pi) => (
-                <div key={pi} className={`mobile-dot ${pi === current ? 'active' : ''}`} />
-              ))}
-            </div>
-          </div>
-
-          {/* Panneau DROIT — slide suivante */}
-          <div className="mobile-slide-panel">
-            {nextSlide && (
-              <>
-                <div className="mobile-slide-header" dir={isRtl ? 'rtl' : undefined}>
-                  {nextSlide.title && <span className="mobile-slide-title">{nextSlide.title}</span>}
-                  <span className="mobile-slide-counter">{current + 2} / {total}</span>
-                </div>
-                <div className="mobile-slide-content">
-                  <SlideContent key={`next-${current}`} slide={nextSlide} courseId={id} lang={lang} />
-                </div>
-              </>
-            )}
-          </div>
+      {/* ── Barre de navigation fixe en bas ── */}
+      <div className="slide-nav">
+        <button onClick={prev} disabled={current === 0} className="nav-btn">
+          <FiChevronLeft size={20} /> Préc.
+        </button>
+        <div className="progress-bar">
+          <div style={{ width: `${((current + 1) / total) * 100}%` }} />
         </div>
+        <button onClick={next} disabled={current === total - 1} className="nav-btn">
+          Suiv. <FiChevronRight size={20} />
+        </button>
       </div>
+
     </div>
   );
 };
