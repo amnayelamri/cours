@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "1bac-sm-ch09-produit-scalaire",
   "title": "Chapitre 9 — Produit scalaire",
   "description": "Définition et expressions du produit scalaire, propriétés et applications au triangle, applications à la géométrie analytique.",
@@ -29,103 +29,103 @@
       "title": "QCM 1 — Définition et expressions du produit scalaire",
       "items": [
         {
-          "question": "**Item 1.** $\\vec u\\cdot\\vec v=xx'+yy'$ pour $\\vec u(x;y)$ et $\\vec v(x';y')$ en repère orthonormé.",
+          "question": "**1.** $\\vec u\\cdot\\vec v=xx'+yy'$ pour $\\vec u(x;y)$ et $\\vec v(x';y')$ en repère orthonormé.",
           "answer": "**Vrai** : expression analytique du cours."
         },
         {
-          "question": "**Item 2.** $\\vec u\\cdot\\vec u=\\|\\vec u\\|^2$.",
+          "question": "**2.** $\\vec u\\cdot\\vec u=\\|\\vec u\\|^2$.",
           "answer": "**Vrai** : propriété du cours (carré scalaire)."
         },
         {
-          "question": "**Item 3.** $\\vec u\\cdot\\vec v=\\|\\vec u\\|\\,\\|\\vec v\\|\\,\\sin\\left(\\widehat{\\vec u,\\vec v}\\right)$.",
+          "question": "**3.** $\\vec u\\cdot\\vec v=\\|\\vec u\\|\\,\\|\\vec v\\|\\,\\sin\\left(\\widehat{\\vec u,\\vec v}\\right)$.",
           "answer": "**Faux** : c'est le *cosinus*, pas le sinus, qui intervient dans cette expression."
         },
         {
-          "question": "**Item 4.** Deux vecteurs sont orthogonaux si, et seulement si, leur produit scalaire est nul.",
+          "question": "**4.** Deux vecteurs sont orthogonaux si, et seulement si, leur produit scalaire est nul.",
           "answer": "**Vrai** : caractérisation de l'orthogonalité."
         },
         {
-          "question": "**Item 5.** Le déterminant $\\det(\\vec u,\\vec v)$ permet de tester la colinéarité de deux vecteurs.",
+          "question": "**5.** Le déterminant $\\det(\\vec u,\\vec v)$ permet de tester la colinéarité de deux vecteurs.",
           "answer": "**Vrai** : $\\vec u,\\vec v$ colinéaires $\\iff\\det(\\vec u,\\vec v)=0$."
         },
         {
-          "question": "**Item 6.** $\\vec u\\cdot\\vec v=0$ si, et seulement si, $\\vec u=\\vec0$ ou $\\vec v=\\vec0$ ou $\\vec u\\perp\\vec v$.",
+          "question": "**6.** $\\vec u\\cdot\\vec v=0$ si, et seulement si, $\\vec u=\\vec0$ ou $\\vec v=\\vec0$ ou $\\vec u\\perp\\vec v$.",
           "answer": "**Vrai** : définition : les deux vecteurs sont nuls, ou orthogonaux."
         },
         {
-          "question": "**Item 7.** Le produit scalaire est bilinéaire.",
+          "question": "**7.** Le produit scalaire est bilinéaire.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 8.** $\\|\\vec u+\\vec v\\|^2=\\|\\vec u\\|^2+2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$.",
+          "question": "**8.** $\\|\\vec u+\\vec v\\|^2=\\|\\vec u\\|^2+2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$.",
           "answer": "**Vrai** : identité remarquable vectorielle."
         },
         {
-          "question": "**Item 9.** $\\vec u\\cdot\\vec v=\\vec u\\cdot\\vec w$ implique $\\vec v=\\vec w$.",
+          "question": "**9.** $\\vec u\\cdot\\vec v=\\vec u\\cdot\\vec w$ implique $\\vec v=\\vec w$.",
           "answer": "**Faux** : contre-exemple : $\\vec u\\cdot\\vec v=\\vec u\\cdot\\vec w$ n'entraîne pas $\\vec v=\\vec w$ en général."
         },
         {
-          "question": "**Item 10.** En repère orthonormé, $\\|\\vec u\\|=\\sqrt{x^2+y^2}$ pour $\\vec u(x;y)$.",
+          "question": "**10.** En repère orthonormé, $\\|\\vec u\\|=\\sqrt{x^2+y^2}$ pour $\\vec u(x;y)$.",
           "answer": "**Vrai** : formule de la norme en coordonnées orthonormées."
         },
         {
-          "question": "**Item 11.** $\\vec u\\cdot(\\vec v+\\vec w)=\\vec u\\cdot\\vec v+\\vec u\\cdot\\vec w$.",
+          "question": "**11.** $\\vec u\\cdot(\\vec v+\\vec w)=\\vec u\\cdot\\vec v+\\vec u\\cdot\\vec w$.",
           "answer": "**Vrai** : distributivité du produit scalaire."
         },
         {
-          "question": "**Item 12.** $\\|\\vec u-\\vec v\\|^2=\\|\\vec u\\|^2-2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$.",
+          "question": "**12.** $\\|\\vec u-\\vec v\\|^2=\\|\\vec u\\|^2-2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$.",
           "answer": "**Vrai** : identité remarquable vectorielle (différence)."
         },
         {
-          "question": "**Item 13.** Le produit scalaire de deux vecteurs colinéaires de même sens vaut $\\|\\vec u\\|\\times\\|\\vec v\\|$.",
+          "question": "**13.** Le produit scalaire de deux vecteurs colinéaires de même sens vaut $\\|\\vec u\\|\\times\\|\\vec v\\|$.",
           "answer": "**Vrai** : angle nul, $\\cos=1$, le produit scalaire vaut le produit des normes."
         },
         {
-          "question": "**Item 14.** Le produit scalaire dépend de l'orientation choisie du plan.",
+          "question": "**14.** Le produit scalaire dépend de l'orientation choisie du plan.",
           "answer": "**Faux** : le produit scalaire est indépendant de toute orientation, contrairement au déterminant."
         },
         {
-          "question": "**Item 15.** $\\vec 0\\cdot\\vec u=0$ pour tout vecteur $\\vec u$.",
+          "question": "**15.** $\\vec 0\\cdot\\vec u=0$ pour tout vecteur $\\vec u$.",
           "answer": "**Vrai** : le vecteur nul est orthogonal à tout vecteur."
         },
         {
-          "question": "**Item 16.** Inégalité de Cauchy-Schwarz : $|\\vec u\\cdot\\vec v|\\leqslant\\|\\vec u\\|\\times\\|\\vec v\\|$.",
+          "question": "**16.** Inégalité de Cauchy-Schwarz : $|\\vec u\\cdot\\vec v|\\leqslant\\|\\vec u\\|\\times\\|\\vec v\\|$.",
           "answer": "**Vrai** : inégalité fondamentale du produit scalaire."
         },
         {
-          "question": "**Item 17.** Le produit scalaire de deux vecteurs peut être calculé sans connaître l'angle qu'ils forment, via les coordonnées.",
+          "question": "**17.** Le produit scalaire de deux vecteurs peut être calculé sans connaître l'angle qu'ils forment, via les coordonnées.",
           "answer": "**Vrai** : c'est précisément l'intérêt de la formule analytique $xx'+yy'$."
         },
         {
-          "question": "**Item 18.** $\\vec u\\cdot\\vec v>0$ signifie que l'angle entre $\\vec u$ et $\\vec v$ est aigu (ou nul).",
+          "question": "**18.** $\\vec u\\cdot\\vec v>0$ signifie que l'angle entre $\\vec u$ et $\\vec v$ est aigu (ou nul).",
           "answer": "**Vrai** : le signe du produit scalaire renseigne sur la nature de l'angle."
         },
         {
-          "question": "**Item 19.** La projection orthogonale d'un point sur une droite est unique.",
+          "question": "**19.** La projection orthogonale d'un point sur une droite est unique.",
           "answer": "**Vrai** : propriété géométrique classique."
         },
         {
-          "question": "**Item 20.** Deux vecteurs orthogonaux ont nécessairement la même norme.",
+          "question": "**20.** Deux vecteurs orthogonaux ont nécessairement la même norme.",
           "answer": "**Faux** : rien ne lie l'orthogonalité à l'égalité des normes."
         },
         {
-          "question": "**Item 21.** $\\vec u\\cdot\\vec v=0$ implique que $\\vec u$ et $\\vec v$ forment un angle droit, si les deux sont non nuls.",
+          "question": "**21.** $\\vec u\\cdot\\vec v=0$ implique que $\\vec u$ et $\\vec v$ forment un angle droit, si les deux sont non nuls.",
           "answer": "**Vrai** : caractérisation de l'orthogonalité."
         },
         {
-          "question": "**Item 22.** Le produit scalaire de deux vecteurs unitaires vaut le cosinus de l'angle qu'ils forment.",
+          "question": "**22.** Le produit scalaire de deux vecteurs unitaires vaut le cosinus de l'angle qu'ils forment.",
           "answer": "**Vrai** : si $\\|\\vec u\\|=\\|\\vec v\\|=1$, alors $\\vec u\\cdot\\vec v=\\cos(\\text{angle})$."
         },
         {
-          "question": "**Item 23.** La formule des trois carrés peut se retrouver à partir du développement de $\\|\\vec u+\\vec v\\|^2$.",
+          "question": "**23.** La formule des trois carrés peut se retrouver à partir du développement de $\\|\\vec u+\\vec v\\|^2$.",
           "answer": "**Vrai** : c'est justement l'origine de la formule."
         },
         {
-          "question": "**Item 24.** Le carré scalaire de $\\vec u-\\vec v$ est toujours négatif.",
+          "question": "**24.** Le carré scalaire de $\\vec u-\\vec v$ est toujours négatif.",
           "answer": "**Faux** : un carré scalaire est toujours positif ou nul (c'est le carré d'une norme)."
         },
         {
-          "question": "**Item 25.** Le produit scalaire permet de démontrer certaines propriétés géométriques (orthogonalité, angles).",
+          "question": "**25.** Le produit scalaire permet de démontrer certaines propriétés géométriques (orthogonalité, angles).",
           "answer": "**Vrai** : l'un des grands intérêts pratiques du produit scalaire."
         }
       ]
@@ -153,103 +153,103 @@
       "title": "QCM 2 — Propriétés et applications au triangle",
       "items": [
         {
-          "question": "**Item 1.** Un vecteur normal à la droite d'équation $ax+by+c=0$ est $\\vec n(a;b)$.",
+          "question": "**1.** Un vecteur normal à la droite d'équation $ax+by+c=0$ est $\\vec n(a;b)$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 2.** La formule d'Al-Kashi s'écrit $BC^2=AB^2+AC^2-2\\,AB\\cdot AC\\cos(\\widehat A)$.",
+          "question": "**2.** La formule d'Al-Kashi s'écrit $BC^2=AB^2+AC^2-2\\,AB\\cdot AC\\cos(\\widehat A)$.",
           "answer": "**Vrai** : énoncé du théorème d'Al-Kashi."
         },
         {
-          "question": "**Item 3.** L'aire du triangle $ABC$ vaut $\\dfrac12\\det\\left(\\overrightarrow{AB},\\overrightarrow{AC}\\right)$, sans valeur absolue nécessaire.",
+          "question": "**3.** L'aire du triangle $ABC$ vaut $\\dfrac12\\det\\left(\\overrightarrow{AB},\\overrightarrow{AC}\\right)$, sans valeur absolue nécessaire.",
           "answer": "**Faux** : $\\det\\left(\\overrightarrow{AB},\\overrightarrow{AC}\\right)$ peut être négatif, il faut sa valeur absolue pour obtenir une aire."
         },
         {
-          "question": "**Item 4.** Si le triangle $ABC$ est rectangle en $A$, la formule d'Al-Kashi redonne le théorème de Pythagore.",
+          "question": "**4.** Si le triangle $ABC$ est rectangle en $A$, la formule d'Al-Kashi redonne le théorème de Pythagore.",
           "answer": "**Vrai** : $\\cos\\left(\\frac\\pi2\\right)=0$ annule le dernier terme."
         },
         {
-          "question": "**Item 5.** Le vecteur normal à une droite est toujours colinéaire à son vecteur directeur.",
+          "question": "**5.** Le vecteur normal à une droite est toujours colinéaire à son vecteur directeur.",
           "answer": "**Faux** : un vecteur normal est *orthogonal* au vecteur directeur, pas colinéaire."
         },
         {
-          "question": "**Item 6.** La projection orthogonale permet de simplifier le calcul d'un produit scalaire.",
+          "question": "**6.** La projection orthogonale permet de simplifier le calcul d'un produit scalaire.",
           "answer": "**Vrai** : méthode courante du cours."
         },
         {
-          "question": "**Item 7.** Dans un triangle rectangle, le produit scalaire des deux côtés de l'angle droit est nul.",
+          "question": "**7.** Dans un triangle rectangle, le produit scalaire des deux côtés de l'angle droit est nul.",
           "answer": "**Vrai** : c'est la caractérisation de l'angle droit."
         },
         {
-          "question": "**Item 8.** L'aire d'un triangle $ABC$ peut se calculer via $\\dfrac12\\,AB\\times AC\\times\\sin(\\widehat A)$.",
+          "question": "**8.** L'aire d'un triangle $ABC$ peut se calculer via $\\dfrac12\\,AB\\times AC\\times\\sin(\\widehat A)$.",
           "answer": "**Vrai** : formule trigonométrique de l'aire."
         },
         {
-          "question": "**Item 9.** Le théorème de la médiane relie la longueur d'une médiane aux longueurs des côtés.",
+          "question": "**9.** Le théorème de la médiane relie la longueur d'une médiane aux longueurs des côtés.",
           "answer": "**Vrai** : énoncé du théorème de la médiane."
         },
         {
-          "question": "**Item 10.** Deux triangles ayant le même périmètre ont la même aire.",
+          "question": "**10.** Deux triangles ayant le même périmètre ont la même aire.",
           "answer": "**Faux** : le même périmètre ne détermine pas l'aire d'un triangle."
         },
         {
-          "question": "**Item 11.** La formule d'Al-Kashi se retrouve en développant $\\overrightarrow{BC}=\\overrightarrow{BA}+\\overrightarrow{AC}$ puis en calculant $\\overrightarrow{BC}^2$.",
+          "question": "**11.** La formule d'Al-Kashi se retrouve en développant $\\overrightarrow{BC}=\\overrightarrow{BA}+\\overrightarrow{AC}$ puis en calculant $\\overrightarrow{BC}^2$.",
           "answer": "**Vrai** : c'est exactement la démonstration classique de la formule d'Al-Kashi."
         },
         {
-          "question": "**Item 12.** Un vecteur normal à une droite est orthogonal à tout vecteur directeur de cette droite.",
+          "question": "**12.** Un vecteur normal à une droite est orthogonal à tout vecteur directeur de cette droite.",
           "answer": "**Vrai** : propriété fondamentale du vecteur normal."
         },
         {
-          "question": "**Item 13.** Deux droites sont perpendiculaires si, et seulement si, un vecteur normal de l'une est colinéaire à un vecteur directeur de l'autre.",
+          "question": "**13.** Deux droites sont perpendiculaires si, et seulement si, un vecteur normal de l'une est colinéaire à un vecteur directeur de l'autre.",
           "answer": "**Vrai** : caractérisation par les vecteurs normaux et directeurs."
         },
         {
-          "question": "**Item 14.** L'équation cartésienne d'un cercle peut s'obtenir à l'aide du produit scalaire (caractérisation par le diamètre).",
+          "question": "**14.** L'équation cartésienne d'un cercle peut s'obtenir à l'aide du produit scalaire (caractérisation par le diamètre).",
           "answer": "**Vrai** : caractérisation d'un cercle de diamètre $[AB]$ via $\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=0$."
         },
         {
-          "question": "**Item 15.** Pour démontrer un alignement, on utilise plutôt le déterminant (colinéarité), pas le produit scalaire, qui teste l'orthogonalité.",
+          "question": "**15.** Pour démontrer un alignement, on utilise plutôt le déterminant (colinéarité), pas le produit scalaire, qui teste l'orthogonalité.",
           "answer": "**Vrai** : le produit scalaire teste l'orthogonalité ; l'alignement se teste avec le déterminant."
         },
         {
-          "question": "**Item 16.** Le théorème de Pythagore est un cas particulier de la formule d'Al-Kashi.",
+          "question": "**16.** Le théorème de Pythagore est un cas particulier de la formule d'Al-Kashi.",
           "answer": "**Vrai** : quand l'angle vaut $90°$, le terme en cosinus s'annule."
         },
         {
-          "question": "**Item 17.** Dans un triangle isocèle en $A$, la médiane issue de $A$ est aussi hauteur.",
+          "question": "**17.** Dans un triangle isocèle en $A$, la médiane issue de $A$ est aussi hauteur.",
           "answer": "**Vrai** : propriété classique du triangle isocèle."
         },
         {
-          "question": "**Item 18.** Deux vecteurs orthogonaux ont un produit scalaire strictement positif.",
+          "question": "**18.** Deux vecteurs orthogonaux ont un produit scalaire strictement positif.",
           "answer": "**Faux** : deux vecteurs orthogonaux ont un produit scalaire *nul*, pas strictement positif."
         },
         {
-          "question": "**Item 19.** La formule d'Al-Kashi permet de déterminer si un angle d'un triangle est obtus, connaissant les trois côtés.",
+          "question": "**19.** La formule d'Al-Kashi permet de déterminer si un angle d'un triangle est obtus, connaissant les trois côtés.",
           "answer": "**Vrai** : on compare $BC^2$ à $AB^2+AC^2$ via la formule d'Al-Kashi."
         },
         {
-          "question": "**Item 20.** Le produit scalaire $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$ ne dépend pas de l'ordre des points $B$ et $C$.",
+          "question": "**20.** Le produit scalaire $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$ ne dépend pas de l'ordre des points $B$ et $C$.",
           "answer": "**Vrai** : le produit scalaire est commutatif : $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\overrightarrow{AC}\\cdot\\overrightarrow{AB}$."
         },
         {
-          "question": "**Item 21.** La formule du produit scalaire via projection s'écrit $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\overrightarrow{AB}\\cdot\\overrightarrow{AH}$, où $H$ est le projeté orthogonal de $C$ sur $(AB)$.",
+          "question": "**21.** La formule du produit scalaire via projection s'écrit $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\overrightarrow{AB}\\cdot\\overrightarrow{AH}$, où $H$ est le projeté orthogonal de $C$ sur $(AB)$.",
           "answer": "**Vrai** : principe de la projection orthogonale."
         },
         {
-          "question": "**Item 22.** Le calcul de l'aire d'un triangle par le produit scalaire nécessite de connaître un angle.",
+          "question": "**22.** Le calcul de l'aire d'un triangle par le produit scalaire nécessite de connaître un angle.",
           "answer": "**Vrai** : la formule avec le sinus nécessite justement de connaître l'angle."
         },
         {
-          "question": "**Item 23.** Le théorème de la médiane peut se démontrer à l'aide du produit scalaire.",
+          "question": "**23.** Le théorème de la médiane peut se démontrer à l'aide du produit scalaire.",
           "answer": "**Vrai** : démonstration classique du théorème de la médiane."
         },
         {
-          "question": "**Item 24.** Un triangle ayant un angle obtus ne vérifie jamais le théorème de Pythagore.",
+          "question": "**24.** Un triangle ayant un angle obtus ne vérifie jamais le théorème de Pythagore.",
           "answer": "**Vrai** : un triangle avec un angle obtus ne peut pas être rectangle."
         },
         {
-          "question": "**Item 25.** Le produit scalaire de deux vecteurs opposés est toujours positif.",
+          "question": "**25.** Le produit scalaire de deux vecteurs opposés est toujours positif.",
           "answer": "**Faux** : $\\vec u\\cdot(-\\vec u)=-\\|\\vec u\\|^2\\leqslant0$, jamais strictement positif."
         }
       ]
@@ -277,103 +277,103 @@
       "title": "QCM 3 — Applications à la géométrie analytique",
       "items": [
         {
-          "question": "**Item 1.** Le cercle de centre $\\Omega(a;b)$ et de rayon $R$ a pour équation $(x-a)^2+(y-b)^2=R^2$.",
+          "question": "**1.** Le cercle de centre $\\Omega(a;b)$ et de rayon $R$ a pour équation $(x-a)^2+(y-b)^2=R^2$.",
           "answer": "**Vrai** : équation cartésienne d'un cercle."
         },
         {
-          "question": "**Item 2.** La tangente à un cercle $(C)$ en un point $A\\in(C)$ admet $\\overrightarrow{\\Omega A}$ comme vecteur normal.",
+          "question": "**2.** La tangente à un cercle $(C)$ en un point $A\\in(C)$ admet $\\overrightarrow{\\Omega A}$ comme vecteur normal.",
           "answer": "**Vrai** : propriété du cours sur la tangente à un cercle."
         },
         {
-          "question": "**Item 3.** Si $d(\\Omega,D)>R$, la droite $(D)$ est tangente au cercle $(C)$.",
+          "question": "**3.** Si $d(\\Omega,D)>R$, la droite $(D)$ est tangente au cercle $(C)$.",
           "answer": "**Faux** : $d(\\Omega,D)>R$ signifie que $(D)$ ne coupe pas $(C)$ ; la tangence correspond à $d=R$."
         },
         {
-          "question": "**Item 4.** Une équation de la forme $x^2+y^2+\\alpha x+\\beta y+\\gamma=0$ représente toujours un cercle, quels que soient $\\alpha,\\beta,\\gamma$.",
+          "question": "**4.** Une équation de la forme $x^2+y^2+\\alpha x+\\beta y+\\gamma=0$ représente toujours un cercle, quels que soient $\\alpha,\\beta,\\gamma$.",
           "answer": "**Faux** : il faut que le rayon carré obtenu après mise sous forme canonique soit strictement positif."
         },
         {
-          "question": "**Item 5.** Si $d(\\Omega,D)<R$, la droite $(D)$ coupe le cercle $(C)$ en deux points distincts.",
+          "question": "**5.** Si $d(\\Omega,D)<R$, la droite $(D)$ coupe le cercle $(C)$ en deux points distincts.",
           "answer": "**Vrai** : propriété du cours sur la position relative d'une droite et d'un cercle."
         },
         {
-          "question": "**Item 6.** L'équation d'un cercle de centre $\\Omega(a;b)$ et de rayon $R$ peut aussi s'écrire $x^2+y^2-2ax-2by+(a^2+b^2-R^2)=0$.",
+          "question": "**6.** L'équation d'un cercle de centre $\\Omega(a;b)$ et de rayon $R$ peut aussi s'écrire $x^2+y^2-2ax-2by+(a^2+b^2-R^2)=0$.",
           "answer": "**Vrai** : développement de la forme canonique."
         },
         {
-          "question": "**Item 7.** Pour déterminer si une droite est tangente à un cercle, on compare la distance du centre à la droite avec le rayon.",
+          "question": "**7.** Pour déterminer si une droite est tangente à un cercle, on compare la distance du centre à la droite avec le rayon.",
           "answer": "**Vrai** : méthode standard de comparaison distance-rayon."
         },
         {
-          "question": "**Item 8.** Le cercle de diamètre $[AB]$ est l'ensemble des points $M$ tels que $\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=0$.",
+          "question": "**8.** Le cercle de diamètre $[AB]$ est l'ensemble des points $M$ tels que $\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=0$.",
           "answer": "**Vrai** : caractérisation du cercle de diamètre $[AB]$."
         },
         {
-          "question": "**Item 9.** Une équation de cercle sous forme $x^2+y^2+\\alpha x+\\beta y+\\gamma=0$ représente toujours un cercle non vide.",
+          "question": "**9.** Une équation de cercle sous forme $x^2+y^2+\\alpha x+\\beta y+\\gamma=0$ représente toujours un cercle non vide.",
           "answer": "**Faux** : il faut que le rayon carré obtenu après mise sous forme canonique soit strictement positif."
         },
         {
-          "question": "**Item 10.** La distance d'un point $M_0(x_0;y_0)$ à la droite $ax+by+c=0$ vaut $\\dfrac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$.",
+          "question": "**10.** La distance d'un point $M_0(x_0;y_0)$ à la droite $ax+by+c=0$ vaut $\\dfrac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}$.",
           "answer": "**Vrai** : formule usuelle de la distance point-droite."
         },
         {
-          "question": "**Item 11.** Deux cercles peuvent être sécants, tangents, ou disjoints.",
+          "question": "**11.** Deux cercles peuvent être sécants, tangents, ou disjoints.",
           "answer": "**Vrai** : les trois cas de figure possibles entre deux cercles."
         },
         {
-          "question": "**Item 12.** Le centre d'un cercle défini par $x^2+y^2+\\alpha x+\\beta y+\\gamma=0$ a pour coordonnées $\\left(-\\dfrac\\alpha2;-\\dfrac\\beta2\\right)$.",
+          "question": "**12.** Le centre d'un cercle défini par $x^2+y^2+\\alpha x+\\beta y+\\gamma=0$ a pour coordonnées $\\left(-\\dfrac\\alpha2;-\\dfrac\\beta2\\right)$.",
           "answer": "**Vrai** : propriété du cours, obtenue après mise sous forme canonique."
         },
         {
-          "question": "**Item 13.** Une droite peut couper un cercle en trois points distincts.",
+          "question": "**13.** Une droite peut couper un cercle en trois points distincts.",
           "answer": "**Faux** : une droite (degré $1$) ne peut couper un cercle (degré $2$) qu'en au plus deux points."
         },
         {
-          "question": "**Item 14.** La tangente à un cercle en un point $A$ est perpendiculaire au rayon $[\\Omega A]$.",
+          "question": "**14.** La tangente à un cercle en un point $A$ est perpendiculaire au rayon $[\\Omega A]$.",
           "answer": "**Vrai** : propriété fondamentale de la tangente à un cercle."
         },
         {
-          "question": "**Item 15.** Un vecteur normal à une droite est colinéaire à tout vecteur directeur de cette même droite.",
+          "question": "**15.** Un vecteur normal à une droite est colinéaire à tout vecteur directeur de cette même droite.",
           "answer": "**Faux** : un vecteur normal est *orthogonal*, pas colinéaire, à tout vecteur directeur de la droite."
         },
         {
-          "question": "**Item 16.** Pour déterminer une équation de cercle passant par trois points non alignés, on peut résoudre un système.",
+          "question": "**16.** Pour déterminer une équation de cercle passant par trois points non alignés, on peut résoudre un système.",
           "answer": "**Vrai** : méthode classique par résolution de système."
         },
         {
-          "question": "**Item 17.** Un point $M$ appartient au cercle de centre $\\Omega$ et de rayon $R$ si, et seulement si, $\\Omega M=R$.",
+          "question": "**17.** Un point $M$ appartient au cercle de centre $\\Omega$ et de rayon $R$ si, et seulement si, $\\Omega M=R$.",
           "answer": "**Vrai** : définition d'un cercle."
         },
         {
-          "question": "**Item 18.** L'intersection d'une droite et d'un cercle se détermine en substituant l'équation de la droite dans celle du cercle.",
+          "question": "**18.** L'intersection d'une droite et d'un cercle se détermine en substituant l'équation de la droite dans celle du cercle.",
           "answer": "**Vrai** : méthode standard de résolution."
         },
         {
-          "question": "**Item 19.** Deux cercles concentriques de rayons différents sont toujours disjoints.",
+          "question": "**19.** Deux cercles concentriques de rayons différents sont toujours disjoints.",
           "answer": "**Vrai** : des cercles concentriques de rayons différents ne peuvent avoir de point commun."
         },
         {
-          "question": "**Item 20.** La médiatrice d'un segment $[AB]$ est toujours tangente au cercle de diamètre $[AB]$.",
+          "question": "**20.** La médiatrice d'un segment $[AB]$ est toujours tangente au cercle de diamètre $[AB]$.",
           "answer": "**Faux** : la médiatrice de $[AB]$ passe par le centre du cercle de diamètre $[AB]$ : elle le *coupe*, elle ne lui est pas tangente."
         },
         {
-          "question": "**Item 21.** La distance d'un point à une droite est toujours positive ou nulle.",
+          "question": "**21.** La distance d'un point à une droite est toujours positive ou nulle.",
           "answer": "**Vrai** : une distance est par nature positive ou nulle."
         },
         {
-          "question": "**Item 22.** Si la distance du centre d'un cercle à une droite est égale au rayon, la droite est tangente au cercle.",
+          "question": "**22.** Si la distance du centre d'un cercle à une droite est égale au rayon, la droite est tangente au cercle.",
           "answer": "**Vrai** : caractérisation de la tangence par la distance centre-droite."
         },
         {
-          "question": "**Item 23.** Un cercle peut être défini par son centre et un point qu'il contient.",
+          "question": "**23.** Un cercle peut être défini par son centre et un point qu'il contient.",
           "answer": "**Vrai** : le rayon est alors la distance entre le centre et ce point."
         },
         {
-          "question": "**Item 24.** Deux points distincts d'un cercle déterminent toujours un diamètre.",
+          "question": "**24.** Deux points distincts d'un cercle déterminent toujours un diamètre.",
           "answer": "**Faux** : seuls deux points diamétralement opposés déterminent un diamètre."
         },
         {
-          "question": "**Item 25.** La formule de la distance point-droite s'applique uniquement en repère orthonormé.",
+          "question": "**25.** La formule de la distance point-droite s'applique uniquement en repère orthonormé.",
           "answer": "**Vrai** : elle utilise implicitement une distance euclidienne, valable seulement en repère orthonormé."
         }
       ]

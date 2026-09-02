@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "1bac-sm-ch05-trigonometrie",
   "title": "Chapitre 5 — Trigonométrie",
   "description": "Cercle trigonométrique et angles associés, formules d'addition et de duplication, équations et inéquations trigonométriques.",
@@ -29,103 +29,103 @@
       "title": "QCM 1 — Cercle trigonométrique",
       "items": [
         {
-          "question": "**Item 1.** Pour tout réel $x$ : $\\cos^2x+\\sin^2x=1$.",
+          "question": "**1.** Pour tout réel $x$ : $\\cos^2x+\\sin^2x=1$.",
           "answer": "**Vrai** : relation fondamentale."
         },
         {
-          "question": "**Item 2.** $\\tan x=\\dfrac{\\sin x}{\\cos x}$, défini lorsque $\\cos x\\neq0$.",
+          "question": "**2.** $\\tan x=\\dfrac{\\sin x}{\\cos x}$, défini lorsque $\\cos x\\neq0$.",
           "answer": "**Vrai** : définition de la tangente."
         },
         {
-          "question": "**Item 3.** $\\cos\\left(\\dfrac{7\\pi}{6}\\right)=\\dfrac{\\sqrt3}{2}$.",
+          "question": "**3.** $\\cos\\left(\\dfrac{7\\pi}{6}\\right)=\\dfrac{\\sqrt3}{2}$.",
           "answer": "**Faux** : $\\cos\\left(\\dfrac{7\\pi}{6}\\right)=-\\cos\\left(\\dfrac{\\pi}{6}\\right)=-\\dfrac{\\sqrt3}{2}$."
         },
         {
-          "question": "**Item 4.** $\\cos$ et $\\sin$ sont périodiques de période $2\\pi$.",
+          "question": "**4.** $\\cos$ et $\\sin$ sont périodiques de période $2\\pi$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 5.** $\\tan\\left(\\dfrac{\\pi}{3}\\right)=\\sqrt3$.",
+          "question": "**5.** $\\tan\\left(\\dfrac{\\pi}{3}\\right)=\\sqrt3$.",
           "answer": "**Vrai** : valeur remarquable du tableau."
         },
         {
-          "question": "**Item 6.** $\\cos(\\pi-x)=-\\cos x$ pour tout réel $x$.",
+          "question": "**6.** $\\cos(\\pi-x)=-\\cos x$ pour tout réel $x$.",
           "answer": "**Vrai** : formule des angles associés (angle supplémentaire)."
         },
         {
-          "question": "**Item 7.** $\\sin(-x)=-\\sin x$ pour tout réel $x$.",
+          "question": "**7.** $\\sin(-x)=-\\sin x$ pour tout réel $x$.",
           "answer": "**Vrai** : $\\sin$ est impaire."
         },
         {
-          "question": "**Item 8.** Le point du cercle trigonométrique associé à $\\dfrac{3\\pi}{2}$ a pour coordonnées $(0;-1)$.",
+          "question": "**8.** Le point du cercle trigonométrique associé à $\\dfrac{3\\pi}{2}$ a pour coordonnées $(0;-1)$.",
           "answer": "**Vrai** : point correspondant à $\\dfrac{3\\pi}{2}$, situé en bas du cercle."
         },
         {
-          "question": "**Item 9.** $\\tan(\\pi+x)=\\tan x$.",
+          "question": "**9.** $\\tan(\\pi+x)=\\tan x$.",
           "answer": "**Vrai** : $\\tan$ est $\\pi$-périodique."
         },
         {
-          "question": "**Item 10.** $\\cos\\left(\\dfrac{\\pi}{2}+x\\right)=\\sin x$.",
+          "question": "**10.** $\\cos\\left(\\dfrac{\\pi}{2}+x\\right)=\\sin x$.",
           "answer": "**Faux** : $\\cos\\left(\\dfrac{\\pi}{2}+x\\right)=-\\sin x$, pas $\\sin x$."
         },
         {
-          "question": "**Item 11.** Pour tout réel $x$, $1+\\tan^2x=\\dfrac{1}{\\cos^2x}$ (lorsque $\\cos x\\neq0$).",
+          "question": "**11.** Pour tout réel $x$, $1+\\tan^2x=\\dfrac{1}{\\cos^2x}$ (lorsque $\\cos x\\neq0$).",
           "answer": "**Vrai** : identité trigonométrique classique."
         },
         {
-          "question": "**Item 12.** $\\sin\\left(\\dfrac{11\\pi}{6}\\right)=-\\dfrac12$.",
+          "question": "**12.** $\\sin\\left(\\dfrac{11\\pi}{6}\\right)=-\\dfrac12$.",
           "answer": "**Vrai** : $\\sin\\left(\\dfrac{11\\pi}{6}\\right)=\\sin\\left(-\\dfrac{\\pi}{6}\\right)=-\\dfrac12$."
         },
         {
-          "question": "**Item 13.** $\\cos(2\\pi-x)=\\cos x$.",
+          "question": "**13.** $\\cos(2\\pi-x)=\\cos x$.",
           "answer": "**Vrai** : $\\cos(2\\pi-x)=\\cos(-x)=\\cos x$."
         },
         {
-          "question": "**Item 14.** La fonction $\\tan$ est définie sur $\\mathbb{R}$ tout entier.",
+          "question": "**14.** La fonction $\\tan$ est définie sur $\\mathbb{R}$ tout entier.",
           "answer": "**Faux** : $\\tan$ n'est pas définie aux points où $\\cos x=0$, soit $x=\\dfrac{\\pi}{2}+k\\pi$."
         },
         {
-          "question": "**Item 15.** $\\sin(\\pi+x)=-\\sin x$.",
+          "question": "**15.** $\\sin(\\pi+x)=-\\sin x$.",
           "answer": "**Vrai** : formule des angles associés."
         },
         {
-          "question": "**Item 16.** Si $x\\in\\left]0;\\dfrac{\\pi}{2}\\right[$, alors $\\cos x>0$ et $\\sin x>0$.",
+          "question": "**16.** Si $x\\in\\left]0;\\dfrac{\\pi}{2}\\right[$, alors $\\cos x>0$ et $\\sin x>0$.",
           "answer": "**Vrai** : sur ce quadrant, les deux sont positifs."
         },
         {
-          "question": "**Item 17.** $\\cos\\left(\\dfrac{5\\pi}{4}\\right)=-\\dfrac{\\sqrt2}{2}$.",
+          "question": "**17.** $\\cos\\left(\\dfrac{5\\pi}{4}\\right)=-\\dfrac{\\sqrt2}{2}$.",
           "answer": "**Vrai** : $\\cos\\left(\\dfrac{5\\pi}{4}\\right)=\\cos\\left(\\pi+\\dfrac{\\pi}{4}\\right)=-\\cos\\left(\\dfrac{\\pi}{4}\\right)=-\\dfrac{\\sqrt2}{2}$."
         },
         {
-          "question": "**Item 18.** Deux angles opposés ont le même cosinus.",
+          "question": "**18.** Deux angles opposés ont le même cosinus.",
           "answer": "**Vrai** : $\\cos$ est paire."
         },
         {
-          "question": "**Item 19.** La période de la fonction $x\\mapsto\\cos(3x)$ est $\\dfrac{2\\pi}{3}$.",
+          "question": "**19.** La période de la fonction $x\\mapsto\\cos(3x)$ est $\\dfrac{2\\pi}{3}$.",
           "answer": "**Vrai** : période $T$ telle que $3T=2\\pi$, donc $T=\\dfrac{2\\pi}{3}$."
         },
         {
-          "question": "**Item 20.** Le point associé à un angle $\\theta$ et le point associé à $\\theta+\\pi$ sont symétriques par rapport à l'axe des abscisses.",
+          "question": "**20.** Le point associé à un angle $\\theta$ et le point associé à $\\theta+\\pi$ sont symétriques par rapport à l'axe des abscisses.",
           "answer": "**Faux** : les points associés à $\\theta$ et $\\theta+\\pi$ sont symétriques par rapport à l'*origine* (diamétralement opposés)."
         },
         {
-          "question": "**Item 21.** $\\cos\\left(\\dfrac{\\pi}{3}\\right)+\\sin\\left(\\dfrac{\\pi}{6}\\right)=1$.",
+          "question": "**21.** $\\cos\\left(\\dfrac{\\pi}{3}\\right)+\\sin\\left(\\dfrac{\\pi}{6}\\right)=1$.",
           "answer": "**Vrai** : $\\cos\\left(\\dfrac{\\pi}{3}\\right)=\\dfrac12$ et $\\sin\\left(\\dfrac{\\pi}{6}\\right)=\\dfrac12$, somme $=1$."
         },
         {
-          "question": "**Item 22.** Pour tout réel $x$, $\\sin^2x=1-\\cos^2x$.",
+          "question": "**22.** Pour tout réel $x$, $\\sin^2x=1-\\cos^2x$.",
           "answer": "**Vrai** : conséquence directe de la relation fondamentale."
         },
         {
-          "question": "**Item 23.** $\\tan\\left(\\dfrac{2\\pi}{3}\\right)=-\\sqrt3$.",
+          "question": "**23.** $\\tan\\left(\\dfrac{2\\pi}{3}\\right)=-\\sqrt3$.",
           "answer": "**Vrai** : $\\tan\\left(\\dfrac{2\\pi}{3}\\right)=\\tan\\left(\\pi-\\dfrac{\\pi}{3}\\right)=-\\tan\\left(\\dfrac{\\pi}{3}\\right)=-\\sqrt3$."
         },
         {
-          "question": "**Item 24.** Le cercle trigonométrique a pour rayon $2$.",
+          "question": "**24.** Le cercle trigonométrique a pour rayon $2$.",
           "answer": "**Faux** : le cercle trigonométrique a pour rayon $1$, par définition."
         },
         {
-          "question": "**Item 25.** $\\cos(0)=1$ et $\\sin(0)=0$.",
+          "question": "**25.** $\\cos(0)=1$ et $\\sin(0)=0$.",
           "answer": "**Vrai** : valeurs de départ du cercle trigonométrique."
         }
       ]
@@ -153,103 +153,103 @@
       "title": "QCM 2 — Formules trigonométriques",
       "items": [
         {
-          "question": "**Item 1.** $\\cos(a+b)=\\cos a\\cos b-\\sin a\\sin b$.",
+          "question": "**1.** $\\cos(a+b)=\\cos a\\cos b-\\sin a\\sin b$.",
           "answer": "**Vrai** : formule d'addition."
         },
         {
-          "question": "**Item 2.** $\\sin(2x)=2\\sin x\\cos x$.",
+          "question": "**2.** $\\sin(2x)=2\\sin x\\cos x$.",
           "answer": "**Vrai** : formule de duplication."
         },
         {
-          "question": "**Item 3.** $\\cos(2x)=\\cos^2x+\\sin^2x$.",
+          "question": "**3.** $\\cos(2x)=\\cos^2x+\\sin^2x$.",
           "answer": "**Faux** : $\\cos(2x)=\\cos^2x-\\sin^2x$ (avec un signe moins)."
         },
         {
-          "question": "**Item 4.** $\\tan(a+b)=\\tan a+\\tan b$, lorsque cela est défini.",
+          "question": "**4.** $\\tan(a+b)=\\tan a+\\tan b$, lorsque cela est défini.",
           "answer": "**Faux** : $\\tan(a+b)=\\dfrac{\\tan a+\\tan b}{1-\\tan a\\tan b}$."
         },
         {
-          "question": "**Item 5.** $\\cos a\\cos b=\\dfrac12[\\cos(a-b)+\\cos(a+b)]$.",
+          "question": "**5.** $\\cos a\\cos b=\\dfrac12[\\cos(a-b)+\\cos(a+b)]$.",
           "answer": "**Vrai** : formule de transformation produit-somme."
         },
         {
-          "question": "**Item 6.** $\\sin(a-b)=\\sin a\\cos b-\\cos a\\sin b$.",
+          "question": "**6.** $\\sin(a-b)=\\sin a\\cos b-\\cos a\\sin b$.",
           "answer": "**Vrai** : formule d'addition du sinus."
         },
         {
-          "question": "**Item 7.** $\\cos(2x)=2\\cos^2x-1$.",
+          "question": "**7.** $\\cos(2x)=2\\cos^2x-1$.",
           "answer": "**Vrai** : l'une des trois formes de la formule de duplication du cosinus."
         },
         {
-          "question": "**Item 8.** $\\sin(a+b)+\\sin(a-b)=2\\sin a\\cos b$.",
+          "question": "**8.** $\\sin(a+b)+\\sin(a-b)=2\\sin a\\cos b$.",
           "answer": "**Vrai** : formule de transformation somme, obtenue à partir des formules d'addition."
         },
         {
-          "question": "**Item 9.** $\\tan(2x)=2\\tan x$.",
+          "question": "**9.** $\\tan(2x)=2\\tan x$.",
           "answer": "**Faux** : $\\tan(2x)=\\dfrac{2\\tan x}{1-\\tan^2x}$, pas $2\\tan x$."
         },
         {
-          "question": "**Item 10.** $\\cos^2x=\\dfrac{1+\\cos(2x)}{2}$.",
+          "question": "**10.** $\\cos^2x=\\dfrac{1+\\cos(2x)}{2}$.",
           "answer": "**Vrai** : formule de linéarisation classique."
         },
         {
-          "question": "**Item 11.** $\\sin a\\cos b=\\dfrac12[\\sin(a+b)+\\sin(a-b)]$.",
+          "question": "**11.** $\\sin a\\cos b=\\dfrac12[\\sin(a+b)+\\sin(a-b)]$.",
           "answer": "**Vrai** : formule de transformation produit-somme."
         },
         {
-          "question": "**Item 12.** $\\cos(a-b)=\\cos a\\cos b+\\sin a\\sin b$.",
+          "question": "**12.** $\\cos(a-b)=\\cos a\\cos b+\\sin a\\sin b$.",
           "answer": "**Vrai** : formule d'addition du cosinus (cas de la différence)."
         },
         {
-          "question": "**Item 13.** $\\sin(2x)=\\sin^2x-\\cos^2x$.",
+          "question": "**13.** $\\sin(2x)=\\sin^2x-\\cos^2x$.",
           "answer": "**Faux** : $\\sin(2x)=2\\sin x\\cos x$, pas $\\sin^2x-\\cos^2x$ (qui vaut $-\\cos(2x)$)."
         },
         {
-          "question": "**Item 14.** $\\cos p-\\cos q=-2\\sin\\left(\\dfrac{p+q}{2}\\right)\\sin\\left(\\dfrac{p-q}{2}\\right)$.",
+          "question": "**14.** $\\cos p-\\cos q=-2\\sin\\left(\\dfrac{p+q}{2}\\right)\\sin\\left(\\dfrac{p-q}{2}\\right)$.",
           "answer": "**Vrai** : formule de transformation somme-produit."
         },
         {
-          "question": "**Item 15.** $\\sin^2x=\\dfrac{1-\\cos(2x)}{2}$.",
+          "question": "**15.** $\\sin^2x=\\dfrac{1-\\cos(2x)}{2}$.",
           "answer": "**Vrai** : formule de linéarisation du sinus."
         },
         {
-          "question": "**Item 16.** $\\tan(a-b)=\\dfrac{\\tan a-\\tan b}{1+\\tan a\\tan b}$ (lorsque cela est défini).",
+          "question": "**16.** $\\tan(a-b)=\\dfrac{\\tan a-\\tan b}{1+\\tan a\\tan b}$ (lorsque cela est défini).",
           "answer": "**Vrai** : formule d'addition de la tangente (cas de la différence)."
         },
         {
-          "question": "**Item 17.** $\\cos(3x)$ peut s'exprimer en fonction de $\\cos x$ seulement.",
+          "question": "**17.** $\\cos(3x)$ peut s'exprimer en fonction de $\\cos x$ seulement.",
           "answer": "**Vrai** : en développant $\\cos(2x+x)$ puis en substituant, on obtient une formule uniquement en $\\cos x$."
         },
         {
-          "question": "**Item 18.** $\\sin p+\\sin q=2\\sin\\left(\\dfrac{p+q}{2}\\right)\\cos\\left(\\dfrac{p-q}{2}\\right)$.",
+          "question": "**18.** $\\sin p+\\sin q=2\\sin\\left(\\dfrac{p+q}{2}\\right)\\cos\\left(\\dfrac{p-q}{2}\\right)$.",
           "answer": "**Vrai** : formule de transformation somme-produit."
         },
         {
-          "question": "**Item 19.** Les formules d'addition ne sont valables que pour des angles aigus.",
+          "question": "**19.** Les formules d'addition ne sont valables que pour des angles aigus.",
           "answer": "**Faux** : les formules d'addition sont valables pour tous les réels, sans restriction."
         },
         {
-          "question": "**Item 20.** $\\cos(a+b)\\cos(a-b)=\\cos^2a-\\sin^2b$.",
+          "question": "**20.** $\\cos(a+b)\\cos(a-b)=\\cos^2a-\\sin^2b$.",
           "answer": "**Vrai** : développement direct via les formules d'addition."
         },
         {
-          "question": "**Item 21.** $2\\sin a\\sin b=\\cos(a-b)-\\cos(a+b)$.",
+          "question": "**21.** $2\\sin a\\sin b=\\cos(a-b)-\\cos(a+b)$.",
           "answer": "**Vrai** : formule de transformation produit-somme."
         },
         {
-          "question": "**Item 22.** $\\cos(a+b)+\\cos(a-b)=2\\cos a\\cos b$.",
+          "question": "**22.** $\\cos(a+b)+\\cos(a-b)=2\\cos a\\cos b$.",
           "answer": "**Vrai** : formule de transformation somme-produit."
         },
         {
-          "question": "**Item 23.** La formule de duplication du sinus s'écrit $\\sin(2x)=2\\sin x\\cos x$.",
+          "question": "**23.** La formule de duplication du sinus s'écrit $\\sin(2x)=2\\sin x\\cos x$.",
           "answer": "**Vrai** : formule de duplication classique."
         },
         {
-          "question": "**Item 24.** $\\tan(a+b)=\\tan a+\\tan b$ dans tous les cas.",
+          "question": "**24.** $\\tan(a+b)=\\tan a+\\tan b$ dans tous les cas.",
           "answer": "**Faux** : formule correcte : $\\tan(a+b)=\\dfrac{\\tan a+\\tan b}{1-\\tan a\\tan b}$, sauf cas particulier."
         },
         {
-          "question": "**Item 25.** Pour $x=\\dfrac{\\pi}{4}$, $\\cos(2x)=0$.",
+          "question": "**25.** Pour $x=\\dfrac{\\pi}{4}$, $\\cos(2x)=0$.",
           "answer": "**Vrai** : $\\cos\\left(\\dfrac{\\pi}{2}\\right)=0$."
         }
       ]
@@ -277,103 +277,103 @@
       "title": "QCM 3 — Équations et inéquations trigonométriques",
       "items": [
         {
-          "question": "**Item 1.** $\\cos x=\\cos a\\iff x=a+2k\\pi$ ou $x=-a+2k\\pi$, $k\\in\\mathbb{Z}$.",
+          "question": "**1.** $\\cos x=\\cos a\\iff x=a+2k\\pi$ ou $x=-a+2k\\pi$, $k\\in\\mathbb{Z}$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 2.** $\\sin x=\\sin a\\iff x=a+2k\\pi$ ou $x=\\pi-a+2k\\pi$, $k\\in\\mathbb{Z}$.",
+          "question": "**2.** $\\sin x=\\sin a\\iff x=a+2k\\pi$ ou $x=\\pi-a+2k\\pi$, $k\\in\\mathbb{Z}$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 3.** $\\tan x=\\tan a\\iff x=a+2k\\pi$, $k\\in\\mathbb{Z}$.",
+          "question": "**3.** $\\tan x=\\tan a\\iff x=a+2k\\pi$, $k\\in\\mathbb{Z}$.",
           "answer": "**Faux** : la tangente est $\\pi$-périodique, donc $\\tan x=\\tan a\\iff x=a+k\\pi$."
         },
         {
-          "question": "**Item 4.** Sur $]-\\pi;\\pi]$, l'équation $\\cos x=\\dfrac12$ admet exactement deux solutions.",
+          "question": "**4.** Sur $]-\\pi;\\pi]$, l'équation $\\cos x=\\dfrac12$ admet exactement deux solutions.",
           "answer": "**Vrai** : $x=\\dfrac{\\pi}{3}$ ou $x=-\\dfrac{\\pi}{3}$."
         },
         {
-          "question": "**Item 5.** Pour tout réel $x$, $|\\sin x-\\cos x|\\leqslant\\sqrt2$.",
+          "question": "**5.** Pour tout réel $x$, $|\\sin x-\\cos x|\\leqslant\\sqrt2$.",
           "answer": "**Vrai** : $\\sin x-\\cos x=\\sqrt2\\sin\\left(x-\\dfrac{\\pi}{4}\\right)\\in[-\\sqrt2;\\sqrt2]$."
         },
         {
-          "question": "**Item 6.** L'équation $\\cos x=0$ a pour solutions $x=\\dfrac{\\pi}{2}+k\\pi$, $k\\in\\mathbb{Z}$.",
+          "question": "**6.** L'équation $\\cos x=0$ a pour solutions $x=\\dfrac{\\pi}{2}+k\\pi$, $k\\in\\mathbb{Z}$.",
           "answer": "**Vrai** : résolution classique."
         },
         {
-          "question": "**Item 7.** L'équation $\\sin x=0$ a pour solutions $x=k\\pi$, $k\\in\\mathbb{Z}$.",
+          "question": "**7.** L'équation $\\sin x=0$ a pour solutions $x=k\\pi$, $k\\in\\mathbb{Z}$.",
           "answer": "**Vrai** : résolution classique."
         },
         {
-          "question": "**Item 8.** Sur $[0;2\\pi[$, l'équation $\\sin x=\\dfrac{\\sqrt2}{2}$ admet exactement deux solutions.",
+          "question": "**8.** Sur $[0;2\\pi[$, l'équation $\\sin x=\\dfrac{\\sqrt2}{2}$ admet exactement deux solutions.",
           "answer": "**Vrai** : $x=\\dfrac{\\pi}{4}$ et $x=\\dfrac{3\\pi}{4}$."
         },
         {
-          "question": "**Item 9.** L'inéquation $\\cos x\\geqslant0$ n'a pas de solution.",
+          "question": "**9.** L'inéquation $\\cos x\\geqslant0$ n'a pas de solution.",
           "answer": "**Faux** : par exemple $\\cos(0)=1\\geqslant0$ : l'inéquation admet bien des solutions."
         },
         {
-          "question": "**Item 10.** L'équation $\\tan x=0$ équivaut à $\\sin x=0$ (sous réserve que $\\cos x\\neq0$).",
+          "question": "**10.** L'équation $\\tan x=0$ équivaut à $\\sin x=0$ (sous réserve que $\\cos x\\neq0$).",
           "answer": "**Vrai** : $\\tan x=\\dfrac{\\sin x}{\\cos x}$, donc $\\tan x=0$ équivaut à $\\sin x=0$."
         },
         {
-          "question": "**Item 11.** L'équation $2\\cos x-1=0$ équivaut à $\\cos x=\\dfrac12$.",
+          "question": "**11.** L'équation $2\\cos x-1=0$ équivaut à $\\cos x=\\dfrac12$.",
           "answer": "**Vrai** : résolution immédiate de l'équation."
         },
         {
-          "question": "**Item 12.** Sur $]-\\pi;\\pi]$, l'équation $\\cos x=\\dfrac12$ a pour solutions $x=\\dfrac{\\pi}{3}$ et $x=-\\dfrac{\\pi}{3}$.",
+          "question": "**12.** Sur $]-\\pi;\\pi]$, l'équation $\\cos x=\\dfrac12$ a pour solutions $x=\\dfrac{\\pi}{3}$ et $x=-\\dfrac{\\pi}{3}$.",
           "answer": "**Vrai** : valeurs remarquables."
         },
         {
-          "question": "**Item 13.** L'inéquation $\\sin x>0$ équivaut à $x\\in\\,]0;\\pi[$ modulo $2\\pi$.",
+          "question": "**13.** L'inéquation $\\sin x>0$ équivaut à $x\\in\\,]0;\\pi[$ modulo $2\\pi$.",
           "answer": "**Vrai** : $\\sin$ est positif sur cet intervalle, à un tour près."
         },
         {
-          "question": "**Item 14.** Une équation trigonométrique n'a jamais une infinité de solutions.",
+          "question": "**14.** Une équation trigonométrique n'a jamais une infinité de solutions.",
           "answer": "**Faux** : une équation trigonométrique périodique a en général une infinité de solutions."
         },
         {
-          "question": "**Item 15.** L'équation $\\cos(2x)=1$ équivaut à $x=k\\pi$, $k\\in\\mathbb{Z}$.",
+          "question": "**15.** L'équation $\\cos(2x)=1$ équivaut à $x=k\\pi$, $k\\in\\mathbb{Z}$.",
           "answer": "**Vrai** : $\\cos(2x)=1$ équivaut à $2x=2k\\pi$, soit $x=k\\pi$."
         },
         {
-          "question": "**Item 16.** L'inéquation $\\cos x\\leqslant\\dfrac12$ sur $[0;2\\pi[$ équivaut à $x\\in\\left[\\dfrac{\\pi}{3};\\dfrac{5\\pi}{3}\\right]$.",
+          "question": "**16.** L'inéquation $\\cos x\\leqslant\\dfrac12$ sur $[0;2\\pi[$ équivaut à $x\\in\\left[\\dfrac{\\pi}{3};\\dfrac{5\\pi}{3}\\right]$.",
           "answer": "**Vrai** : résolution de l'inéquation sur l'intervalle donné."
         },
         {
-          "question": "**Item 17.** L'équation $\\sin(2x)=0$ a pour solutions $x=\\dfrac{k\\pi}{2}$, $k\\in\\mathbb{Z}$.",
+          "question": "**17.** L'équation $\\sin(2x)=0$ a pour solutions $x=\\dfrac{k\\pi}{2}$, $k\\in\\mathbb{Z}$.",
           "answer": "**Vrai** : $2x=k\\pi$, soit $x=\\dfrac{k\\pi}{2}$."
         },
         {
-          "question": "**Item 18.** L'équation $\\cos x=2$ n'a pas de solution réelle.",
+          "question": "**18.** L'équation $\\cos x=2$ n'a pas de solution réelle.",
           "answer": "**Vrai** : $\\cos x$ est toujours compris entre $-1$ et $1$, donc jamais égal à $2$."
         },
         {
-          "question": "**Item 19.** Résoudre $\\sin x=\\sin\\left(\\dfrac{\\pi}{5}\\right)$ revient à trouver $x=\\dfrac{\\pi}{5}+2k\\pi$ uniquement.",
+          "question": "**19.** Résoudre $\\sin x=\\sin\\left(\\dfrac{\\pi}{5}\\right)$ revient à trouver $x=\\dfrac{\\pi}{5}+2k\\pi$ uniquement.",
           "answer": "**Faux** : il manque la seconde famille de solutions $x=\\pi-\\dfrac{\\pi}{5}+2k\\pi$."
         },
         {
-          "question": "**Item 20.** L'inéquation $-1\\leqslant\\cos x\\leqslant1$ est vraie pour tout réel $x$.",
+          "question": "**20.** L'inéquation $-1\\leqslant\\cos x\\leqslant1$ est vraie pour tout réel $x$.",
           "answer": "**Vrai** : encadrement fondamental du cosinus."
         },
         {
-          "question": "**Item 21.** L'équation $\\tan x=1$ a pour solutions $x=\\dfrac{\\pi}{4}+k\\pi$, $k\\in\\mathbb{Z}$.",
+          "question": "**21.** L'équation $\\tan x=1$ a pour solutions $x=\\dfrac{\\pi}{4}+k\\pi$, $k\\in\\mathbb{Z}$.",
           "answer": "**Vrai** : résolution classique de l'équation $\\tan x=1$."
         },
         {
-          "question": "**Item 22.** Pour résoudre une équation trigonométrique, il faut souvent utiliser les formules des angles associés.",
+          "question": "**22.** Pour résoudre une équation trigonométrique, il faut souvent utiliser les formules des angles associés.",
           "answer": "**Vrai** : technique courante de résolution."
         },
         {
-          "question": "**Item 23.** Sur $[0;\\pi]$, l'équation $\\sin x=1$ admet une unique solution.",
+          "question": "**23.** Sur $[0;\\pi]$, l'équation $\\sin x=1$ admet une unique solution.",
           "answer": "**Vrai** : $x=\\dfrac{\\pi}{2}$ est l'unique solution sur cet intervalle."
         },
         {
-          "question": "**Item 24.** L'inéquation $\\sin x\\leqslant-1$ n'a pas de solution.",
+          "question": "**24.** L'inéquation $\\sin x\\leqslant-1$ n'a pas de solution.",
           "answer": "**Faux** : $\\sin x\\leqslant-1$ équivaut à $\\sin x=-1$ (car $\\sin x\\geqslant-1$ toujours) : il y a des solutions, $x=-\\dfrac{\\pi}{2}+2k\\pi$."
         },
         {
-          "question": "**Item 25.** Résoudre $\\cos x=\\cos\\left(\\dfrac{2\\pi}{3}\\right)$ donne une unique famille de solutions.",
+          "question": "**25.** Résoudre $\\cos x=\\cos\\left(\\dfrac{2\\pi}{3}\\right)$ donne une unique famille de solutions.",
           "answer": "**Faux** : résoudre $\\cos x=\\cos a$ donne *deux* familles de solutions, $x=a+2k\\pi$ ou $x=-a+2k\\pi$."
         }
       ]

@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "1bac-sm-ch02-logique-ensembles",
   "title": "Chapitre 2 — Logique, ensembles et applications",
   "description": "Propositions, connecteurs logiques, quantificateurs, types de raisonnement (récurrence, absurde, contraposée, disjonction), ensembles et applications.",
@@ -29,103 +29,103 @@
       "title": "QCM 1 — Logique",
       "items": [
         {
-          "question": "**Item 1.** La négation de « $P$ et $Q$ » est « (non $P$) ou (non $Q$) ».",
+          "question": "**1.** La négation de « $P$ et $Q$ » est « (non $P$) ou (non $Q$) ».",
           "answer": "**Vrai** : loi de De Morgan."
         },
         {
-          "question": "**Item 2.** Si $P$ est fausse, alors $P\\Rightarrow Q$ est toujours vraie, quelle que soit $Q$.",
+          "question": "**2.** Si $P$ est fausse, alors $P\\Rightarrow Q$ est toujours vraie, quelle que soit $Q$.",
           "answer": "**Vrai** : propriété du cours (une implication de prémisse fausse est toujours vraie)."
         },
         {
-          "question": "**Item 3.** Une implication et sa réciproque ont toujours la même valeur de vérité.",
+          "question": "**3.** Une implication et sa réciproque ont toujours la même valeur de vérité.",
           "answer": "**Faux** : c'est l'implication et sa *contraposée* qui ont la même valeur de vérité, pas la réciproque."
         },
         {
-          "question": "**Item 4.** La négation de $(\\forall x\\in E)\\ P(x)$ est $(\\exists x\\in E)\\ \\text{non } P(x)$.",
+          "question": "**4.** La négation de $(\\forall x\\in E)\\ P(x)$ est $(\\exists x\\in E)\\ \\text{non } P(x)$.",
           "answer": "**Vrai** : négation d'une proposition quantifiée."
         },
         {
-          "question": "**Item 5.** L'ordre entre un $\\forall$ et un $\\exists$ consécutifs peut toujours être permuté sans changer la valeur de vérité de la proposition.",
+          "question": "**5.** L'ordre entre un $\\forall$ et un $\\exists$ consécutifs peut toujours être permuté sans changer la valeur de vérité de la proposition.",
           "answer": "**Faux** : l'ordre entre $\\forall$ et $\\exists$ est essentiel, contrairement à deux quantificateurs consécutifs de même nature."
         },
         {
-          "question": "**Item 6.** La négation de « $P\\Rightarrow Q$ » est « $P$ et non $Q$ ».",
+          "question": "**6.** La négation de « $P\\Rightarrow Q$ » est « $P$ et non $Q$ ».",
           "answer": "**Vrai** : négation d'une implication."
         },
         {
-          "question": "**Item 7.** « $P$ ou $Q$ » est fausse si, et seulement si, $P$ et $Q$ sont toutes deux fausses.",
+          "question": "**7.** « $P$ ou $Q$ » est fausse si, et seulement si, $P$ et $Q$ sont toutes deux fausses.",
           "answer": "**Vrai** : définition du « ou » logique."
         },
         {
-          "question": "**Item 8.** La contraposée de $P\\Rightarrow Q$ est « non $Q\\Rightarrow$ non $P$ ».",
+          "question": "**8.** La contraposée de $P\\Rightarrow Q$ est « non $Q\\Rightarrow$ non $P$ ».",
           "answer": "**Vrai** : définition de la contraposée."
         },
         {
-          "question": "**Item 9.** Deux propositions équivalentes ont toujours la même valeur de vérité.",
+          "question": "**9.** Deux propositions équivalentes ont toujours la même valeur de vérité.",
           "answer": "**Vrai** : c'est la définition de l'équivalence logique."
         },
         {
-          "question": "**Item 10.** La négation de $(\\exists x\\in E)\\ P(x)$ est $(\\exists x\\in E)\\ \\text{non }P(x)$.",
+          "question": "**10.** La négation de $(\\exists x\\in E)\\ P(x)$ est $(\\exists x\\in E)\\ \\text{non }P(x)$.",
           "answer": "**Faux** : la négation correcte est $(\\forall x\\in E)\\ \\text{non }P(x)$."
         },
         {
-          "question": "**Item 11.** $P\\Rightarrow Q$ est logiquement équivalente à (non $P$) ou $Q$.",
+          "question": "**11.** $P\\Rightarrow Q$ est logiquement équivalente à (non $P$) ou $Q$.",
           "answer": "**Vrai** : équivalence logique classique."
         },
         {
-          "question": "**Item 12.** Si $P$ et $Q$ sont vraies, alors $P\\Rightarrow Q$ est vraie.",
+          "question": "**12.** Si $P$ et $Q$ sont vraies, alors $P\\Rightarrow Q$ est vraie.",
           "answer": "**Vrai** : cas particulier où l'implication est vraie."
         },
         {
-          "question": "**Item 13.** La proposition « $2$ est pair et $3$ est impair » est vraie.",
+          "question": "**13.** La proposition « $2$ est pair et $3$ est impair » est vraie.",
           "answer": "**Vrai** : les deux propositions élémentaires sont vraies."
         },
         {
-          "question": "**Item 14.** $(\\forall x\\in\\mathbb R)\\ x^2\\geqslant0$ est une proposition vraie.",
+          "question": "**14.** $(\\forall x\\in\\mathbb R)\\ x^2\\geqslant0$ est une proposition vraie.",
           "answer": "**Vrai** : un carré est toujours positif ou nul."
         },
         {
-          "question": "**Item 15.** Une proposition et sa négation sont simultanément vraies.",
+          "question": "**15.** Une proposition et sa négation sont simultanément vraies.",
           "answer": "**Faux** : une proposition et sa négation ont toujours des valeurs de vérité opposées."
         },
         {
-          "question": "**Item 16.** $(\\exists x\\in\\mathbb R)\\ x^2=-1$ est une proposition fausse.",
+          "question": "**16.** $(\\exists x\\in\\mathbb R)\\ x^2=-1$ est une proposition fausse.",
           "answer": "**Vrai** : aucun réel n'a un carré négatif."
         },
         {
-          "question": "**Item 17.** La négation de « tous les élèves ont réussi » est « aucun élève n'a réussi ».",
+          "question": "**17.** La négation de « tous les élèves ont réussi » est « aucun élève n'a réussi ».",
           "answer": "**Faux** : la négation correcte est « au moins un élève n'a pas réussi »."
         },
         {
-          "question": "**Item 18.** « $P$ et $Q$ » est vraie si, et seulement si, $P$ et $Q$ sont toutes deux vraies.",
+          "question": "**18.** « $P$ et $Q$ » est vraie si, et seulement si, $P$ et $Q$ sont toutes deux vraies.",
           "answer": "**Vrai** : définition du « et » logique."
         },
         {
-          "question": "**Item 19.** La réciproque de $P\\Rightarrow Q$ est $Q\\Rightarrow P$.",
+          "question": "**19.** La réciproque de $P\\Rightarrow Q$ est $Q\\Rightarrow P$.",
           "answer": "**Vrai** : définition de la réciproque."
         },
         {
-          "question": "**Item 20.** Une implication de conclusion vraie est toujours vraie, quelle que soit la prémisse.",
+          "question": "**20.** Une implication de conclusion vraie est toujours vraie, quelle que soit la prémisse.",
           "answer": "**Vrai** : si $Q$ est vraie, $P\\Rightarrow Q$ est vraie quelle que soit la valeur de vérité de $P$."
         },
         {
-          "question": "**Item 21.** Deux propositions ayant la même table de vérité sont dites équivalentes.",
+          "question": "**21.** Deux propositions ayant la même table de vérité sont dites équivalentes.",
           "answer": "**Vrai** : définition de l'équivalence logique."
         },
         {
-          "question": "**Item 22.** « non (non $P$) » est équivalente à $P$.",
+          "question": "**22.** « non (non $P$) » est équivalente à $P$.",
           "answer": "**Vrai** : principe de la double négation."
         },
         {
-          "question": "**Item 23.** L'implication $P\\Rightarrow Q$ est fausse uniquement lorsque $P$ est vraie et $Q$ fausse.",
+          "question": "**23.** L'implication $P\\Rightarrow Q$ est fausse uniquement lorsque $P$ est vraie et $Q$ fausse.",
           "answer": "**Vrai** : seul cas où une implication est fausse."
         },
         {
-          "question": "**Item 24.** La négation de $(\\forall x\\in E,\\ \\exists y\\in F,\\ P(x,y))$ est $(\\exists x\\in E,\\ \\forall y\\in F,\\ \\text{non }P(x,y))$.",
+          "question": "**24.** La négation de $(\\forall x\\in E,\\ \\exists y\\in F,\\ P(x,y))$ est $(\\exists x\\in E,\\ \\forall y\\in F,\\ \\text{non }P(x,y))$.",
           "answer": "**Vrai** : chaque $\\forall$ devient $\\exists$ et réciproquement, et on nie le prédicat final."
         },
         {
-          "question": "**Item 25.** $P\\Leftrightarrow Q$ signifie que $P\\Rightarrow Q$ et $Q\\Rightarrow P$ sont toutes deux vraies.",
+          "question": "**25.** $P\\Leftrightarrow Q$ signifie que $P\\Rightarrow Q$ et $Q\\Rightarrow P$ sont toutes deux vraies.",
           "answer": "**Vrai** : définition de l'équivalence logique par double implication."
         }
       ]
@@ -153,23 +153,23 @@
       "title": "QCM 2 — Raisonnement par récurrence",
       "items": [
         {
-          "question": "**Item 1.** Le raisonnement par récurrence nécessite de vérifier une initialisation et une hérédité.",
+          "question": "**1.** Le raisonnement par récurrence nécessite de vérifier une initialisation et une hérédité.",
           "answer": "**Vrai** : définition du principe de récurrence."
         },
         {
-          "question": "**Item 2.** Le raisonnement par récurrence forte suppose $P(k)$ vraie pour tout $k\\leqslant n$ afin d'établir $P(n+1)$.",
+          "question": "**2.** Le raisonnement par récurrence forte suppose $P(k)$ vraie pour tout $k\\leqslant n$ afin d'établir $P(n+1)$.",
           "answer": "**Vrai** : définition de la récurrence forte."
         },
         {
-          "question": "**Item 3.** La récurrence à deux pas initialise en général à deux rangs consécutifs.",
+          "question": "**3.** La récurrence à deux pas initialise en général à deux rangs consécutifs.",
           "answer": "**Vrai** : par exemple pour des suites définies par deux termes précédents."
         },
         {
-          "question": "**Item 4.** Le raisonnement par récurrence s'applique uniquement aux propriétés portant sur les entiers naturels.",
+          "question": "**4.** Le raisonnement par récurrence s'applique uniquement aux propriétés portant sur les entiers naturels.",
           "answer": "**Faux** : c'est au contraire le cadre naturel du principe de récurrence ; il s'étend à toute propriété indexée par des entiers."
         },
         {
-          "question": "**Item 5.** La démonstration par récurrence nécessite de vérifier l'hérédité pour tout rang $n\\geqslant n_0$.",
+          "question": "**5.** La démonstration par récurrence nécessite de vérifier l'hérédité pour tout rang $n\\geqslant n_0$.",
           "answer": "**Vrai** : c'est même l'étape d'hérédité du principe de récurrence."
         }
       ]
@@ -197,15 +197,15 @@
       "title": "QCM 3 — Raisonnement par l'absurde",
       "items": [
         {
-          "question": "**Item 1.** Le raisonnement par l'absurde consiste à supposer la proposition fausse pour aboutir à une contradiction.",
+          "question": "**1.** Le raisonnement par l'absurde consiste à supposer la proposition fausse pour aboutir à une contradiction.",
           "answer": "**Vrai** : définition du raisonnement par l'absurde."
         },
         {
-          "question": "**Item 2.** Le raisonnement par l'absurde ne peut s'appliquer qu'aux énoncés de géométrie.",
+          "question": "**2.** Le raisonnement par l'absurde ne peut s'appliquer qu'aux énoncés de géométrie.",
           "answer": "**Faux** : le raisonnement par l'absurde s'applique à tout type d'énoncé (arithmétique, analyse, etc.)."
         },
         {
-          "question": "**Item 3.** Le raisonnement par l'absurde commence par nier la conclusion à démontrer.",
+          "question": "**3.** Le raisonnement par l'absurde commence par nier la conclusion à démontrer.",
           "answer": "**Vrai** : définition du raisonnement par l'absurde."
         }
       ]
@@ -233,19 +233,19 @@
       "title": "QCM 4 — Raisonnement par contraposée",
       "items": [
         {
-          "question": "**Item 1.** Le raisonnement par contraposée pour montrer $P\\Rightarrow Q$ consiste à montrer $Q\\Rightarrow P$.",
+          "question": "**1.** Le raisonnement par contraposée pour montrer $P\\Rightarrow Q$ consiste à montrer $Q\\Rightarrow P$.",
           "answer": "**Faux** : la contraposée de $P\\Rightarrow Q$ est $(\\text{non }Q)\\Rightarrow(\\text{non }P)$, pas $Q\\Rightarrow P$ (qui est la réciproque)."
         },
         {
-          "question": "**Item 2.** Pour montrer $P\\Rightarrow Q$ par contraposée, on montre « non $Q\\Rightarrow$ non $P$ ».",
+          "question": "**2.** Pour montrer $P\\Rightarrow Q$ par contraposée, on montre « non $Q\\Rightarrow$ non $P$ ».",
           "answer": "**Vrai** : c'est la méthode de la contraposée."
         },
         {
-          "question": "**Item 3.** Le raisonnement par l'absurde et le raisonnement par contraposée sont rigoureusement identiques.",
+          "question": "**3.** Le raisonnement par l'absurde et le raisonnement par contraposée sont rigoureusement identiques.",
           "answer": "**Faux** : ce sont deux méthodes distinctes, même si elles sont parfois combinées."
         },
         {
-          "question": "**Item 4.** Prouver la contraposée d'une implication est logiquement équivalent à prouver l'implication elle-même.",
+          "question": "**4.** Prouver la contraposée d'une implication est logiquement équivalent à prouver l'implication elle-même.",
           "answer": "**Vrai** : équivalence logique entre une implication et sa contraposée."
         }
       ]
@@ -273,47 +273,47 @@
       "title": "QCM 5 — Raisonnement par disjonction de cas",
       "items": [
         {
-          "question": "**Item 1.** Le raisonnement par disjonction des cas nécessite d'examiner des cas qui recouvrent toutes les possibilités.",
+          "question": "**1.** Le raisonnement par disjonction des cas nécessite d'examiner des cas qui recouvrent toutes les possibilités.",
           "answer": "**Vrai** : les cas doivent recouvrir toutes les situations possibles."
         },
         {
-          "question": "**Item 2.** Un contre-exemple suffit à réfuter une proposition universelle.",
+          "question": "**2.** Un contre-exemple suffit à réfuter une proposition universelle.",
           "answer": "**Vrai** : un seul contre-exemple suffit à invalider un « pour tout »."
         },
         {
-          "question": "**Item 3.** Le raisonnement par disjonction de cas peut comporter seulement deux cas (par exemple : $n$ pair ou $n$ impair).",
+          "question": "**3.** Le raisonnement par disjonction de cas peut comporter seulement deux cas (par exemple : $n$ pair ou $n$ impair).",
           "answer": "**Vrai** : c'est un exemple courant de disjonction de cas à deux branches."
         },
         {
-          "question": "**Item 4.** Une démonstration par disjonction de cas est invalide si un des cas est impossible.",
+          "question": "**4.** Une démonstration par disjonction de cas est invalide si un des cas est impossible.",
           "answer": "**Faux** : un cas impossible (vide) ne pose aucun problème : il est trivialement vérifié."
         },
         {
-          "question": "**Item 5.** Pour prouver une égalité d'ensembles $A=B$, on peut montrer $A\\subset B$ et $B\\subset A$.",
+          "question": "**5.** Pour prouver une égalité d'ensembles $A=B$, on peut montrer $A\\subset B$ et $B\\subset A$.",
           "answer": "**Vrai** : méthode classique de double inclusion."
         },
         {
-          "question": "**Item 6.** Un seul exemple vérifiant une propriété suffit à la démontrer pour tous les cas.",
+          "question": "**6.** Un seul exemple vérifiant une propriété suffit à la démontrer pour tous les cas.",
           "answer": "**Faux** : un exemple ne prouve rien pour un énoncé universel."
         },
         {
-          "question": "**Item 7.** Il est possible d'utiliser plusieurs types de raisonnement dans une même démonstration.",
+          "question": "**7.** Il est possible d'utiliser plusieurs types de raisonnement dans une même démonstration.",
           "answer": "**Vrai** : c'est même très fréquent en pratique de combiner plusieurs méthodes."
         },
         {
-          "question": "**Item 8.** Pour démontrer une implication $P\\Rightarrow Q$, une seule démonstration directe suffit, si elle existe.",
+          "question": "**8.** Pour démontrer une implication $P\\Rightarrow Q$, une seule démonstration directe suffit, si elle existe.",
           "answer": "**Vrai** : une démonstration valide suffit, quelle que soit la méthode employée."
         },
         {
-          "question": "**Item 9.** Deux démonstrations différentes d'un même résultat sont nécessairement toutes deux fausses.",
+          "question": "**9.** Deux démonstrations différentes d'un même résultat sont nécessairement toutes deux fausses.",
           "answer": "**Faux** : deux démonstrations différentes et correctes du même résultat peuvent parfaitement coexister."
         },
         {
-          "question": "**Item 10.** Le choix du type de raisonnement dépend souvent de la nature de l'énoncé à démontrer.",
+          "question": "**10.** Le choix du type de raisonnement dépend souvent de la nature de l'énoncé à démontrer.",
           "answer": "**Vrai** : le choix de la méthode dépend de la structure de l'énoncé à démontrer."
         },
         {
-          "question": "**Item 11.** Un exemple vérifiant la propriété peut être utilisé pour prouver une proposition existentielle.",
+          "question": "**11.** Un exemple vérifiant la propriété peut être utilisé pour prouver une proposition existentielle.",
           "answer": "**Vrai** : un exemple qui vérifie la propriété prouve directement l'existence."
         }
       ]
@@ -341,103 +341,103 @@
       "title": "QCM 6 — Ensembles et applications",
       "items": [
         {
-          "question": "**Item 1.** $A\\cap(B\\cup C)=(A\\cap B)\\cup(A\\cap C)$ pour toutes parties $A,B,C$ de $E$.",
+          "question": "**1.** $A\\cap(B\\cup C)=(A\\cap B)\\cup(A\\cap C)$ pour toutes parties $A,B,C$ de $E$.",
           "answer": "**Vrai** : distributivité de $\\cap$ sur $\\cup$."
         },
         {
-          "question": "**Item 2.** $\\complement_E(A\\cup B)=\\complement_E A\\cap\\complement_E B$.",
+          "question": "**2.** $\\complement_E(A\\cup B)=\\complement_E A\\cap\\complement_E B$.",
           "answer": "**Vrai** : loi de De Morgan."
         },
         {
-          "question": "**Item 3.** Une application injective vérifie : deux éléments distincts de $E$ ont toujours des images distinctes.",
+          "question": "**3.** Une application injective vérifie : deux éléments distincts de $E$ ont toujours des images distinctes.",
           "answer": "**Vrai** : c'est la définition de l'injectivité."
         },
         {
-          "question": "**Item 4.** Une application surjective de $E$ dans $F$ associe à chaque élément de $E$ un unique antécédent dans $F$.",
+          "question": "**4.** Une application surjective de $E$ dans $F$ associe à chaque élément de $E$ un unique antécédent dans $F$.",
           "answer": "**Faux** : c'est la surjectivité qui concerne les antécédents des éléments de $F$ (au moins un, pas nécessairement unique)."
         },
         {
-          "question": "**Item 5.** La composée de deux applications injectives est injective.",
+          "question": "**5.** La composée de deux applications injectives est injective.",
           "answer": "**Vrai** : propriété du cours sur la composition."
         },
         {
-          "question": "**Item 6.** $A\\cup(B\\cap C)=(A\\cup B)\\cap(A\\cup C)$ pour toutes parties $A,B,C$ de $E$.",
+          "question": "**6.** $A\\cup(B\\cap C)=(A\\cup B)\\cap(A\\cup C)$ pour toutes parties $A,B,C$ de $E$.",
           "answer": "**Vrai** : distributivité de $\\cup$ sur $\\cap$."
         },
         {
-          "question": "**Item 7.** $A\\setminus B=A\\cap\\complement_EB$.",
+          "question": "**7.** $A\\setminus B=A\\cap\\complement_EB$.",
           "answer": "**Vrai** : définition de la différence ensembliste."
         },
         {
-          "question": "**Item 8.** Si $f:E\\to F$ est bijective, alors $f$ admet une application réciproque $f^{-1}:F\\to E$.",
+          "question": "**8.** Si $f:E\\to F$ est bijective, alors $f$ admet une application réciproque $f^{-1}:F\\to E$.",
           "answer": "**Vrai** : caractérisation des bijections."
         },
         {
-          "question": "**Item 9.** $\\complement_E(\\complement_EA)=A$.",
+          "question": "**9.** $\\complement_E(\\complement_EA)=A$.",
           "answer": "**Vrai** : double complémentaire."
         },
         {
-          "question": "**Item 10.** Une application peut ne pas être définie sur tout $E$.",
+          "question": "**10.** Une application peut ne pas être définie sur tout $E$.",
           "answer": "**Faux** : par définition, une application de $E$ dans $F$ est définie sur $E$ tout entier."
         },
         {
-          "question": "**Item 11.** Une application injective de $E$ dans $F$ finis vérifie $\\mathrm{Card}(E)\\leqslant\\mathrm{Card}(F)$.",
+          "question": "**11.** Une application injective de $E$ dans $F$ finis vérifie $\\mathrm{Card}(E)\\leqslant\\mathrm{Card}(F)$.",
           "answer": "**Vrai** : propriété classique du dénombrement."
         },
         {
-          "question": "**Item 12.** Une application surjective de $E$ dans $F$ finis vérifie $\\mathrm{Card}(E)\\geqslant\\mathrm{Card}(F)$.",
+          "question": "**12.** Une application surjective de $E$ dans $F$ finis vérifie $\\mathrm{Card}(E)\\geqslant\\mathrm{Card}(F)$.",
           "answer": "**Vrai** : propriété classique du dénombrement."
         },
         {
-          "question": "**Item 13.** $A\\times B$ désigne l'ensemble des couples $(a,b)$ avec $a\\in A$ et $b\\in B$.",
+          "question": "**13.** $A\\times B$ désigne l'ensemble des couples $(a,b)$ avec $a\\in A$ et $b\\in B$.",
           "answer": "**Vrai** : définition du produit cartésien."
         },
         {
-          "question": "**Item 14.** $\\mathrm{Card}(A\\cup B)=\\mathrm{Card}(A)+\\mathrm{Card}(B)$ pour toutes parties finies $A,B$.",
+          "question": "**14.** $\\mathrm{Card}(A\\cup B)=\\mathrm{Card}(A)+\\mathrm{Card}(B)$ pour toutes parties finies $A,B$.",
           "answer": "**Faux** : formule correcte : $\\mathrm{Card}(A\\cup B)=\\mathrm{Card}(A)+\\mathrm{Card}(B)-\\mathrm{Card}(A\\cap B)$."
         },
         {
-          "question": "**Item 15.** Si $f$ est bijective, alors $f^{-1}\\circ f=\\mathrm{id}_E$.",
+          "question": "**15.** Si $f$ est bijective, alors $f^{-1}\\circ f=\\mathrm{id}_E$.",
           "answer": "**Vrai** : propriété de la bijection réciproque."
         },
         {
-          "question": "**Item 16.** L'image réciproque de $F$ tout entier par $f:E\\to F$ est $E$.",
+          "question": "**16.** L'image réciproque de $F$ tout entier par $f:E\\to F$ est $E$.",
           "answer": "**Vrai** : tout élément de $E$ a son image dans $F$."
         },
         {
-          "question": "**Item 17.** Deux ensembles $A$ et $B$ sont disjoints si $A\\cap B=\\emptyset$.",
+          "question": "**17.** Deux ensembles $A$ et $B$ sont disjoints si $A\\cap B=\\emptyset$.",
           "answer": "**Vrai** : définition d'ensembles disjoints."
         },
         {
-          "question": "**Item 18.** La composée de deux applications surjectives est surjective.",
+          "question": "**18.** La composée de deux applications surjectives est surjective.",
           "answer": "**Vrai** : propriété de composition des surjections."
         },
         {
-          "question": "**Item 19.** $\\emptyset\\subset A$ pour toute partie $A$ de $E$.",
+          "question": "**19.** $\\emptyset\\subset A$ pour toute partie $A$ de $E$.",
           "answer": "**Vrai** : l'ensemble vide est inclus dans tout ensemble."
         },
         {
-          "question": "**Item 20.** $A\\subset B$ signifie que $A$ et $B$ ont le même nombre d'éléments.",
+          "question": "**20.** $A\\subset B$ signifie que $A$ et $B$ ont le même nombre d'éléments.",
           "answer": "**Faux** : $A\\subset B$ signifie que tout élément de $A$ appartient à $B$, sans lien direct avec le cardinal."
         },
         {
-          "question": "**Item 21.** Une application $f:E\\to F$ est bijective si, et seulement si, elle est à la fois injective et surjective.",
+          "question": "**21.** Une application $f:E\\to F$ est bijective si, et seulement si, elle est à la fois injective et surjective.",
           "answer": "**Vrai** : définition de la bijectivité."
         },
         {
-          "question": "**Item 22.** $\\mathcal P(E)$ désigne l'ensemble des parties de $E$.",
+          "question": "**22.** $\\mathcal P(E)$ désigne l'ensemble des parties de $E$.",
           "answer": "**Vrai** : notation standard de l'ensemble des parties."
         },
         {
-          "question": "**Item 23.** Si $E$ a $n$ éléments, alors $\\mathcal P(E)$ a $2^n$ éléments.",
+          "question": "**23.** Si $E$ a $n$ éléments, alors $\\mathcal P(E)$ a $2^n$ éléments.",
           "answer": "**Vrai** : formule classique du dénombrement des parties."
         },
         {
-          "question": "**Item 24.** La restriction d'une application injective à une partie de son ensemble de départ reste injective.",
+          "question": "**24.** La restriction d'une application injective à une partie de son ensemble de départ reste injective.",
           "answer": "**Vrai** : restreindre le domaine ne peut pas créer de collision d'images."
         },
         {
-          "question": "**Item 25.** Toute application est bijective sur son image.",
+          "question": "**25.** Toute application est bijective sur son image.",
           "answer": "**Faux** : $f:E\\to f(E)$ est toujours surjective, mais elle n'est bijective sur son image que si $f$ est de plus injective."
         }
       ]

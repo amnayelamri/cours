@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "1bac-sm-ch03-suites",
   "title": "Chapitre 3 — Suites numériques",
   "description": "Généralités sur les suites (monotonie, majoration, minoration), suites arithmétiques et géométriques, raisonnement par récurrence appliqué aux suites.",
@@ -29,103 +29,103 @@
       "title": "QCM 1 — Monotonie et bornitude",
       "items": [
         {
-          "question": "**Item 1.** Toute suite croissante est minorée par son premier terme.",
+          "question": "**1.** Toute suite croissante est minorée par son premier terme.",
           "answer": "**Vrai** : remarque du cours."
         },
         {
-          "question": "**Item 2.** La suite $\\big((-1)^n\\big)$ est bornée mais n'est pas monotone.",
+          "question": "**2.** La suite $\\big((-1)^n\\big)$ est bornée mais n'est pas monotone.",
           "answer": "**Vrai** : $|(-1)^n|=1$ mais elle alterne entre $1$ et $-1$."
         },
         {
-          "question": "**Item 3.** Une suite majorée est nécessairement croissante.",
+          "question": "**3.** Une suite majorée est nécessairement croissante.",
           "answer": "**Faux** : être majorée ne dit rien sur le sens de variation."
         },
         {
-          "question": "**Item 4.** La suite $(u_n)$ définie par $u_n=\\dfrac{2n+3}{n+2}$ est bornée.",
+          "question": "**4.** La suite $(u_n)$ définie par $u_n=\\dfrac{2n+3}{n+2}$ est bornée.",
           "answer": "**Vrai** : $\\frac32\\leqslant u_n<2$ pour tout $n$."
         },
         {
-          "question": "**Item 5.** Une suite bornée est toujours convergente.",
+          "question": "**5.** Une suite bornée est toujours convergente.",
           "answer": "**Faux** : contre-exemple $(-1)^n$, bornée mais non convergente."
         },
         {
-          "question": "**Item 6.** Une suite décroissante est majorée par son premier terme.",
+          "question": "**6.** Une suite décroissante est majorée par son premier terme.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 7.** La suite $u_n=(-1)^n\\times n$ n'est ni majorée ni minorée.",
+          "question": "**7.** La suite $u_n=(-1)^n\\times n$ n'est ni majorée ni minorée.",
           "answer": "**Vrai** : elle prend les valeurs $0,-1,2,-3,4,-5,\\ldots$, non bornées dans les deux sens."
         },
         {
-          "question": "**Item 8.** Une suite constante est à la fois croissante et décroissante.",
+          "question": "**8.** Une suite constante est à la fois croissante et décroissante.",
           "answer": "**Vrai** : une suite constante vérifie $u_{n+1}\\geqslant u_n$ et $u_{n+1}\\leqslant u_n$ simultanément."
         },
         {
-          "question": "**Item 9.** Toute suite convergente est bornée.",
+          "question": "**9.** Toute suite convergente est bornée.",
           "answer": "**Vrai** : théorème du cours."
         },
         {
-          "question": "**Item 10.** Une suite peut être majorée sans être convergente.",
+          "question": "**10.** Une suite peut être majorée sans être convergente.",
           "answer": "**Vrai** : exemple $(-1)^n$, majorée mais non convergente."
         },
         {
-          "question": "**Item 11.** Une suite peut être à la fois majorée et minorée sans être monotone.",
+          "question": "**11.** Une suite peut être à la fois majorée et minorée sans être monotone.",
           "answer": "**Vrai** : exemple $(-1)^n$, bornée mais non monotone."
         },
         {
-          "question": "**Item 12.** $u_n=\\dfrac1n$ (pour $n\\geqslant1$) est décroissante et minorée par $0$.",
+          "question": "**12.** $u_n=\\dfrac1n$ (pour $n\\geqslant1$) est décroissante et minorée par $0$.",
           "answer": "**Vrai** : $1/n$ décroît vers $0$, toujours positif."
         },
         {
-          "question": "**Item 13.** Une suite non majorée tend nécessairement vers $+\\infty$.",
+          "question": "**13.** Une suite non majorée tend nécessairement vers $+\\infty$.",
           "answer": "**Faux** : une suite non majorée peut ne pas avoir de limite du tout, sans tendre vers $+\\infty$."
         },
         {
-          "question": "**Item 14.** Si $(u_n)$ est croissante et majorée, alors elle converge (admis en 1ère année).",
+          "question": "**14.** Si $(u_n)$ est croissante et majorée, alors elle converge (admis en 1ère année).",
           "answer": "**Vrai** : théorème de convergence monotone, admis à ce niveau."
         },
         {
-          "question": "**Item 15.** Une suite peut être monotone sans être bornée.",
+          "question": "**15.** Une suite peut être monotone sans être bornée.",
           "answer": "**Vrai** : exemple $u_n=n$, croissante mais non bornée."
         },
         {
-          "question": "**Item 16.** Toute suite majorée est bornée.",
+          "question": "**16.** Toute suite majorée est bornée.",
           "answer": "**Faux** : être majorée seule ne suffit pas à être bornée, il faut aussi être minorée."
         },
         {
-          "question": "**Item 17.** Toute suite bornée est majorée et minorée.",
+          "question": "**17.** Toute suite bornée est majorée et minorée.",
           "answer": "**Vrai** : c'est la définition même d'une suite bornée."
         },
         {
-          "question": "**Item 18.** Une suite décroissante et minorée converge (admis).",
+          "question": "**18.** Une suite décroissante et minorée converge (admis).",
           "answer": "**Vrai** : théorème analogue à celui des suites croissantes majorées."
         },
         {
-          "question": "**Item 19.** La suite $u_n=n^2$ est croissante à partir d'un certain rang.",
+          "question": "**19.** La suite $u_n=n^2$ est croissante à partir d'un certain rang.",
           "answer": "**Vrai** : $u_n=n^2$ est croissante dès $n=0$ sur les entiers naturels."
         },
         {
-          "question": "**Item 20.** Une suite peut changer de sens de variation plusieurs fois.",
+          "question": "**20.** Une suite peut changer de sens de variation plusieurs fois.",
           "answer": "**Vrai** : une suite peut ne pas être monotone du tout."
         },
         {
-          "question": "**Item 21.** Une suite peut être convergente sans être monotone.",
+          "question": "**21.** Une suite peut être convergente sans être monotone.",
           "answer": "**Vrai** : exemple $u_n=(-1)^n/n$, converge vers $0$ sans être monotone."
         },
         {
-          "question": "**Item 22.** Si $(u_n)$ est majorée par $M$, alors pour tout $n$, $u_n\\leqslant M$.",
+          "question": "**22.** Si $(u_n)$ est majorée par $M$, alors pour tout $n$, $u_n\\leqslant M$.",
           "answer": "**Vrai** : définition de majorant."
         },
         {
-          "question": "**Item 23.** La suite $u_n=\\dfrac{(-1)^n}{n}$ (pour $n\\geqslant1$) est convergente vers $0$.",
+          "question": "**23.** La suite $u_n=\\dfrac{(-1)^n}{n}$ (pour $n\\geqslant1$) est convergente vers $0$.",
           "answer": "**Vrai** : $|u_n|=1/n\\to0$ donc $u_n\\to0$."
         },
         {
-          "question": "**Item 24.** Une suite minorée par $0$ est nécessairement croissante.",
+          "question": "**24.** Une suite minorée par $0$ est nécessairement croissante.",
           "answer": "**Faux** : être minorée par $0$ ne dit rien sur la monotonie."
         },
         {
-          "question": "**Item 25.** Deux suites majorées ont une somme majorée.",
+          "question": "**25.** Deux suites majorées ont une somme majorée.",
           "answer": "**Vrai** : si $u_n\\leqslant M_1$ et $v_n\\leqslant M_2$, alors $u_n+v_n\\leqslant M_1+M_2$."
         }
       ]
@@ -153,103 +153,103 @@
       "title": "QCM 2 — Suites arithmétiques et géométriques",
       "items": [
         {
-          "question": "**Item 1.** Une suite arithmétique de raison $r$ vérifie $u_n=u_0+nr$.",
+          "question": "**1.** Une suite arithmétique de raison $r$ vérifie $u_n=u_0+nr$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 2.** Une suite géométrique de raison $q$ vérifie $u_n=u_0\\times q^n$.",
+          "question": "**2.** Une suite géométrique de raison $q$ vérifie $u_n=u_0\\times q^n$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 3.** La somme des $n+1$ premiers termes d'une suite arithmétique vaut $(n+1)\\times\\dfrac{u_0+u_n}{2}$.",
+          "question": "**3.** La somme des $n+1$ premiers termes d'une suite arithmétique vaut $(n+1)\\times\\dfrac{u_0+u_n}{2}$.",
           "answer": "**Vrai** : formule de la somme arithmétique."
         },
         {
-          "question": "**Item 4.** Si $q=1$, la somme des premiers termes d'une suite géométrique est nulle.",
+          "question": "**4.** Si $q=1$, la somme des premiers termes d'une suite géométrique est nulle.",
           "answer": "**Faux** : si $q=1$, la suite est constante égale à $u_0$ et la somme vaut $(n+1)u_0$, en général non nulle."
         },
         {
-          "question": "**Item 5.** Une suite géométrique de raison négative a des termes qui alternent de signe (si $u_0>0$).",
+          "question": "**5.** Une suite géométrique de raison négative a des termes qui alternent de signe (si $u_0>0$).",
           "answer": "**Vrai** : $q^n$ change de signe à chaque rang si $q<0$."
         },
         {
-          "question": "**Item 6.** Une suite arithmétique de raison $r>0$ est strictement croissante.",
+          "question": "**6.** Une suite arithmétique de raison $r>0$ est strictement croissante.",
           "answer": "**Vrai** : $u_{n+1}-u_n=r>0$."
         },
         {
-          "question": "**Item 7.** Une suite géométrique de raison $q\\in\\,]0;1[$ et de premier terme positif est décroissante.",
+          "question": "**7.** Une suite géométrique de raison $q\\in\\,]0;1[$ et de premier terme positif est décroissante.",
           "answer": "**Vrai** : le rapport $q\\in\\,]0;1[$ fait décroître les termes."
         },
         {
-          "question": "**Item 8.** La somme des $n$ premiers termes consécutifs d'une suite arithmétique de raison $r$ est indépendante de $r$.",
+          "question": "**8.** La somme des $n$ premiers termes consécutifs d'une suite arithmétique de raison $r$ est indépendante de $r$.",
           "answer": "**Faux** : la somme dépend explicitement de $r$ (et de $u_0$)."
         },
         {
-          "question": "**Item 9.** Si $(u_n)$ est géométrique de raison $q<0$, la suite $(|u_n|)$ est géométrique de raison $|q|$.",
+          "question": "**9.** Si $(u_n)$ est géométrique de raison $q<0$, la suite $(|u_n|)$ est géométrique de raison $|q|$.",
           "answer": "**Vrai** : $|u_n|=|u_0|\\times|q|^n$, suite géométrique de raison $|q|$."
         },
         {
-          "question": "**Item 10.** Une suite arithmético-géométrique est toujours arithmétique.",
+          "question": "**10.** Une suite arithmético-géométrique est toujours arithmétique.",
           "answer": "**Faux** : une suite arithmético-géométrique n'est en général ni arithmétique ni géométrique."
         },
         {
-          "question": "**Item 11.** Pour une suite géométrique de raison $q\\neq1$, $\\displaystyle\\sum_{k=0}^{n}u_k=u_0\\times\\dfrac{1-q^{n+1}}{1-q}$.",
+          "question": "**11.** Pour une suite géométrique de raison $q\\neq1$, $\\displaystyle\\sum_{k=0}^{n}u_k=u_0\\times\\dfrac{1-q^{n+1}}{1-q}$.",
           "answer": "**Vrai** : formule de la somme géométrique."
         },
         {
-          "question": "**Item 12.** Si $0<q<1$, alors $q^n\\to+\\infty$ quand $n\\to+\\infty$.",
+          "question": "**12.** Si $0<q<1$, alors $q^n\\to+\\infty$ quand $n\\to+\\infty$.",
           "answer": "**Faux** : si $0<q<1$, $q^n$ tend vers $0$, pas vers $+\\infty$."
         },
         {
-          "question": "**Item 13.** Une suite arithmétique de raison négative est décroissante.",
+          "question": "**13.** Une suite arithmétique de raison négative est décroissante.",
           "answer": "**Vrai** : propriété directe (raison négative)."
         },
         {
-          "question": "**Item 14.** Le terme général d'une suite arithmétique de premier terme $u_p$ et de raison $r$ est $u_n=u_p+(n-p)r$.",
+          "question": "**14.** Le terme général d'une suite arithmétique de premier terme $u_p$ et de raison $r$ est $u_n=u_p+(n-p)r$.",
           "answer": "**Vrai** : formule générale du terme d'une suite arithmétique."
         },
         {
-          "question": "**Item 15.** $q^n\\to0$ quand $n\\to+\\infty$ si $|q|<1$.",
+          "question": "**15.** $q^n\\to0$ quand $n\\to+\\infty$ si $|q|<1$.",
           "answer": "**Vrai** : propriété fondamentale des suites géométriques de raison strictement comprise entre $-1$ et $1$."
         },
         {
-          "question": "**Item 16.** Une suite à la fois arithmétique et géométrique est nécessairement constante.",
+          "question": "**16.** Une suite à la fois arithmétique et géométrique est nécessairement constante.",
           "answer": "**Vrai** : les deux structures ne coïncident que si la raison est nulle."
         },
         {
-          "question": "**Item 17.** La moyenne arithmétique de deux termes consécutifs d'une suite arithmétique est le terme intermédiaire.",
+          "question": "**17.** La moyenne arithmétique de deux termes consécutifs d'une suite arithmétique est le terme intermédiaire.",
           "answer": "**Vrai** : $\\dfrac{u_{n-1}+u_{n+1}}2=u_n$."
         },
         {
-          "question": "**Item 18.** Si $q=-1$, la suite géométrique $(u_n)$ alterne entre deux valeurs opposées.",
+          "question": "**18.** Si $q=-1$, la suite géométrique $(u_n)$ alterne entre deux valeurs opposées.",
           "answer": "**Vrai** : $q=-1$ donne des termes qui alternent entre $u_0$ et $-u_0$."
         },
         {
-          "question": "**Item 19.** Le produit de deux suites géométriques est une suite géométrique.",
+          "question": "**19.** Le produit de deux suites géométriques est une suite géométrique.",
           "answer": "**Vrai** : le produit de deux suites géométriques de raisons $q_1,q_2$ est géométrique de raison $q_1q_2$."
         },
         {
-          "question": "**Item 20.** Une suite arithmétique non constante n'est jamais bornée.",
+          "question": "**20.** Une suite arithmétique non constante n'est jamais bornée.",
           "answer": "**Vrai** : une suite arithmétique non constante tend vers $+\\infty$ ou $-\\infty$, elle n'est donc jamais bornée."
         },
         {
-          "question": "**Item 21.** Si $(u_n)$ est arithmétique de raison $r$, alors $(u_{2n})$ est arithmétique de raison $2r$.",
+          "question": "**21.** Si $(u_n)$ est arithmétique de raison $r$, alors $(u_{2n})$ est arithmétique de raison $2r$.",
           "answer": "**Vrai** : $u_{2(n+1)}-u_{2n}=u_{2n+2}-u_{2n}=2r$."
         },
         {
-          "question": "**Item 22.** Toute suite géométrique de raison $q>1$ et de premier terme positif tend vers $+\\infty$.",
+          "question": "**22.** Toute suite géométrique de raison $q>1$ et de premier terme positif tend vers $+\\infty$.",
           "answer": "**Vrai** : propriété des suites géométriques de raison strictement supérieure à $1$."
         },
         {
-          "question": "**Item 23.** La somme des $n+1$ premiers termes d'une suite constante égale à $c$ vaut $(n+1)c$.",
+          "question": "**23.** La somme des $n+1$ premiers termes d'une suite constante égale à $c$ vaut $(n+1)c$.",
           "answer": "**Vrai** : somme de $(n+1)$ termes tous égaux à $c$."
         },
         {
-          "question": "**Item 24.** Une suite arithmétique de raison $0$ est constante.",
+          "question": "**24.** Une suite arithmétique de raison $0$ est constante.",
           "answer": "**Vrai** : cas particulier trivial (raison nulle)."
         },
         {
-          "question": "**Item 25.** Si $q=1$, la suite géométrique n'est pas définie.",
+          "question": "**25.** Si $q=1$, la suite géométrique n'est pas définie.",
           "answer": "**Faux** : si $q=1$, la suite géométrique est parfaitement définie : c'est une suite constante."
         }
       ]
@@ -277,103 +277,103 @@
       "title": "QCM 3 — Raisonnement par récurrence",
       "items": [
         {
-          "question": "**Item 1.** Pour démontrer une propriété par récurrence, il suffit de vérifier l'hérédité, sans l'initialisation.",
+          "question": "**1.** Pour démontrer une propriété par récurrence, il suffit de vérifier l'hérédité, sans l'initialisation.",
           "answer": "**Faux** : sans l'initialisation, l'hérédité seule ne prouve rien."
         },
         {
-          "question": "**Item 2.** Si $u_0=1$ et $u_{n+1}=\\sqrt{u_n+6}$, on peut montrer par récurrence que $0<u_n<3$ pour tout $n$.",
+          "question": "**2.** Si $u_0=1$ et $u_{n+1}=\\sqrt{u_n+6}$, on peut montrer par récurrence que $0<u_n<3$ pour tout $n$.",
           "answer": "**Vrai** : c'est un résultat classique démontrable par récurrence."
         },
         {
-          "question": "**Item 3.** Une démonstration par récurrence permet d'établir une propriété pour tout entier $n\\geqslant n_0$.",
+          "question": "**3.** Une démonstration par récurrence permet d'établir une propriété pour tout entier $n\\geqslant n_0$.",
           "answer": "**Vrai** : c'est le principe même du raisonnement par récurrence."
         },
         {
-          "question": "**Item 4.** Dans une récurrence, l'hypothèse de récurrence consiste à supposer $P(n)$ vraie pour un rang $n$ fixé, afin d'en déduire $P(n+1)$.",
+          "question": "**4.** Dans une récurrence, l'hypothèse de récurrence consiste à supposer $P(n)$ vraie pour un rang $n$ fixé, afin d'en déduire $P(n+1)$.",
           "answer": "**Vrai** : c'est la définition de l'étape d'hérédité."
         },
         {
-          "question": "**Item 5.** La récurrence ne peut s'appliquer qu'à des suites arithmétiques ou géométriques.",
+          "question": "**5.** La récurrence ne peut s'appliquer qu'à des suites arithmétiques ou géométriques.",
           "answer": "**Faux** : la récurrence s'applique à toute propriété indexée par $\\mathbb{N}$, quelle que soit la nature de la suite."
         },
         {
-          "question": "**Item 6.** Pour démontrer $P(n)$ pour tout $n\\geqslant n_0$, il suffit de vérifier $P(n_0)$ et que $P(n)\\Rightarrow P(n+1)$ pour tout $n\\geqslant n_0$.",
+          "question": "**6.** Pour démontrer $P(n)$ pour tout $n\\geqslant n_0$, il suffit de vérifier $P(n_0)$ et que $P(n)\\Rightarrow P(n+1)$ pour tout $n\\geqslant n_0$.",
           "answer": "**Vrai** : principe du raisonnement par récurrence simple."
         },
         {
-          "question": "**Item 7.** La suite $(u_n)$ définie par $u_0=2$ et $u_{n+1}=u_n^2$ vérifie $u_n\\geqslant2$ pour tout $n$ (démontrable par récurrence).",
+          "question": "**7.** La suite $(u_n)$ définie par $u_0=2$ et $u_{n+1}=u_n^2$ vérifie $u_n\\geqslant2$ pour tout $n$ (démontrable par récurrence).",
           "answer": "**Vrai** : si $u_n\\geqslant2$, alors $u_{n+1}=u_n^2\\geqslant4\\geqslant2$, et $u_0=2\\geqslant2$."
         },
         {
-          "question": "**Item 8.** L'étape d'initialisation peut être omise si l'hérédité est évidente.",
+          "question": "**8.** L'étape d'initialisation peut être omise si l'hérédité est évidente.",
           "answer": "**Faux** : l'initialisation est indispensable, quelle que soit la simplicité de l'hérédité."
         },
         {
-          "question": "**Item 9.** La récurrence forte permet de supposer $P(k)$ vraie pour tous les rangs $k\\leqslant n$.",
+          "question": "**9.** La récurrence forte permet de supposer $P(k)$ vraie pour tous les rangs $k\\leqslant n$.",
           "answer": "**Vrai** : définition de la récurrence forte."
         },
         {
-          "question": "**Item 10.** On peut démontrer par récurrence qu'une propriété est fausse pour tout $n$.",
+          "question": "**10.** On peut démontrer par récurrence qu'une propriété est fausse pour tout $n$.",
           "answer": "**Faux** : la récurrence sert à démontrer qu'une propriété est vraie pour tout $n$, pas fausse."
         },
         {
-          "question": "**Item 11.** Pour montrer que $u_n<3$ pour tout $n$ (avec $u_0=1$, $u_{n+1}=\\sqrt{3u_n}$), on peut procéder par récurrence.",
+          "question": "**11.** Pour montrer que $u_n<3$ pour tout $n$ (avec $u_0=1$, $u_{n+1}=\\sqrt{3u_n}$), on peut procéder par récurrence.",
           "answer": "**Vrai** : méthode standard pour ce type de suite."
         },
         {
-          "question": "**Item 12.** L'hérédité consiste à supposer $P(n)$ vraie et à en déduire $P(n+1)$.",
+          "question": "**12.** L'hérédité consiste à supposer $P(n)$ vraie et à en déduire $P(n+1)$.",
           "answer": "**Vrai** : définition de l'hérédité."
         },
         {
-          "question": "**Item 13.** Une récurrence peut démarrer à un rang $n_0$ différent de $0$.",
+          "question": "**13.** Une récurrence peut démarrer à un rang $n_0$ différent de $0$.",
           "answer": "**Vrai** : on peut démarrer à un rang $n_0$ quelconque."
         },
         {
-          "question": "**Item 14.** Si l'initialisation échoue mais l'hérédité est vraie, la propriété est néanmoins démontrée.",
+          "question": "**14.** Si l'initialisation échoue mais l'hérédité est vraie, la propriété est néanmoins démontrée.",
           "answer": "**Faux** : sans initialisation valide, la démonstration est incomplète."
         },
         {
-          "question": "**Item 15.** La récurrence est un outil valable uniquement pour les propriétés numériques.",
+          "question": "**15.** La récurrence est un outil valable uniquement pour les propriétés numériques.",
           "answer": "**Faux** : la récurrence s'applique à toute propriété indexée par des entiers, pas seulement numérique."
         },
         {
-          "question": "**Item 16.** Pour démontrer une inégalité du type $u_n\\leqslant v_n$ pour tout $n$, la récurrence est une méthode possible.",
+          "question": "**16.** Pour démontrer une inégalité du type $u_n\\leqslant v_n$ pour tout $n$, la récurrence est une méthode possible.",
           "answer": "**Vrai** : usage classique de la récurrence."
         },
         {
-          "question": "**Item 17.** La propriété « $2^n>n$ » se démontre par récurrence pour tout $n\\in\\mathbb{N}$.",
+          "question": "**17.** La propriété « $2^n>n$ » se démontre par récurrence pour tout $n\\in\\mathbb{N}$.",
           "answer": "**Vrai** : résultat classique, démontrable par récurrence simple."
         },
         {
-          "question": "**Item 18.** Dans une récurrence à deux pas, on initialise généralement aux rangs $0$ et $1$.",
+          "question": "**18.** Dans une récurrence à deux pas, on initialise généralement aux rangs $0$ et $1$.",
           "answer": "**Vrai** : cas typique pour des suites définies par deux termes précédents."
         },
         {
-          "question": "**Item 19.** La récurrence n'est jamais utilisée pour démontrer des propriétés de divisibilité.",
+          "question": "**19.** La récurrence n'est jamais utilisée pour démontrer des propriétés de divisibilité.",
           "answer": "**Faux** : la récurrence est au contraire un outil très employé pour les propriétés de divisibilité."
         },
         {
-          "question": "**Item 20.** On peut combiner un raisonnement par récurrence avec un raisonnement par disjonction de cas.",
+          "question": "**20.** On peut combiner un raisonnement par récurrence avec un raisonnement par disjonction de cas.",
           "answer": "**Vrai** : les deux méthodes peuvent parfaitement se combiner dans une même démonstration."
         },
         {
-          "question": "**Item 21.** Toute propriété vraie pour $n=0$ et héréditaire est vraie pour tout entier naturel.",
+          "question": "**21.** Toute propriété vraie pour $n=0$ et héréditaire est vraie pour tout entier naturel.",
           "answer": "**Vrai** : c'est l'énoncé du principe de récurrence."
         },
         {
-          "question": "**Item 22.** Le principe de récurrence repose sur la construction de $\\mathbb{N}$.",
+          "question": "**22.** Le principe de récurrence repose sur la construction de $\\mathbb{N}$.",
           "answer": "**Vrai** : c'est un axiome fondamental lié à la construction des entiers naturels."
         },
         {
-          "question": "**Item 23.** On peut démontrer par récurrence que la somme des $n$ premiers entiers naturels vaut $\\dfrac{n(n+1)}{2}$.",
+          "question": "**23.** On peut démontrer par récurrence que la somme des $n$ premiers entiers naturels vaut $\\dfrac{n(n+1)}{2}$.",
           "answer": "**Vrai** : résultat classique (formule de Gauss), démontrable par récurrence."
         },
         {
-          "question": "**Item 24.** Une démonstration par récurrence ne nécessite jamais de calcul algébrique.",
+          "question": "**24.** Une démonstration par récurrence ne nécessite jamais de calcul algébrique.",
           "answer": "**Faux** : l'étape d'hérédité nécessite en général de manipuler des calculs algébriques."
         },
         {
-          "question": "**Item 25.** Si $P(0)$ est vraie et $P(n)\\Rightarrow P(n+1)$ pour tout $n$, alors $P(n)$ est vraie pour tout $n\\in\\mathbb{N}$.",
+          "question": "**25.** Si $P(0)$ est vraie et $P(n)\\Rightarrow P(n+1)$ pour tout $n$, alors $P(n)$ est vraie pour tout $n\\in\\mathbb{N}$.",
           "answer": "**Vrai** : c'est exactement l'énoncé du principe de récurrence."
         }
       ]
