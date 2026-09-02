@@ -1,0 +1,258 @@
+{
+  "id": "1bac-sm-ch01-partie-entiere",
+  "title": "Chapitre 1 — Partie entière",
+  "description": "Définition et propriétés de la fonction partie entière, résolution d'équations et d'inéquations faisant intervenir E(x).",
+  "tags": ["1BAC SM", "Partie entière", "Mathématiques"],
+  "lang": "fr",
+  "createdAt": "2026-09-02",
+  "slides": [
+    {
+      "id": "s1",
+      "type": "markdown",
+      "title": "Compétence 1 — Définition et propriétés de la partie entière",
+      "content": "## Définition — Partie entière\n\nSoit $x$ un réel. On appelle **partie entière** de $x$, notée $E(x)$, le plus grand entier relatif inférieur ou égal à $x$. Autrement dit, $E(x)$ est l'unique entier vérifiant\n\n$$E(x) \\leqslant x < E(x)+1.$$\n\n## Propriété — Encadrement de la partie entière\n\nPour tout réel $x$,\n\n$$x-1 < E(x) \\leqslant x.$$\n\n*Démonstration* : D'après la définition, $E(x)\\leqslant x<E(x)+1$. La première inégalité donne $E(x)\\leqslant x$. La seconde, $x<E(x)+1$, équivaut à $x-1<E(x)$.\n\n## Propriété — Caractérisation de la partie entière\n\nPour tous $x\\in\\mathbb{R}$ et $p\\in\\mathbb{Z}$,\n\n$$E(x)=p \\Leftrightarrow x\\in[p;p+1[.$$\n\n## Propriété — Compatibilité avec l'addition d'un entier\n\nPour tout entier relatif $p$ et pour tout réel $x$,\n\n$$E(x+p)=E(x)+p.$$\n\n*Démonstration* : Posons $n=E(x)$, de sorte que $n\\leqslant x<n+1$ ; en ajoutant $p$ à chaque membre, $n+p\\leqslant x+p<n+p+1$. Comme $n+p\\in\\mathbb{Z}$, la propriété de caractérisation donne $E(x+p)=n+p=E(x)+p$."
+    },
+    {
+      "id": "s2",
+      "type": "reveal",
+      "title": "Exercice résolu 1 — Partie entière d'expressions algébriques",
+      "items": [
+        {
+          "question": "Soit $n$ un entier naturel non nul. Déterminer la partie entière de chacun des nombres suivants :\n$$\\sqrt{n^2+1} \\ ;\\quad \\sqrt{n^2+2n} \\ ;\\quad \\sqrt{n^2+4n} \\ ;\\quad \\dfrac{2n^2+4n+8}{n+1}.$$",
+          "answer": "**1)** On a $n^2<n^2+1<n^2+2n+1=(n+1)^2$, donc $n<\\sqrt{n^2+1}<n+1$, par conséquent $E\\left(\\sqrt{n^2+1}\\right)=n$.\n\n**2)** De même, de $n^2<n^2+2n<(n+1)^2$ on déduit $E\\left(\\sqrt{n^2+2n}\\right)=n$.\n\n**3)** Il est clair que $n^2+2n+1<n^2+4n<n^2+4n+4$ car $n\\geqslant 1$, donc $E\\left(\\sqrt{n^2+4n}\\right)=n+1$.\n\n**4)** La division euclidienne de $2n^2+4n+8$ par $n+1$ donne $2n^2+4n+8=(n+1)(2n+2)+6$, donc $\\dfrac{2n^2+4n+8}{n+1}=2n+2+\\dfrac{6}{n+1}$, et par conséquent $E\\left(\\dfrac{2n^2+4n+8}{n+1}\\right)=2n+2+E\\left(\\dfrac{6}{n+1}\\right)$, or $\\dfrac{6}{n+1}<1$ équivaut à $n\\geqslant 6$. On obtient ainsi :\n- si $n\\geqslant 6$ : $E\\left(\\dfrac{2n^2+4n+8}{n+1}\\right)=2n+2$ ;\n- si $3\\leqslant n\\leqslant 5$ : $E\\left(\\dfrac{2n^2+4n+8}{n+1}\\right)=2n+3$ ;\n- si $n=2$ : la valeur est $8$ ; si $n=1$ : la valeur est $7$."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "reveal",
+      "title": "QCM 1 — Définition et propriétés de la partie entière",
+      "items": [
+        {
+          "question": "**Item 1.** $E(1{,}25)=1$.",
+          "answer": "**Vrai** : $1\\leqslant1{,}25<2$."
+        },
+        {
+          "question": "**Item 2.** $E(-\\sqrt7)=-3$.",
+          "answer": "**Vrai** : $-3\\leqslant-\\sqrt7<-2$ (car $\\sqrt7\\approx2{,}65$)."
+        },
+        {
+          "question": "**Item 3.** Pour tout réel $x$, $E(x)\\leqslant x$.",
+          "answer": "**Vrai** : c'est la définition même de la partie entière."
+        },
+        {
+          "question": "**Item 4.** Pour tous réels $x,y$ : $E(x+y)=E(x)+E(y)$.",
+          "answer": "**Faux** : contre-exemple $x=1{,}8$, $y=2{,}6$."
+        },
+        {
+          "question": "**Item 5.** La partie entière d'un entier relatif $n$ est $n$ lui-même.",
+          "answer": "**Vrai** : $n\\leqslant n<n+1$."
+        },
+        {
+          "question": "**Item 6.** Pour tout réel $x$, $E(x)\\leqslant x<E(x)+1$.",
+          "answer": "**Vrai** : définition (encadrement caractéristique) de la partie entière."
+        },
+        {
+          "question": "**Item 7.** $E(3{,}999)=4$.",
+          "answer": "**Faux** : $E(3{,}999)=3$ car $3\\leqslant3{,}999<4$."
+        },
+        {
+          "question": "**Item 8.** $E(-2)=-2$.",
+          "answer": "**Vrai** : $-2$ est déjà un entier, donc sa partie entière est lui-même."
+        },
+        {
+          "question": "**Item 9.** $E(x)$ est toujours un nombre positif.",
+          "answer": "**Faux** : la partie entière peut être négative, par exemple $E(-1{,}5)=-2$."
+        },
+        {
+          "question": "**Item 10.** $E\\left(\\dfrac72\\right)=3$.",
+          "answer": "**Vrai** : $\\dfrac72=3{,}5$, donc $E(3{,}5)=3$."
+        },
+        {
+          "question": "**Item 11.** Pour tout entier $p$ et tout réel $x$ : $E(x+p)=E(x)+p$.",
+          "answer": "**Vrai** : propriété de compatibilité avec l'addition d'un entier."
+        },
+        {
+          "question": "**Item 12.** La fonction partie entière est croissante sur $\\mathbb R$.",
+          "answer": "**Vrai** : croissante au sens large."
+        },
+        {
+          "question": "**Item 13.** $E(x)=x$ si, et seulement si, $x\\in\\mathbb Z$.",
+          "answer": "**Vrai** : caractérisation des entiers."
+        },
+        {
+          "question": "**Item 14.** La courbe représentative de $E$ est continue sur $\\mathbb R$.",
+          "answer": "**Faux** : la courbe de $E$ présente des sauts (discontinuités) en chaque entier."
+        },
+        {
+          "question": "**Item 15.** $E(-0{,}5)=0$.",
+          "answer": "**Faux** : $E(-0{,}5)=-1$ car $-1\\leqslant-0{,}5<0$."
+        },
+        {
+          "question": "**Item 16.** Pour tout réel $x$, $x-1<E(x)\\leqslant x$.",
+          "answer": "**Vrai** : forme équivalente de l'encadrement caractéristique."
+        },
+        {
+          "question": "**Item 17.** $E(2)=2$.",
+          "answer": "**Vrai** : $2$ est déjà entier."
+        },
+        {
+          "question": "**Item 18.** Si $n\\leqslant x<n+1$ avec $n$ entier, alors $E(x)=n$.",
+          "answer": "**Vrai** : c'est la caractérisation même de la partie entière."
+        },
+        {
+          "question": "**Item 19.** La partie entière de la somme de deux réels est toujours égale à la somme de leurs parties entières.",
+          "answer": "**Faux** : contre-exemple : $E(1{,}8+2{,}6)=E(4{,}4)=4$ mais $E(1{,}8)+E(2{,}6)=1+2=3$."
+        },
+        {
+          "question": "**Item 20.** $E(4{,}0001)-E(4)=0$.",
+          "answer": "**Vrai** : $E(4{,}0001)=4$ et $E(4)=4$."
+        },
+        {
+          "question": "**Item 21.** $E(-1{,}0001)=-2$.",
+          "answer": "**Vrai** : $-2\\leqslant-1{,}0001<-1$."
+        },
+        {
+          "question": "**Item 22.** La fonction partie entière n'est jamais strictement croissante sur un intervalle.",
+          "answer": "**Faux** : $E$ est constante par morceaux, jamais strictement croissante sur un intervalle."
+        },
+        {
+          "question": "**Item 23.** Sur $[0;1[$, la fonction partie entière est constante égale à $0$.",
+          "answer": "**Vrai** : pour tout $x\\in[0;1[$, $E(x)=0$."
+        },
+        {
+          "question": "**Item 24.** L'équation $E(x)=n$ (avec $n$ entier fixé) admet exactement une solution.",
+          "answer": "**Faux** : $E(x)=n$ admet une infinité de solutions : tout l'intervalle $[n;n+1[$."
+        },
+        {
+          "question": "**Item 25.** $E(\\pi)=3$.",
+          "answer": "**Vrai** : $\\pi\\approx3{,}14$, donc $E(\\pi)=3$."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "type": "markdown",
+      "title": "Compétence 2 — Équations et inéquations avec la partie entière",
+      "content": "## Propriété\n\nPour tous $x\\in\\mathbb{R}$ et $p\\in\\mathbb{Z}$ : $E(x)=p \\Leftrightarrow x\\in[p;p+1[$.\n\n## Méthodes de résolution\n\n- **Traduire par un encadrement.** C'est la méthode la plus fréquente : on utilise $E\\big(f(x)\\big)=p \\Leftrightarrow p\\leqslant f(x)<p+1$ pour remplacer l'égalité portant sur $E\\big(f(x)\\big)$ par un encadrement portant sur $f(x)$. Si le second membre dépend de $x$, il faut ajouter la condition que ce membre soit entier.\n\n- **Introduire l'entier $E(x)$ comme nouvelle inconnue.** On pose $k=E(x)\\in\\mathbb{Z}$, on exprime $x$ en fonction de $k$, puis on reporte dans l'encadrement $k\\leqslant x<k+1$.\n\n- **Décomposer $x$ en partie entière et partie décimale.** On écrit $x=p+r$ avec $p=E(x)\\in\\mathbb{Z}$ et $r\\in[0;1[$, puis on substitue dans l'équation ou l'inéquation.\n\n- **Exploiter une éventuelle périodicité.** Lorsque l'expression fait intervenir des différences $E(x+a)-E(x)$, on montre souvent qu'une fonction associée est périodique, puis on conclut par périodicité.\n\n- **Pour une inéquation** : pour tout entier $n$, $E(x)\\leqslant n \\Leftrightarrow x<n+1$ ; $E(x)\\geqslant n \\Leftrightarrow x\\geqslant n$ ; $E(x)>n \\Leftrightarrow x\\geqslant n+1$."
+    },
+    {
+      "id": "s5",
+      "type": "reveal",
+      "title": "Exercice résolu 2 — Équation avec la partie entière",
+      "items": [
+        {
+          "question": "Résoudre dans $\\mathbb{R}$ l'équation $E\\left(\\dfrac{7x-5}{2}\\right)=x+2$.",
+          "answer": "$$E\\left(\\dfrac{7x-5}{2}\\right)=x+2 \\Leftrightarrow \\begin{cases}x+2\\leqslant\\dfrac{7x-5}{2}<x+3\\\\ x\\in\\mathbb{Z}\\end{cases} \\Leftrightarrow \\begin{cases}\\dfrac95\\leqslant x<\\dfrac{11}{5}\\\\ x\\in\\mathbb{Z}\\end{cases} \\Leftrightarrow x=2.$$"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "type": "reveal",
+      "title": "QCM 2 — Équations et inéquations avec la partie entière",
+      "items": [
+        {
+          "question": "**Item 1.** Pour $p\\in\\mathbb Z$ : $E(x)=p \\iff x\\in[p;p+1[$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 2.** L'équation $E(x)=-3$ a pour ensemble de solutions $[-3;-2[$.",
+          "answer": "**Vrai** : conséquence directe de la caractérisation avec $p=-3$."
+        },
+        {
+          "question": "**Item 3.** L'équation $4E(x)=-7$ admet des solutions dans $\\mathbb R$.",
+          "answer": "**Faux** : $E(x)$ est un entier, donc $4E(x)$ est un multiple de $4$, or $-7$ n'en est pas un."
+        },
+        {
+          "question": "**Item 4.** L'équation $3E(x)=18$ équivaut à $E(x)=6$.",
+          "answer": "**Vrai** : on divise par $3$."
+        },
+        {
+          "question": "**Item 5.** L'équation $E(x)=x$ admet une unique solution réelle.",
+          "answer": "**Faux** : $E(x)=x$ équivaut à $x\\in\\mathbb Z$, ce qui donne une infinité de solutions."
+        },
+        {
+          "question": "**Item 6.** L'équation $E(x)=5$ équivaut à $x\\in[5;6[$.",
+          "answer": "**Vrai** : caractérisation de $E(x)=n$."
+        },
+        {
+          "question": "**Item 7.** L'inéquation $E(x)\\leqslant2$ équivaut à $x<3$.",
+          "answer": "**Vrai** : $E(x)\\leqslant2$ équivaut à $x<3$ (pour $x\\geqslant3$, $E(x)\\geqslant3$)."
+        },
+        {
+          "question": "**Item 8.** L'équation $2E(x)=7$ n'admet aucune solution.",
+          "answer": "**Vrai** : $E(x)$ est entier, $2E(x)$ est pair, or $7$ est impair."
+        },
+        {
+          "question": "**Item 9.** L'inéquation $E(x)>-1$ équivaut à $x\\geqslant0$.",
+          "answer": "**Vrai** : $E(x)>-1$ équivaut à $E(x)\\geqslant0$ (car $E(x)$ entier), soit $x\\geqslant0$."
+        },
+        {
+          "question": "**Item 10.** L'équation $E(x)=E(x+1)$ n'a jamais de solution.",
+          "answer": "**Vrai** : $E(x+1)=E(x)+1\\neq E(x)$, quelle que soit la valeur de $x$."
+        },
+        {
+          "question": "**Item 11.** L'équation $E(2x)=6$ équivaut à $x\\in[3;3{,}5[$.",
+          "answer": "**Vrai** : $E(2x)=6$ équivaut à $6\\leqslant2x<7$, soit $x\\in[3;3{,}5[$."
+        },
+        {
+          "question": "**Item 12.** L'inéquation $E(x)\\geqslant4$ équivaut à $x\\geqslant4$.",
+          "answer": "**Vrai** : caractérisation directe."
+        },
+        {
+          "question": "**Item 13.** L'équation $E(x)^2=4$ équivaut à $E(x)=2$ ou $E(x)=-2$.",
+          "answer": "**Vrai** : équation du second degré en $E(x)$, de solutions $E(x)=\\pm2$."
+        },
+        {
+          "question": "**Item 14.** Si $E(x)=E(y)$, alors $x=y$.",
+          "answer": "**Faux** : contre-exemple : $x=1{,}2$ et $y=1{,}7$ vérifient $E(x)=E(y)=1$ mais $x\\neq y$."
+        },
+        {
+          "question": "**Item 15.** L'équation $3E(x)-1=8$ équivaut à $E(x)=3$.",
+          "answer": "**Vrai** : on isole $E(x)$ : $3E(x)=9$, donc $E(x)=3$."
+        },
+        {
+          "question": "**Item 16.** L'inéquation $-2\\leqslant E(x)\\leqslant1$ équivaut à $x\\in[-2;2[$.",
+          "answer": "**Vrai** : $-2\\leqslant E(x)\\leqslant1$ équivaut à $-2\\leqslant x<2$."
+        },
+        {
+          "question": "**Item 17.** Le système $E(x)=3$ et $x<3{,}5$ équivaut à $x\\in[3;3{,}5[$.",
+          "answer": "**Vrai** : intersection de $[3;4[$ et $]-\\infty;3{,}5[$."
+        },
+        {
+          "question": "**Item 18.** L'équation $E(x)+E(-x)=0$ a pour solutions exactement les entiers.",
+          "answer": "**Vrai** : si $x$ est entier, $E(x)+E(-x)=x-x=0$ ; sinon, $E(x)+E(-x)=-1\\neq0$."
+        },
+        {
+          "question": "**Item 19.** L'inéquation $E(x)<0$ équivaut à $x<0$.",
+          "answer": "**Vrai** : $E(x)<0$ équivaut à $E(x)\\leqslant-1$ (car $E(x)$ entier), soit $x<0$."
+        },
+        {
+          "question": "**Item 20.** Une équation faisant intervenir $E(x)$ se ramène souvent à un encadrement de $x$.",
+          "answer": "**Vrai** : c'est la méthode générale de résolution."
+        },
+        {
+          "question": "**Item 21.** $E(x)=-1$ équivaut à $x\\in[-1;0[$.",
+          "answer": "**Vrai** : caractérisation directe."
+        },
+        {
+          "question": "**Item 22.** L'inéquation $E(x)\\leqslant E(y)$ entraîne $x\\leqslant y$.",
+          "answer": "**Faux** : contre-exemple : $x=1{,}9$ et $y=1{,}1$ vérifient $E(x)=1=E(y)$ mais $x>y$."
+        },
+        {
+          "question": "**Item 23.** Si $x\\in[n;n+1[$ avec $n\\in\\mathbb Z$, alors $E(x+0{,}5)$ vaut $n$ ou $n+1$ selon la valeur de $x$.",
+          "answer": "**Vrai** : selon que la partie décimale de $x$ est inférieure ou supérieure à $0{,}5$, l'arrondi tombe sur $n$ ou $n+1$."
+        },
+        {
+          "question": "**Item 24.** L'équation $E(x)=x-0{,}5$ n'a pas de solution entière.",
+          "answer": "**Vrai** : si $x=n$ est entier, l'équation devient $n=n-0{,}5$, fausse ; les solutions sont les $x=k+0{,}5$, jamais des entiers."
+        },
+        {
+          "question": "**Item 25.** Résoudre une inéquation avec $E(x)$ revient souvent à encadrer $x$ entre deux entiers consécutifs (ou plus).",
+          "answer": "**Vrai** : c'est la méthode générale de résolution de telles inéquations."
+        }
+      ]
+    }
+  ]
+}

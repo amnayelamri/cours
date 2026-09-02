@@ -1,5 +1,24 @@
 [
   {
+    "id": "premiere-sciences-maths",
+    "title": "Première Sciences Maths",
+    "description": "Collection complète des 11 chapitres de 1re Baccalauréat Sciences Mathématiques : cours, exercices résolus et QCM de 25 items par compétence.",
+    "emoji": "📐",
+    "courseIds": [
+      "1bac-sm-ch00-rappels-tc",
+      "1bac-sm-ch01-partie-entiere",
+      "1bac-sm-ch02-logique-ensembles",
+      "1bac-sm-ch03-suites",
+      "1bac-sm-ch04-fonctions",
+      "1bac-sm-ch05-trigonometrie",
+      "1bac-sm-ch06-limites",
+      "1bac-sm-ch07-derivation",
+      "1bac-sm-ch08-etude-fonctions",
+      "1bac-sm-ch09-produit-scalaire",
+      "1bac-sm-ch10-arithmetique"
+    ]
+  },
+  {
     "id": "terminale-spe-maths",
     "title": "Terminale Spé Maths",
     "description": "Cours et exercices de Terminale Spécialité Mathématiques : dérivées, primitives, intégration, probabilités et étude de fonctions.",

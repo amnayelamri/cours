@@ -1,5 +1,93 @@
 [
   {
+    "id": "1bac-sm-ch00-rappels-tc",
+    "title": "Chapitre 0 — Rappels de Tronc Commun",
+    "description": "Nombres réels, calcul algébrique, équations et inéquations, trigonométrie de base — révision du tronc commun.",
+    "tags": ["1BAC SM", "Rappels", "Tronc Commun", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch01-partie-entiere",
+    "title": "Chapitre 1 — Partie entière",
+    "description": "Définition et propriétés de la partie entière, applications.",
+    "tags": ["1BAC SM", "Partie entière", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch02-logique-ensembles",
+    "title": "Chapitre 2 — Logique, ensembles et applications",
+    "description": "Logique propositionnelle, quantificateurs, théorie des ensembles et applications (injections, surjections, bijections).",
+    "tags": ["1BAC SM", "Logique", "Ensembles", "Applications", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch03-suites",
+    "title": "Chapitre 3 — Suites numériques",
+    "description": "Suites arithmétiques, géométriques, convergence, monotonie et limites des suites.",
+    "tags": ["1BAC SM", "Suites", "Convergence", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch04-fonctions",
+    "title": "Chapitre 4 — Fonctions",
+    "description": "Continuité, limites, théorème des valeurs intermédiaires et propriétés des fonctions.",
+    "tags": ["1BAC SM", "Fonctions", "Continuité", "Limites", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch05-trigonometrie",
+    "title": "Chapitre 5 — Trigonométrie",
+    "description": "Cercle trigonométrique, angles associés, formules d'addition et duplication, équations et inéquations trigonométriques.",
+    "tags": ["1BAC SM", "Trigonométrie", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch06-limites",
+    "title": "Chapitre 6 — Limites",
+    "description": "Limites en un point et à l'infini, opérations sur les limites, formes indéterminées, théorème des gendarmes.",
+    "tags": ["1BAC SM", "Limites", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch07-derivation",
+    "title": "Chapitre 7 — Dérivation",
+    "description": "Nombre dérivé, tangente, fonctions dérivées, opérations, dérivée et sens de variation.",
+    "tags": ["1BAC SM", "Dérivation", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch08-etude-fonctions",
+    "title": "Chapitre 8 — Étude de fonctions",
+    "description": "Tableau de variations complet, éléments de symétrie, branches infinies, représentation graphique.",
+    "tags": ["1BAC SM", "Étude de fonctions", "Asymptotes", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch09-produit-scalaire",
+    "title": "Chapitre 9 — Produit scalaire",
+    "description": "Définition et expressions du produit scalaire, propriétés et applications au triangle, applications à la géométrie analytique.",
+    "tags": ["1BAC SM", "Produit scalaire", "Vecteurs", "Cercle", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
+    "id": "1bac-sm-ch10-arithmetique",
+    "title": "Chapitre 10 — Arithmétique",
+    "description": "Divisibilité et division euclidienne dans ℤ, PGCD, PPCM et nombres premiers, congruences dans ℤ.",
+    "tags": ["1BAC SM", "Arithmétique", "PGCD", "Congruences", "Mathématiques"],
+    "createdAt": "2026-09-02",
+    "slideCount": 9
+  },
+  {
     "id": "qissat-almal-ep1-tarikh-iqtisadi",
     "title": "قصة المال — الحلقة 1: بوصلة الثروة",
     "description": "سلسلة اقتصادية على منصة تاريخنا مع الدكتور محمد طلال لحلو. نكتشف كيف انتقل مركز الثقل الاقتصادي من الشرق المنتج إلى الغرب المستعمِر، وكيف وُلدت الرأسمالية من فوهة البندقية.",
@@ -984,5 +1072,18 @@
     ],
     "createdAt": "2026-06-29",
     "slideCount": 30
+  },
+  {
+    "id": "qissat-al-mal-2",
+    "title": "قصة المال 4: من المقايضة إلى النقد - الرؤية الإسلامية",
+    "description": "حلقة من سلسلة قصة المال تتناول نشأة النقود، مشكلة المقايضة، اختراع أول عملة معدنية في ليديا، ونظرة الإسلام إلى المال كأداة قياس لا كغاية في ذاته.",
+    "tags": [
+      "تاريخ الاقتصاد",
+      "النقود",
+      "الاقتصاد الإسلامي",
+      "المقايضة"
+    ],
+    "createdAt": "2026-06-30",
+    "slideCount": 16
   }
 ]

@@ -1,0 +1,382 @@
+{
+  "id": "1bac-sm-ch04-fonctions",
+  "title": "Chapitre 4 — Fonctions",
+  "description": "Domaine de définition, parité, périodicité, extremums, opérations et composition, fonctions de référence (affine, trinôme, cube, homographique).",
+  "tags": ["1BAC SM", "Fonctions", "Parité", "Périodicité", "Homographique", "Mathématiques"],
+  "lang": "fr",
+  "createdAt": "2026-09-02",
+  "slides": [
+    {
+      "id": "s1",
+      "type": "markdown",
+      "title": "Compétence 1 — Domaine de définition, parité et périodicité",
+      "content": "## Domaine de définition\n\nPour une expression algébrique, on exclut les valeurs de $x$ qui : annulent un dénominateur, rendent strictement négative une quantité sous une racine carrée. Toutes les contraintes doivent être satisfaites simultanément.\n\n## Égalité de deux fonctions\n\nDeux fonctions $f$ et $g$ sont **égales** si $D_f=D_g$ et $f(x)=g(x)$ pour tout $x\\in D_f$.\n\n## Fonction paire, impaire\n\n$D_f$ doit être symétrique par rapport à $0$. $f$ est **paire** si $f(-x)=f(x)$ ; **impaire** si $f(-x)=-f(x)$. La courbe d'une fonction paire est symétrique par rapport à l'axe des ordonnées ; celle d'une fonction impaire est symétrique par rapport à l'origine.\n\n## Extremums absolu et relatif\n\n$f(a)$ est un **maximum absolu** sur $D$ si $\\forall x\\in D,\\;f(x)\\leqslant f(a)$. $f(a)$ est un **maximum relatif** s'il existe un intervalle ouvert $I$ contenant $a$ tel que $\\forall x\\in I\\cap D,\\;f(x)\\leqslant f(a)$. Un extremum absolu est toujours un extremum relatif ; la réciproque est fausse.\n\n## Fonction périodique\n\n$f$ est **périodique de période $T>0$** si $\\forall x\\in D_f,\\;x+T\\in D_f$ et $f(x+T)=f(x)$. La courbe est invariante par translation de vecteur $T\\vec\\imath$. Les fonctions $\\cos$ et $\\sin$ sont périodiques de période $2\\pi$."
+    },
+    {
+      "id": "s2",
+      "type": "reveal",
+      "title": "Exercice résolu 1 — Fonction périodique",
+      "items": [
+        {
+          "question": "Soit $f$ définie sur $\\mathbb{R}$ par $f(x)=(-1)^{E(x)}\\big(x-E(x)\\big)$.\n1. Calculer $f(x+1)$ et $f(x+2)$ en fonction de $f(x)$.\n2. Montrer que $f$ est périodique et déterminer sa période.\n3. Donner l'expression de $f$ sur $[0;2[$ et décrire l'allure de sa courbe.",
+          "answer": "**1)** $f(x+1)=(-1)^{E(x)+1}\\big(x-E(x)\\big)=-f(x)$, et $f(x+2)=-f(x+1)=f(x)$.\n\n**2)** D'après 1), $f$ est $2$-périodique. Si $f$ admettait une période $T$ avec $0<T<2$, on aurait pour $x=0$ : $T-E(T)=0$, soit $T=1$ ; mais $f(x+1)=-f(x)\\neq f(x)$ en général. Donc la période de $f$ est $\\mathbf{2}$.\n\n**3)** Sur $[0;2[$ : $f(x)=x$ si $x\\in[0;1[$, et $f(x)=1-x$ si $x\\in[1;2[$. La courbe se répète par périodicité de période $2$, formant un motif en dents de scie."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "reveal",
+      "title": "QCM 1 — Domaine, parité, périodicité",
+      "items": [
+        {
+          "question": "**Item 1.** Pour $f(x)=\\dfrac{1}{\\sqrt{x-2}}$, $D_f=[2;+\\infty[$.",
+          "answer": "**Faux** : il faut $x-2>0$ strictement (racine au dénominateur), donc $D_f=]2;+\\infty[$."
+        },
+        {
+          "question": "**Item 2.** La courbe d'une fonction impaire est symétrique par rapport à l'origine du repère.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 3.** Un extremum absolu est toujours un extremum relatif.",
+          "answer": "**Vrai** : un extremum absolu vérifie en particulier la condition locale d'un extremum relatif."
+        },
+        {
+          "question": "**Item 4.** Une fonction périodique de période $T$ vérifie $f(x+T)=f(x)$ pour tout $x$ de son domaine.",
+          "answer": "**Vrai** : définition d'une fonction périodique."
+        },
+        {
+          "question": "**Item 5.** Toute fonction paire est aussi périodique.",
+          "answer": "**Faux** : par exemple $f(x)=x^2$ est paire mais pas périodique."
+        },
+        {
+          "question": "**Item 6.** Le domaine de définition de $f(x)=\\dfrac{1}{x^2-1}$ est $\\mathbb{R}\\setminus\\{-1;1\\}$.",
+          "answer": "**Vrai** : on exclut les racines de $x^2-1=0$."
+        },
+        {
+          "question": "**Item 7.** La fonction $\\tan$ est périodique de période $\\pi$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 8.** Une fonction paire ne peut jamais être périodique.",
+          "answer": "**Faux** : contre-exemple : $f(x)=\\cos(x)$, à la fois paire et périodique."
+        },
+        {
+          "question": "**Item 9.** La courbe d'une fonction paire est symétrique par rapport à l'axe des ordonnées.",
+          "answer": "**Vrai** : propriété caractéristique des fonctions paires."
+        },
+        {
+          "question": "**Item 10.** Le domaine de définition d'une fonction doit être symétrique par rapport à $0$ pour pouvoir étudier sa parité.",
+          "answer": "**Vrai** : sinon $f(-x)$ ne serait pas définie pour tout $x$ de $D_f$."
+        },
+        {
+          "question": "**Item 11.** Une fonction peut être à la fois paire et impaire.",
+          "answer": "**Vrai** : uniquement la fonction nulle (sur un domaine symétrique)."
+        },
+        {
+          "question": "**Item 12.** La fonction $f(x)=x\\sin(x)$ est paire.",
+          "answer": "**Vrai** : $(-x)\\sin(-x)=(-x)(-\\sin x)=x\\sin x=f(x)$."
+        },
+        {
+          "question": "**Item 13.** Le plus petit réel $T>0$ tel que $f(x+T)=f(x)$ pour tout $x$ est appelé la période de $f$.",
+          "answer": "**Vrai** : définition de la période."
+        },
+        {
+          "question": "**Item 14.** La fonction partie entière est périodique.",
+          "answer": "**Faux** : $E(x+1)\\neq E(x)$ en général : la fonction partie entière n'est pas périodique."
+        },
+        {
+          "question": "**Item 15.** Si $f$ est périodique de période $T$, alors $f$ est aussi périodique de période $2T$.",
+          "answer": "**Vrai** : tout multiple entier positif d'une période est aussi une période."
+        },
+        {
+          "question": "**Item 16.** $D_f=\\mathbb{R}$ pour $f(x)=\\dfrac{1}{x^2+1}$.",
+          "answer": "**Vrai** : $x^2+1$ ne s'annule jamais."
+        },
+        {
+          "question": "**Item 17.** La fonction $f(x)=\\sqrt{x}$ n'est ni paire ni impaire.",
+          "answer": "**Vrai** : le domaine de $\\sqrt{x}$ n'est pas symétrique par rapport à $0$, on ne peut même pas étudier sa parité."
+        },
+        {
+          "question": "**Item 18.** Le domaine d'une fonction rationnelle exclut les valeurs qui annulent le dénominateur.",
+          "answer": "**Vrai** : définition du domaine d'une fonction rationnelle."
+        },
+        {
+          "question": "**Item 19.** Toute fonction impaire s'annule en $0$ si $0$ appartient à son domaine.",
+          "answer": "**Vrai** : $f(0)=f(-0)=-f(0)$ donne $f(0)=0$."
+        },
+        {
+          "question": "**Item 20.** $D_f=D_g$ implique $f=g$.",
+          "answer": "**Faux** : deux fonctions peuvent avoir le même domaine sans être égales."
+        },
+        {
+          "question": "**Item 21.** La fonction $x\\mapsto\\cos(2x)$ est périodique de période $\\pi$.",
+          "answer": "**Vrai** : $\\cos(2(x+\\pi))=\\cos(2x+2\\pi)=\\cos(2x)$."
+        },
+        {
+          "question": "**Item 22.** Toute fonction bornée est périodique.",
+          "answer": "**Faux** : une fonction bornée n'est pas nécessairement périodique."
+        },
+        {
+          "question": "**Item 23.** La somme d'une fonction paire et d'une fonction impaire n'est en général ni paire ni impaire.",
+          "answer": "**Vrai** : en général cette somme n'a pas de propriété de symétrie particulière."
+        },
+        {
+          "question": "**Item 24.** Le domaine de $f(x)=\\ln(x)$ doit être positif strictement.",
+          "answer": "**Vrai** : par définition du logarithme."
+        },
+        {
+          "question": "**Item 25.** $D_{f+g}=D_f\\cup D_g$.",
+          "answer": "**Faux** : le domaine de $f+g$ est $D_f\\cap D_g$, pas l'union."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "type": "markdown",
+      "title": "Compétence 2 — Opérations sur les fonctions et sens de variation",
+      "content": "## Fonction majorée, minorée, bornée\n\n$M$ est un **majorant** de $f$ sur $D$ si $f(x)\\leqslant M$ pour tout $x\\in D$. $f$ est **bornée** sur $D$ s'il existe $M\\geqslant0$ tel que $|f(x)|\\leqslant M$ pour tout $x\\in D$.\n\n## Composée de deux fonctions\n\n$(g\\circ f)(x)=g\\big(f(x)\\big)$, défini pour $x\\in D_f$ tel que $f(x)\\in D_g$.\n\n## Propriété — Sens de variation d'une composée\n\nSoient $f$ définie sur $I$ à valeurs dans $J$, et $g$ définie sur $J$.\n- Si $f$ et $g$ ont le **même sens de variation**, alors $g\\circ f$ est **croissante** sur $I$.\n- Si $f$ et $g$ ont des **sens contraires**, alors $g\\circ f$ est **décroissante** sur $I$.\n\n**Corollaire :** si $g$ est bornée, alors $g\\circ f$ est bornée, quelle que soit $f$."
+    },
+    {
+      "id": "s5",
+      "type": "reveal",
+      "title": "Exercice résolu 2 — Composition et variations",
+      "items": [
+        {
+          "question": "Soit $f(x)=\\dfrac{x}{x^2+1}$.\n1. Déterminer $D_f$ et montrer que $f$ est impaire.\n2. Montrer que $f(y)-f(x)=\\dfrac{(y-x)(1-xy)}{(x^2+1)(y^2+1)}$.\n3. Déterminer le sens de variation de $f$ sur $[0,1]$ et sur $[1,+\\infty[$.",
+          "answer": "**1)** $D_f=\\mathbb{R}$ ; $f(-x)=\\dfrac{-x}{x^2+1}=-f(x)$ : $f$ est impaire.\n\n**2)** $f(y)-f(x)=\\dfrac{y(x^2+1)-x(y^2+1)}{(x^2+1)(y^2+1)}=\\dfrac{(y-x)(1-xy)}{(x^2+1)(y^2+1)}$.\n\n**3)** Pour $x\\neq y$, $\\dfrac{f(y)-f(x)}{y-x}=\\dfrac{1-xy}{(x^2+1)(y^2+1)}$, du signe de $1-xy$. Or $1-xy\\geqslant0$ sur $[0,1]$ : $f$ est **strictement croissante** sur $[0,1]$. Et $1-xy\\leqslant0$ sur $[1,+\\infty[$ : $f$ est **strictement décroissante** sur $[1,+\\infty[$. Par imparité, $f$ est aussi décroissante sur $]-\\infty,-1]$ et croissante sur $[-1,0]$, avec $f(-1)=-\\frac12$ et $f(1)=\\frac12$."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "type": "reveal",
+      "title": "QCM 2 — Opérations et sens de variation",
+      "items": [
+        {
+          "question": "**Item 1.** Si $f$ et $g$ ont le même sens de variation, alors $g\\circ f$ est croissante.",
+          "answer": "**Vrai** : propriété du cours sur le sens de variation d'une composée."
+        },
+        {
+          "question": "**Item 2.** Une fonction bornée est à la fois majorée et minorée.",
+          "answer": "**Vrai** : c'est la définition."
+        },
+        {
+          "question": "**Item 3.** Si $g$ est bornée, alors $g\\circ f$ est bornée, quelle que soit $f$.",
+          "answer": "**Vrai** : si $|g|\\leqslant M$ partout, alors $|g\\circ f|\\leqslant M$ partout."
+        },
+        {
+          "question": "**Item 4.** Si $f$ est bornée, alors $g\\circ f$ est nécessairement bornée.",
+          "answer": "**Faux** : contre-exemple du cours (une composition avec $f$ bornée n'est pas toujours bornée)."
+        },
+        {
+          "question": "**Item 5.** La composée de deux fonctions décroissantes est décroissante.",
+          "answer": "**Faux** : deux fonctions de même sens de variation (toutes deux décroissantes) donnent une composée *croissante*."
+        },
+        {
+          "question": "**Item 6.** Si $f$ est croissante sur $I$ et $g$ est décroissante sur $J\\supset f(I)$, alors $g\\circ f$ est décroissante sur $I$.",
+          "answer": "**Vrai** : composée d'une croissante suivie d'une décroissante."
+        },
+        {
+          "question": "**Item 7.** La somme de deux fonctions décroissantes est décroissante.",
+          "answer": "**Vrai** : somme de deux fonctions décroissantes."
+        },
+        {
+          "question": "**Item 8.** Le produit de deux fonctions positives et croissantes est croissant.",
+          "answer": "**Vrai** : si $0\\leqslant f(a)\\leqslant f(b)$ et $0\\leqslant g(a)\\leqslant g(b)$, alors $f(a)g(a)\\leqslant f(b)g(b)$."
+        },
+        {
+          "question": "**Item 9.** Si $f$ est croissante sur $I$, alors $f^2$ n'est pas nécessairement croissante sur $I$.",
+          "answer": "**Vrai** : contre-exemple : $f(x)=x$ sur $\\mathbb{R}$, croissante, mais $f^2=x^2$ n'est pas monotone sur $\\mathbb{R}$."
+        },
+        {
+          "question": "**Item 10.** Deux fonctions ayant des sens de variation opposés ont toujours une somme monotone.",
+          "answer": "**Faux** : la somme d'une fonction croissante et d'une fonction décroissante n'est en général ni croissante ni décroissante."
+        },
+        {
+          "question": "**Item 11.** Si $f$ est positive et croissante sur $I$, alors $\\sqrt{f}$ est croissante sur $I$.",
+          "answer": "**Vrai** : composée avec la racine carrée, croissante."
+        },
+        {
+          "question": "**Item 12.** La composée de deux fonctions croissantes est croissante.",
+          "answer": "**Vrai** : composée de deux fonctions croissantes."
+        },
+        {
+          "question": "**Item 13.** Si $f>0$ sur $I$ et $f$ est croissante, alors $\\dfrac{1}{f}$ est croissante sur $I$.",
+          "answer": "**Faux** : si $f$ est positive et croissante, $\\dfrac{1}{f}$ est *décroissante*."
+        },
+        {
+          "question": "**Item 14.** Le produit d'une fonction positive croissante par une constante positive reste croissant.",
+          "answer": "**Vrai** : multiplier par une constante positive conserve le sens de variation."
+        },
+        {
+          "question": "**Item 15.** La différence de deux fonctions croissantes n'est pas nécessairement monotone.",
+          "answer": "**Vrai** : exemple : $f(x)=x^2$ et $g(x)=2x$ (toutes deux croissantes sur $\\mathbb{R}_+$), $f-g=x^2-2x$ décroît puis croît."
+        },
+        {
+          "question": "**Item 16.** Si $u$ est dérivable, positive et croissante sur $I$, alors $u^3$ est croissante sur $I$.",
+          "answer": "**Vrai** : composée avec la fonction cube (croissante sur $\\mathbb{R}$), conserve le sens."
+        },
+        {
+          "question": "**Item 17.** La fonction $x\\mapsto-3f(x)+2$ a le sens de variation opposé à celui de $f$ (si $f$ n'est pas constante).",
+          "answer": "**Vrai** : multiplier par $-3$ (négatif) inverse le sens ; ajouter $2$ ne change rien."
+        },
+        {
+          "question": "**Item 18.** Composer une fonction croissante avec elle-même donne toujours une fonction croissante.",
+          "answer": "**Vrai** : composée de deux fonctions croissantes (même fonction) reste croissante."
+        },
+        {
+          "question": "**Item 19.** Si $f$ et $g$ sont toutes deux décroissantes et positives, alors $fg$ est décroissante.",
+          "answer": "**Vrai** : propriété analogue au produit de deux croissantes positives, avec le sens inversé."
+        },
+        {
+          "question": "**Item 20.** Le sens de variation d'une somme de fonctions ne dépend jamais du signe des fonctions.",
+          "answer": "**Faux** : en général le signe intervient, notamment pour les produits ou quotients de fonctions non toutes positives."
+        },
+        {
+          "question": "**Item 21.** Si $f(x)=g(x)+c$ ($c$ constante), alors $f$ et $g$ ont le même sens de variation.",
+          "answer": "**Vrai** : un décalage vertical ne change pas le sens de variation."
+        },
+        {
+          "question": "**Item 22.** La composée $g\\circ f$ peut ne pas être définie si $f(I)\\not\\subset D_g$.",
+          "answer": "**Vrai** : il faut que l'image de $f$ soit incluse dans le domaine de $g$ pour que $g\\circ f$ soit définie."
+        },
+        {
+          "question": "**Item 23.** Multiplier une fonction par $-1$ inverse toujours son sens de variation, sauf si elle est constante.",
+          "answer": "**Vrai** : multiplier par un réel négatif inverse le sens (sauf constante)."
+        },
+        {
+          "question": "**Item 24.** Si $f$ est croissante et $g$ est croissante sur $D_g\\supset f(I)$, alors $f+g\\circ f$ est croissante sur $I$.",
+          "answer": "**Vrai** : somme de deux fonctions croissantes ($f$ et $g\\circ f$, composée de deux croissantes)."
+        },
+        {
+          "question": "**Item 25.** Le sens de variation de $\\dfrac{1}{f}$ ne dépend jamais du signe de $f$.",
+          "answer": "**Faux** : le sens de variation de $\\dfrac{1}{f}$ dépend justement du signe de $f$."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "type": "markdown",
+      "title": "Compétence 3 — Fonctions de référence",
+      "content": "## Fonction affine\n\n$f(x)=ax+b$ ($a,b\\in\\mathbb{R}$). Croissante si $a>0$, décroissante si $a<0$ ; non bornée si $a\\neq0$.\n\n## Fonction du second degré (trinôme)\n\n$f(x)=ax^2+bx+c$ ($a\\neq0$). **Forme canonique :** $f(x)=a(x-\\alpha)^2+\\beta$ avec $\\alpha=-\\dfrac{b}{2a}$ et $\\beta=f(\\alpha)$. Si $a>0$ : décroissante puis croissante, minimum $\\beta$ en $x=\\alpha$. Si $a<0$ : croissante puis décroissante, maximum $\\beta$ en $x=\\alpha$. L'axe de symétrie de la parabole est $x=\\alpha$.\n\n## Fonction cube\n\n$f(x)=ax^3$ ($a\\neq0$). Impaire, strictement croissante sur $\\mathbb{R}$ si $a>0$, strictement décroissante si $a<0$. Sans extremum. Non bornée.\n\n## Fonction homographique\n\n$f(x)=\\dfrac{ax+b}{cx+d}$ ($c\\neq0$, $ad-bc\\neq0$). Définie sur $\\mathbb{R}\\setminus\\left\\{-\\dfrac dc\\right\\}$. **Écriture :** $f(x)=\\dfrac ac+\\dfrac{k}{c(cx+d)}$ avec $k=bc-ad$. Strictement monotone sur chaque intervalle de son domaine, même sens de variation sur les deux (croissante si $ad-bc>0$, décroissante si $ad-bc<0$). Asymptote verticale $x=-\\dfrac dc$ ; asymptote horizontale $y=\\dfrac ac$."
+    },
+    {
+      "id": "s8",
+      "type": "reveal",
+      "title": "Exercice résolu 3 — Fonctions de référence",
+      "items": [
+        {
+          "question": "Donner le tableau de variations de chacune des fonctions suivantes :\na) $f_1(x)=\\dfrac{ax+b}{cx+d}$ (homographique) ;\nb) $f_2(x)=ax^2+bx+c$, $a\\neq0$ (second degré) ;\nc) $f_3(x)=ax^3$, $a\\neq0$ (cube) ;\nd) $f_4(x)=ax+b$, $a\\neq0$ (affine).",
+          "answer": "**a)** Définie sur $\\mathbb{R}\\setminus\\left\\{-\\frac dc\\right\\}$, strictement monotone sur chaque intervalle de son domaine (croissante si $ad-bc>0$, décroissante si $ad-bc<0$) ; asymptotes $x=-\\frac dc$ et $y=\\frac ac$.\n\n**b)** Si $a>0$ : décroissante sur $\\left]-\\infty;-\\frac{b}{2a}\\right]$, croissante sur $\\left[-\\frac{b}{2a};+\\infty\\right[$, minimum $f(-\\frac{b}{2a})=c-\\frac{b^2}{4a}$. Si $a<0$ : sens inverse, maximum.\n\n**c)** Si $a>0$ : strictement croissante sur $\\mathbb{R}$, pas d'extremum, non bornée. Si $a<0$ : strictement décroissante sur $\\mathbb{R}$.\n\n**d)** Si $a>0$ : strictement croissante sur $\\mathbb{R}$, non bornée. Si $a<0$ : strictement décroissante sur $\\mathbb{R}$."
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "type": "reveal",
+      "title": "QCM 3 — Fonctions de référence",
+      "items": [
+        {
+          "question": "**Item 1.** Tout trinôme du second degré $f(x)=ax^2+bx+c$ ($a\\neq0$) peut s'écrire sous forme canonique $a(x-\\alpha)^2+\\beta$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 2.** Une fonction homographique $f(x)=\\dfrac{ax+b}{cx+d}$ (avec $c\\neq0$) est définie sur $\\mathbb{R}$ tout entier.",
+          "answer": "**Faux** : elle est définie sur $\\mathbb{R}\\setminus\\left\\{-\\dfrac dc\\right\\}$."
+        },
+        {
+          "question": "**Item 3.** La fonction cube $f(x)=ax^3$, avec $a>0$, est strictement croissante sur $\\mathbb{R}$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 4.** Une fonction affine non constante est bornée sur $\\mathbb{R}$.",
+          "answer": "**Faux** : une fonction affine non constante tend vers $\\pm\\infty$, elle n'est ni majorée ni minorée."
+        },
+        {
+          "question": "**Item 5.** Une fonction homographique est strictement monotone sur chacun des deux intervalles de son domaine, de même sens de variation sur les deux.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 6.** La fonction $f(x)=\\dfrac{1}{x}$ est impaire et décroissante sur chacun des deux intervalles de son domaine.",
+          "answer": "**Vrai** : propriété classique de la fonction inverse."
+        },
+        {
+          "question": "**Item 7.** La fonction cube est impaire.",
+          "answer": "**Vrai** : $f(-x)=-x^3=-f(x)$."
+        },
+        {
+          "question": "**Item 8.** Une fonction homographique n'admet jamais d'asymptote.",
+          "answer": "**Faux** : une fonction homographique admet toujours une asymptote verticale et une asymptote horizontale."
+        },
+        {
+          "question": "**Item 9.** La fonction $f(x)=x^2$ n'est pas une fonction homographique.",
+          "answer": "**Vrai** : $x^2$ n'est pas de la forme $\\dfrac{ax+b}{cx+d}$."
+        },
+        {
+          "question": "**Item 10.** Toute fonction polynôme du second degré admet un axe de symétrie vertical.",
+          "answer": "**Vrai** : la parabole admet un axe de symétrie vertical passant par son sommet."
+        },
+        {
+          "question": "**Item 11.** La fonction $f(x)=ax^2+bx+c$ ($a>0$) est décroissante puis croissante.",
+          "answer": "**Vrai** : pour $a>0$, la parabole est tournée vers le haut."
+        },
+        {
+          "question": "**Item 12.** Le sommet de la parabole d'équation $y=ax^2+bx+c$ a pour abscisse $-\\dfrac{b}{2a}$.",
+          "answer": "**Vrai** : formule classique du sommet."
+        },
+        {
+          "question": "**Item 13.** Toute fonction homographique est monotone sur $\\mathbb{R}$ tout entier.",
+          "answer": "**Faux** : elle est monotone sur chacun des deux intervalles de son domaine séparément, pas sur $\\mathbb{R}$ tout entier (elle n'y est même pas définie partout)."
+        },
+        {
+          "question": "**Item 14.** La fonction cube n'a pas d'extremum.",
+          "answer": "**Vrai** : la fonction cube est strictement croissante sur $\\mathbb{R}$, sans extremum."
+        },
+        {
+          "question": "**Item 15.** La forme canonique d'un trinôme permet de déterminer facilement son minimum ou maximum.",
+          "answer": "**Vrai** : c'est justement l'intérêt de la forme canonique $a(x-\\alpha)^2+\\beta$."
+        },
+        {
+          "question": "**Item 16.** Une fonction homographique $f(x)=\\dfrac{ax+b}{cx+d}$ (avec $c\\neq0$, $ad-bc\\neq0$) a pour asymptote verticale $x=-\\dfrac{d}{c}$.",
+          "answer": "**Vrai** : on exclut la valeur qui annule le dénominateur."
+        },
+        {
+          "question": "**Item 17.** Si $a<0$, la parabole $y=ax^2+bx+c$ est croissante puis décroissante.",
+          "answer": "**Vrai** : pour $a<0$, la parabole est tournée vers le bas."
+        },
+        {
+          "question": "**Item 18.** La fonction cube est impaire et strictement croissante sur $\\mathbb{R}$.",
+          "answer": "**Vrai** : propriétés classiques de la fonction cube."
+        },
+        {
+          "question": "**Item 19.** Une fonction affine est un cas particulier de fonction polynôme.",
+          "answer": "**Vrai** : une fonction affine est un polynôme de degré au plus $1$."
+        },
+        {
+          "question": "**Item 20.** Le discriminant d'un trinôme du second degré ne sert qu'à résoudre des équations.",
+          "answer": "**Faux** : le discriminant renseigne aussi sur le signe du trinôme et son nombre de racines."
+        },
+        {
+          "question": "**Item 21.** Les fonctions homographiques ont une courbe appelée hyperbole.",
+          "answer": "**Vrai** : la courbe représentative d'une fonction homographique est une hyperbole."
+        },
+        {
+          "question": "**Item 22.** Une fonction affine non constante est une fonction homographique particulière.",
+          "answer": "**Faux** : une fonction homographique nécessite $c\\neq0$, ce qui exclut le cas d'une fonction affine (qui correspond à $c=0$)."
+        },
+        {
+          "question": "**Item 23.** Le minimum de $f(x)=2(x-3)^2+5$ vaut $5$, atteint en $x=3$.",
+          "answer": "**Vrai** : forme canonique directement lisible : minimum $5$ en $x=3$ (car $a=2>0$)."
+        },
+        {
+          "question": "**Item 24.** La fonction $f(x)=-x^3$ est croissante sur $\\mathbb{R}$.",
+          "answer": "**Faux** : $f(x)=-x^3$ est *décroissante* sur $\\mathbb{R}$ (opposée de la fonction cube)."
+        },
+        {
+          "question": "**Item 25.** Deux fonctions homographiques distinctes peuvent avoir la même asymptote verticale.",
+          "answer": "**Vrai** : deux fonctions homographiques différentes peuvent partager la même valeur interdite $-\\dfrac{d}{c}$."
+        }
+      ]
+    }
+  ]
+}

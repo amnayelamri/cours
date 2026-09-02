@@ -1,0 +1,382 @@
+{
+  "id": "1bac-sm-ch08-etude-fonctions",
+  "title": "Chapitre 8 — Étude de fonctions",
+  "description": "Tableau de variations complet, éléments de symétrie et branches infinies, représentation graphique.",
+  "tags": ["1BAC SM", "Étude de fonctions", "Asymptotes", "Concavité", "Graphe", "Mathématiques"],
+  "lang": "fr",
+  "createdAt": "2026-09-02",
+  "slides": [
+    {
+      "id": "s1",
+      "type": "markdown",
+      "title": "Compétence 1 — Tableau de variations complet",
+      "content": "## Méthode — Étudier complètement une fonction\n\n1. Déterminer $D_f$ (et une éventuelle parité/périodicité, pour réduire le domaine d'étude) ;\n2. Calculer les limites de $f$ aux bornes de $D_f$, en déduire les asymptotes éventuelles ou les branches infinies ;\n3. Étudier la dérivabilité de $f$ aux points « à risque » (bornes, valeur absolue, racine carrée) ;\n4. Calculer $f'(x)$, étudier son signe, et dresser le tableau de variation complet (avec les limites) ;\n5. Étudier la concavité à l'aide de $f''$, et déterminer les points d'inflexion ;\n6. Étudier la position de $(C_f)$ par rapport à une droite ou une symétrie ;\n7. Construire la courbe $(C_f)$.\n\n## Concavité et point d'inflexion\n\nSoit $f$ deux fois dérivable sur $I$ :\n- Si $f''(x)\\geqslant0$ sur $I$ : courbe **convexe** (tournée vers le haut).\n- Si $f''(x)\\leqslant0$ sur $I$ : courbe **concave** (tournée vers le bas).\n- Si $f''$ s'annule en changeant de signe en $c$ : **point d'inflexion** en $c$.\n\n**Exemple :** $f(x)=x^3$, $f''(x)=6x$ : concave sur $\\mathbb{R}_-$, convexe sur $\\mathbb{R}_+$, point d'inflexion en $O(0;0)$.\n\n## Symétrie\n\n- Le point $\\Omega(a;b)$ est **centre de symétrie** de $(C_f)$ si $f(a+h)+f(a-h)=2b$ pour tout $h$.\n- La droite $x=a$ est **axe de symétrie** de $(C_f)$ si $f(a+h)=f(a-h)$ pour tout $h$."
+    },
+    {
+      "id": "s2",
+      "type": "reveal",
+      "title": "Exercice résolu 1 — Étude complète de $f(x)=x^3-3x+3$",
+      "items": [
+        {
+          "question": "Soit $f(x) = x^3-3x+3$, définie sur $\\mathbb{R}$.\n1. Déterminer les limites aux bornes de $D_f$.\n2. Dresser le tableau de variation de $f$.\n3. Étudier la concavité et les points d'inflexion.\n4. Montrer que $I(0;3)$ est un centre de symétrie de $(C_f)$.",
+          "answer": "**1)** $\\displaystyle\\lim_{x\\to-\\infty}f(x)=-\\infty$ et $\\displaystyle\\lim_{x\\to+\\infty}f(x)=+\\infty$.\n\n**2)** $f'(x)=3x^2-3=3(x-1)(x+1)$, positif à l'extérieur de $[-1;1]$, négatif à l'intérieur. Avec $f(-1)=5$ et $f(1)=1$ : $f$ croît sur $]-\\infty;-1]$, décroît sur $[-1;1]$, croît sur $[1;+\\infty[$.\n\n**3)** $f''(x)=6x$, négatif sur $\\mathbb{R}_-^*$ (concave), positif sur $\\mathbb{R}_+^*$ (convexe) ; point d'inflexion en $I(0;3)$.\n\n**4)** Pour tout $h$ : $f(h)+f(-h)=(h^3-3h+3)+(-h^3+3h+3)=6=2\\times3$ : $I(0;3)$ est centre de symétrie. De plus $f'(0)=-3$ : tangente en $I$ : $y=-3x+3$."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "reveal",
+      "title": "QCM 1 — Tableau de variations complet",
+      "items": [
+        {
+          "question": "**Item 1.** Étudier complètement une fonction nécessite de déterminer $D_f$, les limites aux bornes, puis le signe de $f'$.",
+          "answer": "**Vrai** : méthode du cours."
+        },
+        {
+          "question": "**Item 2.** La parité ou la périodicité d'une fonction peut permettre de réduire le domaine d'étude.",
+          "answer": "**Vrai** : cela permet de réduire l'étude à une partie du domaine."
+        },
+        {
+          "question": "**Item 3.** Le tableau de variations doit inclure les limites aux bornes du domaine.",
+          "answer": "**Vrai** : elles complètent le tableau de variations."
+        },
+        {
+          "question": "**Item 4.** La concavité d'une courbe s'étudie uniquement à l'aide de la dérivée première $f'$.",
+          "answer": "**Faux** : la concavité s'étudie à l'aide de la dérivée *seconde* $f''$."
+        },
+        {
+          "question": "**Item 5.** Étudier une fonction ne nécessite jamais de s'intéresser à sa dérivabilité en des points particuliers.",
+          "answer": "**Faux** : on étudie la dérivabilité aux points « à risque » (bornes, racines, valeurs absolues)."
+        },
+        {
+          "question": "**Item 6.** L'étude d'une fonction commence généralement par la détermination de $D_f$.",
+          "answer": "**Vrai** : c'est la première étape logique."
+        },
+        {
+          "question": "**Item 7.** Les limites aux bornes de $D_f$ permettent de détecter d'éventuelles asymptotes.",
+          "answer": "**Vrai** : c'est justement l'un des usages des limites aux bornes."
+        },
+        {
+          "question": "**Item 8.** Le tableau de variations se construit à partir du signe de $f$.",
+          "answer": "**Faux** : le tableau de variations se construit à partir du signe de $f'$, pas de $f$."
+        },
+        {
+          "question": "**Item 9.** Une étude complète inclut souvent le calcul de valeurs particulières pour tracer la courbe.",
+          "answer": "**Vrai** : cela aide à tracer une courbe fidèle."
+        },
+        {
+          "question": "**Item 10.** La parité d'une fonction n'a aucune utilité pratique pour l'étude.",
+          "answer": "**Faux** : la parité permet de réduire le domaine d'étude, ce qui est très utile."
+        },
+        {
+          "question": "**Item 11.** Étudier la dérivabilité en un point n'est nécessaire que si la fonction présente une racine carrée ou une valeur absolue en ce point.",
+          "answer": "**Vrai** : ce sont les points typiques « à risque » de non-dérivabilité."
+        },
+        {
+          "question": "**Item 12.** Le signe de $f'$ se détermine parfois en factorisant ou en étudiant le signe d'un trinôme.",
+          "answer": "**Vrai** : méthode courante d'étude du signe."
+        },
+        {
+          "question": "**Item 13.** Les points d'intersection avec les axes du repère peuvent enrichir le tracé.",
+          "answer": "**Vrai** : ces points aident à situer la courbe."
+        },
+        {
+          "question": "**Item 14.** Une étude de fonction peut nécessiter de résoudre une équation ou une inéquation intermédiaire.",
+          "answer": "**Vrai** : exemple typique lors de l'étude du signe de $f'$."
+        },
+        {
+          "question": "**Item 15.** La construction de la courbe se fait toujours sans le tableau de variations.",
+          "answer": "**Faux** : le tableau de variations est justement l'outil de base pour construire la courbe."
+        },
+        {
+          "question": "**Item 16.** Une étude complète de fonction se termine généralement par le tracé de la courbe représentative.",
+          "answer": "**Vrai** : c'est l'aboutissement logique de l'étude."
+        },
+        {
+          "question": "**Item 17.** Le comportement asymptotique s'obtient à partir des limites aux bornes du domaine.",
+          "answer": "**Vrai** : c'est justement leur rôle."
+        },
+        {
+          "question": "**Item 18.** Une fonction bornée ne peut jamais admettre d'asymptote horizontale.",
+          "answer": "**Faux** : au contraire, une fonction admettant une asymptote horizontale est bornée au voisinage de l'infini."
+        },
+        {
+          "question": "**Item 19.** Les variations d'une fonction peuvent changer plusieurs fois de sens sur son domaine.",
+          "answer": "**Vrai** : une fonction peut avoir plusieurs intervalles de monotonie."
+        },
+        {
+          "question": "**Item 20.** Deux fonctions ayant le même tableau de variations ont nécessairement la même courbe.",
+          "answer": "**Faux** : le tableau de variations ne détermine pas totalement la courbe."
+        },
+        {
+          "question": "**Item 21.** La périodicité permet de restreindre l'étude à un intervalle de longueur égale à la période.",
+          "answer": "**Vrai** : propriété évoquée pour la construction de courbes périodiques."
+        },
+        {
+          "question": "**Item 22.** Le calcul de $f'(x)$ précède généralement l'étude de son signe.",
+          "answer": "**Vrai** : c'est l'ordre logique de la méthode."
+        },
+        {
+          "question": "**Item 23.** Une étude de fonction n'utilise jamais la notion de limite.",
+          "answer": "**Faux** : les limites sont au contraire essentielles à toute étude de fonction."
+        },
+        {
+          "question": "**Item 24.** Les asymptotes obliques s'obtiennent souvent par un calcul de limite de $f(x)-(ax+b)$.",
+          "answer": "**Vrai** : méthode standard de détermination d'une asymptote oblique."
+        },
+        {
+          "question": "**Item 25.** Le tracé final doit être cohérent avec le tableau de variations obtenu.",
+          "answer": "**Vrai** : c'est une vérification de cohérence indispensable."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "type": "markdown",
+      "title": "Compétence 2 — Éléments de symétrie et branches infinies",
+      "content": "## Asymptote horizontale\n\nSi $\\displaystyle\\lim_{x\\to+\\infty}f(x)=\\ell\\in\\mathbb{R}$, la droite $y=\\ell$ est *asymptote horizontale* à $(C_f)$ en $+\\infty$.\n\n## Asymptote verticale\n\nSi $\\displaystyle\\lim_{x\\to a^+}f(x)=\\pm\\infty$ ou $\\displaystyle\\lim_{x\\to a^-}f(x)=\\pm\\infty$, la droite $x=a$ est *asymptote verticale* à $(C_f)$.\n\n## Asymptote oblique\n\nSi $\\displaystyle\\lim_{x\\to+\\infty}\\big(f(x)-(ax+b)\\big)=0$, la droite $y=ax+b$ est *asymptote oblique* à $(C_f)$ en $+\\infty$.\n\n**Position :** Signe de $f(x)-(ax+b)$ : $+$ si courbe au-dessus, $-$ si courbe en dessous.\n\n## Branches paraboliques\n\nSi $f(x)\\to\\pm\\infty$ sans asymptote, on étudie $\\dfrac{f(x)}{x}$ :\n- $\\dfrac{f(x)}{x}\\to0$ : branche parabolique de direction $(Ox)$.\n- $\\dfrac{f(x)}{x}\\to\\pm\\infty$ : branche parabolique de direction $(Oy)$.\n- $\\dfrac{f(x)}{x}\\to a\\neq0$ mais $f(x)-ax\\to\\pm\\infty$ : branche parabolique de direction asymptotique $y=ax$."
+    },
+    {
+      "id": "s5",
+      "type": "reveal",
+      "title": "Exercice résolu 2 — Asymptotes obliques et branches paraboliques",
+      "items": [
+        {
+          "question": "1. $f(x) = 2x-1+\\dfrac{1}{(x-3)^2}$ : montrer que $(C_f)$ admet une asymptote oblique en $\\pm\\infty$.\n2. $f(x) = \\sqrt{x}$ : type de branche parabolique en $+\\infty$.\n3. $f(x) = x+\\sqrt{x}$ : type de branche infinie en $+\\infty$.\n4. $f(x) = \\sqrt{x^2+2x}$ : asymptote oblique en $+\\infty$.",
+          "answer": "**1)** $f(x)-(2x-1)=\\dfrac{1}{(x-3)^2}\\to0$ : la droite $y=2x-1$ est asymptote oblique en $\\pm\\infty$.\n\n**2)** $\\dfrac{\\sqrt{x}}{x}=\\dfrac1{\\sqrt x}\\to0$ : branche parabolique de direction $(Ox)$.\n\n**3)** $\\dfrac{f(x)}{x}=1+\\dfrac1{\\sqrt x}\\to1$ mais $f(x)-x=\\sqrt x\\to+\\infty$ : branche parabolique de direction asymptotique $y=x$.\n\n**4)** $D_f=]-\\infty;-2]\\cup[0;+\\infty[$. $f(x)-x=\\dfrac{2x}{\\sqrt{x^2+2x}+x}\\to1$ : la droite $y=x+1$ est asymptote oblique à $(C_f)$ en $+\\infty$."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "type": "reveal",
+      "title": "QCM 2 — Éléments de symétrie et branches infinies",
+      "items": [
+        {
+          "question": "**Item 1.** Si $\\displaystyle\\lim_{x\\to+\\infty}f(x)=\\ell\\in\\mathbb R$, la droite $y=\\ell$ est asymptote horizontale à $(C_f)$ en $+\\infty$.",
+          "answer": "**Vrai** : définition de l'asymptote horizontale."
+        },
+        {
+          "question": "**Item 2.** Une asymptote oblique d'équation $y=ax+b$ vérifie $\\displaystyle\\lim_{x\\to+\\infty}\\big(f(x)-(ax+b)\\big)=0$.",
+          "answer": "**Vrai** : définition de l'asymptote oblique."
+        },
+        {
+          "question": "**Item 3.** Si $\\dfrac{f(x)}{x}\\to0$ quand $x\\to+\\infty$, la courbe admet une branche parabolique de direction $(Oy)$.",
+          "answer": "**Faux** : si $\\frac{f(x)}x\\to0$, la branche parabolique est de direction $(Ox)$, pas $(Oy)$."
+        },
+        {
+          "question": "**Item 4.** La position de $(C_f)$ par rapport à une asymptote se lit sur le signe de $f(x)-(ax+b)$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 5.** Toute fonction admettant une limite infinie en $+\\infty$ possède une asymptote oblique.",
+          "answer": "**Faux** : par exemple $f(x)=x^3$ ou $f(x)=\\sqrt x$ tendent vers $+\\infty$ sans asymptote (branches paraboliques)."
+        },
+        {
+          "question": "**Item 6.** Si $\\displaystyle\\lim_{x\\to+\\infty}f(x)=+\\infty$ et $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{f(x)}x=+\\infty$, la courbe admet une branche parabolique de direction $(Oy)$.",
+          "answer": "**Vrai** : définition d'une branche parabolique de direction $(Oy)$."
+        },
+        {
+          "question": "**Item 7.** Une droite asymptote peut être traversée par la courbe.",
+          "answer": "**Vrai** : une courbe peut couper son asymptote, notamment en des points isolés."
+        },
+        {
+          "question": "**Item 8.** Le calcul de $\\displaystyle\\lim_{x\\to+\\infty}\\big(f(x)-(ax+b)\\big)$ permet de vérifier l'existence d'une asymptote oblique $y=ax+b$.",
+          "answer": "**Vrai** : c'est la méthode de vérification standard."
+        },
+        {
+          "question": "**Item 9.** Une fonction peut admettre à la fois une asymptote horizontale en $+\\infty$ et une autre en $-\\infty$, distinctes.",
+          "answer": "**Vrai** : exemple classique : comportements différents en $+\\infty$ et $-\\infty$."
+        },
+        {
+          "question": "**Item 10.** Toute fonction non bornée admet nécessairement une asymptote.",
+          "answer": "**Faux** : une fonction non bornée peut présenter une branche parabolique plutôt qu'une asymptote."
+        },
+        {
+          "question": "**Item 11.** Si $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{f(x)}x=0$, la courbe admet une branche parabolique de direction $(Ox)$.",
+          "answer": "**Vrai** : définition d'une branche parabolique de direction $(Ox)$."
+        },
+        {
+          "question": "**Item 12.** Le signe de $f(x)-(ax+b)$ donne la position de la courbe par rapport à son asymptote oblique.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 13.** Une fonction paire admet un axe de symétrie vertical pour sa courbe.",
+          "answer": "**Vrai** : propriété caractéristique des fonctions paires."
+        },
+        {
+          "question": "**Item 14.** Deux asymptotes horizontales distinctes signifient nécessairement que la fonction n'est pas continue.",
+          "answer": "**Faux** : rien n'empêche une fonction continue d'avoir des asymptotes horizontales différentes en $+\\infty$ et $-\\infty$."
+        },
+        {
+          "question": "**Item 15.** La périodicité d'une fonction se traduit graphiquement par une invariance de la courbe par translation.",
+          "answer": "**Vrai** : propriété graphique de la périodicité."
+        },
+        {
+          "question": "**Item 16.** L'étude des branches infinies se fait généralement lorsque $D_f$ n'est pas borné.",
+          "answer": "**Vrai** : c'est le cas typique où l'on étudie le comportement à l'infini."
+        },
+        {
+          "question": "**Item 17.** Une fonction impaire admet un centre de symétrie à l'origine du repère.",
+          "answer": "**Vrai** : propriété caractéristique des fonctions impaires."
+        },
+        {
+          "question": "**Item 18.** Si $f(x)-(ax+b)\\to0^+$, la courbe est au-dessus de son asymptote au voisinage considéré.",
+          "answer": "**Vrai** : signe positif signifie $f(x)>ax+b$, donc courbe au-dessus."
+        },
+        {
+          "question": "**Item 19.** Une branche parabolique n'est jamais de direction $(Ox)$ ni $(Oy)$.",
+          "answer": "**Faux** : une branche parabolique est justement souvent classée selon une direction $(Ox)$ ou $(Oy)$."
+        },
+        {
+          "question": "**Item 20.** Une fonction peut n'avoir aucune branche infinie si son domaine est borné.",
+          "answer": "**Vrai** : si le domaine est borné, il n'y a pas de comportement à l'infini à étudier."
+        },
+        {
+          "question": "**Item 21.** Le comportement au voisinage d'une borne exclue du domaine peut révéler une asymptote verticale.",
+          "answer": "**Vrai** : exemple classique : borne exclue avec limite infinie."
+        },
+        {
+          "question": "**Item 22.** Une fonction peut admettre trois asymptotes distinctes (une verticale, une horizontale en $+\\infty$, une autre en $-\\infty$).",
+          "answer": "**Vrai** : cela peut tout à fait arriver, par exemple pour une fonction homographique complétée."
+        },
+        {
+          "question": "**Item 23.** Toute fonction impaire définie en $0$ vérifie $f(0)\\neq0$.",
+          "answer": "**Faux** : au contraire, si $0\\in D_f$ et $f$ est impaire, alors $f(0)=0$."
+        },
+        {
+          "question": "**Item 24.** Une asymptote oblique ne peut exister qu'en $+\\infty$ ou $-\\infty$, jamais en un point fini.",
+          "answer": "**Vrai** : une asymptote (verticale) correspond justement à un comportement en un point fini ; une asymptote *oblique* concerne l'infini."
+        },
+        {
+          "question": "**Item 25.** Le comportement asymptotique aide à mieux tracer la courbe représentative.",
+          "answer": "**Vrai** : recommandation pratique essentielle."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "type": "markdown",
+      "title": "Compétence 3 — Représentation graphique",
+      "content": "## Symétries usuelles\n\nSoit $f$ définie sur $D_f$ symétrique par rapport à $0$ :\n- Si $f$ est **paire** : l'axe des ordonnées $(Oy)$ est axe de symétrie de $(C_f)$.\n- Si $f$ est **impaire** : l'origine $O$ est centre de symétrie de $(C_f)$.\n\nIl suffit alors d'étudier $f$ sur $D_f\\cap\\mathbb{R}_+$, puis de compléter par symétrie.\n\n## Méthode — Construire la représentation graphique\n\n1. Réduire le domaine d'étude à l'aide d'une éventuelle parité ou périodicité ;\n2. Placer les asymptotes (verticales, horizontales, obliques) et étudier les branches infinies ;\n3. Reporter le tableau de variation (extrema, valeurs remarquables) ;\n4. Placer quelques tangentes remarquables (points anguleux, tangentes verticales ou horizontales) ;\n5. Tracer la courbe, puis la compléter par symétrie ou périodicité si besoin.\n\n**Rappels :**\n- Intersections avec l'axe des abscisses : $f(x)=0$.\n- Intersection avec l'axe des ordonnées : $f(0)$.\n- Les asymptotes sont tracées en pointillés par convention."
+    },
+    {
+      "id": "s8",
+      "type": "reveal",
+      "title": "Exercice résolu 3 — Représentation graphique de $h(x)=x/\\sqrt{x^2+1}$",
+      "items": [
+        {
+          "question": "Soit $h(x) = \\dfrac{x}{\\sqrt{x^2+1}}$, définie sur $\\mathbb{R}$.\n1. Étudier la parité de $h$.\n2. Étudier les limites en $\\pm\\infty$.\n3. Calculer $h'(x)$ et dresser le tableau de variation.\n4. Équation de la tangente en $O(0,0)$. Position de $(C_h)$ par rapport à cette tangente.",
+          "answer": "**1)** $h(-x)=-h(x)$ : $h$ est impaire (l'origine est centre de symétrie de $(C_h)$).\n\n**2)** $\\displaystyle\\lim_{x\\to+\\infty}h(x)=1$ et $\\displaystyle\\lim_{x\\to-\\infty}h(x)=-1$ : les droites $y=1$ et $y=-1$ sont asymptotes horizontales.\n\n**3)** $h'(x)=\\dfrac{1}{(x^2+1)^{3/2}}>0$ : $h$ est strictement croissante sur $\\mathbb{R}$, de $-1$ (non atteint) à $1$ (non atteint), avec $h(0)=0$.\n\n**4)** $h(0)=0$ et $h'(0)=1$ : tangente $y=x$. Pour $x>0$ : $h(x)-x<0$ (courbe en dessous) ; pour $x<0$ : $h(x)-x>0$ (courbe au-dessus)."
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "type": "reveal",
+      "title": "QCM 3 — Représentation graphique",
+      "items": [
+        {
+          "question": "**Item 1.** Si $f$ est paire, l'axe des ordonnées est axe de symétrie de $(C_f)$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 2.** Si $f$ est impaire, l'origine $O$ est centre de symétrie de $(C_f)$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 3.** Pour une fonction paire, il suffit d'étudier $f$ sur $D_f\\cap\\mathbb R_+$ puis de compléter par symétrie.",
+          "answer": "**Vrai** : méthode de construction du cours."
+        },
+        {
+          "question": "**Item 4.** Une fonction périodique doit être étudiée sur $\\mathbb R$ tout entier pour tracer sa courbe complète.",
+          "answer": "**Faux** : il suffit d'étudier $f$ sur un intervalle de longueur $T$, puis de compléter par périodicité."
+        },
+        {
+          "question": "**Item 5.** La construction d'une courbe ne tient jamais compte des tangentes remarquables.",
+          "answer": "**Faux** : les tangentes remarquables font au contraire partie de la méthode de construction."
+        },
+        {
+          "question": "**Item 6.** Le tracé d'une courbe nécessite de reporter les tangentes remarquables (horizontales, verticales) repérées lors de l'étude.",
+          "answer": "**Vrai** : méthode de construction précise de la courbe."
+        },
+        {
+          "question": "**Item 7.** Les points d'inflexion correspondent à un changement de concavité de la courbe.",
+          "answer": "**Vrai** : définition d'un point d'inflexion."
+        },
+        {
+          "question": "**Item 8.** Une échelle différente sur les deux axes empêche toute lecture graphique correcte.",
+          "answer": "**Faux** : une échelle différente sur les deux axes est fréquente et n'empêche pas une lecture correcte, si elle est indiquée."
+        },
+        {
+          "question": "**Item 9.** Le tracé d'une asymptote se fait en pointillés, par convention.",
+          "answer": "**Vrai** : convention usuelle de représentation des asymptotes."
+        },
+        {
+          "question": "**Item 10.** Une courbe représentative peut être tracée sans aucune valeur numérique calculée.",
+          "answer": "**Faux** : il faut au moins quelques valeurs numériques (bornes, zéros, extrema) pour un tracé fidèle."
+        },
+        {
+          "question": "**Item 11.** La symétrie éventuelle de la courbe permet de ne construire qu'une partie de celle-ci puis de compléter par symétrie.",
+          "answer": "**Vrai** : gain de temps classique pour les fonctions paires ou impaires."
+        },
+        {
+          "question": "**Item 12.** Reporter les coordonnées des extrema locaux enrichit la précision du tracé.",
+          "answer": "**Vrai** : ces points sont des repères précis pour le tracé."
+        },
+        {
+          "question": "**Item 13.** Le tracé d'une fonction affine ne nécessite que deux points.",
+          "answer": "**Vrai** : deux points suffisent à déterminer une droite."
+        },
+        {
+          "question": "**Item 14.** Un tableau de valeurs est parfois utile en complément du tableau de variations.",
+          "answer": "**Vrai** : complément utile à l'étude théorique."
+        },
+        {
+          "question": "**Item 15.** La périodicité ne joue aucun rôle dans le tracé d'une courbe.",
+          "answer": "**Faux** : la périodicité permet au contraire de limiter l'étude puis de répéter le motif."
+        },
+        {
+          "question": "**Item 16.** Une courbe représentative respecte généralement le sens de variation indiqué dans le tableau.",
+          "answer": "**Vrai** : cohérence essentielle entre le tableau et le tracé."
+        },
+        {
+          "question": "**Item 17.** Les intersections avec les axes du repère correspondent aux zéros de $f$ (axe des abscisses) et à $f(0)$ (axe des ordonnées).",
+          "answer": "**Vrai** : définitions usuelles des intersections avec les axes."
+        },
+        {
+          "question": "**Item 18.** La courbe d'une fonction ne peut jamais être tracée à la main, seulement numériquement.",
+          "answer": "**Faux** : un tracé à la main, s'appuyant sur l'étude théorique, reste tout à fait possible."
+        },
+        {
+          "question": "**Item 19.** Les asymptotes doivent être tracées avant la courbe elle-même pour guider le tracé.",
+          "answer": "**Vrai** : méthode pratique recommandée."
+        },
+        {
+          "question": "**Item 20.** Deux courbes de fonctions différentes peuvent se croiser en plusieurs points.",
+          "answer": "**Vrai** : rien n'empêche deux courbes de se croiser plusieurs fois."
+        },
+        {
+          "question": "**Item 21.** Un point d'inflexion peut correspondre à une tangente qui traverse la courbe.",
+          "answer": "**Vrai** : propriété caractéristique d'un point d'inflexion."
+        },
+        {
+          "question": "**Item 22.** La construction d'une courbe s'appuie principalement sur le tableau de variations et les limites.",
+          "answer": "**Vrai** : ce sont les deux piliers de la construction."
+        },
+        {
+          "question": "**Item 23.** Il est inutile de vérifier la cohérence entre le tracé final et l'étude théorique menée en amont.",
+          "answer": "**Faux** : cette vérification finale est au contraire indispensable."
+        },
+        {
+          "question": "**Item 24.** Une courbe peut présenter une branche infinie sans asymptote (branche parabolique).",
+          "answer": "**Vrai** : exemple des branches paraboliques, qui ne sont pas des asymptotes."
+        },
+        {
+          "question": "**Item 25.** Le choix d'une unité graphique adaptée facilite la lisibilité du tracé.",
+          "answer": "**Vrai** : recommandation pratique essentielle."
+        }
+      ]
+    }
+  ]
+}

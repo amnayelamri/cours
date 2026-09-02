@@ -1,0 +1,446 @@
+{
+  "id": "1bac-sm-ch02-logique-ensembles",
+  "title": "Chapitre 2 — Logique, ensembles et applications",
+  "description": "Propositions, connecteurs logiques, quantificateurs, types de raisonnement (récurrence, absurde, contraposée, disjonction), ensembles et applications.",
+  "tags": ["1BAC SM", "Logique", "Ensembles", "Applications", "Mathématiques"],
+  "lang": "fr",
+  "createdAt": "2026-09-02",
+  "slides": [
+    {
+      "id": "s1",
+      "type": "markdown",
+      "title": "Compétence 1 — Éléments de logique : propositions, connecteurs, quantificateurs",
+      "content": "## Définition — Proposition\n\nOn appelle **proposition** (ou **assertion**) tout énoncé mathématique auquel on peut attribuer une valeur de vérité et une seule : **vrai** (V) ou **faux** (F).\n\n## Connecteurs logiques\n\n- **Négation** : $\\text{non }P$ est vraie si $P$ est fausse, et réciproquement.\n- **Conjonction** : $P\\wedge Q$ (« $P$ et $Q$ ») est vraie quand $P$ et $Q$ sont vraies simultanément.\n- **Disjonction** : $P\\vee Q$ (« $P$ ou $Q$ ») est vraie dès qu'au moins l'une est vraie (le « ou » mathématique est inclusif).\n- **Implication** : $P\\Rightarrow Q$ est fausse uniquement quand $P$ est vraie et $Q$ est fausse. On a $P\\Rightarrow Q \\Leftrightarrow (\\text{non }P)\\vee Q$.\n- **Équivalence** : $P\\Leftrightarrow Q$ est vraie quand $P$ et $Q$ ont la même valeur de vérité. $P\\Leftrightarrow Q \\Leftrightarrow (P\\Rightarrow Q)\\text{ et }(Q\\Rightarrow P)$.\n\n## Propriété — Lois de De Morgan\n\n$$\\text{non}(P\\wedge Q) \\Leftrightarrow (\\text{non }P)\\vee(\\text{non }Q)\\qquad\\text{et}\\qquad\\text{non}(P\\vee Q) \\Leftrightarrow (\\text{non }P)\\wedge(\\text{non }Q).$$\n\n## Réciproque et contraposée\n\nPour $P\\Rightarrow Q$ : la **réciproque** est $Q\\Rightarrow P$ ; la **contraposée** est $(\\text{non }Q)\\Rightarrow(\\text{non }P)$. Une implication et sa contraposée sont toujours équivalentes.\n\n## Quantificateurs\n\n- **Universel** : $(\\forall x\\in E)\\ P(x)$ est vraie si $P(x)$ est vraie pour chaque élément $x$.\n- **Existentiel** : $(\\exists x\\in E)\\ P(x)$ est vraie s'il existe au moins un $x$ tel que $P(x)$ est vraie.\n\n## Négations des propositions quantifiées\n\n$$\\text{non}[(\\forall x\\in E)\\ P(x)] \\Leftrightarrow (\\exists x\\in E)\\ \\text{non }P(x)$$\n$$\\text{non}[(\\exists x\\in E)\\ P(x)] \\Leftrightarrow (\\forall x\\in E)\\ \\text{non }P(x)$$"
+    },
+    {
+      "id": "s2",
+      "type": "reveal",
+      "title": "Exercice résolu 1 — Quantificateurs et négations",
+      "items": [
+        {
+          "question": "Soit $I$ un intervalle de $\\mathbb{R}$ et $f$ une fonction numérique définie sur $I$. Écrire à l'aide des quantificateurs :\n- $P_1$ : « La fonction $f$ est la fonction nulle »\n- $P_2$ : « La fonction $f$ ne s'annule pas sur $I$ »\n- $P_3$ : « La fonction $f$ s'annule sur $I$ »\n- $P_5$ : « La fonction $f$ est constante sur $I$ »\n- $P_6$ : « La fonction $f$ est strictement positive sur $I$ »\n\nPuis écrire la négation de chacune.",
+          "answer": "$$P_1 : (\\forall x\\in I)\\ f(x)=0 \\qquad P_2 : (\\forall x\\in I)\\ f(x)\\neq 0 \\qquad P_3 : (\\exists x\\in I)\\ f(x)=0$$\n\n$$P_5 : (\\exists c\\in\\mathbb{R})(\\forall x\\in I)\\ f(x)=c \\qquad P_6 : (\\forall x\\in I)\\ f(x)>0$$\n\n**Négations :**\n$$\\neg P_1 : (\\exists x\\in I)\\ f(x)\\neq 0 \\quad\\text{(« $f$ n'est pas identiquement nulle sur $I$ »)}$$\n$$\\neg P_2 : (\\exists x\\in I)\\ f(x)=0 \\quad\\text{(« $f$ s'annule au moins une fois sur $I$ »)}$$\n$$\\neg P_3 : (\\forall x\\in I)\\ f(x)\\neq 0 \\quad\\text{(« $f$ ne s'annule jamais sur $I$ »)}$$\n$$\\neg P_5 : (\\forall c\\in\\mathbb{R})(\\exists x\\in I)\\ f(x)\\neq c \\quad\\text{(« $f$ n'est pas constante »)}$$\n$$\\neg P_6 : (\\exists x\\in I)\\ f(x)\\leqslant 0 \\quad\\text{(« $f$ prend une valeur négative ou nulle »)}$$"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "reveal",
+      "title": "QCM 1 — Logique",
+      "items": [
+        {
+          "question": "**Item 1.** La négation de « $P$ et $Q$ » est « (non $P$) ou (non $Q$) ».",
+          "answer": "**Vrai** : loi de De Morgan."
+        },
+        {
+          "question": "**Item 2.** Si $P$ est fausse, alors $P\\Rightarrow Q$ est toujours vraie, quelle que soit $Q$.",
+          "answer": "**Vrai** : propriété du cours (une implication de prémisse fausse est toujours vraie)."
+        },
+        {
+          "question": "**Item 3.** Une implication et sa réciproque ont toujours la même valeur de vérité.",
+          "answer": "**Faux** : c'est l'implication et sa *contraposée* qui ont la même valeur de vérité, pas la réciproque."
+        },
+        {
+          "question": "**Item 4.** La négation de $(\\forall x\\in E)\\ P(x)$ est $(\\exists x\\in E)\\ \\text{non } P(x)$.",
+          "answer": "**Vrai** : négation d'une proposition quantifiée."
+        },
+        {
+          "question": "**Item 5.** L'ordre entre un $\\forall$ et un $\\exists$ consécutifs peut toujours être permuté sans changer la valeur de vérité de la proposition.",
+          "answer": "**Faux** : l'ordre entre $\\forall$ et $\\exists$ est essentiel, contrairement à deux quantificateurs consécutifs de même nature."
+        },
+        {
+          "question": "**Item 6.** La négation de « $P\\Rightarrow Q$ » est « $P$ et non $Q$ ».",
+          "answer": "**Vrai** : négation d'une implication."
+        },
+        {
+          "question": "**Item 7.** « $P$ ou $Q$ » est fausse si, et seulement si, $P$ et $Q$ sont toutes deux fausses.",
+          "answer": "**Vrai** : définition du « ou » logique."
+        },
+        {
+          "question": "**Item 8.** La contraposée de $P\\Rightarrow Q$ est « non $Q\\Rightarrow$ non $P$ ».",
+          "answer": "**Vrai** : définition de la contraposée."
+        },
+        {
+          "question": "**Item 9.** Deux propositions équivalentes ont toujours la même valeur de vérité.",
+          "answer": "**Vrai** : c'est la définition de l'équivalence logique."
+        },
+        {
+          "question": "**Item 10.** La négation de $(\\exists x\\in E)\\ P(x)$ est $(\\exists x\\in E)\\ \\text{non }P(x)$.",
+          "answer": "**Faux** : la négation correcte est $(\\forall x\\in E)\\ \\text{non }P(x)$."
+        },
+        {
+          "question": "**Item 11.** $P\\Rightarrow Q$ est logiquement équivalente à (non $P$) ou $Q$.",
+          "answer": "**Vrai** : équivalence logique classique."
+        },
+        {
+          "question": "**Item 12.** Si $P$ et $Q$ sont vraies, alors $P\\Rightarrow Q$ est vraie.",
+          "answer": "**Vrai** : cas particulier où l'implication est vraie."
+        },
+        {
+          "question": "**Item 13.** La proposition « $2$ est pair et $3$ est impair » est vraie.",
+          "answer": "**Vrai** : les deux propositions élémentaires sont vraies."
+        },
+        {
+          "question": "**Item 14.** $(\\forall x\\in\\mathbb R)\\ x^2\\geqslant0$ est une proposition vraie.",
+          "answer": "**Vrai** : un carré est toujours positif ou nul."
+        },
+        {
+          "question": "**Item 15.** Une proposition et sa négation sont simultanément vraies.",
+          "answer": "**Faux** : une proposition et sa négation ont toujours des valeurs de vérité opposées."
+        },
+        {
+          "question": "**Item 16.** $(\\exists x\\in\\mathbb R)\\ x^2=-1$ est une proposition fausse.",
+          "answer": "**Vrai** : aucun réel n'a un carré négatif."
+        },
+        {
+          "question": "**Item 17.** La négation de « tous les élèves ont réussi » est « aucun élève n'a réussi ».",
+          "answer": "**Faux** : la négation correcte est « au moins un élève n'a pas réussi »."
+        },
+        {
+          "question": "**Item 18.** « $P$ et $Q$ » est vraie si, et seulement si, $P$ et $Q$ sont toutes deux vraies.",
+          "answer": "**Vrai** : définition du « et » logique."
+        },
+        {
+          "question": "**Item 19.** La réciproque de $P\\Rightarrow Q$ est $Q\\Rightarrow P$.",
+          "answer": "**Vrai** : définition de la réciproque."
+        },
+        {
+          "question": "**Item 20.** Une implication de conclusion vraie est toujours vraie, quelle que soit la prémisse.",
+          "answer": "**Vrai** : si $Q$ est vraie, $P\\Rightarrow Q$ est vraie quelle que soit la valeur de vérité de $P$."
+        },
+        {
+          "question": "**Item 21.** Deux propositions ayant la même table de vérité sont dites équivalentes.",
+          "answer": "**Vrai** : définition de l'équivalence logique."
+        },
+        {
+          "question": "**Item 22.** « non (non $P$) » est équivalente à $P$.",
+          "answer": "**Vrai** : principe de la double négation."
+        },
+        {
+          "question": "**Item 23.** L'implication $P\\Rightarrow Q$ est fausse uniquement lorsque $P$ est vraie et $Q$ fausse.",
+          "answer": "**Vrai** : seul cas où une implication est fausse."
+        },
+        {
+          "question": "**Item 24.** La négation de $(\\forall x\\in E,\\ \\exists y\\in F,\\ P(x,y))$ est $(\\exists x\\in E,\\ \\forall y\\in F,\\ \\text{non }P(x,y))$.",
+          "answer": "**Vrai** : chaque $\\forall$ devient $\\exists$ et réciproquement, et on nie le prédicat final."
+        },
+        {
+          "question": "**Item 25.** $P\\Leftrightarrow Q$ signifie que $P\\Rightarrow Q$ et $Q\\Rightarrow P$ sont toutes deux vraies.",
+          "answer": "**Vrai** : définition de l'équivalence logique par double implication."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "type": "markdown",
+      "title": "Compétence 2 — Raisonnement par récurrence",
+      "content": "## Définition — Principe de récurrence\n\nPour montrer qu'une proposition $P(n)$, dépendant d'un entier naturel $n$, est vraie pour tout $n\\geqslant n_0$, le raisonnement par récurrence consiste à :\n\n- vérifier l'**initialisation** : $P(n_0)$ est vraie ;\n- établir l'**hérédité** : pour tout $n\\geqslant n_0$, si $P(n)$ est vraie (*hypothèse de récurrence*), alors $P(n+1)$ est vraie.\n\nOn conclut alors que $P(n)$ est vraie pour tout entier $n\\geqslant n_0$."
+    },
+    {
+      "id": "s5",
+      "type": "reveal",
+      "title": "Exercice résolu 2 — Récurrence",
+      "items": [
+        {
+          "question": "Soit $a>0$. Montrer que $\\forall n \\in \\mathbb{N}^*,\\ 1+na+\\dfrac{n(n-1)}{2}a^2 \\leqslant (1+a)^n$.",
+          "answer": "Notons $P(n)$ la proposition $1+na+\\dfrac{n(n-1)}{2}a^2 \\leqslant (1+a)^n$.\n\n**Initialisation :** pour $n=1$, le membre de gauche vaut $1+a$ et le membre de droite vaut $(1+a)^1=1+a$ : $P(1)$ est vraie (avec égalité).\n\n**Hérédité :** supposons $P(n)$ vraie pour un entier $n\\geqslant 1$. Comme $1+a>0$, on peut multiplier les deux membres par $1+a$ :\n\n$$\\left(1+na+\\frac{n(n-1)}{2}a^2\\right)(1+a) \\leqslant (1+a)^{n+1}.$$\n\nOr en développant le membre de gauche :\n\n$$=1+(n+1)a+\\frac{n(n+1)}{2}a^2+\\frac{n(n-1)}{2}a^3.$$\n\nComme $a>0$ et $n(n-1)\\geqslant 0$, le terme $\\dfrac{n(n-1)}{2}a^3\\geqslant0$, donc $1+(n+1)a+\\dfrac{n(n+1)}{2}a^2 \\leqslant (1+a)^{n+1}$ : $P(n+1)$ est vraie.\n\n**Conclusion :** par le principe de récurrence, $P(n)$ est vraie pour tout $n\\in\\mathbb{N}^*$."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "type": "reveal",
+      "title": "QCM 2 — Raisonnement par récurrence",
+      "items": [
+        {
+          "question": "**Item 1.** Le raisonnement par récurrence nécessite de vérifier une initialisation et une hérédité.",
+          "answer": "**Vrai** : définition du principe de récurrence."
+        },
+        {
+          "question": "**Item 2.** Le raisonnement par récurrence forte suppose $P(k)$ vraie pour tout $k\\leqslant n$ afin d'établir $P(n+1)$.",
+          "answer": "**Vrai** : définition de la récurrence forte."
+        },
+        {
+          "question": "**Item 3.** La récurrence à deux pas initialise en général à deux rangs consécutifs.",
+          "answer": "**Vrai** : par exemple pour des suites définies par deux termes précédents."
+        },
+        {
+          "question": "**Item 4.** Le raisonnement par récurrence s'applique uniquement aux propriétés portant sur les entiers naturels.",
+          "answer": "**Faux** : c'est au contraire le cadre naturel du principe de récurrence ; il s'étend à toute propriété indexée par des entiers."
+        },
+        {
+          "question": "**Item 5.** La démonstration par récurrence nécessite de vérifier l'hérédité pour tout rang $n\\geqslant n_0$.",
+          "answer": "**Vrai** : c'est même l'étape d'hérédité du principe de récurrence."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "type": "markdown",
+      "title": "Compétence 3 — Raisonnement par l'absurde",
+      "content": "## Définition — Raisonnement par l'absurde\n\nPour montrer qu'une proposition $P$ est vraie, le raisonnement par l'absurde consiste à supposer que $P$ est **fausse** (supposer vraie la négation de $P$), puis à en déduire une **contradiction** (une affirmation manifestement fausse, ou deux résultats incompatibles). Cette contradiction montre que la supposition de départ était erronée, et donc que $P$ est vraie."
+    },
+    {
+      "id": "s8",
+      "type": "reveal",
+      "title": "Exercice résolu 3 — Raisonnement par l'absurde",
+      "items": [
+        {
+          "question": "Montrer par l'absurde que $\\sqrt{2}\\notin\\mathbb{Q}$.",
+          "answer": "Supposons $\\sqrt2\\in\\mathbb{Q}$ : il existe alors $p,q\\in\\mathbb{Z}$, $q\\neq0$, avec $\\gcd(p,q)=1$ et $\\sqrt2=\\dfrac pq$. Alors $p^2=2q^2$, donc $p^2$ est pair, donc $p$ est pair : $p=2k$. Il vient $4k^2=2q^2$, soit $q^2=2k^2$, donc $q$ est pair aussi. Ceci contredit $\\gcd(p,q)=1$. Donc $\\sqrt2\\notin\\mathbb{Q}$."
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "type": "reveal",
+      "title": "QCM 3 — Raisonnement par l'absurde",
+      "items": [
+        {
+          "question": "**Item 1.** Le raisonnement par l'absurde consiste à supposer la proposition fausse pour aboutir à une contradiction.",
+          "answer": "**Vrai** : définition du raisonnement par l'absurde."
+        },
+        {
+          "question": "**Item 2.** Le raisonnement par l'absurde ne peut s'appliquer qu'aux énoncés de géométrie.",
+          "answer": "**Faux** : le raisonnement par l'absurde s'applique à tout type d'énoncé (arithmétique, analyse, etc.)."
+        },
+        {
+          "question": "**Item 3.** Le raisonnement par l'absurde commence par nier la conclusion à démontrer.",
+          "answer": "**Vrai** : définition du raisonnement par l'absurde."
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "type": "markdown",
+      "title": "Compétence 4 — Raisonnement par contraposée",
+      "content": "## Définition — Raisonnement par contraposée\n\nPour montrer qu'une implication $P\\Rightarrow Q$ est vraie, le raisonnement par contraposée consiste à montrer l'implication contraposée $(\\text{non } Q)\\Rightarrow(\\text{non } P)$, qui lui est **logiquement équivalente**. Cette méthode est particulièrement utile lorsque la négation de $Q$ fournit une hypothèse plus facile à exploiter que $P$ elle-même."
+    },
+    {
+      "id": "s11",
+      "type": "reveal",
+      "title": "Exercice résolu 4 — Contraposée",
+      "items": [
+        {
+          "question": "Pour tous nombres réels $x$ et $y$, montrer en utilisant un raisonnement par contraposée que : $(xy\\neq 1 \\text{ et } x\\neq y) \\Rightarrow \\dfrac{x}{x^2+x+1}\\neq \\dfrac{y}{y^2+y+1}$.",
+          "answer": "La contraposée s'écrit : $\\dfrac{x}{x^2+x+1}=\\dfrac{y}{y^2+y+1} \\Rightarrow (xy=1 \\text{ ou } x=y)$. Comme $x^2+x+1=\\left(x+\\frac12\\right)^2+\\frac34>0$ pour tout $x$, les deux dénominateurs sont non nuls, et l'égalité équivaut à\n\n$$x(y^2+y+1)=y(x^2+x+1) \\Leftrightarrow xy(y-x)-(y-x)=0 \\Leftrightarrow (y-x)(xy-1)=0,$$\n\nc'est-à-dire $x=y$ ou $xy=1$. La contraposée est donc établie, ce qui prouve l'implication initiale."
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "type": "reveal",
+      "title": "QCM 4 — Raisonnement par contraposée",
+      "items": [
+        {
+          "question": "**Item 1.** Le raisonnement par contraposée pour montrer $P\\Rightarrow Q$ consiste à montrer $Q\\Rightarrow P$.",
+          "answer": "**Faux** : la contraposée de $P\\Rightarrow Q$ est $(\\text{non }Q)\\Rightarrow(\\text{non }P)$, pas $Q\\Rightarrow P$ (qui est la réciproque)."
+        },
+        {
+          "question": "**Item 2.** Pour montrer $P\\Rightarrow Q$ par contraposée, on montre « non $Q\\Rightarrow$ non $P$ ».",
+          "answer": "**Vrai** : c'est la méthode de la contraposée."
+        },
+        {
+          "question": "**Item 3.** Le raisonnement par l'absurde et le raisonnement par contraposée sont rigoureusement identiques.",
+          "answer": "**Faux** : ce sont deux méthodes distinctes, même si elles sont parfois combinées."
+        },
+        {
+          "question": "**Item 4.** Prouver la contraposée d'une implication est logiquement équivalent à prouver l'implication elle-même.",
+          "answer": "**Vrai** : équivalence logique entre une implication et sa contraposée."
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "type": "markdown",
+      "title": "Compétence 5 — Raisonnement par disjonction de cas",
+      "content": "## Définition — Raisonnement par disjonction de cas\n\nPour montrer qu'une proposition est vraie, le raisonnement par disjonction de cas consiste à découper la situation étudiée en **plusieurs cas qui recouvrent toutes les possibilités** (par exemple selon le signe d'une expression, la parité d'un entier, ou l'appartenance à des intervalles distincts), puis à établir la proposition séparément dans chacun de ces cas."
+    },
+    {
+      "id": "s14",
+      "type": "reveal",
+      "title": "Exercice résolu 5 — Disjonction de cas",
+      "items": [
+        {
+          "question": "En utilisant un raisonnement par disjonction des cas, montrer que :\na) Pour tout $x\\in\\mathbb{R}$ : $\\sqrt{x^2+1}-x>0$.\nb) Pour tout $n\\in\\mathbb{N}$ : $\\dfrac{n(n+1)(n+2)}{3}\\in\\mathbb{N}$.",
+          "answer": "**a)** Si $x<0$ : $-x>0$ et $\\sqrt{x^2+1}>0$, donc $\\sqrt{x^2+1}-x>0$ (somme de deux termes positifs).\n\nSi $x\\geqslant 0$ : $x^2+1>x^2$, donc $\\sqrt{x^2+1}>x$, soit $\\sqrt{x^2+1}-x>0$.\n\nDans les deux cas, $\\sqrt{x^2+1}-x>0$.\n\n**b)** Si $n=3k$ : $\\dfrac{n(n+1)(n+2)}{3}=k(3k+1)(3k+2)\\in\\mathbb{N}$.\n\nSi $n=3k+1$ : $n+2=3(k+1)$, donc $\\dfrac{n(n+1)(n+2)}{3}=(3k+1)(3k+2)(k+1)\\in\\mathbb{N}$.\n\nSi $n=3k+2$ : $n+1=3(k+1)$, donc $\\dfrac{n(n+1)(n+2)}{3}=(3k+2)(k+1)(3k+4)\\in\\mathbb{N}$.\n\nDans les trois cas, $\\dfrac{n(n+1)(n+2)}{3}\\in\\mathbb{N}$."
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "type": "reveal",
+      "title": "QCM 5 — Raisonnement par disjonction de cas",
+      "items": [
+        {
+          "question": "**Item 1.** Le raisonnement par disjonction des cas nécessite d'examiner des cas qui recouvrent toutes les possibilités.",
+          "answer": "**Vrai** : les cas doivent recouvrir toutes les situations possibles."
+        },
+        {
+          "question": "**Item 2.** Un contre-exemple suffit à réfuter une proposition universelle.",
+          "answer": "**Vrai** : un seul contre-exemple suffit à invalider un « pour tout »."
+        },
+        {
+          "question": "**Item 3.** Le raisonnement par disjonction de cas peut comporter seulement deux cas (par exemple : $n$ pair ou $n$ impair).",
+          "answer": "**Vrai** : c'est un exemple courant de disjonction de cas à deux branches."
+        },
+        {
+          "question": "**Item 4.** Une démonstration par disjonction de cas est invalide si un des cas est impossible.",
+          "answer": "**Faux** : un cas impossible (vide) ne pose aucun problème : il est trivialement vérifié."
+        },
+        {
+          "question": "**Item 5.** Pour prouver une égalité d'ensembles $A=B$, on peut montrer $A\\subset B$ et $B\\subset A$.",
+          "answer": "**Vrai** : méthode classique de double inclusion."
+        },
+        {
+          "question": "**Item 6.** Un seul exemple vérifiant une propriété suffit à la démontrer pour tous les cas.",
+          "answer": "**Faux** : un exemple ne prouve rien pour un énoncé universel."
+        },
+        {
+          "question": "**Item 7.** Il est possible d'utiliser plusieurs types de raisonnement dans une même démonstration.",
+          "answer": "**Vrai** : c'est même très fréquent en pratique de combiner plusieurs méthodes."
+        },
+        {
+          "question": "**Item 8.** Pour démontrer une implication $P\\Rightarrow Q$, une seule démonstration directe suffit, si elle existe.",
+          "answer": "**Vrai** : une démonstration valide suffit, quelle que soit la méthode employée."
+        },
+        {
+          "question": "**Item 9.** Deux démonstrations différentes d'un même résultat sont nécessairement toutes deux fausses.",
+          "answer": "**Faux** : deux démonstrations différentes et correctes du même résultat peuvent parfaitement coexister."
+        },
+        {
+          "question": "**Item 10.** Le choix du type de raisonnement dépend souvent de la nature de l'énoncé à démontrer.",
+          "answer": "**Vrai** : le choix de la méthode dépend de la structure de l'énoncé à démontrer."
+        },
+        {
+          "question": "**Item 11.** Un exemple vérifiant la propriété peut être utilisé pour prouver une proposition existentielle.",
+          "answer": "**Vrai** : un exemple qui vérifie la propriété prouve directement l'existence."
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "type": "markdown",
+      "title": "Compétence 6 — Ensembles et applications",
+      "content": "## Ensembles, inclusion, opérations\n\n- **Inclusion** : $E\\subset F \\Leftrightarrow (\\forall x\\in E)\\ x\\in F$. Égalité : $E=F \\iff E\\subset F$ et $F\\subset E$.\n- **Union** : $A\\cup B=\\{x\\,/\\,x\\in A\\text{ ou }x\\in B\\}$.\n- **Intersection** : $A\\cap B=\\{x\\,/\\,x\\in A\\text{ et }x\\in B\\}$.\n- **Complémentaire** : $\\complement_E A=\\{x\\in E\\,/\\,x\\notin A\\}$.\n- **Lois de De Morgan** : $\\complement_E(A\\cup B)=\\complement_E A\\cap\\complement_E B$ et $\\complement_E(A\\cap B)=\\complement_E A\\cup\\complement_E B$.\n- **Distributivité** : $A\\cap(B\\cup C)=(A\\cap B)\\cup(A\\cap C)$.\n\n## Applications\n\nUne **application** $f:E\\to F$ associe à tout $x\\in E$ un unique $f(x)\\in F$.\n\n- **Injective** : $f(x)=f(y) \\Rightarrow x=y$.\n- **Surjective** : $(\\forall y\\in F)(\\exists x\\in E)\\ y=f(x)$.\n- **Bijective** : injective et surjective ; admet une application réciproque $f^{-1}:F\\to E$.\n\n## Propriété — Composition\n\nSi $f:E\\to F$ et $g:F\\to G$ sont toutes deux injectives (resp. surjectives, bijectives), alors $g\\circ f$ est injective (resp. surjective, bijective)."
+    },
+    {
+      "id": "s17",
+      "type": "reveal",
+      "title": "Exercice résolu 6 — Bijection",
+      "items": [
+        {
+          "question": "Soit $E$ un ensemble non vide et $f:E\\to E$ une application vérifiant $f\\circ f=\\mathrm{id}_E$. Montrer que $f$ est bijective, et déterminer $f^{-1}$.",
+          "answer": "**Injectivité :** soient $x,y\\in E$ tels que $f(x)=f(y)$. En composant par $f$ : $f\\big(f(x)\\big)=f\\big(f(y)\\big)$, soit $(f\\circ f)(x)=(f\\circ f)(y)$, donc $x=y$ (car $f\\circ f=\\mathrm{id}_E$). Donc $f$ est injective.\n\n**Surjectivité :** soit $y\\in E$. Le réel $x=f(y)\\in E$ vérifie $f(x)=f\\big(f(y)\\big)=(f\\circ f)(y)=y$. Donc $y$ admet un antécédent, et $f$ est surjective.\n\nAinsi $f$ est bijective. De plus, $f^{-1}=f$, puisque $f\\circ f=\\mathrm{id}_E$ signifie exactement que $f$ est sa propre application réciproque."
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "type": "reveal",
+      "title": "QCM 6 — Ensembles et applications",
+      "items": [
+        {
+          "question": "**Item 1.** $A\\cap(B\\cup C)=(A\\cap B)\\cup(A\\cap C)$ pour toutes parties $A,B,C$ de $E$.",
+          "answer": "**Vrai** : distributivité de $\\cap$ sur $\\cup$."
+        },
+        {
+          "question": "**Item 2.** $\\complement_E(A\\cup B)=\\complement_E A\\cap\\complement_E B$.",
+          "answer": "**Vrai** : loi de De Morgan."
+        },
+        {
+          "question": "**Item 3.** Une application injective vérifie : deux éléments distincts de $E$ ont toujours des images distinctes.",
+          "answer": "**Vrai** : c'est la définition de l'injectivité."
+        },
+        {
+          "question": "**Item 4.** Une application surjective de $E$ dans $F$ associe à chaque élément de $E$ un unique antécédent dans $F$.",
+          "answer": "**Faux** : c'est la surjectivité qui concerne les antécédents des éléments de $F$ (au moins un, pas nécessairement unique)."
+        },
+        {
+          "question": "**Item 5.** La composée de deux applications injectives est injective.",
+          "answer": "**Vrai** : propriété du cours sur la composition."
+        },
+        {
+          "question": "**Item 6.** $A\\cup(B\\cap C)=(A\\cup B)\\cap(A\\cup C)$ pour toutes parties $A,B,C$ de $E$.",
+          "answer": "**Vrai** : distributivité de $\\cup$ sur $\\cap$."
+        },
+        {
+          "question": "**Item 7.** $A\\setminus B=A\\cap\\complement_EB$.",
+          "answer": "**Vrai** : définition de la différence ensembliste."
+        },
+        {
+          "question": "**Item 8.** Si $f:E\\to F$ est bijective, alors $f$ admet une application réciproque $f^{-1}:F\\to E$.",
+          "answer": "**Vrai** : caractérisation des bijections."
+        },
+        {
+          "question": "**Item 9.** $\\complement_E(\\complement_EA)=A$.",
+          "answer": "**Vrai** : double complémentaire."
+        },
+        {
+          "question": "**Item 10.** Une application peut ne pas être définie sur tout $E$.",
+          "answer": "**Faux** : par définition, une application de $E$ dans $F$ est définie sur $E$ tout entier."
+        },
+        {
+          "question": "**Item 11.** Une application injective de $E$ dans $F$ finis vérifie $\\mathrm{Card}(E)\\leqslant\\mathrm{Card}(F)$.",
+          "answer": "**Vrai** : propriété classique du dénombrement."
+        },
+        {
+          "question": "**Item 12.** Une application surjective de $E$ dans $F$ finis vérifie $\\mathrm{Card}(E)\\geqslant\\mathrm{Card}(F)$.",
+          "answer": "**Vrai** : propriété classique du dénombrement."
+        },
+        {
+          "question": "**Item 13.** $A\\times B$ désigne l'ensemble des couples $(a,b)$ avec $a\\in A$ et $b\\in B$.",
+          "answer": "**Vrai** : définition du produit cartésien."
+        },
+        {
+          "question": "**Item 14.** $\\mathrm{Card}(A\\cup B)=\\mathrm{Card}(A)+\\mathrm{Card}(B)$ pour toutes parties finies $A,B$.",
+          "answer": "**Faux** : formule correcte : $\\mathrm{Card}(A\\cup B)=\\mathrm{Card}(A)+\\mathrm{Card}(B)-\\mathrm{Card}(A\\cap B)$."
+        },
+        {
+          "question": "**Item 15.** Si $f$ est bijective, alors $f^{-1}\\circ f=\\mathrm{id}_E$.",
+          "answer": "**Vrai** : propriété de la bijection réciproque."
+        },
+        {
+          "question": "**Item 16.** L'image réciproque de $F$ tout entier par $f:E\\to F$ est $E$.",
+          "answer": "**Vrai** : tout élément de $E$ a son image dans $F$."
+        },
+        {
+          "question": "**Item 17.** Deux ensembles $A$ et $B$ sont disjoints si $A\\cap B=\\emptyset$.",
+          "answer": "**Vrai** : définition d'ensembles disjoints."
+        },
+        {
+          "question": "**Item 18.** La composée de deux applications surjectives est surjective.",
+          "answer": "**Vrai** : propriété de composition des surjections."
+        },
+        {
+          "question": "**Item 19.** $\\emptyset\\subset A$ pour toute partie $A$ de $E$.",
+          "answer": "**Vrai** : l'ensemble vide est inclus dans tout ensemble."
+        },
+        {
+          "question": "**Item 20.** $A\\subset B$ signifie que $A$ et $B$ ont le même nombre d'éléments.",
+          "answer": "**Faux** : $A\\subset B$ signifie que tout élément de $A$ appartient à $B$, sans lien direct avec le cardinal."
+        },
+        {
+          "question": "**Item 21.** Une application $f:E\\to F$ est bijective si, et seulement si, elle est à la fois injective et surjective.",
+          "answer": "**Vrai** : définition de la bijectivité."
+        },
+        {
+          "question": "**Item 22.** $\\mathcal P(E)$ désigne l'ensemble des parties de $E$.",
+          "answer": "**Vrai** : notation standard de l'ensemble des parties."
+        },
+        {
+          "question": "**Item 23.** Si $E$ a $n$ éléments, alors $\\mathcal P(E)$ a $2^n$ éléments.",
+          "answer": "**Vrai** : formule classique du dénombrement des parties."
+        },
+        {
+          "question": "**Item 24.** La restriction d'une application injective à une partie de son ensemble de départ reste injective.",
+          "answer": "**Vrai** : restreindre le domaine ne peut pas créer de collision d'images."
+        },
+        {
+          "question": "**Item 25.** Toute application est bijective sur son image.",
+          "answer": "**Faux** : $f:E\\to f(E)$ est toujours surjective, mais elle n'est bijective sur son image que si $f$ est de plus injective."
+        }
+      ]
+    }
+  ]
+}
