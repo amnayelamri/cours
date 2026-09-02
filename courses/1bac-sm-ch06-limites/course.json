@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "1bac-sm-ch06-limites",
   "title": "Chapitre 6 — Limites",
   "description": "Limites en un point et à l'infini, opérations sur les limites et formes indéterminées, théorème des gendarmes.",
@@ -29,103 +29,103 @@
       "title": "QCM 1 — Limites en un point et à l'infini",
       "items": [
         {
-          "question": "**Item 1.** $\\displaystyle\\lim_{x\\to2}\\dfrac{1}{(x-2)^2}=+\\infty$.",
+          "question": "**1.** $\\displaystyle\\lim_{x\\to2}\\dfrac{1}{(x-2)^2}=+\\infty$.",
           "answer": "**Vrai** : exemple typique du cours."
         },
         {
-          "question": "**Item 2.** Si $f$ tend vers $+\\infty$ en $a$, alors $f$ est nécessairement définie en $a$.",
+          "question": "**2.** Si $f$ tend vers $+\\infty$ en $a$, alors $f$ est nécessairement définie en $a$.",
           "answer": "**Faux** : au contraire, $\\lim_{x\\to a}f(x)=+\\infty$ traduit souvent le fait que $f$ n'est justement pas définie en $a$."
         },
         {
-          "question": "**Item 3.** La limite en $+\\infty$ décrit le comportement de $f(x)$ quand $x$ prend des valeurs de plus en plus grandes.",
+          "question": "**3.** La limite en $+\\infty$ décrit le comportement de $f(x)$ quand $x$ prend des valeurs de plus en plus grandes.",
           "answer": "**Vrai** : approche intuitive du cours."
         },
         {
-          "question": "**Item 4.** Une fonction ne peut avoir qu'une seule limite en un point donné, si elle existe.",
+          "question": "**4.** Une fonction ne peut avoir qu'une seule limite en un point donné, si elle existe.",
           "answer": "**Vrai** : unicité de la limite."
         },
         {
-          "question": "**Item 5.** $\\displaystyle\\lim_{x\\to0}\\dfrac1{x^2}=0$.",
+          "question": "**5.** $\\displaystyle\\lim_{x\\to0}\\dfrac1{x^2}=0$.",
           "answer": "**Faux** : $\\displaystyle\\lim_{x\\to0}\\dfrac1{x^2}=+\\infty$."
         },
         {
-          "question": "**Item 6.** $\\displaystyle\\lim_{x\\to+\\infty}x^2=+\\infty$.",
+          "question": "**6.** $\\displaystyle\\lim_{x\\to+\\infty}x^2=+\\infty$.",
           "answer": "**Vrai** : propriété usuelle."
         },
         {
-          "question": "**Item 7.** Si $f$ admet une limite finie $\\ell$ en $a$, cette limite est unique.",
+          "question": "**7.** Si $f$ admet une limite finie $\\ell$ en $a$, cette limite est unique.",
           "answer": "**Vrai** : théorème d'unicité de la limite."
         },
         {
-          "question": "**Item 8.** $\\displaystyle\\lim_{x\\to0^+}\\dfrac1x=-\\infty$.",
+          "question": "**8.** $\\displaystyle\\lim_{x\\to0^+}\\dfrac1x=-\\infty$.",
           "answer": "**Faux** : quand $x\\to0^+$, $\\dfrac1x$ tend vers $+\\infty$, pas $-\\infty$."
         },
         {
-          "question": "**Item 9.** $\\displaystyle\\lim_{x\\to-\\infty}x^3=-\\infty$.",
+          "question": "**9.** $\\displaystyle\\lim_{x\\to-\\infty}x^3=-\\infty$.",
           "answer": "**Vrai** : propriété usuelle de la fonction cube."
         },
         {
-          "question": "**Item 10.** Une fonction peut avoir deux limites différentes en un même point.",
+          "question": "**10.** Une fonction peut avoir deux limites différentes en un même point.",
           "answer": "**Faux** : contredit le théorème d'unicité de la limite."
         },
         {
-          "question": "**Item 11.** $\\displaystyle\\lim_{x\\to2}(3x-1)=5$.",
+          "question": "**11.** $\\displaystyle\\lim_{x\\to2}(3x-1)=5$.",
           "answer": "**Vrai** : substitution directe pour une fonction affine."
         },
         {
-          "question": "**Item 12.** Une fonction continue en $a$ vérifie $\\displaystyle\\lim_{x\\to a}f(x)=f(a)$.",
+          "question": "**12.** Une fonction continue en $a$ vérifie $\\displaystyle\\lim_{x\\to a}f(x)=f(a)$.",
           "answer": "**Vrai** : définition de la continuité en un point."
         },
         {
-          "question": "**Item 13.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac1{x^2}=+\\infty$.",
+          "question": "**13.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac1{x^2}=+\\infty$.",
           "answer": "**Faux** : $\\dfrac1{x^2}$ tend vers $0$ quand $x\\to+\\infty$, pas $+\\infty$."
         },
         {
-          "question": "**Item 14.** La limite à gauche et la limite à droite d'une fonction en un point peuvent être différentes.",
+          "question": "**14.** La limite à gauche et la limite à droite d'une fonction en un point peuvent être différentes.",
           "answer": "**Vrai** : cas des fonctions présentant une discontinuité (exemple : partie entière)."
         },
         {
-          "question": "**Item 15.** $\\displaystyle\\lim_{x\\to0}\\sqrt{x}=0$ (limite à droite).",
+          "question": "**15.** $\\displaystyle\\lim_{x\\to0}\\sqrt{x}=0$ (limite à droite).",
           "answer": "**Vrai** : propriété usuelle de la fonction racine carrée en $0$."
         },
         {
-          "question": "**Item 16.** $\\displaystyle\\lim_{x\\to-\\infty}e^x=0$ (admis).",
+          "question": "**16.** $\\displaystyle\\lim_{x\\to-\\infty}e^x=0$ (admis).",
           "answer": "**Vrai** : propriété classique de la fonction exponentielle."
         },
         {
-          "question": "**Item 17.** Si $\\displaystyle\\lim_{x\\to a}f(x)=+\\infty$, alors $f$ n'est pas bornée au voisinage de $a$.",
+          "question": "**17.** Si $\\displaystyle\\lim_{x\\to a}f(x)=+\\infty$, alors $f$ n'est pas bornée au voisinage de $a$.",
           "answer": "**Vrai** : par définition d'une limite infinie."
         },
         {
-          "question": "**Item 18.** La droite $x=a$ est asymptote verticale à $(C_f)$ si $\\displaystyle\\lim_{x\\to a}f(x)=\\pm\\infty$.",
+          "question": "**18.** La droite $x=a$ est asymptote verticale à $(C_f)$ si $\\displaystyle\\lim_{x\\to a}f(x)=\\pm\\infty$.",
           "answer": "**Vrai** : définition de l'asymptote verticale."
         },
         {
-          "question": "**Item 19.** $\\displaystyle\\lim_{x\\to+\\infty}(-x^3)=+\\infty$.",
+          "question": "**19.** $\\displaystyle\\lim_{x\\to+\\infty}(-x^3)=+\\infty$.",
           "answer": "**Faux** : $-x^3$ tend vers $-\\infty$ quand $x\\to+\\infty$ (opposé de $x^3$, qui tend vers $+\\infty$)."
         },
         {
-          "question": "**Item 20.** Une limite infinie signifie que $f(x)$ devient arbitrairement grande (en valeur absolue) au voisinage du point considéré.",
+          "question": "**20.** Une limite infinie signifie que $f(x)$ devient arbitrairement grande (en valeur absolue) au voisinage du point considéré.",
           "answer": "**Vrai** : interprétation intuitive d'une limite infinie."
         },
         {
-          "question": "**Item 21.** $\\displaystyle\\lim_{x\\to3}\\dfrac{1}{(x-3)^2}=+\\infty$.",
+          "question": "**21.** $\\displaystyle\\lim_{x\\to3}\\dfrac{1}{(x-3)^2}=+\\infty$.",
           "answer": "**Vrai** : exemple classique du cours."
         },
         {
-          "question": "**Item 22.** Toute fonction définie au voisinage de $a$ admet une limite en $a$.",
+          "question": "**22.** Toute fonction définie au voisinage de $a$ admet une limite en $a$.",
           "answer": "**Faux** : une fonction peut ne pas avoir de limite en un point (par exemple $\\sin(1/x)$ en $0$)."
         },
         {
-          "question": "**Item 23.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{1}{\\sqrt x}=0$.",
+          "question": "**23.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{1}{\\sqrt x}=0$.",
           "answer": "**Vrai** : propriété usuelle de la fonction racine carrée à l'infini."
         },
         {
-          "question": "**Item 24.** La notion de limite en $+\\infty$ ne concerne que les fonctions polynômes.",
+          "question": "**24.** La notion de limite en $+\\infty$ ne concerne que les fonctions polynômes.",
           "answer": "**Faux** : la notion de limite en $+\\infty$ s'applique à toute fonction définie au voisinage de $+\\infty$."
         },
         {
-          "question": "**Item 25.** Si $f(x)\\to\\ell$ quand $x\\to a$, on dit que $f$ converge vers $\\ell$ en $a$.",
+          "question": "**25.** Si $f(x)\\to\\ell$ quand $x\\to a$, on dit que $f$ converge vers $\\ell$ en $a$.",
           "answer": "**Vrai** : terminologie usuelle du cours."
         }
       ]
@@ -153,103 +153,103 @@
       "title": "QCM 2 — Opérations sur les limites",
       "items": [
         {
-          "question": "**Item 1.** « $\\dfrac{0}{0}$ » est une forme indéterminée.",
+          "question": "**1.** « $\\dfrac{0}{0}$ » est une forme indéterminée.",
           "answer": "**Vrai** : c'est l'une des quatre formes indéterminées du cours."
         },
         {
-          "question": "**Item 2.** $\\displaystyle\\lim_{x\\to0}\\dfrac{\\sin x}{x}=1$.",
+          "question": "**2.** $\\displaystyle\\lim_{x\\to0}\\dfrac{\\sin x}{x}=1$.",
           "answer": "**Vrai** : limite usuelle à connaître par cœur."
         },
         {
-          "question": "**Item 3.** $\\displaystyle\\lim_{x\\to0}\\dfrac{1-\\cos x}{x^2}=1$.",
+          "question": "**3.** $\\displaystyle\\lim_{x\\to0}\\dfrac{1-\\cos x}{x^2}=1$.",
           "answer": "**Faux** : cette limite usuelle vaut $\\dfrac12$."
         },
         {
-          "question": "**Item 4.** « $\\infty+\\infty$ » est une forme indéterminée.",
+          "question": "**4.** « $\\infty+\\infty$ » est une forme indéterminée.",
           "answer": "**Faux** : seule la forme « $\\infty-\\infty$ » est indéterminée ; $\\infty+\\infty=\\infty$ ne pose pas de problème."
         },
         {
-          "question": "**Item 5.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac1{x^n}=0$ pour tout entier $n\\geqslant1$.",
+          "question": "**5.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac1{x^n}=0$ pour tout entier $n\\geqslant1$.",
           "answer": "**Vrai** : limite usuelle du cours."
         },
         {
-          "question": "**Item 6.** « $\\dfrac{\\infty}{\\infty}$ » est une forme indéterminée.",
+          "question": "**6.** « $\\dfrac{\\infty}{\\infty}$ » est une forme indéterminée.",
           "answer": "**Vrai** : l'une des quatre formes indéterminées du cours."
         },
         {
-          "question": "**Item 7.** « $0\\times\\infty$ » est une forme indéterminée.",
+          "question": "**7.** « $0\\times\\infty$ » est une forme indéterminée.",
           "answer": "**Vrai** : l'une des quatre formes indéterminées du cours."
         },
         {
-          "question": "**Item 8.** Si $\\lim f=\\ell_1$ et $\\lim g=\\ell_2$ (finies), alors $\\lim(f+g)=\\ell_1+\\ell_2$.",
+          "question": "**8.** Si $\\lim f=\\ell_1$ et $\\lim g=\\ell_2$ (finies), alors $\\lim(f+g)=\\ell_1+\\ell_2$.",
           "answer": "**Vrai** : linéarité de la limite d'une somme."
         },
         {
-          "question": "**Item 9.** « $1^{\\infty}$ » n'est jamais une forme indéterminée au programme du lycée.",
+          "question": "**9.** « $1^{\\infty}$ » n'est jamais une forme indéterminée au programme du lycée.",
           "answer": "**Vrai** : ce n'est pas l'une des quatre formes étudiées à ce niveau."
         },
         {
-          "question": "**Item 10.** Le produit d'une limite finie non nulle et d'une limite infinie est toujours une forme indéterminée.",
+          "question": "**10.** Le produit d'une limite finie non nulle et d'une limite infinie est toujours une forme indéterminée.",
           "answer": "**Faux** : le produit d'une limite finie non nulle par une limite infinie est bien déterminé (infini), ce n'est pas une forme indéterminée."
         },
         {
-          "question": "**Item 11.** $\\displaystyle\\lim_{x\\to+\\infty}(x^2-x)=+\\infty$ (forme $\\infty-\\infty$ levée par factorisation).",
+          "question": "**11.** $\\displaystyle\\lim_{x\\to+\\infty}(x^2-x)=+\\infty$ (forme $\\infty-\\infty$ levée par factorisation).",
           "answer": "**Vrai** : $x^2-x=x^2\\left(1-\\dfrac1x\\right)\\to+\\infty$."
         },
         {
-          "question": "**Item 12.** La limite d'un quotient de deux polynômes en $+\\infty$ est donnée par le quotient des termes de plus haut degré.",
+          "question": "**12.** La limite d'un quotient de deux polynômes en $+\\infty$ est donnée par le quotient des termes de plus haut degré.",
           "answer": "**Vrai** : méthode classique du cours."
         },
         {
-          "question": "**Item 13.** « $\\infty-\\infty$ » donne toujours $0$.",
+          "question": "**13.** « $\\infty-\\infty$ » donne toujours $0$.",
           "answer": "**Faux** : « $\\infty-\\infty$ » est justement indéterminée : le résultat dépend du cas."
         },
         {
-          "question": "**Item 14.** Si $\\lim f=+\\infty$ et $\\lim g=\\ell<0$ (finie), alors $\\lim(fg)=-\\infty$.",
+          "question": "**14.** Si $\\lim f=+\\infty$ et $\\lim g=\\ell<0$ (finie), alors $\\lim(fg)=-\\infty$.",
           "answer": "**Vrai** : le produit d'une limite $+\\infty$ par une limite finie strictement négative donne $-\\infty$."
         },
         {
-          "question": "**Item 15.** On peut toujours lever une forme indéterminée par un calcul algébrique simple.",
+          "question": "**15.** On peut toujours lever une forme indéterminée par un calcul algébrique simple.",
           "answer": "**Faux** : certaines formes indéterminées nécessitent des techniques plus avancées, pas toujours un simple calcul algébrique."
         },
         {
-          "question": "**Item 16.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{2x+1}{x-3}=2$.",
+          "question": "**16.** $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{2x+1}{x-3}=2$.",
           "answer": "**Vrai** : on divise numérateur et dénominateur par $x$, limite du quotient des coefficients dominants."
         },
         {
-          "question": "**Item 17.** La limite d'une somme de deux fonctions tendant toutes deux vers $+\\infty$ est toujours $+\\infty$.",
+          "question": "**17.** La limite d'une somme de deux fonctions tendant toutes deux vers $+\\infty$ est toujours $+\\infty$.",
           "answer": "**Vrai** : somme de deux limites $+\\infty$ : pas de problème, c'est toujours $+\\infty$."
         },
         {
-          "question": "**Item 18.** $\\dfrac00$ apparaît typiquement lors du calcul d'un taux d'accroissement.",
+          "question": "**18.** $\\dfrac00$ apparaît typiquement lors du calcul d'un taux d'accroissement.",
           "answer": "**Vrai** : c'est justement la forme rencontrée dans la définition du nombre dérivé."
         },
         {
-          "question": "**Item 19.** Une forme indéterminée signifie que la limite n'existe pas.",
+          "question": "**19.** Une forme indéterminée signifie que la limite n'existe pas.",
           "answer": "**Faux** : une forme indéterminée signifie qu'on ne peut pas conclure directement, la limite peut très bien exister après étude."
         },
         {
-          "question": "**Item 20.** La croissance comparée permet de lever certaines formes indéterminées.",
+          "question": "**20.** La croissance comparée permet de lever certaines formes indéterminées.",
           "answer": "**Vrai** : les théorèmes de croissances comparées permettent de lever certaines formes indéterminées."
         },
         {
-          "question": "**Item 21.** $\\displaystyle\\lim_{x\\to0}\\dfrac{x^2-x}{x}=-1$ (après simplification).",
+          "question": "**21.** $\\displaystyle\\lim_{x\\to0}\\dfrac{x^2-x}{x}=-1$ (après simplification).",
           "answer": "**Vrai** : $\\dfrac{x^2-x}x=x-1$ pour $x\\neq0$, limite en $0$ égale à $-1$."
         },
         {
-          "question": "**Item 22.** Le quotient de deux limites finies est toujours défini.",
+          "question": "**22.** Le quotient de deux limites finies est toujours défini.",
           "answer": "**Faux** : le quotient de deux limites finies n'est défini que si la limite du dénominateur est non nulle."
         },
         {
-          "question": "**Item 23.** La somme d'une limite finie et d'une limite infinie est égale à cette limite infinie.",
+          "question": "**23.** La somme d'une limite finie et d'une limite infinie est égale à cette limite infinie.",
           "answer": "**Vrai** : propriété des opérations sur les limites."
         },
         {
-          "question": "**Item 24.** $\\dfrac\\infty\\infty$ peut se lever en factorisant par le terme dominant.",
+          "question": "**24.** $\\dfrac\\infty\\infty$ peut se lever en factorisant par le terme dominant.",
           "answer": "**Vrai** : méthode usuelle de levée de l'indétermination $\\dfrac\\infty\\infty$."
         },
         {
-          "question": "**Item 25.** Une forme du type « $\\ell\\times\\infty$ » avec $\\ell\\neq0$ fini n'est pas indéterminée.",
+          "question": "**25.** Une forme du type « $\\ell\\times\\infty$ » avec $\\ell\\neq0$ fini n'est pas indéterminée.",
           "answer": "**Vrai** : le produit d'une limite finie non nulle par une limite infinie est bien déterminé."
         }
       ]
@@ -277,103 +277,103 @@
       "title": "QCM 3 — Théorème des gendarmes",
       "items": [
         {
-          "question": "**Item 1.** Si $g(x)\\leqslant f(x)\\leqslant h(x)$ au voisinage de $a$ et $\\lim g=\\lim h=\\ell$, alors $\\displaystyle\\lim_{x\\to a}f(x)=\\ell$.",
+          "question": "**1.** Si $g(x)\\leqslant f(x)\\leqslant h(x)$ au voisinage de $a$ et $\\lim g=\\lim h=\\ell$, alors $\\displaystyle\\lim_{x\\to a}f(x)=\\ell$.",
           "answer": "**Vrai** : énoncé du théorème des gendarmes."
         },
         {
-          "question": "**Item 2.** Le théorème des gendarmes permet de calculer une limite sans connaître d'expression explicite pour la fonction encadrée.",
+          "question": "**2.** Le théorème des gendarmes permet de calculer une limite sans connaître d'expression explicite pour la fonction encadrée.",
           "answer": "**Vrai** : c'est tout l'intérêt de la méthode."
         },
         {
-          "question": "**Item 3.** Si $f(x)\\geqslant g(x)$ au voisinage de $a$ et $\\lim g=+\\infty$, alors $\\lim f=+\\infty$.",
+          "question": "**3.** Si $f(x)\\geqslant g(x)$ au voisinage de $a$ et $\\lim g=+\\infty$, alors $\\lim f=+\\infty$.",
           "answer": "**Vrai** : variante du théorème pour les limites infinies."
         },
         {
-          "question": "**Item 4.** Le théorème des gendarmes ne s'applique qu'aux limites finies.",
+          "question": "**4.** Le théorème des gendarmes ne s'applique qu'aux limites finies.",
           "answer": "**Faux** : il existe aussi une version pour les limites infinies."
         },
         {
-          "question": "**Item 5.** Pour appliquer le théorème des gendarmes, il suffit d'encadrer $f$ par une seule fonction.",
+          "question": "**5.** Pour appliquer le théorème des gendarmes, il suffit d'encadrer $f$ par une seule fonction.",
           "answer": "**Faux** : il faut deux fonctions encadrantes $g$ et $h$ (sauf variante « minoration »)."
         },
         {
-          "question": "**Item 6.** Si $f(x)\\leqslant M$ au voisinage de $+\\infty$ et $\\lim g=+\\infty$ avec $g\\leqslant f$, c'est contradictoire.",
+          "question": "**6.** Si $f(x)\\leqslant M$ au voisinage de $+\\infty$ et $\\lim g=+\\infty$ avec $g\\leqslant f$, c'est contradictoire.",
           "answer": "**Vrai** : si $g\\leqslant f$ et $\\lim g=+\\infty$, alors $f$ doit aussi tendre vers $+\\infty$, contredisant $f\\leqslant M$."
         },
         {
-          "question": "**Item 7.** Le théorème de comparaison permet de montrer qu'une limite est infinie sans calculer $f$ explicitement.",
+          "question": "**7.** Le théorème de comparaison permet de montrer qu'une limite est infinie sans calculer $f$ explicitement.",
           "answer": "**Vrai** : c'est tout l'intérêt de la méthode."
         },
         {
-          "question": "**Item 8.** Si $-1\\leqslant\\sin x\\leqslant1$, alors $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{\\sin x}{x}=0$ (par encadrement).",
+          "question": "**8.** Si $-1\\leqslant\\sin x\\leqslant1$, alors $\\displaystyle\\lim_{x\\to+\\infty}\\dfrac{\\sin x}{x}=0$ (par encadrement).",
           "answer": "**Vrai** : $-\\dfrac1x\\leqslant\\dfrac{\\sin x}x\\leqslant\\dfrac1x$, et les deux bornes tendent vers $0$."
         },
         {
-          "question": "**Item 9.** Le théorème des gendarmes nécessite que les trois fonctions soient définies sur $\\mathbb R$ tout entier.",
+          "question": "**9.** Le théorème des gendarmes nécessite que les trois fonctions soient définies sur $\\mathbb R$ tout entier.",
           "answer": "**Faux** : il suffit qu'elles soient définies au voisinage du point considéré."
         },
         {
-          "question": "**Item 10.** On peut appliquer le théorème des gendarmes même si l'encadrement n'est valable qu'au voisinage du point considéré.",
+          "question": "**10.** On peut appliquer le théorème des gendarmes même si l'encadrement n'est valable qu'au voisinage du point considéré.",
           "answer": "**Vrai** : c'est justement la condition standard d'application (« au voisinage de »)."
         },
         {
-          "question": "**Item 11.** Le théorème de majoration affirme que si $f\\leqslant g$ au voisinage de $a$ et $\\lim g=-\\infty$, alors $\\lim f=-\\infty$.",
+          "question": "**11.** Le théorème de majoration affirme que si $f\\leqslant g$ au voisinage de $a$ et $\\lim g=-\\infty$, alors $\\lim f=-\\infty$.",
           "answer": "**Vrai** : variante du théorème des gendarmes pour les limites infinies."
         },
         {
-          "question": "**Item 12.** Pour appliquer le théorème des gendarmes, il suffit que l'encadrement soit valable en un seul point.",
+          "question": "**12.** Pour appliquer le théorème des gendarmes, il suffit que l'encadrement soit valable en un seul point.",
           "answer": "**Faux** : il faut que l'encadrement soit valable au *voisinage* du point, pas en un seul point isolé."
         },
         {
-          "question": "**Item 13.** $\\displaystyle\\lim_{x\\to+\\infty}\\left(2+\\dfrac{\\cos x}{x}\\right)=2$ (obtenue par encadrement).",
+          "question": "**13.** $\\displaystyle\\lim_{x\\to+\\infty}\\left(2+\\dfrac{\\cos x}{x}\\right)=2$ (obtenue par encadrement).",
           "answer": "**Vrai** : $-\\dfrac1x\\leqslant\\dfrac{\\cos x}x\\leqslant\\dfrac1x$, donc $\\dfrac{\\cos x}x\\to0$ et $2+\\dfrac{\\cos x}x\\to2$."
         },
         {
-          "question": "**Item 14.** Le théorème des gendarmes s'applique aussi pour des limites en un point fini.",
+          "question": "**14.** Le théorème des gendarmes s'applique aussi pour des limites en un point fini.",
           "answer": "**Vrai** : le théorème s'applique aussi bien en un point fini qu'à l'infini."
         },
         {
-          "question": "**Item 15.** Le théorème de comparaison ne s'applique jamais aux suites.",
+          "question": "**15.** Le théorème de comparaison ne s'applique jamais aux suites.",
           "answer": "**Faux** : il s'applique au contraire très souvent aux suites."
         },
         {
-          "question": "**Item 16.** Si $u_n\\leqslant v_n$ pour tout $n$ et $\\lim u_n=+\\infty$, alors $\\lim v_n=+\\infty$.",
+          "question": "**16.** Si $u_n\\leqslant v_n$ pour tout $n$ et $\\lim u_n=+\\infty$, alors $\\lim v_n=+\\infty$.",
           "answer": "**Vrai** : variante du théorème de minoration."
         },
         {
-          "question": "**Item 17.** Le théorème des gendarmes permet de démontrer la convergence d'une suite sans connaître sa limite à l'avance.",
+          "question": "**17.** Le théorème des gendarmes permet de démontrer la convergence d'une suite sans connaître sa limite à l'avance.",
           "answer": "**Vrai** : c'est l'intérêt principal du théorème."
         },
         {
-          "question": "**Item 18.** Un encadrement $g(x)\\leqslant f(x)\\leqslant h(x)$ suffit toujours, même sans connaître $\\lim g$ ni $\\lim h$.",
+          "question": "**18.** Un encadrement $g(x)\\leqslant f(x)\\leqslant h(x)$ suffit toujours, même sans connaître $\\lim g$ ni $\\lim h$.",
           "answer": "**Faux** : il faut connaître les limites de $g$ et $h$ (et qu'elles soient égales) pour conclure."
         },
         {
-          "question": "**Item 19.** Le théorème de minoration s'écrit : si $f\\geqslant g$ au voisinage de $a$ et $\\lim g=+\\infty$, alors $\\lim f=+\\infty$.",
+          "question": "**19.** Le théorème de minoration s'écrit : si $f\\geqslant g$ au voisinage de $a$ et $\\lim g=+\\infty$, alors $\\lim f=+\\infty$.",
           "answer": "**Vrai** : énoncé exact du théorème de minoration."
         },
         {
-          "question": "**Item 20.** Le théorème des gendarmes donne également la valeur de la limite recherchée.",
+          "question": "**20.** Le théorème des gendarmes donne également la valeur de la limite recherchée.",
           "answer": "**Vrai** : le théorème donne l'existence et la valeur exacte de la limite (celle commune à $g$ et $h$)."
         },
         {
-          "question": "**Item 21.** Le théorème des gendarmes est parfois appelé théorème d'encadrement.",
+          "question": "**21.** Le théorème des gendarmes est parfois appelé théorème d'encadrement.",
           "answer": "**Vrai** : appellation courante équivalente."
         },
         {
-          "question": "**Item 22.** On peut utiliser le théorème des gendarmes pour montrer qu'une limite n'existe pas.",
+          "question": "**22.** On peut utiliser le théorème des gendarmes pour montrer qu'une limite n'existe pas.",
           "answer": "**Faux** : il sert au contraire à prouver qu'une limite existe (et sa valeur)."
         },
         {
-          "question": "**Item 23.** $-\\dfrac1n\\leqslant\\dfrac{(-1)^n}{n}\\leqslant\\dfrac1n$ permet de conclure que $\\displaystyle\\lim_{n\\to+\\infty}\\dfrac{(-1)^n}{n}=0$.",
+          "question": "**23.** $-\\dfrac1n\\leqslant\\dfrac{(-1)^n}{n}\\leqslant\\dfrac1n$ permet de conclure que $\\displaystyle\\lim_{n\\to+\\infty}\\dfrac{(-1)^n}{n}=0$.",
           "answer": "**Vrai** : exemple classique d'application aux suites."
         },
         {
-          "question": "**Item 24.** Le théorème des gendarmes s'applique uniquement si les trois fonctions sont continues.",
+          "question": "**24.** Le théorème des gendarmes s'applique uniquement si les trois fonctions sont continues.",
           "answer": "**Faux** : aucune hypothèse de continuité n'est nécessaire."
         },
         {
-          "question": "**Item 25.** Le théorème des gendarmes est un outil essentiel pour l'étude de limites de fonctions oscillantes.",
+          "question": "**25.** Le théorème des gendarmes est un outil essentiel pour l'étude de limites de fonctions oscillantes.",
           "answer": "**Vrai** : outil de choix pour les fonctions oscillantes (sinus, cosinus, etc.)."
         }
       ]

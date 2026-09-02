@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "1bac-sm-ch00-rappels-tc",
   "title": "Chapitre 0 — Rappels de Tronc Commun",
   "description": "Révision condensée des 7 compétences fondamentales du Tronc Commun : nombres, équations, fonctions, trigonométrie, vecteurs, arithmétique et second degré.",
@@ -29,51 +29,51 @@
       "title": "QCM 1 — Nombres, racines et valeur absolue",
       "items": [
         {
-          "question": "**Item 1.** $-8\\in\\mathbb Z$ mais $-8\\notin\\mathbb N$.",
+          "question": "**1.** $-8\\in\\mathbb Z$ mais $-8\\notin\\mathbb N$.",
           "answer": "**Vrai** : $-8$ est négatif, donc n'est pas un entier naturel."
         },
         {
-          "question": "**Item 2.** $\\sqrt2\\in\\mathbb Q$.",
+          "question": "**2.** $\\sqrt2\\in\\mathbb Q$.",
           "answer": "**Faux** : $\\sqrt2$ est irrationnel."
         },
         {
-          "question": "**Item 3.** Si $a\\leqslant b$ et $c<0$, alors $ac\\leqslant bc$.",
+          "question": "**3.** Si $a\\leqslant b$ et $c<0$, alors $ac\\leqslant bc$.",
           "answer": "**Faux** : multiplier par $c<0$ inverse le sens de l'inégalité, donc $ac\\geqslant bc$."
         },
         {
-          "question": "**Item 4.** $|x-3|\\leqslant2 \\iff x\\in[1;5]$.",
+          "question": "**4.** $|x-3|\\leqslant2 \\iff x\\in[1;5]$.",
           "answer": "**Vrai** : $|x-3|\\leqslant2 \\iff -2\\leqslant x-3\\leqslant2 \\iff 1\\leqslant x\\leqslant5$."
         },
         {
-          "question": "**Item 5.** $\\sqrt{72}=6\\sqrt2$.",
+          "question": "**5.** $\\sqrt{72}=6\\sqrt2$.",
           "answer": "**Vrai** : $\\sqrt{72}=\\sqrt{36\\times2}=6\\sqrt2$."
         },
         {
-          "question": "**Item 6.** Pour tous $a,b\\geqslant0$, $\\sqrt{a+b}=\\sqrt a+\\sqrt b$.",
+          "question": "**6.** Pour tous $a,b\\geqslant0$, $\\sqrt{a+b}=\\sqrt a+\\sqrt b$.",
           "answer": "**Faux** : en général $\\sqrt{a+b}\\neq\\sqrt a+\\sqrt b$ (contre-exemple : $\\sqrt9+\\sqrt{16}\\neq\\sqrt{25}$)."
         },
         {
-          "question": "**Item 7.** $2^{-3}=-8$.",
+          "question": "**7.** $2^{-3}=-8$.",
           "answer": "**Faux** : $2^{-3}=\\dfrac{1}{2^3}=\\dfrac18$."
         },
         {
-          "question": "**Item 8.** $\\dfrac{3^{-2}\\times3^5}{3^4}=\\dfrac13$.",
+          "question": "**8.** $\\dfrac{3^{-2}\\times3^5}{3^4}=\\dfrac13$.",
           "answer": "**Vrai** : $3^{-2+5-4}=3^{-1}=\\dfrac13$."
         },
         {
-          "question": "**Item 9.** $|{-x}|=|x|$ pour tout réel $x$.",
+          "question": "**9.** $|{-x}|=|x|$ pour tout réel $x$.",
           "answer": "**Vrai** : propriété de la valeur absolue."
         },
         {
-          "question": "**Item 10.** $\\left(\\sqrt7\\right)^2=7$.",
+          "question": "**10.** $\\left(\\sqrt7\\right)^2=7$.",
           "answer": "**Vrai** : par définition de la racine carrée."
         },
         {
-          "question": "**Item 11.** Multiplier une inégalité par un réel strictement positif conserve son sens.",
+          "question": "**11.** Multiplier une inégalité par un réel strictement positif conserve son sens.",
           "answer": "**Vrai** : propriété de compatibilité de l'ordre avec la multiplication par un positif."
         },
         {
-          "question": "**Item 12.** $\\mathbb N\\subset\\mathbb Z\\subset\\mathbb Q\\subset\\mathbb D\\subset\\mathbb R$.",
+          "question": "**12.** $\\mathbb N\\subset\\mathbb Z\\subset\\mathbb Q\\subset\\mathbb D\\subset\\mathbb R$.",
           "answer": "**Faux** : l'ordre correct est $\\mathbb N\\subset\\mathbb Z\\subset\\mathbb D\\subset\\mathbb Q\\subset\\mathbb R$."
         }
       ]
@@ -101,51 +101,51 @@
       "title": "QCM 2 — Équations, inéquations et systèmes",
       "items": [
         {
-          "question": "**Item 1.** Le couple $(3;2)$ est solution du système $\\begin{cases}3x+2y=13\\\\x-y=1\\end{cases}$.",
+          "question": "**1.** Le couple $(3;2)$ est solution du système $\\begin{cases}3x+2y=13\\\\x-y=1\\end{cases}$.",
           "answer": "**Vrai** : $3\\times3+2\\times2=13$ et $3-2=1$."
         },
         {
-          "question": "**Item 2.** Diviser les deux membres d'une inéquation par un nombre négatif conserve le sens de l'inégalité.",
+          "question": "**2.** Diviser les deux membres d'une inéquation par un nombre négatif conserve le sens de l'inégalité.",
           "answer": "**Faux** : diviser par un nombre négatif inverse le sens de l'inégalité."
         },
         {
-          "question": "**Item 3.** L'équation $(x-2)(2x+6)=0$ a pour solutions $2$ et $3$.",
+          "question": "**3.** L'équation $(x-2)(2x+6)=0$ a pour solutions $2$ et $3$.",
           "answer": "**Faux** : les solutions sont $2$ et $-3$."
         },
         {
-          "question": "**Item 4.** Un système de deux équations à deux inconnues peut n'avoir aucune solution.",
+          "question": "**4.** Un système de deux équations à deux inconnues peut n'avoir aucune solution.",
           "answer": "**Vrai** : par exemple deux droites strictement parallèles."
         },
         {
-          "question": "**Item 5.** Résoudre $f(x)=g(x)$ graphiquement revient à chercher les abscisses des points d'intersection de $(C_f)$ et $(C_g)$.",
+          "question": "**5.** Résoudre $f(x)=g(x)$ graphiquement revient à chercher les abscisses des points d'intersection de $(C_f)$ et $(C_g)$.",
           "answer": "**Vrai** : interprétation graphique du cours."
         },
         {
-          "question": "**Item 6.** L'inéquation $-3x+7\\leqslant1$ équivaut à $x\\leqslant2$.",
+          "question": "**6.** L'inéquation $-3x+7\\leqslant1$ équivaut à $x\\leqslant2$.",
           "answer": "**Faux** : $-3x+7\\leqslant1 \\iff -3x\\leqslant-6 \\iff x\\geqslant2$ (division par un négatif)."
         },
         {
-          "question": "**Item 7.** $(x-2)(2x+6)=0 \\iff x=2$ et $2x+6=0$ simultanément.",
+          "question": "**7.** $(x-2)(2x+6)=0 \\iff x=2$ et $2x+6=0$ simultanément.",
           "answer": "**Faux** : une équation-produit se résout avec « ou », pas « et »."
         },
         {
-          "question": "**Item 8.** Le système $\\begin{cases}x+y=4\\\\2x+2y=8\\end{cases}$ admet une infinité de solutions.",
+          "question": "**8.** Le système $\\begin{cases}x+y=4\\\\2x+2y=8\\end{cases}$ admet une infinité de solutions.",
           "answer": "**Vrai** : la deuxième équation est le double de la première, donc les deux droites sont confondues."
         },
         {
-          "question": "**Item 9.** Résoudre une équation-produit $A(x)B(x)=0$ revient à résoudre $A(x)=0$ ou $B(x)=0$.",
+          "question": "**9.** Résoudre une équation-produit $A(x)B(x)=0$ revient à résoudre $A(x)=0$ ou $B(x)=0$.",
           "answer": "**Vrai** : principe de résolution d'une équation-produit."
         },
         {
-          "question": "**Item 10.** Toute inéquation du premier degré admet une infinité de solutions, ou n'en admet aucune.",
+          "question": "**10.** Toute inéquation du premier degré admet une infinité de solutions, ou n'en admet aucune.",
           "answer": "**Vrai** : soit une demi-droite de solutions, soit l'ensemble vide."
         },
         {
-          "question": "**Item 11.** Le couple solution d'un système de deux équations de droites représente les coordonnées de leur point d'intersection.",
+          "question": "**11.** Le couple solution d'un système de deux équations de droites représente les coordonnées de leur point d'intersection.",
           "answer": "**Vrai** : interprétation graphique d'un système de deux équations de droites."
         },
         {
-          "question": "**Item 12.** L'équation $x(x-5)=0$ a pour ensemble de solutions $\\{0;5\\}$.",
+          "question": "**12.** L'équation $x(x-5)=0$ a pour ensemble de solutions $\\{0;5\\}$.",
           "answer": "**Vrai** : $x(x-5)=0 \\iff x=0$ ou $x=5$."
         }
       ]
@@ -173,55 +173,55 @@
       "title": "QCM 3 — Généralités sur les fonctions",
       "items": [
         {
-          "question": "**Item 1.** Le domaine de définition de $f(x)=\\dfrac{x}{x^2-4}$ est $\\mathbb R\\setminus\\{-2;2\\}$.",
+          "question": "**1.** Le domaine de définition de $f(x)=\\dfrac{x}{x^2-4}$ est $\\mathbb R\\setminus\\{-2;2\\}$.",
           "answer": "**Vrai** : on exclut les racines de $x^2-4=0$."
         },
         {
-          "question": "**Item 2.** $f(x)=\\dfrac{x}{x^2-4}$ est une fonction paire.",
+          "question": "**2.** $f(x)=\\dfrac{x}{x^2-4}$ est une fonction paire.",
           "answer": "**Faux** : $f(-x)=-f(x)$, $f$ est impaire."
         },
         {
-          "question": "**Item 3.** La courbe d'une fonction impaire est symétrique par rapport à l'origine du repère.",
+          "question": "**3.** La courbe d'une fonction impaire est symétrique par rapport à l'origine du repère.",
           "answer": "**Vrai** : interprétation graphique de l'imparité."
         },
         {
-          "question": "**Item 4.** Le domaine de $g(x)=\\sqrt{5-2x}$ est $\\left]-\\infty;\\dfrac52\\right]$.",
+          "question": "**4.** Le domaine de $g(x)=\\sqrt{5-2x}$ est $\\left]-\\infty;\\dfrac52\\right]$.",
           "answer": "**Vrai** : il faut $5-2x\\geqslant0$."
         },
         {
-          "question": "**Item 5.** La fonction carré est croissante sur $\\mathbb R$.",
+          "question": "**5.** La fonction carré est croissante sur $\\mathbb R$.",
           "answer": "**Faux** : la fonction carré n'est croissante que sur $[0;+\\infty[$."
         },
         {
-          "question": "**Item 6.** La fonction inverse est décroissante sur $\\mathbb R^*$ tout entier.",
+          "question": "**6.** La fonction inverse est décroissante sur $\\mathbb R^*$ tout entier.",
           "answer": "**Faux** : elle est décroissante sur chacun des intervalles $]-\\infty;0[$ et $]0;+\\infty[$ séparément, pas sur $\\mathbb R^*$ tout entier."
         },
         {
-          "question": "**Item 7.** Si $f$ est croissante sur $I$ et $k<0$, alors $kf$ est décroissante sur $I$.",
+          "question": "**7.** Si $f$ est croissante sur $I$ et $k<0$, alors $kf$ est décroissante sur $I$.",
           "answer": "**Vrai** : multiplier par un réel négatif inverse le sens de variation."
         },
         {
-          "question": "**Item 8.** La fonction racine carrée est croissante sur $[0;+\\infty[$.",
+          "question": "**8.** La fonction racine carrée est croissante sur $[0;+\\infty[$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 9.** Une fonction peut n'être ni paire ni impaire.",
+          "question": "**9.** Une fonction peut n'être ni paire ni impaire.",
           "answer": "**Vrai** : par exemple $f(x)=x+1$."
         },
         {
-          "question": "**Item 10.** Le domaine de définition d'une fonction paire est nécessairement $\\mathbb R$.",
+          "question": "**10.** Le domaine de définition d'une fonction paire est nécessairement $\\mathbb R$.",
           "answer": "**Faux** : il faut seulement que $D_f$ soit symétrique par rapport à $0$, pas nécessairement égal à $\\mathbb R$."
         },
         {
-          "question": "**Item 11.** $k(x)=-3x^2+1$ admet un maximum en $x=0$.",
+          "question": "**11.** $k(x)=-3x^2+1$ admet un maximum en $x=0$.",
           "answer": "**Vrai** : $k$ croît puis décroît, avec $k(0)=1$."
         },
         {
-          "question": "**Item 12.** La somme d'une fonction paire et d'une fonction impaire est toujours paire.",
+          "question": "**12.** La somme d'une fonction paire et d'une fonction impaire est toujours paire.",
           "answer": "**Faux** : en général cette somme n'est ni paire ni impaire."
         },
         {
-          "question": "**Item 13.** Pour $h(x)=\\dfrac{\\sqrt{x+1}}{x-3}$, le réel $3$ n'appartient pas à $D_h$.",
+          "question": "**13.** Pour $h(x)=\\dfrac{\\sqrt{x+1}}{x-3}$, le réel $3$ n'appartient pas à $D_h$.",
           "answer": "**Vrai** : $3$ annule le dénominateur de $h$."
         }
       ]
@@ -249,55 +249,55 @@
       "title": "QCM 4 — Cercle trigonométrique et angles associés",
       "items": [
         {
-          "question": "**Item 1.** $\\cos^2x+\\sin^2x=1$ pour tout réel $x$.",
+          "question": "**1.** $\\cos^2x+\\sin^2x=1$ pour tout réel $x$.",
           "answer": "**Vrai** : relation fondamentale."
         },
         {
-          "question": "**Item 2.** $\\cos\\left(\\dfrac{7\\pi}6\\right)=\\dfrac{\\sqrt3}2$.",
+          "question": "**2.** $\\cos\\left(\\dfrac{7\\pi}6\\right)=\\dfrac{\\sqrt3}2$.",
           "answer": "**Faux** : $\\cos\\left(\\dfrac{7\\pi}6\\right)=-\\dfrac{\\sqrt3}2$ (voir l'exercice résolu)."
         },
         {
-          "question": "**Item 3.** $\\sin(\\pi+x)=\\sin x$ pour tout réel $x$.",
+          "question": "**3.** $\\sin(\\pi+x)=\\sin x$ pour tout réel $x$.",
           "answer": "**Faux** : $\\sin(\\pi+x)=-\\sin x$."
         },
         {
-          "question": "**Item 4.** $\\cos\\left(\\dfrac\\pi3\\right)=\\dfrac12$.",
+          "question": "**4.** $\\cos\\left(\\dfrac\\pi3\\right)=\\dfrac12$.",
           "answer": "**Vrai** : valeur remarquable du tableau."
         },
         {
-          "question": "**Item 5.** $\\sin\\left(-\\dfrac{5\\pi}4\\right)=\\dfrac{\\sqrt2}2$.",
+          "question": "**5.** $\\sin\\left(-\\dfrac{5\\pi}4\\right)=\\dfrac{\\sqrt2}2$.",
           "answer": "**Vrai** : $-\\dfrac{5\\pi}4=-\\left(\\pi+\\dfrac\\pi4\\right)$, donc $\\sin\\left(-\\dfrac{5\\pi}4\\right)=-\\sin\\left(\\pi+\\dfrac\\pi4\\right)=-(-\\sin\\dfrac\\pi4)=\\dfrac{\\sqrt2}2$."
         },
         {
-          "question": "**Item 6.** $\\cos(-x)=-\\cos x$ pour tout réel $x$.",
+          "question": "**6.** $\\cos(-x)=-\\cos x$ pour tout réel $x$.",
           "answer": "**Faux** : $\\cos$ est paire, $\\cos(-x)=\\cos x$."
         },
         {
-          "question": "**Item 7.** $\\tan\\left(\\dfrac\\pi4\\right)=1$.",
+          "question": "**7.** $\\tan\\left(\\dfrac\\pi4\\right)=1$.",
           "answer": "**Vrai** : $\\sin\\left(\\dfrac\\pi4\\right)=\\cos\\left(\\dfrac\\pi4\\right)=\\dfrac{\\sqrt2}2$, donc leur quotient vaut $1$."
         },
         {
-          "question": "**Item 8.** Pour tout réel $x$, $-1\\leqslant\\sin x\\leqslant1$.",
+          "question": "**8.** Pour tout réel $x$, $-1\\leqslant\\sin x\\leqslant1$.",
           "answer": "**Vrai** : $\\sin x$ est l'ordonnée d'un point du cercle trigonométrique."
         },
         {
-          "question": "**Item 9.** $\\sin\\left(\\dfrac\\pi2-x\\right)=\\cos x$ pour tout réel $x$.",
+          "question": "**9.** $\\sin\\left(\\dfrac\\pi2-x\\right)=\\cos x$ pour tout réel $x$.",
           "answer": "**Vrai** : formule des angles complémentaires."
         },
         {
-          "question": "**Item 10.** Le point du cercle trigonométrique associé à $\\pi$ a pour coordonnées $(-1;0)$.",
+          "question": "**10.** Le point du cercle trigonométrique associé à $\\pi$ a pour coordonnées $(-1;0)$.",
           "answer": "**Vrai** : c'est le point diamétralement opposé à $I(1;0)$."
         },
         {
-          "question": "**Item 11.** Si $\\sin x=\\dfrac45$ et $x\\in\\left[\\dfrac\\pi2;\\pi\\right]$, alors $\\cos x=\\dfrac35$.",
+          "question": "**11.** Si $\\sin x=\\dfrac45$ et $x\\in\\left[\\dfrac\\pi2;\\pi\\right]$, alors $\\cos x=\\dfrac35$.",
           "answer": "**Faux** : $x\\in\\left[\\dfrac\\pi2;\\pi\\right]$ donc $\\cos x\\leqslant0$, ainsi $\\cos x=-\\dfrac35$."
         },
         {
-          "question": "**Item 12.** $\\cos\\left(\\dfrac{2\\pi}3\\right)=-\\dfrac12$.",
+          "question": "**12.** $\\cos\\left(\\dfrac{2\\pi}3\\right)=-\\dfrac12$.",
           "answer": "**Vrai** : $\\cos\\left(\\dfrac{2\\pi}3\\right)=\\cos\\left(\\pi-\\dfrac\\pi3\\right)=-\\cos\\dfrac\\pi3=-\\dfrac12$."
         },
         {
-          "question": "**Item 13.** Deux réels $x$ et $y$ tels que $\\cos x=\\cos y$ vérifient toujours $x=y$.",
+          "question": "**13.** Deux réels $x$ et $y$ tels que $\\cos x=\\cos y$ vérifient toujours $x=y$.",
           "answer": "**Faux** : contre-exemple $x=\\dfrac\\pi3$, $y=-\\dfrac\\pi3$ : $\\cos x=\\cos y$ mais $x\\neq y$."
         }
       ]
@@ -325,59 +325,59 @@
       "title": "QCM 5 — Calcul vectoriel et produit scalaire",
       "items": [
         {
-          "question": "**Item 1.** Pour tous points $A,B,C$ : $\\overrightarrow{AB}+\\overrightarrow{BC}=\\overrightarrow{AC}$.",
+          "question": "**1.** Pour tous points $A,B,C$ : $\\overrightarrow{AB}+\\overrightarrow{BC}=\\overrightarrow{AC}$.",
           "answer": "**Vrai** : relation de Chasles."
         },
         {
-          "question": "**Item 2.** Trois points $A,B,C$ sont alignés si, et seulement si, $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ sont colinéaires.",
+          "question": "**2.** Trois points $A,B,C$ sont alignés si, et seulement si, $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ sont colinéaires.",
           "answer": "**Vrai** : caractérisation de l'alignement par la colinéarité."
         },
         {
-          "question": "**Item 3.** $\\vec u(3;-1)$ et $\\vec v(-6;2)$ sont colinéaires.",
+          "question": "**3.** $\\vec u(3;-1)$ et $\\vec v(-6;2)$ sont colinéaires.",
           "answer": "**Vrai** : $\\vec v=-2\\vec u$."
         },
         {
-          "question": "**Item 4.** Pour $\\vec u(x;y)$ et $\\vec v(x';y')$ en repère orthonormé, $\\vec u\\cdot\\vec v=xx'+yy'$.",
+          "question": "**4.** Pour $\\vec u(x;y)$ et $\\vec v(x';y')$ en repère orthonormé, $\\vec u\\cdot\\vec v=xx'+yy'$.",
           "answer": "**Vrai** : expression analytique du produit scalaire."
         },
         {
-          "question": "**Item 5.** Deux vecteurs orthogonaux ont un produit scalaire non nul.",
+          "question": "**5.** Deux vecteurs orthogonaux ont un produit scalaire non nul.",
           "answer": "**Faux** : deux vecteurs orthogonaux ont, par définition, un produit scalaire *nul*."
         },
         {
-          "question": "**Item 6.** $\\vec u\\cdot\\vec u=\\|\\vec u\\|^2$ pour tout vecteur $\\vec u$.",
+          "question": "**6.** $\\vec u\\cdot\\vec u=\\|\\vec u\\|^2$ pour tout vecteur $\\vec u$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 7.** Le vecteur nul est colinéaire à tout vecteur.",
+          "question": "**7.** Le vecteur nul est colinéaire à tout vecteur.",
           "answer": "**Vrai** : convention du cours."
         },
         {
-          "question": "**Item 8.** Pour $A(1;-1)$ et $B(4;1)$, $\\overrightarrow{AB}(3;2)$.",
+          "question": "**8.** Pour $A(1;-1)$ et $B(4;1)$, $\\overrightarrow{AB}(3;2)$.",
           "answer": "**Vrai** : $(4-1;1-(-1))=(3;2)$."
         },
         {
-          "question": "**Item 9.** Le produit scalaire de deux vecteurs colinéaires est toujours nul.",
+          "question": "**9.** Le produit scalaire de deux vecteurs colinéaires est toujours nul.",
           "answer": "**Faux** : le produit scalaire de deux vecteurs colinéaires vaut $\\pm\\|\\vec u\\|\\|\\vec v\\|$, pas nécessairement $0$ (nul seulement si l'un des deux est nul)."
         },
         {
-          "question": "**Item 10.** $\\vec u\\cdot\\vec v=\\vec v\\cdot\\vec u$ pour tous vecteurs $\\vec u,\\vec v$.",
+          "question": "**10.** $\\vec u\\cdot\\vec v=\\vec v\\cdot\\vec u$ pour tous vecteurs $\\vec u,\\vec v$.",
           "answer": "**Vrai** : symétrie du produit scalaire."
         },
         {
-          "question": "**Item 11.** $\\vec u(5;-2)$ et $\\vec v(3;4)$ sont orthogonaux.",
+          "question": "**11.** $\\vec u(5;-2)$ et $\\vec v(3;4)$ sont orthogonaux.",
           "answer": "**Faux** : $\\vec u\\cdot\\vec v=5\\times3+(-2)\\times4=15-8=7\\neq0$."
         },
         {
-          "question": "**Item 12.** Si $\\overrightarrow{AB}$ et $\\overrightarrow{AD}$ sont orthogonaux, alors le triangle $ABD$ est rectangle en $A$.",
+          "question": "**12.** Si $\\overrightarrow{AB}$ et $\\overrightarrow{AD}$ sont orthogonaux, alors le triangle $ABD$ est rectangle en $A$.",
           "answer": "**Vrai** : conséquence directe de la caractérisation de l'orthogonalité."
         },
         {
-          "question": "**Item 13.** Le milieu de $[AB]$ a pour coordonnées $(x_A+x_B\\,;\\,y_A+y_B)$.",
+          "question": "**13.** Le milieu de $[AB]$ a pour coordonnées $(x_A+x_B\\,;\\,y_A+y_B)$.",
           "answer": "**Faux** : il manque la division par $2$ dans chaque coordonnée."
         },
         {
-          "question": "**Item 14.** Pour tout vecteur $\\vec u$, $(2\\vec u)\\cdot(3\\vec u)=6\\|\\vec u\\|^2$.",
+          "question": "**14.** Pour tout vecteur $\\vec u$, $(2\\vec u)\\cdot(3\\vec u)=6\\|\\vec u\\|^2$.",
           "answer": "**Vrai** : $(2\\vec u)\\cdot(3\\vec u)=6(\\vec u\\cdot\\vec u)=6\\|\\vec u\\|^2$."
         }
       ]
@@ -405,51 +405,51 @@
       "title": "QCM 6 — Arithmétique dans ℕ",
       "items": [
         {
-          "question": "**Item 1.** $\\mathrm{pgcd}(154,88)=22$.",
+          "question": "**1.** $\\mathrm{pgcd}(154,88)=22$.",
           "answer": "**Vrai** : voir l'exercice résolu."
         },
         {
-          "question": "**Item 2.** $0$ divise tout entier naturel.",
+          "question": "**2.** $0$ divise tout entier naturel.",
           "answer": "**Faux** : c'est l'inverse : tout entier divise $0$, mais $0$ ne divise que $0$."
         },
         {
-          "question": "**Item 3.** Le reste d'une division euclidienne par $b$ vérifie $0\\leqslant r<b$.",
+          "question": "**3.** Le reste d'une division euclidienne par $b$ vérifie $0\\leqslant r<b$.",
           "answer": "**Vrai** : théorème de la division euclidienne."
         },
         {
-          "question": "**Item 4.** $\\mathrm{ppcm}(154,88)=616$.",
+          "question": "**4.** $\\mathrm{ppcm}(154,88)=616$.",
           "answer": "**Vrai** : $\\mathrm{ppcm}(154,88)=\\dfrac{154\\times88}{22}=616$."
         },
         {
-          "question": "**Item 5.** $91$ est un nombre premier.",
+          "question": "**5.** $91$ est un nombre premier.",
           "answer": "**Faux** : $91=7\\times13$, non premier."
         },
         {
-          "question": "**Item 6.** $2$ est le seul nombre premier pair.",
+          "question": "**6.** $2$ est le seul nombre premier pair.",
           "answer": "**Vrai** : tout nombre pair supérieur à $2$ est divisible par $2$, donc non premier."
         },
         {
-          "question": "**Item 7.** Deux entiers consécutifs sont toujours premiers entre eux.",
+          "question": "**7.** Deux entiers consécutifs sont toujours premiers entre eux.",
           "answer": "**Vrai** : leur seul diviseur commun positif est $1$."
         },
         {
-          "question": "**Item 8.** Si $a\\mid b$ et $a\\mid c$, alors $a\\mid(b+c)$.",
+          "question": "**8.** Si $a\\mid b$ et $a\\mid c$, alors $a\\mid(b+c)$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 9.** $\\mathrm{pgcd}(a,b)\\times\\mathrm{ppcm}(a,b)=a\\times b$.",
+          "question": "**9.** $\\mathrm{pgcd}(a,b)\\times\\mathrm{ppcm}(a,b)=a\\times b$.",
           "answer": "**Vrai** : propriété du cours."
         },
         {
-          "question": "**Item 10.** La décomposition de $126$ en facteurs premiers est $2\\times3^2\\times7$.",
+          "question": "**10.** La décomposition de $126$ en facteurs premiers est $2\\times3^2\\times7$.",
           "answer": "**Vrai** : $126=2\\times3^2\\times7$."
         },
         {
-          "question": "**Item 11.** Un nombre premier admet exactement trois diviseurs positifs.",
+          "question": "**11.** Un nombre premier admet exactement trois diviseurs positifs.",
           "answer": "**Faux** : un nombre premier admet exactement *deux* diviseurs positifs, $1$ et lui-même."
         },
         {
-          "question": "**Item 12.** $215=17\\times12+11$.",
+          "question": "**12.** $215=17\\times12+11$.",
           "answer": "**Vrai** : $17\\times12=204$ et $215-204=11$."
         }
       ]
@@ -477,59 +477,59 @@
       "title": "QCM 7 — Équations du second degré",
       "items": [
         {
-          "question": "**Item 1.** Pour $ax^2+bx+c=0$ (avec $a\\neq0$), le discriminant vaut $\\Delta=b^2-4ac$.",
+          "question": "**1.** Pour $ax^2+bx+c=0$ (avec $a\\neq0$), le discriminant vaut $\\Delta=b^2-4ac$.",
           "answer": "**Vrai** : définition du discriminant."
         },
         {
-          "question": "**Item 2.** Si $\\Delta<0$, l'équation $ax^2+bx+c=0$ admet deux solutions réelles distinctes.",
+          "question": "**2.** Si $\\Delta<0$, l'équation $ax^2+bx+c=0$ admet deux solutions réelles distinctes.",
           "answer": "**Faux** : si $\\Delta<0$, l'équation n'admet *aucune* solution réelle."
         },
         {
-          "question": "**Item 3.** Si $\\Delta=0$, l'équation admet une unique solution, égale à $-\\dfrac{b}{2a}$.",
+          "question": "**3.** Si $\\Delta=0$, l'équation admet une unique solution, égale à $-\\dfrac{b}{2a}$.",
           "answer": "**Vrai** : propriété du cours (racine double)."
         },
         {
-          "question": "**Item 4.** Pour $x^2-x-6=0$, on a $\\Delta=25$.",
+          "question": "**4.** Pour $x^2-x-6=0$, on a $\\Delta=25$.",
           "answer": "**Vrai** : $(-1)^2-4\\times1\\times(-6)=1+24=25$."
         },
         {
-          "question": "**Item 5.** Les solutions de $x^2-x-6=0$ sont $-2$ et $3$.",
+          "question": "**5.** Les solutions de $x^2-x-6=0$ sont $-2$ et $3$.",
           "answer": "**Vrai** : $x_{1,2}=\\dfrac{1\\pm5}{2}$, soit $-2$ et $3$."
         },
         {
-          "question": "**Item 6.** La somme des racines de $ax^2+bx+c=0$ (si $\\Delta\\geqslant0$) vaut $-\\dfrac ba$.",
+          "question": "**6.** La somme des racines de $ax^2+bx+c=0$ (si $\\Delta\\geqslant0$) vaut $-\\dfrac ba$.",
           "answer": "**Vrai** : relation entre coefficients et somme des racines."
         },
         {
-          "question": "**Item 7.** Le produit des racines de $ax^2+bx+c=0$ (si $\\Delta\\geqslant0$) vaut $-\\dfrac ca$.",
+          "question": "**7.** Le produit des racines de $ax^2+bx+c=0$ (si $\\Delta\\geqslant0$) vaut $-\\dfrac ca$.",
           "answer": "**Faux** : le produit des racines vaut $\\dfrac ca$, et non $-\\dfrac ca$."
         },
         {
-          "question": "**Item 8.** Si $\\Delta\\geqslant0$, on peut écrire $ax^2+bx+c=a(x-x_1)(x-x_2)$.",
+          "question": "**8.** Si $\\Delta\\geqslant0$, on peut écrire $ax^2+bx+c=a(x-x_1)(x-x_2)$.",
           "answer": "**Vrai** : forme factorisée du trinôme lorsque $\\Delta\\geqslant0$."
         },
         {
-          "question": "**Item 9.** Le trinôme $x^2-x-6$ est positif entre ses racines $-2$ et $3$.",
+          "question": "**9.** Le trinôme $x^2-x-6$ est positif entre ses racines $-2$ et $3$.",
           "answer": "**Faux** : comme $a=1>0$, le trinôme $x^2-x-6$ est *négatif* entre ses racines, et positif à l'extérieur."
         },
         {
-          "question": "**Item 10.** Si $\\Delta<0$, le trinôme $ax^2+bx+c$ garde un signe constant, celui de $a$, pour tout réel $x$.",
+          "question": "**10.** Si $\\Delta<0$, le trinôme $ax^2+bx+c$ garde un signe constant, celui de $a$, pour tout réel $x$.",
           "answer": "**Vrai** : propriété du signe du trinôme lorsque $\\Delta<0$."
         },
         {
-          "question": "**Item 11.** L'ensemble des solutions de $x^2-x-6\\leqslant0$ est $[-2;3]$.",
+          "question": "**11.** L'ensemble des solutions de $x^2-x-6\\leqslant0$ est $[-2;3]$.",
           "answer": "**Vrai** : voir l'exercice résolu."
         },
         {
-          "question": "**Item 12.** Les solutions de $3x^2+2x-1=0$ sont $1$ et $-\\dfrac13$.",
+          "question": "**12.** Les solutions de $3x^2+2x-1=0$ sont $1$ et $-\\dfrac13$.",
           "answer": "**Faux** : $\\Delta=4+12=16$, $x_1=\\dfrac{-2-4}{6}=-1$ et $x_2=\\dfrac{-2+4}{6}=\\dfrac13$."
         },
         {
-          "question": "**Item 13.** La somme et le produit des racines de $2x^2-7x+3=0$ valent respectivement $\\dfrac72$ et $\\dfrac32$.",
+          "question": "**13.** La somme et le produit des racines de $2x^2-7x+3=0$ valent respectivement $\\dfrac72$ et $\\dfrac32$.",
           "answer": "**Vrai** : somme $=-\\dfrac{-7}{2}=\\dfrac72$, produit $=\\dfrac32$."
         },
         {
-          "question": "**Item 14.** Si $a$ et $c$ sont de signes contraires, alors $\\Delta>0$.",
+          "question": "**14.** Si $a$ et $c$ sont de signes contraires, alors $\\Delta>0$.",
           "answer": "**Vrai** : si $a$ et $c$ sont de signes contraires, $-4ac>0$, donc $\\Delta=b^2-4ac>0$ (somme d'un carré positif ou nul et d'un terme strictement positif)."
         }
       ]
