@@ -418,7 +418,7 @@ a:hover {
 
 /* Layout body */
 .course-layout { display: flex; align-items: flex-start; }
-.slides-scroll { flex: 1; min-width: 0; padding: 24px 32px 120px; }
+.slides-scroll { flex: 1; min-width: 0; padding: 24px 32px 120px; max-width: 900px; margin: 0 auto; }
 
 /* Chaque slide = une section */
 .slide-section {
