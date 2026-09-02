@@ -1,0 +1,382 @@
+{
+  "id": "1bac-sm-ch07-derivation",
+  "title": "Chapitre 7 — Dérivation",
+  "description": "Nombre dérivé et tangente, fonction dérivée et opérations sur les dérivées, dérivée et sens de variation.",
+  "tags": ["1BAC SM", "Dérivation", "Dérivée", "Tangente", "Variations", "Mathématiques"],
+  "lang": "fr",
+  "createdAt": "2026-09-02",
+  "slides": [
+    {
+      "id": "s1",
+      "type": "markdown",
+      "title": "Compétence 1 — Nombre dérivé et tangente",
+      "content": "## Définition — Nombre dérivé\n\nSoit $f$ une fonction définie sur un intervalle ouvert contenant $a$. On dit que $f$ est *dérivable en $a$* lorsque le taux d'accroissement $\\dfrac{f(a+h)-f(a)}{h}$ admet une limite finie quand $h$ tend vers $0$. Cette limite, notée $f'(a)$, est appelée *nombre dérivé* de $f$ en $a$.\n\nDe façon équivalente : $f'(a)=\\displaystyle\\lim_{x\\to a}\\dfrac{f(x)-f(a)}{x-a}$.\n\n## Définition — Tangente\n\nSi $f$ est dérivable en $a$, la courbe admet au point $A(a;f(a))$ une *tangente* de coefficient directeur $f'(a)$, d'équation :\n$$y=f'(a)(x-a)+f(a).$$\n\n## Propriété\n\nSi $f$ est dérivable en $a$, alors $f$ est continue en $a$ (la réciproque est fausse).\n\n**Exemple :** $f(x)=x^2$, $a=2$ : $\\dfrac{(2+h)^2-4}{h}=4+h\\to4$. Donc $f'(2)=4$, tangente : $y=4x-4$.\n\n**Remarque :** Si le taux d'accroissement tend vers $\\pm\\infty$, la courbe admet une tangente verticale ($x=a$) ; $f$ n'est pas dérivable en $a$. Si les limites à gauche et à droite sont différentes : point anguleux."
+    },
+    {
+      "id": "s2",
+      "type": "reveal",
+      "title": "Exercice résolu 1 — Valeur absolue",
+      "items": [
+        {
+          "question": "Soit $f(x)=|x|$.\n1. Calculer les limites à gauche et à droite en $0$ du taux d'accroissement de $f$ en $0$.\n2. $f$ est-elle dérivable en $0$ ?",
+          "answer": "**1)** Pour $h>0$ : $\\dfrac{f(h)-f(0)}{h}=\\dfrac{h}{h}=1$, donc la limite à droite vaut $1$.\nPour $h<0$ : $\\dfrac{f(h)-f(0)}{h}=\\dfrac{-h}{h}=-1$, donc la limite à gauche vaut $-1$.\n\n**2)** Les limites à gauche et à droite ($-1$ et $1$) sont différentes : $f$ **n'est pas dérivable en $0$** (bien qu'elle y soit continue). La courbe de $f$ présente un **point anguleux** en $0$."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "reveal",
+      "title": "QCM 1 — Nombre dérivé et tangente",
+      "items": [
+        {
+          "question": "**Item 1.** $f$ est dérivable en $a$ lorsque le taux d'accroissement admet une limite finie quand $h$ tend vers $0$.",
+          "answer": "**Vrai** : définition du nombre dérivé."
+        },
+        {
+          "question": "**Item 2.** Si $f$ est dérivable en $a$, alors $f$ est continue en $a$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 3.** La réciproque de « dérivable en $a$ $\\Rightarrow$ continue en $a$ » est toujours vraie.",
+          "answer": "**Faux** : la fonction $x\\mapsto|x|$ est continue en $0$ mais pas dérivable en $0$."
+        },
+        {
+          "question": "**Item 4.** Si le taux d'accroissement tend vers $+\\infty$ en $a$, la courbe admet une tangente horizontale en $a$.",
+          "answer": "**Faux** : dans ce cas la courbe admet une tangente *verticale*, pas horizontale."
+        },
+        {
+          "question": "**Item 5.** La fonction $f(x)=\\sqrt x$ n'est pas dérivable en $0$.",
+          "answer": "**Vrai** : le taux d'accroissement tend vers $+\\infty$ en $0$."
+        },
+        {
+          "question": "**Item 6.** Le nombre dérivé $f'(a)$ est le coefficient directeur de la tangente à $(C_f)$ au point d'abscisse $a$.",
+          "answer": "**Vrai** : définition géométrique du nombre dérivé."
+        },
+        {
+          "question": "**Item 7.** L'équation de la tangente en $a$ est $y=f'(a)(x-a)+f(a)$.",
+          "answer": "**Vrai** : équation de la tangente."
+        },
+        {
+          "question": "**Item 8.** Si $f'(a)=0$, la tangente en $a$ est verticale.",
+          "answer": "**Faux** : si $f'(a)=0$, la tangente en $a$ est *horizontale*, pas verticale."
+        },
+        {
+          "question": "**Item 9.** Le taux d'accroissement de $f$ en $a$ est $\\dfrac{f(a+h)-f(a)}{h}$.",
+          "answer": "**Vrai** : définition du taux d'accroissement."
+        },
+        {
+          "question": "**Item 10.** Une fonction dérivable en $a$ admet une unique tangente en ce point.",
+          "answer": "**Vrai** : la dérivabilité garantit l'existence d'une unique tangente."
+        },
+        {
+          "question": "**Item 11.** Si $f$ n'est pas dérivable en $a$, la courbe peut présenter un point anguleux.",
+          "answer": "**Vrai** : cas classique (fonction valeur absolue, par exemple)."
+        },
+        {
+          "question": "**Item 12.** La tangente à $(C_f)$ en $a$ approxime localement la courbe près de $a$.",
+          "answer": "**Vrai** : interprétation géométrique du nombre dérivé."
+        },
+        {
+          "question": "**Item 13.** Le nombre dérivé de $f(x)=x^2$ en $a=3$ vaut $6$.",
+          "answer": "**Vrai** : $f'(x)=2x$, donc $f'(3)=6$."
+        },
+        {
+          "question": "**Item 14.** Une fonction peut être continue en $a$ sans être dérivable en $a$.",
+          "answer": "**Vrai** : exemple classique : $|x|$ en $0$."
+        },
+        {
+          "question": "**Item 15.** La tangente horizontale correspond à $f'(a)$ indéfini.",
+          "answer": "**Faux** : une tangente horizontale correspond à $f'(a)=0$, pas à $f'(a)$ indéfini."
+        },
+        {
+          "question": "**Item 16.** Si le taux d'accroissement de $f$ en $a$ tend vers une limite finie, alors $f$ est dérivable en $a$.",
+          "answer": "**Vrai** : c'est la définition même de la dérivabilité."
+        },
+        {
+          "question": "**Item 17.** La dérivée de $f(x)=\\sqrt x$ en $0$ n'existe pas (tangente verticale).",
+          "answer": "**Vrai** : le taux d'accroissement tend vers $+\\infty$ en $0$."
+        },
+        {
+          "question": "**Item 18.** Le coefficient directeur d'une droite tangente peut être négatif.",
+          "answer": "**Vrai** : rien n'empêche une tangente d'avoir un coefficient directeur négatif."
+        },
+        {
+          "question": "**Item 19.** La tangente à une courbe en un point peut couper la courbe en un autre point.",
+          "answer": "**Vrai** : une tangente peut très bien recouper la courbe ailleurs."
+        },
+        {
+          "question": "**Item 20.** Le nombre dérivé est toujours positif.",
+          "answer": "**Faux** : le nombre dérivé peut être positif, négatif, ou nul, selon le sens de variation local."
+        },
+        {
+          "question": "**Item 21.** Si $f'(a)>0$, la fonction est localement croissante autour de $a$.",
+          "answer": "**Vrai** : interprétation du signe de la dérivée localement."
+        },
+        {
+          "question": "**Item 22.** Toute fonction polynôme est dérivable en tout point de $\\mathbb R$.",
+          "answer": "**Vrai** : propriété classique des fonctions polynômes."
+        },
+        {
+          "question": "**Item 23.** Le taux d'accroissement peut être interprété comme la pente d'une sécante.",
+          "answer": "**Vrai** : interprétation géométrique du taux d'accroissement."
+        },
+        {
+          "question": "**Item 24.** Si $f$ est dérivable en $a$, alors $\\displaystyle\\lim_{h\\to0}\\dfrac{f(a+h)-f(a)}h=f'(a)$.",
+          "answer": "**Vrai** : définition du nombre dérivé."
+        },
+        {
+          "question": "**Item 25.** La dérivée en un point dépend du choix du repère.",
+          "answer": "**Faux** : le nombre dérivé est une notion intrinsèque, indépendante du choix du repère (orthonormé)."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "type": "markdown",
+      "title": "Compétence 2 — Fonction dérivée et opérations",
+      "content": "## Dérivées des fonctions usuelles\n\n| $f(x)$ | $f'(x)$ | Domaine |\n|---|---|---|\n| $k$ (constante) | $0$ | $\\mathbb{R}$ |\n| $x^n$, $n\\in\\mathbb{N}^*$ | $nx^{n-1}$ | $\\mathbb{R}$ |\n| $\\dfrac1x$ | $-\\dfrac{1}{x^2}$ | $\\mathbb{R}^*$ |\n| $\\sqrt{x}$ | $\\dfrac{1}{2\\sqrt x}$ | $\\mathbb{R}_+^*$ |\n| $\\sin(x)$ | $\\cos(x)$ | $\\mathbb{R}$ |\n| $\\cos(x)$ | $-\\sin(x)$ | $\\mathbb{R}$ |\n\n## Opérations sur les dérivées\n\n$$(u+v)'=u'+v' \\qquad (ku)'=ku' \\qquad (uv)'=u'v+uv'$$\n$$\\left(\\dfrac1v\\right)'=-\\dfrac{v'}{v^2}\\ (v\\neq0) \\qquad \\left(\\dfrac uv\\right)'=\\dfrac{u'v-uv'}{v^2}\\ (v\\neq0)$$\n\n## Dérivée d'une composée\n\n$$(f\\circ u)'=u'\\times(f'\\circ u) \\qquad (u^n)'=nu'u^{n-1} \\qquad (\\sqrt u)'=\\dfrac{u'}{2\\sqrt u}$$\n$$(\\sin u)'=u'\\cos u \\qquad (\\cos u)'=-u'\\sin u$$"
+    },
+    {
+      "id": "s5",
+      "type": "reveal",
+      "title": "Exercice résolu 2 — Calcul de dérivées",
+      "items": [
+        {
+          "question": "Calculer la dérivée et préciser le domaine de dérivabilité :\n$$f_1(x)=3x^4-2x^2+5 \\quad;\\quad f_2(x)=(2x+1)(x^2-3) \\quad;\\quad f_3(x)=\\dfrac{x-1}{x+2}$$\n$$f_4(x)=\\sqrt{x^2+1} \\quad;\\quad f_5(x)=\\cos(2x+1) \\quad;\\quad f_6(x)=\\sin^3(x)$$",
+          "answer": "$f_1'(x)=12x^3-4x$, sur $\\mathbb{R}$.\n\n$f_2'(x)=2(x^2-3)+(2x+1)(2x)=6x^2+2x-6$, sur $\\mathbb{R}$.\n\n$f_3'(x)=\\dfrac{(x+2)-(x-1)}{(x+2)^2}=\\dfrac{3}{(x+2)^2}$, sur $\\mathbb{R}\\setminus\\{-2\\}$.\n\n$f_4'(x)=\\dfrac{2x}{2\\sqrt{x^2+1}}=\\dfrac{x}{\\sqrt{x^2+1}}$, sur $\\mathbb{R}$ (car $x^2+1>0$).\n\n$f_5'(x)=-2\\sin(2x+1)$, sur $\\mathbb{R}$.\n\n$f_6'(x)=3\\cos(x)\\sin^2(x)$, sur $\\mathbb{R}$."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "type": "reveal",
+      "title": "QCM 2 — Opérations sur les dérivées",
+      "items": [
+        {
+          "question": "**Item 1.** $(uv)'=u'v+uv'$.",
+          "answer": "**Vrai** : règle de dérivation d'un produit."
+        },
+        {
+          "question": "**Item 2.** $\\left(\\dfrac1v\\right)'=\\dfrac{v'}{v^2}$.",
+          "answer": "**Faux** : $\\left(\\dfrac1v\\right)'=-\\dfrac{v'}{v^2}$ (avec un signe moins)."
+        },
+        {
+          "question": "**Item 3.** La dérivée de $x^n$ (pour $n\\in\\mathbb N^*$) est $nx^{n-1}$.",
+          "answer": "**Vrai** : dérivée usuelle."
+        },
+        {
+          "question": "**Item 4.** $(\\sin u)'=u'\\cos u$.",
+          "answer": "**Vrai** : dérivée d'une composée."
+        },
+        {
+          "question": "**Item 5.** La dérivée d'une fonction constante vaut $1$.",
+          "answer": "**Faux** : la dérivée d'une constante vaut $0$."
+        },
+        {
+          "question": "**Item 6.** $(u+v)'=u'+v'$.",
+          "answer": "**Vrai** : linéarité de la dérivation."
+        },
+        {
+          "question": "**Item 7.** La dérivée de $\\sqrt x$ (pour $x>0$) est $\\dfrac{1}{2\\sqrt x}$.",
+          "answer": "**Vrai** : dérivée usuelle."
+        },
+        {
+          "question": "**Item 8.** $(u\\circ v)'=u'\\circ v\\times v'$.",
+          "answer": "**Vrai** : formule de dérivation d'une composée."
+        },
+        {
+          "question": "**Item 9.** La dérivée d'une fonction affine $f(x)=ax+b$ est la fonction constante égale à $a$.",
+          "answer": "**Vrai** : dérivée d'une fonction affine."
+        },
+        {
+          "question": "**Item 10.** $(uv)'=u'v'$.",
+          "answer": "**Faux** : $(uv)'=u'v+uv'$, pas $u'v'$."
+        },
+        {
+          "question": "**Item 11.** $\\left(u^n\\right)'=nu'u^{n-1}$ pour $n\\in\\mathbb N^*$.",
+          "answer": "**Vrai** : formule de dérivation d'une puissance composée."
+        },
+        {
+          "question": "**Item 12.** La dérivée d'une fonction constante est la fonction nulle.",
+          "answer": "**Vrai** : dérivée d'une constante."
+        },
+        {
+          "question": "**Item 13.** $\\left(\\dfrac uv\\right)'=\\dfrac{u'v-uv'}{v^2}$.",
+          "answer": "**Vrai** : formule de dérivation d'un quotient."
+        },
+        {
+          "question": "**Item 14.** La somme de deux fonctions dérivables est dérivable.",
+          "answer": "**Vrai** : propriété de stabilité de la dérivabilité par somme."
+        },
+        {
+          "question": "**Item 15.** Une fonction dérivable sur $I$ est nécessairement polynomiale.",
+          "answer": "**Faux** : il existe de nombreuses fonctions dérivables non polynomiales (exponentielle, trigonométriques, etc.)."
+        },
+        {
+          "question": "**Item 16.** La dérivée de $\\cos x$ est $-\\sin x$.",
+          "answer": "**Vrai** : dérivée usuelle."
+        },
+        {
+          "question": "**Item 17.** La dérivée de $\\sin x$ est $\\cos x$.",
+          "answer": "**Vrai** : dérivée usuelle."
+        },
+        {
+          "question": "**Item 18.** $(k\\cdot u)'=k\\cdot u'$ pour toute constante $k$.",
+          "answer": "**Vrai** : propriété de linéarité."
+        },
+        {
+          "question": "**Item 19.** La dérivée d'un produit de trois fonctions nécessite d'appliquer la formule du produit deux fois.",
+          "answer": "**Vrai** : on applique $(uv)'=u'v+uv'$ de manière itérée."
+        },
+        {
+          "question": "**Item 20.** La dérivée d'une fonction toujours croissante est toujours strictement positive.",
+          "answer": "**Faux** : une fonction croissante peut avoir une dérivée nulle en des points isolés (exemple $x^3$ en $0$)."
+        },
+        {
+          "question": "**Item 21.** La dérivée seconde $f''$ est la dérivée de la dérivée $f'$.",
+          "answer": "**Vrai** : définition de la dérivée seconde."
+        },
+        {
+          "question": "**Item 22.** Si $f'(x)=0$ pour tout $x\\in I$, alors $f$ est constante sur $I$.",
+          "answer": "**Vrai** : théorème du cours."
+        },
+        {
+          "question": "**Item 23.** La dérivée de $\\dfrac1x$ (pour $x\\neq0$) est $-\\dfrac1{x^2}$.",
+          "answer": "**Vrai** : dérivée usuelle de la fonction inverse."
+        },
+        {
+          "question": "**Item 24.** Toute fonction rationnelle est dérivable sur son domaine de définition.",
+          "answer": "**Vrai** : une fonction rationnelle est dérivable partout où elle est définie."
+        },
+        {
+          "question": "**Item 25.** La dérivée d'une fonction paire est toujours paire.",
+          "answer": "**Faux** : la dérivée d'une fonction paire est en réalité *impaire*."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "type": "markdown",
+      "title": "Compétence 3 — Dérivée et sens de variation",
+      "content": "## Dérivée et sens de variation\n\nSoit $f$ dérivable sur un intervalle $I$ :\n\n- $f$ est croissante sur $I$ $\\iff$ $f'(x)\\geqslant0$ pour tout $x\\in I$.\n- $f$ est décroissante sur $I$ $\\iff$ $f'(x)\\leqslant0$ pour tout $x\\in I$.\n- $f$ est constante sur $I$ $\\iff$ $f'(x)=0$ pour tout $x\\in I$.\n- Si $f'>0$ sur $I$ sauf en un nombre fini de points où elle s'annule : $f$ est **strictement croissante** sur $I$.\n\n## Extremum local\n\nSi $f$ admet un extremum local en un point $c$ intérieur à $I$ (et $f$ dérivable), alors $f'(c)=0$. Réciproquement, si $f'$ s'annule en $c$ en **changeant de signe**, $f$ admet un extremum local en $c$.\n\n## Méthode — Tableau de variations\n\n1. Calculer $f'(x)$.\n2. Étudier le signe de $f'(x)$ (factorisation, signe d'un trinôme...).\n3. Déduire le sens de variation de $f$.\n4. Calculer les limites aux bornes du domaine.\n\n**Exemple :** $f(x)=x^2-4x+3$ : $f'(x)=2(x-2)$, négatif avant $2$, positif après. Minimum $f(2)=-1$."
+    },
+    {
+      "id": "s8",
+      "type": "reveal",
+      "title": "Exercice résolu 3 — Tableaux de variations",
+      "items": [
+        {
+          "question": "Dresser le tableau de variations de $f_1(x)=x^2-3x+2$ sur $\\mathbb{R}$, et de $f_4(x)=\\dfrac{x}{x^2+1}$ sur $\\mathbb{R}$.",
+          "answer": "**$f_1(x)=x^2-3x+2$ :** $f_1'(x)=2x-3$, nul en $\\frac32$, négatif avant, positif après. Limites $+\\infty$ en $\\pm\\infty$. $f_1$ décroît sur $\\left]-\\infty;\\frac32\\right]$, croît sur $\\left[\\frac32;+\\infty\\right[$, minimum $f_1\\!\\left(\\frac32\\right)=-\\frac14$.\n\n**$f_4(x)=\\dfrac{x}{x^2+1}$ :** $f_4'(x)=\\dfrac{1-x^2}{(x^2+1)^2}$, du signe de $1-x^2$ : positif sur $[-1;1]$, négatif à l'extérieur. Limites $0$ en $\\pm\\infty$. $f_4$ décroît sur $\\left]-\\infty;-1\\right]$, croît sur $[-1;1]$, décroît sur $[1;+\\infty[$ ; $f_4(-1)=-\\frac12$ (minimum), $f_4(1)=\\frac12$ (maximum)."
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "type": "reveal",
+      "title": "QCM 3 — Dérivée et sens de variation",
+      "items": [
+        {
+          "question": "**Item 1.** Si $f'(x)\\geqslant0$ sur $I$, alors $f$ est croissante sur $I$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 2.** Si $f$, dérivable sur $I$, admet un extremum local en un point $c$ intérieur à $I$, alors $f'(c)=0$.",
+          "answer": "**Vrai** : condition nécessaire d'extremum."
+        },
+        {
+          "question": "**Item 3.** Si $f'(c)=0$, alors $f$ admet nécessairement un extremum en $c$.",
+          "answer": "**Faux** : contre-exemple $f(x)=x^3$ en $c=0$ : $f'(0)=0$ mais pas d'extremum."
+        },
+        {
+          "question": "**Item 4.** $f$ est constante sur $I$ si, et seulement si, $f'(x)=0$ pour tout $x\\in I$.",
+          "answer": "**Vrai** : équivalence du cours."
+        },
+        {
+          "question": "**Item 5.** Le signe de $f'$ ne donne aucune information sur les variations de $f$.",
+          "answer": "**Faux** : c'est au contraire le signe de $f'$ qui détermine le sens de variation de $f$."
+        },
+        {
+          "question": "**Item 6.** Si $f'(x)\\leqslant0$ sur $I$, alors $f$ est décroissante sur $I$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 7.** Le tableau de signes de $f'$ permet de déterminer le tableau de variations de $f$.",
+          "answer": "**Vrai** : méthode standard d'étude des variations."
+        },
+        {
+          "question": "**Item 8.** Une fonction peut être strictement croissante sur $I$ avec $f'$ qui s'annule en un point de $I$.",
+          "answer": "**Vrai** : exemple $x^3$ en $0$ : $f'$ s'annule mais $f$ reste strictement croissante."
+        },
+        {
+          "question": "**Item 9.** Si $f$ admet un minimum local en $c$ (point intérieur, $f$ dérivable), alors $f'(c)=0$.",
+          "answer": "**Vrai** : condition nécessaire d'extremum local."
+        },
+        {
+          "question": "**Item 10.** $f'$ positive en un seul point suffit à garantir que $f$ est croissante sur tout son domaine.",
+          "answer": "**Faux** : le signe de $f'$ en un seul point ne renseigne pas sur le comportement global."
+        },
+        {
+          "question": "**Item 11.** Une fonction constante sur $I$ a une dérivée nulle sur $I$.",
+          "answer": "**Vrai** : réciproque du théorème classique."
+        },
+        {
+          "question": "**Item 12.** Si $f'$ change de signe en $c$, alors $f$ admet un extremum local en $c$.",
+          "answer": "**Vrai** : critère usuel de détection d'un extremum via changement de signe."
+        },
+        {
+          "question": "**Item 13.** Une fonction peut être croissante sur $I$ sans que $f'$ soit strictement positive partout sur $I$.",
+          "answer": "**Vrai** : exemple $x^3$, croissante mais $f'(0)=0$."
+        },
+        {
+          "question": "**Item 14.** Le signe de $f'$ sur un intervalle indique le sens de variation de $f$ sur ce même intervalle.",
+          "answer": "**Vrai** : principe fondamental de l'étude des variations."
+        },
+        {
+          "question": "**Item 15.** Toute fonction dérivable admet au moins un extremum.",
+          "answer": "**Faux** : une fonction strictement monotone sur tout son domaine (comme $x^3$ sur $\\mathbb R$) n'a aucun extremum."
+        },
+        {
+          "question": "**Item 16.** Pour étudier le signe de $f'$, on peut factoriser l'expression de $f'(x)$.",
+          "answer": "**Vrai** : méthode standard."
+        },
+        {
+          "question": "**Item 17.** Si $f'(x)>0$ pour tout $x$ de $I$ sauf en un nombre fini de points où $f'(x)=0$, alors $f$ reste strictement croissante sur $I$.",
+          "answer": "**Vrai** : résultat classique de stricte croissance malgré des zéros isolés de $f'$."
+        },
+        {
+          "question": "**Item 18.** Un point où $f'$ s'annule est toujours un extremum local.",
+          "answer": "**Faux** : contre-exemple $x^3$ en $0$ : $f'(0)=0$ mais pas d'extremum."
+        },
+        {
+          "question": "**Item 19.** Étudier les variations de $f$ nécessite en général d'étudier le signe de $f'(x)$.",
+          "answer": "**Vrai** : c'est la méthode principale d'étude des variations."
+        },
+        {
+          "question": "**Item 20.** La fonction dérivée $f'$ n'a aucun rapport avec la concavité de $f$.",
+          "answer": "**Faux** : le signe de $f'$ (via $f''$) est au contraire lié à la concavité de $f$."
+        },
+        {
+          "question": "**Item 21.** Si $f'$ s'annule en changeant de signe de $+$ à $-$ en $c$, alors $f$ admet un maximum local en $c$.",
+          "answer": "**Vrai** : critère du changement de signe pour un maximum."
+        },
+        {
+          "question": "**Item 22.** Si $f'$ s'annule en changeant de signe de $-$ à $+$ en $c$, alors $f$ admet un minimum local en $c$.",
+          "answer": "**Vrai** : critère du changement de signe pour un minimum."
+        },
+        {
+          "question": "**Item 23.** Le tableau de variations résume le sens de variation et les extrema éventuels de $f$.",
+          "answer": "**Vrai** : c'est l'objet même du tableau de variations."
+        },
+        {
+          "question": "**Item 24.** Deux fonctions ayant la même dérivée sur un intervalle diffèrent nécessairement d'une constante.",
+          "answer": "**Vrai** : théorème classique (deux primitives d'une même fonction diffèrent d'une constante)."
+        },
+        {
+          "question": "**Item 25.** Une fonction peut avoir une infinité d'extrema locaux sur un intervalle borné.",
+          "answer": "**Faux** : pour les fonctions usuelles au programme, le nombre d'extrema locaux sur un intervalle borné est fini."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "id": "1bac-sm-ch10-arithmetique",
+  "title": "Chapitre 10 — Arithmétique",
+  "description": "Divisibilité et division euclidienne dans ℤ, PGCD, PPCM et nombres premiers, congruences dans ℤ.",
+  "tags": ["1BAC SM", "Arithmétique", "Divisibilité", "PGCD", "Congruences", "Mathématiques"],
+  "lang": "fr",
+  "createdAt": "2026-09-02",
+  "slides": [
+    {
+      "id": "s1",
+      "type": "markdown",
+      "title": "Compétence 1 — Divisibilité et division euclidienne dans ℤ",
+      "content": "## Définition — Divisibilité\n\nSoient $a,b\\in\\mathbb Z$. On dit que $a$ **divise** $b$ (ou que $b$ est un **multiple** de $a$), noté $a\\mid b$, lorsqu'il existe $k\\in\\mathbb Z$ tel que $b=ka$.\n\n## Propriétés de la divisibilité\n\nSoient $a,b,c\\in\\mathbb Z$.\n- $a\\mid a$ (réflexivité) ; $1\\mid a$ ; $a\\mid0$.\n- Si $a\\mid b$ et $b\\mid c$, alors $a\\mid c$ (transitivité).\n- Si $a\\mid b$ et $a\\mid c$, alors $a\\mid(mb+nc)$ pour tous $m,n\\in\\mathbb Z$.\n- Si $a\\mid b$ et $b\\neq0$, alors $|a|\\leqslant|b|$.\n\n## Théorème — Division euclidienne\n\nSoient $a\\in\\mathbb Z$ et $b\\in\\mathbb N^*$. Il existe un unique couple $(q,r)\\in\\mathbb Z\\times\\mathbb N$ tel que :\n$$a=bq+r \\quad\\text{et}\\quad 0\\leqslant r<b.$$\n$q$ est le **quotient**, $r$ le **reste** de la division euclidienne de $a$ par $b$.\n\n**Méthode :** $q=\\left\\lfloor\\dfrac ab\\right\\rfloor$ (partie entière), puis $r=a-bq$.\n\n**Exemple :** $47=6\\times7+5$ ($q=7$, $r=5$). Pour $-47$ : $-47=6\\times(-8)+1$ ($q=-8$, $r=1$)."
+    },
+    {
+      "id": "s2",
+      "type": "reveal",
+      "title": "Exercice résolu 1 — Divisibilité par 6 du produit de trois entiers consécutifs",
+      "items": [
+        {
+          "question": "Montrer que, pour tout entier relatif $n$, le produit $n(n+1)(n+2)$ de trois entiers consécutifs est divisible par $6$.",
+          "answer": "**Divisibilité par 2 :** Parmi deux entiers consécutifs $n$ et $n+1$, l'un des deux est pair, donc $2\\mid n(n+1)$, et donc $2\\mid n(n+1)(n+2)$.\n\n**Divisibilité par 3 :** Parmi trois entiers consécutifs $n$, $n+1$, $n+2$, l'un d'eux est un multiple de $3$ (les restes modulo $3$ parcourent nécessairement les trois valeurs $0,1,2$), donc $3\\mid n(n+1)(n+2)$.\n\n**Conclusion :** Comme $2$ et $3$ sont premiers entre eux et divisent tous deux $n(n+1)(n+2)$, leur produit $6$ divise également $n(n+1)(n+2)$."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "type": "reveal",
+      "title": "QCM 1 — Divisibilité et division euclidienne",
+      "items": [
+        {
+          "question": "**Item 1.** Si $a\\mid b$ et $b\\mid c$, alors $a\\mid c$.",
+          "answer": "**Vrai** : transitivité de la divisibilité."
+        },
+        {
+          "question": "**Item 2.** Le reste $r$ d'une division euclidienne par $b$ vérifie $0\\leqslant r<b$.",
+          "answer": "**Vrai** : définition du reste."
+        },
+        {
+          "question": "**Item 3.** Le produit de trois entiers consécutifs est toujours divisible par $6$.",
+          "answer": "**Vrai** : démontré dans l'exercice du cours (divisible par $2$ et par $3$)."
+        },
+        {
+          "question": "**Item 4.** Le reste de la division euclidienne du carré d'un entier par $4$ peut valoir $2$.",
+          "answer": "**Faux** : le reste vaut toujours $0$ (carré pair) ou $1$ (carré impair), jamais $2$."
+        },
+        {
+          "question": "**Item 5.** Si $a\\mid b$ et $b\\neq0$, alors $|a|\\leqslant|b|$.",
+          "answer": "**Vrai** : propriété du cours."
+        },
+        {
+          "question": "**Item 6.** Pour tout entier relatif $a$, $1\\mid a$ et $a\\mid a$.",
+          "answer": "**Vrai** : propriétés immédiates de la divisibilité."
+        },
+        {
+          "question": "**Item 7.** Si $a\\mid b$ et $b\\mid a$ (avec $a,b$ non nuls), alors $a=b$.",
+          "answer": "**Faux** : on a seulement $a=b$ ou $a=-b$ (par exemple $3\\mid(-3)$ et $(-3)\\mid3$, mais $3\\neq-3$)."
+        },
+        {
+          "question": "**Item 8.** La division euclidienne dans $\\mathbb Z$ de $a$ par $b>0$ donne un reste $r$ vérifiant $0\\leqslant r<b$.",
+          "answer": "**Vrai** : théorème de la division euclidienne."
+        },
+        {
+          "question": "**Item 9.** $-12$ est divisible par $4$.",
+          "answer": "**Vrai** : $-12=4\\times(-3)$."
+        },
+        {
+          "question": "**Item 10.** Si $a\\mid b$, alors $a\\mid(-b)$.",
+          "answer": "**Vrai** : propriété immédiate de la divisibilité."
+        },
+        {
+          "question": "**Item 11.** Dans la division euclidienne de $-45$ par $7$, le reste vaut $4$.",
+          "answer": "**Vrai** : $-45=7\\times(-7)+4$, avec $0\\leqslant4<7$."
+        },
+        {
+          "question": "**Item 12.** Un entier relatif divise $0$.",
+          "answer": "**Vrai** : tout entier divise $0$ (car $0=n\\times0$)."
+        },
+        {
+          "question": "**Item 13.** $a\\mid b$ et $a\\mid c$ entraîne $a\\mid(2b-3c)$.",
+          "answer": "**Vrai** : combinaison linéaire de multiples de $a$."
+        },
+        {
+          "question": "**Item 14.** Si $a$ est impair, alors $a^2$ est impair.",
+          "answer": "**Vrai** : si $a=2k+1$, $a^2=4k^2+4k+1=2(2k^2+2k)+1$, impair."
+        },
+        {
+          "question": "**Item 15.** $0$ divise $5$.",
+          "answer": "**Faux** : $0$ ne divise que $0$ (il n'existe pas d'entier $q$ tel que $5=0\\times q$)."
+        },
+        {
+          "question": "**Item 16.** Le reste d'une division euclidienne par $b$ est unique.",
+          "answer": "**Vrai** : unicité du couple quotient-reste."
+        },
+        {
+          "question": "**Item 17.** Si $a\\equiv0\\ [b]$, alors $b\\mid a$.",
+          "answer": "**Vrai** : c'est la définition même de la congruence modulo $b$."
+        },
+        {
+          "question": "**Item 18.** Tout multiple de $12$ est un multiple de $3$ et de $4$.",
+          "answer": "**Vrai** : car $12=3\\times4$ avec $3$ et $4$ diviseurs de $12$."
+        },
+        {
+          "question": "**Item 19.** La division euclidienne n'est définie que pour des entiers positifs.",
+          "answer": "**Faux** : la division euclidienne est définie pour tout couple d'entiers relatifs (diviseur non nul)."
+        },
+        {
+          "question": "**Item 20.** Si $a\\mid b$ avec $a,b>0$, alors $a\\leqslant b$.",
+          "answer": "**Vrai** : si $a$ divise $b$ (positifs), $b=aq$ avec $q\\geqslant1$, donc $a\\leqslant b$."
+        },
+        {
+          "question": "**Item 21.** $17$ et $34$ vérifient $17\\mid34$.",
+          "answer": "**Vrai** : $34=17\\times2$."
+        },
+        {
+          "question": "**Item 22.** Si $a\\mid b$ et $c\\mid d$, alors $ac\\mid bd$.",
+          "answer": "**Vrai** : propriété du produit de divisibilités."
+        },
+        {
+          "question": "**Item 23.** Le reste de la division euclidienne de $a$ par $10$ correspond au chiffre des unités (pour un entier naturel).",
+          "answer": "**Vrai** : propriété du système décimal."
+        },
+        {
+          "question": "**Item 24.** Un entier peut avoir un nombre infini de diviseurs positifs.",
+          "answer": "**Faux** : un entier non nul n'a qu'un nombre fini de diviseurs positifs."
+        },
+        {
+          "question": "**Item 25.** La divisibilité est une relation symétrique.",
+          "answer": "**Faux** : $a\\mid b$ n'implique pas $b\\mid a$ en général (par exemple $2\\mid6$ mais $6\\nmid2$)."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "type": "markdown",
+      "title": "Compétence 2 — PGCD, PPCM et nombres premiers",
+      "content": "## Définition — PGCD\n\nSoient $a,b\\in\\mathbb Z$ non tous deux nuls. Le **plus grand commun diviseur** de $a$ et $b$, noté $\\mathrm{pgcd}(a,b)$, est le plus grand de leurs diviseurs communs positifs.\n\nDeux entiers $a,b$ sont **premiers entre eux** lorsque $\\mathrm{pgcd}(a,b)=1$.\n\n## Théorème — Algorithme d'Euclide\n\n$$\\mathrm{pgcd}(a,b)=\\mathrm{pgcd}(b,r) \\quad \\text{où } r \\text{ est le reste de la division de } a \\text{ par } b.$$\n\nEn itérant les divisions euclidiennes successives jusqu'à un reste nul, le dernier reste non nul est $\\mathrm{pgcd}(a,b)$.\n\n## Théorème — Bézout\n\nSoient $a,b\\in\\mathbb Z$ non tous deux nuls. Il existe $u,v\\in\\mathbb Z$ tels que $au+bv=\\mathrm{pgcd}(a,b)$.\n\n$a$ et $b$ sont premiers entre eux $\\iff$ $\\exists u,v\\in\\mathbb Z : au+bv=1$.\n\n## Décomposition en facteurs premiers\n\nTout entier $n\\geqslant2$ se décompose de façon unique en produit de nombres premiers : $n=p_1^{\\alpha_1}\\times\\cdots\\times p_k^{\\alpha_k}$.\n\n## Définition — PPCM\n\nLe **plus petit commun multiple** de $a,b\\in\\mathbb Z^*$ vérifie :\n$$\\mathrm{pgcd}(a,b)\\times\\mathrm{ppcm}(a,b)=|a\\times b|.$$"
+    },
+    {
+      "id": "s5",
+      "type": "reveal",
+      "title": "Exercice résolu 2 — Algorithme d'Euclide et couple de Bézout",
+      "items": [
+        {
+          "question": "Calculer $\\mathrm{pgcd}(99,42)$ à l'aide de l'algorithme d'Euclide, puis déterminer un couple $(u,v)$ tel que $99u+42v=\\mathrm{pgcd}(99,42)$.",
+          "answer": "**Algorithme d'Euclide :**\n$99=42\\times2+15$ ; $42=15\\times2+12$ ; $15=12\\times1+3$ ; $12=3\\times4+0$.\n\nLe dernier reste non nul est $3$, donc $\\mathrm{pgcd}(99,42)=3$.\n\n**Couple de Bézout :** On remonte les calculs :\n$3=15-12\\times1$.\nOr $12=42-15\\times2$, donc $3=15-(42-15\\times2)=15\\times3-42$.\nOr $15=99-42\\times2$, donc :\n$$3=(99-42\\times2)\\times3-42=99\\times3+42\\times(-7).$$\n\nUn couple de Bézout est $(u,v)=(3,-7)$ (vérification : $99\\times3+42\\times(-7)=297-294=3$ ✓)."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "type": "reveal",
+      "title": "QCM 2 — PGCD, PPCM et nombres premiers",
+      "items": [
+        {
+          "question": "**Item 1.** $\\mathrm{pgcd}(a,b)\\times\\mathrm{ppcm}(a,b)=|a\\times b|$.",
+          "answer": "**Vrai** : relation entre PGCD et PPCM."
+        },
+        {
+          "question": "**Item 2.** Deux entiers premiers entre eux sont nécessairement des nombres premiers.",
+          "answer": "**Faux** : par exemple $15$ et $28$ sont premiers entre eux ($\\mathrm{pgcd}=1$) sans être des nombres premiers."
+        },
+        {
+          "question": "**Item 3.** L'algorithme d'Euclide permet de calculer le PGCD de deux entiers.",
+          "answer": "**Vrai** : c'est l'objet de l'algorithme d'Euclide."
+        },
+        {
+          "question": "**Item 4.** D'après le théorème de Bézout, il existe toujours $u,v\\in\\mathbb Z$ tels que $au+bv=\\mathrm{pgcd}(a,b)$.",
+          "answer": "**Vrai** : énoncé du théorème de Bézout."
+        },
+        {
+          "question": "**Item 5.** Tout entier $n\\geqslant2$ se décompose de façon unique en produit de facteurs premiers.",
+          "answer": "**Vrai** : théorème de décomposition en facteurs premiers."
+        },
+        {
+          "question": "**Item 6.** $\\mathrm{pgcd}(0,0)=0$, par convention.",
+          "answer": "**Vrai** : convention usuelle en arithmétique."
+        },
+        {
+          "question": "**Item 7.** Deux entiers consécutifs sont toujours premiers entre eux.",
+          "answer": "**Vrai** : $\\mathrm{pgcd}(n,n+1)$ divise leur différence $1$."
+        },
+        {
+          "question": "**Item 8.** Le plus petit diviseur positif (autre que $1$) d'un entier $n\\geqslant2$ est nécessairement premier.",
+          "answer": "**Vrai** : sinon il aurait lui-même un diviseur plus petit non trivial, contredisant sa minimalité."
+        },
+        {
+          "question": "**Item 9.** $\\mathrm{pgcd}(a,0)=a$ pour tout entier naturel $a$ non nul.",
+          "answer": "**Vrai** : propriété immédiate du PGCD."
+        },
+        {
+          "question": "**Item 10.** Il existe un plus grand nombre premier.",
+          "answer": "**Faux** : il existe une infinité de nombres premiers (théorème d'Euclide)."
+        },
+        {
+          "question": "**Item 11.** $\\mathrm{ppcm}(a,b)$ est le plus petit multiple commun strictement positif de $a$ et $b$.",
+          "answer": "**Vrai** : définition du PPCM."
+        },
+        {
+          "question": "**Item 12.** Si $a$ et $b$ sont premiers entre eux, $\\mathrm{pgcd}(a,b)=1$.",
+          "answer": "**Vrai** : définition de deux entiers premiers entre eux."
+        },
+        {
+          "question": "**Item 13.** Deux nombres premiers distincts sont toujours premiers entre eux.",
+          "answer": "**Vrai** : deux nombres premiers distincts n'ont aucun diviseur commun autre que $1$."
+        },
+        {
+          "question": "**Item 14.** $\\mathrm{pgcd}(a,b)$ divise $a-b$ mais jamais $a+b$.",
+          "answer": "**Faux** : le PGCD de $a$ et $b$ divise également $a+b$, puisqu'il divise à la fois $a$ et $b$."
+        },
+        {
+          "question": "**Item 15.** L'algorithme d'Euclide utilise des divisions euclidiennes successives.",
+          "answer": "**Vrai** : principe de l'algorithme d'Euclide."
+        },
+        {
+          "question": "**Item 16.** Le crible d'Ératosthène permet de déterminer tous les nombres premiers inférieurs à un entier donné.",
+          "answer": "**Vrai** : méthode classique du crible d'Ératosthène."
+        },
+        {
+          "question": "**Item 17.** Si $p$ est premier, alors pour tout entier $a$ non multiple de $p$, $a$ et $p$ sont premiers entre eux.",
+          "answer": "**Vrai** : sinon un diviseur commun autre que $1$ diviserait $p$, qui n'a que $1$ et lui-même comme diviseurs."
+        },
+        {
+          "question": "**Item 18.** $\\mathrm{pgcd}(a,b)=\\mathrm{pgcd}(b,a\\bmod b)$ (principe de l'algorithme d'Euclide).",
+          "answer": "**Vrai** : principe fondamental de l'algorithme d'Euclide."
+        },
+        {
+          "question": "**Item 19.** Un nombre premier supérieur à $2$ est nécessairement impair.",
+          "answer": "**Vrai** : tout nombre pair supérieur à $2$ est divisible par $2$, donc non premier."
+        },
+        {
+          "question": "**Item 20.** Le PGCD de deux nombres premiers distincts vaut toujours $2$.",
+          "answer": "**Faux** : le PGCD de deux nombres premiers distincts vaut $1$."
+        },
+        {
+          "question": "**Item 21.** $\\mathrm{pgcd}(a,b)\\leqslant\\min(|a|,|b|)$ pour $a,b$ non tous deux nuls.",
+          "answer": "**Vrai** : le PGCD est un diviseur commun, donc majoré par le plus petit des deux."
+        },
+        {
+          "question": "**Item 22.** Le théorème de Bézout affirme l'existence de $u,v\\in\\mathbb Z$ tels que $au+bv=\\mathrm{pgcd}(a,b)$.",
+          "answer": "**Vrai** : énoncé du théorème de Bézout."
+        },
+        {
+          "question": "**Item 23.** Si $\\mathrm{pgcd}(a,b)=d$, alors $\\dfrac ad$ et $\\dfrac bd$ sont premiers entre eux.",
+          "answer": "**Vrai** : propriété classique après division par le PGCD."
+        },
+        {
+          "question": "**Item 24.** Deux entiers premiers entre eux ont toujours un PGCD supérieur à $1$.",
+          "answer": "**Faux** : par définition, deux entiers premiers entre eux ont un PGCD égal à $1$, pas supérieur à $1$."
+        },
+        {
+          "question": "**Item 25.** $105=3\\times5\\times7$ est la décomposition en facteurs premiers de $105$.",
+          "answer": "**Vrai** : $3\\times5\\times7=105$, avec $3,5,7$ premiers."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "type": "markdown",
+      "title": "Compétence 3 — Congruences dans ℤ",
+      "content": "## Définition — Congruence modulo $n$\n\nSoient $a,b\\in\\mathbb Z$ et $n\\in\\mathbb N^*$. On dit que $a$ est **congru à $b$ modulo $n$**, noté $a\\equiv b\\ [n]$, lorsque $n$ divise $a-b$.\n\n**Exemple :** $17\\equiv2\\ [5]$ car $17-2=15=5\\times3$.\n\n## Propriété — Compatibilité avec les opérations\n\nSi $a\\equiv b\\ [n]$ et $c\\equiv d\\ [n]$, alors :\n$$a+c\\equiv b+d\\ [n],\\quad a-c\\equiv b-d\\ [n],\\quad ac\\equiv bd\\ [n].$$\nEt pour tout $k\\in\\mathbb N$ : $a^k\\equiv b^k\\ [n]$.\n\n## Méthode — Calculer le reste d'une grande puissance\n\n1. Calculer les restes successifs de $a^1,a^2,a^3,\\dots$ modulo $n$, jusqu'à trouver un cycle.\n2. Déterminer la période $p$, effectuer la division euclidienne de $N$ par $p$ : $N=pq+r$.\n3. En déduire $a^N\\equiv a^r\\ [n]$.\n\n**Exemple :** $3^{100}$ mod $7$ : période $6$, $100=6\\times16+4$, donc $3^{100}\\equiv3^4\\equiv4\\ [7]$.\n\n## Propriété — Critère de divisibilité par $9$\n\nUn entier naturel est divisible par $9$ si, et seulement si, la somme de ses chiffres est divisible par $9$.\n\n**Démonstration :** $10\\equiv1\\ [9]$, donc $10^k\\equiv1\\ [9]$ pour tout $k$, d'où $n\\equiv\\sum a_k\\ [9]$."
+    },
+    {
+      "id": "s8",
+      "type": "reveal",
+      "title": "Exercice résolu 3 — Équation de congruence",
+      "items": [
+        {
+          "question": "Résoudre dans $\\mathbb Z$ l'équation de congruence $3x\\equiv5\\ [7]$.",
+          "answer": "On cherche d'abord un inverse de $3$ modulo $7$ : $3\\times5=15\\equiv1\\ [7]$, donc $u=5$ convient.\n\nEn multipliant les deux membres par $5$ : $5\\times3x\\equiv5\\times5\\ [7]$, soit $15x\\equiv25\\ [7]$, c'est-à-dire $x\\equiv25\\ [7]$ (car $15\\equiv1\\ [7]$), soit $x\\equiv4\\ [7]$ (car $25=7\\times3+4$).\n\nVérification : si $x\\equiv4\\ [7]$, alors $3x\\equiv12\\equiv5\\ [7]$ (car $12=7+5$) ✓.\n\nLes solutions sont les entiers de la forme $x=4+7k$, $k\\in\\mathbb Z$."
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "type": "reveal",
+      "title": "QCM 3 — Congruences dans ℤ",
+      "items": [
+        {
+          "question": "**Item 1.** $a\\equiv b\\ [n]$ signifie que $n$ divise $a-b$.",
+          "answer": "**Vrai** : définition de la congruence."
+        },
+        {
+          "question": "**Item 2.** Si $a\\equiv b\\ [n]$ et $c\\equiv d\\ [n]$, alors $ac\\equiv bd\\ [n]$.",
+          "answer": "**Vrai** : compatibilité avec le produit."
+        },
+        {
+          "question": "**Item 3.** Un entier est divisible par $9$ si, et seulement si, la somme de ses chiffres est divisible par $9$.",
+          "answer": "**Vrai** : critère de divisibilité par $9$."
+        },
+        {
+          "question": "**Item 4.** La congruence n'est pas compatible avec l'élévation à une puissance entière.",
+          "answer": "**Faux** : la congruence est compatible avec les puissances, $a^k\\equiv b^k\\ [n]$."
+        },
+        {
+          "question": "**Item 5.** $17\\equiv2\\ [5]$.",
+          "answer": "**Vrai** : $17-2=15=5\\times3$."
+        },
+        {
+          "question": "**Item 6.** $a\\equiv a\\ [n]$ pour tout entier $a$ (réflexivité).",
+          "answer": "**Vrai** : propriété de réflexivité de la congruence."
+        },
+        {
+          "question": "**Item 7.** Si $a\\equiv b\\ [n]$, alors $b\\equiv a\\ [n]$ (symétrie).",
+          "answer": "**Vrai** : propriété de symétrie."
+        },
+        {
+          "question": "**Item 8.** Si $a\\equiv b\\ [n]$ et $b\\equiv c\\ [n]$, alors $a\\equiv c\\ [n]$ (transitivité).",
+          "answer": "**Vrai** : propriété de transitivité."
+        },
+        {
+          "question": "**Item 9.** La congruence modulo $n$ n'est compatible qu'avec l'addition, pas la multiplication.",
+          "answer": "**Faux** : la congruence est compatible à la fois avec l'addition et la multiplication."
+        },
+        {
+          "question": "**Item 10.** $10\\equiv1\\ [9]$.",
+          "answer": "**Vrai** : $10-1=9=9\\times1$."
+        },
+        {
+          "question": "**Item 11.** $a\\equiv0\\ [n]$ équivaut à $n\\mid a$.",
+          "answer": "**Vrai** : définition de la congruence à $0$."
+        },
+        {
+          "question": "**Item 12.** Pour tout entier $a$, il existe un unique $r\\in\\{0,1,\\ldots,n-1\\}$ tel que $a\\equiv r\\ [n]$.",
+          "answer": "**Vrai** : propriété fondamentale liée à la division euclidienne."
+        },
+        {
+          "question": "**Item 13.** $100\\equiv1\\ [11]$.",
+          "answer": "**Vrai** : $100=11\\times9+1$, donc $100\\equiv1\\ [11]$."
+        },
+        {
+          "question": "**Item 14.** La congruence modulo $2$ permet de distinguer les entiers pairs des entiers impairs.",
+          "answer": "**Vrai** : usage classique de la congruence modulo $2$."
+        },
+        {
+          "question": "**Item 15.** $a\\equiv b\\ [n]$ signifie que $a$ et $b$ ont le même reste dans la division par $n+1$.",
+          "answer": "**Faux** : $a\\equiv b\\ [n]$ signifie qu'ils ont le même reste dans la division par $n$, pas par $n+1$."
+        },
+        {
+          "question": "**Item 16.** Un entier est divisible par $3$ si, et seulement si, la somme de ses chiffres est congrue à $0$ modulo $3$.",
+          "answer": "**Vrai** : critère de divisibilité par $3$, basé sur les congruences."
+        },
+        {
+          "question": "**Item 17.** $2^{10}\\equiv1\\ [3]$ (car $2\\equiv-1\\ [3]$).",
+          "answer": "**Vrai** : $2\\equiv-1\\ [3]$, donc $2^{10}\\equiv(-1)^{10}=1\\ [3]$."
+        },
+        {
+          "question": "**Item 18.** Si $a\\equiv b\\ [n]$, alors $a^k\\equiv b^k\\ [n]$ pour tout entier naturel $k$.",
+          "answer": "**Vrai** : compatibilité de la congruence avec les puissances."
+        },
+        {
+          "question": "**Item 19.** La congruence modulo $n$ partage $\\mathbb Z$ en une infinité de classes.",
+          "answer": "**Faux** : la congruence modulo $n$ partage $\\mathbb Z$ en exactement $n$ classes, pas une infinité."
+        },
+        {
+          "question": "**Item 20.** $-7\\equiv2\\ [9]$.",
+          "answer": "**Vrai** : $-7+9=2$, donc $-7\\equiv2\\ [9]$."
+        },
+        {
+          "question": "**Item 21.** Les congruences permettent de résoudre certains problèmes de divisibilité sans calcul direct des grands nombres.",
+          "answer": "**Vrai** : c'est tout l'intérêt pratique des congruences."
+        },
+        {
+          "question": "**Item 22.** $a\\equiv b\\ [n]$ et $c\\equiv d\\ [n]$ entraîne $a+c\\equiv b+d\\ [n]$.",
+          "answer": "**Vrai** : compatibilité de la congruence avec l'addition."
+        },
+        {
+          "question": "**Item 23.** Le reste de la division de $2^{100}$ par $7$ peut se déterminer à l'aide des congruences (par périodicité des puissances de $2$ modulo $7$).",
+          "answer": "**Vrai** : méthode classique utilisant la périodicité des puissances modulo un nombre premier."
+        },
+        {
+          "question": "**Item 24.** Deux entiers congrus modulo $n$ ont toujours la même valeur.",
+          "answer": "**Faux** : deux entiers congrus modulo $n$ ont le même reste, mais peuvent être des entiers différents."
+        },
+        {
+          "question": "**Item 25.** La relation de congruence modulo $n$ est une relation d'équivalence.",
+          "answer": "**Vrai** : réflexive, symétrique, transitive."
+        }
+      ]
+    }
+  ]
+}
