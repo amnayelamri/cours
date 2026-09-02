@@ -111,7 +111,7 @@ const CoursePage = () => {
   return (
     <div className="course-page">
 
-      {/* ── En-tête fixe ── */}
+      {/* ── En-tête sticky ── */}
       <div className="course-header">
         <button onClick={() => navigate('/')} className="back-btn">
           <FiArrowLeft size={16} /> Retour
@@ -120,7 +120,8 @@ const CoursePage = () => {
           <h2>{course.title}</h2>
           <span>{current + 1} / {total}</span>
         </div>
-        <button onClick={() => setShowList(v => !v)} className="list-btn" title="Liste des slides">
+        {/* Bouton visible uniquement sur mobile */}
+        <button onClick={() => setShowList(v => !v)} className="list-btn mobile-only" title="Sommaire">
           <FiList size={20} />
         </button>
       </div>
@@ -128,7 +129,23 @@ const CoursePage = () => {
       {/* ── Corps ── */}
       <div className="course-layout">
 
-        {/* Zone de scroll principal */}
+        {/* ── TOC gauche (desktop permanent) ── */}
+        <nav className="course-toc" aria-label="Sommaire">
+          <div className="course-toc-header">Sommaire</div>
+          {course.slides.map((s, i) => (
+            <button
+              key={s.id || i}
+              className={`course-toc-item${i === current ? ' active' : ''}`}
+              onClick={() => scrollToSlide(i)}
+              title={s.title || `Slide ${i + 1}`}
+            >
+              <span className="course-toc-num">{i + 1}</span>
+              <span className="course-toc-label">{s.title || `Slide ${i + 1}`}</span>
+            </button>
+          ))}
+        </nav>
+
+        {/* ── Slides ── */}
         <div className="slides-scroll">
           {course.slides.map((slide, i) => (
             <section
@@ -150,10 +167,10 @@ const CoursePage = () => {
           ))}
         </div>
 
-        {/* Liste latérale */}
+        {/* ── Liste mobile (togglable) ── */}
         {showList && (
-          <div className="slide-list">
-            <div className="slide-list-header">Slides</div>
+          <div className="slide-list mobile-slide-list">
+            <div className="slide-list-header">Sommaire</div>
             {course.slides.map((s, i) => (
               <button
                 key={s.id || i}
@@ -162,7 +179,6 @@ const CoursePage = () => {
               >
                 <span className="slide-num">{i + 1}</span>
                 <span className="slide-name">{s.title || `Slide ${i + 1}`}</span>
-                <span className="slide-type-badge">{s.type}</span>
               </button>
             ))}
           </div>
